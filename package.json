@@ -6,5 +6,8 @@
   "repository": "https://bitbucket.org/myntra/uikit",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "scripts": {
+    "preinstall": "node scripts/ensure-yarn.js"
+  }
 }
