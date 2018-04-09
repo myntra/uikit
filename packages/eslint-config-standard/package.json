@@ -1,0 +1,28 @@
+{
+  "name": "@myntra/eslint-config-standard",
+  "version": "0.0.0",
+  "description": "Javascript conding style standard for Myntra.",
+  "main": "index.js",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/eslint-config-standard",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-json": "^1.2.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-prettier": "^2.6.0",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-react": "^7.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "prettier": "^1.11.1"
+  },
+  "peerDependencies": {
+    "eslint": "^4.19.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1"
+  }
+}
