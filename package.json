@@ -8,9 +8,20 @@
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
-    "preinstall": "node scripts/ensure-yarn.js"
+    "preinstall": "node scripts/ensure-yarn.js",
+    "lint": "eslint src/** packages/** *.js *.json"
   },
-  "workspaces": [
-    "packages/*"
-  ]
+  "workspaces": ["packages/*"],
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "lint-staged": "^7.0.4"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": ["yarn lint", "git add"],
+    "*.jsx": ["yarn lint", "git add"],
+    "*.json": ["yarn lint", "git add"]
+  }
 }
