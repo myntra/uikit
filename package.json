@@ -1,15 +1,11 @@
 {
-  "name": "@myntra/uikit",
-  "version": "0.0.0",
-  "description": "The UI framework for Myntra and beyond.",
-  "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
   "scripts": {
     "preinstall": "node scripts/ensure-yarn.js",
-    "lint": "eslint src/** packages/** *.js *.json"
+    "lint": "eslint packages/** *.js *.json"
   },
   "workspaces": ["packages/*"],
   "devDependencies": {
