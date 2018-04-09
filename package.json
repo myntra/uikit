@@ -9,5 +9,8 @@
   "private": true,
   "scripts": {
     "preinstall": "node scripts/ensure-yarn.js"
-  }
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }
