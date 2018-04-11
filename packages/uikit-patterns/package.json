@@ -1,0 +1,10 @@
+{
+  "name": "@myntra/uikit-patterns",
+  "version": "0.0.0",
+  "description": "Components baked in with user experience decisions.",
+  "main": "src/index.js",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-patterns",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "private": true
+}
