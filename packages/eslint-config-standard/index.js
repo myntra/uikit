@@ -1,15 +1,16 @@
 module.exports = {
+  parser: 'babel-eslint',
   extends: ['standard', 'plugin:react/recommended', 'prettier', 'prettier/react', 'prettier/standard'],
-  plugins: ['react', 'prettier', 'standard', 'json'],
+  plugins: ['react', 'prettier', 'standard', 'json', 'babel'],
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
-      jsx: true,
-    },
+      jsx: true
+    }
   },
   env: {
     es6: true,
-    node: true,
+    node: true
   },
   rules: {
     'prettier/prettier': [
@@ -27,8 +28,8 @@ module.exports = {
         singleQuote: true,
         tabWidth: 2,
         trailingComma: 'none',
-        useTabs: false,
-      },
-    ],
-  },
+        useTabs: false
+      }
+    ]
+  }
 }

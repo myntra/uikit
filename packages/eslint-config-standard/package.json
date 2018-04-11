@@ -8,8 +8,10 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "babel-eslint": "^8.2.2",
     "eslint-config-prettier": "^2.9.0",
     "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-babel": "^5.0.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-node": "^6.0.1",
