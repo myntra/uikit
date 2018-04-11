@@ -1,0 +1,16 @@
+{
+  "name": "@myntra/uikit-elements",
+  "version": "0.0.0",
+  "description": "Low level re-usable components from UIKit.",
+  "main": "src/index.js",
+  "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-elements"
+  },
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED"
+}

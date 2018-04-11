@@ -1,0 +1,72 @@
+{
+  "description": "The `<Promised>` component makes asynchronous programming declarative.",
+  "displayName": "Promised",
+  "methods": [
+    {
+      "name": "hook",
+      "modifiers": [],
+      "params": [
+        {
+          "name": "promise"
+        }
+      ],
+      "returns": {
+        "description": null,
+        "type": {
+          "name": "void"
+        }
+      },
+      "description": "Hook in then/catch handlers.",
+      "private": true
+    }
+  ],
+  "props": [
+    {
+      "name": "fn",
+      "type": {
+        "name": "func"
+      },
+      "required": true,
+      "description": "A function returning promise or promise."
+    },
+    {
+      "name": "renderLoading",
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A component to render loading state.",
+      "defaultValue": {
+        "value": "() => <span className=\"promise-loading\" />",
+        "computed": false
+      }
+    },
+    {
+      "name": "renderError",
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A component to render error state.",
+      "defaultValue": {
+        "value": "error => <span className=\"promise-error\">{error.message}</span>",
+        "computed": false
+      }
+    },
+    {
+      "name": "render",
+      "type": {
+        "name": "func"
+      },
+      "required": false,
+      "description": "A component to render when promise is resolved."
+    }
+  ],
+  "since": "0.0.0",
+  "status": "EXPERIMENTAL",
+  "example": [
+    "<Promised\n    fn={() => fetch('http://api.icndb.com/jokes/random').then(response => response.json())}\n    renderLoading={() => <span>Loading</span>}\n    renderError={({ message }) => <span>Error: {message}</span>}\n    render={({ value }) => <span>{ value && value.joke }</span>}\n  />"
+  ],
+  "sketch": false,
+  "name": "Promised"
+}
