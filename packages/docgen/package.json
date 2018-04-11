@@ -1,0 +1,22 @@
+{
+  "name": "@myntra/docgen",
+  "version": "0.0.0",
+  "description": "Extract jsdoc metadata from react components.",
+  "main": "src/index.js",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/docgen",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "private": true,
+  "bin": {
+    "docgen": "bin/docgen.js"
+  },
+  "dependencies": {
+    "common-prefix": "^1.1.0",
+    "de-indent": "^1.0.2",
+    "doctrine": "^2.1.0",
+    "fs-extra": "^5.0.0",
+    "glob": "^7.1.2",
+    "react-docgen": "^2.20.1",
+    "string-hash": "^1.1.3"
+  }
+}
