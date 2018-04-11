@@ -1,0 +1,15 @@
+{
+  "name": "@myntra/uikit-internals",
+  "version": "0.0.0",
+  "description": "Private components. Created for docs but can be used anywhere.",
+  "main": "src/index.js",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-internals",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "mdxc": "^1.1.1",
+    "react-live": "^1.10.1"
+  }
+}

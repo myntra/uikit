@@ -1,0 +1,97 @@
+{
+  "description": "Creates an interactive component renderer.",
+  "displayName": "ComponentDocumenter",
+  "methods": [
+    {
+      "name": "componentDidCatch",
+      "modifiers": [],
+      "params": [
+        {
+          "name": "error",
+          "type": null
+        }
+      ],
+      "returns": null,
+      "private": false
+    }
+  ],
+  "props": [
+    {
+      "name": "name",
+      "type": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Component name"
+    },
+    {
+      "name": "description",
+      "type": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Component description"
+    },
+    {
+      "name": "since",
+      "type": {
+        "name": "string"
+      },
+      "required": true,
+      "description": "Available since"
+    },
+    {
+      "name": "status",
+      "type": {
+        "name": "enum",
+        "value": [
+          {
+            "value": "'EXPERIMENTAL'",
+            "computed": false
+          },
+          {
+            "value": "'BETA'",
+            "computed": false
+          },
+          {
+            "value": "'READY'",
+            "computed": false
+          }
+        ]
+      },
+      "required": true,
+      "description": "Status of component"
+    },
+    {
+      "name": "props",
+      "type": {
+        "name": "array"
+      },
+      "required": true,
+      "description": "Props"
+    },
+    {
+      "name": "methods",
+      "type": {
+        "name": "array"
+      },
+      "required": false,
+      "description": "Methods"
+    },
+    {
+      "name": "children",
+      "type": {
+        "name": "node"
+      },
+      "required": false,
+      "description": "Example Code"
+    }
+  ],
+  "since": "0.0.0",
+  "status": "EXPERIMENTAL",
+  "example": [
+    "<ComponentDocumenter name=\"Example\" description=\"An example component.\" status=\"EXPERIMENTAL\" since=\"0.0.0\" props={[]} />"
+  ],
+  "sketch": false,
+  "name": "ComponentDocumenter"
+}

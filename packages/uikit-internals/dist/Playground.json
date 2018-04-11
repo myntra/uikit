@@ -1,0 +1,34 @@
+{
+  "description": "The `<Playground>` component renders live editable component.\n\nNOTE*: The generated JSx is executed in an empty context where only React is accessible. However,\nyou may use `context` prop, then the JSx would be rendered in context scope.",
+  "displayName": "Playground",
+  "methods": [],
+  "props": [
+    {
+      "name": "context",
+      "type": {
+        "name": "object"
+      },
+      "required": false,
+      "description": "Extra globals.",
+      "defaultValue": {
+        "value": "{}",
+        "computed": false
+      }
+    },
+    {
+      "name": "children",
+      "type": {
+        "name": "string"
+      },
+      "required": false,
+      "description": "Code string."
+    }
+  ],
+  "since": "0.0.0",
+  "status": "EXPERIMENTAL",
+  "example": [
+    "<Playground>\n  {`<div>Hello World!</div>`}\n</Playground>"
+  ],
+  "sketch": false,
+  "name": "Playground"
+}
