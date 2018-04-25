@@ -25,6 +25,8 @@ export default function RenderComponents({ components, meta }) {
                           .then(result => fetch(result.default))
                           .then(response => response.text())
                       }
+                      renderLoading={() => null}
+                      renderError={() => null}
                       render={content => <Markdown>{content}</Markdown>}
                     />
                   )}

@@ -1,4 +1,4 @@
-### Types
+## Types:
 
 ```jsx render preview
 <>
@@ -7,7 +7,7 @@
 </>
 ```
 
-### States
+## States:
 
 ```jsx render preview
 <>

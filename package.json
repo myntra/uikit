@@ -3,6 +3,7 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
+  "version": "0.0.0",
   "scripts": {
     "preinstall": "node scripts/ensure-yarn.js",
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",

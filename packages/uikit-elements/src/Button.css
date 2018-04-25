@@ -10,7 +10,6 @@
 
 .button[disabled] {
   cursor: not-allowed;
-  pointer-events: none; /* This disables any mouse events. */
 }
 
 .button:hover {
