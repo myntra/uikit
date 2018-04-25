@@ -12,21 +12,22 @@ function DocGenPlugin(dirs) {
 
 DocGenPlugin.prototype.apply = function(compiler) {
   const history = {}
-  compiler.hooks.emit.tapAsync('DocGenPlugin', async (compilation, done) => {
+  const handle = async (compilation, done) => {
     await Promise.all(
       this.params.map(async ({ targetDir, patterns }) => {
         const results = await runner(process.cwd(), targetDir, patterns, false)
 
         await Promise.all(
-          results.map(async ({ name, content }) => {
+          results.filter(it => it).map(async ({ name, content }) => {
             const id = hash(name + content)
 
             if (history[name] !== id) {
               history[name] = id
-              compilation.assets[name] = {
-                size: () => content.length,
-                source: () => content
-              }
+              if (compilation && 'assets' in compilation)
+                compilation.assets[name] = {
+                  size: () => content.length,
+                  source: () => content
+                }
               const file = path.resolve(process.cwd(), name)
               await fs.writeFile(file, content)
             }
@@ -34,8 +35,11 @@ DocGenPlugin.prototype.apply = function(compiler) {
         )
       })
     )
-    done()
-  })
+    if (typeof done === 'function') done()
+  }
+
+  compiler.hooks.emit.tapAsync('DocGenPlugin', handle)
+  compiler.hooks.beforeCompile.tap('DocGenPlugin', handle)
 }
 
 module.exports = DocGenPlugin

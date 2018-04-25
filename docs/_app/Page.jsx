@@ -1,7 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Promised } from '@myntra/uikit-elements'
-import { Markdown } from '@myntra/uikit-internals'
+import * as internals from '@myntra/uikit-internals'
+import tokens from '@myntra/tokens'
+
+const { Markdown } = internals
 
 export default function Page({ match }) {
   const page = match.params.page || 'introduction'
@@ -14,7 +17,7 @@ export default function Page({ match }) {
             .then(result => fetch(result.default))
             .then(response => response.text())
         }
-        render={content => <Markdown>{content}</Markdown>}
+        render={content => <Markdown context={{ tokens, ...internals }}>{content}</Markdown>}
       />
       <Promised
         fn={() => import(`../${page}.js`)}

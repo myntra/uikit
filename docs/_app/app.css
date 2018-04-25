@@ -1,5 +1,6 @@
 html {
   height: 100%;
+  font-size: 12px;
 }
 
 body {
@@ -40,4 +41,9 @@ body {
 .sidebar-sep {
   border: 1px solid rgba(0, 0, 0, 0.1);
   margin: 1em 0;
+}
+
+.card {
+  padding: 32px;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
 }

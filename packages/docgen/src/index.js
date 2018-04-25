@@ -12,6 +12,7 @@ const deIndent = require('de-indent')
  */
 module.exports = function parse(filename, source) {
   source = source || fs.readFileSync(filename)
+  source = source.replace(/\bimport\(([^)]+)\)/g, (_, p) => `require.resolve(${p})`)
 
   const meta = react.parse(source)
   const docs = doctrine.parse(meta.description)
@@ -36,7 +37,7 @@ module.exports = function parse(filename, source) {
 
   meta.props = Object.entries(meta.props).reduce((acc, [name, prop]) => acc.concat([{ name, ...prop }]), [])
   meta.sketch = 'sketch' in meta
-  meta.name = meta.name || path.basename(filename).replace(/\.jsx?$/, '')
+  meta.name = meta.displayName || meta.name || path.basename(filename).replace(/\.jsx?$/, '')
 
   return meta
 }

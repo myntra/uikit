@@ -1,11 +1,11 @@
 import React from 'react'
-import * as elements from '@myntra/uikit-internals'
+import * as elements from '@myntra/uikit-elements'
 import RenderComponents from './_app/RenderComponents'
 
 export default function ComponentElements() {
   return (
     <RenderComponents
-      meta={name => () => import(`../packages/uikit-internals/dist/${name}.json`)}
+      meta={name => () => import(`../packages/uikit-elements/dist/${name}.json`)}
       components={elements}
     />
   )

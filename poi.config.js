@@ -11,6 +11,15 @@ module.exports = {
       }
     })
 
+    const css = config.module.rules.find(it => it.test.toString() === '/\\.css$/')
+
+    css.use.forEach(it => {
+      if (it.loader === 'css-loader') {
+        it.options.modules = true
+        it.options.localIdentName = '[local]-[hash:base64:5]'
+      }
+    })
+
     config.plugins.push(
       new DocGenPlugin([
         'packages/uikit-elements',

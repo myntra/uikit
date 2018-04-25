@@ -1,0 +1,43 @@
+@import '@myntra/tokens/tokens.css';
+
+.button {
+  margin: 0 var(--size-small);
+  padding: var(--size-small) var(--size-default);
+  border-radius: var(--size-default);
+  border-style: none;
+  cursor: pointer;
+}
+
+.button[disabled] {
+  cursor: not-allowed;
+  pointer-events: none; /* This disables any mouse events. */
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.primary {
+  color: var(--typography-color-light-primary);
+  background-color: var(--color-primary);
+}
+
+.primary[disabled] {
+  color: var(--typography-color-light-primary);
+  background-color: var(--color-gray-dark);
+}
+
+.secondary {
+  color: var(--color-primary);
+  border: solid 1px var(--color-primary);
+  background-color: var(--color-transparent-regular);
+}
+
+.secondary[disabled] {
+  color: var(--color-gray-dark);
+  border-color: var(--color-gray-dark);
+}

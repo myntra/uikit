@@ -1,0 +1,185 @@
+color:
+  primary: $color.blue.primary
+  black:
+    regular: rgb(0, 0, 0)
+    primary: rgba(0, 0, 0, .87)
+    secondary: rgba(0, 0, 0, .54)
+    disabled: rgba(0, 0, 0, .27)
+  white:
+    regular: rgb(255, 255, 255)
+    primary: rgba(255, 255, 255, 1)
+    secondary: rgba(255, 255, 255, .7)
+    disabled: rgba(255, 255, 255, .5)
+  blue:
+    primary: rgba(79, 71, 200, 1)
+    regular: rgb(82, 142, 230)
+  gray:
+    lightest: rgb(249, 249, 249)
+    lighter: rgb(244, 246, 248)
+    light: rgb(238, 238, 238)
+    regular: rgb(230, 230, 230)
+    dark: rgb(212, 212, 212)
+  green:
+    regular: rgb(96, 184, 122)
+  yellow:
+    regular: rgb(240, 186, 84)
+  red:
+    regular: rgb(212, 106, 104)
+  transparent:
+    regular: rgba(0, 0, 0, 0)
+font:
+  _meta:
+    base: !!int 12
+  size:
+    _meta:
+      transformTo: rem
+    tiny: !!int 10
+    small: !!int 11
+    base: !!int 12
+    regular: !!int 14
+    medium: !!int 16
+    large: !!int 20
+    xlarge: !!int 24
+    huge: !!int 28
+  height:
+    _meta:
+      transformTo: rem
+    tiny: !!int 11
+    small: !!int 13
+    base: !!int 14
+    regular: !!int 16
+    medium: !!int 21
+    large: !!int 24
+    xlarge: !!int 28
+    huge: !!int 33
+  face:
+    default:
+      - Roboto
+      - Helvetica
+      - sans-serif
+    accent:
+      - Roboto Condensed
+      - sans-serif
+  weight:
+    thin: !!int 100
+    light: !!int 300
+    regular: !!int 400
+    medium: !!int 500
+    bold: !!int 700
+    black: !!int 900
+# gradient:
+#  -
+opacity:
+  lighter: !!float 0.1
+  light: !!float 0.2
+  regular: !!float 0.5
+  dark: !!float 0.75
+shadow:
+  light-small: !!js/shadow 0 2 8 0 $color.black.disabled
+  dark-small: !!js/shadow 0 2 4 0 $color.black.secondary
+  dark-large: !!js/shadow 0 2 8 0 $color.black.secondary
+shape:
+  error:
+    background-color: $color.red.regular
+    border-color: $color.transparent.regular
+    color: $typography.color.light.primary
+  info:
+    background-color: $color.blue.regular
+    border-color: $color.transparent.regular
+    color: $typography.color.light.primary
+  success:
+    background-color: $color.green.regular
+    border-color: $color.transparent.regular
+    color: $typography.color.light.primary
+  warning:
+    background-color: $color.yellow.regular
+    border-color: $color.transparent.regular
+    color: $typography.color.light.primary
+  outline:
+    error:
+      background-color: $color.transparent.regular
+      border-color: $color.red.regular
+      color: $typography.color.error.primary
+    info:
+      background-color: $color.transparent.regular
+      border-color: $color.blue.regular
+      color: $typography.color.info.primary
+    success:
+      background-color: $color.transparent.regular
+      border-color: $color.green.regular
+      color: $typography.color.success.primary
+    warning:
+      background-color: $color.transparent.regular
+      border-color: $color.yellow.regular
+      color: $typography.color.warning.primary
+size:
+  _meta:
+    transformTo: px
+  none: 0
+  tiny: 4
+  small: 8
+  medium: 12
+  default: 16
+  large: 24
+# timing:
+  # -
+typography:
+  heading:
+    h1:
+      font-size: $font.size.huge
+      font-weight: $font.weight.medium
+      line-height: $font.height.huge
+    h2:
+      font-size: $font.size.xlarge
+      font-weight: $font.weight.medium
+      line-height: $font.height.xlarge
+    h3:
+      font-size: $font.size.large
+      font-weight: $font.weight.medium
+      line-height: $font.height.large
+    h4:
+      font-size: $font.size.medium
+      font-weight: $font.weight.medium
+      line-height: $font.height.medium
+  text:
+    table:
+      font-size: $font.size.base
+      font-weight: $font.weight.regular
+      line-height: $font.height.regular
+    paragraph:
+      font-size: $font.size.regular
+      font-weight: $font.weight.regular
+      line-height: $font.height.regular
+    smallText:
+      font-size: $font.size.small
+      font-weight: $font.weight.regular
+      line-height: $font.height.small
+    title:
+      font-size: $font.size.medium
+      font-weight: $font.weight.medium
+      line-height: $font.height.medium
+    caption:
+      font-size: $font.size.tiny
+      font-weight: $font.weight.regular
+      line-height: $font.height.tiny
+  color:
+    dark:
+      primary: $color.black.primary
+      secondary: $color.black.secondary
+      disabled: $color.black.disabled
+    light:
+      primary: $color.white.primary
+      secondary: $color.white.secondary
+      disabled: $color.white.disabled
+    error:
+      primary: $color.red.regular
+    warning:
+      primary: $color.yellow.regular
+    success:
+      primary: $color.green.regular
+    info:
+      primary: $color.blue.regular
+    link:
+      primary: $color.blue.regular
+# z-index:
+  # -

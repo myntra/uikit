@@ -2,11 +2,18 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
 import { LiveProvider, LiveEditor, LivePreview, LiveError } from 'react-live'
+import tokens from '@myntra/tokens'
+
+import Card from './Card'
+
+const { Provider: PlaygroundProvider, Consumer: PlaygroundConsumer } = React.createContext({})
+
+export { PlaygroundProvider }
 
 /**
 The `<Playground>` component renders live editable component.
 
-*NOTE*: The generated JSx is executed in an empty context where only React is accessible. However,
+__NOTE__: The generated JSx is executed in an empty context where only React is accessible. However,
 you may use `context` prop, then the JSx would be rendered in context scope.
 
 @since 0.0.0
@@ -30,13 +37,19 @@ export default class Playground extends PureComponent {
 
   render() {
     return (
-      <LiveProvider code={this.props.children} scope={this.props.context}>
-        <div style={{ margin: '16px 0', boxShadow: '0 0 5px 0 rgba(0, 0, 0, .5)', padding: '16px' }}>
-          <LiveError />
-          <LivePreview />
-        </div>
-        <LiveEditor />
-      </LiveProvider>
+      <PlaygroundConsumer>
+        {extra => (
+          <LiveProvider code={this.props.children} scope={{ ...this.props.context, ...extra }}>
+            <Card>
+              <LiveError />
+              <LivePreview />
+            </Card>
+            <Card padding="none">
+              <LiveEditor style={{ padding: tokens.size.medium }} />
+            </Card>
+          </LiveProvider>
+        )}
+      </PlaygroundConsumer>
     )
   }
 }

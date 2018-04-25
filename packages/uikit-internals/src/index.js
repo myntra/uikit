@@ -1,3 +1,6 @@
 export { default as Markdown } from './Markdown'
+export { default as Card } from './Card'
 export { default as Playground } from './Playground'
 export { default as ComponentDocumenter } from './ComponentDocumenter'
+export { default as TextPreview } from './preview/TextPreview'
+export { default as ColorPreview } from './preview/ColorPreview'

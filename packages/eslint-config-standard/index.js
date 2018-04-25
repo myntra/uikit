@@ -1,7 +1,14 @@
 module.exports = {
   parser: 'babel-eslint',
-  extends: ['standard', 'plugin:react/recommended', 'prettier', 'prettier/react', 'prettier/standard'],
-  plugins: ['react', 'prettier', 'standard', 'json', 'babel'],
+  extends: [
+    'standard',
+    'plugin:react/recommended',
+    'prettier',
+    'prettier/react',
+    'prettier/standard',
+    'plugin:jest/recommended'
+  ],
+  plugins: ['react', 'prettier', 'standard', 'json', 'babel', 'jest'],
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
@@ -10,14 +17,15 @@ module.exports = {
   },
   env: {
     es6: true,
-    node: true
+    node: true,
+    'jest/globals': true
   },
   rules: {
     'prettier/prettier': [
       'error',
       {
         bracketSpacing: true,
-        jsxBracketSameLine: true,
+        jsxBracketSameLine: false,
         printWidth: 120,
         semi: false,
 

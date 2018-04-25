@@ -1,1 +1,8 @@
-{}
+{
+  "plugins": {
+    "postcss-import": {},
+    "postcss-modules": {
+      "generateScopedName": "[local]"
+    }
+  }
+}

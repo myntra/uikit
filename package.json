@@ -6,16 +6,29 @@
   "scripts": {
     "preinstall": "node scripts/ensure-yarn.js",
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
-    "dev": "poi --jsx react docs/_app/index.js"
+    "dev": "poi --jsx react docs/_app/index.js",
+    "build": "poi build --jsx react docs/_app/index.js",
+    "test": "jest"
   },
   "workspaces": [
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.46",
+    "@babel/preset-env": "^7.0.0-beta.46",
+    "@babel/preset-react": "^7.0.0-beta.46",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.0.0-beta.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.0.0-beta.1",
     "lint-staged": "^7.0.4",
     "poi": "^10.0.0-rc.3",
+    "postcss-import": "^11.1.0",
+    "postcss-modules": "^1.1.0",
+    "regenerator-runtime": "^0.11.1",
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0"
   },

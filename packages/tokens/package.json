@@ -1,0 +1,14 @@
+{
+  "name": "@myntra/tokens",
+  "version": "0.0.0",
+  "description": "Default design language for Myntra",
+  "main": "tokens.js",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/tokens",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "prepare": "yarn build",
+    "build": "tokenize"
+  }
+}
