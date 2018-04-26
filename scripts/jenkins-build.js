@@ -15,7 +15,7 @@ console.log('UIKit :: Version ' + version + ' (' + branch + ')')
 const tasks = [
   {
     message: '🙌  Installing dependencies..',
-    script: 'yarn install --pure-lockfile --ignore-optional --ignore-platform'
+    script: 'yarn install --pure-lockfile --non-interactive'
   },
   { message: '🤞  Running tests..', script: 'yarn test --silent --ci' },
   { message: '⚙️  Building docs...', script: 'yarn build' },
