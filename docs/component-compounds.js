@@ -4,9 +4,6 @@ import RenderComponents from './_app/RenderComponents'
 
 export default function ComponentElements() {
   return (
-    <RenderComponents
-      meta={name => () => import(`../packages/uikit-internals/dist/${name}.json`)}
-      components={compounds}
-    />
+    <RenderComponents meta={name => () => import(`@myntra/uikit-internals/dist/${name}.json`)} components={compounds} />
   )
 }

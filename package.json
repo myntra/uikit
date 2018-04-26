@@ -39,15 +39,15 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn lint",
+      "yarn lint --fix",
       "git add"
     ],
     "*.jsx": [
-      "yarn lint",
+      "yarn lint --fix",
       "git add"
     ],
     "*.json": [
-      "yarn lint",
+      "yarn lint --fix",
       "git add"
     ]
   },

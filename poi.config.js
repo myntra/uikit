@@ -22,10 +22,10 @@ module.exports = {
 
     config.plugins.push(
       new DocGenPlugin([
-        'packages/uikit-elements',
-        'packages/uikit-internals',
-        'packages/uikit-compounds',
-        'packages/uikit-patterns'
+        'packages/@myntra/uikit-elements',
+        'packages/@myntra/uikit-internals',
+        'packages/@myntra/uikit-compounds',
+        'packages/@myntra/uikit-patterns'
       ])
     )
 
