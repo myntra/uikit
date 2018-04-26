@@ -27,8 +27,6 @@ export function classnames(...args) {
   const classes = []
 
   classes.use = cssModule => {
-    console.log({ args, classes, cssModule })
-
     return classes.map(it => cssModule[it] || it).join(' ')
   }
 

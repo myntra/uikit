@@ -12,8 +12,15 @@ const tar = `docs~${version}~${id}.tar`
 
 console.log('UIKit :: Version ' + version + ' (' + branch + ')')
 
-console.log('⚙️  Building...')
-execSync('yarn run build')
-console.log('📦  Packaging... (' + tar + ')')
-execSync(`tar -cf ./${tar} ./dist`)
-console.log('✅  Ready. ')
+const tasks = [
+  { message: '🙌  Installing dependencies..', script: 'yarn install --pure-lockfile' },
+  { message: '🤞  Running tests..', script: 'yarn test --silent --ci' },
+  { message: '⚙️  Building docs...', script: 'yarn build' },
+  { message: '📦  Packaging docs... (' + tar + ')', script: `tar -cf ./${tar} ./dist` },
+  { message: '✅  Ready. ' }
+]
+
+tasks.forEach(task => {
+  task.message && console.log(task.message)
+  task.script && execSync(task.script, { stdio: ['ignore', 'pipe', 'pipe'] })
+})
