@@ -57,7 +57,6 @@
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
-    "weak": "^1.0.1",
     "whatwg-fetch": "^2.0.4"
   }
 }
