@@ -13,7 +13,10 @@ const tar = `docs~${version}~${id}.tar`
 console.log('UIKit :: Version ' + version + ' (' + branch + ')')
 
 const tasks = [
-  { message: '🙌  Installing dependencies..', script: 'yarn install --pure-lockfile' },
+  {
+    message: '🙌  Installing dependencies..',
+    script: 'yarn install --pure-lockfile --ignore-optional --ignore-platform'
+  },
   { message: '🤞  Running tests..', script: 'yarn test --silent --ci' },
   { message: '⚙️  Building docs...', script: 'yarn build' },
   { message: '📦  Packaging docs... (' + tar + ')', script: `tar -cf ./${tar} ./dist` },
