@@ -4,6 +4,9 @@
   "description": "Default design language for Myntra",
   "main": "tokens.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/tokens",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,

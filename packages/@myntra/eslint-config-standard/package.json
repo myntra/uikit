@@ -4,6 +4,9 @@
   "description": "Javascript conding style standard for Myntra.",
   "main": "index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/eslint-config-standard",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,

@@ -39,7 +39,21 @@ export default class Playground extends PureComponent {
     return (
       <PlaygroundConsumer>
         {extra => (
-          <LiveProvider code={this.props.children} scope={{ ...this.props.context, ...extra }}>
+          <LiveProvider
+            code={this.props.children}
+            scope={{ ...this.props.context, ...extra }}
+            noInline
+            transformCode={code => `class LiveWrapper extends React.Component {
+              constructor(props) {
+                super(props)
+                this.state = {}
+              }
+              render() {
+                ${code.replace(/</, ';return <')}
+              }
+            }
+            render(<LiveWrapper />)`}
+          >
             <Card>
               <LiveError />
               <LivePreview />

@@ -41,17 +41,17 @@
 ```jsx render
 <Card>
   <TextPreview
-    {...tokens.typography.heading.paragraph}
+    {...tokens.typography.text.paragraph}
     color={tokens.typography.color.dark.primary}
     name="Primary | Dark"
   />
   <TextPreview
-    {...tokens.typography.heading.paragraph}
+    {...tokens.typography.text.paragraph}
     color={tokens.typography.color.dark.secondary}
     name="Secondary | Dark"
   />
   <TextPreview
-    {...tokens.typography.heading.paragraph}
+    {...tokens.typography.text.paragraph}
     color={tokens.typography.color.dark.disabled}
     name="Disabled | Dark"
   />
@@ -61,17 +61,17 @@
 ```jsx render
 <Card type="error">
   <TextPreview
-    {...tokens.typography.heading.paragraph}
+    {...tokens.typography.text.paragraph}
     color={tokens.typography.color.light.primary}
     name="Primary | Light"
   />
   <TextPreview
-    {...tokens.typography.heading.paragraph}
+    {...tokens.typography.text.paragraph}
     color={tokens.typography.color.light.secondary}
     name="Secondary | Light"
   />
   <TextPreview
-    {...tokens.typography.heading.paragraph}
+    {...tokens.typography.text.paragraph}
     color={tokens.typography.color.light.disabled}
     name="Disabled | Light"
   />
@@ -82,74 +82,81 @@
 
 ```jsx render
 <Card>
-  <Card>
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Default Text</TextPreview>
-  </Card>
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Default"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="success">
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Success Text</TextPreview>
-  </Card>
+<Card type="success">
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Success"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="error">
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Error Text</TextPreview>
-  </Card>
+<Card type="error">
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Error"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="info">
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Info Text</TextPreview>
-  </Card>
+<Card type="info">
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Info"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="warning">
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Warning Text</TextPreview>
-  </Card>
+<Card type="warning">
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Warning"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="success" outline>
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Success Outline</TextPreview>
-  </Card>
+<Card type="success" outline>
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Success Outline"
+    />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="error" outline>
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Error Outline</TextPreview>
-  </Card>
+<Card type="error" outline>
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Error Outline"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="info" outline>
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Info Outline</TextPreview>
-  </Card>
+<Card type="info" outline>
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Info Outline"
+  />
+</Card>
 
-  <br />
+<br />
 
-  <Card type="warning" outline>
-    <TextPreview
-      {...tokens.typography.heading.paragraph}
-    >Warning Outline</TextPreview>
-  </Card>
+<Card type="warning" outline>
+  <TextPreview
+    {...tokens.typography.text.paragraph}
+    name="Warning Outline"
+  />
 </Card>
 ```

@@ -4,6 +4,9 @@
   "description": "Exports yml tokens to css, js etc.",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/tokenizer",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,

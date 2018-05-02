@@ -21,8 +21,14 @@ export default class Promised extends Component {
     renderLoading: PropTypes.func,
     /** A component to render error state. */
     renderError: PropTypes.func,
-    /** A component to render when promise is resolved. */
-    render: PropTypes.func
+    /**
+     * A component to render when promise is resolved.
+     */
+    render: PropTypes.func,
+    /** Callback when promise is resolved. */
+    onResolve: PropTypes.func,
+    /** Callback when promise is rejected. */
+    onReject: PropTypes.func
   }
 
   static defaultProps = {
@@ -30,35 +36,57 @@ export default class Promised extends Component {
     renderError: error => <span className="promise-error">{error.message}</span>
   }
 
+  state = {
+    resolved: null,
+    rejected: null
+  }
+
   constructor(props) {
     super(props)
-
-    this.state = {
-      resolved: null,
-      rejected: null
-    }
-
     this.hook(props.fn)
   }
 
-  componentWillReceiveProps(props) {
+  componentWillReceiveProps(props, state) {
     if (this.props.fn !== props.fn) {
-      this.setState({ isResolved: null, isRejected: null }, () => this.hook(props.fn))
+      this.setState({ resolved: null, rejected: null }, () => this.hook(props.fn))
     }
+  }
+
+  componentWillUnmount() {
+    if (this.cancel) this.cancel()
   }
 
   /**
    * Hook in then/catch handlers.
    *
    * @private
-   * @deprecated
-   * @argument {function(): Promise<object>} promise
+   * @argument {function(): Promise<object>} fn
    * @returns {void}
    */
-  hook(promise) {
-    Promise.resolve(promise())
-      .then(resolved => this.setState({ resolved, rejected: null }))
-      .catch(rejected => this.setState({ rejected }))
+  hook(fn) {
+    if (this.cancel) this.cancel()
+
+    this.cancel = this.createCancelablePromise(fn)
+  }
+
+  /**
+   * Create cancelable promise factory.
+   *
+   * @private
+   * @argument {function(): Promise<T>} fn
+   * @returns {Promise.<T>}
+   * @template T
+   */
+  createCancelablePromise(fn) {
+    let isCancelled = false
+
+    Promise.resolve(fn())
+      .then(resolved => !isCancelled && this.setState({ resolved, rejected: null }, this.props.onResolve))
+      .catch(rejected => !isCancelled && this.setState({ rejected }, this.props.onReject))
+
+    return () => {
+      isCancelled = true
+    }
   }
 
   render() {

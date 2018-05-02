@@ -1,3 +1,4 @@
+const path = require('path')
 const DocGenPlugin = require('@myntra/docgen/src/plugin')
 
 module.exports = {
@@ -11,13 +12,63 @@ module.exports = {
       }
     })
 
-    const css = config.module.rules.find(it => it.test.toString() === '/\\.css$/')
+    const svg = config.module.rules.findIndex(it => it.test.toString().includes('svg'))
+    if (svg > -1) {
+      config.module.rules.splice(svg, 1)
+    }
+    config.module.rules.push({
+      test: /\.svg$/,
+      loader: 'svg-react-loader'
+    })
 
-    css.use.forEach(it => {
-      if (it.loader === 'css-loader') {
-        it.options.modules = true
-        it.options.localIdentName = '[local]-[hash:base64:5]'
+    const css = config.module.rules.find(it => it.test.toString() === '/\\.css$/')
+    css.test = id => /\.css$/.test(id) && !id.includes('packages/@myntra/') && !id.includes('nuclei')
+    const styleLoader = {
+      loader: 'style-loader',
+      options: { sourceMap: true }
+    }
+    const cssLoader = {
+      loader: 'css-loader',
+      options: {
+        autoprefixer: false,
+        sourceMap: true,
+        minimize: false,
+        modules: true,
+        importLoaders: 1,
+        localIdentName: '[name]_[local]__[hash:base64:5]'
       }
+    }
+
+    config.module.rules.push({
+      test: id => id.endsWith('.css') && id.includes('nuclei'),
+      use: [
+        styleLoader,
+        cssLoader,
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            plugins: [require('postcss-import')(), require('postcss-css-variables')()]
+          }
+        }
+      ]
+    })
+
+    config.module.rules.push({
+      test: id => id.endsWith('.css') && id.includes('packages/@myntra/'),
+      use: [
+        styleLoader,
+        cssLoader,
+        {
+          loader: 'postcss-loader',
+          options: {
+            sourceMap: true,
+            config: {
+              path: path.resolve(__dirname, '.postcssrc')
+            }
+          }
+        }
+      ]
     })
 
     config.plugins.push(

@@ -4,6 +4,9 @@
   "description": "Complex UI components with multiple moving parts.",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-compounds",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true

@@ -17,6 +17,7 @@ export default function Page({ match }) {
             .then(result => fetch(result.default))
             .then(response => response.text())
         }
+        renderError={error => <pre>{error.message}</pre>}
         render={content => <Markdown context={{ tokens, ...internals }}>{content}</Markdown>}
       />
       <Promised

@@ -1,6 +1,14 @@
+@import '@myntra/tokens/tokens.css';
+
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
   font-size: 12px;
+  line-height: 1.5;
+  font-family: var(--font-face-default);
 }
 
 body {
@@ -9,12 +17,43 @@ body {
   margin: 0;
 }
 
+h1 {
+  font-size: var(--typography-heading-h1-font-size);
+  font-weight: var(--typography-heading-h1-font-weight);
+  line-height: var(--typography-heading-h1-line-height);
+}
+
+h2 {
+  font-size: var(--typography-heading-h2-font-size);
+  font-weight: var(--typography-heading-h2-font-weight);
+  line-height: var(--typography-heading-h2-line-height);
+}
+
+h3 {
+  font-size: var(--typography-heading-h3-font-size);
+  font-weight: var(--typography-heading-h3-font-weight);
+  line-height: var(--typography-heading-h3-line-height);
+}
+
+h4 {
+  font-size: var(--typography-heading-h4-font-size);
+  font-weight: var(--typography-heading-h4-font-weight);
+  line-height: var(--typography-heading-h4-line-height);
+}
+
+p,
+div {
+  font-size: var(--typography-text-paragraph-font-size);
+  font-weight: var(--typography-text-paragraph-font-weight);
+  line-height: var(--typography-text-paragraph-line-height);
+}
+
 .app {
   display: grid;
   grid-template:
-    "head main" minmax(80px, 10vh)
-    "side main" minmax(20%, 80vh)
-    "foot main" minmax(80px, 10vh) / 250px 1fr;
+    'head main' minmax(80px, 10vh)
+    'side main' minmax(20%, 85vh)
+    'foot main' minmax(30px, 5vh) / 250px 1fr;
   height: 100%;
 }
 .app > * {
@@ -25,6 +64,7 @@ body {
 }
 .app > .sidebar {
   grid-area: side;
+  overflow: auto;
 }
 .app > .main {
   grid-area: main;
@@ -46,4 +86,12 @@ body {
 .card {
   padding: 32px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+.app a,
+.app a:visited,
+.app a:focus,
+.app a:active {
+  color: var(--color-primary);
+  text-decoration: none;
 }

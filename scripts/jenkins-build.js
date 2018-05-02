@@ -14,13 +14,14 @@ console.log('UIKit :: Version ' + version + ' (' + branch + ')')
 
 const tasks = [
   {
-    message: '🙌  Installing dependencies..',
+    message: '🙌 Installing dependencies...',
     script: 'yarn install --pure-lockfile --non-interactive --ignore-platform'
   },
-  { message: '🤞  Running tests..', script: 'yarn test --silent --ci' },
+  { message: '💅 Checking code style...', script: 'yarn lint' },
+  { message: '🤞 Running tests...', script: 'yarn test --silent --ci' },
   { message: '⚙️  Building docs...', script: 'yarn build' },
-  { message: '📦  Packaging docs... (' + tar + ')', script: `tar -cf ./${tar} ./dist` },
-  { message: '✅  Ready. ' }
+  { message: '📦 Packaging docs... (' + tar + ')', script: `tar -cf ./${tar} ./dist` },
+  { message: '✅ Ready. ' }
 ]
 
 tasks.forEach(task => {

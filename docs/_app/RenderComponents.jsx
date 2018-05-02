@@ -10,7 +10,30 @@ export default function RenderComponents({ components, meta }) {
     <MarkdownProvider value={components}>
       <PlaygroundProvider value={components}>
         {Object.entries(components)
-          .map(([name, component]) => ({ name, component, meta: meta(name) }))
+          .map(([name, component]) => ({
+            name,
+            component,
+            meta: () =>
+              meta(name)().catch(() => {
+                const names = Object.keys(component ? component.propTypes : {})
+
+                return {
+                  name,
+                  displayName: name,
+                  description: `The ${name} component is from unity uikit and it would be replace with relevant component.`,
+                  status: 'DEPRECATED',
+                  since: '0.0.0',
+                  props:
+                    'propTypes' in component
+                      ? names.map(name => ({
+                          name,
+                          type: { name: 'unknown' }
+                        }))
+                      : [],
+                  example: [`<${name} />`]
+                }
+              })
+          }))
           .map(ref => (
             <Promised
               key={ref.name}

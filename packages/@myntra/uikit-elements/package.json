@@ -7,9 +7,9 @@
   "scripts": {
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-elements"
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-elements",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED"

@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 
 import Button from './Button'
 import Icon from './Icon'
@@ -50,4 +50,32 @@ it('should render children', () => {
 
 it('should prefer children over label', () => {
   expect(shallow(<Button label="bar">foo</Button>).text()).toBe('foo')
+})
+
+it('should forward props to defined RouterLink', () => {
+  expect(
+    mount(<Button to="/foo" data-custom-prop="foo" />)
+      .find('a')
+      .at(0)
+      .getDOMNode()
+      .getAttribute('data-custom-prop')
+  ).toBe('foo')
+})
+
+it('should call onClick handler on click', () => {
+  const handler = jest.fn()
+  const wrapper = mount(<Button onClick={handler} />)
+
+  wrapper.find('button').simulate('click')
+
+  expect(handler).toHaveBeenCalled()
+})
+
+it('should ignore click event if disabled', () => {
+  const handler = jest.fn()
+  const wrapper = mount(<Button disabled onClick={handler} />)
+
+  wrapper.find('button').simulate('click')
+
+  expect(handler).not.toHaveBeenCalled()
 })

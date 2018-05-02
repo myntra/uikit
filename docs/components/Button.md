@@ -15,3 +15,17 @@
   <Button type="secondary" disabled>Button</Button>
 </>
 ```
+
+## Events
+
+```jsx render preview
+<>
+  { this.state.message } <br />
+  <Button
+    type="primary"
+    onClick={() => this.setState({ message: 'Button was clicked.' })}
+  >
+    Click Me
+  </Button>
+</>
+```

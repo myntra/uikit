@@ -2,33 +2,37 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
-// import Promised from './Promised'
+import styles from './Icon.css'
+
+import Promised from './Promised'
 
 /**
- {describe component}
+ General purpose SVG icon.
 
  @since 0.0.0
  @status EXPERIMENTAL
- @example
- <Icon />
+ @example <Icon name="alert" />
  */
 export default class Icon extends PureComponent {
   static propTypes = {
-    /** {describe prop} */
+    /** Icon name. */
     name: PropTypes.string
   }
 
   render() {
-    return <span className={classnames('icon')} alt={this.props.name} />
-    // <Promised
-    //   fn={() => import(`./icons/${this.props.name}.svg`)}
-    //   renderLoading={() => <span className={classnames('icon')} />}
-    //   renderError={() => <span className={classnames('icon', 'unknown')} />}
-    //   render={({ default: SVG }) => (
-    //     <span className={classnames('icon')} alt={this.props.name}>
-    //       <SVG />
-    //     </span>
-    //   )}
-    // />
+    const { name } = this.props
+
+    return (
+      <Promised
+        fn={() => import(`./icons/${name}.svg`).then(m => m.default)}
+        renderLoading={() => <span className={classnames('icon', 'loading').use(styles)} />}
+        renderError={() => <span className={classnames('icon', 'unknown').use(styles)} />}
+        render={SvgIcon => (
+          <span className={classnames('icon').use(styles)} alt={name}>
+            <SvgIcon className={classnames('svg').use(styles)} />
+          </span>
+        )}
+      />
+    )
   }
 }

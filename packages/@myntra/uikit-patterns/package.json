@@ -4,6 +4,9 @@
   "description": "Components baked in with user experience decisions.",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-patterns",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true

@@ -1,19 +1,20 @@
-import { each } from 'lodash-es'
-export function isString(any) {
-  return typeof any === 'string'
-}
+import { each, isString, isPlainObject, isArray } from 'lodash-es'
 
-export function isArray(any) {
-  return Array.isArray(any)
-}
-
-export function isPlainObject(any) {
-  return any !== null && typeof any === 'object' // TODO: Complete the implementation.
+/**
+ * Unique values from array.
+ *
+ * @export
+ * @template T
+ * @param {Array.<T>} any
+ * @return {Array.<T>}
+ */
+export function unique(any) {
+  return Array.from(new Set(any))
 }
 
 /**
- * @typedef {Array.<string>} StyleClass
- * @property {function(): Array.<string>} use
+ * @typedef ClassNames
+ * @property {function(Object.<string, string>): string} use Load class names from CSS modules mapping.
  */
 
 /**
@@ -21,18 +22,22 @@ export function isPlainObject(any) {
  *
  * @export
  * @param {Array.<string|string[]|Object.<string, boolean>} args
- * @returns {StyleClass}
+ * @returns {ClassNames & Array.<string>}
  */
 export function classnames(...args) {
   const classes = []
 
   classes.use = cssModule => {
-    return classes.map(it => cssModule[it] || it).join(' ')
+    return unique(classes.map(it => cssModule[it]).filter(isString)).join(' ')
+  }
+
+  classes.toString = () => {
+    return unique(classes.filter(isString)).join(' ')
   }
 
   args.forEach(arg => {
     if (isString(arg)) classes.push(arg)
-    else if (isArray(arg)) classes.push(...arg.filter(it => isString(it)))
+    else if (isArray(arg)) classes.push(...arg)
     else if (isPlainObject(arg)) {
       each(arg, (value, key) => {
         if (value) classes.push(key)

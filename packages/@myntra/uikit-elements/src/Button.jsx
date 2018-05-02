@@ -36,7 +36,9 @@ export default class Button extends PureComponent {
     /** Type */
     type: PropTypes.oneOf(['primary', 'secondary']),
     /** Disabled */
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    /** Click event handler */
+    onClick: PropTypes.func
   }
 
   static defaultProps = {
@@ -46,49 +48,45 @@ export default class Button extends PureComponent {
 
   handleClick = event => {
     if (this.props.disabled) {
-      event.preventDefault()
-      event.stopPropagation()
-
-      return
+      return event.preventDefault()
     }
 
-    return false
+    if (this.props.onClick) {
+      return this.props.onClick(event)
+    }
   }
 
   render() {
-    const Tag = this.props.to ? Button.RouterLink : this.props.href ? 'a' : 'button'
-    const needLeftSlot = !!this.props.icon
-    const needRightSlot = !!this.props.secondaryIcon
+    const { href, to, label, children, icon, secondaryIcon, type, disabled, ...props } = this.props
+    const Tag = this.props.to ? Button.RouterLink : href ? 'a' : 'button'
+    const needLeftSlot = !!icon
+    const needRightSlot = !!secondaryIcon
 
     return (
       <Tag
+        {...props}
         className={classnames('button', {
           /* Button Styles */
-          primary: this.props.type === 'primary',
-          secondary: this.props.type === 'secondary',
-          accent: false,
-          success: false,
-          danger: false,
-          warning: false,
-          info: false,
+          primary: type === 'primary',
+          secondary: type === 'secondary',
           /* Button States */
           loading: false
         }).use(styles)}
-        href={this.props.href}
-        to={this.props.to}
+        href={href}
+        to={to}
         role="button"
-        disabled={this.props.disabled}
+        disabled={disabled}
         onClick={this.handleClick}
       >
         {needLeftSlot && (
           <div className={classnames('left').use(styles)}>
-            <Icon name={this.props.icon} />
+            <Icon name={icon} />
           </div>
         )}
-        {this.props.children || this.props.label}
+        {children || label}
         {needRightSlot && (
           <div className={classnames('right').use(styles)}>
-            <Icon name={this.props.secondaryIcon} />
+            <Icon name={secondaryIcon} />
           </div>
         )}
       </Tag>

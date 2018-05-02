@@ -10,7 +10,9 @@
     "dev": "poi --jsx react docs/_app/index.js",
     "build": "poi build --jsx react docs/_app/index.js",
     "test": "jest",
-    "coverage": "jest --coverage"
+    "coverage": "jest --coverage",
+    "postcoverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
+    "ci": "node scripts/jenkins-build.js"
   },
   "workspaces": [
     "packages/@myntra/*"
@@ -21,6 +23,8 @@
     "@babel/preset-react": "^7.0.0-beta.46",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.0-beta.1",
+    "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-react-svg": "^2.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
@@ -28,9 +32,12 @@
     "jest": "^23.0.0-beta.1",
     "lint-staged": "^7.0.4",
     "poi": "^10.0.0-rc.3",
+    "postcss-css-variables": "^0.8.1",
     "postcss-import": "^11.1.0",
     "postcss-modules": "^1.1.0",
     "regenerator-runtime": "^0.11.1",
+    "style-loader": "^0.21.0",
+    "svg-react-loader": "^0.4.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0"
   },

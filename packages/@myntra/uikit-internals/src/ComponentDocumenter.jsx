@@ -5,9 +5,10 @@ import tokens from '@myntra/tokens'
 import Markdown from './Markdown'
 
 const states = {
-  EXPERIMENTAL: '🔥',
-  BETA: '🤞',
-  READY: '✅'
+  DEPRECATED: '💔',
+  EXPERIMENTAL: '️❤️',
+  REVIEWING: '💛',
+  READY: '💚'
 }
 
 /**
@@ -16,7 +17,7 @@ const states = {
  @since 0.0.0
  @status EXPERIMENTAL
  @example
- <ComponentDocumenter name="Example" description="An example component." status="BETA" since="0.0.0" props={[]} />
+ <ComponentDocumenter name="Example" description="An example component." status="REVIEWING" since="0.0.0" props={[]} />
  */
 export default class ComponentDocumenter extends Component {
   static propTypes = {
@@ -27,7 +28,7 @@ export default class ComponentDocumenter extends Component {
     /** Available since */
     since: PropTypes.string.isRequired,
     /** Status of component */
-    status: PropTypes.oneOf(['EXPERIMENTAL', 'BETA', 'READY']).isRequired,
+    status: PropTypes.oneOf(['DEPRECATED', 'EXPERIMENTAL', 'REVIEWING', 'READY']).isRequired,
     /** Props */
     props: PropTypes.array.isRequired,
     /** Methods */
@@ -50,13 +51,12 @@ export default class ComponentDocumenter extends Component {
     const styleTh = { padding: tokens.size.small, borderBottom: 'solid 2px rgba(0, 0, 0, .3)' }
     const styleTd = { padding: tokens.size.small, borderBottom: 'solid 1px rgba(0, 0, 0, .2)' }
     return (
-      <div>
+      <div id={this.props.name}>
         <h2>
           {this.props.name}
-          <sup title={this.props.status} style={tokens.typography.text.caption}>
-            {states[this.props.status]}
-          </sup>
-          <small style={tokens.typography.text.caption}> (since v{this.props.since})</small>
+          <small style={tokens.typography.text.caption} title={this.props.status}>
+            &nbsp; {states[this.props.status]} since v{this.props.since}
+          </small>
         </h2>
         <Markdown>{this.props.description}</Markdown>
         {this.props.children}
