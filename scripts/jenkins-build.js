@@ -17,7 +17,6 @@ const tasks = [
     message: '🙌 Installing dependencies...',
     script: 'yarn install --pure-lockfile --non-interactive --ignore-platform'
   },
-  { message: '💅 Checking code style...', script: 'yarn lint' },
   { message: '🤞 Running tests...', script: 'yarn test --silent --ci' },
   { message: '⚙️  Building docs...', script: 'yarn build' },
   { message: '📦 Packaging docs... (' + tar + ')', script: `tar -cf ./${tar} ./dist` },
