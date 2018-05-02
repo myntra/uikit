@@ -11,15 +11,16 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/*.{js,jsx}',
     '!**/node_modules/**',
-    '!packages/@myntra/{uikit-internals,eslint-config-standard,tokens}/**'
+    '!packages/@myntra/{uikit-internals,eslint-config-standard,tokens,docgen,tokenizer}/**',
+    '!packages/@myntra/{uikit-internals,uikit-elements,uikit-compounds,uikit-patterns}/src/index.js'
   ],
   coverageDirectory: 'coverage',
   coverageThreshold: process.env.CI
     ? {
         global: {
-          branches: 80,
+          branches: 50,
           functions: 80,
-          lines: 80,
+          lines: 50,
           statements: -10
         }
       }
