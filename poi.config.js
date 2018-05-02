@@ -3,7 +3,7 @@ const DocGenPlugin = require('@myntra/docgen/src/plugin')
 
 module.exports = {
   define: {
-    CURRENT_BRANCH: JSON.stringify(process.env.BRANCH ? '/' + process.env.BRANCH : '')
+    CURRENT_BRANCH: JSON.stringify(process.env.CURRENT_BRANCH ? '/' + process.env.CURRENT_BRANCH : '')
   },
   webpack(config) {
     config.module.rules.unshift({
