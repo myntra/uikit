@@ -29,41 +29,41 @@ export default function App() {
           </Switch>
         </main>
         <aside className="sidebar">
-          <Link to="/">Getting Started</Link>
-          <Link to="/contributing">Contribution Guidelines</Link>
-          <Link to="/changelog">Changelog</Link>
+          <Link to={CURRENT_BRANCH + '/'}>Getting Started</Link>
+          <Link to={CURRENT_BRANCH + '/contributing'}>Contribution Guidelines</Link>
+          <Link to={CURRENT_BRANCH + '/changelog'}>Changelog</Link>
           <div className="sidebar-sep" />
-          <Link to="/tokens">Tokens</Link>
+          <Link to={CURRENT_BRANCH + '/tokens'}>Tokens</Link>
           <div className="sidebar-sep" />
-          <Link to="/component-elements">Elements</Link>
+          <Link to={CURRENT_BRANCH + '/component-elements'}>Elements</Link>
           <ul>
             {Object.keys(elements).map(name => (
               <li key={name}>
-                <a href={'/component-elements#' + name}>{name}</a>
+                <a href={CURRENT_BRANCH + '/component-elements#' + name}>{name}</a>
               </li>
             ))}
           </ul>
-          <Link to="/component-compounds">Compounds</Link>
+          <Link to={CURRENT_BRANCH + '/component-compounds'}>Compounds</Link>
           <ul>
             {Object.keys(compounds).map(name => (
               <li key={name}>
-                <a href={'/component-compounds#' + name}>{name}</a>
+                <a href={CURRENT_BRANCH + '/component-compounds#' + name}>{name}</a>
               </li>
             ))}
           </ul>
-          <Link to="/component-patterns">Patterns</Link>
+          <Link to={CURRENT_BRANCH + '/component-patterns'}>Patterns</Link>
           <ul>
             {Object.keys(patterns).map(name => (
               <li key={name}>
-                <a href={'/component-patterns#' + name}>{name}</a>
+                <a href={CURRENT_BRANCH + '/component-patterns#' + name}>{name}</a>
               </li>
             ))}
           </ul>
-          <Link to="/component-internals">Internals</Link>
+          <Link to={CURRENT_BRANCH + '/component-internals'}>Internals</Link>
           <ul>
             {Object.keys(internals).map(name => (
               <li key={name}>
-                <a href={'/component-internals#' + name}>{name}</a>
+                <a href={CURRENT_BRANCH + '/component-internals#' + name}>{name}</a>
               </li>
             ))}
           </ul>
