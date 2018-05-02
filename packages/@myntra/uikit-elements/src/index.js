@@ -3,6 +3,7 @@ export { default as ErrorBoundary } from './ErrorBoundary'
 export { default as Icon } from './Icon'
 export { default as Promised } from './Promised'
 
+/*
 // Unity Components
 export { default as Checkbox } from 'unity-uikit/dist/nuclei/components/Checkbox'
 export { default as DatePicker } from 'unity-uikit/dist/nuclei/components/DatePicker'
@@ -38,3 +39,4 @@ export { default as Tag } from 'unity-uikit/dist/nuclei/components/Tag'
 export { default as Text } from 'unity-uikit/dist/nuclei/components/Typography/Text'
 export { default as Toast } from 'unity-uikit/dist/nuclei/components/Toast'
 export { default as Truncate } from 'unity-uikit/dist/nuclei/components/Typography/Truncate'
+*/
