@@ -2,6 +2,9 @@ const path = require('path')
 const DocGenPlugin = require('@myntra/docgen/src/plugin')
 
 module.exports = {
+  define: {
+    CURRENT_BRANCH: JSON.stringify(process.env.BRANCH ? '/' + process.env.BRANCH : '')
+  },
   webpack(config) {
     config.module.rules.unshift({
       test: [/\.md$/],

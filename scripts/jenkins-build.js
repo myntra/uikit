@@ -18,7 +18,7 @@ const tasks = [
     script: 'yarn install --pure-lockfile --non-interactive --ignore-platform'
   },
   { message: '🤞 Running tests...', script: 'yarn test --silent --ci' },
-  { message: '⚙️  Building docs...', script: 'yarn build' },
+  { message: '⚙️  Building docs...', script: `BRANCH=${branch} yarn build --public-path ${branch}` },
   { message: '📦 Packaging docs... (' + tar + ')', script: `tar -cf ./${tar} ./dist` },
   { message: '✅ Ready. ' }
 ]

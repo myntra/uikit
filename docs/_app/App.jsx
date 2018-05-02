@@ -1,3 +1,5 @@
+/* globals CURRENT_BRANCH */
+
 import React from 'react'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 import tokens from '@myntra/tokens'
@@ -15,7 +17,7 @@ import './app.css'
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={CURRENT_BRANCH}>
       <div className="app" style={{ fontFamily: tokens.font.face.default }}>
         <header className="header">
           <h1>Myntra UIKit</h1>
