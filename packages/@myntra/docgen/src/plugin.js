@@ -4,9 +4,9 @@ const fs = require('fs-extra')
 const hash = require('string-hash')
 
 function DocGenPlugin(dirs) {
-  this.params = dirs.map(dir => ({
-    targetDir: path.join(dir, 'dist'),
-    patterns: [dir + '/src/**/*.jsx', dir + '/src/*.jsx']
+  this.params = dirs.map(dir => (typeof dir === 'string' ? [dir, path.join(dir, 'dist')] : dir)).map(([dir, dist]) => ({
+    targetDir: dist,
+    patterns: [dir + '/src/**/*.jsx', dir + '/src/*.jsx', dir + '/components/**/*.jsx', dir + '/components/*.jsx']
   }))
 }
 

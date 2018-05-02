@@ -20,6 +20,7 @@ module.exports = async function runner(workDir, targetDir, patterns, write = tru
   return Promise.all(
     Array.from(files).map(async file => {
       try {
+        if (file.endsWith('.spec.jsx') || file.endsWith('.test.jsx')) return
         const filename = path.resolve(workDir, file)
         const source = (await fs.readFile(filename)).toString()
         const meta = parse(filename, source)
