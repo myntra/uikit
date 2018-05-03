@@ -9,6 +9,7 @@
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
     "dev": "poi --jsx react docs/_app/index.js",
     "build": "poi build --jsx react docs/_app/index.js",
+    "postbuild": "node scripts/create-static-routes.js",
     "test": "jest",
     "coverage": "jest --coverage",
     "postcoverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
