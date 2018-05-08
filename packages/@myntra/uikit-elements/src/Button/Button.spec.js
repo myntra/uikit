@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 
 import Button from './Button'
-import Icon from './Icon'
+import Icon from '../Icon/Icon'
 
 it('should render correct tag', () => {
   expect(shallow(<Button />).is('button')).toBe(true)

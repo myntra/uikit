@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Exports yml tokens to css, js etc.",
   "main": "src/index.js",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/tokenizer",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokenizer",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },

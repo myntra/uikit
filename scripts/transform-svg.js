@@ -1,6 +1,5 @@
 const { rootBabelOptions } = require('./transform-babel')
 const fs = require('fs')
-const path = require('path')
 const babel = require('babel-core')
 const crypto = require('crypto')
 

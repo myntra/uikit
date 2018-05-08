@@ -1,0 +1,63 @@
+@import '@myntra/tokens/tokens.css';
+
+.button,
+.button:visited {
+  margin: 0 var(--size-base);
+  padding: var(--size-small) var(--size-large);
+  border-radius: var(--size-large);
+  border-style: none;
+  cursor: pointer;
+  font-weight: var(--font-weight-medium);
+  text-transform: uppercase;
+  transition: box-shadow 0.3s, background-image 0.3s;
+}
+
+.button[disabled],
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover:not(:active):not([disabled]):not(:disabled) {
+  box-shadow: var(--shadow-light-small);
+}
+
+.primary,
+.primary:visited {
+  color: var(--typography-color-light-primary);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.primary[disabled],
+.primary:disabled {
+  background-color: var(--color-gray-dark);
+}
+
+.primary:active:not([disabled]):not(:disabled) {
+  background-image: linear-gradient(var(--color-black-x-light), var(--color-black-x-light));
+}
+
+.secondary,
+.secondary:visited {
+  color: var(--color-primary);
+  border: solid 1px var(--color-primary);
+  background-color: var(--color-transparent-base);
+}
+
+.secondary[disabled],
+.secondary:disabled {
+  color: var(--color-gray-dark);
+  border-color: var(--color-gray-dark);
+}
+
+.secondary:active:not([disabled]):not(:disabled) {
+  background-image: linear-gradient(var(--color-white-x-light), var(--color-white-x-light));
+}

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Complex UI components with multiple moving parts.",
   "main": "src/index.js",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-compounds",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-compounds",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },

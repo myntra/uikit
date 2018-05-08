@@ -56,20 +56,25 @@ div {
     'foot main' minmax(30px, 5vh) / 250px 1fr;
   height: 100%;
 }
+
 .app > * {
   padding: 1rem;
 }
+
 .app > .header {
   grid-area: head;
 }
+
 .app > .sidebar {
   grid-area: side;
   overflow: auto;
 }
+
 .app > .main {
   grid-area: main;
   overflow: auto;
 }
+
 .app > .footer {
   grid-area: foot;
 }

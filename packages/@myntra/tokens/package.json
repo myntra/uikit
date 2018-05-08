@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Default design language for Myntra",
   "main": "tokens.js",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/tokens",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokens",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },

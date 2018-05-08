@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest"
   },
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-elements",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-elements",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },

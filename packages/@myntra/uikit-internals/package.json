@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Private components. Created for docs but can be used anywhere.",
   "main": "src/index.js",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-internals",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-internals",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },

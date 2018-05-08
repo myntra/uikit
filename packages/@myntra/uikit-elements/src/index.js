@@ -1,7 +1,7 @@
-export { default as Button } from './Button'
-export { default as ErrorBoundary } from './ErrorBoundary'
-export { default as Icon } from './Icon'
-export { default as Promised } from './Promised'
+export { default as Button } from './Button/Button'
+export { default as ErrorBoundary } from './ErrorBoundry/ErrorBoundary'
+export { default as Icon } from './Icon/Icon'
+export { default as Promised } from './Promised/Promised'
 
 /*
 // Unity Components

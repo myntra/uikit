@@ -13,7 +13,7 @@ export function unique(any) {
 }
 
 /**
- * @typedef ClassNames
+ * @typedef object ClassNames
  * @property {function(Object.<string, string>): string} use Load class names from CSS modules mapping.
  */
 
@@ -21,7 +21,7 @@ export function unique(any) {
  * Format CSS class names.
  *
  * @export
- * @param {Array.<string|string[]|Object.<string, boolean>} args
+ * @param {...string|string[]|Object.<string, boolean>} args
  * @returns {ClassNames & Array.<string>}
  */
 export function classnames(...args) {
@@ -46,4 +46,23 @@ export function classnames(...args) {
   })
 
   return classes
+}
+/**
+ * Create object from [source] without [keys].
+ *
+ * @export
+ * @template T
+ * @param {Object.<string, T>} source
+ * @param {string[]|Object.<string, any>} keys
+ * @returns {Object.<string, T>}
+ */
+export function objectWithoutProperties(source, keys) {
+  keys = new Set(Array.isArray(keys) ? keys : Object.keys(keys))
+  const target = {}
+  for (const key in source) {
+    if (!Object.prototype.hasOwnProperty.call(source, key)) continue
+    if (keys.has(key)) continue
+    target[key] = source[key]
+  }
+  return target
 }

@@ -9,7 +9,11 @@
   "scripts": {
     "preinstall": "node scripts/ensure-yarn.js",
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
+    "lint:js": "eslint --ext .js --ext .jsx --ext .json",
+    "lint:css": "stylelint packages/**/*.css docs/**/*.css",
+    "predev": "yarn workspace @myntra/tokens build",
     "dev": "poi --jsx react docs/_app/index.js",
+    "prebuild": "yarn workspace @myntra/tokens build",
     "build": "poi build --jsx react docs/_app/index.js",
     "postbuild": "node scripts/create-static-routes.js",
     "test": "jest",
@@ -31,6 +35,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
+    "husky": "^1.0.0-rc.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.0.0-beta.1",
     "lint-staged": "^7.0.4",
@@ -40,24 +45,26 @@
     "postcss-modules": "^1.1.0",
     "regenerator-runtime": "^0.11.1",
     "style-loader": "^0.21.0",
+    "stylelint": "^9.2.0",
     "svg-react-loader": "^0.4.5",
     "url-loader": "^1.0.1",
     "webpack": "^4.5.0"
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
   "lint-staged": {
     "*.js": [
-      "yarn lint --fix",
+      "yarn lint:js --fix",
+      "git add"
+    ],
+    "*.css": [
+      "yarn stylelint --fix",
       "git add"
     ],
     "*.jsx": [
-      "yarn lint --fix",
+      "yarn lint:js --fix",
       "git add"
     ],
     "*.json": [
-      "yarn lint --fix",
+      "yarn lint:js --fix",
       "git add"
     ]
   },
@@ -68,5 +75,11 @@
     "react-dom": "^16.3.1",
     "react-router-dom": "^4.2.2",
     "whatwg-fetch": "^2.0.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "yarn test --silent --changedSince $(./scripts/remote-tracking-branch.sh)"
+    }
   }
 }

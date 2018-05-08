@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Shared utility functions",
   "main": "src/index.js",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-utils",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-utils",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
