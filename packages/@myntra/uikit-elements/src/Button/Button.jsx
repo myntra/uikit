@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames, objectWithoutProperties } from '@myntra/uikit-utils'
+import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
 
 import Icon from '../Icon/Icon'
 import styles from './Button.css'
@@ -47,7 +47,9 @@ export default class Button extends PureComponent {
   }
 
   get forwardedProps() {
-    return objectWithoutProperties(this.props, Button.propTypes)
+    this._forwardedProps = this._forwardedProps || onlyExtraProps(Button.propTypes)
+
+    return this._forwardedProps(this.props)
   }
 
   handleClick = event => {

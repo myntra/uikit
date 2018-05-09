@@ -57,12 +57,30 @@ export function classnames(...args) {
  * @returns {Object.<string, T>}
  */
 export function objectWithoutProperties(source, keys) {
-  keys = new Set(Array.isArray(keys) ? keys : Object.keys(keys))
-  const target = {}
-  for (const key in source) {
-    if (!Object.prototype.hasOwnProperty.call(source, key)) continue
-    if (keys.has(key)) continue
-    target[key] = source[key]
-  }
+  const target = Object.assign({}, source)
+  const remove = key => delete target[key]
+  ;(Array.isArray(keys) ? keys : Object.keys(keys)).forEach(remove)
+
   return target
+}
+
+/**
+ * Extract extra props.
+ *
+ * @export
+ * @template T
+ * @param {Object.<string, any>} propTypes
+ * @returns {function(Object.<string, T>): Object.<string, T>}
+ */
+export function onlyExtraProps(propTypes) {
+  const keys = Object.keys(propTypes)
+  let oldProps
+  let oldResult
+
+  return props => {
+    if (oldProps === props) return oldResult
+    oldProps = props
+    oldResult = objectWithoutProperties(props, keys)
+    return oldResult
+  }
 }
