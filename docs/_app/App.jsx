@@ -45,11 +45,7 @@ export default class App extends Component {
             {nav.map(({ to, label, children }, index) => (
               <React.Fragment key={index}>
                 {to ? (
-                  <NavLink
-                    to={{ pathname: CURRENT_BRANCH + to }}
-                    isActive={(_, route) => this.onRouteVisit(route.pathname)}
-                    strict
-                  >
+                  <NavLink to={{ pathname: to }} isActive={(_, route) => this.onRouteVisit(route.pathname)} strict>
                     {label}
                   </NavLink>
                 ) : (
@@ -60,7 +56,7 @@ export default class App extends Component {
                     <ul>
                       {children(components).map(({ to, label }, index) => (
                         <li key={index}>
-                          <Link to={{ ...to, pathname: CURRENT_BRANCH + to.pathname }}>{label} </Link>
+                          <Link to={{ ...to, pathname: to.pathname }}>{label} </Link>
                         </li>
                       ))}
                     </ul>
