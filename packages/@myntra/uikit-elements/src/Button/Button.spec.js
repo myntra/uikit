@@ -71,11 +71,23 @@ it('should call onClick handler on click', () => {
   expect(handler).toHaveBeenCalled()
 })
 
-it('should ignore click event if disabled', () => {
-  const handler = jest.fn()
-  const wrapper = mount(<Button disabled onClick={handler} />)
+it('should ignore click events if no click handler', () => {
+  const wrapper = mount(<Button onClick={null} />)
 
   wrapper.find('button').simulate('click')
+})
+
+it('should ignore click event if disabled', () => {
+  const handler = jest.fn()
+  const preventDefault = jest.fn()
+  const wrapper = mount(<Button disabled onClick={handler} />)
+
+  wrapper.simulate('click')
 
   expect(handler).not.toHaveBeenCalled()
+  handler.mockClear()
+
+  wrapper.instance().handleClick({ preventDefault }) // enzyme cannot send event on disabled button.
+  expect(handler).not.toHaveBeenCalled()
+  expect(preventDefault).toHaveBeenCalled()
 })

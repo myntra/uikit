@@ -25,7 +25,8 @@
   outline: none;
 }
 
-.button:hover:not(:active):not([disabled]):not(:disabled) {
+.button:hover:not(:active):not([disabled]),
+.button:hover:not(:active):not(:disabled) {
   box-shadow: var(--shadow-light-small);
 }
 
@@ -36,12 +37,12 @@
   border-color: var(--color-primary);
 }
 
-.primary[disabled],
-.primary:disabled {
+.primary[disabled] {
   background-color: var(--color-gray-dark);
 }
 
-.primary:active:not([disabled]):not(:disabled) {
+.primary:active:not([disabled]),
+.primary:active:not(:disabled) {
   background-image: linear-gradient(var(--color-black-x-light), var(--color-black-x-light));
 }
 
@@ -58,6 +59,7 @@
   border-color: var(--color-gray-dark);
 }
 
-.secondary:active:not([disabled]):not(:disabled) {
+.secondary:active:not([disabled]),
+.secondary:active:not(:disabled) {
   background-image: linear-gradient(var(--color-white-x-light), var(--color-white-x-light));
 }
