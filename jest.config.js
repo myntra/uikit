@@ -11,7 +11,7 @@ module.exports = {
   collectCoverageFrom: [
     'packages/**/*.{js,jsx}',
     '!**/node_modules/**',
-    '!packages/@myntra/{uikit-internals,eslint-config-standard,tokens,docgen,tokenizer}/**',
+    '!packages/@myntra/{uikit-internals,eslint-config-standard,stylelint-config-standard,tokens,docgen,tokenizer}/**',
     '!packages/@myntra/{uikit-internals,uikit-elements,uikit-compounds,uikit-patterns}/src/index.js'
   ],
   coverageDirectory: 'coverage',
