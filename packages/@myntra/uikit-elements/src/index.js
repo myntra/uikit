@@ -2,6 +2,7 @@ export { default as Button } from './Button/Button'
 export { default as ErrorBoundary } from './ErrorBoundry/ErrorBoundary'
 export { default as Icon } from './Icon/Icon'
 export { default as Promised } from './Promised/Promised'
+export { default as ClickAway } from './ClickAway/ClickAway'
 
 /*
 // Unity Components
