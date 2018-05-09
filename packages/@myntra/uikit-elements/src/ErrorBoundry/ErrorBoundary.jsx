@@ -42,6 +42,7 @@ export default class ErrorBoundary extends Component {
   }
 }
 
+/* istanbul ignore next */
 if (process.env.NODE_ENV !== 'production') {
   ErrorBoundary.ExperimentalComponent = function ExperimentalComponent(props) {
     return <div>{props.foo.bar}</div> // eslint-disable-line
