@@ -12,7 +12,7 @@ module.exports = {
     'packages/**/*.{js,jsx}',
     '!**/node_modules/**',
     '!packages/@myntra/{uikit-internals,eslint-config-standard,stylelint-config-standard,tokens,docgen,tokenizer}/**',
-    '!packages/@myntra/{uikit-internals,uikit-elements,uikit-compounds,uikit-patterns}/src/index.js'
+    '!packages/@myntra/{uikit-internals,uikit-elements,uikit-compounds,uikit-patterns,uikit}/src/index.js'
   ],
   coverageDirectory: 'coverage',
   coverageThreshold: process.env.CI
