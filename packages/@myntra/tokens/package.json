@@ -9,7 +9,6 @@
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "private": true,
   "scripts": {
     "prepare": "yarn build",
     "build": "tokenize"

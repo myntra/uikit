@@ -9,7 +9,6 @@
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "private": true,
   "bin": {
     "tokenize": "bin/tokenize.js"
   },

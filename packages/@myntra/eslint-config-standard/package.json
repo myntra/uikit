@@ -9,7 +9,6 @@
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "private": true,
   "dependencies": {
     "babel-eslint": "^8.2.2",
     "eslint-config-prettier": "^2.9.0",

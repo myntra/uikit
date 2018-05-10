@@ -19,7 +19,11 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "postcoverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
-    "ci": "node scripts/jenkins-build.js"
+    "ci": "node scripts/jenkins-build.js",
+    "release": "standard-version -a",
+    "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md",
+    "lerna:version": "lerna publish --yes --skip-npm --skip-git --repo-version $(node scripts/version.js) && git add packages/ lerna.json",
+    "lerna:publish": "lerna exec npm publish"
   },
   "workspaces": [
     "packages/@myntra/*"
@@ -38,6 +42,7 @@
     "husky": "^1.0.0-rc.2",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^23.0.0-beta.1",
+    "lerna": "^2.0.0",
     "lint-staged": "^7.0.4",
     "poi": "^10.0.0-rc.3",
     "postcss-css-variables": "^0.8.1",
@@ -69,7 +74,6 @@
     ]
   },
   "dependencies": {
-    "markdown-to-jsx": "^6.6.1",
     "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
@@ -80,6 +84,11 @@
     "hooks": {
       "pre-commit": "lint-staged",
       "pre-push": "yarn test --silent --changedSince $(./scripts/remote-tracking-branch.sh)"
+    }
+  },
+  "standard-version": {
+    "scripts": {
+      "postchangelog": "yarn test && yarn changelog && yarn lerna:version"
     }
   }
 }

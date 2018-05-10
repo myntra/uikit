@@ -5,7 +5,6 @@
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "private": true,
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/docgen",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"

@@ -9,5 +9,12 @@
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "private": true
+  "dependencies": {
+    "@myntra/tokens": "^0.0.0",
+    "@myntra/uikit-utils": "^0.0.0"
+  },
+  "peerDependencies": {
+    "react": ">=15.6",
+    "prop-types": ">=15.6"
+  }
 }
