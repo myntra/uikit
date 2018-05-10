@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-elements",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Low level re-usable components from UIKit.",
   "main": "src/index.js",
   "scripts": {
@@ -13,11 +13,11 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "dependencies": {
-    "@myntra/tokens": "^0.0.0",
-    "@myntra/uikit-utils": "^0.0.0"
+    "@myntra/tokens": "^0.1.0-alpha.0",
+    "@myntra/uikit-utils": "^0.1.0-alpha.0"
   },
   "peerDependencies": {
-    "react": ">=15.6",
-    "prop-types": ">=15.6"
+    "prop-types": ">=15.6",
+    "react": ">=15.6"
   }
 }

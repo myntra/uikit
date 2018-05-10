@@ -1,6 +1,6 @@
 {
   "name": "@myntra/eslint-config-standard",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Javascript conding style standard for Myntra.",
   "main": "index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/eslint-config-standard",

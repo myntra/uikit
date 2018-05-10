@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "UIKit with default theme kit",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit",
@@ -10,14 +10,14 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "dependencies": {
-    "@myntra/tokens": "^0.0.0",
-    "@myntra/uikit-elements": "^0.0.0",
-    "@myntra/uikit-compounds": "^0.0.0",
-    "@myntra/uikit-patterns": "^0.0.0",
-    "@myntra/uikit-utils": "^0.0.0"
+    "@myntra/tokens": "^0.1.0-alpha.0",
+    "@myntra/uikit-compounds": "^0.1.0-alpha.0",
+    "@myntra/uikit-elements": "^0.1.0-alpha.0",
+    "@myntra/uikit-patterns": "^0.1.0-alpha.0",
+    "@myntra/uikit-utils": "^0.1.0-alpha.0"
   },
   "peerDependencies": {
-    "react": ">=15.6",
-    "prop-types": ">=15.6"
+    "prop-types": ">=15.6",
+    "react": ">=15.6"
   }
 }

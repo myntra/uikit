@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-utils",
-  "version": "0.0.0",
+  "version": "0.1.0-alpha.0",
   "description": "Shared utility functions",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-utils",
