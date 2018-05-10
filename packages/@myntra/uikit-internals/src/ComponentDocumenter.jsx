@@ -25,6 +25,8 @@ export default class ComponentDocumenter extends Component {
     name: PropTypes.string.isRequired,
     /** Component description */
     description: PropTypes.string.isRequired,
+    /** Source code */
+    source: PropTypes.string,
     /** Available since */
     since: PropTypes.string.isRequired,
     /** Status of component */
@@ -55,7 +57,12 @@ export default class ComponentDocumenter extends Component {
         <h2>
           {this.props.name}
           <small style={tokens.typography.text.caption} title={this.props.status}>
-            &nbsp; {states[this.props.status]} since v{this.props.since}
+            {' '}
+            {states[this.props.status]} since v{this.props.since}
+            {' | '}
+            <a href={this.props.source} target="_blank">
+              see source
+            </a>
           </small>
         </h2>
         <Markdown>{this.props.description}</Markdown>

@@ -4,6 +4,11 @@ import RenderComponents from './_app/RenderComponents'
 
 export default function ComponentElements() {
   return (
-    <RenderComponents meta={name => () => import(`@myntra/uikit-elements/dist/${name}.json`)} components={elements} />
+    <RenderComponents
+      meta={name => import(`@myntra/uikit-elements/dist/${name}.json`)}
+      packageName="@myntra/uikit-elements"
+      examples={name => import(`@myntra/uikit-elements/src/${name}/${name}.md`)}
+      components={elements}
+    />
   )
 }

@@ -2,8 +2,13 @@ import React from 'react'
 import * as internals from '@myntra/uikit-internals'
 import RenderComponents from './_app/RenderComponents'
 
-export default function ComponentElements() {
+export default function ComponentInternals() {
   return (
-    <RenderComponents meta={name => () => import(`@myntra/uikit-internals/dist/${name}.json`)} components={internals} />
+    <RenderComponents
+      meta={name => () => import(`@myntra/uikit-internals/dist/${name}.json`)}
+      packageName="@myntra/uikit-internals"
+      examples={name => () => import(`@myntra/uikit-internals/src/${name}/${name}.md`)}
+      components={internals}
+    />
   )
 }

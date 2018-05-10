@@ -2,8 +2,13 @@ import React from 'react'
 import * as compounds from '@myntra/uikit-compounds'
 import RenderComponents from './_app/RenderComponents'
 
-export default function ComponentElements() {
+export default function ComponentCompounds() {
   return (
-    <RenderComponents meta={name => () => import(`@myntra/uikit-internals/dist/${name}.json`)} components={compounds} />
+    <RenderComponents
+      meta={name => import(`@myntra/uikit-compounds/dist/${name}.json`)}
+      packageName="@myntra/uikit-compounds"
+      examples={name => import(`@myntra/uikit-compounds/src/${name}/${name}.md`)}
+      components={compounds}
+    />
   )
 }
