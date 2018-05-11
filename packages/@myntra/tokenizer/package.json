@@ -12,6 +12,10 @@
   "bin": {
     "tokenize": "bin/tokenize.js"
   },
+  "files": [
+    "bin/",
+    "src/"
+  ],
   "dependencies": {
     "camelcase": "^5.0.0",
     "js-yaml": "^3.11.0",

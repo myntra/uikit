@@ -3,12 +3,17 @@
   "version": "0.1.0-alpha.0",
   "description": "Shared utility functions",
   "main": "src/index.js",
+  "module": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-utils",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
   "author": "Rahul Kadyan <hi@znck.me>",
+  "files": [
+    "src/"
+  ],
   "license": "UNLICENSED",
+  "sideEffects": false,
   "dependencies": {
     "lodash-es": "^4.17.8"
   }

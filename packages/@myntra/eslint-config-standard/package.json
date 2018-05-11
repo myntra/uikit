@@ -9,6 +9,9 @@
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
+  "files": [
+    "index.js"
+  ],
   "dependencies": {
     "babel-eslint": "^8.2.2",
     "eslint-config-prettier": "^2.9.0",

@@ -12,6 +12,10 @@
   "bin": {
     "docgen": "bin/docgen.js"
   },
+  "files": [
+    "bin/",
+    "src/"
+  ],
   "dependencies": {
     "common-prefix": "^1.1.0",
     "de-indent": "^1.0.2",

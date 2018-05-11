@@ -3,6 +3,7 @@
   "version": "0.1.0-alpha.0",
   "description": "Low level re-usable components from UIKit.",
   "main": "src/index.js",
+  "module": "src/index.js",
   "scripts": {
     "test": "jest"
   },
@@ -10,8 +11,12 @@
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
+  "files": [
+    "src/"
+  ],
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
+  "sideEffects": false,
   "dependencies": {
     "@myntra/tokens": "^0.1.0-alpha.0",
     "@myntra/uikit-utils": "^0.1.0-alpha.0"

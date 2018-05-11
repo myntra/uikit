@@ -3,13 +3,18 @@
   "version": "0.1.0-alpha.0",
   "description": "Private components. Created for docs but can be used anywhere.",
   "main": "src/index.js",
+  "module": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-internals",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
+  "files": [
+    "src/"
+  ],
   "private": true,
+  "sideEffects": false,
   "dependencies": {
     "babel-standalone": "^6.26.0",
     "markdown-to-jsx": "^6.6.3",
