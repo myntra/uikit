@@ -81,18 +81,20 @@ export default class ComponentDocumenter extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.props.map(prop => (
-                  <tr key={prop.name}>
-                    <td style={styleTd}>{prop.name}</td>
-                    <td style={styleTd}>{prop.description}</td>
-                    <td style={styleTd}>{prop.type ? prop.type.name : 'Unknown'}</td>
-                    <td style={styleTd}>
-                      {prop.defaultValue ? (
-                        <code style={{ background: 'lightgray', padding: '4px' }}>{prop.defaultValue.value}</code>
-                      ) : null}
-                    </td>
-                  </tr>
-                ))}
+                {this.props.props
+                  .filter(prop => !prop.description || !prop.description.includes('@private'))
+                  .map(prop => (
+                    <tr key={prop.name}>
+                      <td style={styleTd}>{prop.name}</td>
+                      <td style={styleTd}>{prop.description}</td>
+                      <td style={styleTd}>{prop.type ? prop.type.name : 'Unknown'}</td>
+                      <td style={styleTd}>
+                        {prop.defaultValue ? (
+                          <code style={{ background: 'lightgray', padding: '4px' }}>{prop.defaultValue.value}</code>
+                        ) : null}
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

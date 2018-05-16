@@ -30,7 +30,11 @@ export default function RenderComponents({ components, meta, examples, packageNa
                     }
                     renderLoading={() => null}
                     renderError={() => null}
-                    render={content => <Markdown>{content}</Markdown>}
+                    render={content => (
+                      <div className="examples">
+                        <Markdown>{content}</Markdown>
+                      </div>
+                    )}
                   />
                 )}
               >

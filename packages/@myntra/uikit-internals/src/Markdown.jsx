@@ -56,7 +56,7 @@ markdown.renderer.rules.fence = (tokens, idx, options, env, slf) => {
     if (tokens[idx].info.includes('preview')) {
       content = `<Playground>{${JSON.stringify(content)}}</Playground>`
     } else {
-      content = `<div>${content}</div>`
+      content = `<Playground hideEditor>{${JSON.stringify(content)}}</Playground>`
     }
 
     const parsed = transform(content, {

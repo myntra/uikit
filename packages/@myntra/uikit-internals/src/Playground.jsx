@@ -28,7 +28,9 @@ export default class Playground extends PureComponent {
     /** Extra globals. */
     context: PropTypes.object,
     /** Code string. */
-    children: PropTypes.string
+    children: PropTypes.string,
+    /** Hide editor */
+    hideEditor: PropTypes.bool
   }
 
   static defaultProps = {
@@ -58,9 +60,11 @@ export default class Playground extends PureComponent {
               <LiveError />
               <LivePreview />
             </Card>
-            <Card padding="none">
-              <LiveEditor style={{ padding: tokens.size.medium }} />
-            </Card>
+            {this.props.hideEditor ? null : (
+              <Card padding="none">
+                <LiveEditor style={{ padding: tokens.size.medium }} />
+              </Card>
+            )}
           </LiveProvider>
         )}
       </PlaygroundConsumer>
