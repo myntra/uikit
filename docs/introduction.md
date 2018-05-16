@@ -134,3 +134,11 @@ export default () => <span style={{ color: color.primary }} />
 ```
 
 ## Elements
+
+Following are some conventions for creating elemental components:
+
+* Each component should be created in a separate directory named same as component name.
+* Avoid creating files named `index.jsx`, `style.css` etc. Name every file contextually i.e. filename should be same as component's name it is associated with.
+* One render function. Try to avoid markup encapsulation as functions.
+* Do not split render method into multiple functions. Create components over functions.
+* Avoid branches in render method.

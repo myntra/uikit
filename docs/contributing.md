@@ -10,9 +10,9 @@
 
 ## Guidelines
 
-* **Create pull request as early as possible.**
+* **Pull request first.**
 
-  This gives reviewer to provide insights/suggestions when you are still working on the feature.
+  Create pull request with description of the component API. For example: What props it would accept, what events it will fire (callbacks), does the component have any slots (render props) etc. This gives reviewer to provide insights/suggestions when you are still working on the feature.
 
   You can add `WIP` prefix in the pull request title and remove it when it is ready to be merged.
 
