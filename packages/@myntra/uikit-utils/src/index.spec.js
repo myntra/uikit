@@ -1,4 +1,4 @@
-import { classnames, unique, objectWithoutProperties, onlyExtraProps } from '.'
+import { classnames, unique, objectWithoutProperties, onlyExtraProps, memoize, toArray, toSet } from '.'
 
 describe('classnames', () => {
   it('should format class names', () => {
@@ -70,5 +70,47 @@ describe('onlyExtraProps', () => {
 
     props = { ...props, bar: 3 }
     expect(only(props)).toEqual({ bar: 3 })
+  })
+})
+
+describe('memoize', () => {
+  it('should should memoize', () => {
+    const fn = memoize((foo, bar) => 'foo:' + foo + ',bar:' + bar)
+
+    expect(fn(1, 2)).toEqual('foo:1,bar:2')
+    expect(fn(1, 2)).toEqual('foo:1,bar:2')
+    expect(fn(1, 3)).toEqual('foo:1,bar:3')
+    expect(fn(2, 3)).toEqual('foo:2,bar:3')
+  })
+
+  it('should use custom equals', () => {
+    const isEqual = jest.fn(() => true)
+    const fn = memoize((foo, bar) => 'foo:' + foo + ',bar:' + bar, isEqual)
+    expect(fn(1, 2)).toEqual('foo:1,bar:2')
+    expect(fn(2, 3)).toEqual('foo:1,bar:2')
+
+    expect(isEqual).toHaveBeenCalled()
+  })
+})
+
+describe('toArray', () => {
+  it('should always return an array', () => {
+    expect(toArray([1])).toEqual([1])
+    expect(toArray(1)).toEqual([1])
+    expect(toArray(false)).toEqual([false])
+    expect(toArray('')).toEqual([''])
+    expect(toArray(undefined)).toEqual([])
+    expect(toArray(null)).toEqual([])
+  })
+})
+
+describe('toSet', () => {
+  it('should always return a set', () => {
+    expect(toSet([1])).toEqual(new Set([1]))
+    expect(toSet(1)).toEqual(new Set([1]))
+    expect(toSet(false)).toEqual(new Set([false]))
+    expect(toSet('')).toEqual(new Set(['']))
+    expect(toSet(undefined)).toEqual(new Set())
+    expect(toSet(null)).toEqual(new Set())
   })
 })

@@ -1,4 +1,4 @@
-import { each, isString, isPlainObject, isArray } from 'lodash-es'
+import { each, isString, isPlainObject, isArray, uniq as unique } from 'lodash-es'
 
 /**
  * Unique values from array.
@@ -8,8 +8,30 @@ import { each, isString, isPlainObject, isArray } from 'lodash-es'
  * @param {Array.<T>} any
  * @return {Array.<T>}
  */
-export function unique(any) {
-  return Array.from(new Set(any))
+export { unique }
+
+/**
+ * Wrap single element to array if required.
+ *
+ * @export
+ * @template T
+ * @param {Array.<T>|T} any
+ * @return {Array.<T>}
+ */
+export function toArray(any) {
+  return Array.isArray(any) ? any : any === undefined || any === null ? [] : [any]
+}
+
+/**
+ * Create set from values.
+ *
+ * @export
+ * @template T
+ * @param {Array.<T>|T} any
+ * @return {Set.<T>}
+ */
+export function toSet(any) {
+  return new Set(toArray(any))
 }
 
 /**
@@ -74,13 +96,52 @@ export function objectWithoutProperties(source, keys) {
  */
 export function onlyExtraProps(propTypes) {
   const keys = Object.keys(propTypes)
-  let oldProps
-  let oldResult
 
-  return props => {
-    if (oldProps === props) return oldResult
-    oldProps = props
-    oldResult = objectWithoutProperties(props, keys)
-    return oldResult
+  return memoize(props => objectWithoutProperties(props, keys))
+}
+
+/**
+ * Compare arrays shallowly.
+ *
+ * @param {Array.<any>} prev
+ * @param {Array.<any>} next
+ * @param {function(any, any): boolean} isEqual
+ * @returns {boolean}
+ */
+function isEqualShallow(prev, next, isEqual) {
+  if (prev === null || next === null || prev.length !== next.length) {
+    return false
+  }
+
+  const length = prev.length
+  for (let i = 0; i < length; i++) {
+    if (!isEqual(prev[i], next[i])) {
+      return false
+    }
+  }
+
+  return true
+}
+
+/**
+ * Memoize results of a function.
+ *
+ * @export
+ * @template T
+ * @param {function(...any): T} func
+ * @param {function(any, any): boolean} [isEqual=(a, b) => a === b]
+ * @returns {function(...any): T}
+ */
+export function memoize(func, isEqual = (a, b) => a === b) {
+  let lastArgs = null
+  let lastResult = null
+  return function(...args) {
+    if (!isEqualShallow(lastArgs, args, isEqual)) {
+      lastResult = func.apply(this, args)
+    }
+
+    lastArgs = args
+
+    return lastResult
   }
 }
