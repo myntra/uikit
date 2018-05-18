@@ -86,7 +86,7 @@ export default class ComponentDocumenter extends Component {
                   .map(prop => (
                     <tr key={prop.name}>
                       <td style={styleTd}>{prop.name}</td>
-                      <td style={styleTd}>{prop.description}</td>
+                      <td style={styleTd}>{prop.description ? <Markdown>{prop.description}</Markdown> : null}</td>
                       <td style={styleTd}>{prop.type ? prop.type.name : 'Unknown'}</td>
                       <td style={styleTd}>
                         {prop.defaultValue ? (
