@@ -1,4 +1,4 @@
-import { classnames, unique, objectWithoutProperties, onlyExtraProps, memoize, toArray, toSet } from '.'
+import { classnames, unique, objectWithoutProperties, onlyExtraProps, memoize, toArray, toSet, isEqualShallow } from '.'
 
 describe('classnames', () => {
   it('should format class names', () => {
@@ -113,4 +113,11 @@ describe('toSet', () => {
     expect(toSet(undefined)).toEqual(new Set())
     expect(toSet(null)).toEqual(new Set())
   })
+})
+
+describe('isEqualShallow', () => {
+  expect(isEqualShallow(null, [])).toBe(false)
+  expect(isEqualShallow([], null)).toBe(false)
+  expect(isEqualShallow([1, 2], [1])).toBe(false)
+  expect(isEqualShallow([1, 2], [1, 2])).toBe(true)
 })

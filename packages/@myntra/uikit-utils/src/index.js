@@ -105,11 +105,12 @@ export function onlyExtraProps(propTypes) {
  *
  * @param {Array.<any>} prev
  * @param {Array.<any>} next
- * @param {function(any, any): boolean} isEqual
+ * @param {function(any, any): boolean} [isEqual=(a, b) => a === b]
  * @returns {boolean}
  */
-function isEqualShallow(prev, next, isEqual) {
-  if (prev === null || next === null || prev.length !== next.length) {
+export function isEqualShallow(prev, next, isEqual = (a, b) => a === b) {
+  if (!Array.isArray(prev) || !Array.isArray(next)) return false
+  if (prev.length !== next.length) {
     return false
   }
 
