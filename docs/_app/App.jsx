@@ -54,9 +54,9 @@ export default class App extends Component {
                 {children &&
                   this.state.active.startsWith(to) && (
                     <ul>
-                      {children(components).map(({ to, label }, index) => (
+                      {children(components).map(({ to: pathname, label }, index) => (
                         <li key={index}>
-                          <Link to={{ pathname: to }}>{label} </Link>
+                          <Link to={{ pathname }}>{label} </Link>
                         </li>
                       ))}
                     </ul>
