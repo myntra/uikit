@@ -38,7 +38,7 @@ export default class App extends Component {
           <main className="main">
             <Switch>
               <Route exact path="/" component={Page} />
-              <Route path="/:page" component={Page} />
+              <Route path="/:page/:name?" component={Page} />
             </Switch>
           </main>
           <aside className="sidebar">
@@ -52,11 +52,11 @@ export default class App extends Component {
                   <div className="sidebar-sep" />
                 )}
                 {children &&
-                  to === this.state.active && (
+                  this.state.active.startsWith(to) && (
                     <ul>
                       {children(components).map(({ to, label }, index) => (
                         <li key={index}>
-                          <Link to={{ ...to, pathname: to.pathname }}>{label} </Link>
+                          <Link to={{ pathname: to }}>{label} </Link>
                         </li>
                       ))}
                     </ul>

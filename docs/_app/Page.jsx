@@ -8,6 +8,7 @@ const { Markdown } = internals
 
 export default function Page({ match }) {
   const page = match.params.page || 'introduction'
+  const name = match.params.name || '*'
 
   return (
     <div className="page">
@@ -22,7 +23,7 @@ export default function Page({ match }) {
       />
       <Promised
         fn={() => import(`../${page}.js`)}
-        render={component => <component.default />}
+        render={component => <component.default only={[name]} />}
         renderError={() => null}
       />
     </div>
