@@ -7,7 +7,7 @@ import { ComponentDocumenter, Playground, Markdown } from '@myntra/uikit-interna
 import { PlaygroundProvider } from '@myntra/uikit-internals/src/Playground'
 import { MarkdownProvider } from '@myntra/uikit-internals/src/Markdown'
 
-const branch = CURRENT_BRANCH || 'develop'
+const branch = (CURRENT_BRANCH || 'develop').replace(/^\/|\/$/, '')
 
 export default function RenderComponents({ components, meta, examples, packageName, only }) {
   return (
