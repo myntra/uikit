@@ -1,0 +1,33 @@
+.dropdown {
+  display: inline-block;
+  position: relative;
+
+  /* z-index: var(--z-index-dropdown); */
+}
+
+.content {
+  position: absolute;
+  transition: height 0.3s;
+  top: 100%;
+}
+
+.dropdown > .content {
+  height: 0;
+}
+
+.dropdown.open > .content {
+  height: initial;
+}
+
+.content.up {
+  top: initial;
+  bottom: 0;
+}
+
+.content.left {
+  left: 0;
+}
+
+.content.right {
+  right: 0;
+}
