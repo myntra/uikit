@@ -1,0 +1,21 @@
+{
+  "name": "@myntra/codemod-utils",
+  "version": "0.1.0-alpha.0",
+  "description": "High level helper function for AST transformations.",
+  "main": "src/index.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/codemod-utils",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/"
+  ],
+  "dependencies": {
+    "debug": "^3.1.0",
+    "glob": "^7.1.2",
+    "jscodeshift": "^0.5.1",
+    "prettier": "^1.13.4"
+  }
+}

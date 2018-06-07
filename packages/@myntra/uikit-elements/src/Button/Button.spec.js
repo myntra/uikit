@@ -1,8 +1,11 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
+import { testCodeMod } from '@myntra/codemod-utils'
 
 import Button from './Button'
 import Icon from '../Icon/Icon'
+
+testCodeMod(__dirname, 'Button.codemod.js')
 
 it('should render correct tag', () => {
   expect(shallow(<Button />).is('button')).toBe(true)

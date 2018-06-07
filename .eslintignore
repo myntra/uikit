@@ -1,3 +1,4 @@
 node_modules
 coverage
 dist
+__codemod__

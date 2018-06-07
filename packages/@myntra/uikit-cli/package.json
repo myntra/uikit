@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-cli",
+  "version": "0.1.0-alpha.0",
+  "description": "A command line utility for @myntra/uikit",
+  "main": "src/index.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/codemod-utils",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "bin/"
+  ],
+  "dependencies": {
+    "@znck/promised": "^1.0.0",
+    "chalk": "^2.4.1",
+    "cli-highlight": "^2.0.0",
+    "commander": "^2.15.1",
+    "diff": "^3.5.0",
+    "glob": "^7.1.2",
+    "jscodeshift": "^0.5.1"
+  }
+}
