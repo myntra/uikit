@@ -19,7 +19,8 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/tokens": "^0.1.0-alpha.0",
-    "@myntra/uikit-utils": "^0.1.0-alpha.0"
+    "@myntra/uikit-utils": "^0.1.0-alpha.0",
+    "intersection-observer-polyfill": "^0.1.0"
   },
   "peerDependencies": {
     "prop-types": ">=15.6",
