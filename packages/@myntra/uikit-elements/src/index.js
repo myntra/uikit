@@ -3,6 +3,7 @@ export { default as ErrorBoundary } from './ErrorBoundry/ErrorBoundary'
 export { default as Icon } from './Icon/Icon'
 export { default as Promised } from './Promised/Promised'
 export { default as ClickAway } from './ClickAway/ClickAway'
+export { default as InputMasked } from './InputMasked/InputMasked'
 
 /*
 // Unity Components

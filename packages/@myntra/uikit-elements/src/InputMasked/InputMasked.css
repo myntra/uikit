@@ -1,0 +1,21 @@
+@import '@myntra/tokens/tokens.css';
+
+.mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  color: var(--color-gray-dark);
+  pointer-events: none;
+  z-index: -1;
+  width: 100%;
+}
+
+.masked-input {
+  width: 100%;
+  background-color: transparent;
+}
+
+.input {
+  position: relative;
+}
