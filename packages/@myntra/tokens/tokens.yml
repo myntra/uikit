@@ -20,6 +20,7 @@ color:
     x-light: rgba(255, 255, 255, .5)
   nuclei-blue:
     base: rgba(79, 71, 200, 1)
+    light: rgba(170, 166, 228, 1)
   blue:
     base: rgb(82, 142, 230)
   gray:

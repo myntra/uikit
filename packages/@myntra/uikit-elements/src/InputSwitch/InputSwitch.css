@@ -1,0 +1,43 @@
+@import '@myntra/tokens/tokens.css';
+
+.switch-track {
+  position: relative;
+  display: inline-block;
+  margin-top: 6px;
+  width: 40px;
+  height: 16px;
+  border-radius: 16px;
+  background: var(--color-black-light);
+  cursor: pointer;
+  transition-duration: 0.28s; /* TODO: replace with token */
+  transition-property: background-color;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-white-base);
+  box-shadow: var(--shadow-light-small);
+  cursor: pointer;
+  transition-duration: 0.28s; /* TODO: replace with token */
+  transition-property: left, background-color;
+}
+
+.switch-input:checked + .switch-track {
+  background: var(--color-nuclei-blue-light);
+}
+
+.switch-input:checked + .switch-track > .switch-thumb {
+  left: 20px;
+  background: var(--color-primary);
+}
+
+.switch-input:disabled + .switch-track {
+  box-shadow: none;
+  opacity: var(--opacity-base);
+  cursor: not-allowed;
+}
