@@ -9,11 +9,28 @@ program
 
 program
   .command('migrate <path>')
+  .description('Automated code migration transforms')
+  .option('-a, --apply', 'apply changes to code')
+  .option('-o, --only <items>', 'run only specified codemods (run `uikit codemods` to get list of options)')
   .option('-r, --recursive', 'run recursively')
-  .option('-o, --only <items>', 'run only specified codemods')
-  .option('--dry-run', 'print changes to stdout')
+  .option('--no-commit', 'do not commit changes')
   .action((dirOrFile, options) => {
-    wrapCommand(require('../src/migrate.js'))(dirOrFile, options)
+    wrapCommand(require('../src/migrate'))(dirOrFile, options)
+  })
+
+program
+  .command('codemods')
+  .description('List all available migration transforms')
+  .action(() => {
+    wrapCommand(require('../src/codemods'))()
+  })
+
+program
+  .command('lint [paths...]')
+  .description('Opinionated code style and formatter')
+  .option('--no-commit', 'do not commit changes')
+  .action((paths, options) => {
+    wrapCommand(require('../src/lint'))(paths, options)
   })
 
 // output help information on unknown commands
@@ -37,7 +54,7 @@ const enhanceErrorMessages = (methodName, log) => {
     if (methodName === 'unknownOption' && this._allowUnknownOption) {
       return
     }
-    this.outputHelp()
+    program.outputHelp()
     console.log(`  ` + chalk.red(log(...args)))
     console.log()
     process.exit(1)
@@ -66,8 +83,13 @@ if (!process.argv.slice(2).length) {
 
 function wrapCommand(fn) {
   return (...args) => {
-    return fn(...args).catch(err => {
-      console.error(chalk.red(err.stack))
-    })
+    return fn(...args)
+      .then(() => {
+        console.log(chalk.green('ok.'))
+      })
+      .catch(err => {
+        console.log(chalk.red('error.'))
+        console.error(chalk.red(err.stack))
+      })
   }
 }

@@ -13,13 +13,19 @@
     "src/",
     "bin/"
   ],
+  "bin": {
+    "uikit": "./bin/uikit.js"
+  },
   "dependencies": {
     "@znck/promised": "^1.0.0",
+    "babel-preset-stage-0": "^6.24.1",
     "chalk": "^2.4.1",
     "cli-highlight": "^2.0.0",
     "commander": "^2.15.1",
     "diff": "^3.5.0",
     "glob": "^7.1.2",
-    "jscodeshift": "^0.5.1"
+    "globby": "^8.0.1",
+    "jscodeshift": "^0.5.1",
+    "progress": "^2.0.0"
   }
 }

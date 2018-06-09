@@ -1,6 +1,6 @@
 require('babel-register')({
   babelrc: false,
-  presets: [require('babel-preset-es2015'), require('babel-preset-stage-1')]
+  presets: [require('babel-preset-es2015'), require('babel-preset-stage-0')]
 })
 
 const chalk = require('chalk')
@@ -8,7 +8,7 @@ const path = require('path')
 const diff = require('diff')
 const { highlight } = require('cli-highlight')
 
-module.exports = function transformWrapper(file, api, { transforms, only, ...options }) {
+module.exports = function transformWrapper(file, api, { transforms, only, onError, ...options }) {
   let hasChange = false
   const original = file.source
   const messages = []
@@ -17,7 +17,10 @@ module.exports = function transformWrapper(file, api, { transforms, only, ...opt
     const transform = require(source)
     for (const method in transform) {
       const codemod = name + '.' + method
-      if (typeof transform[method] === 'function' && (only.has(codemod) || only.has('*'))) {
+      if (
+        typeof transform[method] === 'function' &&
+        (only.includes('*') || only.includes(name) || only.includes(codemod))
+      ) {
         try {
           const result = transform[method](file, api, options)
 
@@ -30,8 +33,12 @@ module.exports = function transformWrapper(file, api, { transforms, only, ...opt
             file.source = result
           }
         } catch (error) {
-          console.error('Transform `' + source + '` failed.')
-          throw error
+          hasChange = true
+          console.log(chalk.red('Error processing' + path.relative(process.cwd(), file.path)))
+          console.log(
+            '   > ' + chalk.gray(codemod) + ' :: ' + chalk.gray(error.message.replace(/\r?\n/g, '      ')),
+            options.print ? error : ''
+          )
         }
       }
     }
@@ -42,7 +49,6 @@ module.exports = function transformWrapper(file, api, { transforms, only, ...opt
     if (options.dry || options.print) {
       console.log(messages.join('') + '\n')
       const filename = path.relative(process.cwd(), file.path)
-      // const content = diff.createTwoFilesPatch(filename, filename, original, file.source)
       const { hunks } = diff.structuredPatch(filename, filename, original, file.source)
       const content =
         hunks

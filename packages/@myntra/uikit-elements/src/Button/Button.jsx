@@ -27,18 +27,26 @@ export default class Button extends PureComponent {
     to: PropTypes.any,
     /** Label Text */
     label: PropTypes.string,
-    /** Child Nodes */
+    /** @private */
     children: PropTypes.any,
     /** Primary Icon */
     icon: PropTypes.string,
     /** Secondary Icon */
     secondaryIcon: PropTypes.string,
-    /** Type */
+    /** Visible button type */
     type: PropTypes.oneOf(['primary', 'secondary']),
+    /** HTML type attribute for <button> */
+    htmlType: PropTypes.string,
     /** Disabled */
     disabled: PropTypes.bool,
     /** Click event handler */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /** @private */
+    combination: props => {
+      if ('href' in props && 'to' in props) {
+        throw new Error('`to` and `href` cannot be used together')
+      }
+    }
   }
 
   static defaultProps = {
@@ -46,9 +54,9 @@ export default class Button extends PureComponent {
     disabled: false
   }
 
-  get forwardedProps() {
-    this._forwardedProps = this._forwardedProps || onlyExtraProps(Button.propTypes)
+  _forwardedProps = onlyExtraProps(Button.propTypes)
 
+  get forwardedProps() {
     return this._forwardedProps(this.props)
   }
 
@@ -63,7 +71,7 @@ export default class Button extends PureComponent {
   }
 
   render() {
-    const { icon, secondaryIcon } = this.props
+    const { icon, secondaryIcon, htmlType } = this.props
     const Tag = this.props.to ? Button.RouterLink : this.props.href ? 'a' : 'button'
     const needLeftSlot = !!icon
     const needRightSlot = !!secondaryIcon
@@ -71,6 +79,7 @@ export default class Button extends PureComponent {
     return (
       <Tag
         {...this.forwardedProps}
+        type={htmlType}
         className={classnames(
           'button',
           /* Button Styles */

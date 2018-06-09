@@ -1,17 +1,23 @@
 import debug from 'debug'
-import prettier from 'prettier'
+import { CLIEngine } from 'eslint'
+
+const engine = new CLIEngine({
+  ...require('@myntra/eslint-config-standard'),
+  fix: true,
+  useEslintrc: false
+})
 
 const d = debug('@myntra/codemod-utils')
 
 export function createHelper(file, api) {
   const j = api.jscodeshift
-  const root = j(file.source)
-  const h = helpers(j, root)
+  const root = j(file.source, {})
+  const h = helpers(j, root, file)
 
   return { j, h, root }
 }
 
-export default function helpers(j, root) {
+export default function helpers(j, root, file) {
   function first(nodes) {
     if (!nodes || nodes.size() === 0) return
 
@@ -185,27 +191,48 @@ export default function helpers(j, root) {
     }
   }
 
-  function renameProp(localComponentName, oldPropName, newPropName) {
+  function forAttributesOnComponent(localComponentName, fn) {
     root
       .find(j.JSXOpeningElement, { name: { type: 'JSXIdentifier', name: localComponentName } })
-      .replaceWith(nodePath => {
-        nodePath.node.attributes.forEach((attribute, index) => {
-          if (attribute.type === 'JSXAttribute' && attribute.name.name === oldPropName) {
-            nodePath.node.attributes.splice(index, 1, j.jsxAttribute(j.jsxIdentifier(newPropName), attribute.value))
-          } else if (attribute.type === 'JSXSpreadAttribute') {
-            const interop = getPropInteropNode(localComponentName)
-            const name = interop.declarations[0].id.name
-
-            if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
-              attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
-            }
-
-            addPropInteropMapping(interop, oldPropName, newPropName)
-          }
+      .replaceWith(element => {
+        element.node.attributes.forEach((attribute, index) => {
+          fn(element, attribute, index)
         })
 
-        return nodePath.node
+        return element.node
       })
+  }
+
+  /**
+   * Rename prop in component usage.
+   *
+   * @param {string} localComponentName Local identifier for component.
+   * @param {string} oldPropName Prop name to remove.
+   * @param {any} newPropName Prop name to add.
+   */
+  function renameProp(localComponentName, oldPropName, newPropName) {
+    forAttributesOnComponent(localComponentName, (element, attribute, index) => {
+      if (attribute.type === 'JSXAttribute' && attribute.name.name === oldPropName) {
+        element.node.attributes.splice(index, 1, j.jsxAttribute(j.jsxIdentifier(newPropName), attribute.value))
+      } else if (attribute.type === 'JSXSpreadAttribute') {
+        const interop = getPropInteropNode(localComponentName)
+        const name = interop.declarations[0].id.name
+
+        if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
+          attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
+        }
+
+        addPropInteropMapping(interop, oldPropName, newPropName)
+      }
+    })
+  }
+
+  function removeProp(localComponentName, prop) {
+    forAttributesOnComponent(localComponentName, (element, attribute, index) => {
+      if (attribute.type === 'JSXAttribute' && attribute.name.name === prop) {
+        element.node.attributes.splice(index, 1)
+      }
+    })
   }
 
   function coerceProp(localComponentName, prop, fn) {
@@ -247,6 +274,10 @@ export default function helpers(j, root) {
     Object.entries(propNames).forEach(([from, to]) => renameProp(localComponentName, from, to))
   }
 
+  function removeProps(localComponentName, props) {
+    props.forEach(prop => removeProp(localComponentName, prop))
+  }
+
   function getDefaultImportLocalName(node) {
     const defaultSpecifier = node.value.specifiers.find(specifier => specifier.type === 'ImportDefaultSpecifier')
 
@@ -255,23 +286,75 @@ export default function helpers(j, root) {
     throw new Error('No default import found')
   }
 
+  function hasImport(source) {
+    return findImport(source).size() === 1
+  }
+
+  /**
+   * Does named import exist in the file?
+   *
+   * @param {string} source Package name or import path
+   * @param {string} name Exported identifier
+   * @returns {boolean}
+   */
+  function hasNamedImport(source, name) {
+    try {
+      const node = first(findImport(source))
+
+      if (node) return !!getNamedImportLocalName(node, name)
+    } catch (e) {
+      if (!/No named import found/.test(e.message)) {
+        throw e
+      }
+    }
+
+    return false
+  }
+
+  /**
+   * Get local identifier for named export.
+   *
+   * @param {any} node  [ImportDeclaration] node
+   * @param {string} name Exported identifier
+   * @returns {string} Local identifier of the import
+   */
+  function getNamedImportLocalName(node, name) {
+    console.log(node)
+    const defaultSpecifier = node.value.specifiers.find(
+      specifier => specifier.type === 'ImportSpecifier' && specifier.name === name
+    )
+
+    if (defaultSpecifier) return defaultSpecifier.local.name
+
+    throw new Error('No named import found for ' + name)
+  }
+
   return {
-    first,
+    addDefaultImport,
+    addNamedImport,
+    coerceProp,
+    findFirstNonImportStatement,
     findImport,
     findLastNonRelativeImportStatement,
-    findFirstNonImportStatement,
-    addNamedImport,
-    addDefaultImport,
+    first,
+    getDefaultImportLocalName,
+    getNamedImportLocalName,
+    hasImport,
+    hasNamedImport,
+    insertAfterImports,
+    insertAfterNonRelativeImports,
+    insertAtEnd,
+    removeProp,
+    removeProps,
     renameProp,
     renameProps,
-    coerceProp,
-    getDefaultImportLocalName,
-    toSource: () =>
-      prettier.format(root.toSource({ quote: 'single', wrapColumn: 120, tabWidth: 2 }), {
-        semi: false,
-        singleQuote: true,
-        parser: 'babylon'
-      })
+    toSource: () => {
+      const { results } = engine.executeOnText(root.toSource())
+
+      if (!results || !results.length || !results[0].output) throw Error('ESlint failed')
+
+      return results[0].output
+    }
   }
 }
 

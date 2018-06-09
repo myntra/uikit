@@ -14,8 +14,11 @@
   ],
   "dependencies": {
     "debug": "^3.1.0",
+    "eslint": "^4.19.1",
+    "execa": "^0.10.0",
     "glob": "^7.1.2",
     "jscodeshift": "^0.5.1",
+    "jsdoc-api": "^4.0.3",
     "prettier": "^1.13.4"
   }
 }

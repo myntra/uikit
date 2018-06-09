@@ -13,8 +13,16 @@ it('should render correct tag', () => {
   expect(shallow(<Button to="/foo" />).is(Button.RouterLink)).toBe(true)
 })
 
-it('should prefer `to` over `href`', () => {
+it('warn `to` and `href` should not be used', () => {
+  const spy = jest
+    .spyOn(console, 'error')
+    .mockImplementation(message =>
+      expect(message).toEqual(expect.stringContaining('`to` and `href` cannot be used together'))
+    )
   expect(shallow(<Button to="/foo" href="/foo" />).is(Button.RouterLink)).toBe(true)
+  expect(spy).toHaveBeenCalled()
+  spy.mockReset()
+  spy.mockRestore()
 })
 
 it('should render primary icon', () => {

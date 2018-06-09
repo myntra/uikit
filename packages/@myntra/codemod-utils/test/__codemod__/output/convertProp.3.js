@@ -13,10 +13,7 @@ const interopPropTransformerFoo$0 = interopPropTransformer(
 
 export default function Component({ foo, ...props }) {
   return (
-    <Foo
-      {...interopPropTransformerFoo$0(props)}
-      foo={interopPropTransformerFoo$0.coercions.foo(foo)}
-    >
+    <Foo {...interopPropTransformerFoo$0(props)} foo={interopPropTransformerFoo$0.coercions.foo(foo)}>
       <div>Some Text Here</div>
     </Foo>
   )
