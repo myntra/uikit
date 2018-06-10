@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-internals",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "Private components. Created for docs but can be used anywhere.",
   "main": "src/index.js",
   "module": "src/index.js",

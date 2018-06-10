@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-elements",
-  "version": "0.1.0-alpha.0",
+  "version": "0.1.0-alpha.1",
   "description": "Low level re-usable components from UIKit.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -18,8 +18,8 @@
   "license": "UNLICENSED",
   "sideEffects": false,
   "dependencies": {
-    "@myntra/tokens": "^0.1.0-alpha.0",
-    "@myntra/uikit-utils": "^0.1.0-alpha.0",
+    "@myntra/tokens": "^0.1.0-alpha.1",
+    "@myntra/uikit-utils": "^0.1.0-alpha.1",
     "intersection-observer-polyfill": "^0.1.0"
   },
   "peerDependencies": {

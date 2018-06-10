@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-alpha.1"></a>
+# [0.1.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.1.0-alpha.0...v0.1.0-alpha.1) (2018-06-10)
+
+
+### Features
+
+* Set sideEffects to false for webpack ([7a5d095](https://bitbucket.org/myntra/uikit/commits/7a5d095))
+* **cli:** Add lint, codemods and migrate commands ([2e8ed4e](https://bitbucket.org/myntra/uikit/commits/2e8ed4e)), closes [#39](https://bitbucket.org/myntra/uikit/issue/39)
+* **codemod:** High level utility functions to apply AST transformations ([ba734a7](https://bitbucket.org/myntra/uikit/commits/ba734a7)), closes [#36](https://bitbucket.org/myntra/uikit/issue/36)
+* **compounds|Grid:** Flexbox based layouting component ([94b8ad8](https://bitbucket.org/myntra/uikit/commits/94b8ad8)), closes [#17](https://bitbucket.org/myntra/uikit/issue/17)
+* **elements|Dropdown:** Add Dropdown component ([4b4482c](https://bitbucket.org/myntra/uikit/commits/4b4482c)), closes [#21](https://bitbucket.org/myntra/uikit/issue/21)
+* **elements|InputMasked:** Add InputMasked component ([172dd92](https://bitbucket.org/myntra/uikit/commits/172dd92)), closes [#18](https://bitbucket.org/myntra/uikit/issue/18)
+* **elements|InputSwitch:** Add InputSwitch component ([ceb8f11](https://bitbucket.org/myntra/uikit/commits/ceb8f11)), closes [#25](https://bitbucket.org/myntra/uikit/issue/25) [#2121226](https://bitbucket.org/myntra/uikit/issue/2121226) [#2121230](https://bitbucket.org/myntra/uikit/issue/2121230) [#2121198](https://bitbucket.org/myntra/uikit/issue/2121198) [#2121247](https://bitbucket.org/myntra/uikit/issue/2121247) [#2121187](https://bitbucket.org/myntra/uikit/issue/2121187) [#2121193](https://bitbucket.org/myntra/uikit/issue/2121193) [#2121196](https://bitbucket.org/myntra/uikit/issue/2121196) [#2125428](https://bitbucket.org/myntra/uikit/issue/2125428)
+* **elements|Intersection:** Component to use IntersectionObserver API in a declarative way ([ffa8f97](https://bitbucket.org/myntra/uikit/commits/ffa8f97)), closes [#23](https://bitbucket.org/myntra/uikit/issue/23)
+* **utils:** Export isShallowEqual method ([c9fa9fd](https://bitbucket.org/myntra/uikit/commits/c9fa9fd))
+* **utils:** Memoize helper to save computations ([32ef7ed](https://bitbucket.org/myntra/uikit/commits/32ef7ed))
+
+
+
 <a name="0.1.0-alpha.0"></a>
 # 0.1.0-alpha.0 (2018-05-10)
 
