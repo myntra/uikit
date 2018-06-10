@@ -1,7 +1,7 @@
 /* globals CURRENT_BRANCH */
 
 import React, { Component } from 'react'
-import { BrowserRouter, Route, Link, NavLink, Switch } from 'react-router-dom'
+import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom'
 import tokens from '@myntra/tokens'
 
 import * as elements from '@myntra/uikit-elements'
@@ -52,11 +52,11 @@ export default class App extends Component {
                   <div className="sidebar-sep" />
                 )}
                 {children &&
-                  this.state.active.startsWith(to) && (
+                  this.state.active.includes(to) && (
                     <ul>
                       {children(components).map(({ to: pathname, label }, index) => (
                         <li key={index}>
-                          <Link to={{ pathname }}>{label} </Link>
+                          <NavLink to={{ pathname }}>{label}</NavLink>
                         </li>
                       ))}
                     </ul>

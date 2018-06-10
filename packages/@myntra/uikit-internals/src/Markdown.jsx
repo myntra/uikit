@@ -53,10 +53,12 @@ markdown.renderer.rules.fence = (tokens, idx, options, env, slf) => {
   if (tokens[idx].info && tokens[idx].info.trim().startsWith('jsx render')) {
     let content = tokens[idx].content.trim()
 
-    if (tokens[idx].info.includes('preview')) {
+    if (tokens[idx].info.includes('editor')) {
       content = `<Playground>{${JSON.stringify(content)}}</Playground>`
-    } else {
+    } else if (tokens[idx].info.includes('preview')) {
       content = `<Playground hideEditor>{${JSON.stringify(content)}}</Playground>`
+    } else {
+      content = `<div>${content}</div>`
     }
 
     const parsed = transform(content, {
@@ -132,11 +134,7 @@ export default class Markdown extends PureComponent {
   }
 
   state = {
-    renderer: null
-  }
-
-  componentWillMount() {
-    this.prepare()
+    code: null
   }
 
   componentDidCatch(error) {
@@ -145,57 +143,39 @@ export default class Markdown extends PureComponent {
     return false
   }
 
-  componentWillReceiveProps(props) {
-    this.prepare()
-  }
-
-  /**
-   * Create a renderer from markdown.
-   * @private
-   * @returns {void}
-   */
-  prepare() {
-    const props = this.props
-    const exported = {}
-    const context = {
-      ...props.context,
-      ...DEFAULT_CONTEXT,
-      exports: exported
-    }
-    const source = markdown
-      .render(typeof props.children === 'string' ? props.children : '', context)
-      .replace(/"style": "((?:[^"\\]|\\.)*)"/gi, (_, css) => '"style": ' + JSON.stringify(parseStyles(css)))
-    const { code } = transform(source, { presets: ['latest'] })
-    const renderer = new Function(...Object.keys(context), code) // eslint-disable-line no-new-func
-    try {
-      renderer(...Object.values(context))
-      this.setState({ renderer: exported.default, error: null })
-    } catch (e) {
-      this.setState({ renderer: () => null, error: null })
-    }
-  }
-
   render() {
-    const Renderer = this.state.renderer
+    const wrapper = React.createFactory('div')
+    const { children } = this.props
+
+    const Renderer = props => {
+      const context = {
+        ...props,
+        ...DEFAULT_CONTEXT,
+        exports: {}
+      }
+
+      const source = markdown
+        .render(typeof children === 'string' ? children : '', context)
+        .replace(/"style": "((?:[^"\\]|\\.)*)"/gi, (_, css) => '"style": ' + JSON.stringify(parseStyles(css)))
+      const { code } = transform(source, { presets: ['latest'] })
+
+      const renderer = new Function(...Object.keys(context), 'context', code.replace('exports.default =', 'return')) // eslint-disable-line no-new-func
+
+      const render = renderer(...Object.values(context), context)
+
+      return render({
+        factories: {
+          wrapper: (_, ...args) => wrapper({ className: styles.markdown }, ...args)
+        }
+      })
+    }
 
     if (this.state.error) {
       return <span>{this.state.error}</span>
     }
 
-    const wrapper = React.createFactory('div')
-
     return Renderer ? (
-      <MarkdownConsumer>
-        {context => (
-          <Renderer
-            {...this.props.context}
-            {...context}
-            factories={{
-              wrapper: (_, ...children) => wrapper({ className: styles.markdown }, ...children)
-            }}
-          />
-        )}
-      </MarkdownConsumer>
+      <MarkdownConsumer>{context => <Renderer {...this.props.context} {...context} />}</MarkdownConsumer>
     ) : null
   }
 }

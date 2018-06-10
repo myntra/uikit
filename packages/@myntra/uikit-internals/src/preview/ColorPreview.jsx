@@ -18,16 +18,14 @@ export default class ColorPreview extends Component {
 
   render() {
     const style = {
-      width: '128px',
-      height: '128px',
+      width: '154px',
+      height: '154px',
       display: 'inline-flex',
       justifyContent: 'center',
       alignItems: 'center',
-      margin: tokens.size.default,
-      boxShadow: tokens.shadow.lightSmall,
+      margin: tokens.size.base,
       background: this.props.color,
-      color: tokens.typography.color.dark.secondary,
-      textShadow: '.5px .5px rgba(255, 255, 255, .5)'
+      color: tokens.typography.color.dark.secondary
     }
     return <div style={style}>{this.props.color}</div>
   }

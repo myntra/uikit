@@ -2,7 +2,7 @@
 
 Common sizes:
 
-```jsx render preview
+```jsx render editor
 <>
   <Grid>
     <Grid.Column size="full"><div>full</div></Grid.Column>
@@ -37,7 +37,7 @@ Common sizes:
 
 Divided in five:
 
-```jsx render preview
+```jsx render editor
 <>
   <Grid>
     <Grid.Column size="full"><div>full</div></Grid.Column>
@@ -67,7 +67,7 @@ Divided in five:
 
 12 column grid:
 
-```jsx render
+```jsx render preview
 <>
   <Grid>
     <Grid.Column size={12}><div>12</div></Grid.Column>
@@ -176,7 +176,7 @@ Divided in five:
 
 ### Multi-line Grid
 
-```jsx render preview
+```jsx render editor
 <Grid multiline>
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -188,7 +188,7 @@ Divided in five:
 
 ### Offset
 
-```jsx render preview
+```jsx render editor
 <Grid multiline>
   <Grid.Column size="full"><div>full</div></Grid.Column>
   <Grid.Column size="three-quarters" offset="one-quarter"><div>three-quarters</div></Grid.Column>
@@ -199,7 +199,7 @@ Divided in five:
 </Grid>
 ```
 
-```jsx render preview
+```jsx render editor
 <Grid multiline>
   <Grid.Column size={12}><div>12</div></Grid.Column>
   <Grid.Column size={11} offset={1}><div>11</div></Grid.Column>
@@ -220,7 +220,7 @@ Divided in five:
 
 Default:
 
-```jsx render preview
+```jsx render editor
 <Grid multiline>
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -234,7 +234,7 @@ Default:
 
 Gapless:
 
-```jsx render preview
+```jsx render editor
 <Grid multiline gapless>
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -248,7 +248,7 @@ Gapless:
 
 Custom Gap:
 
-```jsx render preview
+```jsx render editor
 <Grid multiline gap="xx-small">
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>

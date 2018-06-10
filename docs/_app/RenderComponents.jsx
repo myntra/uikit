@@ -9,12 +9,29 @@ import { MarkdownProvider } from '@myntra/uikit-internals/src/Markdown'
 
 const branch = (CURRENT_BRANCH || 'develop').replace(/^\/|\/$/, '')
 
+const MarkdownCache = {}
+function fetchMarkdown(path) {
+  if (path in MarkdownCache) {
+    console.log('From cache: ' + path)
+
+    return MarkdownCache[path]
+  }
+
+  MarkdownCache[path] = fetch(path).then(response => response.text())
+
+  return MarkdownCache[path]
+}
+
 export default function RenderComponents({ components, meta, examples, packageName, only }) {
+  if (only.length === 0) {
+    only.push(Object.keys(components).shift())
+  }
+
   return (
     <MarkdownProvider value={components}>
       <PlaygroundProvider value={components}>
         {Object.entries(components)
-          .filter(([name]) => only.includes(name) || only.includes('*'))
+          .filter(([name]) => only.some(p => name.startsWith(p)))
           .map(([name, component]) => (
             <Promised
               key={name}
@@ -25,11 +42,7 @@ export default function RenderComponents({ components, meta, examples, packageNa
                   source={`https://bitbucket.com/myntra/uikit/src/${branch}/packages/${packageName}/src/${name}`}
                   render={() => (
                     <Promised
-                      fn={() =>
-                        examples(name)
-                          .then(result => fetch(result.default))
-                          .then(response => response.text())
-                      }
+                      fn={() => examples(name).then(result => fetchMarkdown(result.default))}
                       renderLoading={() => null}
                       renderError={() => null}
                       render={content => (

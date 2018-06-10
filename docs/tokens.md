@@ -20,18 +20,18 @@
 
 ```jsx render
 <Card>
-  <ColorPreview color={tokens.color.black.regular} />
-  <ColorPreview color={tokens.color.white.regular} />
-  <ColorPreview color={tokens.color.blue.regular} />
-  <ColorPreview color={tokens.color.gray.regular} />
-  <ColorPreview color={tokens.color.green.regular} />
-  <ColorPreview color={tokens.color.yellow.regular} />
-  <ColorPreview color={tokens.color.red.regular} />
+  <ColorPreview color={tokens.color.black.base} />
+  <ColorPreview color={tokens.color.white.base} />
+  <ColorPreview color={tokens.color.blue.base} />
+  <ColorPreview color={tokens.color.gray.base} />
+  <ColorPreview color={tokens.color.green.base} />
+  <ColorPreview color={tokens.color.yellow.base} />
+  <ColorPreview color={tokens.color.red.base} />
 
-  <ColorPreview color={tokens.color.gray.lightest} />
-  <ColorPreview color={tokens.color.gray.lighter} />
+  <ColorPreview color={tokens.color.gray.xxLight} />
+  <ColorPreview color={tokens.color.gray.xLight} />
   <ColorPreview color={tokens.color.gray.light} />
-  <ColorPreview color={tokens.color.gray.regular} />
+  <ColorPreview color={tokens.color.gray.base} />
   <ColorPreview color={tokens.color.gray.dark} />
 </Card>
 ```

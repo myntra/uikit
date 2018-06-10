@@ -1,6 +1,6 @@
 ## States:
 
-```jsx render preview
+```jsx render editor
 <>
   <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
     <InputSwitch />
@@ -13,7 +13,7 @@
 
 ## Events
 
-```jsx render preview
+```jsx render editor
 <>
   <div style={{ display: 'flex', alignItems: 'center' }}>
     <InputSwitch

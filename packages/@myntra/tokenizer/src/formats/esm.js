@@ -17,6 +17,7 @@ module.exports = (content, write) => {
 
   write(
     prettier.format(source, {
+      parser: 'babylon',
       singleQuote: true,
       semi: false,
       tabWidth: 2
