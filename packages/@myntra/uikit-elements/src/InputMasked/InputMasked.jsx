@@ -249,12 +249,13 @@ export default class InputMasked extends PureComponent {
     const maskedValue = this.getMaskedValue(this.props.value)
     const placeholder = this.getPlaceholder(maskedValue)
     return (
-      <div className={classnames('input-container').use(styles)}>
+      <div className={classnames('container').use(styles)}>
         <input
-          className={classnames('masked-input', 'input').use(styles)}
+          className={classnames('input', 'masked-input').use(styles)}
           value={maskedValue}
           onKeyPress={this.handleKeyPress}
           onKeyDown={this.handleKeyDown}
+          onChange={() => {}}
           maxLength={this.maskMetadata.length}
         />
         <input className={classnames('mask', 'input').use(styles)} value={placeholder} readOnly />

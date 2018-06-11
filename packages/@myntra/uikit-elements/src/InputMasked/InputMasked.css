@@ -1,34 +1,16 @@
-@import '@myntra/tokens/tokens.css';
+@import '../Input/Input.css';
 
-.input {
-  width: 100%;
-  border: none;
-  background-color: transparent;
-  padding: var(--size-xx-small) var(--size-base) var(--size-xx-small) var(--size-none);
+.container {
+  position: relative;
 }
 
 .mask {
   position: absolute;
   top: 0;
   left: 0;
-  color: var(--color-gray-dark);
+  border-color: transparent;
+  color: var(--typography-color-dark-secondary);
   pointer-events: none;
   z-index: -1;
 }
 
-.masked-input {
-  border-bottom: 1px solid var(--color-gray-dark);
-}
-
-.masked-input:focus {
-  outline: none;
-  border-bottom: 1px solid var(--color-accent);
-}
-
-.masked-input:disabled {
-  color: var(--typography-color-dark-secondary);
-}
-
-.input-container {
-  position: relative;
-}
