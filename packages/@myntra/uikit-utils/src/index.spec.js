@@ -14,7 +14,7 @@ describe('classnames', () => {
         bar: 'bar0',
         and: 'and0'
       })
-    ).toBe('foo0 bar0 and0')
+    ).toBe('foo0 bar0 baz and0')
   })
 })
 

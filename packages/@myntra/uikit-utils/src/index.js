@@ -51,7 +51,7 @@ export function classnames(...args) {
   const classes = []
 
   classes.use = cssModule => {
-    return unique(classes.map(it => cssModule[it]).filter(isString)).join(' ')
+    return unique(classes.map(it => cssModule[it] || it).filter(isString)).join(' ')
   }
 
   classes.toString = () => {
