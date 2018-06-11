@@ -1,3 +1,4 @@
+/* eslint-disable node/no-extraneous-import  */
 import React from 'react'
 import * as compounds from '@myntra/uikit-compounds'
 import RenderComponents from './_app/RenderComponents'

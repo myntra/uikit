@@ -60,7 +60,7 @@ export default class ComponentDocumenter extends Component {
             {' '}
             {states[this.props.status]} since v{this.props.since}
             {' | '}
-            <a href={this.props.source} target="_blank">
+            <a href={this.props.source} target="_blank" rel="noopener noreferrer">
               see source
             </a>
           </small>

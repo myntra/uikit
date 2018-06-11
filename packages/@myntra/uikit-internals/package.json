@@ -16,9 +16,13 @@
   "private": true,
   "sideEffects": false,
   "dependencies": {
+    "@myntra/tokens": "^0.1.0-alpha.1",
     "babel-standalone": "^6.26.0",
     "markdown-to-jsx": "^6.6.3",
     "mdxc": "^1.1.1",
+    "prismjs": "^1.14.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.4.0",
     "react-live": "^1.10.1"
   }
 }

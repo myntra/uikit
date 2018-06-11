@@ -1,6 +1,6 @@
 const { rootBabelOptions } = require('./transform-babel')
 const fs = require('fs')
-const babel = require('babel-core')
+const babel = require('babel-core') // eslint-disable-line node/no-unpublished-require
 const crypto = require('crypto')
 
 const THIS_FILE = fs.readFileSync(__filename)

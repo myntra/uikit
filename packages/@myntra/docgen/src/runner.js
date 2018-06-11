@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 const parse = require('./index')
 const fs = require('fs-extra')
 const glob = require('glob')

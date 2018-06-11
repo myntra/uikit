@@ -1,5 +1,5 @@
 /* globals CURRENT_BRANCH */
-
+/* eslint-disable node/no-extraneous-import  */
 import React, { Component } from 'react'
 import { BrowserRouter, Route, NavLink, Switch } from 'react-router-dom'
 import tokens from '@myntra/tokens'

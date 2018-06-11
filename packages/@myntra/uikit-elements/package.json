@@ -18,6 +18,7 @@
   "license": "UNLICENSED",
   "sideEffects": false,
   "dependencies": {
+    "@myntra/codemod-utils": "^0.1.0-alpha.1",
     "@myntra/tokens": "^0.1.0-alpha.1",
     "@myntra/uikit-utils": "^0.1.0-alpha.1",
     "intersection-observer-polyfill": "^0.1.0"
@@ -25,5 +26,8 @@
   "peerDependencies": {
     "prop-types": ">=15.6",
     "react": ">=15.6"
+  },
+  "devDependencies": {
+    "enzyme": "^3.3.0"
   }
 }

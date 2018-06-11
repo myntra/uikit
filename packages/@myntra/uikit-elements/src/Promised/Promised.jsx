@@ -48,12 +48,6 @@ export default class Promised extends Component {
     this.hook()
   }
 
-  componentWillUpdate(props) {
-    if (this.props.fn !== props.fn) {
-      this.setState({ resolved: null, rejected: null })
-    }
-  }
-
   componentDidUpdate(props) {
     if (this.props.fn !== props.fn) {
       this.hook()

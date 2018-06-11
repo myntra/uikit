@@ -127,7 +127,6 @@ describe('Intersection', () => {
 
     expect(wrapper.text()).toBe('bar')
     expect(observer.observe).toBeCalled()
-    expect(observer.unobserve).toBeCalled()
 
     wrapper.setProps({})
 

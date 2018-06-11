@@ -8,7 +8,7 @@ module.exports = {
     'prettier/standard',
     'plugin:jest/recommended'
   ],
-  plugins: ['react', 'prettier', 'standard', 'json', 'babel', 'jest'],
+  plugins: ['react', 'prettier', 'standard', 'json', 'babel', 'jest', 'node'],
   parserOptions: {
     sourceType: 'module',
     ecmaFeatures: {
@@ -21,6 +21,11 @@ module.exports = {
     'jest/globals': true
   },
   rules: {
+    'node/no-unpublished-bin': 2,
+    'node/no-extraneous-import': 2,
+    'node/no-unpublished-import': 2,
+    'node/no-extraneous-require': 2,
+    'node/no-unpublished-require': 2,
     'prettier/prettier': [
       'error',
       {

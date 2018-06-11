@@ -1,5 +1,5 @@
 const path = require('path')
-const DocGenPlugin = require('@myntra/docgen/src/plugin')
+const DocGenPlugin = require('@myntra/docgen/src/plugin') // eslint-disable-line node/no-extraneous-require
 
 module.exports = {
   define: {
@@ -51,7 +51,7 @@ module.exports = {
           loader: 'postcss-loader',
           options: {
             sourceMap: true,
-            plugins: [require('postcss-import')(), require('postcss-css-variables')()]
+            plugins: [require('postcss-import')(), require('postcss-css-variables')()] // eslint-disable-line node/no-unpublished-require
           }
         }
       ]

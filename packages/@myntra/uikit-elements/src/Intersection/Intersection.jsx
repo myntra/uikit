@@ -101,10 +101,6 @@ class Intersection extends Component {
     this.stopObserver()
   }
 
-  componentWillUpdate() {
-    this.observer.unobserve(this.ref.current)
-  }
-
   componentDidUpdate(prevProps) {
     if (this.hasOptionsChanged(this.props, prevProps)) {
       this.stopObserver()

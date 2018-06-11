@@ -1,4 +1,4 @@
-const { createTransformer } = require('babel-jest')
+const { createTransformer } = require('babel-jest') // eslint-disable-line node/no-unpublished-require
 const rootBabelOptions = {
   envName: 'test',
   presets: ['@babel/env', '@babel/react'],

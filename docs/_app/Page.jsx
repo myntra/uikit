@@ -1,3 +1,4 @@
+/* eslint-disable node/no-extraneous-import  */
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Promised } from '@myntra/uikit-elements'

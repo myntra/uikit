@@ -38,19 +38,14 @@ export default class ClickAway extends PureComponent {
     domEventName: 'click'
   }
 
-  componentWillReceiveProps(newProps) {
-    if (newProps.domEventName !== this.props.domEventName) {
-      this.unregister()
-    }
-  }
-
   componentDidUpdate(oldProps) {
     if (oldProps.domEventName !== this.props.domEventName) {
+      this.unregister(oldProps.domEventName)
       this.register()
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.register()
   }
 
@@ -62,8 +57,8 @@ export default class ClickAway extends PureComponent {
     document.addEventListener(this.props.domEventName, this.handleClickAway, { passive: true })
   }
 
-  unregister() {
-    document.removeEventListener(this.props.domEventName, this.handleClickAway)
+  unregister(eventName) {
+    document.removeEventListener(eventName || this.props.domEventName, this.handleClickAway)
   }
 
   handleClickAway = event => {
