@@ -1,0 +1,69 @@
+@import '@myntra/tokens/tokens.css';
+
+.container {
+  --knob-dimension: 12px;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+.disabled {
+  opacity: var(--opacity-base);
+  pointer-events: none;
+}
+
+.knob {
+  position: relative;
+  left: calc(var(--knob-dimension) / -2);
+  display: flex;
+  width: calc(100% - var(--knob-dimension));
+}
+
+.inner-knob {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.knob-value {
+  z-index: 100;
+  width: var(--knob-dimension);
+  height: var(--knob-dimension);
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  transition: transform 0.1s ease-out;
+}
+
+.knob-pressed {
+  transform: scale(1.5, 1.5);
+}
+
+.track {
+  position: absolute;
+  width: calc(100% - var(--knob-dimension));
+  height: 100%;
+}
+
+.inner-track {
+  position: absolute;
+  top: 15px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-gray-light);
+}
+
+.track-value {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  transform-origin: left center;
+}

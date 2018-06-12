@@ -5,8 +5,7 @@ const rootBabelOptions = {
   plugins: [
     '@babel/plugin-proposal-class-properties',
     '@babel/plugin-syntax-dynamic-import',
-    'babel-plugin-dynamic-import-node',
-    'babel-plugin-react-svg'
+    'babel-plugin-dynamic-import-node'
   ]
 }
 
