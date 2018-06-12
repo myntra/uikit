@@ -12,8 +12,7 @@ it('should render hidden checkbox input', () => {
 it('should call onChange handler on change', () => {
   const handler = jest.fn()
   const wrapper = shallow(<InputSwitch onChange={handler} />)
-  expect(wrapper.find('[type="checkbox"]').prop('onChange')).toBe(handler)
-  wrapper.find('input').simulate('change')
+  wrapper.find('input').simulate('change', { target: { checked: true } })
   expect(handler).toHaveBeenCalled()
 })
 

@@ -5,13 +5,31 @@ const path = require('path')
 const deIndent = require('de-indent')
 
 /**
+ * Parse JSDoc from prop description.
+ *
+ * @param {Prop} prop
+ * @returns {Prop}
+ */
+function prepareProp(prop) {
+  if (prop.description) {
+    const doc = doctrine.parse(prop.description)
+
+    prop.description = doc.description
+    prop.private = doc.tags.some(tag => tag.title === 'private')
+    prop.meta = doc.tags
+  }
+
+  return prop
+}
+
+/**
  * Parse file to JSDoc Meta
  * @argument {string} filename
  * @argument {string=} source
  * @returns {JSDocMeta}
  */
-module.exports = function parse(filename, source) {
-  source = source || fs.readFileSync(filename)
+module.exports = function parse(file, source) {
+  source = source || fs.readFileSync(file)
   source = source.replace(/\bimport\(([^)]+)\)/g, (_, p) => `require.resolve(${p})`)
 
   const meta = react.parse(source)
@@ -30,19 +48,21 @@ module.exports = function parse(filename, source) {
     meta.methods.forEach(method => {
       const doc = doctrine.parse(method.docblock || '')
       delete method.docblock
-      method.private = doc.tags.some(tag => tag.title === 'private')
-      // NTS: May require to improve generic argument type parsing.
+      method.private = !doc.tags.some(tag => tag.title === 'public')
     })
   }
 
-  meta.props = Object.entries(meta.props).reduce((acc, [name, prop]) => acc.concat([{ name, ...prop }]), [])
-  meta.sketch = 'sketch' in meta
-  meta.name = meta.displayName || meta.name || path.basename(filename).replace(/\.jsx?$/, '')
+  meta.props = Object.entries(meta.props).reduce(
+    (acc, [name, prop]) => acc.concat([{ name, ...prepareProp(prop) }]),
+    []
+  )
+  meta.name = meta.displayName || meta.name || path.basename(file).replace(/\.jsx?$/, '')
+  meta.file = file
 
   return meta
 }
 
 /** @typedef {{value: string, computed: boolean}} PropValue */
 /** @typedef {{name: string, value?: any, raw?: string}} PropType */
-/** @typedef {{name: string, type: PropType, required: boolean, description: string?}} Prop */
-/** @typedef {{name: string, description: string?, version: string, sketch: boolean, status: string, props: Array<Prop>}} JSDocMeta */
+/** @typedef {{name: string, type: PropType, defaultValue?: PropValue, required: boolean, description: string?, private?: boolean}} Prop */
+/** @typedef {{name: string, description: string?, version: string, status: string, props: Array<Prop>}} JSDocMeta */

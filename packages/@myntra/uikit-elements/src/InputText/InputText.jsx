@@ -10,10 +10,16 @@ import styles from './InputText.css'
  @example
  <InputText />
  */
-const InputText = ({ disabled, className, ...props }) => {
+const InputText = ({ disabled, className, onChange, ...props }) => {
   return (
     <div className={className}>
-      <input {...props} className={classnames('input').use(styles)} disabled={disabled} type="text" />
+      <input
+        {...props}
+        onChange={event => onChange && onChange(event.target.value)}
+        className={classnames('input').use(styles)}
+        disabled={disabled}
+        type="text"
+      />
     </div>
   )
 }
@@ -22,7 +28,15 @@ InputText.propTypes = {
   /** @private */
   className: PropTypes.string,
   /** Disable Input */
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  /** Value */
+  value: PropTypes.string,
+  /**
+   * Handler for change event
+   * @function
+   * @param {string} value
+   */
+  onChange: PropTypes.func
 }
 
 InputText.defaultProps = {

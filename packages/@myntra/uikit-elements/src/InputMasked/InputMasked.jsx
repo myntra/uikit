@@ -48,7 +48,8 @@ export default class InputMasked extends PureComponent {
      * @type {Object.<string, { validate: validateFunc, ?transform: transformFunc}>}
      */
     masks: PropTypes.object,
-    /** Handler for Change event
+    /**
+     * Handler for change event
      * @function
      * @param {string} value
      */

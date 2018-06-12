@@ -63,17 +63,20 @@ class Intersection extends Component {
     /**
      * Event fired when observed element enters the root element.
      * [IntersectionObserverEntry](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserverEntry)
-     * @type {function(IntersectionObserverEntry):void}
+     * @function
+     * @param {IntersectionObserverEntry} entry
      */
     onEnter: PropTypes.func,
     /**
      * Event fired when observed element leaves the root element.
-     * @type {function(IntersectionObserverEntry):void}
+     * @function
+     * @param {IntersectionObserverEntry} entry
      */
     onLeave: PropTypes.func,
     /**
      * Event fired when observed element intersection value changes.
-     * @type {function(IntersectionObserverEntry):void}
+     * @function
+     * @param {IntersectionObserverEntry} entry
      */
     onIntersection: PropTypes.func,
     /** Enter and Leave events should be fired only once. */

@@ -27,7 +27,7 @@ it('should call onChange handler on text enter', () => {
   wrapper
     .find('input')
     .at(0)
-    .simulate('change')
+    .simulate('change', { target: { value: 'foo' } })
   expect(handler).toHaveBeenCalled()
 })
 

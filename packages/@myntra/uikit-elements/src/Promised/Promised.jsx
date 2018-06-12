@@ -15,27 +15,51 @@ import PropTypes from 'prop-types'
 */
 export default class Promised extends Component {
   static propTypes = {
-    /** A function returning promise or promise. */
+    /**
+     * A function returning promise or promise.
+     *
+     * @function
+     * @returns {Promise}
+     */
     fn: PropTypes.func.isRequired,
-    /** A component to render loading state. */
+    /**
+     * A component to render loading state.
+     *
+     * @function
+     * @returns {React.Element}
+     */
     renderLoading: PropTypes.func,
-    /** A component to render error state. */
+    /**
+     * A component to render error state.
+     *
+     * @function
+     * @param {Error} error
+     * @returns {React.Element}
+     */
     renderError: PropTypes.func,
     /**
      * A component to render when promise is resolved.
+     *
+     * @function
+     * @param {any} value
+     * @returns {React.Element}
      */
     render: PropTypes.func.isRequired,
-    /** Callback when promise is resolved. */
+    /**
+     * Callback when promise is resolved.
+     */
     onResolve: PropTypes.func,
-    /** Callback when promise is rejected. */
+    /**
+     * Callback when promise is rejected.
+     */
     onReject: PropTypes.func
   }
 
   static defaultProps = {
     renderLoading: () => <span className="promise-loading" />,
     renderError: error => <span className="promise-error">{error.message}</span>,
-    onResolve: () => 0,
-    onReject: () => 0
+    onResolve: () => {},
+    onReject: () => {}
   }
 
   state = {

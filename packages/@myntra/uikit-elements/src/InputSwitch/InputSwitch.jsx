@@ -11,14 +11,20 @@ import styles from './InputSwitch.css'
  @example
  <InputSwitch
    checked={this.state.checked}
-   onChange={(event) => this.setState({checked: event.target.checked})}
+   onChange={checked => this.setState({checked})}
  />
  */
 function InputSwitch(props) {
-  const { className, ...restProps } = props
+  const { className, onChange, ...restProps } = props
   return (
     <label className={className}>
-      <input {...restProps} type="checkbox" hidden className={classnames('switch-input').use(styles)} />
+      <input
+        {...restProps}
+        type="checkbox"
+        hidden
+        className={classnames('switch-input').use(styles)}
+        onChange={event => onChange && onChange(event.target.checked)}
+      />
       <span className={classnames('switch-track').use(styles)}>
         <span className={classnames('switch-thumb').use(styles)} />
       </span>
@@ -45,7 +51,8 @@ InputSwitch.propTypes = {
   className: PropTypes.string,
   /**
    * Event fired when checked attribute of switch is changed.
-   * @type {function(SyntheticEvent):void}
+   * @function
+   * @param {boolean} checked
    */
   onChange: PropTypes.func
 }

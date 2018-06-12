@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import tokens from '@myntra/tokens'
 
-import Markdown from './Markdown'
+import Markdown from '../Markdown'
+import PropTypeDocumenter from './PropTypeDocumenter'
 
 const states = {
   DEPRECATED: '💔',
@@ -51,7 +52,7 @@ export default class ComponentDocumenter extends Component {
     if (this.state.error) return <div>ERROR: {this.state.message}</div>
 
     const styleTh = { padding: tokens.size.small, borderBottom: 'solid 2px rgba(0, 0, 0, .3)' }
-    const styleTd = { padding: tokens.size.small, borderBottom: 'solid 1px rgba(0, 0, 0, .2)' }
+    const styleTd = { padding: tokens.size.small, borderBottom: 'solid 1px rgba(0, 0, 0, .2)', minWidth: '200px' }
     return (
       <div id={this.props.name}>
         <h2>
@@ -81,20 +82,22 @@ export default class ComponentDocumenter extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.props
-                  .filter(prop => !prop.description || !prop.description.includes('@private'))
-                  .map(prop => (
-                    <tr key={prop.name}>
-                      <td style={styleTd}>{prop.name}</td>
-                      <td style={styleTd}>{prop.description ? <Markdown>{prop.description}</Markdown> : null}</td>
-                      <td style={styleTd}>{prop.type ? prop.type.name : 'Unknown'}</td>
-                      <td style={styleTd}>
-                        {prop.defaultValue ? (
-                          <code style={{ background: 'lightgray', padding: '4px' }}>{prop.defaultValue.value}</code>
-                        ) : null}
-                      </td>
-                    </tr>
-                  ))}
+                {this.props.props.filter(prop => !prop.private).map(prop => (
+                  <tr key={prop.name}>
+                    <td style={styleTd}>{prop.name}</td>
+                    <td style={styleTd}>{prop.description ? <Markdown>{prop.description}</Markdown> : null}</td>
+                    <td style={styleTd}>
+                      <PropTypeDocumenter {...prop.type} meta={prop.meta} />
+                    </td>
+                    <td style={styleTd}>
+                      {prop.defaultValue ? (
+                        <code style={{ background: 'lightgray', padding: '4px', lineHeight: 2 }}>
+                          {prop.defaultValue.value}
+                        </code>
+                      ) : null}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>

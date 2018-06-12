@@ -16,7 +16,11 @@ export default class ErrorBoundary extends Component {
   static propTypes = {
     /** Error message */
     message: PropTypes.string,
-    /** Error message slot */
+    /**
+     * Error message slot
+     * @function
+     * @returns {React.Element}
+     */
     renderMessage: PropTypes.func,
     /** Child node */
     children: PropTypes.node
