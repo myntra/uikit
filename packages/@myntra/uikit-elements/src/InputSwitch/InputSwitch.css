@@ -11,22 +11,22 @@
 .switch-track {
   position: relative;
   display: inline-block;
-  margin-top: 6px;
-  width: 40px;
-  height: 16px;
-  border-radius: 16px;
+  margin: 0 0.5em -0.13em 0;
+  width: 2.5em;
+  height: 0.8em;
+  border-radius: 0.8em;
   background: var(--color-black-light);
   cursor: pointer;
-  transition-duration: 0.28s; /* TODO: replace with token */
+  transition-duration: 0.28s;
   transition-property: background-color;
 }
 
 .switch-thumb {
   position: absolute;
-  top: -2px;
+  top: -0.2em;
   left: 0;
-  width: 20px;
-  height: 20px;
+  width: 1.2em;
+  height: 1.2em;
   border-radius: 50%;
   background: var(--color-white-base);
   box-shadow: var(--shadow-light-small);
@@ -40,7 +40,7 @@
 }
 
 .switch-input:checked + .switch-track > .switch-thumb {
-  left: 20px;
+  left: 1.3em;
   background: var(--color-primary);
 }
 

@@ -2,28 +2,21 @@
 
 ```jsx render editor
 <>
-  <div style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
-    <InputSwitch />
-    <InputSwitch checked />
-    <InputSwitch disabled />
-    <InputSwitch checked disabled />
-  </div>
+  <InputSwitch />
+  <InputSwitch value={true} />
+  <InputSwitch disabled />
+  <InputSwitch value={true} disabled />
+  <InputSwitch value={false} disabled />
 </>
 ```
 
 ## Events
 
 ```jsx render editor
-<>
-  <div style={{ display: 'flex', alignItems: 'center' }}>
-    <InputSwitch
-      id="toggle"
-      checked={this.state.checked}
-      onChange={event => this.setState({ checked: event.target.checked })}
-    />
-    <label for="toggle" style={{ marginLeft: '10px' }}>
-      Toggle
-    </label>
-  </div>
-</>
+<InputSwitch
+  id="toggle"
+  value={this.state.checked}
+  label="Toggle"
+  onChange={checked => this.setState({ checked })}
+/>
 ```

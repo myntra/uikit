@@ -10,11 +10,11 @@ import styles from './InputSwitch.css'
  @status READY
  @example
  <InputSwitch
-   checked={this.state.checked}
+   value={this.state.checked}
    onChange={checked => this.setState({checked})}
  />
  */
-function InputSwitch({ className, onChange, value, ...props }) {
+function InputSwitch({ className, onChange, value, label, ...props }) {
   return (
     <label className={className}>
       <input
@@ -27,6 +27,7 @@ function InputSwitch({ className, onChange, value, ...props }) {
       <span className={classnames('switch-track').use(styles)}>
         <span className={classnames('switch-thumb').use(styles)} />
       </span>
+      {label}
     </label>
   )
 }
@@ -37,23 +38,25 @@ InputSwitch.propTypes = {
    * @type boolean
    */
   value: PropTypes.bool,
-  /**
-   * Disabled
-   * @type boolean
-   */
-  disabled: PropTypes.bool,
-  /**
-   * Optional classname
-   * @private
-   * @type boolean
-   */
-  className: PropTypes.string,
+
   /**
    * Event fired when checked attribute of switch is changed.
    * @function
    * @param {boolean} checked
    */
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+
+  /** Label text */
+  label: PropTypes.string,
+
+  /**
+   * Disabled
+   * @type boolean
+   */
+  disabled: PropTypes.bool,
+
+  /** @private */
+  className: PropTypes.string
 }
 
 export default InputSwitch
