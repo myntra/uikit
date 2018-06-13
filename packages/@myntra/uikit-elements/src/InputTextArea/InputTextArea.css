@@ -1,0 +1,5 @@
+@import '../Input/Input.css';
+
+.input.no-resize {
+  resize: none;
+}
