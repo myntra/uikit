@@ -1,6 +1,6 @@
 ## States:
 
-```jsx render preview
+```jsx render editor
 <>
   <InputRange
     min={0}
@@ -17,7 +17,7 @@
 
 ## Events
 
-```jsx render preview
+```jsx render editor
 <>
   <InputRange
     min={0}

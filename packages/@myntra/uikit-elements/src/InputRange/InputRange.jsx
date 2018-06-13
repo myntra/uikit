@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames, memoize } from '@myntra/uikit-utils/src'
-import { getMousePosition, getTouchPosition, pauseEvent, addEventsToDocument, removeEventsFromDocument } from './events'
+import { getMousePosition, getTouchPosition, addEventsToDocument, removeEventsFromDocument } from './events'
 import styles from './InputRange.css'
 
 /**
@@ -116,36 +116,39 @@ export default class InputRange extends React.PureComponent {
   /**
    * Process the event and return new value in the callback
    * @param {Object.<string, number>} position Coordinates of slider knob
-   * @param {Event} event
    */
-  processEvent = (position, event) => {
+  handleChange = position => {
     if (this.props.onChange) {
       const value = this.calculateValue(position)
 
       if (value !== this.props.value) this.props.onChange(value)
     }
-
-    pauseEvent(event) // TODO: Check why?
   }
 
   handleMouseDown = event => {
     addEventsToDocument(this.mouseEventMap)
+
     this.setState({ pressed: true })
-    this.processEvent(getMousePosition(event), event)
+    this.handleChange(getMousePosition(event))
   }
 
   handleTouchStart = event => {
     addEventsToDocument(this.touchEventMap)
+
     this.setState({ pressed: true })
-    this.processEvent(getTouchPosition(event), event)
+    this.handleChange(getTouchPosition(event))
   }
 
   handleMouseMove = event => {
-    this.processEvent(getMousePosition(event), event)
+    window.requestAnimationFrame(() => {
+      this.handleChange(getMousePosition(event))
+    })
   }
 
   handleTouchMove = event => {
-    this.processEvent(getTouchPosition(event), event)
+    window.requestAnimationFrame(() => {
+      this.handleChange(getTouchPosition(event))
+    })
   }
 
   handleMouseUp = () => {
