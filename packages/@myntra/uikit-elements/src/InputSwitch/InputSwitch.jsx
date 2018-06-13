@@ -14,14 +14,13 @@ import styles from './InputSwitch.css'
    onChange={checked => this.setState({checked})}
  />
  */
-function InputSwitch(props) {
-  const { className, onChange, ...restProps } = props
+function InputSwitch({ className, onChange, value, ...props }) {
   return (
     <label className={className}>
       <input
-        {...restProps}
+        {...props}
         type="checkbox"
-        hidden
+        checked={!!value}
         className={classnames('switch-input').use(styles)}
         onChange={event => onChange && onChange(event.target.checked)}
       />
@@ -37,7 +36,7 @@ InputSwitch.propTypes = {
    * Attribute to indicate whether the switch is selected
    * @type boolean
    */
-  checked: PropTypes.bool,
+  value: PropTypes.bool,
   /**
    * Disabled
    * @type boolean

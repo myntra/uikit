@@ -10,11 +10,12 @@ import styles from './InputText.css'
  @example
  <InputText />
  */
-const InputText = ({ disabled, className, onChange, ...props }) => {
+const InputText = ({ disabled, className, onChange, value, ...props }) => {
   return (
     <div className={className}>
       <input
         {...props}
+        value={typeof value !== 'string' ? '' : value}
         onChange={event => onChange && onChange(event.target.value)}
         className={classnames('input').use(styles)}
         disabled={disabled}

@@ -18,6 +18,7 @@
   color: var(--typography-color-dark-secondary);
 }
 
-.input:disabled {
+.input:disabled,
+.input[disabled] {
   color: var(--typography-color-dark-secondary);
 }

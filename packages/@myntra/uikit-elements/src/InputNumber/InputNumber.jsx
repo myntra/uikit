@@ -10,12 +10,13 @@ import styles from './InputNumber.css'
  * @example
  * <InputNumber value={this.state.value} onChange={value => { this.setState({ value }) }} />
  */
-const InputNumber = ({ className, onChange, ...props }) => {
+const InputNumber = ({ className, onChange, value, ...props }) => {
   return (
     <div className={className}>
       <input
         {...props}
         type="number"
+        value={typeof value !== 'number' ? '' : value}
         className={classnames('input').use(styles)}
         onChange={event => onChange && onChange(parseFloat(event.target.value))}
       />
