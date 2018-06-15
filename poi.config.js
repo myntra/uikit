@@ -25,13 +25,9 @@ module.exports = {
       }
     }
 
-    const svg = config.module.rules.findIndex(it => it.test.toString().includes('svg'))
-    if (svg > -1) {
-      config.module.rules.splice(svg, 1)
-    }
     config.module.rules.push({
-      test: /\.svg$/,
-      loader: 'svg-react-loader'
+      test: /\.sprite$/,
+      loader: require.resolve('@myntra/uikit-icon-loader')
     })
 
     const css = config.module.rules.find(it => it.test.toString() === '/\\.css$/')

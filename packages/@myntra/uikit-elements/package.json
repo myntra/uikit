@@ -5,7 +5,9 @@
   "main": "src/index.js",
   "module": "src/index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "svg-sprite-generate -d src/Icon/icons -o src/Icon/icons.sprite",
+    "prepare": "yarn run build"
   },
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-elements",
   "publishConfig": {
@@ -28,6 +30,7 @@
     "react": ">=15.6"
   },
   "devDependencies": {
-    "enzyme": "^3.3.0"
+    "enzyme": "^3.3.0",
+    "svg-sprite-generator": "^0.0.7"
   }
 }

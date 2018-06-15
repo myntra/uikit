@@ -1,38 +1,46 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
 import styles from './Icon.css'
+import useIcons from './icons.sprite'
 
-import Promised from '../Promised/Promised'
+if (typeof useIcons === 'function') useIcons()
 
 /**
- General purpose SVG icon.
-
- @since 0.0.0
- @status EXPERIMENTAL
- @example <Icon name="alert" />
+ * General purpose SVG icon.
+ *
+ * __Note:__ In your webpack config, you have to include a rule to load SVG icon sprites.
+ * ``` js
+ * {
+ *    test: /\.sprite$/,
+ *    loader: '@myntra/uikit-icon-loader'
+ * }
+ * ```
+ * @since 0.0.0
+ * @status EXPERIMENTAL
+ * @example <Icon name="alert" />
  */
-export default class Icon extends PureComponent {
-  static propTypes = {
-    /** Icon name. */
-    name: PropTypes.string
-  }
-
-  render() {
-    const { name } = this.props
-
-    return (
-      <Promised
-        fn={() => import(`./icons/${name}.svg`).then(m => m.default)}
-        renderLoading={() => <span className={classnames('icon', 'loading').use(styles)} />}
-        renderError={() => <span className={classnames('icon', 'unknown').use(styles)} />}
-        render={SvgIcon => (
-          <span className={classnames('icon').use(styles)} alt={name}>
-            <SvgIcon className={classnames('svg').use(styles)} />
-          </span>
-        )}
-      />
-    )
-  }
+function Icon({ name, className, title, ...props }) {
+  return (
+    <svg
+      {...props}
+      className={classnames(className, 'svg').use(styles)}
+      aria-hidden={title ? null : true}
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      {title ? <title>{title}</title> : null}
+      <use xlinkHref={`#${name}`} aria-hidden={title ? true : null} />
+    </svg>
+  )
 }
+
+Icon.propTypes = {
+  /** @private */
+  className: PropTypes.string,
+  name: PropTypes.oneOf(['alert']).isRequired,
+  /** Alternative text for screen readers. */
+  title: PropTypes.string
+}
+
+export default Icon

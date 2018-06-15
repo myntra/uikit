@@ -1,30 +1,17 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import Icon from './Icon'
 
-it('should render SVG icon', done => {
-  const wrapper = mount(<Icon name="alert" />)
+it('should render SVG icon', () => {
+  const wrapper = shallow(<Icon name="alert" />)
+  const svg = wrapper.find('svg')
 
-  setTimeout(() => {
-    const span = wrapper.find('span')
-    expect(span.getDOMNode().className).toBe('icon')
-    expect(span.children).toHaveLength(1)
-    expect(span.html()).toMatchSnapshot()
-    done()
-  }, 250)
+  expect(svg.html()).toMatchSnapshot()
 })
 
-it('should render placeholder icon until icon is loaded', () => {
-  const wrapper = mount(<Icon name="xxxxx" />)
+it('should render title with SVG icon', () => {
+  const wrapper = shallow(<Icon name="alert" title="This is dangerous!" />)
+  const svg = wrapper.find('svg')
 
-  expect(wrapper.find('span').getDOMNode().className).toBe('icon loading')
-})
-
-it('should render placeholder icon for missing SVG', done => {
-  const wrapper = mount(<Icon name="xxxxxxxxxxxx" />)
-
-  setTimeout(() => {
-    expect(wrapper.find('span').getDOMNode().className).toBe('icon unknown')
-    done()
-  }, 50)
+  expect(svg.html()).toMatchSnapshot()
 })

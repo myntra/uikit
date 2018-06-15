@@ -26,7 +26,7 @@ it('warn `to` and `href` should not be used', () => {
 })
 
 it('should render primary icon', () => {
-  const w = shallow(<Button icon="name" />)
+  const w = shallow(<Button icon="alert" />)
 
   expect(w.find('.left')).toHaveLength(1)
 
@@ -35,11 +35,11 @@ it('should render primary icon', () => {
       .find(Icon)
       .at(0)
       .props().name
-  ).toBe('name')
+  ).toBe('alert')
 })
 
 it('should render secondary icon', () => {
-  const w = shallow(<Button secondaryIcon="name" />)
+  const w = shallow(<Button secondaryIcon="alert" />)
 
   expect(w.find('.right')).toHaveLength(1)
 
@@ -48,7 +48,7 @@ it('should render secondary icon', () => {
       .find(Icon)
       .at(0)
       .props().name
-  ).toBe('name')
+  ).toBe('alert')
 })
 
 it('should render label as children', () => {

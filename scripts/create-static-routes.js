@@ -12,4 +12,5 @@ nav.forEach(({ to }) => {
   const target = join(dist, to)
   execSync(`mkdir -p ${target}`)
   execSync(`cp ${dist}/index.html ${target}/index.html`)
+  execSync(`cp ${dist}/index.html ${target}/200.html`)
 })
