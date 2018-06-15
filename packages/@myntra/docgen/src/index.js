@@ -33,6 +33,9 @@ module.exports = function parse(file, source) {
   source = source.replace(/\bimport\(([^)]+)\)/g, (_, p) => `require.resolve(${p})`)
 
   const meta = react.parse(source)
+
+  if (!meta) throw new Error('Failed to parse ' + file)
+
   const docs = doctrine.parse(meta.description)
 
   meta.description = docs.description
@@ -52,12 +55,12 @@ module.exports = function parse(file, source) {
     })
   }
 
-  meta.props = Object.entries(meta.props).reduce(
+  meta.props = Object.entries(meta.props || {}).reduce(
     (acc, [name, prop]) => acc.concat([{ name, ...prepareProp(prop) }]),
     []
   )
   meta.name = meta.displayName || meta.name || path.basename(file).replace(/\.jsx?$/, '')
-  meta.file = file
+  meta.file = path.relative(process.cwd(), file)
 
   return meta
 }

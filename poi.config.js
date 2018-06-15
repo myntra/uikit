@@ -1,5 +1,4 @@
 const path = require('path')
-const DocGenPlugin = require('@myntra/docgen/src/plugin') // eslint-disable-line node/no-extraneous-require
 
 module.exports = {
   define: {
@@ -14,6 +13,17 @@ module.exports = {
         name: 'static/media/[name].[hash:8].[ext]'
       }
     })
+
+    const jsx = config.module.rules.find(it => it.test.toString().includes('jsx'))
+
+    if (jsx) {
+      if ('use' in jsx) {
+        jsx.use.push({ loader: require.resolve('@myntra/docgen/src/loader.js') })
+      } else if ('loader' in jsx) {
+        jsx.use = [jsx.loader, { loader: require.resolve('@myntra/docgen/src/loader.js') }]
+        delete jsx.loader
+      }
+    }
 
     const svg = config.module.rules.findIndex(it => it.test.toString().includes('svg'))
     if (svg > -1) {
@@ -73,15 +83,6 @@ module.exports = {
         }
       ]
     })
-
-    config.plugins.push(
-      new DocGenPlugin([
-        'packages/@myntra/uikit-elements',
-        'packages/@myntra/uikit-internals',
-        'packages/@myntra/uikit-compounds',
-        'packages/@myntra/uikit-patterns'
-      ])
-    )
 
     return config
   }

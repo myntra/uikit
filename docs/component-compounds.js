@@ -7,9 +7,8 @@ export default function ComponentCompounds(props) {
   return (
     <RenderComponents
       {...props}
-      meta={name => import(`@myntra/uikit-compounds/dist/${name}.json`)}
       packageName="@myntra/uikit-compounds"
-      examples={name => import(`@myntra/uikit-compounds/src/${name}/${name}.md`)}
+      examples={name => import(`@myntra/uikit-compounds/src/${name}.md`)}
       components={compounds}
     />
   )
