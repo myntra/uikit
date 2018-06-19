@@ -1,0 +1,35 @@
+.jumper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.select {
+  display: inline-block;
+}
+
+.select + .select {
+  margin-left: 0.125rem;
+}
+
+.select > select {
+  -moz-appearance: none;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  padding: 0;
+  margin: var(--size-small) 0;
+  max-width: 100%;
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  background-color: transparent;
+  color: var(--typography-color-dark-primary);
+  text-transform: uppercase;
+  font-size: var(--typography-text-smallText-font-size);
+  font-weight: var(--typography-text-smallText-font-weight);
+  line-height: var(--typography-text-smallText-line-height);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -webkit-box-align: center;
+}

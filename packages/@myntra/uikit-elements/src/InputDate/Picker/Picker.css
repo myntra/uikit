@@ -1,0 +1,4 @@
+.picker {
+  display: flex;
+  flex-wrap: wrap;
+}
