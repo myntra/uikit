@@ -38,7 +38,7 @@ function Icon({ name, className, title, ...props }) {
 Icon.propTypes = {
   /** @private */
   className: PropTypes.string,
-  name: PropTypes.oneOf(['alert']).isRequired,
+  name: PropTypes.oneOf(['alert', 'cross']).isRequired,
   /** Alternative text for screen readers. */
   title: PropTypes.string
 }
