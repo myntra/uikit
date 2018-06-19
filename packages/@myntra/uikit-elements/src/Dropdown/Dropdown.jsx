@@ -121,6 +121,15 @@ class Dropdown extends Component {
   }
 
   /**
+   * Close dropdown content drawer.
+   *
+   * @returns {void}
+   */
+  open = () => {
+    this.setState({ isOpen: true }, this.props.onOpen)
+  }
+
+  /**
    * Toggle dropdown content drawer state.
    *
    * @returns {void}
@@ -167,11 +176,11 @@ class Dropdown extends Component {
         className={classnames(this.props.className, 'dropdown', { open: this.state.isOpen }).use(styles)}
         ref={this.wrapper}
       >
-        <div className={classnames('trigger').use(styles)} onClick={this.toggle}>
+        <div className={classnames('trigger').use(styles)}>
           {typeof this.props.trigger === 'string' ? (
-            <Button label={this.props.trigger} secondaryIcon="chevron-down" />
+            <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
           ) : (
-            this.props.trigger
+            React.cloneElement(this.props.trigger, { onBlur: this.close, onFocus: this.open, onClick: this.toggle })
           )}
         </div>
         {this.state.isOpen && (
