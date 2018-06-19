@@ -3,8 +3,10 @@ import PropTypes from 'prop-types'
 
 import { LiveProvider, LiveEditor, LivePreview, LiveError } from 'react-live'
 import tokens from '@myntra/tokens'
-
+import * as prettier from 'prettier/standalone'
 import Card from './Card'
+
+const plugins = [require('prettier/parser-babylon')]
 
 const { Provider: PlaygroundProvider, Consumer: PlaygroundConsumer } = React.createContext({})
 
@@ -42,7 +44,10 @@ export default class Playground extends PureComponent {
       <PlaygroundConsumer>
         {extra => (
           <LiveProvider
-            code={this.props.children}
+            code={prettier
+              .format(this.props.children, { semi: false, singleQuote: true, jsxBracketSameLine: true, plugins })
+              .trim()
+              .replace(/^;/, '')}
             scope={{ ...this.props.context, ...extra }}
             noInline
             transformCode={code => `class LiveWrapper extends React.Component {
@@ -51,7 +56,7 @@ export default class Playground extends PureComponent {
                 this.state = {}
               }
               render() {
-                ${code.replace(/</, ';return <')}
+                ${code.replace(/</i, ';return <')}
               }
             }
             render(<LiveWrapper />)`}
