@@ -13,10 +13,12 @@ import styles from './Dropdown.css'
  @since 0.0.0
  @status EXPERIMENTAL
  @example
-<Dropdown trigger="Open">
-  Anything here!
-  <p>Yes. Anything!</p>
-</Dropdown>
+  <Dropdown trigger="Open" auto>
+    <div style={{ padding: '100px', background: 'white', boxShadow: '0 0 10px 0 rgba(0, 0, 0, .34)' }}>
+      Anything here!
+      <p>Yes. Anything!</p>
+    </div>
+  </Dropdown>
  */
 class Dropdown extends Component {
   static propTypes = {
@@ -41,14 +43,54 @@ class Dropdown extends Component {
     /** Align dropdown drawer with the right edge of the trigger. */
     right: PropTypes.bool,
     /** Align dropdown drawer with the left edge of the trigger. */
-    left: PropTypes.bool
+    left: PropTypes.bool,
+    /**
+     * Position dropdown drawer in best suited place.
+     */
+    auto: PropTypes.bool,
+    /** Used to detect position on first render. In further, renders actual height of DOM element is used. */
+    approxContentHeight: PropTypes.number,
+    /** Used to detect position on first render. In further, renders actual width of DOM element is used. */
+    approxContentWidth: PropTypes.number,
+    /** @private */
+    _combination: props => {
+      const positions = ['up', 'left', 'right'].filter(it => it in props)
+
+      if (props.auto && positions.length) {
+        throw new Error(`Prop 'auto' cannot be used with ${positions.join(', ')}.`)
+      }
+
+      if (props.left && props.right) {
+        throw new Error(`Use one of 'left' or 'right'.`)
+      }
+    }
+  }
+
+  static defaultProps = {
+    approxContentHeight: 320,
+    approxContentWidth: 240
   }
 
   constructor(props) {
     super(props)
 
-    this.state = { isOpen: false }
-    this.wrapper = React.createRef()
+    this.state = { isOpen: false, up: false, left: false, right: false }
+    this.wrapper =
+      typeof React.createRef === 'function'
+        ? React.createRef()
+        : ref => {
+            this.wrapper.current = ref
+          }
+    this.content = ref => {
+      this.content.ref = ref
+
+      if (ref) {
+        const rect = ref.getBoundingClientRect()
+
+        this.lastHeight = rect.height
+        this.lastWidth = rect.width
+      }
+    }
   }
 
   /**
@@ -84,11 +126,40 @@ class Dropdown extends Component {
    * @returns {void}
    */
   toggle = () => {
+    if (this.props.auto && !this.state.isOpen) {
+      this.setState(this.calculateAutoPosition(this.wrapper.current, document.body))
+    }
+
     this.setState(state => ({ isOpen: !state.isOpen }), this.state.isOpen ? this.props.onClose : this.props.onOpen)
   }
 
+  /**
+   * Calculate auto position.
+   */
+  calculateAutoPosition(element, parent) {
+    if (!element || !parent) {
+      return { up: false, left: false, right: false }
+    }
+
+    const target = element.getBoundingClientRect()
+    const reference = parent.getBoundingClientRect()
+
+    const height = this.lastHeight || this.props.approxContentHeight
+    const width = this.lastWidth || this.props.approxContentWidth
+
+    const maxWidth = reference.right
+    const maxHeight = reference.bottom
+
+    // Choose:
+    const up = target.bottom + height >= maxHeight && target.top - height > 0
+    const left = target.left + width < maxWidth
+    const right = target.right - width > 0
+
+    return { up, left, right: left ? false : right }
+  }
+
   render() {
-    const { up, left, right } = this.props
+    const { up, left, right } = this.props.auto ? this.state : this.props
 
     return (
       <div
@@ -98,13 +169,15 @@ class Dropdown extends Component {
       >
         <div className={classnames('trigger').use(styles)} onClick={this.toggle}>
           {typeof this.props.trigger === 'string' ? (
-            <Button label={this.props.trigger} secondaryIcon="alert" />
+            <Button label={this.props.trigger} secondaryIcon="chevron-down" />
           ) : (
             this.props.trigger
           )}
         </div>
         {this.state.isOpen && (
-          <div className={classnames('content', { up, left, right }).use(styles)}>{this.props.children}</div>
+          <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
+            {this.props.children}
+          </div>
         )}
         {this.state.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
       </div>

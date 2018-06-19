@@ -1,14 +1,13 @@
 .dropdown {
   display: inline-block;
   position: relative;
-
-  /* z-index: var(--z-index-dropdown); */
 }
 
 .content {
   position: absolute;
   transition: height 0.3s;
   top: 100%;
+  z-index: var(--z-index-dropdown);
 }
 
 .dropdown > .content {
@@ -21,13 +20,18 @@
 
 .content.up {
   top: initial;
-  bottom: 0;
+  bottom: 100%;
+}
+
+.content.right {
+  right: 0;
 }
 
 .content.left {
   left: 0;
 }
 
-.content.right {
-  right: 0;
+.trigger > * {
+  margin-left: 0;
+  margin-right: 0;
 }
