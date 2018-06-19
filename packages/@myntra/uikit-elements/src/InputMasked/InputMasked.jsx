@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import defaultMasks from './masks'
-import { classnames, each, map, findIndex, findLastIndex, memoize } from '@myntra/uikit-utils'
+import { classnames, each, map, findIndex, findLastIndex, memoize, onlyExtraProps } from '@myntra/uikit-utils'
 
 import styles from './InputMasked.css'
 /**
@@ -28,6 +28,8 @@ import styles from './InputMasked.css'
 
 export default class InputMasked extends PureComponent {
   static propTypes = {
+    /** @private */
+    className: PropTypes.string,
     /** Value */
     value: PropTypes.string,
     /** Placeholder for the mask */
@@ -59,6 +61,11 @@ export default class InputMasked extends PureComponent {
   static defaultProps = {
     includeMaskChars: false,
     value: ''
+  }
+
+  _filterForwardedProps = onlyExtraProps(InputMasked.propTypes)
+  get forwardedProps() {
+    return this._filterForwardedProps(this.props)
   }
 
   /**
@@ -250,8 +257,9 @@ export default class InputMasked extends PureComponent {
     const maskedValue = this.getMaskedValue(this.props.value)
     const placeholder = this.getPlaceholder(maskedValue)
     return (
-      <div className={classnames('container').use(styles)}>
+      <div className={classnames(this.props.className, 'container').use(styles)}>
         <input
+          {...this.forwardedProps}
           className={classnames('input', 'masked-input').use(styles)}
           value={maskedValue}
           onKeyPress={this.handleKeyPress}
@@ -259,7 +267,7 @@ export default class InputMasked extends PureComponent {
           onChange={() => {}}
           maxLength={this.maskMetadata.length}
         />
-        <input className={classnames('mask', 'input').use(styles)} value={placeholder} readOnly />
+        <input className={classnames('mask', 'input').use(styles)} value={placeholder} readOnly tabIndex={-1} />
       </div>
     )
   }
