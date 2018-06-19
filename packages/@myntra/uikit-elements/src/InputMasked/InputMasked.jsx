@@ -21,7 +21,7 @@ import styles from './InputMasked.css'
  *   value={this.state.value}
  *   placeholder='PIN - XX XX'
  *   includeMaskChars={false}
- *   pattern='"PIN - "dd" "dd'
+ *   pattern={'"PIN - "dd" "dd'}
  *   onChange={(value) => this.setState({value})}
  * />
  */

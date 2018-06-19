@@ -8,7 +8,7 @@ import styles from './InputText.css'
  @since 0.0.0
  @status EXPERIMENTAL
  @example
- <InputText />
+ <InputText value={this.state.value} onChange={value => this.setState({ value })} />
  */
 const InputText = ({ disabled, className, onChange, value, ...props }) => {
   return (
