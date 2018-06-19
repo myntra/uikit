@@ -197,5 +197,5 @@ typography:
       primary: $color.blue.base
     link:
       primary: $color.blue.base
-# z-index:
-  #
+z-index:
+  dropdown: 1000
