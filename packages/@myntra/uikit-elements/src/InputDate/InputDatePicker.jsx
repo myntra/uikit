@@ -44,6 +44,9 @@ class InputDatePicker extends PureComponent {
     min: DateType,
     max: DateType,
     format: PropTypes.string,
+    /**
+     * @private
+     */
     _validate(props) {
       if (
         (props.range

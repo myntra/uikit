@@ -39,6 +39,7 @@ export default class InputDate extends PureComponent {
 
   state = {
     isOpen: false,
+    openToDate: null,
     activeRangeEnd: null,
     isRangeSelectionActive: false
   }
@@ -64,6 +65,15 @@ export default class InputDate extends PureComponent {
     if (this.props.value && this.props.value.from && !this.props.value.to) return 'to'
     return 'from'
   }
+
+  get openToDate() {
+    if (this.state.openToDate) return this.state.openToDate
+    if (!this.props.range) return this.props.value
+    if (!this.props.value) return null
+    if (this.props.value.from && this.props.value.to) return this.props.value.from
+  }
+
+  handleOpenToDateChange = openToDate => this.setState({ openToDate })
 
   handleDisplayValueChange = value => {
     if (this.props.onChange) {
@@ -94,7 +104,7 @@ export default class InputDate extends PureComponent {
   }
 
   handleDropdownOpen = () => this.setState({ isOpen: true })
-  handleDropdownClose = () => this.setState({ isOpen: false, activeRangeEnd: null })
+  handleDropdownClose = () => this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
   handleBlur = event => {
     if (document.activeElement === document.body) return
     const path = event.path || (event.composedPath ? event.composedPath() : undefined)
@@ -138,6 +148,8 @@ export default class InputDate extends PureComponent {
             disabledDates={[]}
             monthsToDisplay={this.props.range ? 2 : 1}
             {...this.props}
+            openToDate={this.openToDate}
+            onOpenToDateChange={this.handleOpenToDateChange}
             onChange={this.handleChange}
             active={this.state.activeRangeEnd}
           />
