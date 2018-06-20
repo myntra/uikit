@@ -44,8 +44,7 @@ export default class Picker extends Component {
     min: PropTypes.instanceOf(Date),
     max: PropTypes.instanceOf(Date),
     range: PropTypes.bool,
-    /** @private */
-    _validate(props) {
+    validate(props) {
       if (props.range && props.value instanceof Date) {
         throw new Error('When using `range` prop, value should be a plain object of type ({ from?: Date, to?: Date }).')
       }

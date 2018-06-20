@@ -21,7 +21,6 @@ export default class Day extends PureComponent {
     isSelectionEnd: PropTypes.bool,
     onSelect: PropTypes.func,
     onFocus: PropTypes.func,
-    /** @private */
     isValidDate(props) {
       const names = ['year', 'month', 'day']
 
