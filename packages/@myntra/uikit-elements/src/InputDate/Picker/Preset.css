@@ -14,6 +14,7 @@
   font-weight: var(--typography-text-smallText-font-weight);
   line-height: var(--typography-text-smallText-line-height);
   cursor: pointer;
+  user-select: none;
 }
 
 .preset + .preset {

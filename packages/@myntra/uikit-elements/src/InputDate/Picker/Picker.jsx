@@ -76,6 +76,10 @@ export default class Picker extends Component {
     if (this.props.onOpenToDateChange) this.props.onOpenToDateChange(openToDate)
   }
 
+  componentWillUnmount() {
+    clearTimeout(this.focusClearTimer)
+  }
+
   handleDateFocus = (_, focused) => {
     clearTimeout(this.focusClearTimer)
     if (!this.props.disabled) {
@@ -102,18 +106,24 @@ export default class Picker extends Component {
     if (!this.props.range) return this.props.onChange(value)
     if (this.props.active) return this.fireRangeEvent({ ...this.props.value, [this.props.active]: value })
     if (!this.props.value) return this.fireRangeEvent({ from: value })
-    if (!(this.props.value.from || this.props.value.to)) return this.fireRangeEvent({ from: value })
-    if (this.props.value.from && this.props.value.to) return this.fireRangeEvent({ from: value })
-
-    this.fireRangeEvent({ from: this.props.value.from, to: value })
+    if (this.props.value.from && !this.props.value.to)
+      return this.fireRangeEvent({ from: this.props.value.from, to: value })
+    if (!this.props.value.from && this.props.value.to)
+      return this.fireRangeEvent({ from: value, to: this.props.value.to })
+    return this.fireRangeEvent({ from: value })
   }
 
   fireRangeEvent(value) {
     if (this.props.onRangeStartSelected && value.from) this.props.onRangeStartSelected(value.from)
     if (this.props.onRangeEndSelected && value.to) this.props.onRangeEndSelected(value.to)
+    if (this.props.onChange) {
+      if (value.from && value.to) {
+        const [from, to] = [value.from, value.to].sort((a, b) => a.getTime() - b.getTime())
+        value = { from, to }
+      }
 
-    const [from, to] = [value.from, value.to].sort((a, b) => a.getTime() - b.getTime())
-    if (this.props.onChange) this.props.onChange({ from, to })
+      this.props.onChange(value)
+    }
   }
 
   /**
@@ -154,6 +164,7 @@ export default class Picker extends Component {
   createSelectionData(date) {
     const value = this.props.value
     const focused = this.state.focused
+    const selecting = this.props.active
     if (!this.props.range) {
       if (this.isSameMonth(value, date)) {
         return { from: value.getDate(), to: value.getDate() }
@@ -162,6 +173,11 @@ export default class Picker extends Component {
       const hasFrom = !!value.from
       const hasTo = !!value.to
       const hasFocused = !!focused
+
+      if (selecting === 'from' && !hasTo)
+        return hasFrom ? this.findSelectionRange({ from: value.from, to: value.from }, date) : null
+      if (selecting === 'to' && !hasFrom)
+        return hasTo ? this.findSelectionRange({ from: value.to, to: value.to }, date) : null
 
       if (hasFrom && hasTo) {
         return this.findSelectionRange(value, date)
@@ -232,7 +248,14 @@ export default class Picker extends Component {
           .map(index => this.createMonthData(date, index))
           .map(({ key, ...props }, offset) => (
             <Month {...props} key={key} onDateFocus={this.handleDateFocus} onDateSelect={this.handleDateSelect}>
-              <Jumper year={props.year} month={props.month} offset={offset} onJump={this.handleJump} />
+              <Jumper
+                year={props.year}
+                month={props.month}
+                offset={offset}
+                hasPrev={offset === 0}
+                hasNext={offset + 1 === this.props.monthsToDisplay}
+                onJump={this.handleJump}
+              />
             </Month>
           ))}
         {this.props.children}

@@ -33,3 +33,21 @@
   -webkit-appearance: none;
   -webkit-box-align: center;
 }
+
+.next,
+.prev {
+  cursor: pointer;
+  padding: var(--size-x-small);
+}
+
+.placeholder {
+  width: 1em;
+}
+
+.prev {
+  margin-right: auto;
+}
+
+.next {
+  margin-left: auto;
+}
