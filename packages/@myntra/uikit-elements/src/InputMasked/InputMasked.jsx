@@ -47,7 +47,7 @@ export default class InputMasked extends PureComponent {
      * @param {string} char - character to transform
      * @return {string} - Transformed character
      *
-     * @type {Object.<string, { validate: validateFunc, ?transform: transformFunc}>}
+     * @type {Object.<string, { validate: validateFunc, transform: transformFunc}>}
      */
     masks: PropTypes.object,
     /**

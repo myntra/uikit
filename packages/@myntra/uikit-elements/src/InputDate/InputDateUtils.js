@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import dayJS from 'dayjs'
+import { parse as baseParse, format as baseFormat } from 'date-fns'
 
 export const RE_ISO_DATE = /^(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)$/
 
@@ -49,30 +49,16 @@ export function onlyDate(date) {
 }
 
 export function parse(str, format) {
-  if (!str) return null
+  if (str instanceof Date) return str
+  if (typeof str !== 'string') return null
   if (!format) throw new Error(`'format' is required.`)
   if (RE_ISO_DATE.test(str)) return new Date(str)
   if (str.length !== format.length) throw new Error(`Date parse exception: unequal length`)
 
-  const re = new RegExp(
-    format
-      .replace(/D+/, '(\\d{2})')
-      .replace(/M+/, '(\\d{2})')
-      .replace(/Y+/, '(\\d{4})')
-  )
-  const matches = re.exec(str)
+  const date = baseParse(str, format, new Date())
 
-  if (matches) {
-    const v = ['Y', 'M', 'D']
-      .map(key => [key, format.indexOf(key)])
-      .sort((a, b) => a[1] - b[1])
-      .reduce((acc, [key], index) => {
-        acc[key] = parseInt(matches[index + 1])
-
-        return acc
-      }, {})
-
-    return UTCDate(v.Y, v.M - 1, v.D)
+  if (date instanceof Date) {
+    return onlyDate(date)
   }
 
   throw new Error(`Date parse exception: '${str}' does not match '${format}'`)
@@ -81,7 +67,7 @@ export function parse(str, format) {
 export function format(value, pattern) {
   if (!value) return value
   if (!pattern) return value
-  if (value instanceof Date) return dayJS(value).format(pattern)
+  if (value instanceof Date) return baseFormat(value, pattern)
   if (typeof value === 'string') return format(parse(value, pattern), pattern)
 
   const result = {}

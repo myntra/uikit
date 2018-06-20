@@ -4,7 +4,7 @@ import { classnames } from '@myntra/uikit-utils'
 import InputDatePicker from './InputDatePicker'
 import InputDateValue from './InputDateValue'
 import Dropdown from '../Dropdown/Dropdown'
-import { format } from './InputDateUtils'
+import { format, parse, DateType, DateRangeType } from './InputDateUtils'
 import styles from './InputDate.css'
 
 /**
@@ -13,23 +13,37 @@ import styles from './InputDate.css'
  @since 0.0.0
  @status EXPERIMENTAL
  @example
- <InputDate range value={this.state.value} onChange={(value) => {console.log(value); this.setState({value})}}/>
+ <InputDate range displayFormat="MM/dd" value={this.state.value} onChange={(value) => {console.log(value); this.setState({value})}}/>
 **/
 export default class InputDate extends PureComponent {
   static propTypes = {
     /** @private */
     className: PropTypes.string,
+    /** Date format when using string dates. */
     format: PropTypes.string,
+    /** Date format used only for displaying date values. */
+    displayFormat: PropTypes.string,
+    /** Select date range. */
     range: PropTypes.bool,
+    /** Disabled */
     disabled: PropTypes.bool,
+    /**
+     * Change event handler.
+     *
+     * @typedef {string|Date} DateLike
+     *
+     * @function
+     * @param {DateLike|{ from: DateLike, to: DateLike }} value
+     */
     onChange: PropTypes.func.isRequired,
-    value: PropTypes.oneOfType([
-      PropTypes.instanceOf(Date),
-      PropTypes.shape({
-        from: PropTypes.instanceOf(Date),
-        to: PropTypes.instanceOf(Date)
-      })
-    ])
+    /**
+     * Value
+     *
+     * @typedef {string|Date} DateType
+     *
+     * @typedef {{from: DateType, to: DateType}} DateRangeType
+     */
+    value: PropTypes.oneOfType([DateType, DateRangeType])
   }
 
   static defaultProps = {
@@ -52,7 +66,7 @@ export default class InputDate extends PureComponent {
   }
 
   get displayFormat() {
-    return this.props.format || 'YYYY-MM-DD'
+    return this.props.displayFormat || this.props.format || 'yyyy-MM-dd'
   }
 
   get displayValue() {
@@ -68,9 +82,9 @@ export default class InputDate extends PureComponent {
 
   get openToDate() {
     if (this.state.openToDate) return this.state.openToDate
-    if (!this.props.range) return this.props.value
+    if (!this.props.range) return parse(this.props.value, this.props.format)
     if (!this.props.value) return null
-    if (this.props.value.from && this.props.value.to) return this.props.value.from
+    return parse(this.props.value.from || this.props.value.to, this.props.format)
   }
 
   handleOpenToDateChange = openToDate => this.setState({ openToDate })

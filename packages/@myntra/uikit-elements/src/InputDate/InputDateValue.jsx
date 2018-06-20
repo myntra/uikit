@@ -64,7 +64,7 @@ class InputDateValue extends PureComponent {
   }
 
   get pattern() {
-    return this.props.format.replace(/[^YMD]+/g, match => `"${match}"`)
+    return this.props.format.toUpperCase().replace(/[^YMD]+/g, match => `"${match}"`)
   }
 
   handleChange = value => {

@@ -20,12 +20,23 @@ const DEFAULT_PRESETS = Object.values(PRESETS)
  */
 class InputDatePicker extends PureComponent {
   static propTypes = {
+    /**
+     * Value
+     *
+     * @typedef {string|Date} DateType
+     *
+     * @typedef {{from: DateType, to: DateType}} DateRangeType
+     */
     value: PropTypes.oneOfType([DateType, DateRangeType]),
     /**
      * The param type of onChange handle is same the type of value prop.
      *
+     * @typedef {string|Date} DateType
+     *
+     * @typedef {{from: DateType, to: DateType}} DateRangeType
+     *
      * @function
-     * @param {string|Date|Object.<string, Date>} value
+     * @param {DateType|DateRangeType} value
      */
     onChange: PropTypes.func,
     presets: PropTypes.oneOfType([
@@ -34,16 +45,33 @@ class InputDatePicker extends PureComponent {
         PropTypes.shape({
           range: PropTypes.bool,
           label: PropTypes.string.isRequired,
+          /**
+           * @typedef {{from: Date, to: Date}} DateRange
+           *
+           * @function
+           * @param {Date} today
+           * @returns {Date|DateRange}
+           */
           value: PropTypes.func.isRequired
         })
       )
     ]),
     range: PropTypes.bool,
     monthsToDisplay: PropTypes.number,
+    /**
+     * @typedef {{from: DateType?, to: DateType?}} DateRangeType
+     */
     disabledRanges: PropTypes.arrayOf(DateRangeType),
+    /**
+     * @typedef {string|Date} DateType
+     */
     min: DateType,
+    /**
+     * @typedef {string|Date} DateType
+     */
     max: DateType,
     format: PropTypes.string,
+    /** @private */
     validate(props) {
       if (
         (props.range
