@@ -34,7 +34,7 @@ export const LAST_30_DAYS = {
   label: 'Last 30 Days',
   value: () => ({
     from: onlyDate(dayJS().subtract(30, 'day')),
-    to: onlyDate(dayJS())
+    to: onlyDate(dayJS().subtract(1, 'day'))
   })
 }
 

@@ -117,7 +117,7 @@ export default class InputDate extends PureComponent {
     this.props.onChange && this.props.onChange(value)
   }
 
-  handleDropdownOpen = () => this.setState({ isOpen: true })
+  handleDropdownOpen = () => this.setState({ isOpen: true, openToDate: this.openToDate || new Date() })
   handleDropdownClose = () => this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
   handleBlur = event => {
     if (document.activeElement === document.body) return
