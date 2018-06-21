@@ -9,7 +9,6 @@ exports[`render range 1`] = `
     key="from"
   >
     <InputMasked
-      className=""
       includeMaskChars={true}
       masks={
         Object {
@@ -37,7 +36,6 @@ exports[`render range 1`] = `
     key="to"
   >
     <InputMasked
-      className=""
       includeMaskChars={true}
       masks={
         Object {

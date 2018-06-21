@@ -4,7 +4,7 @@ import { classnames } from '@myntra/uikit-utils'
 import { InputMasked } from '../'
 
 import styles from './InputDateValue.css'
-import { parse } from './InputDateUtils'
+import { parse, format } from './InputDateUtils'
 import Icon from '../Icon/Icon'
 
 export const MASKS = {
@@ -73,6 +73,8 @@ class InputDateValue extends PureComponent {
     try {
       const date = parse(value, this.props.format)
 
+      if (date && format(date, this.props.format) !== value) throw new Error('not matching')
+
       this.setState({ value: null })
       this.props.onChange(typeof key === 'string' ? { [key]: date } : date)
     } catch (e) {
@@ -112,12 +114,11 @@ class InputDateValue extends PureComponent {
     }
 
     return (
-      <div className={classnames('date-value').use(styles)}>
+      <div className={classnames('date-value', { 'date-value-active': this.props.active }).use(styles)}>
         {this.props.range && (
-          <div key="from" className={classnames('wrapper').use(styles)}>
+          <div key="from" className={classnames('wrapper', { active: this.props.active === 'from' }).use(styles)}>
             <InputMasked
               {...props}
-              className={classnames({ active: this.props.active === 'from' }).use(styles)}
               value={this.value.from}
               onClick={this.handleFromFocus}
               onFocus={this.handleFromFocus}
@@ -135,10 +136,9 @@ class InputDateValue extends PureComponent {
           </div>
         )}
         {this.props.range && (
-          <div key="to" className={classnames('wrapper').use(styles)}>
+          <div key="to" className={classnames('wrapper', { active: this.props.active === 'to' }).use(styles)}>
             <InputMasked
               {...props}
-              className={classnames({ active: this.props.active === 'to' }).use(styles)}
               value={this.value.to}
               onClick={this.handleToFocus}
               onFocus={this.handleToFocus}

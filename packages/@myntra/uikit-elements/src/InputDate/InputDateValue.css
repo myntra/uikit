@@ -20,7 +20,11 @@
   bottom: var(--size-xx-small);
 }
 
+.date-value-active input {
+  border-bottom: 1px solid var(--color-primary);
+}
+
+.active,
 .active input {
   color: var(--color-primary);
-  border-bottom: 1px solid var(--color-primary);
 }

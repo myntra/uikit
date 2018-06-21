@@ -79,6 +79,16 @@ describe('change date', () => {
     expect(wrapper.state().value).toBe(null)
   })
 
+  it('should locally store partial changes', () => {
+    const wrapper = shallow(<InputDateValue format="MM/dd" onChange={fn} value={{ from: '05/05' }} range />)
+
+    wrapper
+      .find(InputMasked)
+      .at(0)
+      .simulate('change', '12/1')
+    expect(wrapper.state().value).toEqual({ from: '12/1' })
+  })
+
   it('should change from date', () => {
     wrapper
       .find(InputMasked)
