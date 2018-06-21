@@ -57,14 +57,13 @@ export default class Day extends PureComponent {
   handleMouseDown = event => {
     if (this.props.disabled) {
       event.stopPropagation()
-    } else if (this.props.onSelect) {
+    } else if (this.props.onSelect && !this.isEmpty && !this.props.selected) {
       this.props.onSelect(this.date)
     }
   }
 
   handleMouseEnter = event => this.handleFocus(event)
   handleMouseLeave = event => this.handleBlur(event)
-  handleMouseMove = event => this.handleFocus(event)
 
   handleTouchStart = () => {
     this.dragging = false

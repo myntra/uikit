@@ -4,7 +4,7 @@ import { classnames } from '@myntra/uikit-utils'
 import InputDatePicker from './InputDatePicker'
 import InputDateValue from './InputDateValue'
 import Dropdown from '../Dropdown/Dropdown'
-import { format, parse, DateType, DateRangeType } from './InputDateUtils'
+import { format, parse, DateType, DateRangeType, isDateEqual } from './InputDateUtils'
 import styles from './InputDate.css'
 
 /**
@@ -84,7 +84,12 @@ export default class InputDate extends PureComponent {
     if (this.state.openToDate) return this.state.openToDate
     if (!this.props.range) return parse(this.props.value, this.props.format)
     if (!this.props.value) return null
-    return parse(this.props.value.from || this.props.value.to, this.props.format)
+    return parse(
+      this.state.activeRangeEnd === 'to'
+        ? this.props.value.to || this.props.value.from
+        : this.props.value.from || this.props.value.to,
+      this.props.format
+    )
   }
 
   handleOpenToDateChange = openToDate => this.setState({ openToDate })
@@ -111,7 +116,22 @@ export default class InputDate extends PureComponent {
   handleChange = value => {
     if (this.props.range) {
       const bothSelected = !!(value.from && value.to)
-      this.setState({ activeRangeEnd: null, isRangeSelectionActive: !bothSelected })
+      const hasFromChanged = this.props.value ? !isDateEqual(this.props.value.from, value.from) : true
+      const hasFromDateSwapped = this.props.value ? isDateEqual(this.props.value.from, value.to) : false
+      let nextSelection = hasFromDateSwapped && bothSelected ? null : hasFromChanged ? 'to' : null
+
+      if (!bothSelected && !value.from && value.to) {
+        nextSelection = 'from'
+      }
+
+      this.setState({
+        isRangeSelectionActive: !bothSelected,
+        activeRangeEnd: nextSelection
+      })
+
+      if (bothSelected && !nextSelection) {
+        this.close()
+      }
     }
 
     this.props.onChange && this.props.onChange(value)

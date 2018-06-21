@@ -6,7 +6,8 @@ import Jumper from './Jumper'
 import styles from './Picker.css'
 import { classnames } from '@myntra/uikit-utils'
 import { lastDayOfMonth } from 'date-fns'
-import { UTCDate } from '../InputDateUtils'
+import { UTCDate, onlyDate } from '../InputDateUtils'
+import dayJS from 'dayjs'
 
 /**
  * Create range.
@@ -47,6 +48,8 @@ export default class Picker extends Component {
     validate(props) {
       if (props.range && props.value instanceof Date) {
         throw new Error('When using `range` prop, value should be a plain object of type ({ from?: Date, to?: Date }).')
+      } else if (!props.range && props.value && !(props.value instanceof Date)) {
+        throw new Error('Value should be an instance of date.')
       }
     },
     openToDate: PropTypes.instanceOf(Date),
@@ -61,6 +64,7 @@ export default class Picker extends Component {
   }
 
   static defaultProps = {
+    disabledDates: [],
     monthsToDisplay: 1,
     range: false
   }
@@ -101,26 +105,54 @@ export default class Picker extends Component {
   }
 
   handleDateSelect = (_, value) => {
-    if (this.props.disabled || !this.props.onChange) return
-    if (!this.props.range) return this.props.onChange(value)
-    if (this.props.active) return this.fireRangeEvent({ ...this.props.value, [this.props.active]: value })
+    if (this.props.disabled) return
+    if (!this.props.range) return this.props.onChange && this.props.onChange(value)
+
+    // Range selection.
+    if (this.props.active) {
+      if (
+        this.props.active === 'from' &&
+        this.props.value &&
+        this.props.value.to &&
+        dayJS(this.props.value.to).isBefore(dayJS(value))
+      ) {
+        return this.fireRangeEvent({ from: value })
+      }
+
+      if (
+        this.props.active === 'to' &&
+        this.props.value &&
+        this.props.value.to &&
+        this.props.value.from &&
+        dayJS(this.props.value.from).isAfter(dayJS(value))
+      ) {
+        return this.fireRangeEvent({ from: value })
+      }
+
+      return this.fireRangeEvent({ ...this.props.value, [this.props.active]: value })
+    }
+
     if (!this.props.value) return this.fireRangeEvent({ from: value })
-    if (this.props.value.from && !this.props.value.to)
+
+    if (this.props.value.from && this.props.value.to) {
+      return this.fireRangeEvent({ ...this.props.value, [this.props.active || 'from']: value })
+    } else if (this.props.value.from && !this.props.value.to) {
       return this.fireRangeEvent({ from: this.props.value.from, to: value })
-    if (!this.props.value.from && this.props.value.to)
+    } else if (!this.props.value.from && this.props.value.to) {
       return this.fireRangeEvent({ from: value, to: this.props.value.to })
-    return this.fireRangeEvent({ from: value })
+    } else {
+      return this.fireRangeEvent({ from: value })
+    }
   }
 
   fireRangeEvent(value) {
+    if (value.from && value.to) {
+      const [from, to] = [value.from, value.to].sort((a, b) => a.getTime() - b.getTime())
+      value = { from, to }
+    }
     if (this.props.onRangeStartSelected && value.from) this.props.onRangeStartSelected(value.from)
     if (this.props.onRangeEndSelected && value.to) this.props.onRangeEndSelected(value.to)
     if (this.props.onChange) {
-      if (value.from && value.to) {
-        const [from, to] = [value.from, value.to].sort((a, b) => a.getTime() - b.getTime())
-        value = { from, to }
-      }
-
       this.props.onChange(value)
     }
   }
@@ -129,7 +161,7 @@ export default class Picker extends Component {
    * @type {Date}
    */
   get referenceDate() {
-    return this.props.openToDate || this.state.openToDate || new Date()
+    return this.props.openToDate || this.state.openToDate || onlyDate(new Date())
   }
 
   isSameMonth(a, b) {
@@ -139,7 +171,6 @@ export default class Picker extends Component {
   }
 
   findSelectionRange(value, date) {
-    if (!value.from || !value.to) return null
     // re-order if required.
     value = value.from.getTime() <= value.to.getTime() ? value : { from: value.to, to: value.from }
 
@@ -174,9 +205,9 @@ export default class Picker extends Component {
       const hasFocused = !!focused
 
       if (selecting === 'from' && !hasTo)
-        return hasFrom ? this.findSelectionRange({ from: value.from, to: value.from }, date) : null
+        return hasFrom ? this.findSelectionRange({ from: value.from, to: UTCDate(9999, 11, 31) }, date) : null
       if (selecting === 'to' && !hasFrom)
-        return hasTo ? this.findSelectionRange({ from: value.to, to: value.to }, date) : null
+        return hasTo ? this.findSelectionRange({ from: UTCDate(0, 0, 1), to: value.to }, date) : null
 
       if (hasFrom && hasTo) {
         return this.findSelectionRange(value, date)
@@ -185,28 +216,19 @@ export default class Picker extends Component {
       } else if (hasTo && hasFocused) {
         return this.findSelectionRange({ from: focused, to: value.to }, date)
       } else if (hasFrom) {
-        return this.findSelectionRange({ from: value.from, to: value.from }, date)
+        return this.findSelectionRange({ from: value.from, to: UTCDate(9999, 11, 31) }, date)
       } else if (hasTo) {
-        return this.findSelectionRange({ from: value.to, to: value.to }, date)
+        return this.findSelectionRange({ from: UTCDate(0, 0, 1), to: value.to }, date)
       }
     }
 
     return null
   }
 
-  normalizeDisabledRange({ from, to }, date) {
-    if (!from && !to) return null
+  normalizeDisabledRange(value, date) {
+    if (!value) return null
 
-    const first = UTCDate(date.getFullYear(), date.getMonth(), 1)
-    const last = lastDayOfMonth(first)
-
-    if (!from) {
-      if (first.getTime() < to.getTime()) from = first
-    } else if (!to) {
-      if (from.getTime() < last.getTime()) to = last
-    }
-
-    return { from, to }
+    return { from: value.from || UTCDate(0, 0, 1), to: value.to || UTCDate(9999, 11, 31) }
   }
 
   createDisabledData(date) {

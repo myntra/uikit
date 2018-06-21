@@ -16,6 +16,7 @@ module.exports = {
     '!packages/@myntra/{uikit-internals,eslint-config-standard,stylelint-config-standard,uikit-cli,tokens,docgen,tokenizer}/**',
     '!packages/@myntra/{uikit-internals,uikit-elements,uikit-compounds,uikit-patterns,uikit}/src/index.js'
   ],
+  snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageDirectory: 'coverage',
   coverageThreshold: process.env.CI
     ? {

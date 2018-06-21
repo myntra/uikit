@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import { classnames } from '@myntra/uikit-utils'
 
-import { DateRangeType, isDateEqual } from '../InputDateUtils'
+import { isDateEqual } from '../InputDateUtils'
 import styles from './Preset.css'
 
 /**
@@ -22,10 +22,16 @@ class Preset extends PureComponent {
         label: PropTypes.string.isRequired,
         value: PropTypes.func.isRequired
       })
-    ),
-    value: DateRangeType,
+    ).isRequired,
+    value: PropTypes.oneOfType([
+      PropTypes.instanceOf(Date),
+      PropTypes.shape({
+        from: PropTypes.instanceOf(Date),
+        to: PropTypes.instanceOf(Date)
+      })
+    ]),
     range: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func.isRequired
   }
 
   handleChange = preset => {

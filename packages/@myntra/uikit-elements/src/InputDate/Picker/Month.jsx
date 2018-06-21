@@ -37,7 +37,7 @@ export default class Month extends PureComponent {
   }
 
   static defaultProps = {
-    selected: [],
+    selected: {},
     disabled: []
   }
 

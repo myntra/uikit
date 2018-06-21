@@ -116,11 +116,12 @@ class InputDatePicker extends PureComponent {
 
   render() {
     const { value, onChange, disabledRanges, min, max, presets, ...props } = this.props
+    const normalizedDate = this.normalize(value)
 
     return (
       <Picker
         {...props}
-        value={this.normalize(value)}
+        value={normalizedDate}
         onChange={this.handleChange}
         disabledRanges={this.normalize(disabledRanges)}
         min={this.normalize(min)}
@@ -129,7 +130,7 @@ class InputDatePicker extends PureComponent {
         {this.props.presets && (
           <Preset
             range={this.props.range}
-            value={this.props.value}
+            value={normalizedDate}
             onChange={this.handleChange}
             presets={this.props.presets === true ? DEFAULT_PRESETS : this.props.presets}
           />
