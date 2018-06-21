@@ -33,6 +33,12 @@ function normalizeType(type) {
       break
     case 'arrayOf':
       type.value = normalizeType(type.value)
+      break
+    case 'enum':
+      if (type.computed) {
+        type.value = `--{computed}-->${type.value}<--{computed}--`
+      }
+      break
   }
 
   return prepare(type)

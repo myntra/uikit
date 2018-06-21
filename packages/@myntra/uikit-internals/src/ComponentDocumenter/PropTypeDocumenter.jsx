@@ -96,7 +96,7 @@ function JSDocTypeDocumenter({ reference = [], rootReference = [], ...param }) {
   }
 }
 
-export default function PropTypeDocumenter({ name, value, raw, meta = [], reference = [] } = {}) {
+export default function PropTypeDocumenter({ name, value, raw, meta = [], reference = [], ...props } = {}) {
   switch (name) {
     case 'enum':
       return (
@@ -104,7 +104,7 @@ export default function PropTypeDocumenter({ name, value, raw, meta = [], refere
           <div className={styles.list}>
             {value.map((item, index) => (
               <div key={index}>
-                <code>{item.value}</code>
+                <code>{props.computed ? item : item.value}</code>
               </div>
             ))}
           </div>

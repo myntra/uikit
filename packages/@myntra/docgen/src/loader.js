@@ -9,7 +9,10 @@ module.exports = async function DocGenLoader(source) {
   if (resourcePath.endsWith('jsx')) {
     try {
       const meta = docgen(resourcePath, source)
-      const jsdoc = `\nconst __jsdoc__ = ${JSON.stringify(meta)}`
+      const jsdoc = `\nconst __jsdoc__ = ${JSON.stringify(meta)}`.replace(
+        /"--\{computed\}-->(.*)<--\{computed\}--"/g,
+        (_, code) => code
+      )
 
       const matches = EXPORT.exec(source)
 
