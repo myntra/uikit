@@ -39,7 +39,7 @@ describe('render', () => {
 
   it('should highlight current date', () => {
     const date = new Date()
-    const wrapper = shallow(<Day year={date.getFullYear()} month={date.getMonth()} day={date.getDate()} />)
+    const wrapper = shallow(<Day year={date.getUTCFullYear()} month={date.getUTCMonth()} day={date.getUTCDate()} />)
 
     expect(wrapper.hasClass('today')).toBe(true)
   })
@@ -173,15 +173,6 @@ describe('mouse actions', () => {
       expect(stopPropagation).toHaveBeenCalled()
     })
 
-    it('should not trigger select for selected day', () => {
-      const fn = jest.fn()
-      const wrapper = shallow(<Day year={2018} month={5} day={10} onSelect={fn} selected />)
-
-      wrapper.simulate('mousedown')
-
-      expect(fn).not.toHaveBeenCalled()
-    })
-
     it('should work without onSelect', () => {
       const wrapper = shallow(<Day year={2018} month={5} day={10} />)
 
@@ -220,16 +211,6 @@ describe('mouse actions', () => {
 
       expect(fn).not.toHaveBeenCalled()
       expect(stopPropagation).toHaveBeenCalled()
-    })
-
-    it('should not trigger select for selected day', () => {
-      const fn = jest.fn()
-      const wrapper = shallow(<Day year={2018} month={5} day={10} onSelect={fn} selected />)
-
-      wrapper.simulate('touchstart')
-      wrapper.simulate('touchend')
-
-      expect(fn).not.toHaveBeenCalled()
     })
 
     it('should work without onSelect', () => {

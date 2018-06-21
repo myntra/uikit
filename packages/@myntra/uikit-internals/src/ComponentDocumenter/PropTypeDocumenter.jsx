@@ -4,7 +4,6 @@ import { Dropdown } from '@myntra/uikit-elements'
 import styles from './PropTypeDocumenter.css'
 
 function JSDocTypeDefDocumenter({ reference, rootReference, type, name }) {
-  console.log(name, type)
   switch (type.name) {
     case 'function': {
       const params = reference.filter(it => it.title === 'param')
@@ -122,7 +121,6 @@ export default function PropTypeDocumenter({ name, value, raw, meta = [], refere
         </span>
       )
     case 'custom':
-      console.log('CUSTOM', raw, reference)
       return (
         <span>
           <JSDocTypeDocumenter name={raw} type="NameExpression" rootReference={reference} />

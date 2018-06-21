@@ -5,7 +5,6 @@ import Jumper from './Jumper'
 
 import styles from './Picker.css'
 import { classnames } from '@myntra/uikit-utils'
-import { lastDayOfMonth } from 'date-fns'
 import { UTCDate, onlyDate } from '../InputDateUtils'
 import dayJS from 'dayjs'
 
@@ -106,7 +105,9 @@ export default class Picker extends Component {
 
   handleDateSelect = (_, value) => {
     if (this.props.disabled) return
-    if (!this.props.range) return this.props.onChange && this.props.onChange(value)
+    if (!this.props.range) {
+      return this.props.onChange && this.props.onChange(value)
+    }
 
     // Range selection.
     if (this.props.active) {
@@ -133,7 +134,6 @@ export default class Picker extends Component {
     }
 
     if (!this.props.value) return this.fireRangeEvent({ from: value })
-
     if (this.props.value.from && this.props.value.to) {
       return this.fireRangeEvent({ ...this.props.value, [this.props.active || 'from']: value })
     } else if (this.props.value.from && !this.props.value.to) {
@@ -166,7 +166,10 @@ export default class Picker extends Component {
 
   isSameMonth(a, b) {
     return (
-      a instanceof Date && b instanceof Date && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth()
+      a instanceof Date &&
+      b instanceof Date &&
+      a.getUTCFullYear() === b.getUTCFullYear() &&
+      a.getUTCMonth() === b.getUTCMonth()
     )
   }
 
@@ -177,15 +180,17 @@ export default class Picker extends Component {
     let from, to
     const isFrom = this.isSameMonth(value.from, date)
     const isTo = this.isSameMonth(value.to, date)
-    const first = UTCDate(date.getFullYear(), date.getMonth(), 1)
+    const first = UTCDate(date.getUTCFullYear(), date.getUTCMonth(), 1)
 
-    if (isFrom) from = value.from.getDate()
-    else if (value.from.getTime() < first.getTime()) from = 0
+    if (isFrom) from = value.from.getUTCDate()
+    else if (dayJS(value.from).isBefore(first)) from = 0
     else return null
 
-    const last = lastDayOfMonth(first)
-    if (isTo) to = value.to.getDate()
-    else if (value.to.getTime() > last.getTime()) to = last.getDate() + 1
+    const last = dayJS(first)
+      .endOf('month')
+      .toDate()
+    if (isTo) to = value.to.getUTCDate()
+    else if (dayJS(value.to).isAfter(last)) to = last.getUTCDate() + 1
     else return null
 
     return { from, to }
@@ -197,7 +202,7 @@ export default class Picker extends Component {
     const selecting = this.props.active
     if (!this.props.range) {
       if (this.isSameMonth(value, date)) {
-        return { from: value.getDate(), to: value.getDate() }
+        return { from: value.getUTCDate(), to: value.getUTCDate() }
       }
     } else if (value) {
       const hasFrom = !!value.from
@@ -243,10 +248,10 @@ export default class Picker extends Component {
     const date = new Date(reference)
     const focused = this.state.focused
 
-    date.setMonth(date.getMonth() + offsetMonth)
+    date.setMonth(date.getUTCMonth() + offsetMonth)
 
-    const year = date.getFullYear()
-    const month = date.getMonth()
+    const year = date.getUTCFullYear()
+    const month = date.getUTCMonth()
     const selected = this.createSelectionData(date)
     const disabled = this.createDisabledData(date)
 
@@ -256,7 +261,8 @@ export default class Picker extends Component {
       month,
       selected,
       disabled,
-      focused: focused && year === focused.getFullYear() && month === focused.getMonth() ? focused.getDate() : null
+      focused:
+        focused && year === focused.getUTCFullYear() && month === focused.getUTCMonth() ? focused.getUTCDate() : null
     }
   }
 

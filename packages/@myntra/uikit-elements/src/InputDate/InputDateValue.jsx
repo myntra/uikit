@@ -7,7 +7,7 @@ import styles from './InputDateValue.css'
 import { parse } from './InputDateUtils'
 import Icon from '../Icon/Icon'
 
-const MASKS = {
+export const MASKS = {
   Y: {
     validate(char, text) {
       return /\d/.test(char)
@@ -60,79 +60,46 @@ class InputDateValue extends PureComponent {
   state = { value: null }
 
   get value() {
-    return this.state.value ? this.state.value : this.props.value
+    return this.state.value ? this.state.value : this.props.range ? this.props.value || {} : this.props.value
   }
 
   get pattern() {
     return this.props.format.toUpperCase().replace(/[^YMD]+/g, match => `"${match}"`)
   }
 
-  handleChange = value => {
+  handleFromChange = value => this.handleChange(value, 'from')
+  handleToChange = value => this.handleChange(value, 'to')
+  handleChange = (value, key) => {
     try {
       const date = parse(value, this.props.format)
 
       this.setState({ value: null })
-      this.props.onChange(date)
+      this.props.onChange(typeof key === 'string' ? { [key]: date } : date)
     } catch (e) {
+      if (key) {
+        value = { ...this.value, [key]: value }
+      }
+
       this.setState({ value })
-    }
-  }
-
-  handleFromChange = value => {
-    try {
-      const date = parse(value, this.props.format)
-
-      this.setState({ value: null })
-      this.props.onChange({ from: date })
-    } catch (e) {
-      this.setState({ value: { from: value, to: this.value.to } })
-    }
-  }
-
-  handleToChange = value => {
-    try {
-      const date = parse(value, this.props.format)
-
-      this.setState({ value: null })
-      this.props.onChange({ to: date })
-    } catch (e) {
-      this.setState({ value: { from: this.value.from, to: value } })
     }
   }
 
   /**
    * @public
    */
-  handleBlur = () => {
-    this.setState({ value: null })
-  }
-
-  handleFromFocus = () => {
-    this.handleRangeFocus('from')
-  }
-
-  handleToFocus = () => {
-    this.handleRangeFocus('to')
-  }
-
+  handleBlur = () => this.setState({ value: null })
+  handleFromFocus = () => this.handleRangeFocus('from')
+  handleToFocus = () => this.handleRangeFocus('to')
   handleRangeFocus = value => {
     this.props.onRangeFocus && this.props.onRangeFocus(value)
     this.props.onFocus && this.props.onFocus()
   }
 
-  handleFromClear = () => {
+  handleFromClear = () => this.handleClear('from')
+  handleToClear = () => this.handleClear('to')
+  handleClear = key => {
     this.setState({ value: null })
-    this.props.onChange && this.props.onChange({ from: null })
-  }
-
-  handleToClear = () => {
-    this.setState({ value: null })
-    this.props.onChange && this.props.onChange({ to: null })
-  }
-
-  handleClear = () => {
-    this.setState({ value: null })
-    this.props.onChange && this.props.onChange(null)
+    this.props.onChange && this.props.onChange(typeof key === 'string' ? { [key]: null } : null)
   }
 
   render() {
@@ -156,14 +123,15 @@ class InputDateValue extends PureComponent {
               onFocus={this.handleFromFocus}
               onChange={this.handleFromChange}
             />
-            {this.props.value.from && (
-              <Icon
-                className={classnames('icon').use(styles)}
-                name="cross"
-                title="Clear date"
-                onClick={this.handleFromClear}
-              />
-            )}
+            {this.props.value &&
+              this.props.value.from && (
+                <Icon
+                  className={classnames('icon').use(styles)}
+                  name="cross"
+                  title="Clear date"
+                  onClick={this.handleFromClear}
+                />
+              )}
           </div>
         )}
         {this.props.range && (
@@ -176,14 +144,15 @@ class InputDateValue extends PureComponent {
               onFocus={this.handleToFocus}
               onChange={this.handleToChange}
             />
-            {this.props.value.to && (
-              <Icon
-                className={classnames('icon').use(styles)}
-                name="cross"
-                title="Clear date"
-                onClick={this.handleToClear}
-              />
-            )}
+            {this.props.value &&
+              this.props.value.to && (
+                <Icon
+                  className={classnames('icon').use(styles)}
+                  name="cross"
+                  title="Clear date"
+                  onClick={this.handleToClear}
+                />
+              )}
           </div>
         )}
         {!this.props.range && (

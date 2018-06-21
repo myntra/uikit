@@ -57,7 +57,7 @@ export default class Day extends PureComponent {
   handleMouseDown = event => {
     if (this.props.disabled) {
       event.stopPropagation()
-    } else if (this.props.onSelect && !this.isEmpty && !this.props.selected) {
+    } else if (this.props.onSelect && !this.isEmpty) {
       this.props.onSelect(this.date)
     }
   }
@@ -102,7 +102,7 @@ export default class Day extends PureComponent {
         onTouchMove={this.handleTouchMove}
         onTouchEnd={this.handleTouchEnd}
       >
-        {isEmpty ? 0 : date.getDate()}
+        {isEmpty ? 0 : date.getUTCDate()}
       </div>
     )
   }

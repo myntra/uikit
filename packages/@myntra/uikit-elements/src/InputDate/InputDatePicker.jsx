@@ -16,7 +16,7 @@ const DEFAULT_PRESETS = Object.values(PRESETS)
  * @since 0.0.0
  * @status EXPERIMENTAL
  * @example
- * <InputDatePicker monthsToDisplay={4} value={this.state.value} onChange={value => this.setState({ value })} disabledDates={[{ from: new Date(), to: new Date() }]} />
+ * <InputDatePicker range monthsToDisplay={4} value={this.state.value} onChange={value => this.setState({ value })} disabledDates={[{ from: new Date(), to: new Date() }]} />
  */
 class InputDatePicker extends PureComponent {
   static propTypes = {
@@ -92,26 +92,26 @@ class InputDatePicker extends PureComponent {
 
   handleChange = value => {
     if (this.props.onChange) {
-      this.props.onChange(format(value, this.props.format))
+      this.props.onChange(this.props.format ? format(value, this.props.format) : value)
     }
   }
 
   normalize(dateOrDates) {
     // 1. Date or undefined or null
-    if (!dateOrDates || dateOrDates instanceof Date) return dateOrDates
-    // 2. List of Dates
-    if (Array.isArray(dateOrDates)) return dateOrDates.map(date => this.normalize(date))
-    // 3. Range object
+    if (dateOrDates instanceof Date) return dateOrDates
+    // 2. Range object
     if (typeof dateOrDates === 'object' && dateOrDates) {
       const result = {}
       if ('from' in dateOrDates) result.from = this.normalize(dateOrDates.from)
       if ('to' in dateOrDates) result.to = this.normalize(dateOrDates.to)
       return result
     }
-    // 4. String!
-    if (typeof dateOrDates === 'string') {
+    // 3. String!
+    if (typeof dateOrDates === 'string' && this.props.format) {
       return parse(dateOrDates, this.props.format)
     }
+
+    return null
   }
 
   render() {

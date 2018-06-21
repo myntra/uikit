@@ -1,12 +1,12 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { memoize, classnames } from '@myntra/uikit-utils'
-import { lastDayOfMonth } from 'date-fns'
 
 import Day from './Day'
 
 import styles from './Month.css'
 import { UTCDate } from '../InputDateUtils'
+import dayJS from 'dayjs'
 
 const DAYS_OF_WEEK = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',')
 const CLASS = {
@@ -42,7 +42,11 @@ export default class Month extends PureComponent {
   }
 
   makeDayValidator(ranges) {
-    const daysInCurrentMonth = lastDayOfMonth(UTCDate(this.props.year, this.props.month, 1)).getDate() + 1
+    const daysInCurrentMonth =
+      dayJS(UTCDate(this.props.year, this.props.month, 1))
+        .endOf('month')
+        .toDate()
+        .getUTCDate() + 1
     const isValid = Array.apply(null, { length: daysInCurrentMonth + 1 }).map(Boolean)
 
     ranges.forEach(({ from, to }) => {
@@ -61,7 +65,7 @@ export default class Month extends PureComponent {
     const to =
       hasSelection && 'to' in this.props.selected ? this.props.selected.to : this.props.focused || this.lastFocus
     const low = Math.min(from || 0, to)
-    const high = Math.max(from, to || last.getDate() + 1)
+    const high = Math.max(from, to || last.getUTCDate() + 1)
 
     if (this.props.focused) this.lastFocus = this.props.focused
 
@@ -69,18 +73,20 @@ export default class Month extends PureComponent {
   }
 
   handleDateSelection = date => {
-    if (this.props.onDateSelect) this.props.onDateSelect(date.getDate(), date)
+    if (this.props.onDateSelect) this.props.onDateSelect(date.getUTCDate(), date)
   }
 
   handleDateFocus = date => {
-    if (this.props.onDateFocus) this.props.onDateFocus(date ? date.getDate() : null, date)
+    if (this.props.onDateFocus) this.props.onDateFocus(date ? date.getUTCDate() : null, date)
   }
 
   render() {
     const { month, year, focused } = this.props
     const isDayDisabled = this.dayDisabledValidator(this.props.disabled)
     const dateOnFirstOfMonth = UTCDate(year, month, 1)
-    const dateOnLastOfMonth = lastDayOfMonth(dateOnFirstOfMonth)
+    const dateOnLastOfMonth = dayJS(dateOnFirstOfMonth)
+      .endOf('month')
+      .toDate()
     const isDaySelected = this.daySelectedValidator(dateOnFirstOfMonth, dateOnLastOfMonth)
     const days = []
 
@@ -93,7 +99,7 @@ export default class Month extends PureComponent {
           onFocus={this.handleDateFocus}
         />
       )
-    for (let day = 1; day <= dateOnLastOfMonth.getDate(); day += 1)
+    for (let day = 1; day <= dateOnLastOfMonth.getUTCDate(); day += 1)
       days.push(
         <Day
           key={'day-' + year + '-' + month + '-' + day}
@@ -114,8 +120,8 @@ export default class Month extends PureComponent {
       days.push(
         <Day
           key={'post' + i}
-          selected={isDaySelected(dateOnLastOfMonth.getDate() + 1 /* selection ends in next month */)}
-          disabled={isDayDisabled(dateOnLastOfMonth.getDate() + 1)}
+          selected={isDaySelected(dateOnLastOfMonth.getUTCDate() + 1 /* selection ends in next month */)}
+          disabled={isDayDisabled(dateOnLastOfMonth.getUTCDate() + 1)}
           onFocus={this.handleDateFocus}
         />
       )

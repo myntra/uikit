@@ -34,7 +34,7 @@ class Jumper extends PureComponent {
   handleJump = (year, month, diff = 0) => {
     const date = UTCDate(year, month, 1)
 
-    date.setMonth(date.getMonth() + diff - this.props.offset)
+    date.setMonth(date.getUTCMonth() + diff - this.props.offset)
 
     this.props.onJump(date)
   }

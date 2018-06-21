@@ -341,8 +341,8 @@ test('open to date', () => {
   // Default to today.
   {
     const { year, month } = wrapper.find(Month).props()
-    expect(year).toEqual(today.getFullYear())
-    expect(month).toEqual(today.getMonth())
+    expect(year).toEqual(today.getUTCFullYear())
+    expect(month).toEqual(today.getUTCMonth())
   }
 
   // Can be overridden by state.
@@ -613,7 +613,7 @@ describe('picking date', () => {
     const wrapper = shallow(<Picker onChange={fn} value={{ from: DATE }} active="from" range />)
 
     const date = UTCDate(2018, 4, 3)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(fn).toHaveBeenCalledWith({ from: date })
   })
@@ -623,7 +623,7 @@ describe('picking date', () => {
     const wrapper = shallow(<Picker onChange={fn} value={{ from: DATE }} active="to" range />)
 
     const date = UTCDate(2018, 4, 3)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(fn).toHaveBeenCalledWith({ from: date, to: DATE })
   })
@@ -633,7 +633,7 @@ describe('picking date', () => {
     const wrapper = shallow(<Picker onChange={fn} value={{ from: DATE, to: UTCDate(2018, 5, 5) }} active="to" range />)
 
     const date = UTCDate(2018, 4, 3)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(fn).toHaveBeenCalledWith({ from: date })
   })
@@ -652,7 +652,7 @@ describe('picking date', () => {
     const wrapper = shallow(<Picker onChange={fn} value={{ to: DATE }} active="to" range />)
 
     const date = UTCDate(2018, 4, 3)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(fn).toHaveBeenCalledWith({ to: date })
   })
@@ -662,7 +662,7 @@ describe('picking date', () => {
     const wrapper = shallow(<Picker onChange={fn} value={{ to: DATE }} active="from" range />)
 
     const date = UTCDate(2018, 4, 7)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(fn).toHaveBeenCalledWith({ from: date })
   })
@@ -675,7 +675,7 @@ describe('picking date', () => {
     )
 
     const date = UTCDate(2018, 4, 3)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(start).toHaveBeenCalledWith(date)
     expect(end).toHaveBeenCalledWith(DATE)
@@ -686,7 +686,7 @@ describe('picking date', () => {
     const wrapper = shallow(<Picker onChange={fn} value={{ from: DATE, to: DATE }} range />)
 
     const date = UTCDate(2018, 4, 3)
-    wrapper.instance().handleDateSelect(date.getDate(), date)
+    wrapper.instance().handleDateSelect(date.getUTCDate(), date)
 
     expect(fn).toHaveBeenCalledWith({ from: date, to: DATE })
   })

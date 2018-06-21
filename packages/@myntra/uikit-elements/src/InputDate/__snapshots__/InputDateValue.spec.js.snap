@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render range 1`] = `
+<div
+  className="date-value"
+>
+  <div
+    className="wrapper"
+    key="from"
+  >
+    <InputMasked
+      className=""
+      includeMaskChars={true}
+      masks={
+        Object {
+          "D": Object {
+            "validate": [Function],
+          },
+          "M": Object {
+            "validate": [Function],
+          },
+          "Y": Object {
+            "validate": [Function],
+          },
+        }
+      }
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      pattern="YYYY\\"-\\"MM\\"-\\"DD"
+      value=""
+    />
+  </div>
+  <div
+    className="wrapper"
+    key="to"
+  >
+    <InputMasked
+      className=""
+      includeMaskChars={true}
+      masks={
+        Object {
+          "D": Object {
+            "validate": [Function],
+          },
+          "M": Object {
+            "validate": [Function],
+          },
+          "Y": Object {
+            "validate": [Function],
+          },
+        }
+      }
+      onBlur={[Function]}
+      onChange={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      pattern="YYYY\\"-\\"MM\\"-\\"DD"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`render single 1`] = `
+<div
+  className="date-value"
+>
+  <div
+    className="wrapper"
+    key="both"
+  >
+    <InputMasked
+      includeMaskChars={true}
+      masks={
+        Object {
+          "D": Object {
+            "validate": [Function],
+          },
+          "M": Object {
+            "validate": [Function],
+          },
+          "Y": Object {
+            "validate": [Function],
+          },
+        }
+      }
+      onBlur={[Function]}
+      onChange={[Function]}
+      pattern="YYYY\\"-\\"MM\\"-\\"DD"
+      value="2018-05-05"
+    />
+    <Icon
+      className="icon"
+      name="cross"
+      onClick={[Function]}
+      title="Clear date"
+    />
+  </div>
+</div>
+`;

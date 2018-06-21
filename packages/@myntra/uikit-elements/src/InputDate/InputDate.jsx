@@ -35,7 +35,7 @@ export default class InputDate extends PureComponent {
      * @function
      * @param {DateLike|{ from: DateLike, to: DateLike }} value
      */
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
     /**
      * Value
      *
@@ -99,37 +99,42 @@ export default class InputDate extends PureComponent {
       if (this.props.range) {
         value = { ...this.props.value, ...value }
 
-        if (value.foo && value.to) {
+        if (value.from && value.to) {
           const [from, to] = [value.from, value.to].filter(Boolean).sort((a, b) => a.getTime() - b.getTime())
 
           value = { from, to }
         }
       }
-      this.props.onChange(format(value, this.props.format))
+      this.props.onChange(this.props.format ? format(value, this.props.format) : value)
     }
   }
 
-  handleRangeFocus = value => {
-    this.setState({ activeRangeEnd: value })
-  }
-
+  handleRangeFocus = value => this.setState({ activeRangeEnd: value })
   handleChange = value => {
     if (this.props.range) {
-      const bothSelected = !!(value.from && value.to)
-      const hasFromChanged = this.props.value ? !isDateEqual(this.props.value.from, value.from) : true
-      const hasFromDateSwapped = this.props.value ? isDateEqual(this.props.value.from, value.to) : false
-      let nextSelection = hasFromDateSwapped && bothSelected ? null : hasFromChanged ? 'to' : null
+      let shouldBeClosed = !!(value.from && value.to)
+      let nextSelection = null
+      if (shouldBeClosed && this.props.value) {
+        const hasFromChanged = !isDateEqual(this.props.value.from, value.from)
+        const hasToChanged = !isDateEqual(this.props.value.to, value.to)
+        // const hasFromSwappedWithTo = isDateEqual(this.props.value.from, value.to)
 
-      if (!bothSelected && !value.from && value.to) {
-        nextSelection = 'from'
+        // Edited from. Wait for to.
+        if (hasFromChanged && !hasToChanged) {
+          nextSelection = 'to'
+          shouldBeClosed = false
+        }
+      } else {
+        if (!value.to) nextSelection = 'to'
+        if (!value.from) nextSelection = 'from'
       }
 
       this.setState({
-        isRangeSelectionActive: !bothSelected,
+        isRangeSelectionActive: !shouldBeClosed,
         activeRangeEnd: nextSelection
       })
 
-      if (bothSelected && !nextSelection) {
+      if (shouldBeClosed) {
         this.close()
       }
     }
@@ -139,14 +144,17 @@ export default class InputDate extends PureComponent {
 
   handleDropdownOpen = () => this.setState({ isOpen: true, openToDate: this.openToDate || new Date() })
   handleDropdownClose = () => this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
-  handleBlur = event => {
+
+  handleBlur = /* istanbul ignore next: difficult to mock activeElement */ event => {
     if (document.activeElement === document.body) return
+    this.closeIfElementIsOutsideTarget(event, document.activeElement)
+  }
+
+  closeIfElementIsOutsideTarget(event, element) {
     const path = event.path || (event.composedPath ? event.composedPath() : undefined)
 
     if (
-      path
-        ? path.indexOf(document.activeElement) < 0
-        : event.target !== event.currentTarget && !event.currentTarget.contains(document.activeElement)
+      path ? path.indexOf(element) < 0 : event.target !== event.currentTarget && !event.currentTarget.contains(element)
     ) {
       this.close()
     }

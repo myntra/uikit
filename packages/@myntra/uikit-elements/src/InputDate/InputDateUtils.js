@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { parse as baseParse, format as baseFormat } from 'date-fns'
+import { parse as _parse, format as _format } from 'date-fns'
 
 export const RE_ISO_DATE = /^(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)$/
 
@@ -45,20 +45,19 @@ export function onlyDate(date) {
     date = date.toDate() // dayjs interop.
   }
 
-  return UTCDate(date.getFullYear(), date.getMonth(), date.getDate())
+  return UTCDate(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate())
 }
 
 export function parse(str, format) {
   if (str instanceof Date) return str
-  if (typeof str !== 'string') return null
-  if (!format) throw new Error(`'format' is required.`)
+  if (typeof str !== 'string' || str === '') return null
   if (RE_ISO_DATE.test(str)) return new Date(str)
-  if (str.length !== format.length) throw new Error(`Date parse exception: unequal length`)
+  if (!format) throw new Error(`'format' is required.`)
 
-  const date = baseParse(str, format, new Date())
+  const date = _parse(str, format, new Date())
 
-  if (date instanceof Date) {
-    return onlyDate(date)
+  if (date instanceof Date && !Number.isNaN(date.getTime())) {
+    return UTCDate(date.getFullYear(), date.getMonth(), date.getDate())
   }
 
   throw new Error(`Date parse exception: '${str}' does not match '${format}'`)
@@ -66,8 +65,8 @@ export function parse(str, format) {
 
 export function format(value, pattern) {
   if (!value) return value
-  if (!pattern) return value
-  if (value instanceof Date) return baseFormat(value, pattern)
+  if (!pattern) throw new Error(`'format' is required.`)
+  if (value instanceof Date) return _format(value, pattern)
   if (typeof value === 'string') return format(parse(value, pattern), pattern)
 
   const result = {}
@@ -81,5 +80,9 @@ export function isDateEqual(a, b) {
   if (!(b instanceof Date)) return false
   if (a.getTime() === b.getTime()) return true
 
-  return a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate()
+  return (
+    a.getUTCFullYear() === b.getUTCFullYear() &&
+    a.getUTCMonth() === b.getUTCMonth() &&
+    a.getUTCDate() === b.getUTCDate()
+  )
 }
