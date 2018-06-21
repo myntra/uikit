@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render should highlight preset 1`] = `
+<div
+  className="presets"
+>
+  <div
+    className="preset active"
+    key="Yesterday"
+    onClick={[Function]}
+  >
+    Yesterday
+  </div>
+</div>
+`;
+
+exports[`render should highlight preset range 1`] = `
+<div
+  className="presets"
+>
+  <div
+    className="preset active"
+    key="Yesterday"
+    onClick={[Function]}
+  >
+    Yesterday
+  </div>
+  <div
+    className="preset"
+    key="Last 7 Days"
+    onClick={[Function]}
+  >
+    Last 7 Days
+  </div>
+</div>
+`;
+
+exports[`render should render 1`] = `
+<div
+  className="presets"
+>
+  <div
+    className="preset"
+    key="Yesterday"
+    onClick={[Function]}
+  >
+    Yesterday
+  </div>
+</div>
+`;
+
+exports[`render should render range 1`] = `
+<div
+  className="presets"
+>
+  <div
+    className="preset"
+    key="Yesterday"
+    onClick={[Function]}
+  >
+    Yesterday
+  </div>
+  <div
+    className="preset"
+    key="Last 7 Days"
+    onClick={[Function]}
+  >
+    Last 7 Days
+  </div>
+</div>
+`;

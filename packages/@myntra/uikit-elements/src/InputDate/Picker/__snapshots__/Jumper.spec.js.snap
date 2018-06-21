@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render should render 1`] = `
+<div
+  className="jumper"
+>
+  <div
+    className="prev placeholder"
+  />
+  <SelectMonth
+    className="select"
+    month={5}
+    onMonthSelect={[Function]}
+  />
+  <SelectYear
+    className="select"
+    onYearSelect={[Function]}
+    year={2018}
+  />
+  <div
+    className="next placeholder"
+  />
+</div>
+`;
+
+exports[`render should render next/prev 1`] = `
+<div
+  className="jumper"
+>
+  <div
+    className="prev"
+    onClick={[Function]}
+    role="button"
+  >
+    <Icon
+      name="chevron-left"
+    />
+  </div>
+  <SelectMonth
+    className="select"
+    month={5}
+    onMonthSelect={[Function]}
+  />
+  <SelectYear
+    className="select"
+    onYearSelect={[Function]}
+    year={2018}
+  />
+  <div
+    className="next"
+    onClick={[Function]}
+    role="button"
+  >
+    <Icon
+      name="chevron-right"
+    />
+  </div>
+</div>
+`;

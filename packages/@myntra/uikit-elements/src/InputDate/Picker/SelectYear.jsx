@@ -1,10 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './InputDate.css' //eslint-disable-line
 
-const YearComponent = ({ currentYear, onYearSelect }) => {
-  let startYearValue = currentYear - 10
-  let endYearValue = currentYear + 10
+function SelectYear({ year, onYearSelect, ...props }) {
+  let startYearValue = year - 10
+  let endYearValue = year + 10
   const yearArray = []
   if (startYearValue < 0) {
     startYearValue = 0
@@ -15,8 +14,8 @@ const YearComponent = ({ currentYear, onYearSelect }) => {
   }
 
   return (
-    <div className={styles.selectWrapper}>
-      <select value={currentYear} onChange={event => onYearSelect(Number(event.target.value))}>
+    <div {...props}>
+      <select value={year} onChange={event => onYearSelect(Number(event.target.value))}>
         {yearArray.map(item => (
           <option value={item} key={item}>
             {item}
@@ -27,9 +26,9 @@ const YearComponent = ({ currentYear, onYearSelect }) => {
   )
 }
 
-YearComponent.propTypes = {
-  currentYear: PropTypes.number.isRequired,
+SelectYear.propTypes = {
+  year: PropTypes.number.isRequired,
   onYearSelect: PropTypes.func.isRequired
 }
 
-export default YearComponent
+export default SelectYear

@@ -1,0 +1,26 @@
+@import '../Input/Input.css';
+
+.date-value {
+  display: inline-flex;
+  width: 100%;
+}
+
+.date-value > * {
+  flex: 1;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper > .icon {
+  cursor: pointer;
+  position: absolute;
+  right: var(--size-xx-small);
+  bottom: var(--size-xx-small);
+}
+
+.active input {
+  color: var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
+}

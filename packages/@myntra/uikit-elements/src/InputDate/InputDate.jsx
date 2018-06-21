@@ -1,14 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
+import InputDatePicker from './InputDatePicker'
+import InputDateValue from './InputDateValue'
+import Dropdown from '../Dropdown/Dropdown'
+import { format, parse, DateType, DateRangeType, isDateEqual } from './InputDateUtils'
 import styles from './InputDate.css'
-import Picker from './Picker'
-import dayjs from 'dayjs'
-import { presetList } from './constants'
-
-function toString(any) {
-  return any === undefined || any === null ? '' : `${any}`
-}
 
 /**
  The InputDate component.
@@ -16,276 +13,190 @@ function toString(any) {
  @since 0.0.0
  @status EXPERIMENTAL
  @example
- <InputDate range value={this.state.value} onChange={(value) => {console.log(value); this.setState({value})}}/>
+ <InputDate range displayFormat="MM/dd" value={this.state.value} onChange={(value) => {console.log(value); this.setState({value})}}/>
 **/
-
 export default class InputDate extends PureComponent {
   static propTypes = {
+    /** @private */
     className: PropTypes.string,
-    disabled: PropTypes.bool,
-    disabledDates: Picker.propTypes.disabled,
+    /** Date format when using string dates. */
     format: PropTypes.string,
-    id: PropTypes.string,
+    /** Date format used only for displaying date values. */
+    displayFormat: PropTypes.string,
+    /** Select date range. */
     range: PropTypes.bool,
-    onChange: PropTypes.func.isRequired,
-    onClose: PropTypes.func,
-    onOpen: PropTypes.func,
-    placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-    value: PropTypes.oneOfType([
-      PropTypes.instanceOf(Date),
-      PropTypes.shape({
-        from: PropTypes.instanceOf(Date),
-        to: PropTypes.instanceOf(Date)
-      })
-    ]),
-    presets: PropTypes.array,
-    minDate: PropTypes.instanceOf(Date),
-    maxDate: PropTypes.instanceOf(Date)
+    /** Disabled */
+    disabled: PropTypes.bool,
+    /**
+     * Change event handler.
+     *
+     * @typedef {string|Date} DateLike
+     *
+     * @function
+     * @param {DateLike|{ from: DateLike, to: DateLike }} value
+     */
+    onChange: PropTypes.func,
+    /**
+     * Value
+     *
+     * @typedef {string|Date} DateType
+     *
+     * @typedef {{from: DateType, to: DateType}} DateRangeType
+     */
+    value: PropTypes.oneOfType([DateType, DateRangeType])
   }
 
   static defaultProps = {
     disabled: false,
-    format: 'DD-MM-YYYY',
-    range: false,
-    placeholder: 'Select...',
-    required: false,
-    presets: [
-      presetList.TODAY,
-      presetList.YESTERDAY,
-      presetList.LAST_7_DAYS,
-      presetList.LAST_15_DAYS,
-      presetList.LAST_30_DAYS,
-      presetList.LAST_45_DAYS,
-      presetList.LAST_90_DAYS,
-      presetList.LAST_WEEK,
-      presetList.LAST_MONTH,
-      presetList.LAST_3_MONTHS,
-      presetList.LAST_6_MONTHS
-    ]
+    range: false
+  }
+
+  state = {
+    isOpen: false,
+    openToDate: null,
+    activeRangeEnd: null,
+    isRangeSelectionActive: false
   }
 
   constructor(props) {
     super(props)
-
-    this.state = {
-      isOpen: false,
-      prefix: `select-${Date.now()}`
+    this.dropdownRef = ref => {
+      this.dropdownRef.current = ref
     }
   }
 
-  componentDidMount() {
-    document.addEventListener('mousedown', this.handleOutsideClick)
+  get displayFormat() {
+    return this.props.displayFormat || this.props.format || 'yyyy-MM-dd'
   }
 
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleOutsideClick)
+  get displayValue() {
+    return format(this.props.value, this.displayFormat) || (this.props.range ? {} : '')
   }
 
-  get value() {
-    if (!this.props.value) return ''
-    const f = d => dayjs(d).format(this.props.format)
-
-    if (!this.props.range) {
-      return f(this.props.value)
-    }
-    if (this.props.value.from && this.props.value.to) {
-      return `${f(this.props.value.from)} to ${f(this.props.value.to)}`
-    }
-    if (this.props.value.from) {
-      return `After ${f(this.props.value.from)}`
-    }
-    if (this.props.value.to) {
-      return `Before ${f(this.props.value.to)}`
-    }
-    return ''
-
-    // return this.props.value
+  get displayActiveRangeEnd() {
+    if (!this.state.isOpen) return null
+    if (this.state.activeRangeEnd) return this.state.activeRangeEnd
+    if (this.props.value && this.props.value.from && !this.props.value.to) return 'to'
+    return 'from'
   }
 
-  openMenu() {
-    if (!this.props.disabled && !this.state.isOpen) {
-      this.focus()
-      this.setState({ isOpen: true }, this.props.onOpen)
-    }
+  get openToDate() {
+    if (this.state.openToDate) return this.state.openToDate
+    if (!this.props.range) return parse(this.props.value, this.props.format)
+    if (!this.props.value) return null
+    return parse(
+      this.state.activeRangeEnd === 'to'
+        ? this.props.value.to || this.props.value.from
+        : this.props.value.from || this.props.value.to,
+      this.props.format
+    )
   }
 
-  closeMenu() {
-    this.setState({ isOpen: false, value: '' }, this.props.onClose)
-  }
+  handleOpenToDateChange = openToDate => this.setState({ openToDate })
 
-  focus() {
-    if (this.input) this.input.focus()
-  }
+  handleDisplayValueChange = value => {
+    if (this.props.onChange) {
+      if (this.props.range) {
+        value = { ...this.props.value, ...value }
 
-  handleMouseDown = event => {
-    if (this.props.disabled || (event.type === 'mousedown' && event.button !== 0)) return
+        if (value.from && value.to) {
+          const [from, to] = [value.from, value.to].filter(Boolean).sort((a, b) => a.getTime() - b.getTime())
 
-    event.preventDefault()
-
-    if (!this.state.isOpen) {
-      this.openMenu()
-    }
-  }
-
-  handleKeyDown = event => {
-    switch (event.keyCode) {
-      case 27: // escape
-        event.preventDefault()
-        if (this.state.isOpen) {
-          this.closeMenu()
-          event.stopPropagation()
+          value = { from, to }
         }
-        break
-      default:
-        break
+      }
+      this.props.onChange(this.props.format ? format(value, this.props.format) : value)
     }
   }
 
-  onChange = value => {
-    this.props.onChange(value)
-  }
-
+  handleRangeFocus = value => this.setState({ activeRangeEnd: value })
   handleChange = value => {
-    this.onChange(value)
     if (this.props.range) {
-      if (value && value.from && value.to) this.closeMenu()
-    } else if (value) this.closeMenu()
-  }
+      let shouldBeClosed = !!(value.from && value.to)
+      let nextSelection = null
+      if (shouldBeClosed && this.props.value) {
+        const hasFromChanged = !isDateEqual(this.props.value.from, value.from)
+        const hasToChanged = !isDateEqual(this.props.value.to, value.to)
+        // const hasFromSwappedWithTo = isDateEqual(this.props.value.from, value.to)
 
-  handleBlur = () => {
-    if (this.wrapper && (this.wrapper === document.activeElement || this.wrapper.contains(document.activeElement))) {
-      this.focus() // don't loose focus.
+        // Edited from. Wait for to.
+        if (hasFromChanged && !hasToChanged) {
+          nextSelection = 'to'
+          shouldBeClosed = false
+        }
+      } else {
+        if (!value.to) nextSelection = 'to'
+        if (!value.from) nextSelection = 'from'
+      }
 
-      return
+      this.setState({
+        isRangeSelectionActive: !shouldBeClosed,
+        activeRangeEnd: nextSelection
+      })
+
+      if (shouldBeClosed) {
+        this.close()
+      }
     }
 
-    if (this.keepOpen) {
-      this.keepOpen = false
-      this.focus() // don't loose focus.
+    this.props.onChange && this.props.onChange(value)
+  }
 
-      return
+  handleDropdownOpen = () => this.setState({ isOpen: true, openToDate: this.openToDate || new Date() })
+  handleDropdownClose = () => this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
+
+  handleBlur = /* istanbul ignore next: difficult to mock activeElement */ event => {
+    if (document.activeElement === document.body) return
+    this.closeIfElementIsOutsideTarget(event, document.activeElement)
+  }
+
+  closeIfElementIsOutsideTarget(event, element) {
+    const path = event.path || (event.composedPath ? event.composedPath() : undefined)
+
+    if (
+      path ? path.indexOf(element) < 0 : event.target !== event.currentTarget && !event.currentTarget.contains(element)
+    ) {
+      this.close()
     }
-
-    this.closeMenu()
   }
 
-  handleSelectorFocus = () => {
-    this.keepOpen = true
-  }
-
-  handleOutsideClick = event => {
-    // close date picker layover if user clicks outside
-    if (this.wrapper && !this.wrapper.contains(event.target)) {
-      this.closeMenu()
-    }
-  }
-
-  renderInput() {
-    const value = this.value
-
-    return (
-      <input
-        id={this.props.id}
-        className={styles.datepickerInput}
-        disabled={this.props.disabled}
-        ref={ref => {
-          this.input = ref
-        }}
-        role="combobox"
-        value={value}
-        placeholder={this.props.placeholder}
-        autoComplete="off"
-        onBlur={this.handleBlur}
-        aria-haspopup={toString(this.state.isOpen)}
-        aria-expanded={toString(this.state.isOpen)}
-        aria-autocomplete="both"
-        aria-activedescendant={`${this.state.prefix}-option-${this.state.focusedIndex}`}
-        aria-controls={`${this.state.prefix}-picker`}
-        aria-owns={`${this.state.prefix}-picker`}
-      />
-    )
-  }
-
-  renderSelector() {
-    const self = this.wrapper.getBoundingClientRect()
-    const maxWidth = window.innerWidth
-    const style = {}
-    const { presets, minDate, maxDate } = this.props
-
-    if (self.left + 500 < maxWidth) {
-      style.left = 0
-    } else {
-      style.right = 0
-    }
-
-    return (
-      <div
-        id={`${this.state.prefix}-picker`}
-        className={styles.datepickerWrapper}
-        onMouseDown={this.handleSelectorFocus}
-        style={style}
-        role="listbox"
-      >
-        <Picker
-          displayMonthsForRange={2}
-          disabled={this.props.disabledDates}
-          range={this.props.range}
-          value={this.props.value}
-          onBlur={this.handleBlur}
-          onChange={this.handleChange}
-          presets={presets}
-          minDate={minDate}
-          maxDate={maxDate}
-        />
-      </div>
-    )
-  }
-
-  renderRemoveIcon() {
-    if (this.props.disabled || !this.props.value) return null
-
-    return (
-      <span
-        onMouseDown={event => {
-          event.preventDefault()
-          event.stopPropagation()
-          this.handleChange(null)
-        }}
-      >
-        {/* <CloseIcon width="8px" height="8px" /> */}
-        X
-      </span>
-    )
+  close() {
+    this.dropdownRef.current && this.dropdownRef.current.close()
   }
 
   render() {
-    const className = classnames('datepicker', this.props.className, {
-      range: this.props.range,
-      disabled: this.props.disabled
-    }).use(styles)
-
     return (
-      <div
-        ref={ref => {
-          this.wrapper = ref
-        }}
-        className={className}
+      <Dropdown
+        auto
+        ref={this.dropdownRef}
+        className={classnames(this.props.className, 'input-date').use(styles)}
+        trigger={
+          <InputDateValue
+            range={this.props.range}
+            value={this.displayValue}
+            format={this.displayFormat}
+            active={this.displayActiveRangeEnd}
+            onRangeFocus={this.handleRangeFocus}
+            onChange={this.handleDisplayValueChange}
+          />
+        }
+        onOpen={this.handleDropdownOpen}
+        onClose={this.handleDropdownClose}
+        onBlur={this.handleBlur}
       >
-        <div
-          className={classnames('datepickerControl', {
-            datepickerControlFocus: this.state.isOpen
-          }).use(styles)}
-          onKeyDown={this.handleKeyDown}
-          onClick={this.handleMouseDown}
-          onTouchEnd={this.handleTouchEnd}
-          onTouchMove={this.handleTouchMove}
-          onTouchStart={this.handleTouchStart}
-        >
-          {this.renderInput()}
-          {this.renderRemoveIcon()}
+        <div className={classnames('wrapper').use(styles)}>
+          <InputDatePicker
+            presets={this.props.range}
+            disabledDates={[]}
+            monthsToDisplay={this.props.range ? 2 : 1}
+            {...this.props}
+            openToDate={this.openToDate}
+            onOpenToDateChange={this.handleOpenToDateChange}
+            onChange={this.handleChange}
+            active={this.state.activeRangeEnd}
+          />
         </div>
-        {this.state.isOpen && this.renderSelector()}
-      </div>
+      </Dropdown>
     )
   }
 }

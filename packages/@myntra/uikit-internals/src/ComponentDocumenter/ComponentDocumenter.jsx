@@ -87,7 +87,7 @@ export default class ComponentDocumenter extends Component {
                     <td style={styleTd}>{prop.name}</td>
                     <td style={styleTd}>{prop.description ? <Markdown>{prop.description}</Markdown> : null}</td>
                     <td style={styleTd}>
-                      <PropTypeDocumenter {...prop.type} meta={prop.meta} />
+                      <PropTypeDocumenter {...prop.type} meta={prop.meta} reference={prop.reference} />
                     </td>
                     <td style={styleTd}>
                       {prop.defaultValue ? (

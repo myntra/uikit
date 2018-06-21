@@ -1,5 +1,5 @@
 import React from 'react'
-import { shallow, mount } from 'enzyme'
+import { mount } from 'enzyme'
 
 import Dropdown from './Dropdown'
 
@@ -12,7 +12,7 @@ it('should render dropdown correctly', () => {
 
   expect(wrapper.text()).toBe('Open')
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
 
   expect(wrapper.state().isOpen).toBe(true)
   expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))
@@ -27,7 +27,7 @@ it('should render custom trigger', () => {
 
   expect(wrapper.text()).toBe('Open')
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
 
   expect(wrapper.state().isOpen).toBe(true)
   expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))
@@ -38,7 +38,7 @@ it('should render custom trigger', () => {
 it('should fire events and update state', () => {
   const handleOpen = jest.fn()
   const handleClose = jest.fn()
-  const wrapper = shallow(
+  const wrapper = mount(
     <Dropdown trigger="Open" onOpen={handleOpen} onClose={handleClose}>
       <p>Some Content</p>
     </Dropdown>
@@ -46,17 +46,17 @@ it('should fire events and update state', () => {
 
   expect(wrapper.state().isOpen).toBe(false)
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
   expect(handleOpen).toBeCalledWith()
   expect(wrapper.state().isOpen).toBe(true)
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
   expect(handleClose).toBeCalledWith()
   expect(wrapper.state().isOpen).toBe(false)
 
   handleOpen.mockClear()
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
   expect(handleOpen).toBeCalledWith()
   expect(wrapper.state().isOpen).toBe(true)
 
@@ -74,7 +74,7 @@ it('should open up and align left', () => {
     </Dropdown>
   )
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
   const el = wrapper.find('.content')
 
   expect(el.hasClass('up')).toBe(true)
@@ -222,7 +222,7 @@ it('should fall-back to custom createRef implementation', () => {
 
   expect(wrapper.text()).toBe('Open')
 
-  wrapper.find('.trigger').simulate('click')
+  wrapper.find('button').simulate('click')
 
   expect(wrapper.state().isOpen).toBe(true)
   expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))

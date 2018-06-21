@@ -1,0 +1,31 @@
+.presets {
+  display: inline-flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: var(--size-x-small) 0;
+  background-color: var(--color-gray-xx-light);
+}
+
+.preset {
+  padding: var(--size-x-small);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  font-size: var(--typography-text-smallText-font-size);
+  font-weight: var(--typography-text-smallText-font-weight);
+  line-height: var(--typography-text-smallText-line-height);
+  cursor: pointer;
+  user-select: none;
+}
+
+.preset + .preset {
+  margin-bottom: -1px;
+  border-top: solid 1px var(--color-gray-light);
+}
+
+.preset.active {
+  color: var(--color-primary);
+}
+
+.preset:hover {
+  background-color: var(--color-gray-light);
+}
