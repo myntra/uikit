@@ -10,7 +10,7 @@ import styles from './InputText.css'
  @example
  <InputText value={this.state.value} onChange={value => this.setState({ value })} />
  */
-const InputText = ({ disabled, className, onChange, value, ...props }) => {
+const InputText = ({ className, onChange, value, ...props }) => {
   return (
     <div className={className}>
       <input
@@ -18,14 +18,14 @@ const InputText = ({ disabled, className, onChange, value, ...props }) => {
         value={typeof value !== 'string' ? '' : value}
         onChange={event => onChange && onChange(event.target.value)}
         className={classnames('input').use(styles)}
-        disabled={disabled}
-        type="text"
       />
     </div>
   )
 }
 
 InputText.propTypes = {
+  /** Type */
+  type: PropTypes.oneOf(['text', 'email', 'password', 'tel', 'url']),
   /** @private */
   className: PropTypes.string,
   /** Disable Input */
@@ -41,6 +41,7 @@ InputText.propTypes = {
 }
 
 InputText.defaultProps = {
+  type: 'text',
   disabled: false
 }
 
