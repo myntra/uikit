@@ -8,14 +8,16 @@ import styles from './InputCheckBox.css'
  * @since 0.0.0
  * @status EXPERIMENTAL
  * @example
- * <InputCheckBox
- *  value={this.state.checked}
- *  label="I am checkBox"
- *  onChange={checked => this.setState({ checked })}
- * />
+ * <label>
+ *  <InputCheckBox
+ *   value={this.state.checked}
+ *   onChange={checked => this.setState({ checked })}
+ *  />
+ *  I am a CheckBox
+ * </label>
  */
 
-function InputCheckBox({ className, value, htmlValue, onChange, label, ...props }) {
+function InputCheckBox({ className, value, htmlValue, onChange, ...props }) {
   return (
     <label className={classnames(className, 'input').use(styles)}>
       <input
@@ -27,7 +29,6 @@ function InputCheckBox({ className, value, htmlValue, onChange, label, ...props 
         onChange={event => onChange && onChange(event.target.checked)}
       />
       <span className={classnames('checkbox').use(styles)} />
-      {label}
     </label>
   )
 }
@@ -35,9 +36,6 @@ function InputCheckBox({ className, value, htmlValue, onChange, label, ...props 
 InputCheckBox.propTypes = {
   /** @private */
   className: PropTypes.string,
-
-  /** Label text */
-  label: PropTypes.string,
 
   /**
    * Value

@@ -1,12 +1,12 @@
 @import '@myntra/tokens/tokens.css';
 
 .input {
+  font-size: inherit;
   background-color: transparent;
   border: none;
   border-bottom: 1px solid var(--color-gray-dark);
   color: var(--typography-color-dark-primary);
-  padding: var(--size-xx-small) var(--size-base) var(--size-xx-small) var(--size-none);
-  width: 100%;
+  padding: var(--relative-size-small) var(--relative-size-large) var(--relative-size-xx-small) var(--size-none);
 }
 
 .input:focus {

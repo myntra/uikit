@@ -1,5 +1,9 @@
 @import '../Input/Input.css';
 
+.input {
+  width: 100%;
+}
+
 /* Hide number spinner box on Firefox & Edge. */
 .input:not(:focus) {
   -webkit-appearance: none;

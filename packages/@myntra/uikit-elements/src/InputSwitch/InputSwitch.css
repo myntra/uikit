@@ -1,4 +1,10 @@
-@import '@myntra/tokens/tokens.css';
+@import '../Input/Input.css';
+
+.input {
+  display: inline-block;
+  border-bottom-color: transparent;
+  padding-right: var(--relative-size-x-small);
+}
 
 .switch-input {
   display: inline-block;
@@ -11,7 +17,6 @@
 .switch-track {
   position: relative;
   display: inline-block;
-  margin: 0 0.5em -0.13em 0;
   width: 2.5em;
   height: 0.8em;
   border-radius: 0.8em;
@@ -37,6 +42,10 @@
 
 .switch-input:checked + .switch-track {
   background: var(--color-nuclei-blue-light);
+}
+
+.switch-input:focus + .switch-track {
+  box-shadow: var(--shadow-light-small);
 }
 
 .switch-input:checked + .switch-track > .switch-thumb {

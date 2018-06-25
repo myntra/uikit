@@ -1,5 +1,10 @@
 @import '../Input/Input.css';
 
-.input.no-resize {
+.input {
+  width: 100%;
+  vertical-align: baseline;
+}
+
+.no-resize {
   resize: none;
 }

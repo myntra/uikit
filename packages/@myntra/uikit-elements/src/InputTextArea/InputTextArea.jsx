@@ -12,7 +12,7 @@ import styles from './InputTextArea.css'
  */
 function InputTextArea({ className, noResize, value, onChange, ...props }) {
   return (
-    <div className={classnames(className, 'textarea').use(styles)}>
+    <div className={classnames(className).use(styles)}>
       <textarea
         {...props}
         value={value || ''}

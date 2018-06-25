@@ -74,6 +74,8 @@ function transform(value, meta) {
     switch (unit) {
       case 'px':
         return value + 'px'
+      case 'em':
+        return Number(Number(value / base).toFixed(5)) + 'em'
       case 'rem':
         return Number(Number(value / base).toFixed(5)) + 'rem'
     }

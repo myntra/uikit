@@ -137,6 +137,16 @@ size:
   small: 12
   base: 16
   large: 24
+relative-size:
+  _meta:
+    base: 12
+    transformTo: em
+  none: 0
+  xx-small: 4
+  x-small: 8
+  small: 12
+  base: 16
+  large: 24
 # timing:
   # -
 typography:

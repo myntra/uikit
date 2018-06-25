@@ -14,9 +14,9 @@ import styles from './InputSwitch.css'
    onChange={checked => this.setState({checked})}
  />
  */
-function InputSwitch({ className, onChange, value, label, ...props }) {
+function InputSwitch({ className, onChange, value, ...props }) {
   return (
-    <label className={className}>
+    <label className={classnames(className, 'input').use(styles)}>
       <input
         {...props}
         type="checkbox"
@@ -27,7 +27,6 @@ function InputSwitch({ className, onChange, value, label, ...props }) {
       <span className={classnames('switch-track').use(styles)}>
         <span className={classnames('switch-thumb').use(styles)} />
       </span>
-      {label}
     </label>
   )
 }
@@ -45,9 +44,6 @@ InputSwitch.propTypes = {
    * @param {boolean} checked
    */
   onChange: PropTypes.func,
-
-  /** Label text */
-  label: PropTypes.string,
 
   /**
    * Disabled

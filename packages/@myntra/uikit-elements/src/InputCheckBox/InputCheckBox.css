@@ -1,8 +1,9 @@
 @import '../Input/Input.css';
 
 .input {
-  display: block;
+  display: inline-block;
   border-bottom-color: transparent;
+  padding-right: var(--relative-size-x-small);
 }
 
 .target {
@@ -15,7 +16,7 @@
 
 .checkbox {
   display: inline-block;
-  margin: 0.07em 0.5em -0.07em 0.18em;
+  margin: 0.07em 0.015em -0.07em 0.18em;
   height: 0.84em;
   width: 0.86em;
   background: white;

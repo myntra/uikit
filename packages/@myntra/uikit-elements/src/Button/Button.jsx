@@ -96,15 +96,15 @@ export default class Button extends PureComponent {
         onClick={this.handleClick}
       >
         {needLeftSlot && (
-          <div className={classnames('left').use(styles)}>
+          <span className={classnames('left').use(styles)}>
             <Icon name={icon} />
-          </div>
+          </span>
         )}
         {this.props.children || this.props.label}
         {needRightSlot && (
-          <div className={classnames('right').use(styles)}>
+          <span className={classnames('right').use(styles)}>
             <Icon name={secondaryIcon} />
-          </div>
+          </span>
         )}
       </Tag>
     )
