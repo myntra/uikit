@@ -2,6 +2,48 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0-alpha.2"></a>
+# [0.1.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2018-06-26)
+
+
+### Bug Fixes
+
+* Add eslint no-extraneous import rule ([debfd23](https://bitbucket.org/myntra/uikit/commits/debfd23)), closes [#43](https://bitbucket.org/myntra/uikit/issue/43)
+* **docgen:** Hot reload on jsdoc comments changes ([84609da](https://bitbucket.org/myntra/uikit/commits/84609da)), closes [#3](https://bitbucket.org/myntra/uikit/issue/3) [#50](https://bitbucket.org/myntra/uikit/issue/50)
+* Correct last 30 days preset ([96c05d9](https://bitbucket.org/myntra/uikit/commits/96c05d9))
+* **elements | InputDate:** Handle string dates ([cea3f44](https://bitbucket.org/myntra/uikit/commits/cea3f44)), closes [#53](https://bitbucket.org/myntra/uikit/issue/53)
+* **elements | InputDate:** Highlight current field in range selection ([a8546cf](https://bitbucket.org/myntra/uikit/commits/a8546cf)), closes [#55](https://bitbucket.org/myntra/uikit/issue/55)
+* **elements | InputMasked:** Use tokens and sync styles with mocks ([610824f](https://bitbucket.org/myntra/uikit/commits/610824f)), closes [#42](https://bitbucket.org/myntra/uikit/issue/42)
+* **elements | InputSwitch:** Use relative sizes & add label prop ([a6c0d68](https://bitbucket.org/myntra/uikit/commits/a6c0d68)), closes [#47](https://bitbucket.org/myntra/uikit/issue/47)
+* **elements | InputText:** Allow text-like input types ([b0637fa](https://bitbucket.org/myntra/uikit/commits/b0637fa)), closes [#54](https://bitbucket.org/myntra/uikit/issue/54)
+* **utils:** Include unknown class names in css modules token mapping ([71f5372](https://bitbucket.org/myntra/uikit/commits/71f5372)), closes [#1](https://bitbucket.org/myntra/uikit/issue/1) [#44](https://bitbucket.org/myntra/uikit/issue/44)
+
+
+### Features
+
+* **docgen:** Handle computed enum types ([684d6a1](https://bitbucket.org/myntra/uikit/commits/684d6a1))
+* **docgen:** Improved support for enum and function type props ([1a5b59c](https://bitbucket.org/myntra/uikit/commits/1a5b59c)), closes [#45](https://bitbucket.org/myntra/uikit/issue/45)
+* **elements:** Sync heights of input and button ([f90dcd2](https://bitbucket.org/myntra/uikit/commits/f90dcd2)), closes [#48](https://bitbucket.org/myntra/uikit/issue/48)
+* **elements | Dropdown:** Add auto mode to display content in appropriate position ([77d5da7](https://bitbucket.org/myntra/uikit/commits/77d5da7)), closes [#51](https://bitbucket.org/myntra/uikit/issue/51)
+* **elements | Icon:** Runtime icon sprite loader ([049241f](https://bitbucket.org/myntra/uikit/commits/049241f)), closes [#49](https://bitbucket.org/myntra/uikit/issue/49)
+* **elements | InputCheckBox:** Add InputCheckBox component ([731cfc3](https://bitbucket.org/myntra/uikit/commits/731cfc3)), closes [#41](https://bitbucket.org/myntra/uikit/issue/41)
+* **elements | InputDate:** Add InputDate component ([ab3822a](https://bitbucket.org/myntra/uikit/commits/ab3822a)), closes [#32](https://bitbucket.org/myntra/uikit/issue/32)
+* **elements | InputNumber:** Add InputNumber component ([975ee05](https://bitbucket.org/myntra/uikit/commits/975ee05)), closes [#40](https://bitbucket.org/myntra/uikit/issue/40)
+* **elements | InputRange:** Add InputRange component ([d2fcf90](https://bitbucket.org/myntra/uikit/commits/d2fcf90)), closes [#26](https://bitbucket.org/myntra/uikit/issue/26)
+* **elements | InputRange:** Use animation frame to smoothen the drag ([f2e00cf](https://bitbucket.org/myntra/uikit/commits/f2e00cf)), closes [#46](https://bitbucket.org/myntra/uikit/issue/46)
+* Improve JSDoc support in component documenter ([830902e](https://bitbucket.org/myntra/uikit/commits/830902e))
+* **elements | InputText:** Add InputText component ([2d53573](https://bitbucket.org/myntra/uikit/commits/2d53573)), closes [#22](https://bitbucket.org/myntra/uikit/issue/22)
+* Add chevron icons ([86dc60d](https://bitbucket.org/myntra/uikit/commits/86dc60d))
+* **elements | InputTextarea:** Add InputTextarea component ([c8d8f6c](https://bitbucket.org/myntra/uikit/commits/c8d8f6c)), closes [#33](https://bitbucket.org/myntra/uikit/issue/33)
+* **InputMasked:** Forward unhandled props ([a4cf119](https://bitbucket.org/myntra/uikit/commits/a4cf119))
+* **tokens:** Add z-index ([3867f7e](https://bitbucket.org/myntra/uikit/commits/3867f7e))
+* Add next and prev jumpers ([c503ac6](https://bitbucket.org/myntra/uikit/commits/c503ac6))
+* Always have start date in view ([9773bbc](https://bitbucket.org/myntra/uikit/commits/9773bbc))
+* Dropdown use onFocus and onBlur on unknown trigger components ([6b27677](https://bitbucket.org/myntra/uikit/commits/6b27677))
+* Use date-fns to parse/format date ([6d8bfff](https://bitbucket.org/myntra/uikit/commits/6d8bfff))
+
+
+
 <a name="0.1.0-alpha.1"></a>
 # [0.1.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.1.0-alpha.0...v0.1.0-alpha.1) (2018-06-10)
 

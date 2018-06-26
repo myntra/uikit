@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokens",
-  "version": "0.1.0-alpha.1",
+  "version": "0.1.0-alpha.2",
   "description": "Default design language for Myntra",
   "main": "tokens.js",
   "module": "tokens.esm.js",
