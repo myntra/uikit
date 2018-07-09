@@ -31,3 +31,15 @@ export function convertProp(file, api) {
 
   return h.toSource()
 }
+
+export function findComponentWhereProp(file, api) {
+  const { h } = createHelper(file, api)
+
+  const oldImport = h.findImport('unity-uikit/Input')
+  const name = h.getDefaultImportLocalName(h.first(oldImport))
+  const paths = h.findComponentWhereProp(name, 'type', 'number')
+
+  h.removeProp(name, 'type', paths)
+
+  return h.toSource()
+}

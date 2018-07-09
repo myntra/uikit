@@ -18,6 +18,12 @@ export function createHelper(file, api) {
 }
 
 export default function helpers(j, root, file) {
+  /**
+   * Get first AST node from AST paths.
+   *
+   * @param {ASTNode[]} nodes
+   * @returns {ASTNode}
+   */
   function first(nodes) {
     if (!nodes || nodes.size() === 0) return
 
@@ -26,6 +32,11 @@ export default function helpers(j, root, file) {
     return nodes.paths()[0]
   }
 
+  /**
+   * Get first non-relative import statement.
+   *
+   * @returns {ASTNode}
+   */
   function findLastNonRelativeImportStatement() {
     const result = root.find(
       j.Statement,
@@ -35,16 +46,33 @@ export default function helpers(j, root, file) {
     if (result.size()) return result.paths()[result.size() - 1]
   }
 
+  /**
+   * Get first non `import` statement.
+   *
+   * @returns {ASTNode}
+   */
   function findFirstNonImportStatement() {
     const result = root.find(j.Statement, node => node.type !== 'ImportDeclaration')
 
     if (result.size()) return first(result)
   }
 
+  /**
+   * Get import statement for `source` path.
+   *
+   * @param {string} source
+   * @returns {ASTNode}
+   */
   function findImport(source) {
     return root.find(j.ImportDeclaration).filter(decl => decl.value.source.value === source)
   }
 
+  /**
+   * Insert ASTNode at the end of file.
+   *
+   * @param {ASTNode} node
+   * @returns {void}
+   */
   function insertAtEnd(node) {
     root
       .find(j.Program)
@@ -52,6 +80,12 @@ export default function helpers(j, root, file) {
       .value.body.push(node)
   }
 
+  /**
+   * Insert ASTNode after imports.
+   *
+   * @param {any} node
+   * @returns {void}
+   */
   function insertAfterImports(node) {
     const pos = findFirstNonImportStatement()
 
@@ -62,6 +96,11 @@ export default function helpers(j, root, file) {
     }
   }
 
+  /**
+   * Insert ASTNode after package imports.
+   *
+   * @param {ASTNode} node
+   */
   function insertAfterNonRelativeImports(node) {
     const pos = findLastNonRelativeImportStatement()
 
@@ -72,6 +111,15 @@ export default function helpers(j, root, file) {
     }
   }
 
+  /**
+   * Generate import statement.
+   *
+   * @param {string} source
+   * @param {string} name
+   * @param {string} local
+   * @param {boolean} [named=false]
+   * @returns {void}
+   */
   function addImport(source, name, local, named = false) {
     const existing = first(findImport(source))
 
@@ -147,6 +195,12 @@ export default function helpers(j, root, file) {
     addImport(source, undefined, local, false)
   }
 
+  /**
+   * Find or create interop code ASTNode
+   *
+   * @param {string} localComponentName
+   * @returns {ASTNode}
+   */
   function getPropInteropNode(localComponentName) {
     const name = 'interopPropTransformer' + localComponentName + '$0'
     const result = root.find(j.VariableDeclaration, node => node.declarations[0].id.name === name)
@@ -167,6 +221,13 @@ export default function helpers(j, root, file) {
     return interop
   }
 
+  /**
+   * Add interop prop name change.
+   *
+   * @param {ASTNode} node
+   * @param {string} from
+   * @param {string} to
+   */
   function addPropInteropMapping(node, from, to) {
     const decl = node.declarations[0]
     const mapping = decl.init.arguments[0]
@@ -178,6 +239,13 @@ export default function helpers(j, root, file) {
     }
   }
 
+  /**
+   * Add interop prop type cast.
+   *
+   * @param {ASTNode} node
+   * @param {ASTNode} from
+   * @param {function(any): any} fn Uses toString() to get source-code of method.
+   */
   function addPropInteropCoercion(node, from, fn) {
     const decl = node.declarations[0]
     const coercions = decl.init.arguments[1]
@@ -191,16 +259,52 @@ export default function helpers(j, root, file) {
     }
   }
 
-  function forAttributesOnComponent(localComponentName, fn) {
-    root
-      .find(j.JSXOpeningElement, { name: { type: 'JSXIdentifier', name: localComponentName } })
-      .replaceWith(element => {
-        element.node.attributes.forEach((attribute, index) => {
-          fn(element, attribute, index)
-        })
+  /**
+   * Find list of all components where condition is met.
+   *
+   * @param {string} localComponentName
+   * @param {string} paths
+   * @param {string} condition
+   */
+  function findComponentWhere(localComponentName, paths, condition) {
+    const localPaths =
+      paths || root.find(j.JSXOpeningElement, { name: { type: 'JSXIdentifier', name: localComponentName } })
+    return localPaths.filter(element => (condition ? condition(element) : true))
+  }
 
-        return element.node
+  /**
+   * Execute forEach on component attributes in JSx.
+   *
+   * @param {string} localComponentName
+   * @param {string} propName
+   * @param {string} propValue
+   */
+  function findComponentWhereProp(localComponentName, propName, propValue, paths) {
+    return findComponentWhere(localComponentName, paths, element => {
+      return element.node.attributes.some(
+        attribute =>
+          attribute.type === 'JSXAttribute' &&
+          attribute.name.name === propName &&
+          attribute.value.type === 'Literal' &&
+          attribute.value.value === propValue
+      )
+    })
+  }
+
+  /**
+   * Execute forEach on component attributes in JSx.
+   *
+   * @param {string} localComponentName
+   * @param {object} paths
+   * @param {function(ASTNode, number): void} fn
+   */
+  function forAttributesOnComponent(localComponentName, paths, fn) {
+    return findComponentWhere(localComponentName, paths).replaceWith(element => {
+      element.node.attributes.forEach((attribute, index) => {
+        fn(element, attribute, index)
       })
+      return element.node
+    })
   }
 
   /**
@@ -210,8 +314,8 @@ export default function helpers(j, root, file) {
    * @param {string} oldPropName Prop name to remove.
    * @param {any} newPropName Prop name to add.
    */
-  function renameProp(localComponentName, oldPropName, newPropName) {
-    forAttributesOnComponent(localComponentName, (element, attribute, index) => {
+  function renameProp(localComponentName, oldPropName, newPropName, paths) {
+    forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
       if (attribute.type === 'JSXAttribute' && attribute.name.name === oldPropName) {
         element.node.attributes.splice(index, 1, j.jsxAttribute(j.jsxIdentifier(newPropName), attribute.value))
       } else if (attribute.type === 'JSXSpreadAttribute') {
@@ -227,55 +331,71 @@ export default function helpers(j, root, file) {
     })
   }
 
-  function removeProp(localComponentName, prop) {
-    forAttributesOnComponent(localComponentName, (element, attribute, index) => {
+  /**
+   * Remove prop in component usage.
+   *
+   * @param {string} localComponentName
+   * @param {string} prop
+   */
+  function removeProp(localComponentName, prop, paths) {
+    forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
       if (attribute.type === 'JSXAttribute' && attribute.name.name === prop) {
         element.node.attributes.splice(index, 1)
       }
     })
   }
 
-  function coerceProp(localComponentName, prop, fn) {
-    root
-      .find(j.JSXOpeningElement, { name: { type: 'JSXIdentifier', name: localComponentName } })
-      .replaceWith(nodePath => {
-        nodePath.node.attributes.forEach((attribute, index) => {
-          if (
-            attribute.type === 'JSXSpreadAttribute' ||
-            (attribute.type === 'JSXAttribute' && attribute.name.name === prop)
-          ) {
-            const interop = getPropInteropNode(localComponentName)
-            const name = interop.declarations[0].id.name
-            addPropInteropCoercion(interop, prop, fn)
+  /**
+   * Type cast prop in component usage.
+   *
+   * @param {string} localComponentName
+   * @param {string} prop
+   * @param {function(any): any} fn
+   */
+  function coerceProp(localComponentName, prop, fn, paths) {
+    forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
+      element.node.attributes.forEach((attribute, index) => {
+        if (
+          attribute.type === 'JSXSpreadAttribute' ||
+          (attribute.type === 'JSXAttribute' && attribute.name.name === prop)
+        ) {
+          const interop = getPropInteropNode(localComponentName)
+          const name = interop.declarations[0].id.name
+          addPropInteropCoercion(interop, prop, fn)
 
-            if (attribute.type === 'JSXAttribute') {
-              attribute.value = j.jsxExpressionContainer(
-                j.callExpression(
-                  j.memberExpression(
-                    j.memberExpression(j.identifier(name), j.identifier('coercions')),
-                    j.identifier(prop)
-                  ),
-                  [attribute.value.type === 'JSXExpressionContainer' ? attribute.value.expression : attribute.value]
-                )
+          if (attribute.type === 'JSXAttribute') {
+            attribute.value = j.jsxExpressionContainer(
+              j.callExpression(
+                j.memberExpression(
+                  j.memberExpression(j.identifier(name), j.identifier('coercions')),
+                  j.identifier(prop)
+                ),
+                [attribute.value.type === 'JSXExpressionContainer' ? attribute.value.expression : attribute.value]
               )
-            } else if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
-              attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
-            }
-
-            addPropInteropCoercion(interop, prop, fn)
+            )
+          } else if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
+            attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
           }
-        })
 
-        return nodePath.node
+          addPropInteropCoercion(interop, prop, fn)
+        }
       })
+      return element.node
+    })
   }
 
-  function renameProps(localComponentName, propNames) {
-    Object.entries(propNames).forEach(([from, to]) => renameProp(localComponentName, from, to))
+  /**
+   * Re
+   *
+   * @param {any} localComponentName
+   * @param {any} propNames
+   */
+  function renameProps(localComponentName, propNames, paths) {
+    Object.entries(propNames).forEach(([from, to]) => renameProp(localComponentName, from, to, paths))
   }
 
-  function removeProps(localComponentName, props) {
-    props.forEach(prop => removeProp(localComponentName, prop))
+  function removeProps(localComponentName, props, paths) {
+    props.forEach(prop => removeProp(localComponentName, prop, paths))
   }
 
   function getDefaultImportLocalName(node) {
@@ -319,7 +439,6 @@ export default function helpers(j, root, file) {
    * @returns {string} Local identifier of the import
    */
   function getNamedImportLocalName(node, name) {
-    console.log(node)
     const defaultSpecifier = node.value.specifiers.find(
       specifier => specifier.type === 'ImportSpecifier' && specifier.name === name
     )
@@ -344,6 +463,7 @@ export default function helpers(j, root, file) {
     insertAfterImports,
     insertAfterNonRelativeImports,
     insertAtEnd,
+    findComponentWhereProp,
     removeProp,
     removeProps,
     renameProp,

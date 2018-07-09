@@ -692,6 +692,26 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@myntra/eslint-config-standard@^0.1.0-alpha.2":
+  version "0.1.0-alpha.2"
+  resolved "http://registry.myntra.com:8000/@myntra/eslint-config-standard/-/@myntra/eslint-config-standard-0.1.0-alpha.2.tgz#6dbe464a4fc00180045514ad9c91ecfacb773d99"
+  dependencies:
+    babel-eslint "^8.2.2"
+    babel-plugin-syntax-jsx "^6.18.0"
+    eslint-config-prettier "^2.9.0"
+    eslint-config-standard "^11.0.0"
+    eslint-plugin-babel "^5.0.0"
+    eslint-plugin-import "^2.12.0"
+    eslint-plugin-jest "^21.15.1"
+    eslint-plugin-json "^1.2.0"
+    eslint-plugin-jsx-a11y "^6.0.3"
+    eslint-plugin-node "^6.0.1"
+    eslint-plugin-prettier "^2.6.0"
+    eslint-plugin-promise "^3.7.0"
+    eslint-plugin-react "^7.7.0"
+    eslint-plugin-standard "^3.0.1"
+    prettier "^1.11.1"
+
 "@nodelib/fs.stat@^1.0.1":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"
