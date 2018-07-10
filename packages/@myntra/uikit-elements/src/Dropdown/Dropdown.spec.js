@@ -2,35 +2,32 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import Dropdown from './Dropdown'
+import Button from '../Button/Button'
 
 it('should render dropdown correctly', () => {
   const wrapper = mount(
-    <Dropdown trigger="Open">
+    <Dropdown trigger="Open" isOpen={false}>
       <p>Some Content</p>
     </Dropdown>
   )
 
   expect(wrapper.text()).toBe('Open')
 
-  wrapper.find('button').simulate('click')
-
-  expect(wrapper.state().isOpen).toBe(true)
+  wrapper.setProps({ isOpen: true })
   expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))
 })
 
 it('should render custom trigger', () => {
+  const fn = jest.fn()
   const wrapper = mount(
-    <Dropdown trigger={<button id="foo">Open</button>}>
+    <Dropdown trigger={<button id="foo">Open</button>} isOpen={false} onOpen={fn}>
       <p>Some Content</p>
     </Dropdown>
   )
 
-  expect(wrapper.text()).toBe('Open')
-
   wrapper.find('button').simulate('click')
 
-  expect(wrapper.state().isOpen).toBe(true)
-  expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))
+  expect(fn).toHaveBeenCalled()
 
   expect(wrapper.find('#foo')).toBeTruthy()
 })
@@ -39,42 +36,29 @@ it('should fire events and update state', () => {
   const handleOpen = jest.fn()
   const handleClose = jest.fn()
   const wrapper = mount(
-    <Dropdown trigger="Open" onOpen={handleOpen} onClose={handleClose}>
+    <Dropdown trigger="Open" isOpen={false} onOpen={handleOpen} onClose={handleClose}>
       <p>Some Content</p>
     </Dropdown>
   )
 
-  expect(wrapper.state().isOpen).toBe(false)
+  expect(wrapper.props().isOpen).toBe(false)
 
-  wrapper.find('button').simulate('click')
+  wrapper.find(Button).simulate('click')
   expect(handleOpen).toBeCalledWith()
-  expect(wrapper.state().isOpen).toBe(true)
 
-  wrapper.find('button').simulate('click')
-  expect(handleClose).toBeCalledWith()
-  expect(wrapper.state().isOpen).toBe(false)
-
-  handleOpen.mockClear()
-
-  wrapper.find('button').simulate('click')
-  expect(handleOpen).toBeCalledWith()
-  expect(wrapper.state().isOpen).toBe(true)
-
-  handleClose.mockClear()
-
-  wrapper.instance().close()
-  expect(handleClose).toBeCalledWith()
-  expect(wrapper.state().isOpen).toBe(false)
+  wrapper.setProps({ isOpen: true })
+  wrapper.find(Button).simulate('click')
 })
 
 it('should open up and align left', () => {
   const wrapper = mount(
-    <Dropdown trigger="Open" up left>
+    <Dropdown trigger="Open" isOpen={false} up left>
       <p>Some Content</p>
     </Dropdown>
   )
 
-  wrapper.find('button').simulate('click')
+  wrapper.find(Button).simulate('click')
+  wrapper.setProps({ isOpen: true })
   const el = wrapper.find('.content')
 
   expect(el.hasClass('up')).toBe(true)
@@ -143,7 +127,7 @@ describe('auto align', () => {
   })
 
   it('should call calculateAutoPosition on toggle', () => {
-    const ref = new Dropdown({ auto: true })
+    const ref = new Dropdown({ auto: true, isOpen: false })
     const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
     jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
     ref.toggle()
@@ -214,18 +198,19 @@ it('should fall-back to custom createRef implementation', () => {
 
   React.createRef = undefined
 
+  const fn = jest.fn()
+
   const wrapper = mount(
-    <Dropdown trigger="Open">
+    <Dropdown trigger="Open" onOpen={fn} isOpen={false}>
       <p>Some Content</p>
     </Dropdown>
   )
 
   expect(wrapper.text()).toBe('Open')
 
-  wrapper.find('button').simulate('click')
+  wrapper.find(Button).simulate('click')
 
-  expect(wrapper.state().isOpen).toBe(true)
-  expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))
+  expect(fn).toHaveBeenCalled()
 
   React.createRef = original
 })

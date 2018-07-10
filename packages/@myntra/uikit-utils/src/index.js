@@ -1,4 +1,14 @@
-import { each, isString, isPlainObject, isArray, uniq as unique, map, findIndex, findLastIndex } from 'lodash-es'
+import {
+  each,
+  isString,
+  isPlainObject,
+  isArray,
+  uniq as unique,
+  map,
+  findIndex,
+  findLastIndex,
+  isEqual
+} from 'lodash-es'
 
 /**
  * Unique values from array.
@@ -9,7 +19,7 @@ import { each, isString, isPlainObject, isArray, uniq as unique, map, findIndex,
  * @return {Array.<T>}
  */
 export { unique }
-export { map, each, findIndex, findLastIndex }
+export { map, each, findIndex, findLastIndex, isEqual }
 
 /**
  * Wrap single element to array if required.

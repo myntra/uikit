@@ -354,32 +354,28 @@ export default function helpers(j, root, file) {
    */
   function coerceProp(localComponentName, prop, fn, paths) {
     forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
-      element.node.attributes.forEach((attribute, index) => {
-        if (
-          attribute.type === 'JSXSpreadAttribute' ||
-          (attribute.type === 'JSXAttribute' && attribute.name.name === prop)
-        ) {
-          const interop = getPropInteropNode(localComponentName)
-          const name = interop.declarations[0].id.name
-          addPropInteropCoercion(interop, prop, fn)
+      if (
+        attribute.type === 'JSXSpreadAttribute' ||
+        (attribute.type === 'JSXAttribute' && attribute.name.name === prop)
+      ) {
+        const interop = getPropInteropNode(localComponentName)
+        const name = interop.declarations[0].id.name
+        addPropInteropCoercion(interop, prop, fn)
 
-          if (attribute.type === 'JSXAttribute') {
-            attribute.value = j.jsxExpressionContainer(
-              j.callExpression(
-                j.memberExpression(
-                  j.memberExpression(j.identifier(name), j.identifier('coercions')),
-                  j.identifier(prop)
-                ),
-                [attribute.value.type === 'JSXExpressionContainer' ? attribute.value.expression : attribute.value]
-              )
+        if (attribute.type === 'JSXAttribute') {
+          attribute.value = j.jsxExpressionContainer(
+            j.callExpression(
+              j.memberExpression(j.memberExpression(j.identifier(name), j.identifier('coercions')), j.identifier(prop)),
+              [attribute.value.type === 'JSXExpressionContainer' ? attribute.value.expression : attribute.value]
             )
-          } else if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
-            attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
-          }
-
-          addPropInteropCoercion(interop, prop, fn)
+          )
+        } else if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
+          attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
         }
-      })
+
+        addPropInteropCoercion(interop, prop, fn)
+      }
+
       return element.node
     })
   }

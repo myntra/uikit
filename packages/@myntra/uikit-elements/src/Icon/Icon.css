@@ -1,6 +1,26 @@
+@import '@myntra/tokens/tokens.css';
+
+.icon {
+  color: var(--color-black-dark);
+}
+
 .svg {
   fill: currentColor;
   height: 1em;
   width: 1em;
   margin-bottom: -0.13em;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

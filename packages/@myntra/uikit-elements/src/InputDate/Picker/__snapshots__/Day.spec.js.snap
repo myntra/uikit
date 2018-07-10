@@ -3,7 +3,7 @@
 exports[`render should render a day 1`] = `
 <div
   aria-hidden={false}
-  className="day"
+  className="day today"
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}
@@ -19,7 +19,7 @@ exports[`render should render a day 1`] = `
 exports[`render should render a focused/disabled/selected day 1`] = `
 <div
   aria-hidden={false}
-  className="day focused selected"
+  className="day focused selected today"
   disabled={true}
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
@@ -36,7 +36,7 @@ exports[`render should render a focused/disabled/selected day 1`] = `
 exports[`render should render a selection start/end day 1`] = `
 <div
   aria-hidden={false}
-  className="day selected start end"
+  className="day selected start end today"
   onMouseDown={[Function]}
   onMouseEnter={[Function]}
   onMouseLeave={[Function]}

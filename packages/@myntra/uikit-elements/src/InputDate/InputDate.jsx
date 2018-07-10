@@ -170,6 +170,7 @@ export default class InputDate extends PureComponent {
         auto
         ref={this.dropdownRef}
         className={classnames(this.props.className, 'input-date').use(styles)}
+        isOpen={this.state.isOpen}
         trigger={
           <InputDateValue
             range={this.props.range}

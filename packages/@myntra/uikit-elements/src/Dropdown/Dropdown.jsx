@@ -13,7 +13,10 @@ import styles from './Dropdown.css'
  @since 0.0.0
  @status EXPERIMENTAL
  @example
-  <Dropdown trigger="Open" auto>
+  <Dropdown trigger="Open" isOpen={this.state.isOpen} auto
+    onOpen={() => this.setState({ isOpen: true })}
+    onClose={() => this.setState({ isOpen: false })}
+  >
     <div style={{ padding: '100px', background: 'white', boxShadow: '0 0 10px 0 rgba(0, 0, 0, .34)' }}>
       Anything here!
       <p>Yes. Anything!</p>
@@ -28,6 +31,8 @@ class Dropdown extends Component {
     className: PropTypes.string,
     /** Trigger to open dropdown. */
     trigger: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]).isRequired,
+    /** Dropdown state */
+    isOpen: PropTypes.bool.isRequired,
     /**
      * Event fired when dropdown drawer is displayed
      * @type {function(): void}
@@ -74,7 +79,7 @@ class Dropdown extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { isOpen: false, up: false, left: false, right: false }
+    this.state = { up: false, left: false, right: false }
     this.wrapper =
       typeof React.createRef === 'function'
         ? React.createRef()
@@ -112,12 +117,33 @@ class Dropdown extends Component {
   }
 
   /**
-   * Close dropdown content drawer.
+   * Ignore consecutive events.
+   *
+   * @returns {boolean}
+   */
+  shouldCancelEvent() {
+    const shouldCancelEvent = this.coolDownTimer > 0
+
+    clearTimeout(this.coolDownTimer)
+    this.coolDownTimer = setTimeout(() => {
+      this.coolDownTimer = 0
+    }, 200 /* cool down timeout */)
+
+    return shouldCancelEvent
+  }
+
+  /**
+   * Open dropdown content drawer.
    *
    * @returns {void}
    */
-  close = () => {
-    this.setState({ isOpen: false }, this.props.onClose)
+  open = () => {
+    if (this.shouldCancelEvent()) return
+    if (this.props.auto) {
+      this.setState(this.calculateAutoPosition(this.wrapper.current, document.body))
+    }
+
+    this.props.onOpen && this.props.onOpen()
   }
 
   /**
@@ -125,8 +151,9 @@ class Dropdown extends Component {
    *
    * @returns {void}
    */
-  open = () => {
-    this.setState({ isOpen: true }, this.props.onOpen)
+  close = () => {
+    if (this.shouldCancelEvent()) return
+    this.props.onClose && this.props.onClose()
   }
 
   /**
@@ -135,11 +162,7 @@ class Dropdown extends Component {
    * @returns {void}
    */
   toggle = () => {
-    if (this.props.auto && !this.state.isOpen) {
-      this.setState(this.calculateAutoPosition(this.wrapper.current, document.body))
-    }
-
-    this.setState(state => ({ isOpen: !state.isOpen }), this.state.isOpen ? this.props.onClose : this.props.onOpen)
+    this.props.isOpen ? this.close() : this.open()
   }
 
   /**
@@ -173,7 +196,7 @@ class Dropdown extends Component {
     return (
       <div
         {...this.forwardedProps}
-        className={classnames(this.props.className, 'dropdown', { open: this.state.isOpen }).use(styles)}
+        className={classnames(this.props.className, 'dropdown', { open: this.props.isOpen }).use(styles)}
         ref={this.wrapper}
       >
         <div className={classnames('trigger').use(styles)}>
@@ -183,12 +206,12 @@ class Dropdown extends Component {
             React.cloneElement(this.props.trigger, { onBlur: this.close, onFocus: this.open, onClick: this.toggle })
           )}
         </div>
-        {this.state.isOpen && (
+        {this.props.isOpen && (
           <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
             {this.props.children}
           </div>
         )}
-        {this.state.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
+        {this.props.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
       </div>
     )
   }

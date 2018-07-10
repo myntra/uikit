@@ -22,11 +22,11 @@ if (typeof useIcons === 'function') useIcons()
  * @status EXPERIMENTAL
  * @example <Icon name="alert" />
  */
-function Icon({ name, className, title, ...props }) {
+function Icon({ name, className, title, spin, ...props }) {
   return (
     <svg
       {...props}
-      className={classnames(className, 'svg').use(styles)}
+      className={classnames(className, { spin }, 'svg').use(styles)}
       aria-hidden={title ? null : true}
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -41,7 +41,9 @@ Icon.propTypes = {
   className: PropTypes.string,
   name: PropTypes.oneOf(Object.keys(aliases)).isRequired,
   /** Alternative text for screen readers. */
-  title: PropTypes.string
+  title: PropTypes.string,
+  /** Spinning icon */
+  spin: PropTypes.bool
 }
 
 export default Icon

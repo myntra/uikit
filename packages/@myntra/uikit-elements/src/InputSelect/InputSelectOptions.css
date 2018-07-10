@@ -1,0 +1,10 @@
+@import '@myntra/tokens';
+
+.options {
+  background: white;
+  max-height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  box-shadow: var(--shadow-light-small);
+  outline: none;
+}

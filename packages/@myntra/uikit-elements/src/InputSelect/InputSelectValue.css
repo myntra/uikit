@@ -1,0 +1,23 @@
+@import '@myntra/tokens/tokens.css';
+@import '../Input/Input.css';
+
+.value {
+  display: inline-block;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.value .input {
+  width: 100%;
+  border-bottom: transparent;
+}
+
+.underlay .input {
+  color: var(--typography-color-dark-secondary);
+}

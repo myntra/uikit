@@ -1,0 +1,18 @@
+.option {
+  padding: var(--size-x-small);
+  cursor: pointer;
+  position: relative;
+}
+
+.checkbox {
+  padding: 0;
+  margin-right: var(--size-xx-small);
+}
+
+.focused {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.disabled {
+  pointer-events: none;
+}
