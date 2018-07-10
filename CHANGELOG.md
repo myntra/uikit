@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.1.0"></a>
+# [0.1.0](https://bitbucket.org/myntra/uikit/compare/v0.1.0-alpha.2...v0.1.0) (2018-07-10)
+
+
+### Features
+
+* **codemods:** Find component with prop, apply JSx transformations to selective nodes ([9da6c02](https://bitbucket.org/myntra/uikit/commits/9da6c02)), closes [#58](https://bitbucket.org/myntra/uikit/issue/58)
+* **elements | InputSelect:** Add InputSelect component ([be72624](https://bitbucket.org/myntra/uikit/commits/be72624)), closes [#19](https://bitbucket.org/myntra/uikit/issue/19) [#52](https://bitbucket.org/myntra/uikit/issue/52) [#55](https://bitbucket.org/myntra/uikit/issue/55) [#56](https://bitbucket.org/myntra/uikit/issue/56) [#54](https://bitbucket.org/myntra/uikit/issue/54) [#48](https://bitbucket.org/myntra/uikit/issue/48)
+
+
+
 <a name="0.1.0-alpha.2"></a>
 # [0.1.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.1.0-alpha.1...v0.1.0-alpha.2) (2018-06-26)
 

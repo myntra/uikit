@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-utils",
-  "version": "0.1.0-alpha.2",
+  "version": "0.1.0",
   "description": "Shared utility functions",
   "main": "src/index.js",
   "module": "src/index.js",
