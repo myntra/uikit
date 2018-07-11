@@ -26,6 +26,7 @@
     "date-fns": "^2.0.0-alpha.10",
     "dayjs": "^1.6.7",
     "intersection-observer-polyfill": "^0.1.0",
+    "react-dom": "^16.4.1",
     "sifter": "^0.5.3"
   },
   "peerDependencies": {

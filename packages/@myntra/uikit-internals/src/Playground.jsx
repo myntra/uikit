@@ -45,7 +45,13 @@ export default class Playground extends PureComponent {
         {extra => (
           <LiveProvider
             code={prettier
-              .format(this.props.children, { semi: false, singleQuote: true, jsxBracketSameLine: true, plugins })
+              .format(this.props.children, {
+                semi: false,
+                singleQuote: true,
+                jsxBracketSameLine: true,
+                plugins,
+                parser: 'babylon'
+              })
               .trim()
               .replace(/^;/, '')}
             scope={{ ...this.props.context, ...extra }}
@@ -56,7 +62,7 @@ export default class Playground extends PureComponent {
                 this.state = {}
               }
               render() {
-                ${code.replace(/</i, ';return <')}
+                ${code.replace(/<[a-z]+/i, m => ';return ' + m)}
               }
             }
             render(<LiveWrapper />)`}

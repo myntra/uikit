@@ -10,8 +10,6 @@ const MarkdownCache = {}
 
 function fetchMarkdown(path) {
   if (path in MarkdownCache) {
-    console.log('From cache: ' + path)
-
     return MarkdownCache[path]
   }
 
