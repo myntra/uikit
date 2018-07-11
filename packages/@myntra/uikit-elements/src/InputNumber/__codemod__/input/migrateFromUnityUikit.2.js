@@ -1,13 +1,11 @@
 import React from 'react'
 import Input from 'unity-uikit/Input'
+import { InputNumber } from '@myntra/uikit'
 
 export default function MyComponent(props) {
   return <div>
     <Input type="text" readOnly {...props} />
-    <Input type="email" readOnly {...props} />
-    <Input type="url" readOnly {...props} />
-    <Input type="password" readOnly {...props} />
-    <Input type="tel" readOnly {...props} />
     <Input type="number" required {...props} />
+    <InputNumber disabled {...props} />
   </div>
 }

@@ -281,6 +281,7 @@ export default function helpers(j, root, file) {
    * @param {string} localComponentName
    * @param {string} propName
    * @param {string} propValue
+   * @param {any} paths
    */
   function findComponentWhereProp(localComponentName, propName, propValue, paths) {
     return findComponentWhere(localComponentName, paths, element => {
@@ -289,7 +290,7 @@ export default function helpers(j, root, file) {
           attribute.type === 'JSXAttribute' &&
           attribute.name.name === propName &&
           attribute.value.type === 'Literal' &&
-          attribute.value.value === propValue
+          (Array.isArray(propValue) ? propValue : [propValue]).includes(attribute.value.value)
       )
     })
   }

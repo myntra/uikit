@@ -7,6 +7,10 @@ export default function MyComponent(props) {
   return (
     <div>
       <InputText readOnly {...props} />
+      <InputText type="email" readOnly {...props} />
+      <InputText type="url" readOnly {...props} />
+      <InputText type="password" readOnly {...props} />
+      <InputText type="tel" readOnly {...props} />
       <Input type="number" required {...props} />
     </div>
   )

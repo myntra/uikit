@@ -1,6 +1,9 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import InputNumber from './InputNumber'
+import { testCodeMod } from '@myntra/codemod-utils'
+
+testCodeMod(__dirname, 'InputNumber.codemod.js')
 
 it('Should be number type', () => {
   expect(
