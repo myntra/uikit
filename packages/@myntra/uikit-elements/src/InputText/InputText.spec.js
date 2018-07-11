@@ -1,6 +1,9 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
 import InputText from './InputText'
+import { testCodeMod } from '@myntra/codemod-utils'
+
+testCodeMod(__dirname, 'InputText.codemod.js')
 
 it('renders a placeholder <input> by default', () => {
   expect(

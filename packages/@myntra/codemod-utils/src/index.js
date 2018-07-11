@@ -124,6 +124,8 @@ export default function helpers(j, root, file) {
     const existing = first(findImport(source))
 
     const globalCollisions = root
+      .find(j.ImportDeclaration)
+      .filter(n => n.node.source.value !== source)
       .find(j.Identifier, n => n.name === local && n.type !== (named ? 'ImportSpecifier' : 'ImportDefaultSpecifier'))
       .paths()
       .filter(
@@ -268,7 +270,8 @@ export default function helpers(j, root, file) {
    */
   function findComponentWhere(localComponentName, paths, condition) {
     const localPaths =
-      paths || root.find(j.JSXOpeningElement, { name: { type: 'JSXIdentifier', name: localComponentName } })
+      paths ||
+      root.find(j.JSXElement, { openingElement: { name: { type: 'JSXIdentifier', name: localComponentName } } })
     return localPaths.filter(element => (condition ? condition(element) : true))
   }
 
@@ -281,7 +284,7 @@ export default function helpers(j, root, file) {
    */
   function findComponentWhereProp(localComponentName, propName, propValue, paths) {
     return findComponentWhere(localComponentName, paths, element => {
-      return element.node.attributes.some(
+      return element.node.openingElement.attributes.some(
         attribute =>
           attribute.type === 'JSXAttribute' &&
           attribute.name.name === propName &&
@@ -299,12 +302,14 @@ export default function helpers(j, root, file) {
    * @param {function(ASTNode, number): void} fn
    */
   function forAttributesOnComponent(localComponentName, paths, fn) {
-    return findComponentWhere(localComponentName, paths).replaceWith(element => {
-      element.node.attributes.forEach((attribute, index) => {
-        fn(element, attribute, index)
+    return findComponentWhere(localComponentName, paths)
+      .find(j.JSXOpeningElement)
+      .replaceWith(element => {
+        element.node.attributes.forEach((attribute, index) => {
+          fn(element, attribute, index)
+        })
+        return element.node
       })
-      return element.node
-    })
   }
 
   /**
@@ -342,6 +347,29 @@ export default function helpers(j, root, file) {
       if (attribute.type === 'JSXAttribute' && attribute.name.name === prop) {
         element.node.attributes.splice(index, 1)
       }
+    })
+  }
+
+  /**
+   * Rename tag in JSx
+   *
+   * @param {string} oldComponentName
+   * @param {string} newComponentName
+   * @param {any} paths
+   */
+  function renameJSxTag(oldComponentName, newComponentName, paths) {
+    const elementPaths = findComponentWhere(oldComponentName, paths)
+
+    elementPaths.find(j.JSXOpeningElement).replaceWith(element => {
+      element.node.name = j.jsxIdentifier(newComponentName)
+
+      return element.node
+    })
+
+    elementPaths.find(j.JSXClosingElement).replaceWith(element => {
+      element.node.name = j.jsxIdentifier(newComponentName)
+
+      return element.node
     })
   }
 
@@ -460,10 +488,12 @@ export default function helpers(j, root, file) {
     insertAfterNonRelativeImports,
     insertAtEnd,
     findComponentWhereProp,
+    findComponentWhere,
     removeProp,
     removeProps,
     renameProp,
     renameProps,
+    renameJSxTag,
     toSource: () => {
       const { results } = engine.executeOnText(root.toSource())
 

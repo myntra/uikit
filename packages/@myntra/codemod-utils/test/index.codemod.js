@@ -1,4 +1,4 @@
-import { createHelper } from '../'
+import { createHelper } from '../src'
 
 export function addNamedImport(file, api) {
   const { h } = createHelper(file, api)
@@ -40,6 +40,14 @@ export function findComponentWhereProp(file, api) {
   const paths = h.findComponentWhereProp(name, 'type', 'number')
 
   h.removeProp(name, 'type', paths)
+
+  return h.toSource()
+}
+
+export function renameTag(file, api) {
+  const { h } = createHelper(file, api)
+
+  h.renameJSxTag('Foo', 'Bar')
 
   return h.toSource()
 }
