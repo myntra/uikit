@@ -1,6 +1,9 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import InputCheckBox from './InputCheckBox'
+import { testCodeMod } from '@myntra/codemod-utils'
+
+testCodeMod(__dirname, 'InputCheckBox.codemod.js')
 
 it('should call onChange handler on change', () => {
   const handler = jest.fn()

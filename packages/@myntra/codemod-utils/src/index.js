@@ -318,9 +318,11 @@ export default function helpers(j, root, file) {
    *
    * @param {string} localComponentName Local identifier for component.
    * @param {string} oldPropName Prop name to remove.
-   * @param {any} newPropName Prop name to add.
+   * @param {string} newPropName Prop name to add.
+   * @param {Collection} paths JSCodeShift path collection
    */
   function renameProp(localComponentName, oldPropName, newPropName, paths) {
+    d(`renameProp: <${localComponentName} -${oldPropName} +${newPropName} />`)
     forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
       if (attribute.type === 'JSXAttribute' && attribute.name.name === oldPropName) {
         element.node.attributes.splice(index, 1, j.jsxAttribute(j.jsxIdentifier(newPropName), attribute.value))
@@ -344,6 +346,7 @@ export default function helpers(j, root, file) {
    * @param {string} prop
    */
   function removeProp(localComponentName, prop, paths) {
+    d(`removeProp: <${localComponentName} -${prop} />`)
     forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
       if (attribute.type === 'JSXAttribute' && attribute.name.name === prop) {
         element.node.attributes.splice(index, 1)
