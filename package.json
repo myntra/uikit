@@ -23,10 +23,9 @@
     "coverage": "jest --coverage",
     "postcoverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
     "ci": "node scripts/jenkins-build.js",
-    "release": "standard-version -a",
+    "release": "standard-version -a && ./scripts/publish.sh",
     "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md",
-    "lerna:version": "lerna publish --yes --skip-npm --skip-git --repo-version $(node scripts/version.js) && git add packages/ lerna.json",
-    "lerna:publish": "lerna exec --ignore uikit-internals npm publish"
+    "lerna:version": "lerna publish --yes --skip-npm --skip-git --repo-version $(node scripts/version.js) && git add packages/ lerna.json"
   },
   "workspaces": [
     "packages/@myntra/*"
