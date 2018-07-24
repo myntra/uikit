@@ -1,11 +1,14 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { testCodeMod } from '@myntra/codemod-utils'
 
 import InputSelect from './InputSelect'
 import InputSelectValue from './InputSelectValue'
 import InputSelectControl from './InputSelectControl'
 import InputSelectOption from './InputSelectOption'
 import InputSelectOptions from './InputSelectOptions'
+
+testCodeMod(__dirname, 'InputSelect.codemod.js')
 
 describe('Input Select', () => {
   let props

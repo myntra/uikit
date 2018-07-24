@@ -42,6 +42,12 @@ export default class InputSelect extends Component {
     /** Input value of option */
     valueKey: PropTypes.string,
     // -- Search Customization --
+    /**
+     * Custom filter logic.
+     * @function
+     * @param {object} option
+     * @returns {boolean}
+     */
     filterOptions: PropTypes.func,
     /** Filter options as user types */
     searchable: PropTypes.bool,
@@ -53,9 +59,7 @@ export default class InputSelect extends Component {
     /** Event fired when search text changes */
     onSearch: PropTypes.func,
     /** @private */
-    className: PropTypes.string,
-    /** @private */
-    name: PropTypes.string
+    className: PropTypes.string
   }
   static defaultProps = {
     multiple: false,
