@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.1"></a>
+## [0.2.1](https://bitbucket.org/myntra/uikit/compare/v0.2.0...v0.2.1) (2018-07-24)
+
+
+### Bug Fixes
+
+* **cli:** Always process codemods with babel ([0515af1](https://bitbucket.org/myntra/uikit/commits/0515af1)), closes [#64](https://bitbucket.org/myntra/uikit/issue/64)
+
+
+
 <a name="0.2.0"></a>
 # [0.2.0](https://bitbucket.org/myntra/uikit/compare/v0.1.0...v0.2.0) (2018-07-24)
 
