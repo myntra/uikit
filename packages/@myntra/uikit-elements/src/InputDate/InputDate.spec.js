@@ -5,6 +5,9 @@ import Dropdown from '../Dropdown/Dropdown'
 import { UTCDate } from './InputDateUtils'
 import InputDatePicker from './InputDatePicker'
 import InputDateValue from './InputDateValue'
+import { testCodeMod } from '@myntra/codemod-utils'
+
+testCodeMod(__dirname, 'InputDate.codemod.js')
 
 describe('render', () => {
   it('simple', () => {
