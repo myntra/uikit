@@ -1,11 +1,12 @@
 import debug from 'debug'
 import { CLIEngine } from 'eslint'
 
-const engine = new CLIEngine({
-  ...require('@myntra/eslint-config-standard'),
-  fix: true,
-  useEslintrc: false
-})
+const engine = new CLIEngine(
+  Object.assign(require('@myntra/eslint-config-standard'), {
+    fix: true,
+    useEslintrc: false
+  })
+)
 
 const d = debug('@myntra/codemod-utils')
 
