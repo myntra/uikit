@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.0"></a>
+# [0.2.0](https://bitbucket.org/myntra/uikit/compare/v0.1.0...v0.2.0) (2018-07-24)
+
+
+### Features
+
+* **elements | InputCheckBox:** Auto upgrade from unity-uikit ([ba9c2ba](https://bitbucket.org/myntra/uikit/commits/ba9c2ba)), closes [#61](https://bitbucket.org/myntra/uikit/issue/61)
+* **elements | InputDate:** Auto upgrade from unity-uikit ([0f3972c](https://bitbucket.org/myntra/uikit/commits/0f3972c)), closes [#62](https://bitbucket.org/myntra/uikit/issue/62)
+* **elements | InputNumber:** Auto upgrade from unity-uikit ([03b005e](https://bitbucket.org/myntra/uikit/commits/03b005e)), closes [#59](https://bitbucket.org/myntra/uikit/issue/59)
+* **elements | InputSelect:** Auto upgrade from unity-uikit ([58f9945](https://bitbucket.org/myntra/uikit/commits/58f9945)), closes [#63](https://bitbucket.org/myntra/uikit/issue/63)
+* **elements | InputText:** Auto upgrade from unity-uikit ([60808e6](https://bitbucket.org/myntra/uikit/commits/60808e6)), closes [#60](https://bitbucket.org/myntra/uikit/issue/60)
+* **elements | Portal:** Add Portal component to render content outside of react controlled root element ([3948051](https://bitbucket.org/myntra/uikit/commits/3948051)), closes [#37](https://bitbucket.org/myntra/uikit/issue/37)
+
+
+
 <a name="0.1.0"></a>
 # [0.1.0](https://bitbucket.org/myntra/uikit/compare/v0.1.0-alpha.2...v0.1.0) (2018-07-10)
 
