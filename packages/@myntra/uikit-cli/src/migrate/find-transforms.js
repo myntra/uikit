@@ -1,6 +1,9 @@
 // Required to load code modes.
 require('babel-register')({
   babelrc: false,
+  ignore(filename) {
+    return !/(codemod-utils\/src|\.codemod\.js)/.test(filename)
+  },
   presets: [require('babel-preset-es2015'), require('babel-preset-stage-1')]
 })
 

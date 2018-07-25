@@ -1,7 +1,10 @@
+// Required to load code modes.
 require('babel-register')({
   babelrc: false,
-  ignore: '(?!.codemod.js)',
-  presets: [require('babel-preset-es2015'), require('babel-preset-stage-0')]
+  ignore(filename) {
+    return !/(codemod-utils\/src|\.codemod\.js)/.test(filename)
+  },
+  presets: [require('babel-preset-es2015'), require('babel-preset-stage-1')]
 })
 
 const chalk = require('chalk')

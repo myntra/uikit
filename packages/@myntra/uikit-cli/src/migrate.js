@@ -41,21 +41,25 @@ module.exports = async function migrate(target, { recursive, apply, only, commit
     process.exit(1)
   }
 
-  const { error, ok } = await Runner.run(require.resolve('./migrate/transform.js'), files, {
-    only: Array.isArray(only)
-      ? only.length
-        ? only
-        : ['*']
-      : typeof only === 'string'
-        ? only.split(',').map(part => part.trim())
-        : ['*'],
-    transforms,
-    extensions: 'js,jsx',
-    dry: !apply,
-    runInBand: !apply || isDebug,
-    print: isDebug,
-    verbose: isDebug ? 5 : 0
-  })
+  const { error, ok } = await Runner.run(
+    require.resolve('./migrate/transform.js'),
+    files.filter(it => !/node_modules\//.test(it)),
+    {
+      only: Array.isArray(only)
+        ? only.length
+          ? only
+          : ['*']
+        : typeof only === 'string'
+          ? only.split(',').map(part => part.trim())
+          : ['*'],
+      transforms,
+      extensions: 'js,jsx',
+      dry: !apply,
+      runInBand: !apply || isDebug,
+      print: isDebug,
+      verbose: isDebug ? 5 : 0
+    }
+  )
 
   if (apply) {
     if (error === 0 && ok > 0) {

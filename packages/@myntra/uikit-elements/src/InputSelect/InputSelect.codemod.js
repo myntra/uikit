@@ -18,22 +18,27 @@ import { createHelper } from '@myntra/codemod-utils'
  */
 export function migrateFromUnityUikit(file, api) {
   const { h } = createHelper(file, api)
-  const oldImport = h.findImport('unity-uikit/SelectBox')
+  const select1 = h.findImport('unity-uikit/SelectBox')
+  const select2 = h.findImport('unity-uikit/SelectBox/Select')
 
-  if (oldImport.size()) {
-    const name = h.getDefaultImportLocalName(h.first(oldImport))
-    oldImport.remove()
+  function apply(oldImport) {
+    if (oldImport.size()) {
+      const name = h.getDefaultImportLocalName(h.first(oldImport))
+      oldImport.remove()
 
-    h.addNamedImport('@myntra/uikit', 'InputSelect')
-    h.renameProps(name, {
-      filterOption: 'filterOptions',
-      multi: 'multiple',
-      noResultsText: 'noResultsPlaceholder',
-      onInputChange: 'onSearch'
-    })
-    h.removeProps(name, ['onBlur', 'onFocus', 'onOpen', 'onClose', 'maxOptions'])
-    h.renameJSxTag(name, 'InputSelect')
+      h.addNamedImport('@myntra/uikit', 'InputSelect')
+      h.renameProps(name, {
+        filterOption: 'filterOptions',
+        multi: 'multiple',
+        noResultsText: 'noResultsPlaceholder',
+        onInputChange: 'onSearch'
+      })
+      h.removeProps(name, ['onBlur', 'onFocus', 'onOpen', 'onClose', 'maxOptions'])
+      h.renameJSxTag(name, 'InputSelect')
 
-    return h.toSource()
+      return true
+    }
   }
+
+  if (apply(select1) || apply(select2)) return h.toSource()
 }
