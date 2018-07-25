@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "UIKit with default theme kit",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@myntra/tokens": "^0.1.0",
     "@myntra/uikit-compounds": "^0.1.0",
-    "@myntra/uikit-elements": "^0.2.1",
+    "@myntra/uikit-elements": "^0.2.2",
     "@myntra/uikit-patterns": "^0.1.0",
     "@myntra/uikit-utils": "^0.1.0"
   },

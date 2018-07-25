@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.2.2"></a>
+## [0.2.2](https://bitbucket.org/myntra/uikit/compare/v0.2.1...v0.2.2) (2018-07-25)
+
+
+### Bug Fixes
+
+* **cli | migrate:** Process .codemod. files in node_modules directory with babel ([2432388](https://bitbucket.org/myntra/uikit/commits/2432388)), closes [#65](https://bitbucket.org/myntra/uikit/issue/65)
+
+
+
 <a name="0.2.1"></a>
 ## [0.2.1](https://bitbucket.org/myntra/uikit/compare/v0.2.0...v0.2.1) (2018-07-24)
 
