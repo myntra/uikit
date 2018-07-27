@@ -9,7 +9,7 @@ import GridColumn from './GridColumn'
  It is a flexbox based layouting component.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
 <Grid>
   <Grid.Column><div>auto</div></Grid.Column>
@@ -38,7 +38,13 @@ Grid.propTypes = {
   /** @private */
   className: PropTypes.string,
   /** @private */
-  children: PropTypes.any,
+  children({ children }) {
+    React.Children.forEach(children, child => {
+      if (child.type !== GridColumn) {
+        throw new Error('Only Grid.Column component is allowed in Grid.')
+      }
+    })
+  },
   /** Customize gap */
   gap: PropTypes.oneOf(['none', 'xx-small', 'x-small', 'small', 'base', 'large']),
   /** Remove gap between columns */

@@ -10,7 +10,7 @@ import styles from './Grid.css'
  __NOTE:__ It should be rendered in `<Grid>` component.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
 <Grid>
   <Grid.Column size={5}>
