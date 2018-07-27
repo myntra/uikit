@@ -469,7 +469,7 @@ export default function helpers(j, root, file) {
    */
   function getNamedImportLocalName(node, name) {
     const defaultSpecifier = node.value.specifiers.find(
-      specifier => specifier.type === 'ImportSpecifier' && specifier.name === name
+      specifier => specifier.type === 'ImportSpecifier' && specifier.imported.name === name
     )
 
     if (defaultSpecifier) return defaultSpecifier.local.name
@@ -557,6 +557,7 @@ export function testCodeMod(dir, filename, options = {}) {
               if (isNegative) {
                 expect(output).toBeFalsy()
               } else {
+                expect(output).toBeTruthy()
                 expect(output.trim()).toEqual(read(outputPath).trim())
               }
             } catch (e) {
