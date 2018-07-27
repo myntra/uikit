@@ -79,6 +79,14 @@ div {
   grid-area: foot;
 }
 
+a,
+a:visited,
+a:focus,
+a:active {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
 .sidebar > a {
   display: block;
 }
@@ -91,14 +99,6 @@ div {
 .card {
   padding: 32px;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-}
-
-.app a,
-.app a:visited,
-.app a:focus,
-.app a:active {
-  color: var(--color-primary);
-  text-decoration: none;
 }
 
 .examples [class*=column]:not([class*=columns]),

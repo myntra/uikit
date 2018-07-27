@@ -3,12 +3,12 @@ import PropTypes from 'prop-types'
 import tokens from '@myntra/tokens'
 
 /**
- {describe component}
+ Display a color patch.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
- <ColorPreview />
+ <ColorPreview  color="red" />
  */
 export default class ColorPreview extends Component {
   static propTypes = {

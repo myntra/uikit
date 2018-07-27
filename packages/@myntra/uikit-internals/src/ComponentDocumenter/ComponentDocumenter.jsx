@@ -16,7 +16,7 @@ const states = {
  Creates an interactive component renderer.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <ComponentDocumenter name="Example" description="An example component." status="REVIEWING" since="0.0.0" props={[]} />
  */

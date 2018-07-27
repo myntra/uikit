@@ -19,7 +19,7 @@ __NOTE__: The generated JSx is executed in an empty context where only React is 
 you may use `context` prop, then the JSx would be rendered in context scope.
 
 @since 0.0.0
-@status EXPERIMENTAL
+@status REVIEWING
 @example
 <Playground>
   {`<div>Hello World!</div>`}
@@ -56,13 +56,16 @@ export default class Playground extends PureComponent {
               .replace(/^;/, '')}
             scope={{ ...this.props.context, ...extra }}
             noInline
-            transformCode={code => `class LiveWrapper extends React.Component {
+            transformCode={code => `class LiveWrapper extends React.PureComponent {
               constructor(props) {
                 super(props)
                 this.state = {}
               }
               render() {
-                ${code.replace(/<[a-z]+/i, m => ';return ' + m)}
+                ${code
+                  .replace('<>', '<div>')
+                  .replace('</>', '</div>')
+                  .replace(/<[a-z]+/i, m => ';return ' + m)}
               }
             }
             render(<LiveWrapper />)`}

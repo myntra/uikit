@@ -189,6 +189,8 @@ export default function PropTypeDocumenter({ name, value, raw, meta = [], refere
         </span>
       )
     }
+    case 'instanceOf':
+      return <span>{value}</span>
     default:
       return <span>{name}</span>
   }

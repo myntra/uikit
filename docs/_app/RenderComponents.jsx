@@ -22,6 +22,34 @@ function fetchMarkdown(path) {
   return MarkdownCache[path]
 }
 
+function renderDocument(name, component, examples) {
+  const jsdoc = component.__docs
+  const file = jsdoc.file
+  const slug = file.replace(/\.jsx$/, '').split('src/')[1]
+
+  return (
+    <ComponentDocumenter
+      {...jsdoc}
+      key={name}
+      source={`https://bitbucket.com/myntra/uikit/src/${branch}/${file}`}
+      render={() => (
+        <Promised
+          fn={() => examples(slug).then(result => fetchMarkdown(result.default))}
+          renderLoading={() => null}
+          renderError={() => null}
+          render={content => (
+            <div className="examples">
+              <Markdown>{content}</Markdown>
+            </div>
+          )}
+        />
+      )}
+    >
+      <Playground>{jsdoc.example.find(_ => true)}</Playground>
+    </ComponentDocumenter>
+  )
+}
+
 export default function RenderComponents({ components, examples, packageName, only }) {
   if (only.length === 0) {
     only.push(Object.keys(components).shift())
@@ -33,30 +61,16 @@ export default function RenderComponents({ components, examples, packageName, on
         {Object.entries(components)
           .filter(([name]) => only.some(p => name.startsWith(p)))
           .map(([name, component]) => {
-            const jsdoc = component.__docs
-            const file = jsdoc.file
-            const slug = file.replace(/\.jsx$/, '').split('src/')[1]
+            const subComponents = Object.keys(component)
+              .filter(key => /^[A-Z]/.test(key) && !!component[key].__docs)
+              .map(key => [key, component[key]])
 
             return (
-              <ComponentDocumenter
-                {...jsdoc}
-                key={name}
-                source={`https://bitbucket.com/myntra/uikit/src/${branch}/${file}`}
-                render={() => (
-                  <Promised
-                    fn={() => examples(slug).then(result => fetchMarkdown(result.default))}
-                    renderLoading={() => null}
-                    renderError={() => null}
-                    render={content => (
-                      <div className="examples">
-                        <Markdown>{content}</Markdown>
-                      </div>
-                    )}
-                  />
-                )}
-              >
-                <Playground>{jsdoc.example.find(_ => true)}</Playground>
-              </ComponentDocumenter>
+              <div key={name}>
+                {renderDocument(name, component, examples)}
+                {subComponents.length ? <h2>Internal Sub-Components of {name}</h2> : null}
+                {subComponents.map(([key, component]) => renderDocument(`${name}.${key}`, component, examples))}
+              </div>
             )
           })}
       </PlaygroundProvider>

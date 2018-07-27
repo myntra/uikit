@@ -64,7 +64,11 @@ export default class App extends Component {
               </React.Fragment>
             ))}
           </aside>
-          <footer className="footer">&copy; 2018 - {new Date().getUTCFullYear()} Myntra UIKit</footer>
+          <footer className="footer">
+            <small>
+              &copy; 2018 - {new Date().getUTCFullYear()} Myntra UIKit (React v{React.version})
+            </small>
+          </footer>
         </div>
       </BrowserRouter>
     )

@@ -110,7 +110,7 @@ The `<Markdown>` component renders markdown to JSx safely.
 __NOTE__: The markdown content should be a string.
 
 @since 0.0.0
-@status EXPERIMENTAL
+@status REVIEWING
 @example
 <Markdown>
   {`

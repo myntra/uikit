@@ -6,7 +6,7 @@ import tokens from '@myntra/tokens'
  A lifted container to present any content.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <Card>I'm in a card.</Card>
  */

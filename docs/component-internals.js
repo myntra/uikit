@@ -8,7 +8,7 @@ export default function ComponentInternals(props) {
     <RenderComponents
       {...props}
       packageName="@myntra/uikit-internals"
-      examples={name => () => import(`@myntra/uikit-internals/src/${name}.md`)}
+      examples={name => import(`@myntra/uikit-internals/src/${name}.md`)}
       components={internals}
     />
   )

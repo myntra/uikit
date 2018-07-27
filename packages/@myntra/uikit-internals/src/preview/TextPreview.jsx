@@ -6,9 +6,9 @@ import tokens from '@myntra/tokens'
  Displays a text style
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
- <TextPreview fontSize="12px" fontWeight={400} lineHeight={1.5} name="Example text">
+ <TextPreview fontSize="12px" fontWeight={400} lineHeight="1.5em" name="Example text">
   Try font in preview
  </TextPreview>
  */
