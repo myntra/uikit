@@ -9,7 +9,7 @@ import styles from './Button.css'
  The button/link component.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <Button>Click Me</Button>
  */
@@ -34,7 +34,7 @@ export default class Button extends PureComponent {
     /** Secondary Icon */
     secondaryIcon: PropTypes.string,
     /** Visible button type */
-    type: PropTypes.oneOf(['primary', 'secondary']),
+    type: PropTypes.oneOf(['primary', 'secondary', 'link']),
     /** HTML type attribute for <button> */
     htmlType: PropTypes.string,
     /** Disabled */

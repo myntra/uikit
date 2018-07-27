@@ -7,8 +7,8 @@
   border-style: none;
   cursor: pointer;
   font-size: inherit;
-  font-weight: var(--font-weight-medium);
   text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
   transition: box-shadow 0.3s, background-image 0.3s;
   align-self: center;
 }
@@ -69,6 +69,18 @@
 .secondary:active:not([disabled]),
 .secondary:active:not(:disabled) {
   background-image: linear-gradient(var(--color-white-x-light), var(--color-white-x-light));
+}
+
+.link,
+.link:visited {
+  color: var(--color-primary);
+  text-transform: initial;
+}
+
+.link:focus:not(:active),
+.link:hover:not(:active):not([disabled]),
+.link:hover:not(:active):not(:disabled) {
+  box-shadow: none;
 }
 
 .left,
