@@ -6,6 +6,8 @@ import styles from './Day.css'
 import { UTCDate } from '../InputDateUtils'
 
 /**
+ * @since 0.0.0
+ * @status REVIEWING
  * @example
  * <InputDatePicker.Day year={2018} month={0} day={1} />
  */
@@ -19,8 +21,17 @@ export default class Day extends PureComponent {
     selected: PropTypes.bool,
     isSelectionStart: PropTypes.bool,
     isSelectionEnd: PropTypes.bool,
+    /**
+     * @function
+     * @param {Date} value
+     */
     onSelect: PropTypes.func,
+    /**
+     * @function
+     * @param {Date} value
+     */
     onFocus: PropTypes.func,
+    /** @private */
     isValidDate(props) {
       const names = ['year', 'month', 'day']
 

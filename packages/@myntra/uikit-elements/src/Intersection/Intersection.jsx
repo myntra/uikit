@@ -7,7 +7,7 @@ import { isEqualShallow } from '@myntra/uikit-utils'
  It is declarative-way of using [IntersectionObserver API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). It can be used for cases like, virtualized-list, infinite-scroll, lazy-loading or animations when an element enters the viewport.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
 if (!this.ref) {
   this.setState({ intersectionRatio: 0, isIntersecting: false, status: 'unknown' })

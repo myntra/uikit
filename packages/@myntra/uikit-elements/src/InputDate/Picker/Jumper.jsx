@@ -8,12 +8,13 @@ import { UTCDate } from '../InputDateUtils'
 import Icon from '../../Icon/Icon'
 
 /**
- {describe component}
+ Select year and month to jump to a date.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
- <InputDatePicker.Jumper />
+ <InputDatePicker.Jumper year={this.state.year || 2018} month={this.state.month || 0} offset={0} hasNext hasPrev
+    onJump={date => this.setState({ year: date.getUTCFullYear(), month: date.getUTCMonth() })} />
  */
 class Jumper extends PureComponent {
   static propTypes = {

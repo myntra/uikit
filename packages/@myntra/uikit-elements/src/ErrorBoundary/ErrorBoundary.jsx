@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
  Contains errors in child components.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <ErrorBoundary>
   // ErrorBoundary.ExperimentalComponent throws some error.
@@ -19,6 +19,7 @@ export default class ErrorBoundary extends Component {
     /**
      * Error message slot
      * @function
+     * @param {{ error: Error, info: object }} props
      * @returns {React.Element}
      */
     renderMessage: PropTypes.func,
@@ -30,7 +31,6 @@ export default class ErrorBoundary extends Component {
 
   componentDidCatch(error, info) {
     this.setState({ hasError: true, error, info })
-    // TODO: push error metric.
   }
 
   render() {

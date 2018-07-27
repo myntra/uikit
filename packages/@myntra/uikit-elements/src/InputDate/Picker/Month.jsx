@@ -17,6 +17,8 @@ const CLASS = {
 }
 
 /**
+ * @since 0.0.0
+ * @status REVIEWING
  * @example
  * <InputDatePicker.Month year={2016} month={2} />
  */
@@ -32,7 +34,15 @@ export default class Month extends PureComponent {
     focused: PropTypes.number,
     selected: PropTypes.shape({ from: PropTypes.number, to: PropTypes.number }),
     disabled: PropTypes.arrayOf(PropTypes.shape({ from: PropTypes.number, to: PropTypes.number })),
+    /**
+     * @function
+     * @param {Date} value
+     */
     onDateFocus: PropTypes.func,
+    /**
+     * @function
+     * @param {Date} value
+     */
     onDateSelect: PropTypes.func
   }
 

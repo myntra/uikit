@@ -6,7 +6,7 @@ import styles from './InputText.css'
 /**
  The InputText component.
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <InputText value={this.state.value} onChange={value => this.setState({ value })} />
  */

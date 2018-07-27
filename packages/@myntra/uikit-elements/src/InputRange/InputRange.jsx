@@ -32,7 +32,7 @@ function countDecimals(number) {
  The slider component.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <InputRange
   min={0}

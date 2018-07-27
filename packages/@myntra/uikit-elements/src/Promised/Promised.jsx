@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 /**
   The `<Promised>` component makes asynchronous programming declarative.
   @since 0.0.0
-  @status EXPERIMENTAL
+  @status REVIEWING
   @example
   <Promised
     fn={() => fetch('http://api.icndb.com/jokes/random').then(response => response.json())}

@@ -29,7 +29,7 @@ export const MASKS = {
  {describe component}
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <InputDate.Value />
  */

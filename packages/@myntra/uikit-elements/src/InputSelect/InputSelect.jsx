@@ -15,7 +15,7 @@ import { Dropdown } from '..'
  {describe component}
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <InputSelect options={[{ label: 'One', value: 1}, { label: 'Two', value: 2}]}
     value={this.state.value}

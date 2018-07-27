@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
  Watch for clicks outside the target element.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  if (!this.ref) {
   this.ref = React.createRef()

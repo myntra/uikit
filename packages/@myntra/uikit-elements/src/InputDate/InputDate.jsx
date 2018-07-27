@@ -11,7 +11,7 @@ import styles from './InputDate.css'
  The InputDate component.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <InputDate range displayFormat="MM/dd" value={this.state.value} onChange={(value) => {console.log(value); this.setState({value})}}/>
 **/

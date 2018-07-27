@@ -7,12 +7,12 @@ import { isDateEqual } from '../InputDateUtils'
 import styles from './Preset.css'
 
 /**
- {describe component}
+ A preset date selection list.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
- <InputDatePicker.Preset />
+ <InputDatePicker.Preset presets={[{ label: 'Today', value: () => new Date() }]} />
  */
 class Preset extends PureComponent {
   static propTypes = {
@@ -20,6 +20,10 @@ class Preset extends PureComponent {
       PropTypes.shape({
         range: PropTypes.bool,
         label: PropTypes.string.isRequired,
+        /**
+         * @function
+         * @returns {Date|{ from: Date, to: Date }}
+         */
         value: PropTypes.func.isRequired
       })
     ).isRequired,

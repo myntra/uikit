@@ -6,7 +6,7 @@ import styles from './InputNumber.css'
 /**
  * The InputNumber component.
  * @since 0.0.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @example
  * <InputNumber value={this.state.value} onChange={value => { this.setState({ value }) }} />
  */

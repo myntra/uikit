@@ -6,7 +6,7 @@ import styles from './InputCheckBox.css'
 /**
  * The input checkbox component
  * @since 0.0.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @example
  * <label>
  *  <InputCheckBox

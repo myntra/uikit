@@ -14,7 +14,7 @@ const DEFAULT_PRESETS = Object.values(PRESETS)
 /**
  *
  * @since 0.0.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @example
  * <InputDatePicker range monthsToDisplay={4} value={this.state.value} onChange={value => this.setState({ value })} disabledDates={[{ from: new Date(), to: new Date() }]} />
  */

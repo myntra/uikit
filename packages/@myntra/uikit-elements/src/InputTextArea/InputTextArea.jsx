@@ -6,7 +6,7 @@ import styles from './InputTextArea.css'
 /**
  The textarea component.
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  <InputTextArea value={this.state.value} onChange={value=>this.setState({value})} />
  */
@@ -45,7 +45,6 @@ InputTextArea.propTypes = {
 }
 
 InputTextArea.defaultProps = {
-  transparent: false,
   disabled: false,
   noResize: false,
   rows: 1

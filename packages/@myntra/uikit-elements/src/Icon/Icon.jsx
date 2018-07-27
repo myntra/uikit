@@ -19,7 +19,7 @@ if (typeof useIcons === 'function') useIcons()
  * }
  * ```
  * @since 0.0.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @example <Icon name="alert" />
  */
 function Icon({ name, className, title, spin, ...props }) {

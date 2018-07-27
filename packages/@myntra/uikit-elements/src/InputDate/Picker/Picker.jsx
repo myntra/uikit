@@ -18,12 +18,12 @@ function range(n) {
 }
 
 /**
- {describe component}
+ Render a calendar to select a date.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
- <InputDatePicker.Picker />
+ <InputDatePicker.Picker value={this.state.value} onChange={value => this.setState({ value })} />
  */
 export default class Picker extends Component {
   static propTypes = {
@@ -35,6 +35,10 @@ export default class Picker extends Component {
       PropTypes.instanceOf(Date),
       PropTypes.shape({ from: PropTypes.instanceOf(Date), to: PropTypes.instanceOf(Date) })
     ]),
+    /**
+     * @function
+     * @param {Date|{ from: Date, to: Date }} value
+     */
     onChange: PropTypes.func,
     monthsToDisplay: PropTypes.number,
     disabledDates: PropTypes.arrayOf(
@@ -44,6 +48,7 @@ export default class Picker extends Component {
     min: PropTypes.instanceOf(Date),
     max: PropTypes.instanceOf(Date),
     range: PropTypes.bool,
+    /** @private */
     validate(props) {
       if (props.range && props.value instanceof Date) {
         throw new Error('When using `range` prop, value should be a plain object of type ({ from?: Date, to?: Date }).')
@@ -57,7 +62,15 @@ export default class Picker extends Component {
      * @param {Date} date
      */
     onOpenToDateChange: PropTypes.func,
+    /**
+     * @function
+     * @param {Date} startDate
+     */
     onRangeStartSelected: PropTypes.func,
+    /**
+     * @function
+     * @param {Date} endDate
+     */
     onRangeEndSelected: PropTypes.func,
     active: PropTypes.oneOf(['from', 'to'])
   }

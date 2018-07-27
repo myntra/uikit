@@ -11,7 +11,7 @@ import styles from './Dropdown.css'
  A bare-bones dropdown implementation. It requires a trigger component or text.
 
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
   <Dropdown trigger="Open" isOpen={this.state.isOpen} auto
     onOpen={() => this.setState({ isOpen: true })}
@@ -35,12 +35,12 @@ class Dropdown extends Component {
     isOpen: PropTypes.bool.isRequired,
     /**
      * Event fired when dropdown drawer is displayed
-     * @type {function(): void}
+     * @function
      */
     onOpen: PropTypes.func,
     /**
      * Event fired when dropdown drawer is closed
-     * @type {function(): void}
+     * @function
      */
     onClose: PropTypes.func,
     /** Open dropdown drawer above the trigger. */

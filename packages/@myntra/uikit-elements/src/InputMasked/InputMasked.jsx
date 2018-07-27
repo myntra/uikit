@@ -15,7 +15,7 @@ import styles from './InputMasked.css'
  * - w - Any alphanumeric character A-Z/a-z/0-9/_
  * - Fixed Mask characters are placed inside double quotes, say, "Rs. "
  * @since 0.0.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @example
  * <InputMasked
  *   value={this.state.value}

@@ -7,14 +7,16 @@ let counter = 0
 
 /**
  @since 0.0.0
- @status EXPERIMENTAL
+ @status REVIEWING
  @example
  if (!this.container) {
-   this.container = document.createElement('div')
-   document.body.appendChild(this.container)
+    this.container = document.createElement('div')
+    this.container.style.position = 'absolute'
+    this.container.style.top = '40px'
+    this.container.style.left = '50%'
+    document.body.appendChild(this.container)
  }
 
- // click here and see rendered content at the bottom of page.
  <div onClick={() => this.setState({ value: (this.state.value || 0) + 1 })}>
     <span>This is react controlled root.</span>
     <Portal container={this.container}>
@@ -30,11 +32,11 @@ class Portal extends PureComponent {
   static isReact16 = typeof ReactDOM.createPortal === 'function'
   static propTypes = {
     /** Attach child to specific component/element */
-    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(window.HTMLElement)]),
+    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]), // eslint-disable-line no-undef
     /** React child component */
     children: PropTypes.element.isRequired,
     /** Wrapper <div> */
-    wrapper: PropTypes.instanceOf(window.HTMLElement)
+    wrapper: PropTypes.instanceOf(HTMLElement) // eslint-disable-line no-undef
   }
 
   constructor(props) {
