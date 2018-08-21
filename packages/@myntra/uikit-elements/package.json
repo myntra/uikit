@@ -27,6 +27,7 @@
     "dayjs": "^1.6.7",
     "intersection-observer-polyfill": "^0.1.0",
     "react-dom": "^16.4.1",
+    "resize-observer-polyfill": "^1.5.0",
     "sifter": "^0.5.3"
   },
   "peerDependencies": {
