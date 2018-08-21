@@ -1,0 +1,38 @@
+.nowrap {
+  white-space: nowrap;
+}
+
+.head {
+  box-sizing: border-box;
+  display: flex;
+  height: 65px;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.content-left {
+  padding-left: var(--size-base);
+}
+
+.title {
+  text-transform: uppercase;
+  color: var(--typography-color-dark-secondary);
+  font-size: var(--typography-text-title-font-size);
+  font-weight: var(--typography-text-title-font-weight);
+  line-height: var(--typography-text-title-line-height);
+  margin: 0;
+  padding: 0;
+}
+
+.embeds {
+  flex-grow: 1;
+}
+
+.inline {
+  display: inline;
+}

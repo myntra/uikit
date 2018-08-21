@@ -1,0 +1,9 @@
+.item {
+  padding: 0 var(--size-large);
+  cursor: pointer;
+  display: inline-block;
+}
+
+.icon {
+  margin-right: var(--size-xx-small);
+}

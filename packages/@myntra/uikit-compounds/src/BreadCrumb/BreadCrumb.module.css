@@ -18,7 +18,8 @@
 
 .page + .page::before {
   border-width: 0 1px 1px 0;
-  border: solid var(--typography-color-dark-secondary);
+  border-style: solid;
+  border-color: var(--typography-color-dark-secondary);
   content: '';
   display: inline-block;
   left: -1.2em;

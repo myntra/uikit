@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './BreadCrumb.css'
+import styles from './BreadCrumb.module.css'
 
 /**
  A breadcrumb item
