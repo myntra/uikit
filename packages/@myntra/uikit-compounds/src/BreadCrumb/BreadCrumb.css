@@ -1,0 +1,30 @@
+.pages ol {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.pages li {
+  display: inline-block;
+}
+
+.page {
+  color: var(--typography-color-dark-disabled);
+  cursor: pointer;
+  font-size: var(--typography-text-table-font-size);
+  margin-right: var(--relative-size-large);
+  position: relative;
+}
+
+.page + .page::before {
+  border-width: 0 1px 1px 0;
+  border: solid var(--typography-color-dark-secondary);
+  content: '';
+  display: inline-block;
+  left: -1.2em;
+  opacity: 0.6;
+  padding: 2px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
