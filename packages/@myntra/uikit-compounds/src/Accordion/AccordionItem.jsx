@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Transition } from 'react-transition-group'
 import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Accordion.css'
+import styles from './Accordion.module.css'
 
 /**
  @since 0.3.0

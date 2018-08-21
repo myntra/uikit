@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames, memoize } from '@myntra/uikit-utils/src'
 import { getMousePosition, getTouchPosition, addEventsToDocument, removeEventsFromDocument } from './events'
-import styles from './InputRange.css'
+import styles from './InputRange.module.css'
 
 /**
  * Round number with fixed-point notation.

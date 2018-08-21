@@ -4,7 +4,7 @@ import { classnames } from '@myntra/uikit-utils'
 
 import { InputCheckBox } from '..'
 
-import styles from './InputSelectOption.css'
+import styles from './InputSelectOption.module.css'
 
 export default class Option extends Component {
   static propTypes = {

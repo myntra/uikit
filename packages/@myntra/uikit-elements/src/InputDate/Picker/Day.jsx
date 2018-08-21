@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Day.css'
+import styles from './Day.module.css'
 import { UTCDate } from '../InputDateUtils'
 
 /**

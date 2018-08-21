@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import defaultMasks from './masks'
 import { classnames, each, map, findIndex, findLastIndex, memoize, onlyExtraProps } from '@myntra/uikit-utils'
 
-import styles from './InputMasked.css'
+import styles from './InputMasked.module.css'
 /**
  * Input component that provides a template for phone, credit card, etc. Mask patterns include
  * - d - A single digit from 0-9

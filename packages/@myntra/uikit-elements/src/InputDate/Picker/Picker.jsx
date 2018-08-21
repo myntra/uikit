@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Month from './Month'
 import Jumper from './Jumper'
 
-import styles from './Picker.css'
+import styles from './Picker.module.css'
 import { classnames } from '@myntra/uikit-utils'
 import { UTCDate, onlyDate } from '../InputDateUtils'
 import dayJS from 'dayjs'

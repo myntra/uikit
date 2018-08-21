@@ -5,7 +5,7 @@ import InputDatePicker from './InputDatePicker'
 import InputDateValue from './InputDateValue'
 import Dropdown from '../Dropdown/Dropdown'
 import { format, parse, DateType, DateRangeType, isDateEqual } from './InputDateUtils'
-import styles from './InputDate.css'
+import styles from './InputDate.module.css'
 
 /**
  The InputDate component.

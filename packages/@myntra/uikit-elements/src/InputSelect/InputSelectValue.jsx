@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames, memoize } from '@myntra/uikit-utils'
 
-import styles from './InputSelectValue.css'
+import styles from './InputSelectValue.module.css'
 
 export default class InputSelectValue extends PureComponent {
   static propTypes = {

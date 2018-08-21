@@ -1,11 +1,13 @@
 import * as tokens from '@myntra/tokens'
 import * as u from '@myntra/uikit-utils'
 
+import ThemeProvider from './ThemeProvider'
+
 export * from '@myntra/uikit-elements'
 export * from '@myntra/uikit-compounds'
 export * from '@myntra/uikit-patterns'
 
-export { tokens, u }
+export { tokens, u, ThemeProvider }
 
 /**
  * Function creator that accepts a propMap and returns a method which accepts a set of props

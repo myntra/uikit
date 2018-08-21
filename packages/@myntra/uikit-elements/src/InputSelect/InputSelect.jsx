@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { classnames, memoize, isEqual, findIndex } from '@myntra/uikit-utils'
 
-import styles from './InputSelect.css'
+import styles from './InputSelect.module.css'
 import { toArray, createSearchIndex, executeFilterSearch, sortOptions } from './helpers'
 import Value from './InputSelectValue'
 import Icon from '../Icon/Icon'

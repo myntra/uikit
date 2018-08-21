@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 import SelectYear from './SelectYear'
 import SelectMonth from './SelectMonth'
-import styles from './Jumper.css'
+import styles from './Jumper.module.css'
 import { UTCDate } from '../InputDateUtils'
 import Icon from '../../Icon/Icon'
 
