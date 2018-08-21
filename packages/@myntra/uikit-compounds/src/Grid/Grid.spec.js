@@ -23,6 +23,19 @@ it('should throw error for non Column child', () => {
   spy.mockReset()
 })
 
+it('should allow null/undefined child', () => {
+  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
+  mount(
+    <Grid>
+      <Grid.Column />
+      {null}
+      {undefined}
+    </Grid>
+  )
+  expect(spy).not.toHaveBeenCalled()
+  spy.mockReset()
+})
+
 it('should render columns centered', () => {
   const wrapper = shallow(<Grid centered />)
 

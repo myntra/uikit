@@ -40,7 +40,7 @@ Grid.propTypes = {
   /** @private */
   children({ children }) {
     React.Children.forEach(children, child => {
-      if (child.type !== GridColumn) {
+      if (child && child.type !== GridColumn) {
         throw new Error('Only Grid.Column component is allowed in Grid.')
       }
     })
