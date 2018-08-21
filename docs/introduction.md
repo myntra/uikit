@@ -36,6 +36,55 @@ You can see all available statuses listed below:
 |  💛  | REVIEWING    | The component is under review and can have bug. It is advised to wrap it in an error boundary. |
 |  💚  | READY        | The component is well tested and stable.                                                       |
 
+## Usage
+
+* Install `@mytra/uikit` package.
+
+  ```bash
+  npm add @myntra/uikit
+  ```
+
+* Add named imports to use specific components.
+
+  ```jsx
+  import { Button } from '@myntra/uikit'
+
+  export default function MyApp() {
+    return (
+      <div>
+        <Button type="primary">UIKit Button</Button>
+      </div>
+    )
+  }
+  ```
+
+**NOTE:** The root component should be wrapped with  `ThemeProvider` component else all UIKit components would have broken styles.
+
+```jsx
+import { render } from 'react-dom'
+
+render(
+  <ThemeProvider>
+    <App />
+  </ThemeProvider>
+)
+```
+
+## Migrating from unity-uikit
+
+* Add UIKit to your project (see above guide)
+* Install UIKit CLI
+
+  ```bash
+  npm install -g @myntra/uikit-cli
+  ```
+
+* Use `migrate` utility
+
+  ```bash
+  uikit migrate -h
+  ```
+
 ## Naming Things
 
 We use the names to communicate about Tokens, Elements, Compound and Patterns. Hence, they must be short, meaningful and pronounceable. Each name must be:
