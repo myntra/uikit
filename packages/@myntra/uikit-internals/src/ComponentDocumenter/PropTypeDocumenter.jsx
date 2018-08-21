@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown } from '@myntra/uikit-elements'
-import styles from './PropTypeDocumenter.css'
+import styles from './PropTypeDocumenter.module.css'
 
 function JSDocTypeDefDocumenter({ reference, rootReference, type, name }) {
   switch (type.name) {

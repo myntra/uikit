@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
 import aliases from './icons'
-import styles from './Icon.css'
+import styles from './Icon.module.css'
 import useIcons from './icons.sprite'
 
 if (typeof useIcons === 'function') useIcons()

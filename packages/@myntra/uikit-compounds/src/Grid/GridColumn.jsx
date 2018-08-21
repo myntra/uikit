@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
 
-import styles from './Grid.css'
+import styles from './Grid.module.css'
 
 /**
  Sub component of `<Grid>`.

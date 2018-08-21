@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 import { toString } from './helpers'
-import styles from './InputSelectControl.css'
+import styles from './InputSelectControl.module.css'
 
 export default class InputSelectControl extends PureComponent {
   static propTypes = {

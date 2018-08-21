@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 import { InputMasked } from '../'
 
-import styles from './InputDateValue.css'
+import styles from './InputDateValue.module.css'
 import { parse, format } from './InputDateUtils'
 import Icon from '../Icon/Icon'
 

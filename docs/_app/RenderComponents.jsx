@@ -6,14 +6,12 @@ import { Promised } from '@myntra/uikit-elements'
 import { ComponentDocumenter, Playground, Markdown } from '@myntra/uikit-internals'
 import { PlaygroundProvider } from '@myntra/uikit-internals/src/Playground'
 import { MarkdownProvider } from '@myntra/uikit-internals/src/Markdown'
-
+import * as context from '@myntra/uikit'
 const branch = (CURRENT_BRANCH || 'develop').replace(/^\/|\/$/, '')
 
 const MarkdownCache = {}
 function fetchMarkdown(path) {
   if (path in MarkdownCache) {
-    console.log('From cache: ' + path)
-
     return MarkdownCache[path]
   }
 
@@ -56,8 +54,8 @@ export default function RenderComponents({ components, examples, packageName, on
   }
 
   return (
-    <MarkdownProvider value={components}>
-      <PlaygroundProvider value={components}>
+    <MarkdownProvider value={context}>
+      <PlaygroundProvider value={context}>
         {Object.entries(components)
           .filter(([name]) => only.some(p => name.startsWith(p)))
           .map(([name, component]) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './InputTextArea.css'
+import styles from './InputTextArea.module.css'
 
 /**
  The textarea component.

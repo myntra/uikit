@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import styles from './InputSelectOptions.css'
+import styles from './InputSelectOptions.module.css'
 import PropTypes from 'prop-types'
 import Option from './InputSelectOption'
 import { classnames } from '@myntra/uikit-utils'

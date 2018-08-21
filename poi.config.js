@@ -1,5 +1,3 @@
-const path = require('path')
-
 module.exports = {
   define: {
     CURRENT_BRANCH: JSON.stringify(process.env.CURRENT_BRANCH ? '/' + process.env.CURRENT_BRANCH : '')
@@ -28,56 +26,6 @@ module.exports = {
     config.module.rules.push({
       test: /\.sprite$/,
       loader: require.resolve('@myntra/uikit-icon-loader')
-    })
-
-    const css = config.module.rules.find(it => it.test.toString() === '/\\.css$/')
-    css.test = id => /\.css$/.test(id) && !id.includes('packages/@myntra/') && !id.includes('nuclei')
-    const styleLoader = {
-      loader: 'style-loader',
-      options: { sourceMap: true }
-    }
-    const cssLoader = {
-      loader: 'css-loader',
-      options: {
-        autoprefixer: false,
-        sourceMap: true,
-        minimize: false,
-        modules: true,
-        importLoaders: 1,
-        localIdentName: '[name]_[local]'
-      }
-    }
-
-    config.module.rules.push({
-      test: id => id.endsWith('.css') && id.includes('nuclei'),
-      use: [
-        styleLoader,
-        cssLoader,
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true,
-            plugins: [require('postcss-import')(), require('postcss-css-variables')()] // eslint-disable-line node/no-unpublished-require
-          }
-        }
-      ]
-    })
-
-    config.module.rules.push({
-      test: id => id.endsWith('.css') && id.includes('packages/@myntra/'),
-      use: [
-        styleLoader,
-        cssLoader,
-        {
-          loader: 'postcss-loader',
-          options: {
-            sourceMap: true,
-            config: {
-              path: path.resolve(__dirname, '.postcssrc')
-            }
-          }
-        }
-      ]
     })
 
     return config

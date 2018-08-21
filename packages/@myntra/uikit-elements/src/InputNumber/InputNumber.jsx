@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './InputNumber.css'
+import styles from './InputNumber.module.css'
 
 /**
  * The InputNumber component.

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
 
 import Icon from '../Icon/Icon'
-import styles from './Button.css'
+import styles from './Button.module.css'
 
 /**
  The button/link component.

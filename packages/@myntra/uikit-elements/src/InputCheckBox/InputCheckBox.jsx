@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
-import styles from './InputCheckBox.css'
+import styles from './InputCheckBox.module.css'
 
 /**
  * The input checkbox component

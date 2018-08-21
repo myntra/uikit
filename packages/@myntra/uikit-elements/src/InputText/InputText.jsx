@@ -1,7 +1,7 @@
 import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './InputText.css'
+import styles from './InputText.module.css'
 
 /**
  The InputText component.

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
-import styles from './InputSwitch.css'
+import styles from './InputSwitch.module.css'
 
 /**
  Switch component that is implemented using an input checkbox as the controller.

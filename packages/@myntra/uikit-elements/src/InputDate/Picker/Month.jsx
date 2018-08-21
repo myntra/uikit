@@ -4,7 +4,7 @@ import { memoize, classnames } from '@myntra/uikit-utils'
 
 import Day from './Day'
 
-import styles from './Month.css'
+import styles from './Month.module.css'
 import { UTCDate } from '../InputDateUtils'
 import dayJS from 'dayjs'
 

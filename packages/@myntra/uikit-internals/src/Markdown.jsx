@@ -16,7 +16,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 import Playground from './Playground'
 
-import styles from './Markdown.css'
+import styles from './Markdown.module.css'
 
 const { Provider: MarkdownProvider, Consumer: MarkdownConsumer } = React.createContext({})
 

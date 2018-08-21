@@ -5,7 +5,7 @@ import { onlyExtraProps, classnames } from '@myntra/uikit-utils'
 import ClickAway from '../ClickAway/ClickAway'
 import Button from '../Button/Button'
 
-import styles from './Dropdown.css'
+import styles from './Dropdown.module.css'
 
 /**
  A bare-bones dropdown implementation. It requires a trigger component or text.

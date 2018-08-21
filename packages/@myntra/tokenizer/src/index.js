@@ -15,7 +15,8 @@ module.exports = function(filename) {
     js: require('./formats/commonjs'),
     'esm.js': require('./formats/esm'),
     scss: require('./formats/scss'),
-    css: require('./formats/css')
+    css: require('./formats/css'),
+    'module.css': require('./formats/cssModule')
   }
 
   Object.entries(formats).forEach(([ext, handler]) => {

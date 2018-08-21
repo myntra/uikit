@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
 import { isDateEqual } from '../InputDateUtils'
-import styles from './Preset.css'
+import styles from './Preset.module.css'
 
 /**
  A preset date selection list.
