@@ -8,6 +8,7 @@ import * as elements from '@myntra/uikit-elements'
 import * as compounds from '@myntra/uikit-compounds'
 import * as patterns from '@myntra/uikit-patterns'
 import * as internals from '@myntra/uikit-internals'
+import { ThemeProvider } from '@myntra/uikit'
 
 import nav from './nav'
 
@@ -30,47 +31,49 @@ export default class App extends Component {
 
   render() {
     return (
-      <BrowserRouter basename={CURRENT_BRANCH}>
-        <div className="app" style={{ fontFamily: tokens.font.face.default }}>
-          <header className="header">
-            <h1>Myntra UIKit</h1>
-          </header>
-          <main className="main">
-            <Switch>
-              <Route exact path="/" component={Page} />
-              <Route path="/:page/:name?" component={Page} />
-            </Switch>
-          </main>
-          <aside className="sidebar">
-            {nav.map(({ to, label, children }, index) => (
-              <React.Fragment key={index}>
-                {to ? (
-                  <NavLink to={{ pathname: to }} isActive={(_, route) => this.onRouteVisit(route.pathname)} strict>
-                    {label}
-                  </NavLink>
-                ) : (
-                  <div className="sidebar-sep" />
-                )}
-                {children &&
-                  this.state.active.includes(to) && (
-                    <ul>
-                      {children(components).map(({ to: pathname, label }, index) => (
-                        <li key={index}>
-                          <NavLink to={{ pathname }}>{label}</NavLink>
-                        </li>
-                      ))}
-                    </ul>
+      <ThemeProvider>
+        <BrowserRouter basename={CURRENT_BRANCH}>
+          <div className="app" style={{ fontFamily: tokens.font.face.default }}>
+            <header className="header">
+              <h1>Myntra UIKit</h1>
+            </header>
+            <main className="main">
+              <Switch>
+                <Route exact path="/" component={Page} />
+                <Route path="/:page/:name?" component={Page} />
+              </Switch>
+            </main>
+            <aside className="sidebar">
+              {nav.map(({ to, label, children }, index) => (
+                <React.Fragment key={index}>
+                  {to ? (
+                    <NavLink to={{ pathname: to }} isActive={(_, route) => this.onRouteVisit(route.pathname)} strict>
+                      {label}
+                    </NavLink>
+                  ) : (
+                    <div className="sidebar-sep" />
                   )}
-              </React.Fragment>
-            ))}
-          </aside>
-          <footer className="footer">
-            <small>
-              &copy; 2018 - {new Date().getUTCFullYear()} Myntra UIKit (React v{React.version})
-            </small>
-          </footer>
-        </div>
-      </BrowserRouter>
+                  {children &&
+                    this.state.active.includes(to) && (
+                      <ul>
+                        {children(components).map(({ to: pathname, label }, index) => (
+                          <li key={index}>
+                            <NavLink to={{ pathname }}>{label}</NavLink>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                </React.Fragment>
+              ))}
+            </aside>
+            <footer className="footer">
+              <small>
+                &copy; 2018 - {new Date().getUTCFullYear()} Myntra UIKit (React v{React.version})
+              </small>
+            </footer>
+          </div>
+        </BrowserRouter>
+      </ThemeProvider>
     )
   }
 }
