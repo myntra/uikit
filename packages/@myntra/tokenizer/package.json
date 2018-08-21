@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokenizer",
-  "version": "0.1.0",
+  "version": "0.3.0-alpha.0",
   "description": "Exports yml tokens to css, js etc.",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokenizer",
