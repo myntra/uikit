@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0-alpha.1"></a>
+# [0.3.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.0...v0.3.0-alpha.1) (2018-08-23)
+
+
+### Bug Fixes
+
+* **tokens:** Include CSS module build in package ([3a37f9a](https://bitbucket.org/myntra/uikit/commits/3a37f9a))
+
+
+
 <a name="0.3.0-alpha.0"></a>
 # [0.3.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.2.2...v0.3.0-alpha.0) (2018-08-21)
 
