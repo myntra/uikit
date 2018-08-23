@@ -17,6 +17,6 @@
     "build": "tokenize"
   },
   "files": [
-    "tokens.{js,css,esm.js,scss}"
+    "tokens.{js,css,esm.js,scss,.module.css}"
   ]
 }
