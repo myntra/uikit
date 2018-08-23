@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0-alpha.2"></a>
+# [0.3.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.1...v0.3.0-alpha.2) (2018-08-23)
+
+
+### Bug Fixes
+
+* **tokens:** Typo in package files filter ([7e200f4](https://bitbucket.org/myntra/uikit/commits/7e200f4))
+
+
+
 <a name="0.3.0-alpha.1"></a>
 # [0.3.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.0...v0.3.0-alpha.1) (2018-08-23)
 

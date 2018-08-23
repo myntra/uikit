@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-patterns",
-  "version": "0.3.0-alpha.1",
+  "version": "0.3.0-alpha.2",
   "description": "Components baked in with user experience decisions.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -15,7 +15,7 @@
   "license": "UNLICENSED",
   "sideEffects": false,
   "dependencies": {
-    "@myntra/tokens": "^0.3.0-alpha.1",
+    "@myntra/tokens": "^0.3.0-alpha.2",
     "@myntra/uikit-utils": "^0.1.0"
   },
   "peerDependencies": {
