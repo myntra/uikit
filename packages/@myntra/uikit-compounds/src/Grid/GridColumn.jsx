@@ -50,7 +50,7 @@ export default function GridColumn(props) {
   )
 }
 
-const sizes = [
+export const sizes = [
   1,
   2,
   3,

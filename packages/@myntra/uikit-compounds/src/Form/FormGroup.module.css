@@ -1,0 +1,6 @@
+@import '@myntra/tokens/tokens.css';
+
+.label {
+  font-size: var(--typography-text-caption-font-size);
+  text-transform: uppercase;
+}

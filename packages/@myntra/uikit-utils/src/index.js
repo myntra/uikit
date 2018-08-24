@@ -7,7 +7,9 @@ import {
   map,
   findIndex,
   findLastIndex,
-  isEqual
+  isEqual,
+  find,
+  compact
 } from 'lodash-es'
 
 /**
@@ -19,7 +21,7 @@ import {
  * @return {Array.<T>}
  */
 export { unique }
-export { map, each, findIndex, findLastIndex, isEqual }
+export { map, each, findIndex, findLastIndex, isEqual, find, compact }
 
 /**
  * Wrap single element to array if required.

@@ -18,7 +18,8 @@
     "@myntra/codemod-utils": "^0.3.0-alpha.2",
     "@myntra/tokens": "^0.3.0-alpha.2",
     "@myntra/uikit-utils": "^0.1.0",
-    "react-transition-group": "^2.4.0"
+    "react-transition-group": "^2.4.0",
+    "@myntra/uikit-elements": "^0.3.0-alpha.0"
   },
   "peerDependencies": {
     "prop-types": ">=15.6",

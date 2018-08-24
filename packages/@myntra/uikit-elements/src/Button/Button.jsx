@@ -42,6 +42,8 @@ export default class Button extends PureComponent {
     /** Click event handler */
     onClick: PropTypes.func,
     /** @private */
+    className: PropTypes.string,
+    /** @private */
     combination: props => {
       if ('href' in props && 'to' in props) {
         throw new Error('`to` and `href` cannot be used together')
@@ -71,7 +73,7 @@ export default class Button extends PureComponent {
   }
 
   render() {
-    const { icon, secondaryIcon, htmlType } = this.props
+    const { icon, secondaryIcon, htmlType, className } = this.props
     const Tag = this.props.to ? Button.RouterLink : this.props.href ? 'a' : 'button'
     const needLeftSlot = !!icon
     const needRightSlot = !!secondaryIcon
@@ -82,6 +84,7 @@ export default class Button extends PureComponent {
         type={htmlType}
         className={classnames(
           'button',
+          className,
           /* Button Styles */
           { [this.props.type]: true },
           /* Button States */
