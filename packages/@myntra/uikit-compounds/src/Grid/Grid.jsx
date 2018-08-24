@@ -11,10 +11,12 @@ import GridColumn from './GridColumn'
  @since 0.0.0
  @status REVIEWING
  @example
+<div class="grid-example">
 <Grid>
   <Grid.Column><div>auto</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
 </Grid>
+</div>
  */
 function Grid(props) {
   const { className, children, gap, gapless, centered, hcentered, vcentered, multiline, ...forwardedProps } = props

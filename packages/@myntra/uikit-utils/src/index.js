@@ -20,8 +20,7 @@ import {
  * @param {Array.<T>} any
  * @return {Array.<T>}
  */
-export { unique }
-export { map, each, findIndex, findLastIndex, isEqual, find, compact }
+export { unique, map, each, findIndex, findLastIndex, isEqual, find, compact }
 
 /**
  * Wrap single element to array if required.

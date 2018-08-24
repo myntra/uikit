@@ -2,7 +2,7 @@ module.exports = {
   define: {
     CURRENT_BRANCH: JSON.stringify(process.env.CURRENT_BRANCH ? '/' + process.env.CURRENT_BRANCH : '')
   },
-  webpack(config) {
+  configureWebpack(config) {
     config.module.rules.unshift({
       test: [/\.md$/],
       loader: 'file-loader',
@@ -27,6 +27,8 @@ module.exports = {
       test: /\.sprite$/,
       loader: require.resolve('@myntra/uikit-icon-loader')
     })
+
+    config.stats = 'verbose'
 
     return config
   }

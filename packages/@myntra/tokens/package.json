@@ -4,6 +4,7 @@
   "description": "Default design language for Myntra",
   "main": "tokens.js",
   "module": "tokens.esm.js",
+  "browser": "tokens.esm.js",
   "style": "tokens.css",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokens",
   "publishConfig": {
@@ -17,6 +18,6 @@
     "build": "tokenize"
   },
   "files": [
-    "tokens.{js,css,esm.js,scss,module.css}"
+    "tokens.{js,css,esm.js,scss,jsx,module.css}"
   ]
 }

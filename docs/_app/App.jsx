@@ -27,13 +27,13 @@ export default class App extends Component {
       <ThemeProvider>
         <BrowserRouter basename={CURRENT_BRANCH}>
           <div className="app" style={{ fontFamily: tokens.font.face.default }}>
+            <Nav />
             <main className="main">
               <Switch>
                 <Route exact path="/" component={Page} />
                 <Route path="/:page/:name?" component={Page} />
               </Switch>
             </main>
-            <Nav />
             <footer className="footer">
               <small>
                 &copy; 2018 - {new Date().getUTCFullYear()} Myntra UIKit (React v{React.version})

@@ -1,0 +1,134 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<TableSimple
+  Cell={[Function]}
+  Row={[Function]}
+  body={
+    Object {
+      "rows": Array [
+        Object {
+          "columns": Array [
+            Object {
+              "children": "John",
+              "head": true,
+              "key": "firstName",
+            },
+            Object {
+              "children": "Doe",
+              "key": "lastName",
+            },
+          ],
+          "id": 1,
+        },
+      ],
+    }
+  }
+  head={
+    Object {
+      "colgroup": Array [
+        Object {
+          "colSpan": 2,
+          "column": Object {},
+          "key": "name",
+        },
+      ],
+      "rows": Array [
+        Object {
+          "columns": Array [
+            Object {
+              "children": "First Name",
+              "key": "firstName",
+            },
+            Object {
+              "children": "Last Name",
+              "key": "lastName",
+            },
+          ],
+          "id": 0,
+        },
+      ],
+    }
+  }
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="scroller"
+    >
+      <table
+        className="table"
+      >
+        <colgroup>
+          <col
+            key="name"
+            span={2}
+          />
+        </colgroup>
+        <thead>
+          <Row
+            key="0"
+          >
+            <tr>
+              <Cell
+                head={true}
+                key="firstName"
+                scope="col"
+              >
+                <th
+                  className=""
+                  scope="col"
+                >
+                  First Name
+                </th>
+              </Cell>
+              <Cell
+                head={true}
+                key="lastName"
+                scope="col"
+              >
+                <th
+                  className=""
+                  scope="col"
+                >
+                  Last Name
+                </th>
+              </Cell>
+            </tr>
+          </Row>
+        </thead>
+        <tbody>
+          <Row
+            key="1"
+          >
+            <tr>
+              <Cell
+                head={true}
+                key="firstName"
+                scope="row"
+              >
+                <th
+                  className=""
+                  scope="row"
+                >
+                  John
+                </th>
+              </Cell>
+              <Cell
+                key="lastName"
+              >
+                <td
+                  className=""
+                >
+                  Doe
+                </td>
+              </Cell>
+            </tr>
+          </Row>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</TableSimple>
+`;

@@ -13,7 +13,9 @@ module.exports = (content, write) => {
     '\nexport ' +
     exported +
     '\nexport default ' +
-    exported
+    exported +
+    `\nimport ThemeProvider from './tokens.jsx'` +
+    `\nexport { ThemeProvider }`
 
   write(
     prettier.format(source, {

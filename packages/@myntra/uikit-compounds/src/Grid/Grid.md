@@ -3,7 +3,7 @@
 Common sizes:
 
 ```jsx render editor
-<>
+<div class="grid-example">
   <Grid>
     <Grid.Column size="full"><div>full</div></Grid.Column>
   </Grid>
@@ -32,13 +32,13 @@ Common sizes:
     <Grid.Column><div>auto</div></Grid.Column>
     <Grid.Column><div>auto</div></Grid.Column>
   </Grid>
-</>
+</div>
 ```
 
 Divided in five:
 
 ```jsx render editor
-<>
+<div class="grid-example">
   <Grid>
     <Grid.Column size="full"><div>full</div></Grid.Column>
   </Grid>
@@ -62,13 +62,13 @@ Divided in five:
     <Grid.Column><div>auto</div></Grid.Column>
     <Grid.Column><div>auto</div></Grid.Column>
   </Grid>
-</>
+</div>
 ```
 
 12 column grid:
 
 ```jsx render preview
-<>
+<div class="grid-example">
   <Grid>
     <Grid.Column size={12}><div>12</div></Grid.Column>
   </Grid>
@@ -171,12 +171,13 @@ Divided in five:
     <Grid.Column><div>auto</div></Grid.Column>
     <Grid.Column><div>auto</div></Grid.Column>
   </Grid>
-</>
+</div>
 ```
 
 ### Multi-line Grid
 
 ```jsx render editor
+<div class="grid-example">
 <Grid multiline>
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -184,11 +185,13 @@ Divided in five:
   <Grid.Column size={2}><div>2</div></Grid.Column>
   <Grid.Column size={6}><div>6</div></Grid.Column>
 </Grid>
+</div>
 ```
 
 ### Offset
 
 ```jsx render editor
+<div class="grid-example">
 <Grid multiline>
   <Grid.Column size="full"><div>full</div></Grid.Column>
   <Grid.Column size="three-quarters" offset="one-quarter"><div>three-quarters</div></Grid.Column>
@@ -197,9 +200,11 @@ Divided in five:
   <Grid.Column size="one-third" offset="two-thirds"><div>one-third</div></Grid.Column>
   <Grid.Column size="one-quarter" offset="three-quarters"><div>one-quarter</div></Grid.Column>
 </Grid>
+</div>
 ```
 
 ```jsx render editor
+<div class="grid-example">
 <Grid multiline>
   <Grid.Column size={12}><div>12</div></Grid.Column>
   <Grid.Column size={11} offset={1}><div>11</div></Grid.Column>
@@ -214,6 +219,7 @@ Divided in five:
   <Grid.Column size={2} offset={10}><div>2</div></Grid.Column>
   <Grid.Column size={1} offset={11}><div>1</div></Grid.Column>
 </Grid>
+</div>
 ```
 
 ### Column Gap
@@ -221,6 +227,7 @@ Divided in five:
 Default:
 
 ```jsx render editor
+<div class="grid-example">
 <Grid multiline>
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -230,11 +237,13 @@ Default:
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column><div>auto</div></Grid.Column>
 </Grid>
+</div>
 ```
 
 Gapless:
 
 ```jsx render editor
+<div class="grid-example">
 <Grid multiline gapless>
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -244,11 +253,13 @@ Gapless:
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column><div>auto</div></Grid.Column>
 </Grid>
+</div>
 ```
 
 Custom Gap:
 
 ```jsx render editor
+<div class="grid-example">
 <Grid multiline gap="xx-small">
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column size={4}><div>4</div></Grid.Column>
@@ -258,4 +269,5 @@ Custom Gap:
   <Grid.Column size={6}><div>6</div></Grid.Column>
   <Grid.Column><div>auto</div></Grid.Column>
 </Grid>
+</div>
 ```

@@ -1,0 +1,744 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should allow column to have one child 1`] = `
+Object {
+  "colgroup": Array [
+    Object {
+      "children": "ID",
+      "colSpan": 1,
+      "key": "id",
+      "rowSpan": 2,
+    },
+    Object {
+      "children": "Name",
+      "colSpan": 1,
+      "key": "name",
+    },
+    Object {
+      "children": "Content",
+      "colSpan": 1,
+      "key": "content",
+      "rowSpan": 2,
+    },
+  ],
+  "columns": Object {
+    "content": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+    "firstName": Object {
+      "children": Array [],
+      "depth": 2,
+      "key": "firstName",
+      "props": Object {
+        "children": "First Name",
+        "colSpan": 1,
+        "key": "firstName",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "id": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+    "name": Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "depth": 2,
+          "key": "firstName",
+          "props": Object {
+            "children": "First Name",
+            "colSpan": 1,
+            "key": "firstName",
+            "rowSpan": 1,
+          },
+          "render": [Function],
+        },
+      ],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+      },
+      "render": undefined,
+    },
+  },
+  "order": Array [
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 2,
+      "key": "firstName",
+      "props": Object {
+        "children": "First Name",
+        "colSpan": 1,
+        "key": "firstName",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+  ],
+  "rows": Array [
+    Object {
+      "columns": Array [
+        Object {
+          "children": "ID",
+          "colSpan": 1,
+          "key": "id",
+          "rowSpan": 2,
+        },
+        Object {
+          "children": "Name",
+          "colSpan": 1,
+          "key": "name",
+        },
+        Object {
+          "children": "Content",
+          "colSpan": 1,
+          "key": "content",
+          "rowSpan": 2,
+        },
+      ],
+      "id": 0,
+    },
+    Object {
+      "columns": Array [
+        Object {
+          "children": "First Name",
+          "colSpan": 1,
+          "key": "firstName",
+          "rowSpan": 1,
+        },
+      ],
+      "id": 1,
+    },
+  ],
+}
+`;
+
+exports[`should allow header grouping 1`] = `
+Object {
+  "colgroup": Array [
+    Object {
+      "children": "ID",
+      "colSpan": 1,
+      "key": "id",
+      "rowSpan": 2,
+    },
+    Object {
+      "children": "Name",
+      "colSpan": 2,
+      "key": "name",
+    },
+    Object {
+      "children": "Content",
+      "colSpan": 1,
+      "key": "content",
+      "rowSpan": 2,
+    },
+  ],
+  "columns": Object {
+    "content": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+    "firstName": Object {
+      "children": Array [],
+      "depth": 2,
+      "key": "firstName",
+      "props": Object {
+        "children": "First Name",
+        "colSpan": 1,
+        "key": "firstName",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "id": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+    "lastName": Object {
+      "children": Array [],
+      "depth": 2,
+      "key": "lastName",
+      "props": Object {
+        "children": "Last Name",
+        "colSpan": 1,
+        "key": "lastName",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "name": Object {
+      "children": Array [
+        Object {
+          "children": Array [],
+          "depth": 2,
+          "key": "firstName",
+          "props": Object {
+            "children": "First Name",
+            "colSpan": 1,
+            "key": "firstName",
+            "rowSpan": 1,
+          },
+          "render": [Function],
+        },
+        Object {
+          "children": Array [],
+          "depth": 2,
+          "key": "lastName",
+          "props": Object {
+            "children": "Last Name",
+            "colSpan": 1,
+            "key": "lastName",
+            "rowSpan": 1,
+          },
+          "render": [Function],
+        },
+      ],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 2,
+        "key": "name",
+      },
+      "render": undefined,
+    },
+  },
+  "order": Array [
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 2,
+      "key": "firstName",
+      "props": Object {
+        "children": "First Name",
+        "colSpan": 1,
+        "key": "firstName",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 2,
+      "key": "lastName",
+      "props": Object {
+        "children": "Last Name",
+        "colSpan": 1,
+        "key": "lastName",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 2,
+      },
+      "render": [Function],
+    },
+  ],
+  "rows": Array [
+    Object {
+      "columns": Array [
+        Object {
+          "children": "ID",
+          "colSpan": 1,
+          "key": "id",
+          "rowSpan": 2,
+        },
+        Object {
+          "children": "Name",
+          "colSpan": 2,
+          "key": "name",
+        },
+        Object {
+          "children": "Content",
+          "colSpan": 1,
+          "key": "content",
+          "rowSpan": 2,
+        },
+      ],
+      "id": 0,
+    },
+    Object {
+      "columns": Array [
+        Object {
+          "children": "First Name",
+          "colSpan": 1,
+          "key": "firstName",
+          "rowSpan": 1,
+        },
+        Object {
+          "children": "Last Name",
+          "colSpan": 1,
+          "key": "lastName",
+          "rowSpan": 1,
+        },
+      ],
+      "id": 1,
+    },
+  ],
+}
+`;
+
+exports[`should collect header info 1`] = `
+Object {
+  "colgroup": Array [
+    Object {
+      "children": "ID",
+      "colSpan": 1,
+      "key": "id",
+      "rowSpan": 1,
+    },
+    Object {
+      "children": "Name",
+      "colSpan": 1,
+      "key": "name",
+      "rowSpan": 1,
+    },
+    Object {
+      "children": "Content",
+      "colSpan": 1,
+      "key": "content",
+      "rowSpan": 1,
+    },
+  ],
+  "columns": Object {
+    "content": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "id": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "name": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+  },
+  "order": Array [
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+  ],
+  "rows": Array [
+    Object {
+      "columns": Array [
+        Object {
+          "children": "ID",
+          "colSpan": 1,
+          "key": "id",
+          "rowSpan": 1,
+        },
+        Object {
+          "children": "Name",
+          "colSpan": 1,
+          "key": "name",
+          "rowSpan": 1,
+        },
+        Object {
+          "children": "Content",
+          "colSpan": 1,
+          "key": "content",
+          "rowSpan": 1,
+        },
+      ],
+      "id": 0,
+    },
+  ],
+}
+`;
+
+exports[`should prepare table rows 1`] = `
+Object {
+  "colgroup": Array [
+    Object {
+      "children": "ID",
+      "colSpan": 1,
+      "key": "id",
+      "rowSpan": 1,
+    },
+    Object {
+      "children": "Name",
+      "colSpan": 1,
+      "key": "name",
+      "rowSpan": 1,
+    },
+    Object {
+      "children": "Content",
+      "colSpan": 1,
+      "key": "content",
+      "rowSpan": 1,
+      "transformProps": [MockFunction],
+    },
+  ],
+  "columns": Object {
+    "content": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 1,
+        "transformProps": [MockFunction],
+      },
+      "render": [Function],
+    },
+    "id": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "name": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+  },
+  "order": Array [
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+        "rowSpan": 1,
+        "transformProps": [MockFunction],
+      },
+      "render": [Function],
+    },
+  ],
+  "rows": Array [
+    Object {
+      "columns": Array [
+        Object {
+          "children": "ID",
+          "colSpan": 1,
+          "key": "id",
+          "rowSpan": 1,
+        },
+        Object {
+          "children": "Name",
+          "colSpan": 1,
+          "key": "name",
+          "rowSpan": 1,
+        },
+        Object {
+          "children": "Content",
+          "colSpan": 1,
+          "key": "content",
+          "rowSpan": 1,
+          "transformProps": [MockFunction],
+        },
+      ],
+      "id": 0,
+    },
+  ],
+}
+`;
+
+exports[`should prepare table rows 2`] = `
+Object {
+  "rows": Array [
+    Object {
+      "columns": Array [
+        Object {
+          "children": 1,
+          "key": "id",
+        },
+        Object {
+          "children": "John Doe",
+          "key": "name",
+        },
+        Object {
+          "children": <span>
+            foo
+          </span>,
+          "key": "content",
+        },
+      ],
+      "id": 0,
+    },
+  ],
+}
+`;
+
+exports[`should reorder columns 1`] = `
+Object {
+  "colgroup": Array [
+    Object {
+      "children": "Name",
+      "colSpan": 1,
+      "key": "name",
+      "rowSpan": 1,
+    },
+    Object {
+      "children": "ID",
+      "colSpan": 1,
+      "key": "id",
+      "rowSpan": 1,
+    },
+  ],
+  "columns": Object {
+    "content": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "content",
+      "props": Object {
+        "children": "Content",
+        "colSpan": 1,
+        "key": "content",
+      },
+      "render": [Function],
+    },
+    "id": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    "name": Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+  },
+  "order": Array [
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "name",
+      "props": Object {
+        "children": "Name",
+        "colSpan": 1,
+        "key": "name",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+    Object {
+      "children": Array [],
+      "depth": 1,
+      "key": "id",
+      "props": Object {
+        "children": "ID",
+        "colSpan": 1,
+        "key": "id",
+        "rowSpan": 1,
+      },
+      "render": [Function],
+    },
+  ],
+  "rows": Array [
+    Object {
+      "columns": Array [
+        Object {
+          "children": "Name",
+          "colSpan": 1,
+          "key": "name",
+          "rowSpan": 1,
+        },
+        Object {
+          "children": "ID",
+          "colSpan": 1,
+          "key": "id",
+          "rowSpan": 1,
+        },
+      ],
+      "id": 0,
+    },
+  ],
+}
+`;

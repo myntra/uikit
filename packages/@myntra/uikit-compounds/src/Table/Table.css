@@ -1,0 +1,49 @@
+.wrapper {
+  position: relative;
+}
+
+.scroller {
+  overflow-x: auto;
+  overflow-y: visible;
+}
+
+.wrapper .freeze {
+  position: absolute;
+}
+
+.table {
+  min-width: 100%;
+  margin-bottom: 1rem;
+  background-color: transparent;
+  border-spacing: 0;
+  border-collapse: collapse;
+  border: 1px solid #dee2e6;
+}
+
+.table.fixed {
+  table-layout: fixed;
+}
+
+.table thead {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.table tr {
+  border-bottom: 1px solid #dee2e6;
+}
+
+.table td,
+.table th {
+  border: 1px solid #dee2e6;
+  padding: 0.75rem;
+  white-space: nowrap;
+}
+
+.table th {
+  background-color: #f3f3f3;
+  vertical-align: bottom;
+}
+
+.table td {
+  vertical-align: top;
+}

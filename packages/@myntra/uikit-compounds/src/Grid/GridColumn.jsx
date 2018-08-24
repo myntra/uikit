@@ -12,11 +12,13 @@ import styles from './Grid.module.css'
  @since 0.0.0
  @status REVIEWING
  @example
-<Grid>
-  <Grid.Column size={5}>
-    <div>5 of 12</div>
-  </Grid.Column>
-</Grid>
+ <div class="grid-example">
+  <Grid>
+    <Grid.Column size={5}>
+      <div>5 of 12</div>
+    </Grid.Column>
+  </Grid>
+</div>
  */
 export default function GridColumn(props) {
   return (

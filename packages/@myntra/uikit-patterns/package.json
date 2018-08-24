@@ -14,10 +14,7 @@
   ],
   "license": "UNLICENSED",
   "sideEffects": false,
-  "dependencies": {
-    "@myntra/tokens": "^0.3.0-alpha.2",
-    "@myntra/uikit-utils": "^0.1.0"
-  },
+  "dependencies": {},
   "peerDependencies": {
     "prop-types": ">=15.6",
     "react": ">=15.6"
