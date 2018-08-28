@@ -1,6 +1,6 @@
 {
   "name": "@myntra/codemod-utils",
-  "version": "0.3.0-alpha.2",
+  "version": "0.3.0-alpha.3",
   "description": "High level helper function for AST transformations.",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",

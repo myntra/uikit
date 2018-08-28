@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0-alpha.3"></a>
+# [0.3.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.2...v0.3.0-alpha.3) (2018-08-28)
+
+
+### Features
+
+* **compounds | Form:** Add Form component ([26500a4](https://bitbucket.org/myntra/uikit/commits/26500a4)), closes [#70](https://bitbucket.org/myntra/uikit/issue/70)
+* **compounds | NavBar:** Add side navigation component ([66b26f0](https://bitbucket.org/myntra/uikit/commits/66b26f0)), closes [#67](https://bitbucket.org/myntra/uikit/issue/67)
+* **compounds | Table:** Add Table component ([cf7ac48](https://bitbucket.org/myntra/uikit/commits/cf7ac48)), closes [#76](https://bitbucket.org/myntra/uikit/issue/76)
+
+
+
 <a name="0.3.0-alpha.2"></a>
 # [0.3.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.1...v0.3.0-alpha.2) (2018-08-23)
 
