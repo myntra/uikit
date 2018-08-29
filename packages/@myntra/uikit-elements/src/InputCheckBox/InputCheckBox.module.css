@@ -3,6 +3,9 @@
 .input {
   display: inline-block;
   border-bottom-color: transparent;
+}
+
+.checkbox-input {
   padding-right: var(--relative-size-x-small);
 }
 

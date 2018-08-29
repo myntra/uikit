@@ -196,31 +196,33 @@ export default class InputRange extends React.PureComponent {
     const trackStyle = { transform: `scaleX(${this.knobOffset()})` }
 
     return (
-      <div className={classnames('container', { disabled }, className).use(styles)}>
-        <div className={classnames('knob').use(styles)}>
-          <div className={classnames('inner-knob').use(styles)} style={knobStyles}>
-            <div
-              className={classnames('knob-value', { 'knob-pressed': pressed }).use(styles)}
-              onMouseDown={this.handleMouseDown}
-              onTouchStart={this.handleTouchStart}
-            />
+      <div className={classnames('input').use(styles)}>
+        <div className={classnames('container', { disabled }, className).use(styles)}>
+          <div className={classnames('knob').use(styles)}>
+            <div className={classnames('inner-knob').use(styles)} style={knobStyles}>
+              <div
+                className={classnames('knob-value', { 'knob-pressed': pressed }).use(styles)}
+                onMouseDown={this.handleMouseDown}
+                onTouchStart={this.handleTouchStart}
+              />
+            </div>
           </div>
-        </div>
-        <div
-          className={classnames('track').use(styles)}
-          onMouseDown={this.handleMouseDown}
-          onTouchStart={this.handleTouchStart}
-        >
           <div
-            className={classnames('inner-track').use(styles)}
-            ref={node => {
-              this.trackNode = node
-            }}
+            className={classnames('track').use(styles)}
+            onMouseDown={this.handleMouseDown}
+            onTouchStart={this.handleTouchStart}
           >
-            <span className={classnames('track-value').use(styles)} style={trackStyle} />
+            <div
+              className={classnames('inner-track').use(styles)}
+              ref={node => {
+                this.trackNode = node
+              }}
+            >
+              <span className={classnames('track-value').use(styles)} style={trackStyle} />
+            </div>
           </div>
+          <input {...restProps} type="range" hidden />
         </div>
-        <input {...restProps} type="range" hidden />
       </div>
     )
   }

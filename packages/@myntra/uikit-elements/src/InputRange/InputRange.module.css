@@ -1,4 +1,8 @@
+@import '../Input/Input.css';
 
+.input {
+  border-bottom-color: transparent;
+}
 
 .container {
   --knob-dimension: 12px;

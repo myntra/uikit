@@ -16,3 +16,8 @@ it('should ignore change events if no change handler', () => {
   const wrapper = shallow(<InputCheckBox onChange={null} />)
   wrapper.find('input').simulate('change')
 })
+
+it('should render title component beside the checkbox', () => {
+  const wrapper = shallow(<InputCheckBox onChange={null} title="Clickbait" />)
+  expect(wrapper.find('.input').text()).toEqual('Clickbait')
+})

@@ -36,7 +36,7 @@ describe('InputRange', () => {
 
     it('render disabled slider', () => {
       const wrapper = shallow(<InputRange disabled min={500} max={1000} value={750} />)
-      expect(wrapper.hasClass('disabled')).toBe(true)
+      expect(wrapper.find('.container').hasClass('disabled')).toBe(true)
     })
 
     it('contains hidden input of type range', () => {
