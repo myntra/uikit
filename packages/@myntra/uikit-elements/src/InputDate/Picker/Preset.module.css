@@ -15,6 +15,7 @@
   line-height: var(--typography-text-smallText-line-height);
   cursor: pointer;
   user-select: none;
+  white-space: nowrap;
 }
 
 .preset + .preset {
