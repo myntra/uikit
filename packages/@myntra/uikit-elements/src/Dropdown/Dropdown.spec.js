@@ -106,42 +106,91 @@ describe('prop co-existence', () => {
 
     expect(spy).toHaveBeenCalledWith(expect.stringContaining('cannot be used with up'))
   })
+})
 
-  it('should warn if left and right co-exist', () => {
-    mount(
-      <Dropdown trigger="Open" left right>
-        <p>Some Content</p>
+describe('toggle', () => {
+  it('should ignore consecutive toggle events', () => {
+    let isOpen = false
+    const handleOpen = jest.fn().mockImplementation(() => (isOpen = true))
+    const handleClose = jest.fn().mockImplementation(() => (isOpen = false))
+    const dropdown = mount(
+      <Dropdown trigger="Trigger" isOpen={isOpen} onOpen={handleOpen} onClose={handleClose}>
+        <div>content</div>
       </Dropdown>
     )
 
-    expect(spy).toHaveBeenCalledWith(expect.stringContaining(`Use one of 'left' or 'right'`))
+    expect(isOpen).toBe(false)
+
+    dropdown.instance().toggle()
+
+    expect(handleOpen).toHaveBeenCalled()
+    expect(handleClose).not.toHaveBeenCalled()
+    expect(isOpen).toBe(true)
+
+    handleOpen.mockClear()
+
+    expect(dropdown.instance().coolDownTimer > 0).toBe(true)
+    dropdown.instance().toggle()
+    expect(handleOpen).not.toHaveBeenCalled()
+    expect(handleClose).not.toHaveBeenCalled()
+
+    expect(isOpen).toBe(true)
   })
 })
 
 describe('auto align', () => {
-  const instance = new Dropdown({ auto: true, approxContentWidth: 100, approxContentHeight: 100 })
-  const node = (top, left, width, height) => ({
-    getBoundingClientRect() {
-      return { top, left, right: left + width, bottom: top + height, width, height }
-    }
-  })
-
-  it('should call calculateAutoPosition on toggle', () => {
+  it('should call calculateAutoPosition on toggle', done => {
     const ref = new Dropdown({ auto: true, isOpen: false })
     const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
     jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
     ref.toggle()
 
-    expect(spy).toHaveBeenCalled()
+    setTimeout(() => {
+      expect(spy).toHaveBeenCalled()
+      done()
+    }, 20)
   })
 
-  it('should not call calculateAutoPosition on toggle if auto is false', () => {
+  it('should call calculateAutoPosition on measure', done => {
+    const ref = new Dropdown({ auto: true, isOpen: false, approxContentWidth: 100, approxContentHeight: 100 })
+    const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
+    jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
+    ref.handleMeasure({
+      bounds: { width: 100, height: 100 }
+    })
+
+    setTimeout(() => {
+      expect(spy).not.toHaveBeenCalled()
+      ref.handleMeasure({
+        bounds: { width: 200, height: 200 }
+      })
+
+      setTimeout(() => {
+        expect(spy).toHaveBeenCalled()
+        done()
+      }, 20)
+    }, 20)
+  })
+
+  it('should not call calculateAutoPosition on toggle if auto is false', done => {
     const ref = new Dropdown({ auto: false })
     const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
     jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
     ref.toggle()
 
-    expect(spy).not.toHaveBeenCalled()
+    setTimeout(() => {
+      expect(spy).not.toHaveBeenCalled()
+      done()
+    }, 20)
+  })
+})
+
+describe('auto align calculate', () => {
+  const instance = new Dropdown({ auto: true, approxContentWidth: 100, approxContentHeight: 100 })
+  const node = (top, left, width, height) => ({
+    getBoundingClientRect() {
+      return { top, left, right: left + width, bottom: top + height, width, height }
+    }
   })
 
   it('auto: default (no element)', () => {

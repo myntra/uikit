@@ -6,6 +6,7 @@ import ClickAway from '../ClickAway/ClickAway'
 import Button from '../Button/Button'
 
 import styles from './Dropdown.module.css'
+import { Measure } from '..'
 
 /**
  A bare-bones dropdown implementation. It requires a trigger component or text.
@@ -64,10 +65,6 @@ class Dropdown extends Component {
       if (props.auto && positions.length) {
         throw new Error(`Prop 'auto' cannot be used with ${positions.join(', ')}.`)
       }
-
-      if (props.left && props.right) {
-        throw new Error(`Use one of 'left' or 'right'.`)
-      }
     }
   }
 
@@ -79,23 +76,19 @@ class Dropdown extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { up: false, left: false, right: false }
+    this.state = {
+      up: false,
+      left: false,
+      right: false,
+      height: props.approxContentHeight,
+      width: props.approxContentWidth
+    }
     this.wrapper =
       typeof React.createRef === 'function'
         ? React.createRef()
         : ref => {
             this.wrapper.current = ref
           }
-    this.content = ref => {
-      this.content.ref = ref
-
-      if (ref) {
-        const rect = ref.getBoundingClientRect()
-
-        this.lastHeight = rect.height
-        this.lastWidth = rect.width
-      }
-    }
   }
 
   /**
@@ -139,11 +132,15 @@ class Dropdown extends Component {
    */
   open = () => {
     if (this.shouldCancelEvent()) return
-    if (this.props.auto) {
-      this.setState(this.calculateAutoPosition(this.wrapper.current, document.body))
-    }
+    this.positionContent()
 
     this.props.onOpen && this.props.onOpen()
+  }
+
+  positionContent() {
+    if (this.props.auto) {
+      setTimeout(() => this.setState(this.calculateAutoPosition(this.wrapper.current, document.body)), 10)
+    }
   }
 
   /**
@@ -165,6 +162,13 @@ class Dropdown extends Component {
     this.props.isOpen ? this.close() : this.open()
   }
 
+  handleMeasure = ({ bounds: { width, height } }) => {
+    if (this.state.width !== width || this.state.height !== height) {
+      this.setState({ width, height })
+      this.positionContent()
+    }
+  }
+
   /**
    * Calculate auto position.
    */
@@ -176,8 +180,7 @@ class Dropdown extends Component {
     const target = element.getBoundingClientRect()
     const reference = parent.getBoundingClientRect()
 
-    const height = this.lastHeight || this.props.approxContentHeight
-    const width = this.lastWidth || this.props.approxContentWidth
+    const { height, width } = this.state
 
     const maxWidth = reference.right
     const maxHeight = reference.bottom
@@ -207,9 +210,11 @@ class Dropdown extends Component {
           )}
         </div>
         {this.props.isOpen && (
-          <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
-            {this.props.children}
-          </div>
+          <Measure bounds onMeasure={this.handleMeasure}>
+            <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
+              {this.props.children}
+            </div>
+          </Measure>
         )}
         {this.props.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
       </div>
