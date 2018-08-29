@@ -27,20 +27,36 @@ import FormAction from './FormAction'
  * @since 0.3.0
  * @status EXPERIMENTAL
  * @example
- * <Form onSubmit={() => console.log(this.state) }>
- *  <Form.Text label="Name" value={this.state.name} onChange={name => this.setState({ name })} description="Your full name" />
-
+<Form onSubmit={() => console.log(this.state)}>
   <Form.Text
-    label="Email"
-    type="email"
-    value={this.state.email}
-    onChange={email => this.setState({ email })}
-    description="Your email address"
+    label="Name"
+    value={this.state.name}
+    onChange={name => this.setState({ name })}
+    description="Your full name"
+  />
+
+  <Form.Select
+    label="Gender"
+    options={[{ value: 1, label: 'Female' }, { value: 2, label: 'Male' }, { value: 3, label: 'Other' }]}
+    value={this.state.gender}
+    onChange={gender => this.setState({ gender })}
+    description="Gender"
+  />
+
+  <Form.Date
+    range
+    label="Date of Birth"
+    value={this.state.date}
+    onChange={date => this.setState({ date })}
+    description="Your date of birth"
   />
 
   <Form.Action label="Search" type="primary" />
-  <Form.Action label="Clear" onClick={() => this.setState({ name: '', email: '' })} />
- </Form>
+  <Form.Action
+    label="Clear"
+    onClick={() => this.setState({ name: '', email: '' })}
+  />
+</Form>
  */
 function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
   return (
