@@ -17,14 +17,12 @@ import styles from './FormGroup.module.css'
  */
 function FormGroup({ label, error, description, Field, fieldSize, ...props }) {
   return (
-    <div className={classnames('form-group').use(styles)}>
-      <label>
-        <div className={classnames('label').use(styles)}>{label}</div>
-        <Field {...props} />
-        {description && <FormHelpText>{description}</FormHelpText>}
-        {error && <FormHelpText type="error">{error}</FormHelpText>}
-      </label>
-    </div>
+    <label>
+      <div className={classnames('label').use(styles)}>{label}</div>
+      <Field {...props} />
+      {description && <FormHelpText>{description}</FormHelpText>}
+      {error && <FormHelpText type="error">{error}</FormHelpText>}
+    </label>
   )
 }
 

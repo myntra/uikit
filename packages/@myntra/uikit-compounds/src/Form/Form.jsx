@@ -42,11 +42,10 @@ import FormAction from './FormAction'
   <Form.Action label="Clear" onClick={() => this.setState({ name: '', email: '' })} />
  </Form>
  */
-function Form({ className, children, title, defaultFieldSize, onSubmit, ...props }) {
+function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
   return (
     <form
       {...props}
-      className={classnames('form', className).use(styles)}
       onSubmit={event => {
         event.preventDefault()
         onSubmit(event)
@@ -70,8 +69,6 @@ function Form({ className, children, title, defaultFieldSize, onSubmit, ...props
 }
 
 Form.propTypes = {
-  /** @private */
-  className: PropTypes.string,
   /** @private */
   _validate({ children }) {
     let count = 0
