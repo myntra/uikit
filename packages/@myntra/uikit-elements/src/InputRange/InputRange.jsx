@@ -221,7 +221,7 @@ export default class InputRange extends React.PureComponent {
               <span className={classnames('track-value').use(styles)} style={trackStyle} />
             </div>
           </div>
-          <input {...restProps} type="range" hidden />
+          <input {...restProps} type="range" hidden readOnly />
         </div>
       </div>
     )
