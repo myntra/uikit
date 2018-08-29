@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render select element 1`] = `
+<InputSelectHidden
+  values={
+    Array [
+      1,
+      2,
+    ]
+  }
+>
+  <select
+    hidden={true}
+    multiple={true}
+    readOnly={true}
+    value={
+      Array [
+        1,
+        2,
+      ]
+    }
+  >
+    <option
+      key="1"
+      value="1"
+    />
+    <option
+      key="2"
+      value="2"
+    />
+  </select>
+</InputSelectHidden>
+`;

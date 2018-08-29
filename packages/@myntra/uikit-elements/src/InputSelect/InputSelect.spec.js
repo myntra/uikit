@@ -135,7 +135,7 @@ describe('Input Select', () => {
 
     it('should render a hidden input with selected value', done => {
       const select = mountSelect()
-      expect(select.find('InputHidden').props().values).toEqual([1])
+      expect(select.find('InputSelectHidden').props().values).toEqual([1])
       done()
     })
   })
