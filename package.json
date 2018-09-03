@@ -11,22 +11,42 @@
   },
   "scripts": {
     "preinstall": "node scripts/ensure-yarn.js",
+
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
     "lint:js": "eslint --ext .js --ext .jsx --ext .json",
     "lint:css": "stylelint packages/**/*.css docs/**/*.css",
+
     "predev": "yarn workspace @myntra/tokens build && yarn workspace @myntra/uikit-elements build",
     "dev": "poi --jsx react docs/_app/index.js",
+
     "prebuild": "yarn workspace @myntra/tokens build && yarn workspace @myntra/uikit-elements build",
     "build": "poi build --jsx react docs/_app/index.js",
     "postbuild": "node scripts/create-static-routes.js",
+
     "test": "jest",
+
     "coverage": "jest --coverage",
     "postcoverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
+
     "ci": "node scripts/jenkins-build.js",
+
+    "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
+    "update:develop": "git checkout develop && git rebase master && git push origin develop",
+
+    "prerelease": "yarn update:master",
     "release": "standard-version -a && ./scripts/publish.sh && git push --follow-tags origin master",
+    "postrelease": "yarn update:develop",
+
+    "prerelease:alpha": "yarn update:master",
     "release:alpha": "standard-version -a --prerelease alpha && ./scripts/publish.sh && git push --follow-tags origin master",
+    "postrelease:alpha": "yarn update:develop",
+
+    "prerelease:beta": "yarn update:master",
     "release:beta": "standard-version -a --prerelease beta && ./scripts/publish.sh && git push --follow-tags origin master",
+    "postrelease:beta": "yarn update:develop",
+
     "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md",
+
     "lerna:version": "lerna publish --yes --skip-npm --skip-git --repo-version $(node scripts/version.js) && git add packages/ lerna.json"
   },
   "workspaces": [
