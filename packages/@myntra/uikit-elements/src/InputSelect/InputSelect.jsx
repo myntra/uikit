@@ -17,7 +17,7 @@ import { Dropdown } from '..'
  @since 0.0.0
  @status REVIEWING
  @example
- <InputSelect options={[{ label: 'One', value: 1}, { label: 'Two', value: 2}]}
+ <InputSelect options={[{ label: 'One', value: 1}, { label: 'Two', value: 2}, { label: 'Three', value: 3}, { label: 'Four', value: 4}]}
     value={this.state.value}
     onChange={(value, option) => this.setState({value})}
   />
@@ -150,7 +150,7 @@ export default class InputSelect extends Component {
   }
 
   handleOpen = () => {
-    this.setState({ isOpen: true, focusedIndex: -1 })
+    this.setState({ isOpen: true, focusedIndex: -1, searchValue: '' })
   }
 
   handleClose = () => {
@@ -161,6 +161,7 @@ export default class InputSelect extends Component {
     const count = this.filteredOptions.length
 
     this.setState({
+      isOpen: true,
       focusedIndex: (count + (this.state.focusedIndex - 1)) % count
     })
   }
@@ -169,6 +170,7 @@ export default class InputSelect extends Component {
     const count = this.filteredOptions.length
 
     this.setState({
+      isOpen: true,
       focusedIndex: (count + (this.state.focusedIndex + 1)) % count
     })
   }
@@ -251,13 +253,6 @@ export default class InputSelect extends Component {
 
   handleKeyDown = event => {
     switch (event.key || event.keyCode) {
-      case 'Tab':
-      case 9:
-        if (event.shiftKey || !this.state.isOpen) break
-        if (!this.props.disabled) {
-          this.selectFocusedOption()
-        }
-        break
       case 'Enter':
       case 13:
         event.preventDefault()

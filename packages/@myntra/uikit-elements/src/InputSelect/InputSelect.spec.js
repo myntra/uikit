@@ -347,13 +347,6 @@ describe('Input Search open', () => {
     done()
   })
 
-  it('should call onchange handler on tab', done => {
-    event.key = 'Tab'
-    select.instance().handleKeyDown(event)
-    expect(handleChange).toHaveBeenLastCalledWith(1, { label: 'One', value: 1 })
-    done()
-  })
-
   it('should focus on last option on end key', done => {
     event.key = 'End'
     select.instance().handleKeyDown(event)

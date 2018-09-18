@@ -18,18 +18,18 @@ import styles from './InputCheckBox.module.css'
 function InputCheckBox({ className, value, htmlValue, onChange, title, ...props }) {
   return (
     <label className={classnames(className, 'input').use(styles)}>
-      <span className={classnames('checkbox-input').use(styles)}>
+      <div className={classnames('checkbox-input').use(styles)} role="checkbox">
         <input
           {...props}
           type="checkbox"
           checked={!!value}
           value={htmlValue}
           className={classnames('target').use(styles)}
-          onChange={event => onChange && onChange(event.target.checked)}
+          onChange={event => onChange && onChange(Boolean(event.target.checked))}
         />
         <span className={classnames('checkbox').use(styles)} />
-      </span>
-      {title}
+      </div>
+      <span className={classnames('content').use(styles)}>{title}</span>
     </label>
   )
 }

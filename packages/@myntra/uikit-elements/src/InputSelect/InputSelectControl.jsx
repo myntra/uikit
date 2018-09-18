@@ -20,14 +20,14 @@ export default class InputSelectControl extends PureComponent {
 
   handleChange = event => this.props.onChange(event.target.value)
   handleClick = event => event.stopPropagation()
-  delayedBlur = () => !this.props.multiple && this.props.onBlur && setTimeout(this.props.onBlur, 16) // 1 frame at 60 fps
+  delayedBlur = () => !this.props.multiple && this.props.onBlur && setTimeout(this.props.onBlur, 200)
 
   render() {
     const { isOpen, instancePrefix, slotValue, children, onClick, onChange, onBlur, ...props } = this.props
 
     return (
       <div className={classnames('control').use(styles)} onClick={onClick}>
-        {slotValue}
+        {props.value ? null : slotValue}
         <input
           {...props}
           onBlur={this.delayedBlur}

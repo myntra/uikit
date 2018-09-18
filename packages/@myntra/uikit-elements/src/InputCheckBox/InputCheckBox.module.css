@@ -6,7 +6,11 @@
 }
 
 .checkbox-input {
-  padding-right: var(--relative-size-x-small);
+  display: inline-block;
+}
+
+.content:not(:empty) {
+  padding-inline-start: var(--relative-size-x-small);
 }
 
 .target {
@@ -26,6 +30,7 @@
   border-radius: 0.08em;
   border: 0.0714em solid var(--color-black-light);
   transition: box-shadow 0.2s, background-color 0.2s;
+  cursor: pointer;
 }
 
 .target:checked + .checkbox {

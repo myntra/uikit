@@ -68,7 +68,9 @@ export default class Option extends Component {
         onTouchEnd={this.handleTouchEnd}
         title={option[labelKey]}
       >
-        {hasCheckBox && <InputCheckBox className={classnames('checkbox').use(styles)} value={isSelected} />}
+        {hasCheckBox && (
+          <InputCheckBox className={classnames('checkbox').use(styles)} value={isSelected} tabIndex={-1} />
+        )}
         {renderOption ? renderOption(option) : option[labelKey]}
       </div>
     )

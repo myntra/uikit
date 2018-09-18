@@ -6,7 +6,8 @@
 
 .checkbox {
   padding: 0;
-  margin-right: var(--size-xx-small);
+  pointer-events: none;
+  margin-right: 1ch;
 }
 
 .focused {
