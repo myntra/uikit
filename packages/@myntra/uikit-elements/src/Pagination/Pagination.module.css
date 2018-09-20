@@ -1,0 +1,66 @@
+@import '@myntra/tokens/tokens.css';
+
+.pagination {
+  display: inline-block;
+}
+
+.size {
+  display: inline-block;
+  margin-right: var(--size-small);
+}
+
+.page-size {
+  margin: 0 var(--size-x-small);
+  position: relative;
+  display: inline-block;
+}
+
+.page-size > select,
+.pagination > select {
+  border: none;
+  border-radius: 0;
+  display: inline-block;
+  padding: 0 0.625em 0 0.375em;
+  color: var(--text-color-dark-primary);
+  background-color: transparent;
+  outline: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+.select-chevron-down {
+  content: '';
+  width: 0;
+  border-width: 6px 5px 0 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.54) transparent;
+  display: inline-block;
+  position: absolute;
+  pointer-events: none;
+  top: 6px;
+  right: 2px;
+  cursor: pointer;
+}
+
+.size-label {
+  display: inline-block;
+  margin-right: var(--size-x-small);
+}
+
+.select-page {
+  padding: 0;
+  text-align-last: center;
+}
+
+.pagination-arrow {
+  height: 1em;
+  width: 1em;
+  cursor: pointer;
+}
+
+.arrow-container {
+  display: inline-block;
+  padding: 0.25em;
+}
