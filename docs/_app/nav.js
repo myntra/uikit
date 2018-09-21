@@ -1,6 +1,7 @@
 // Used in node.js env too.
 module.exports = [
   { to: '/', label: 'Getting Started' },
+  { to: '/conventions/', label: 'Conventions' },
   { to: '/contributing/', label: 'Contribution Guidelines' },
   { to: '/changelog/', label: 'Changelog' },
   { type: 'sep' },

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import BreadCrumb from '../BreadCrumb/BreadCrumb.jsx'
 import styles from './TopBar.module.css'
 import Item from './TopBarItem'
+import { Grid } from '..'
 
 /**
  A component for page header
@@ -14,29 +15,47 @@ import Item from './TopBarItem'
  @example
  <TopBar
     title="Application Name"
-    crumb={
-      <BreadCrumb>
-        <BreadCrumb.Item>First</BreadCrumb.Item>
-        <BreadCrumb.Item><a href='#'>Second</a></BreadCrumb.Item>
-      </BreadCrumb>
-    }
  >
-    <TopBar.Item icon="user" altText="hello" />
+    <BreadCrumb>
+      <BreadCrumb.Item>First</BreadCrumb.Item>
+      <BreadCrumb.Item><a href='#'>Second</a></BreadCrumb.Item>
+    </BreadCrumb>
     <TopBar.Item icon="messages" />
+    <TopBar.Item icon="user" />
     <TopBar.Item icon="notifications" />
  </TopBar>
  */
-function TopBar({ title, slot, crumb, children }) {
+function TopBar({ title, children }) {
+  const crumb = []
+  const slot = []
+  const items = []
+
+  React.Children.forEach(children, child => {
+    if (child.type === BreadCrumb) {
+      crumb.push(child)
+    } else if (child.type === Item) {
+      items.push(child)
+    } else {
+      slot.push(child)
+    }
+  })
+
   return (
-    <div className={classnames('head').use(styles)}>
-      <div className={classnames('content').use(styles)}>
-        <div className={classnames('content-left').use(styles)}>
-          <h1 className={classnames('title').use(styles)}>{title}</h1>
-          {crumb}
-        </div>
-        {slot && <div className={classnames('embeds').use(styles)}>{slot}</div>}
-        <nav className={classnames('content-right').use(styles)}>{children}</nav>
-      </div>
+    <div className={classnames('top-bar').use(styles)}>
+      <Grid vcentered>
+        <Grid.Column>
+          <div className={classnames('head').use(styles)}>
+            <div className={classnames('content').use(styles)}>
+              <div className={classnames('content-left').use(styles)}>
+                <h1 className={classnames('title').use(styles)}>{title}</h1>
+                {crumb}
+              </div>
+              {slot.length ? <div className={classnames('embeds').use(styles)}>{slot}</div> : null}
+              <nav className={classnames('content-right').use(styles)}>{items}</nav>
+            </div>
+          </div>
+        </Grid.Column>
+      </Grid>
     </div>
   )
 }
@@ -44,21 +63,7 @@ function TopBar({ title, slot, crumb, children }) {
 TopBar.propTypes = {
   /** App title */
   title: PropTypes.string.isRequired,
-  /** [BreadCrumb](./BreadCrumb) links. */
-  crumb: PropTypes.node,
-  slot: PropTypes.node,
-  children: PropTypes.any,
-  /** @private */
-  _validate({ crumb, children }) {
-    if (crumb && crumb.type !== BreadCrumb) {
-      console.warn('UIKit: Use `BreadCrumb` component for rendering breadcrumbs.')
-    }
-    React.Children.forEach(children, child => {
-      if (child && child.type !== Item) {
-        throw new Error('Only TopBar.Item component is allowed in TopBar')
-      }
-    })
-  }
+  children: PropTypes.any
 }
 
 TopBar.Item = Item

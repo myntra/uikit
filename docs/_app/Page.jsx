@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { Promised } from '@myntra/uikit-elements'
 import * as internals from '@myntra/uikit-internals'
 import tokens from '@myntra/tokens'
+import { Link } from 'react-router-dom'
+import { TopBar, BreadCrumb, Grid } from '@myntra/uikit-compounds'
 
 const { Markdown } = internals
 const MarkdownCache = {}
@@ -24,16 +26,38 @@ export default function Page({ match }) {
 
   return (
     <div className="page">
-      <Promised
-        fn={() => import(`../${page}.md`).then(result => fetchMarkdown(result.default))}
-        renderError={error => <pre>{error.message}</pre>}
-        render={content => <Markdown context={{ tokens, ...internals }}>{content}</Markdown>}
-      />
-      <Promised
-        fn={() => import(`../${page}.js`)}
-        render={component => <component.default only={name ? [name] : []} />}
-        renderError={() => null}
-      />
+      <TopBar title="Myntra UIKit">
+        <BreadCrumb>
+          <BreadCrumb.Item>
+            <Link to={`../${match.params.page || ''}`} className="breadcrumb">
+              {page.replace(/[^a-z]/gi, ' ')}
+            </Link>
+          </BreadCrumb.Item>
+          {name && (
+            <BreadCrumb.Item>
+              <Link to={`../${match.params.page}/${name || ''}`} className="breadcrumb">
+                {name}
+              </Link>
+            </BreadCrumb.Item>
+          )}
+        </BreadCrumb>
+      </TopBar>
+      <Grid>
+        <Grid.Column>
+          <div className="content">
+            <Promised
+              fn={() => import(`../${page}.md`).then(result => fetchMarkdown(result.default))}
+              renderError={error => <pre>{error.message}</pre>}
+              render={content => <Markdown context={{ tokens, ...internals }}>{content}</Markdown>}
+            />
+            <Promised
+              fn={() => import(`../${page}.js`)}
+              render={component => <component.default only={name ? [name] : []} />}
+              renderError={() => null}
+            />
+          </div>
+        </Grid.Column>
+      </Grid>
     </div>
   )
 }

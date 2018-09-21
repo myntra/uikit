@@ -53,7 +53,6 @@ export default class NavItem extends React.PureComponent {
   }
 
   handleClick = event => {
-    event.stopPropagation()
     if (this.isMenu) {
       this.props.onOpen && this.props.onOpen(this.props.optionIndex)
     } else {

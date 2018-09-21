@@ -4,6 +4,7 @@ import tokens from '@myntra/tokens'
 
 import Markdown from '../Markdown'
 import PropTypeDocumenter from './PropTypeDocumenter'
+import { Table } from '@myntra/uikit-compounds'
 
 const states = {
   DEPRECATED: '💔',
@@ -51,8 +52,6 @@ export default class ComponentDocumenter extends Component {
   render() {
     if (this.state.error) return <div>ERROR: {this.state.message}</div>
 
-    const styleTh = { padding: tokens.size.small, borderBottom: 'solid 2px rgba(0, 0, 0, .3)' }
-    const styleTd = { padding: tokens.size.small, borderBottom: 'solid 1px rgba(0, 0, 0, .2)', minWidth: '200px' }
     return (
       <div id={this.props.name}>
         <h2>
@@ -72,34 +71,25 @@ export default class ComponentDocumenter extends Component {
         {this.props.props.length > 0 && (
           <div>
             <h2>Props:</h2>
-            <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-              <thead>
-                <tr>
-                  <th style={styleTh}>Name</th>
-                  <th style={styleTh}>Description</th>
-                  <th style={styleTh}>Type</th>
-                  <th style={styleTh}>Default</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.props.props.filter(prop => !prop.private).map(prop => (
-                  <tr key={prop.name}>
-                    <td style={styleTd}>{prop.name}</td>
-                    <td style={styleTd}>{prop.description ? <Markdown>{prop.description}</Markdown> : null}</td>
-                    <td style={styleTd}>
-                      <PropTypeDocumenter {...prop.type} meta={prop.meta} reference={prop.reference} />
-                    </td>
-                    <td style={styleTd}>
-                      {prop.defaultValue ? (
-                        <code style={{ background: 'lightgray', padding: '4px', lineHeight: 2 }}>
-                          {prop.defaultValue.value}
-                        </code>
-                      ) : null}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+
+            <Table data={this.props.props.filter(prop => !prop.private)}>
+              <Table.Column key="name" label="Name" />
+              <Table.Column key="description" label="Description">
+                {({ data }) => <Markdown>{data.description || ''}</Markdown>}
+              </Table.Column>
+              <Table.Column key="type" label="Type">
+                {({ data }) => <PropTypeDocumenter {...data.type} meta={data.meta} reference={data.reference} />}
+              </Table.Column>
+              <Table.Column key="default" label="Default">
+                {({ data }) =>
+                  data.defaultValue ? (
+                    <code style={{ background: 'lightgray', padding: '4px', lineHeight: 2 }}>
+                      {data.defaultValue.value}
+                    </code>
+                  ) : null
+                }
+              </Table.Column>
+            </Table>
           </div>
         )}
 

@@ -17,6 +17,7 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/tokens": "^0.3.0-alpha.3",
+    "@myntra/uikit-compounds": "^0.3.0-alpha.3",
     "@myntra/uikit-elements": "^0.3.0-alpha.3",
     "babel-standalone": "^6.26.0",
     "markdown-to-jsx": "^6.6.3",

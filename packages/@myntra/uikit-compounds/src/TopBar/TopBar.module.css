@@ -2,10 +2,21 @@
   white-space: nowrap;
 }
 
+.top-bar {
+  position: relative;
+  margin-bottom: 48px;
+}
+
 .head {
+  position: fixed;
   box-sizing: border-box;
   display: flex;
-  height: 65px;
+  overflow: hidden;
+  height: 64px;
+  width: 100%;
+  background-color: var(--color-gray-xx-light);
+  border-bottom: 1px solid var(--color-gray-base);
+  z-index: var(--z-index-top-bar, 1000);
 }
 
 .content {
@@ -17,6 +28,7 @@
 
 .content-left {
   padding-left: var(--size-base);
+  flex-grow: 0;
 }
 
 .title {
@@ -27,6 +39,10 @@
   line-height: var(--typography-text-title-line-height);
   margin: 0;
   padding: 0;
+}
+
+.content-right {
+  flex-grow: 0;
 }
 
 .embeds {

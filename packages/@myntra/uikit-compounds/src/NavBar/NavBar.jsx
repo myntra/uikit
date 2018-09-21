@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
+import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
 import Icon from '@myntra/uikit-elements/src/Icon/Icon'
 import NavItem from './NavItem'
 import NavGroup from './NavGroup'
@@ -17,6 +17,7 @@ import styles from './NavBar.module.css'
     expand={this.state.expand || 'open'}
     onChange={({href}) => this.setState({currentPath: href})}
     onClick={({expand}) => this.setState({expand})}
+    style={{position: 'absolute', zIndex: 100 }}
     >
       <NavBar.Item title='Item1' href='abc' icon='cross'/>
       <NavBar.Group title='Group1'>
@@ -61,6 +62,8 @@ class NavBar extends React.PureComponent {
     expand: 'auto'
   }
 
+  static onlyExtraProps = onlyExtraProps(NavBar.propTypes)
+
   state = {
     expandedMenu: -1,
     collapsed: true
@@ -83,7 +86,8 @@ class NavBar extends React.PureComponent {
 
   handleClick = () => {
     const { expand } = this.props
-    expand !== 'auto' && this.props.onClick && this.props.onClick({ expand: expand === 'open' ? 'close' : 'open' })
+
+    expand !== 'auto' && this.props.onClick && this.props.onClick(expand === 'open' ? 'close' : 'open')
   }
 
   handleMenuOpen = optionIndex => {
@@ -105,6 +109,7 @@ class NavBar extends React.PureComponent {
     const collapsed = this.state.collapsed
     return (
       <nav
+        {...NavBar.onlyExtraProps(this.props)}
         className={classnames('nav', { collapsed }).use(styles)}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}

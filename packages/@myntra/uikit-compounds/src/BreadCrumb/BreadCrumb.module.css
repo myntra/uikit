@@ -9,11 +9,20 @@
 }
 
 .page {
-  color: var(--typography-color-dark-disabled);
   cursor: pointer;
-  font-size: var(--typography-text-table-font-size);
   margin-right: var(--relative-size-large);
   position: relative;
+}
+
+.page,
+.page * {
+  color: var(--color-primary) !important;
+  font-size: var(--typography-text-table-font-size);
+}
+
+.page:last-child,
+.page:last-child * {
+  color: var(--typography-color-dark-disabled) !important;
 }
 
 .page + .page::before {

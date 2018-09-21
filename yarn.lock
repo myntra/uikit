@@ -692,6 +692,53 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+"@myntra/codemod-utils@^0.3.0-alpha.3":
+  version "0.3.0-alpha.3"
+  resolved "http://registry.myntra.com:8000/@myntra/codemod-utils/-/@myntra/codemod-utils-0.3.0-alpha.3.tgz#82d732f013fe17fd6adddc3ffcb04b232ef27b6e"
+  dependencies:
+    "@myntra/eslint-config-standard" "^0.1.0"
+    debug "^3.1.0"
+    eslint "^4.19.1"
+    execa "^0.10.0"
+    glob "^7.1.2"
+    jscodeshift "^0.5.1"
+    jsdoc-api "^4.0.3"
+    prettier "^1.13.4"
+
+"@myntra/tokens@^0.3.0-alpha.3":
+  version "0.3.0-alpha.3"
+  resolved "http://registry.myntra.com:8000/@myntra/tokens/-/@myntra/tokens-0.3.0-alpha.3.tgz#e8fa1009f36783ec85deb8159d218beb86f3cf67"
+
+"@myntra/uikit-compounds@^0.3.0-alpha.3":
+  version "0.3.0-alpha.3"
+  resolved "http://registry.myntra.com:8000/@myntra/uikit-compounds/-/@myntra/uikit-compounds-0.3.0-alpha.3.tgz#6b95800f04f14234b3570e5f4c9804a78e94bd5d"
+  dependencies:
+    "@myntra/codemod-utils" "^0.3.0-alpha.3"
+    "@myntra/tokens" "^0.3.0-alpha.3"
+    "@myntra/uikit-elements" "^0.3.0-alpha.3"
+    "@myntra/uikit-utils" "^0.3.0-alpha.3"
+    react-transition-group "^2.4.0"
+
+"@myntra/uikit-elements@^0.3.0-alpha.3":
+  version "0.3.0-alpha.3"
+  resolved "http://registry.myntra.com:8000/@myntra/uikit-elements/-/@myntra/uikit-elements-0.3.0-alpha.3.tgz#d93dfab12b686251d813f7ee36ebcfb6388cbf66"
+  dependencies:
+    "@myntra/codemod-utils" "^0.3.0-alpha.3"
+    "@myntra/tokens" "^0.3.0-alpha.3"
+    "@myntra/uikit-utils" "^0.3.0-alpha.3"
+    date-fns "^2.0.0-alpha.10"
+    dayjs "^1.6.7"
+    intersection-observer-polyfill "^0.1.0"
+    react-dom "^16.4.1"
+    resize-observer-polyfill "^1.5.0"
+    sifter "^0.5.3"
+
+"@myntra/uikit-utils@^0.3.0-alpha.3":
+  version "0.3.0-alpha.3"
+  resolved "http://registry.myntra.com:8000/@myntra/uikit-utils/-/@myntra/uikit-utils-0.3.0-alpha.3.tgz#6c95a7b2fb9a053a246d9d0d20b30db20a32880c"
+  dependencies:
+    lodash-es "^4.17.8"
+
 "@nodelib/fs.stat@^1.0.1":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.0.tgz#50c1e2260ac0ed9439a181de3725a0168d59c48a"

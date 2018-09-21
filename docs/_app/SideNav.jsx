@@ -6,23 +6,20 @@ import * as compounds from '@myntra/uikit-compounds'
 import * as patterns from '@myntra/uikit-patterns'
 import * as internals from '@myntra/uikit-internals'
 /* eslint-enable */
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const components = { elements, compounds, patterns, internals }
 
 export default class Nav extends React.PureComponent {
-  state = { expand: 'open' }
-
   render() {
     return (
       <NavBar
         title="Myntra UIKit"
-        currentPath={window.location.pathname}
-        expand={this.state.expand}
-        linkComponent={({ href, children }) => <NavLink to={href}>{children}</NavLink>}
-        onClick={({ expand }) => this.setState({ expand })}
+        linkComponent={({ href, children }) => <Link to={href}>{children}</Link>}
+        {...this.props}
       >
         <NavBar.Item title="Getting Started" href="/" />
+        <NavBar.Item title="Conventions" href="/conventions/" />
         <NavBar.Item title="Contribution Guidelines" href="/contributing/" />
         <NavBar.Item title="Changelog" href="/changelog/" />
         <NavBar.Group>

@@ -15,6 +15,7 @@ body {
   min-height: 100%;
   padding: 0;
   margin: 0;
+  background-color: var(--color-gray-xx-light);
 }
 
 h1 {
@@ -48,34 +49,6 @@ div {
   line-height: var(--typography-text-paragraph-line-height);
 }
 
-.app {
-  display: grid;
-  grid-template:
-    'head main' minmax(80px, 10vh)
-    'side main' minmax(20%, 85vh)
-    'foot main' minmax(30px, 5vh) / 250px 1fr;
-  height: 100%;
-}
-
-.app > .header {
-  grid-area: head;
-}
-
-.app > .sidebar {
-  grid-area: side;
-  overflow: auto;
-}
-
-.app > .main {
-  grid-area: main;
-  overflow: auto;
-  padding: 1rem;
-}
-
-.app > .footer {
-  grid-area: foot;
-}
-
 a,
 a:visited,
 a:focus,
@@ -84,13 +57,22 @@ a:active {
   text-decoration: none;
 }
 
-.sidebar > a {
-  display: block;
+.main {
+  margin-left: 49px;
+  transition: all 0.35s ease-in-out;
 }
 
-.sidebar-sep {
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  margin: 1em 0;
+.main.open {
+  margin-left: 250px;
+}
+
+.breadcrumb {
+  text-transform: capitalize;
+}
+
+.page .content {
+  overflow: hidden;
+  padding: 0 1.5rem;
 }
 
 .card {

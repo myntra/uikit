@@ -117,22 +117,4 @@ describe('NavBar Component', () => {
       .simulate('click')
     expect(handleChange).toHaveBeenCalledWith({ href: 'xyz' })
   })
-
-  it('should expand on click if expand prop is open/close', () => {
-    const navBar = mountNavBar()
-    const handleClick = jest.fn()
-    navBar.setProps({
-      children: [<NavItem key="item0" icon="cross" href="xyz" title="Item1" />],
-      expand: 'open',
-      onClick: handleClick
-    })
-    expect(navBar.state('collapsed')).toBeFalsy()
-    navBar.find('.nav').simulate('click')
-    expect(handleClick).toHaveBeenLastCalledWith({ expand: 'close' })
-
-    navBar.setProps({ expand: 'close' })
-    expect(navBar.state('collapsed')).toBeTruthy()
-    navBar.find('.nav').simulate('click')
-    expect(handleClick).toHaveBeenLastCalledWith({ expand: 'open' })
-  })
 })
