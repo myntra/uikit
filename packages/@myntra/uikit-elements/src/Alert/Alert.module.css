@@ -1,0 +1,54 @@
+.error {
+  --alert-color: var(--color-error);
+}
+
+.success {
+  --alert-color: var(--color-success);
+}
+
+.information {
+  --alert-color: var(--color-info);
+}
+
+.caution {
+  --alert-color: var(--color-warning);
+}
+
+.alert {
+  background-color: var(--alert-color);
+  border: 1px solid var(--alert-color);
+  border-radius: var(--size-xx-small);
+  box-shadow: var(--shadow-light-small);
+  color: var(--typography-color-light-primary);
+  margin-bottom: var(--size-base);
+  padding: var(--size-base) var(--size-large);
+  position: relative;
+}
+
+.alert.no-fill {
+  background-color: transparent;
+  color: var(--alert-color);
+}
+
+.content {
+  margin: 0 var(--size-large);
+}
+
+.icon {
+  fill: inherit;
+}
+
+.legend,
+.close {
+  position: absolute;
+  top: var(--size-base);
+}
+
+.legend {
+  left: var(--size-base);
+}
+
+.close {
+  right: var(--size-base);
+  cursor: pointer;
+}

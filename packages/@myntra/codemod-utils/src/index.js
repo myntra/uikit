@@ -485,6 +485,7 @@ export default function helpers(j, root, file) {
     findImport,
     findLastNonRelativeImportStatement,
     first,
+    forAttributesOnComponent,
     getDefaultImportLocalName,
     getNamedImportLocalName,
     hasImport,
