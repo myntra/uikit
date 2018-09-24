@@ -1,0 +1,33 @@
+.img {
+  display: block;
+  max-width: 100%;
+  height: 100%;
+  outline: none;
+  animation: fadein 350ms;
+}
+
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.loading {
+  display: none;
+}
+
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bg-error {
+  background: var(--color-info);
+  height: 100%;
+  width: 100%;
+}

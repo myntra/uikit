@@ -7,5 +7,6 @@ export default {
   'chevron-up': 0,
   user: 0,
   notifications: 0,
-  messages: 0
+  messages: 0,
+  'broken-image': 0
 }
