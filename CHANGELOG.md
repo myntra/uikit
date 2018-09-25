@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0-beta.1"></a>
+# [0.3.0-beta.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2018-09-25)
+
+
+### Bug Fixes
+
+* **elements | Button:** Link inherits color when rendered in Alert ([99ad28b](https://bitbucket.org/myntra/uikit/commits/99ad28b)), closes [#93](https://bitbucket.org/myntra/uikit/issue/93) [#80](https://bitbucket.org/myntra/uikit/issue/80) [#81](https://bitbucket.org/myntra/uikit/issue/81) [#85](https://bitbucket.org/myntra/uikit/issue/85) [#84](https://bitbucket.org/myntra/uikit/issue/84) [#83](https://bitbucket.org/myntra/uikit/issue/83) [#82](https://bitbucket.org/myntra/uikit/issue/82) [#78](https://bitbucket.org/myntra/uikit/issue/78) [#86](https://bitbucket.org/myntra/uikit/issue/86) [#87](https://bitbucket.org/myntra/uikit/issue/87) [#90](https://bitbucket.org/myntra/uikit/issue/90) [#69](https://bitbucket.org/myntra/uikit/issue/69) [#77](https://bitbucket.org/myntra/uikit/issue/77) [#70](https://bitbucket.org/myntra/uikit/issue/70) [#68](https://bitbucket.org/myntra/uikit/issue/68)
+
+
+### Features
+
+* **compounds | NavBar:** Custom match function to find active nav item ([e52eea6](https://bitbucket.org/myntra/uikit/commits/e52eea6)), closes [#92](https://bitbucket.org/myntra/uikit/issue/92) [#80](https://bitbucket.org/myntra/uikit/issue/80) [#81](https://bitbucket.org/myntra/uikit/issue/81) [#85](https://bitbucket.org/myntra/uikit/issue/85) [#84](https://bitbucket.org/myntra/uikit/issue/84) [#83](https://bitbucket.org/myntra/uikit/issue/83) [#82](https://bitbucket.org/myntra/uikit/issue/82) [#78](https://bitbucket.org/myntra/uikit/issue/78) [#86](https://bitbucket.org/myntra/uikit/issue/86) [#87](https://bitbucket.org/myntra/uikit/issue/87)
+* **compounds | Tabs:** Add Tab component ([93242a4](https://bitbucket.org/myntra/uikit/commits/93242a4)), closes [#79](https://bitbucket.org/myntra/uikit/issue/79) [#70](https://bitbucket.org/myntra/uikit/issue/70)
+* **elements | Modal:** Add popover modal component ([5fa70f9](https://bitbucket.org/myntra/uikit/commits/5fa70f9)), closes [#94](https://bitbucket.org/myntra/uikit/issue/94)
+
+
+
 <a name="0.3.0-beta.0"></a>
 # [0.3.0-beta.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.3...v0.3.0-beta.0) (2018-09-25)
 
