@@ -1,7 +1,5 @@
 .img {
   display: block;
-  max-width: 100%;
-  height: 100%;
   outline: none;
   animation: fadein 350ms;
 }
@@ -21,13 +19,9 @@
 }
 
 .image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: inline-block;
 }
 
 .bg-error {
   background: var(--color-info);
-  height: 100%;
-  width: 100%;
 }

@@ -32,7 +32,7 @@ class Portal extends PureComponent {
   static isReact16 = typeof ReactDOM.createPortal === 'function'
   static propTypes = {
     /** Attach child to specific component/element */
-    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]), // eslint-disable-line no-undef
+    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]).isRequired, // eslint-disable-line no-undef
     /** React child component */
     children: PropTypes.element.isRequired,
     /** Wrapper <div> */

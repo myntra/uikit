@@ -20,6 +20,7 @@ exports[`render range 1`] = `
       value={Object {}}
     />
   }
+  useClickAway={true}
 >
   <div
     className="wrapper"
@@ -60,6 +61,7 @@ exports[`render simple 1`] = `
       value=""
     />
   }
+  useClickAway={true}
 >
   <div
     className="wrapper"

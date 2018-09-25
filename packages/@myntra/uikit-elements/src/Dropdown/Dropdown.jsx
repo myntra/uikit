@@ -6,7 +6,7 @@ import ClickAway from '../ClickAway/ClickAway'
 import Button from '../Button/Button'
 
 import styles from './Dropdown.module.css'
-import { Measure } from '..'
+import { Measure, Portal } from '..'
 
 /**
  A bare-bones dropdown implementation. It requires a trigger component or text.
@@ -32,6 +32,8 @@ class Dropdown extends Component {
     className: PropTypes.string,
     /** Trigger to open dropdown. */
     trigger: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]).isRequired,
+    /** Attach child to specific component/element */
+    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]), // eslint-disable-line no-undef
     /** Dropdown state */
     isOpen: PropTypes.bool.isRequired,
     /**
@@ -59,6 +61,8 @@ class Dropdown extends Component {
     /** Used to detect position on first render. In further, renders actual width of DOM element is used. */
     approxContentWidth: PropTypes.number,
     /** @private */
+    useClickAway: PropTypes.bool,
+    /** @private */
     _combination: props => {
       const positions = ['up', 'left', 'right'].filter(it => it in props)
 
@@ -70,7 +74,8 @@ class Dropdown extends Component {
 
   static defaultProps = {
     approxContentHeight: 320,
-    approxContentWidth: 240
+    approxContentWidth: 240,
+    useClickAway: true
   }
 
   constructor(props) {
@@ -209,14 +214,23 @@ class Dropdown extends Component {
             React.cloneElement(this.props.trigger, { onBlur: this.close, onFocus: this.open, onClick: this.toggle })
           )}
         </div>
-        {this.props.isOpen && (
-          <Measure bounds onMeasure={this.handleMeasure}>
-            <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
-              {this.props.children}
-            </div>
-          </Measure>
-        )}
-        {this.props.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
+        {this.props.isOpen &&
+          (this.props.container ? (
+            <Portal container={this.props.container}>
+              <Measure bounds onMeasure={this.handleMeasure}>
+                <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
+                  {this.props.children}
+                </div>
+              </Measure>
+            </Portal>
+          ) : (
+            <Measure bounds onMeasure={this.handleMeasure}>
+              <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
+                {this.props.children}
+              </div>
+            </Measure>
+          ))}
+        {this.props.useClickAway && this.props.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
       </div>
     )
   }

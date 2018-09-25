@@ -1,0 +1,52 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--size-large);
+}
+
+.backdrop {
+  background: rgba(0, 0, 0, 0.54);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.body {
+  position: relative;
+}
+
+.content {
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.wrapper {
+  padding: var(--size-large);
+  min-width: 300px;
+  width: 50vw;
+  background: white;
+}
+
+.actions {
+  padding-top: var(--size-large);
+  margin-top: calc(2 * var(--size-large));
+  border-top: 1px solid var(--color-gray-dark);
+  text-align: right;
+}
+
+.close {
+  position: absolute;
+  top: -13px;
+  right: -25px;
+  padding-right: 0;
+  color: var(--typography-color-light-primary);
+}

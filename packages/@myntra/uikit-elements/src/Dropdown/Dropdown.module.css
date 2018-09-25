@@ -7,7 +7,7 @@
   position: absolute;
   transition: height 0.3s;
   top: 100%;
-  z-index: var(--z-index-dropdown);
+  z-index: var(--z-index-dropdown, 1000);
 }
 
 .dropdown > .content {
