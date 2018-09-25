@@ -21,6 +21,8 @@ export default class NavItem extends React.PureComponent {
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     /** Icon URL */
     icon: PropTypes.string,
+    /** Custom logic to tell if Item is active */
+    match: PropTypes.func,
     /** @private List of items in the Nav Menu */
     children({ children }) {
       React.Children.forEach(children, child => {
@@ -49,7 +51,14 @@ export default class NavItem extends React.PureComponent {
 
   static defaultProps = {
     href: '#',
-    linkComponent: 'a'
+    linkComponent: 'a',
+    match: ({ href, currentPath }) => href === currentPath
+  }
+
+  componentDidMount() {
+    if (this.active && this.isMenu && !this.props.open) {
+      this.props.onOpen(this.props.optionIndex)
+    }
   }
 
   handleClick = event => {
@@ -61,16 +70,15 @@ export default class NavItem extends React.PureComponent {
   }
 
   getActive = memoize(({ currentPath, children, href }) => {
-    let active = false
     if (!this.isMenu) {
-      return currentPath === href
+      return this.props.match({ href, currentPath })
     }
-    React.Children.forEach(children, navItem => {
-      if (navItem.props.href === currentPath) {
-        active = true
+
+    return React.Children.toArray(children).some(navItem => {
+      if (navItem.props.match && navItem.props.match({ href: navItem.props.href, currentPath })) {
+        return true
       }
     })
-    return active
   })
 
   getIsMenu = memoize(({ children }) => {
@@ -114,6 +122,7 @@ export default class NavItem extends React.PureComponent {
               return React.cloneElement(navItem, {
                 key: `menu-item-${i}`,
                 onSelect: this.props.onSelect,
+                match: this.props.match,
                 currentPath: this.props.currentPath,
                 linkComponent
               })

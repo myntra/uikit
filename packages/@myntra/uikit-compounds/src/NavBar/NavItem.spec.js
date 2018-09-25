@@ -114,9 +114,11 @@ describe('NavBar Menu', () => {
   it('should render NavItems on open', () => {
     const navMenu = mountNavMenu()
     const handleSelect = jest.fn()
+    const match = jest.fn()
     navMenu.setProps({
       open: true,
       onSelect: handleSelect,
+      match,
       currentPath: 'xyz',
       linkComponent: Link
     })
@@ -133,25 +135,27 @@ describe('NavBar Menu', () => {
       icon: 'alert',
       href: 'abc',
       onSelect: handleSelect,
+      match,
       currentPath: 'xyz',
       linkComponent: Link
     })
   })
 
   it('should be active if it has an active item', () => {
-    const navMenu = mountNavMenu()
-    navMenu.setProps({
-      children: [<NavItem key="item-0" title="Item1" icon="alert" href="abc" />],
-      open: true,
-      currentPath: 'abc'
-    })
-
+    const handleOpen = jest.fn()
+    const navMenu = mount(
+      <NavItem currentPath="abc" onOpen={handleOpen}>
+        <NavItem key="item-0" title="Item1" icon="alert" href="abc" />
+      </NavItem>
+    )
     expect(
       navMenu
         .find('.item')
         .first()
         .hasClass('active')
     ).toBeTruthy()
+
+    expect(handleOpen).toHaveBeenCalled()
   })
 
   it('should call onOpen on menu click', () => {

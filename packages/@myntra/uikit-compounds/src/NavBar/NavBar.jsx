@@ -55,7 +55,13 @@ class NavBar extends React.PureComponent {
     /** Expand behaviour */
     expand: PropTypes.oneOf(['auto', 'open', 'close']),
     /** onClick handler to expand/collapse the Nav bar  */
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    /** Default check for whether a nav item is active
+     * @function
+     * @param {{ href: string, currentPath: string }} props
+     * @returns {Boolean}
+     */
+    match: PropTypes.func
   }
 
   static defaultProps = {
@@ -131,7 +137,8 @@ class NavBar extends React.PureComponent {
               currentPath: currentPath,
               onSelect: this.handleOptionSelect,
               collapsed,
-              linkComponent: linkComponent
+              linkComponent: linkComponent,
+              match: this.props.match
             })
           })}
         </ul>
