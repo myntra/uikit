@@ -1,0 +1,96 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateUISchema should generate UI schema 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "component": [Function],
+      "name": "name",
+      "path": "#/properties/name",
+      "props": Object {
+        "description": "Your full name",
+        "label": "Name",
+        "name": "name",
+        "required": true,
+      },
+    },
+    Object {
+      "component": [Function],
+      "name": "email",
+      "path": "#/properties/email",
+      "props": Object {
+        "description": "Your personal email address",
+        "label": "Email Address",
+        "name": "email",
+        "required": true,
+        "type": "email",
+      },
+    },
+    Object {
+      "children": Array [
+        Object {
+          "children": Array [
+            Object {
+              "component": [Function],
+              "name": "street",
+              "path": "#/properties/addresses/items/properties/street",
+              "props": Object {
+                "label": "Street",
+                "name": "street",
+                "required": false,
+              },
+            },
+            Object {
+              "component": [Function],
+              "name": "phone",
+              "path": "#/properties/addresses/items/properties/phone",
+              "props": Object {
+                "label": "Contact Number",
+                "name": "phone",
+                "required": false,
+                "type": "tel",
+              },
+            },
+            Object {
+              "component": [Function],
+              "name": "pin",
+              "path": "#/properties/addresses/items/properties/pin",
+              "props": Object {
+                "label": "PIN Code",
+                "name": "pin",
+                "pattern": "^\\\\d{6}$",
+                "required": false,
+              },
+            },
+          ],
+          "component": [Function],
+          "dependencies": undefined,
+          "name": "addresses",
+          "path": "#/properties/addresses/items",
+          "props": Object {
+            "description": "Your contact address",
+            "label": "Contact Address",
+            "name": "addresses",
+          },
+        },
+      ],
+      "component": [Function],
+      "name": "addresses",
+      "path": "#/properties/addresses",
+      "props": Object {
+        "description": "Your all contact addresses",
+        "label": "Contact Addresses",
+        "name": "addresses",
+      },
+    },
+  ],
+  "component": [Function],
+  "dependencies": undefined,
+  "name": "$root",
+  "path": "#",
+  "props": Object {
+    "label": "Simple Form",
+    "name": "$root",
+  },
+}
+`;

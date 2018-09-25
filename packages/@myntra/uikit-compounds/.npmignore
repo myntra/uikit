@@ -1,2 +1,4 @@
 *.spec.js
-__codemode__
+__codemod__
+__snapshots__
+fixtures
