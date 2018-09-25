@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0-beta.0"></a>
+# [0.3.0-beta.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.3...v0.3.0-beta.0) (2018-09-25)
+
+
+### Bug Fixes
+
+* **compounds | TopBar:** Align with NavBar title ([de6d2fb](https://bitbucket.org/myntra/uikit/commits/de6d2fb)), closes [#77](https://bitbucket.org/myntra/uikit/issue/77) [#70](https://bitbucket.org/myntra/uikit/issue/70)
+* **elements | Dropdown:** Use Measure to detect size of content and reposition ([470f144](https://bitbucket.org/myntra/uikit/commits/470f144)), closes [#82](https://bitbucket.org/myntra/uikit/issue/82)
+* **elements | InputDate:** Prevent presets wrapping to next line when date field width is less ([b6cefee](https://bitbucket.org/myntra/uikit/commits/b6cefee)), closes [#83](https://bitbucket.org/myntra/uikit/issue/83)
+* **elements | InputRange:** Make hidden input element readOnly to supress react warning ([3f4acb4](https://bitbucket.org/myntra/uikit/commits/3f4acb4)), closes [#87](https://bitbucket.org/myntra/uikit/issue/87)
+* **elements | InputSelect:** Arrow keys selection after droprown is closed. Placeholder text not being as user types. Option selection not working if search field is clicked. Remove option selection on tab. ([31c8eb2](https://bitbucket.org/myntra/uikit/commits/31c8eb2)), closes [#90](https://bitbucket.org/myntra/uikit/issue/90)
+* **elements | InputSelect:** Render select element with selected options for browser native field compatibility ([8f11394](https://bitbucket.org/myntra/uikit/commits/8f11394)), closes [#86](https://bitbucket.org/myntra/uikit/issue/86)
+* **elements | InputSelect:** Select popper takes full available width ([01b282a](https://bitbucket.org/myntra/uikit/commits/01b282a)), closes [#84](https://bitbucket.org/myntra/uikit/issue/84)
+
+
+### Features
+
+* **elements | Alert:** Add Alert component ([813c449](https://bitbucket.org/myntra/uikit/commits/813c449)), closes [#68](https://bitbucket.org/myntra/uikit/issue/68)
+* **elements | Flex:** Add Flex component ([792ff1b](https://bitbucket.org/myntra/uikit/commits/792ff1b)), closes [#78](https://bitbucket.org/myntra/uikit/issue/78)
+* **elements | Image:** Add component to lazy load images ([643cf87](https://bitbucket.org/myntra/uikit/commits/643cf87)), closes [#91](https://bitbucket.org/myntra/uikit/issue/91)
+* **elements | InputCheckBox, elements | InputRange:** Add title prop to InputCheckBox, Use input styles on InputRange ([7e00421](https://bitbucket.org/myntra/uikit/commits/7e00421)), closes [#81](https://bitbucket.org/myntra/uikit/issue/81)
+* **elements | Pagiantion:** Add Pagination component ([82afda0](https://bitbucket.org/myntra/uikit/commits/82afda0)), closes [#69](https://bitbucket.org/myntra/uikit/issue/69)
+
+
+
 <a name="0.3.0-alpha.3"></a>
 # [0.3.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.2...v0.3.0-alpha.3) (2018-08-28)
 
