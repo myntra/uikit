@@ -9,6 +9,7 @@ import * as internals from '@myntra/uikit-internals'
 import { Link } from 'react-router-dom'
 
 const components = { elements, compounds, patterns, internals }
+const ignored = new Set(['Tab'])
 
 export default class Nav extends React.PureComponent {
   render() {
@@ -28,9 +29,11 @@ export default class Nav extends React.PureComponent {
         {Object.keys(components).map(menu => {
           return (
             <NavBar.Item key={`component-${menu}`} title={`${menu.charAt(0).toUpperCase()}${menu.slice(1)}`}>
-              {Object.keys(components[menu]).map(item => (
-                <NavBar.Item key={`component-${menu}/${item}`} title={item} href={`/component-${menu}/${item}`} />
-              ))}
+              {Object.keys(components[menu])
+                .filter(name => !ignored.has(name))
+                .map(item => (
+                  <NavBar.Item key={`component-${menu}/${item}`} title={item} href={`/component-${menu}/${item}`} />
+                ))}
             </NavBar.Item>
           )
         })}

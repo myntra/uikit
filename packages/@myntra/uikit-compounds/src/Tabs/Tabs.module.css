@@ -1,0 +1,8 @@
+.tabs {
+  margin: var(--size-small) 0;
+}
+
+.pane {
+  border-bottom: solid 1px var(--color-gray-dark);
+  margin-bottom: var(--size-small);
+}

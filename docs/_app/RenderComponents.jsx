@@ -57,7 +57,7 @@ export default function RenderComponents({ components, examples, packageName, on
     <MarkdownProvider value={context}>
       <PlaygroundProvider value={context}>
         {Object.entries(components)
-          .filter(([name]) => only.some(p => name.startsWith(p)))
+          .filter(([name]) => only.some(p => name === p))
           .map(([name, component]) => {
             const subComponents = Object.keys(component)
               .filter(key => /^[A-Z]/.test(key) && !!component[key].__docs)
