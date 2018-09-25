@@ -25,6 +25,13 @@ it('warn `to` and `href` should not be used', () => {
   spy.mockRestore()
 })
 
+it('should render link with inherit color', () => {
+  const w = shallow(<Button type="link.inherit" />)
+
+  expect(w.hasClass('link')).toBe(true)
+  expect(w.hasClass('inherit')).toBe(true)
+})
+
 it('should render primary icon', () => {
   const w = shallow(<Button icon="alert" />)
 

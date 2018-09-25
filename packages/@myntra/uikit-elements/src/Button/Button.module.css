@@ -1,5 +1,3 @@
-
-
 .button,
 .button:visited {
   padding: var(--relative-size-x-small) var(--relative-size-large);
@@ -74,7 +72,18 @@
 .link,
 .link:visited {
   color: var(--color-primary);
-  text-transform: initial;
+  padding-inline-start: 0;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.link.inherit {
+  color: inherit;
+}
+
+.link[disabled],
+.link:disabled {
+  color: var(--color-gray-dark);
 }
 
 .link:focus:not(:active),

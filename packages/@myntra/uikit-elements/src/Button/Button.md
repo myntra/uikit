@@ -1,18 +1,22 @@
-## Types:
+## Types
 
 ```jsx render editor
 <>
   <Button type="primary">Button</Button>
   <Button type="secondary">Button</Button>
+  <Button type="link">Button</Button>
+  <Button type="link.inherit">Button</Button>
 </>
 ```
 
-## States:
+## States
 
 ```jsx render editor
 <>
   <Button type="primary" disabled>Button</Button>
   <Button type="secondary" disabled>Button</Button>
+  <Button type="link" disabled>Button</Button>
+  <Button type="link.inherit" disabled>Button</Button>
 </>
 ```
 

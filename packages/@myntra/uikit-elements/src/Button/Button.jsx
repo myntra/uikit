@@ -34,7 +34,7 @@ export default class Button extends PureComponent {
     /** Secondary Icon */
     secondaryIcon: PropTypes.string,
     /** Visible button type */
-    type: PropTypes.oneOf(['primary', 'secondary', 'link']),
+    type: PropTypes.oneOf(['primary', 'secondary', 'link', 'link.inherit']),
     /** HTML type attribute for <button> */
     htmlType: PropTypes.string,
     /** Disabled */
@@ -87,6 +87,7 @@ export default class Button extends PureComponent {
           className,
           /* Button Styles */
           { [this.props.type]: true },
+          this.props.type === 'link.inherit' && ['link', 'inherit'],
           /* Button States */
           {
             loading: false
