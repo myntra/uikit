@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.1"></a>
+## [0.3.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0...v0.3.1) (2018-09-26)
+
+
+### Bug Fixes
+
+* **elements:** Update icons ([6182f0f](https://bitbucket.org/myntra/uikit/commits/6182f0f))
+* **elements | Avatar:** Add component for Icon fallback in Nav ([697f22b](https://bitbucket.org/myntra/uikit/commits/697f22b))
+
+
+
 <a name="0.3.0"></a>
 # [0.3.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0-beta.1...v0.3.0) (2018-09-26)
 

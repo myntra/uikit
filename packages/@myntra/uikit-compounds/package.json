@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-compounds",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Complex UI components with multiple moving parts.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -17,7 +17,7 @@
   "dependencies": {
     "@myntra/codemod-utils": "^0.3.0",
     "@myntra/tokens": "^0.3.0",
-    "@myntra/uikit-elements": "^0.3.0",
+    "@myntra/uikit-elements": "^0.3.1",
     "@myntra/uikit-utils": "^0.3.0",
     "react-transition-group": "^2.4.0"
   },
