@@ -6,13 +6,15 @@ export function fetchIfRequired(urlOrContent) {
   if (typeof urlOrContent !== 'string') return
   if (/<svg/.test(urlOrContent)) return urlOrContent
 
-  fetch(urlOrContent).then(response => {
-    if (response.ok) {
-      return response.text()
-    }
+  return fetch(urlOrContent)
+    .then(response => {
+      if (response.ok) {
+        return response.text()
+      }
 
-    console.error('Failed to download icons: ', urlOrContent)
-  })
+      console.error('Failed to download icons: ', urlOrContent)
+    })
+    .catch(error => console.error(error))
 }
 
 export function injectSVG(id, code) {

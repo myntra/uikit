@@ -7371,6 +7371,10 @@ mz@^2.4.0:
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
 
+name-initials@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/name-initials/-/name-initials-0.1.3.tgz#b9af9d8d551068b1c147c50458477f47c1217776"
+
 nan@^2.9.2:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.11.0.tgz#574e360e4d954ab16966ec102c0c049fd961a099"

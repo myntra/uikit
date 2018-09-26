@@ -25,7 +25,7 @@ function Alert({ className, type, noFill, onClose, children }) {
       <div className={classnames('content').use(styles)}>{children}</div>
       {onClose && (
         <div className={classnames('close').use(styles)} onClick={onClose} role="button">
-          <Icon name="close" className={classnames('icon').use(styles)} />
+          <Icon name="times" className={classnames('icon').use(styles)} />
         </div>
       )}
     </div>

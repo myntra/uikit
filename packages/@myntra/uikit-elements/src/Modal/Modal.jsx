@@ -109,7 +109,7 @@ class Modal extends PureComponent {
             <Button
               className={classnames('close').use(styles)}
               type="link"
-              icon="cross"
+              icon="times"
               title="close"
               onClick={this.handleClose}
             />

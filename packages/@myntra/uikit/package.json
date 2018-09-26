@@ -2,8 +2,9 @@
   "name": "@myntra/uikit",
   "version": "0.3.0",
   "description": "UIKit with default theme kit",
-  "main": "src/index.js",
-  "module": "src/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "browser": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"

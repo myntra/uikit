@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
-import { Icon } from '@myntra/uikit-elements'
+import { Icon, Avatar } from '@myntra/uikit-elements'
 import NavItem from './NavItem'
 import NavGroup from './NavGroup'
 import styles from './NavBar.module.css'
@@ -123,7 +123,9 @@ class NavBar extends React.PureComponent {
       >
         <div className={classnames('title').use(styles)}>
           <div className={classnames('content').use(styles)}>
-            <span className={classnames('icon').use(styles)}>{icon && <Icon name={icon} />}</span>
+            <span className={classnames('icon').use(styles)}>
+              {icon ? <Icon name={icon} /> : <Avatar name={title} />}
+            </span>
             <span hidden={collapsed}>{title}</span>
           </div>
         </div>

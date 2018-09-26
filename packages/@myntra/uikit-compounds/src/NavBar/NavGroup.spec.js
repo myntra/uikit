@@ -12,7 +12,7 @@ describe('NavBar Group', () => {
     expect(navGroup.find('.group > .title').text()).toEqual('Group')
 
     expect(navGroup.find('NavItem')).toHaveLength(1)
-    expect(navGroup.find('NavItem').text()).toEqual('GroupItem1')
+    expect(navGroup.find('NavItem').text()).toEqual(expect.stringContaining('GroupItem1'))
   })
 
   it('should not display text if NavBar is collapsed', () => {

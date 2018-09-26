@@ -35,7 +35,7 @@
 }
 
 .nav .title .icon {
-  padding: 0 var(--size-base);
+  padding: 0 var(--size-small);
 }
 
 .menu {

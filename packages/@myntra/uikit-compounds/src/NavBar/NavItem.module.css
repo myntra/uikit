@@ -20,6 +20,15 @@
 
 .item .icon {
   padding: var(--size-x-small);
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item .icon > * {
+  flex-shrink: 0;
 }
 
 .item .link {
@@ -37,6 +46,7 @@
 
 .item.active .icon {
   border-radius: var(--size-large);
+  color: var(--typography-color-light-primary);
   background-color: var(--color-accent);
 }
 

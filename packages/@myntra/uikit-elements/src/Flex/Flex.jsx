@@ -6,8 +6,8 @@ import styles from './Flex.module.css'
 /**
  Flex is a wrapper for inlining flex based styles in JSX.
 
- **NOTE:** Flex is added to UIKit for backward compatibility.
- Prefer using [Grid](./Grid) component for creating layouts.
+ __NOTE:__ Flex is added to UIKit for backward compatibility.
+ Prefer using [Grid](../component-compounds/Grid) component for creating layouts.
  Soon, we would either removing it or providing a simpler API with lesser props.
 
  @since 0.3.0

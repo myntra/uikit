@@ -55,7 +55,7 @@ exports[`Modal renders 1`] = `
       <Button
         className="close"
         disabled={false}
-        icon="cross"
+        icon="times"
         onClick={[Function]}
         title="close"
         type="link"
