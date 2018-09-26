@@ -21,15 +21,15 @@ function fetchMarkdown(path) {
 }
 
 function renderDocument(name, component, examples) {
-  const jsdoc = component.__docs
+  const jsdoc = component.__docs || { name, props: [] }
   const file = jsdoc.file
-  const slug = file.replace(/\.jsx$/, '').split('src/')[1]
+  const slug = file ? file.replace(/\.jsx$/, '').split('src/')[1] : name
 
   return (
     <ComponentDocumenter
       {...jsdoc}
       key={name}
-      source={`https://bitbucket.com/myntra/uikit/src/${branch}/${file}`}
+      source={file && `https://bitbucket.com/myntra/uikit/src/${branch}/${file}`}
       render={() => (
         <Promised
           fn={() => examples(slug).then(result => fetchMarkdown(result.default))}
@@ -43,7 +43,7 @@ function renderDocument(name, component, examples) {
         />
       )}
     >
-      <Playground>{jsdoc.example.find(_ => true)}</Playground>
+      {jsdoc.example && <Playground>{jsdoc.example.find(_ => true)}</Playground>}
     </ComponentDocumenter>
   )
 }

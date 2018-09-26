@@ -1,8 +1,26 @@
+import fetch from 'unfetch'
+
 const GLOBAL_ID = '--uikit-icon-loader--'
-export default function injectSVG(id, code) {
+
+export function fetchIfRequired(urlOrContent) {
+  if (typeof urlOrContent !== 'string') return
+  if (/<svg/.test(urlOrContent)) return urlOrContent
+
+  fetch(urlOrContent).then(response => {
+    if (response.ok) {
+      return response.text()
+    }
+
+    console.error('Failed to download icons: ', urlOrContent)
+  })
+}
+
+export function injectSVG(id, code) {
+  if (!code) return
+  if (code instanceof Promise) return code.then(content => injectSVG(id, content))
   const root = getSpriteNode()
 
-  id = GLOBAL_ID + id
+  id = GLOBAL_ID + id.replace(/[^a-z]/, '')
 
   const existing = Array.from(root.children).find(node => node.id === id)
 

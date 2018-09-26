@@ -6,7 +6,7 @@ exports[`Alert renders 1`] = `
 >
   <Icon
     className="icon legend"
-    name="caution"
+    name="exclamation-triangle"
   />
   <div
     className="content"

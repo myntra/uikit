@@ -1,11 +1,10 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
-import { InputMasked } from '../'
 
 import styles from './InputDateValue.module.css'
 import { parse, format } from './InputDateUtils'
-import Icon from '../Icon/Icon'
+import { Icon, InputMasked } from '..'
 
 export const MASKS = {
   Y: {
@@ -128,7 +127,7 @@ class InputDateValue extends PureComponent {
               this.props.value.from && (
                 <Icon
                   className={classnames('icon').use(styles)}
-                  name="cross"
+                  name="times"
                   title="Clear date"
                   onClick={this.handleFromClear}
                 />

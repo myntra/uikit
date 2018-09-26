@@ -5,11 +5,10 @@ import { classnames, memoize, isEqual, findIndex } from '@myntra/uikit-utils'
 import styles from './InputSelect.module.css'
 import { toArray, createSearchIndex, executeFilterSearch, sortOptions } from './helpers'
 import Value from './InputSelectValue'
-import Icon from '../Icon/Icon'
 import InputProxy from './InputSelectHidden'
 import Control from './InputSelectControl'
 import Selector from './InputSelectOptions'
-import { Dropdown } from '..'
+import { Dropdown, Icon } from '..'
 
 /**
  {describe component}

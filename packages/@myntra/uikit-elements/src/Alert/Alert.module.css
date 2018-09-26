@@ -6,11 +6,11 @@
   --alert-color: var(--color-success);
 }
 
-.information {
+.info {
   --alert-color: var(--color-info);
 }
 
-.caution {
+.warning {
   --alert-color: var(--color-warning);
 }
 

@@ -3,7 +3,7 @@ import { shallow } from 'enzyme'
 import Jumper from './Jumper'
 import SelectMonth from './SelectMonth'
 import SelectYear from './SelectYear'
-import Icon from '../../Icon/Icon'
+import { Icon } from '../..'
 import { UTCDate } from '../InputDateUtils'
 
 describe('render', () => {

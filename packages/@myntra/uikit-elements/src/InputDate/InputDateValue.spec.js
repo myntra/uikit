@@ -2,7 +2,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 import InputDateValue, { MASKS } from './InputDateValue'
 import InputMasked from '../InputMasked/InputMasked'
-import Icon from '../Icon/Icon'
+import { Icon } from '..'
 import { UTCDate } from './InputDateUtils'
 
 const DATE = UTCDate(2018, 4, 5)

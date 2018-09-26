@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
-import Icon from '@myntra/uikit-elements/src/Icon/Icon'
+import { Icon } from '@myntra/uikit-elements'
 import NavItem from './NavItem'
 import NavGroup from './NavGroup'
 import styles from './NavBar.module.css'
@@ -19,13 +19,13 @@ import styles from './NavBar.module.css'
     onClick={({expand}) => this.setState({expand})}
     style={{position: 'absolute', zIndex: 100 }}
     >
-      <NavBar.Item title='Item1' href='abc' icon='cross'/>
+      <NavBar.Item title='Item1' href='abc' icon='times'/>
       <NavBar.Group title='Group1'>
-        <NavBar.Item title='Menu1' icon='cross'>
-          <NavBar.Item title='Item2' href='xyz' icon='cross'/>
-          <NavBar.Item title='Item3' href='mno' icon='cross'/>
+        <NavBar.Item title='Menu1' icon='times'>
+          <NavBar.Item title='Item2' href='xyz' icon='times'/>
+          <NavBar.Item title='Item3' href='mno' icon='times'/>
         </NavBar.Item>
-        <NavBar.Item title='Item4' href='pqr' icon='cross'/>
+        <NavBar.Item title='Item4' href='pqr' icon='times'/>
       </NavBar.Group>
       <NavBar.Group>
         <NavBar.Item title='Item4' href='xyz1'/>

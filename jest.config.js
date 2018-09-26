@@ -1,7 +1,7 @@
 module.exports = {
   moduleNameMapper: {
     '\\.css$': 'identity-obj-proxy',
-    '\\.sprite$': 'identity-obj-proxy'
+    '\\.svg$': 'identity-obj-proxy'
   },
   setupFiles: ['./scripts/setup-enzyme.js'],
   transform: {

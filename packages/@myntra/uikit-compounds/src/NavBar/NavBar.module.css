@@ -8,7 +8,7 @@
   overflow-y: scroll;
   overflow-x: hidden;
   transition: all 0.35s ease-in-out;
-  z-index: var(--z-index-nav, 1100);
+  z-index: var(--z-index-nav-bar, 1101);
 }
 
 .nav.collapsed {

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Icon from '@myntra/uikit-elements/src/Icon/Icon'
+import { Icon } from '@myntra/uikit-elements'
 import styles from './NavItem.module.css'
 import { classnames, memoize } from '@myntra/uikit-utils/src'
 

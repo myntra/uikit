@@ -23,11 +23,6 @@ module.exports = {
       }
     }
 
-    config.module.rules.push({
-      test: /\.sprite$/,
-      loader: require.resolve('@myntra/uikit-icon-loader')
-    })
-
     config.stats = 'verbose'
 
     return config

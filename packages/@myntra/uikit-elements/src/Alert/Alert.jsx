@@ -2,13 +2,13 @@ import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
 import styles from './Alert.module.css'
-import Icon from '@myntra/uikit-elements/src/Icon/Icon'
+import { Icon } from '..'
 
 const ICONS = {
-  error: 'caution',
-  caution: 'caution',
-  success: 'success',
-  information: 'info-toast'
+  error: 'exclamation-triangle',
+  warning: 'exclamation-triangle',
+  success: 'check-circle',
+  info: 'info-circle'
 }
 
 /**
@@ -43,7 +43,7 @@ Alert.propTypes = {
   /** Only border based Alert */
   noFill: PropTypes.bool,
   /** Type of Alert  */
-  type: PropTypes.oneOf(['success', 'error', 'caution', 'information']),
+  type: PropTypes.oneOf(['success', 'error', 'warning', 'info']),
   /** Children */
   children: PropTypes.any.isRequired
 }

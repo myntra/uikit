@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
 
-import Icon from '../Icon/Icon'
+import { Icon } from '..'
 import styles from './Button.module.css'
 
 /**

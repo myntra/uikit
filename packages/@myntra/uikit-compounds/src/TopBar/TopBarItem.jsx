@@ -2,7 +2,7 @@ import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
 import styles from './TopBarItem.module.css'
-import Icon from '@myntra/uikit-elements/src/Icon/Icon'
+import { Icon } from '@myntra/uikit-elements'
 
 /**
  A component for page header
