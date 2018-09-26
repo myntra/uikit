@@ -1,0 +1,20 @@
+.avatar {
+  --avatar-border-color: var(--color-primary);
+  --avatar-fill-color: var(--color-primary);
+
+  line-height: 1em;
+  height: 1.5em;
+  width: 1.5em;
+  border: 1px solid var(--avatar-border-color);
+  border-radius: 100%;
+}
+
+.avatar.inherit {
+  --avatar-border-color: currentColor;
+  --avatar-fill-color: currentColor;
+}
+
+.avatar text {
+  fill: var(--avatar-fill-color);
+  font-size: 18px;
+}
