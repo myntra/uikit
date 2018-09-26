@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.3.0"></a>
+# [0.3.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0-beta.1...v0.3.0) (2018-09-26)
+
+
+### Features
+
+* **compounds | SchemaForm:** Add SchemaForm component ([e046509](https://bitbucket.org/myntra/uikit/commits/e046509))
+* **elements | Icon:** Use font-awesome icons ([f834798](https://bitbucket.org/myntra/uikit/commits/f834798)), closes [#96](https://bitbucket.org/myntra/uikit/issue/96)
+* **elements | Text:** Add text style utility component ([3557b3a](https://bitbucket.org/myntra/uikit/commits/3557b3a)), closes [#89](https://bitbucket.org/myntra/uikit/issue/89)
+
+
+
 <a name="0.3.0-beta.1"></a>
 # [0.3.0-beta.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2018-09-25)
 

@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-patterns",
-  "version": "0.3.0-beta.1",
+  "version": "0.3.0",
   "description": "Components baked in with user experience decisions.",
   "main": "src/index.js",
   "module": "src/index.js",
