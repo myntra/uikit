@@ -1,6 +1,6 @@
 {
   "name": "@myntra/docgen",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "@myntra/docgen",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",

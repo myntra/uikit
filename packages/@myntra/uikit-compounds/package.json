@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-compounds",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "@myntra/uikit-compounds",
   "main": "src/index.js",
   "module": "dist/uikit-compounds.js",
@@ -17,10 +17,10 @@
   "license": "UNLICENSED",
   "sideEffects": false,
   "dependencies": {
-    "@myntra/codemod-utils": "^0.3.0",
+    "@myntra/codemod-utils": "0.4.0",
     "@myntra/tokens": "^0.3.0",
-    "@myntra/uikit-elements": "^0.3.1",
-    "@myntra/uikit-utils": "^0.3.0",
+    "@myntra/uikit-elements": "0.4.0",
+    "@myntra/uikit-utils": "0.4.0",
     "react-transition-group": "^2.4.0"
   },
   "peerDependencies": {

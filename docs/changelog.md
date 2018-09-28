@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://bitbucket.org/myntra/uikit/compare/v0.3.1...v0.4.0) (2018-09-28)
+
+
+### Features
+
+* **uikit:** Provide pre-built ESM build ([be171ed](https://bitbucket.org/myntra/uikit/commits/be171ed))
+
+
+
 <a name="0.3.1"></a>
 ## [0.3.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0...v0.3.1) (2018-09-26)
 
