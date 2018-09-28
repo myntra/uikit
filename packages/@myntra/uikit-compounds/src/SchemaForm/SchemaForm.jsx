@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Form } from '..'
+import { Form } from '../index.js'
 import { memoize } from '@myntra/uikit-utils'
 import { generateUISchema } from './SchemaFormUtils'
 import SchemaFormObject from './SchemaFormObject'

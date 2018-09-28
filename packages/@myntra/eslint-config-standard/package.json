@@ -1,8 +1,8 @@
 {
   "name": "@myntra/eslint-config-standard",
-  "version": "0.1.0",
-  "description": "Javascript conding style standard for Myntra.",
-  "main": "index.js",
+  "version": "0.3.1",
+  "description": "@myntra/eslint-config-standard",
+  "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/eslint-config-standard",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
@@ -10,7 +10,9 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "files": [
-    "index.js"
+    "src/",
+    "dist/",
+    "bin/"
   ],
   "dependencies": {
     "babel-eslint": "^8.2.2",
@@ -34,5 +36,6 @@
   },
   "devDependencies": {
     "eslint": "^4.19.1"
-  }
+  },
+  "module": "dist/eslint-config-standard.js"
 }

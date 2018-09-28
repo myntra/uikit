@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames, memoize } from '@myntra/uikit-utils/src'
+import { classnames, memoize } from '@myntra/uikit-utils'
 import { getMousePosition, getTouchPosition, addEventsToDocument, removeEventsFromDocument } from './events'
 import styles from './InputRange.module.css'
 

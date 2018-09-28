@@ -6,7 +6,7 @@ import ClickAway from '../ClickAway/ClickAway'
 import Button from '../Button/Button'
 
 import styles from './Dropdown.module.css'
-import { Measure, Portal } from '..'
+import { Measure, Portal } from '../index.js'
 
 /**
  A bare-bones dropdown implementation. It requires a trigger component or text.

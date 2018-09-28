@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { onlyExtraProps } from '@myntra/uikit-utils'
-import { Grid, Form } from '..'
+import { Grid, Form } from '../index.js'
 import SchemaFormField from './SchemaFormField'
 
 /**

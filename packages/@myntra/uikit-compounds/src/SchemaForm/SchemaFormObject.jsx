@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Grid } from '..'
+import { Grid } from '../index.js'
 import SchemaFormField from './SchemaFormField'
 
 /**

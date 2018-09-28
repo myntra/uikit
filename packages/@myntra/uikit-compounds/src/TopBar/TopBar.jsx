@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 import BreadCrumb from '../BreadCrumb/BreadCrumb.jsx'
 import styles from './TopBar.module.css'
 import Item from './TopBarItem'
-import { Grid } from '..'
+import { Grid } from '../index.js'
 
 /**
  A component for page header

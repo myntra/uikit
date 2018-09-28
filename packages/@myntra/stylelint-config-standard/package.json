@@ -1,8 +1,8 @@
 {
   "name": "@myntra/stylelint-config-standard",
-  "version": "0.3.0",
-  "description": "CSS conding style standard for Myntra.",
-  "main": "index.js",
+  "version": "0.3.1",
+  "description": "@myntra/stylelint-config-standard",
+  "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/stylelint-config-standard",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
@@ -10,7 +10,9 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "files": [
-    "index.js"
+    "src/",
+    "dist/",
+    "bin/"
   ],
   "dependencies": {
     "stylelint-config-standard": "^18.2.0"
@@ -20,5 +22,6 @@
   },
   "devDependencies": {
     "stylelint": "^9.2.0"
-  }
+  },
+  "module": "dist/stylelint-config-standard.js"
 }

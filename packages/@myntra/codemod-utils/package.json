@@ -1,7 +1,7 @@
 {
   "name": "@myntra/codemod-utils",
-  "version": "0.3.0",
-  "description": "High level helper function for AST transformations.",
+  "version": "0.3.1",
+  "description": "@myntra/codemod-utils",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
@@ -10,7 +10,9 @@
     "registry": "http://registry.myntra.com:8000"
   },
   "files": [
-    "src/"
+    "src/",
+    "dist/",
+    "bin/"
   ],
   "dependencies": {
     "@myntra/eslint-config-standard": "^0.1.0",
@@ -21,5 +23,6 @@
     "jscodeshift": "^0.5.1",
     "jsdoc-api": "^4.0.3",
     "prettier": "^1.13.4"
-  }
+  },
+  "module": "dist/codemod-utils.js"
 }

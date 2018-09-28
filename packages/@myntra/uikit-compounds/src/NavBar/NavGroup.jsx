@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils/src'
+import { classnames } from '@myntra/uikit-utils'
 import styles from './NavGroup.module.css'
 import NavItem from './NavItem'
 

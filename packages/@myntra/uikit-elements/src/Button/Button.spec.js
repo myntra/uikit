@@ -3,7 +3,7 @@ import { shallow, mount } from 'enzyme'
 import { testCodeMod } from '@myntra/codemod-utils'
 
 import Button from './Button'
-import { Icon } from '..'
+import { Icon } from '../index.js'
 
 testCodeMod(__dirname, 'Button.codemod.js')
 

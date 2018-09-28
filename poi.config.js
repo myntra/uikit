@@ -1,3 +1,5 @@
+const { targets } = require('./scripts/utils')
+
 module.exports = {
   define: {
     CURRENT_BRANCH: JSON.stringify(process.env.CURRENT_BRANCH ? '/' + process.env.CURRENT_BRANCH : '')
@@ -11,6 +13,8 @@ module.exports = {
         name: 'static/media/[name].[hash:8].[ext]'
       }
     })
+
+    targets.forEach(target => (config.resolve.alias[`@myntra/${target}$`] = `@myntra/${target}/src/index.js`))
 
     const jsx = config.module.rules.find(it => it.test.toString().includes('jsx'))
 

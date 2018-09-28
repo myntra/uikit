@@ -2,7 +2,7 @@ import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
 import styles from './Alert.module.css'
-import { Icon } from '..'
+import { Icon } from '../index.js'
 
 const ICONS = {
   error: 'exclamation-triangle',

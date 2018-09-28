@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-elements",
   "version": "0.3.1",
-  "description": "Low level re-usable components from UIKit.",
+  "description": "@myntra/uikit-elements",
   "main": "src/index.js",
-  "module": "src/index.js",
+  "module": "dist/uikit-elements.js",
   "scripts": {
     "test": "jest",
     "prepare": "yarn run build"
@@ -13,7 +13,9 @@
     "registry": "http://registry.myntra.com:8000"
   },
   "files": [
-    "src/"
+    "src/",
+    "dist/",
+    "bin/"
   ],
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",

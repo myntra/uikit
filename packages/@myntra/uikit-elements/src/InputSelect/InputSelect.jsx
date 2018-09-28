@@ -8,7 +8,7 @@ import Value from './InputSelectValue'
 import InputProxy from './InputSelectHidden'
 import Control from './InputSelectControl'
 import Selector from './InputSelectOptions'
-import { Dropdown, Icon } from '..'
+import { Dropdown, Icon } from '../index.js'
 
 /**
  {describe component}

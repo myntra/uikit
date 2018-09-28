@@ -1,7 +1,7 @@
 {
   "name": "@myntra/tokenizer",
-  "version": "0.3.0",
-  "description": "Exports yml tokens to css, js etc.",
+  "version": "0.3.1",
+  "description": "@myntra/tokenizer",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokenizer",
   "publishConfig": {
@@ -13,8 +13,9 @@
     "tokenize": "bin/tokenize.js"
   },
   "files": [
-    "bin/",
-    "src/"
+    "src/",
+    "dist/",
+    "bin/"
   ],
   "dependencies": {
     "camelcase": "^5.0.0",
@@ -22,5 +23,6 @@
     "lodash.isplainobject": "^4.0.6",
     "prettier": "^1.12.1",
     "tidify": "^0.3.0"
-  }
+  },
+  "module": "dist/tokenizer.js"
 }

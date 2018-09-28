@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { classnames, range } from '@myntra/uikit-utils'
-import { Icon } from '..'
+import { Icon } from '../index.js'
 import styles from './Pagination.module.css'
 
 /**

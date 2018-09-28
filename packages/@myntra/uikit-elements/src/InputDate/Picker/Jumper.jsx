@@ -5,7 +5,7 @@ import SelectYear from './SelectYear'
 import SelectMonth from './SelectMonth'
 import styles from './Jumper.module.css'
 import { UTCDate } from '../InputDateUtils'
-import { Icon } from '../..'
+import { Icon } from '../../index.js'
 
 /**
  Select year and month to jump to a date.

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
-import { InputCheckBox } from '..'
+import { InputCheckBox } from '../index.js'
 
 import styles from './InputSelectOption.module.css'
 

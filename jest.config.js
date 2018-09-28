@@ -1,8 +1,17 @@
+const path = require('path')
+const { targets } = require('./scripts/utils')
+
+const aliases = {
+  '\\.css$': 'identity-obj-proxy',
+  '\\.svg$': 'identity-obj-proxy'
+}
+
+for (const target of targets) {
+  aliases[`@myntra/target`] = path.resolve(__dirname, 'packages/@myntra', target, 'src/index.js')
+}
+
 module.exports = {
-  moduleNameMapper: {
-    '\\.css$': 'identity-obj-proxy',
-    '\\.svg$': 'identity-obj-proxy'
-  },
+  moduleNameMapper: aliases,
   setupFiles: ['./scripts/setup-enzyme.js'],
   transform: {
     '^.+\\.(js|jsx)$': './scripts/transform-babel.js'

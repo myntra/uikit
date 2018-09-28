@@ -1,6 +1,6 @@
 import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
-import Grid from '@myntra/uikit-compounds/src/Grid/Grid'
+import { Grid } from '../index.js'
 import PropTypes from 'prop-types'
 import {
   InputText,

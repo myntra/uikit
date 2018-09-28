@@ -4,7 +4,7 @@ import { classnames } from '@myntra/uikit-utils'
 
 import styles from './InputDateValue.module.css'
 import { parse, format } from './InputDateUtils'
-import { Icon, InputMasked } from '..'
+import { Icon, InputMasked } from '../index.js'
 
 export const MASKS = {
   Y: {

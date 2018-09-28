@@ -1,17 +1,18 @@
 {
   "name": "@myntra/uikit",
   "version": "0.3.1",
-  "description": "UIKit with default theme kit",
-  "main": "lib/index.js",
-  "module": "lib/index.es.js",
-  "browser": "src/index.js",
+  "description": "@myntra/uikit",
+  "main": "src/index.js",
+  "module": "dist/uikit.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
   "author": "Rahul Kadyan <hi@znck.me>",
   "files": [
-    "src/"
+    "src/",
+    "dist/",
+    "bin/"
   ],
   "license": "UNLICENSED",
   "sideEffects": false,

@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Dropdown } from '..'
+import { Button, Dropdown } from '../index.js'
 import { classnames } from '@myntra/uikit-utils'
 import ModalLayout from './ModalLayout'
 import styles from './Modal.module.css'

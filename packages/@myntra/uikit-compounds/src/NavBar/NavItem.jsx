@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon, Avatar } from '@myntra/uikit-elements'
 import styles from './NavItem.module.css'
-import { classnames, memoize } from '@myntra/uikit-utils/src'
+import { classnames, memoize } from '@myntra/uikit-utils'
 
 /**
  Component for Navigation Menu Group
