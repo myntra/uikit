@@ -13,7 +13,7 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
  *
  * It is meant to automatically generate a form when data structure changes often or has large number of fields.
  *
- * @since v0.3.0
+ * @since 0.3.0
  * @status EXPERIMENTAL
  * @example
  *

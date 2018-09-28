@@ -14,7 +14,7 @@ if (!process.env.TARGET) {
 const packagesDir = path.resolve(__dirname, 'packages/@myntra')
 const packageDir = path.resolve(packagesDir, process.env.TARGET)
 const name = path.basename(packageDir)
-const resolve = p => path.resolve(packageDir, p)
+const resolve = p => './' + path.relative(__dirname, path.resolve(packageDir, p))
 const pkg = require(resolve(`package.json`))
 const packageOptions = pkg.buildOptions || {}
 

@@ -93,3 +93,19 @@ a:active {
 .page {
   margin-bottom: 2rem;
 }
+
+.component-status.deprecated {
+  color: var(--color-error);
+}
+
+.component-status.experimental {
+  color: var(--color-warning);
+}
+
+.component-status.reviewing {
+  color: var(--color-info);
+}
+
+.component-status.ready {
+  color: var(--color-success);
+}

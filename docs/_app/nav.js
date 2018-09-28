@@ -5,6 +5,7 @@ module.exports = [
   { to: '/contributing/', label: 'Contribution Guidelines' },
   { to: '/changelog/', label: 'Changelog' },
   { type: 'sep' },
+  { to: '/components/', label: 'Components' },
   { to: '/tokens/', label: 'Tokens' },
   { type: 'sep' },
   {

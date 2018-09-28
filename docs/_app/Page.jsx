@@ -6,6 +6,8 @@ import * as internals from '@myntra/uikit-internals'
 import tokens from '@myntra/tokens'
 import { Link } from 'react-router-dom'
 import { TopBar, BreadCrumb, Grid } from '@myntra/uikit-compounds'
+import * as uikit from '@myntra/uikit'
+import { version } from '../../lerna.json'
 
 const { Markdown } = internals
 const MarkdownCache = {}
@@ -26,7 +28,13 @@ export default function Page({ match }) {
 
   return (
     <div className="page">
-      <TopBar title="Myntra UIKit">
+      <TopBar
+        title={
+          <span>
+            Myntra UIKit <small style={{ textTransform: 'initial' }}>v{version}</small>
+          </span>
+        }
+      >
         <BreadCrumb>
           <BreadCrumb.Item>
             <Link to={`../${match.params.page || ''}`} className="breadcrumb">
@@ -48,7 +56,7 @@ export default function Page({ match }) {
             <Promised
               fn={() => import(`../${page}.md`).then(result => fetchMarkdown(result.default))}
               renderError={error => <pre>{error.message}</pre>}
-              render={content => <Markdown context={{ tokens, ...internals }}>{content}</Markdown>}
+              render={content => <Markdown context={{ tokens, ...internals, uikit, Link }}>{content}</Markdown>}
             />
             <Promised
               fn={() => import(`../${page}.js`)}

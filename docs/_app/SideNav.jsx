@@ -23,7 +23,8 @@ export default class Nav extends React.PureComponent {
         <NavBar.Item title="Conventions" href="/conventions/" />
         <NavBar.Item title="Contribution Guidelines" href="/contributing/" />
         <NavBar.Item title="Changelog" href="/changelog/" />
-        <NavBar.Group>
+        <NavBar.Group title="Overview">
+          <NavBar.Item title="Components" href="/components/" />
           <NavBar.Item title="Tokens" href="/tokens/" />
         </NavBar.Group>
         {Object.keys(components).map(menu => {
