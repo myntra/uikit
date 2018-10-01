@@ -5,8 +5,7 @@
   "main": "src/index.js",
   "module": "dist/uikit-elements.js",
   "scripts": {
-    "test": "jest",
-    "prepare": "yarn run build"
+    "test": "jest"
   },
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-elements",
   "publishConfig": {

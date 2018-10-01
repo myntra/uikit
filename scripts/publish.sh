@@ -13,7 +13,7 @@ for PACKAGE in ${PACKAGES}; do
   PRIVATE="$(node -e 'const { private } = require("./package.json"); console.log(private ? "true" : "false")')"
 
   if [ "${PRIVATE}" = "false" ]; then
-    npm publish &> /dev/null && echo "   Done" || echo "   Already published."
+    echo "   $(node ${CURRENT_DIR}/publish.js)"
   else
     echo "   Private package."
   fi
