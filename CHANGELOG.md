@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 
 <a name="0.3.0"></a>
-# [0.3.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0-beta.1...v0.3.0) (2018-09-26)
+# [0.3.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0...v0.3.0) (2018-09-26)
 
 
 ### Features
@@ -32,98 +32,17 @@ All notable changes to this project will be documented in this file. See [standa
 * **compounds | SchemaForm:** Add SchemaForm component ([e046509](https://bitbucket.org/myntra/uikit/commits/e046509))
 * **elements | Icon:** Use font-awesome icons ([f834798](https://bitbucket.org/myntra/uikit/commits/f834798)), closes [#96](https://bitbucket.org/myntra/uikit/issue/96)
 * **elements | Text:** Add text style utility component ([3557b3a](https://bitbucket.org/myntra/uikit/commits/3557b3a)), closes [#89](https://bitbucket.org/myntra/uikit/issue/89)
-
-
-
-<a name="0.3.0-beta.1"></a>
-# [0.3.0-beta.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0-beta.0...v0.3.0-beta.1) (2018-09-25)
-
-
-### Bug Fixes
-
-* **elements | Button:** Link inherits color when rendered in Alert ([99ad28b](https://bitbucket.org/myntra/uikit/commits/99ad28b)), closes [#93](https://bitbucket.org/myntra/uikit/issue/93) [#80](https://bitbucket.org/myntra/uikit/issue/80) [#81](https://bitbucket.org/myntra/uikit/issue/81) [#85](https://bitbucket.org/myntra/uikit/issue/85) [#84](https://bitbucket.org/myntra/uikit/issue/84) [#83](https://bitbucket.org/myntra/uikit/issue/83) [#82](https://bitbucket.org/myntra/uikit/issue/82) [#78](https://bitbucket.org/myntra/uikit/issue/78) [#86](https://bitbucket.org/myntra/uikit/issue/86) [#87](https://bitbucket.org/myntra/uikit/issue/87) [#90](https://bitbucket.org/myntra/uikit/issue/90) [#69](https://bitbucket.org/myntra/uikit/issue/69) [#77](https://bitbucket.org/myntra/uikit/issue/77) [#70](https://bitbucket.org/myntra/uikit/issue/70) [#68](https://bitbucket.org/myntra/uikit/issue/68)
-
-
-### Features
-
-* **compounds | NavBar:** Custom match function to find active nav item ([e52eea6](https://bitbucket.org/myntra/uikit/commits/e52eea6)), closes [#92](https://bitbucket.org/myntra/uikit/issue/92) [#80](https://bitbucket.org/myntra/uikit/issue/80) [#81](https://bitbucket.org/myntra/uikit/issue/81) [#85](https://bitbucket.org/myntra/uikit/issue/85) [#84](https://bitbucket.org/myntra/uikit/issue/84) [#83](https://bitbucket.org/myntra/uikit/issue/83) [#82](https://bitbucket.org/myntra/uikit/issue/82) [#78](https://bitbucket.org/myntra/uikit/issue/78) [#86](https://bitbucket.org/myntra/uikit/issue/86) [#87](https://bitbucket.org/myntra/uikit/issue/87)
+* **compounds | NavBar:** Custom match function to find active nav item ([e52eea6](https://bitbucket.org/myntra/uikit/commits/e52eea6))
 * **compounds | Tabs:** Add Tab component ([93242a4](https://bitbucket.org/myntra/uikit/commits/93242a4)), closes [#79](https://bitbucket.org/myntra/uikit/issue/79) [#70](https://bitbucket.org/myntra/uikit/issue/70)
 * **elements | Modal:** Add popover modal component ([5fa70f9](https://bitbucket.org/myntra/uikit/commits/5fa70f9)), closes [#94](https://bitbucket.org/myntra/uikit/issue/94)
-
-
-
-<a name="0.3.0-beta.0"></a>
-# [0.3.0-beta.0](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.3...v0.3.0-beta.0) (2018-09-25)
-
-
-### Bug Fixes
-
-* **compounds | TopBar:** Align with NavBar title ([de6d2fb](https://bitbucket.org/myntra/uikit/commits/de6d2fb)), closes [#77](https://bitbucket.org/myntra/uikit/issue/77) [#70](https://bitbucket.org/myntra/uikit/issue/70)
-* **elements | Dropdown:** Use Measure to detect size of content and reposition ([470f144](https://bitbucket.org/myntra/uikit/commits/470f144)), closes [#82](https://bitbucket.org/myntra/uikit/issue/82)
-* **elements | InputDate:** Prevent presets wrapping to next line when date field width is less ([b6cefee](https://bitbucket.org/myntra/uikit/commits/b6cefee)), closes [#83](https://bitbucket.org/myntra/uikit/issue/83)
-* **elements | InputRange:** Make hidden input element readOnly to supress react warning ([3f4acb4](https://bitbucket.org/myntra/uikit/commits/3f4acb4)), closes [#87](https://bitbucket.org/myntra/uikit/issue/87)
-* **elements | InputSelect:** Arrow keys selection after droprown is closed. Placeholder text not being as user types. Option selection not working if search field is clicked. Remove option selection on tab. ([31c8eb2](https://bitbucket.org/myntra/uikit/commits/31c8eb2)), closes [#90](https://bitbucket.org/myntra/uikit/issue/90)
-* **elements | InputSelect:** Render select element with selected options for browser native field compatibility ([8f11394](https://bitbucket.org/myntra/uikit/commits/8f11394)), closes [#86](https://bitbucket.org/myntra/uikit/issue/86)
-* **elements | InputSelect:** Select popper takes full available width ([01b282a](https://bitbucket.org/myntra/uikit/commits/01b282a)), closes [#84](https://bitbucket.org/myntra/uikit/issue/84)
-
-
-### Features
-
 * **elements | Alert:** Add Alert component ([813c449](https://bitbucket.org/myntra/uikit/commits/813c449)), closes [#68](https://bitbucket.org/myntra/uikit/issue/68)
 * **elements | Flex:** Add Flex component ([792ff1b](https://bitbucket.org/myntra/uikit/commits/792ff1b)), closes [#78](https://bitbucket.org/myntra/uikit/issue/78)
 * **elements | Image:** Add component to lazy load images ([643cf87](https://bitbucket.org/myntra/uikit/commits/643cf87)), closes [#91](https://bitbucket.org/myntra/uikit/issue/91)
 * **elements | InputCheckBox, elements | InputRange:** Add title prop to InputCheckBox, Use input styles on InputRange ([7e00421](https://bitbucket.org/myntra/uikit/commits/7e00421)), closes [#81](https://bitbucket.org/myntra/uikit/issue/81)
 * **elements | Pagiantion:** Add Pagination component ([82afda0](https://bitbucket.org/myntra/uikit/commits/82afda0)), closes [#69](https://bitbucket.org/myntra/uikit/issue/69)
-
-
-
-<a name="0.3.0-alpha.3"></a>
-# [0.3.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.2...v0.3.0-alpha.3) (2018-08-28)
-
-
-### Features
-
 * **compounds | Form:** Add Form component ([26500a4](https://bitbucket.org/myntra/uikit/commits/26500a4)), closes [#70](https://bitbucket.org/myntra/uikit/issue/70)
 * **compounds | NavBar:** Add side navigation component ([66b26f0](https://bitbucket.org/myntra/uikit/commits/66b26f0)), closes [#67](https://bitbucket.org/myntra/uikit/issue/67)
 * **compounds | Table:** Add Table component ([cf7ac48](https://bitbucket.org/myntra/uikit/commits/cf7ac48)), closes [#76](https://bitbucket.org/myntra/uikit/issue/76)
-
-
-
-<a name="0.3.0-alpha.2"></a>
-# [0.3.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.1...v0.3.0-alpha.2) (2018-08-23)
-
-
-### Bug Fixes
-
-* **tokens:** Typo in package files filter ([7e200f4](https://bitbucket.org/myntra/uikit/commits/7e200f4))
-
-
-
-<a name="0.3.0-alpha.1"></a>
-# [0.3.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.3.0-alpha.0...v0.3.0-alpha.1) (2018-08-23)
-
-
-### Bug Fixes
-
-* **tokens:** Include CSS module build in package ([3a37f9a](https://bitbucket.org/myntra/uikit/commits/3a37f9a))
-
-
-
-<a name="0.3.0-alpha.0"></a>
-# [0.3.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.2.2...v0.3.0-alpha.0) (2018-08-21)
-
-
-### Bug Fixes
-
-* **codemod-utils:** Get local identifier for named import ([6911bb3](https://bitbucket.org/myntra/uikit/commits/6911bb3))
-* **compounds | Grid:** Ignore falsy children in type check ([5e282b8](https://bitbucket.org/myntra/uikit/commits/5e282b8)), closes [#72](https://bitbucket.org/myntra/uikit/issue/72)
-* **stylelint:** Force kebab-case in class selectors ([0626753](https://bitbucket.org/myntra/uikit/commits/0626753))
-* Remove dupliate css variables ([23488a3](https://bitbucket.org/myntra/uikit/commits/23488a3))
-* Use .module.css for CSS modules ([1a989c8](https://bitbucket.org/myntra/uikit/commits/1a989c8))
-
-
-### Features
-
 * **compounds | Accordion:** Add Accordion component ([55a9783](https://bitbucket.org/myntra/uikit/commits/55a9783)), closes [#71](https://bitbucket.org/myntra/uikit/issue/71)
 * **compounds | BreadCrumb:** Add BreadCrumb component ([e57e95c](https://bitbucket.org/myntra/uikit/commits/e57e95c)), closes [#73](https://bitbucket.org/myntra/uikit/issue/73)
 * **compounds | Grid:** Move GridColumn component to Grid.Column ([bbabbb5](https://bitbucket.org/myntra/uikit/commits/bbabbb5))
@@ -132,7 +51,23 @@ All notable changes to this project will be documented in this file. See [standa
 * **elements | Measure:** Add Measure component ([ab8329b](https://bitbucket.org/myntra/uikit/commits/ab8329b)), closes [#74](https://bitbucket.org/myntra/uikit/issue/74)
 * **theme | Nuclei:** Make theme selection explicit ([a1dca53](https://bitbucket.org/myntra/uikit/commits/a1dca53))
 
+### Bug Fixes
 
+* **elements | Button:** Link inherits color when rendered in Alert ([99ad28b](https://bitbucket.org/myntra/uikit/commits/99ad28b))
+* **compounds | TopBar:** Align with NavBar title ([de6d2fb](https://bitbucket.org/myntra/uikit/commits/de6d2fb)), closes [#77](https://bitbucket.org/myntra/uikit/issue/77) [#70](https://bitbucket.org/myntra/uikit/issue/70)
+* **elements | Dropdown:** Use Measure to detect size of content and reposition ([470f144](https://bitbucket.org/myntra/uikit/commits/470f144)), closes [#82](https://bitbucket.org/myntra/uikit/issue/82)
+* **elements | InputDate:** Prevent presets wrapping to next line when date field width is less ([b6cefee](https://bitbucket.org/myntra/uikit/commits/b6cefee)), closes [#83](https://bitbucket.org/myntra/uikit/issue/83)
+* **elements | InputRange:** Make hidden input element readOnly to supress react warning ([3f4acb4](https://bitbucket.org/myntra/uikit/commits/3f4acb4)), closes [#87](https://bitbucket.org/myntra/uikit/issue/87)
+* **elements | InputSelect:** Arrow keys selection after droprown is closed. Placeholder text not being as user types. Option selection not working if search field is clicked. Remove option selection on tab. ([31c8eb2](https://bitbucket.org/myntra/uikit/commits/31c8eb2)), closes [#90](https://bitbucket.org/myntra/uikit/issue/90)
+* **elements | InputSelect:** Render select element with selected options for browser native field compatibility ([8f11394](https://bitbucket.org/myntra/uikit/commits/8f11394)), closes [#86](https://bitbucket.org/myntra/uikit/issue/86)
+* **elements | InputSelect:** Select popper takes full available width ([01b282a](https://bitbucket.org/myntra/uikit/commits/01b282a)), closes [#84](https://bitbucket.org/myntra/uikit/issue/84)
+* **tokens:** Typo in package files filter ([7e200f4](https://bitbucket.org/myntra/uikit/commits/7e200f4))
+* **tokens:** Include CSS module build in package ([3a37f9a](https://bitbucket.org/myntra/uikit/commits/3a37f9a))
+* **codemod-utils:** Get local identifier for named import ([6911bb3](https://bitbucket.org/myntra/uikit/commits/6911bb3))
+* **compounds | Grid:** Ignore falsy children in type check ([5e282b8](https://bitbucket.org/myntra/uikit/commits/5e282b8)), closes [#72](https://bitbucket.org/myntra/uikit/issue/72)
+* **stylelint:** Force kebab-case in class selectors ([0626753](https://bitbucket.org/myntra/uikit/commits/0626753))
+* Remove dupliate css variables ([23488a3](https://bitbucket.org/myntra/uikit/commits/23488a3))
+* Use .module.css for CSS modules ([1a989c8](https://bitbucket.org/myntra/uikit/commits/1a989c8)
 
 
 <a name="0.2.2"></a>
