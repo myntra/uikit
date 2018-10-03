@@ -2,6 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 
+import Row from './TableRow'
+import Cell from './TableCell'
+
 import styles from './Table.module.css'
 
 /**
@@ -10,37 +13,41 @@ import styles from './Table.module.css'
  @since 0.3.0
  @status EXPERIMENTAL
  */
-function TableSimple({ head, body, layout, Row, Cell, className, ...props }) {
+function TableSimple({ head, body, layout, className, renderRow: RowWrapper, useDiv }) {
+  const Table = useDiv ? 'div' : 'table'
+  const Thead = useDiv ? 'div' : 'thead'
+  const Tbody = useDiv ? 'div' : 'tbody'
   return (
     <div className={classnames('wrapper').use(styles)}>
       <div className={classnames('scroller').use(styles)}>
-        <table className={classnames(className, 'table', { fixed: layout === 'fixed' }).use(styles)} {...props}>
-          <colgroup>
-            {head.colgroup.map(({ colSpan, key, column }) => <col {...column} span={colSpan} key={key} />)}
-          </colgroup>
-          <thead>
+        <Table className={classnames(className, 'table', { fixed: layout === 'fixed' }).use(styles)}>
+          <Thead className={classnames('thead').use(styles)}>
             {head.rows.map(row => (
-              <Row key={row.id}>
-                {row.columns.map(({ children, key, ...props }) => (
-                  <Cell {...props} scope="col" head key={key}>
-                    {children}
-                  </Cell>
-                ))}
-              </Row>
+              <RowWrapper key={row.id}>
+                <Row useDiv={useDiv}>
+                  {row.columns.map(({ children, key, ...props }) => (
+                    <Cell {...props} head key={key} useDiv={useDiv}>
+                      {children}
+                    </Cell>
+                  ))}
+                </Row>
+              </RowWrapper>
             ))}
-          </thead>
-          <tbody>
+          </Thead>
+          <Tbody className={classnames('tbody').use(styles)}>
             {body.rows.map(row => (
-              <Row key={row.id}>
-                {row.columns.map(({ children, key, ...props }) => (
-                  <Cell key={key} {...props} scope={props.head ? 'row' : undefined}>
-                    {children}
-                  </Cell>
-                ))}
-              </Row>
+              <RowWrapper key={row.id}>
+                <Row useDiv={useDiv}>
+                  {row.columns.map(({ children, key, ...props }) => (
+                    <Cell key={key} {...props} useDiv={useDiv}>
+                      {children}
+                    </Cell>
+                  ))}
+                </Row>
+              </RowWrapper>
             ))}
-          </tbody>
-        </table>
+          </Tbody>
+        </Table>
       </div>
     </div>
   )
@@ -51,8 +58,9 @@ TableSimple.propTypes = {
   head: PropTypes.object,
   body: PropTypes.object,
   layout: PropTypes.oneOf(['fixed', 'auto']),
-  Row: PropTypes.any,
-  Cell: PropTypes.any
+  renderRow: PropTypes.func,
+  /** Render div with display table. */
+  useDiv: PropTypes.bool
 }
 
 export default TableSimple

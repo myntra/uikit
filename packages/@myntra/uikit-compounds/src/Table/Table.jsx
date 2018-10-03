@@ -4,8 +4,6 @@ import { memoize } from '@myntra/uikit-utils'
 import { prepareHead, prepareBody } from './TableHelpers'
 
 import TableColumn from './TableColumn'
-import TableCell from './TableCell'
-import TableRow from './TableRow'
 import TableSimple from './TableSimple'
 import { Sortable } from '@myntra/uikit-elements'
 
@@ -20,20 +18,15 @@ A simple table.
     { id: 2, firstName: "John", lastName: "Doe" },
     { id: 3, firstName: "Adam", lastName: "Seed" },
   ]} sort={['firstName']}>
-  <Table.Column key="all" label="All">
-    <Table.Column key="id" label="ID">
-      {({ data }) => <div>{data.id}</div>}
-    </Table.Column>
+  <Table.Column key="id" label="ID">
+    {({ data }) => <div>{data.id}</div>}
+  </Table.Column>
+  <Table.Column key="firstName" label="First Name">
+    {({ data }) => <div>{data.firstName}</div>}
+  </Table.Column>
 
-    <Table.Column key="name" label="Name">
-      <Table.Column key="firstName" label="First Name">
-        {({ data }) => <div>{data.firstName}</div>}
-      </Table.Column>
-
-      <Table.Column key="lastName" label="Last Name">
-        {({ data }) => <div>{data.lastName}</div>}
-      </Table.Column>
-    </Table.Column>
+  <Table.Column key="lastName" label="Last Name">
+    {({ data }) => <div>{data.lastName}</div>}
   </Table.Column>
 </Table>
  */
@@ -56,10 +49,9 @@ class Table extends PureComponent {
     ),
     /** List of `<Table.Column>` components which declares render behaviour */
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
-    /** Component to render a row (`<tr>`) */
-    rowComponent: PropTypes.func,
-    /** Component to render a cell (`<td>` or `<th>`) */
-    cellComponent: PropTypes.func,
+    renderRow: PropTypes.func,
+    /** Render div with display table. */
+    useDiv: PropTypes.bool,
     /** @private */
     _validateChildren({ children }) {
       React.Children.forEach(children, child => {
@@ -78,8 +70,7 @@ class Table extends PureComponent {
      */
     rowKey: (row, index) => index,
     layout: 'fixed',
-    rowComponent: TableRow,
-    cellComponent: TableCell
+    renderRow: ({ children }) => React.Children.only(children)
   }
 
   prepareHead = memoize((children, order) => prepareHead(children, order))
@@ -103,8 +94,8 @@ class Table extends PureComponent {
         layout={this.props.layout}
         head={this.head}
         body={this.prepareBody(this.head, data, this.props.rowKey)}
-        Row={this.props.rowComponent}
-        Cell={this.props.cellComponent}
+        renderRow={this.props.renderRow}
+        useDiv={this.props.useDiv}
       >
         {this.props.children}
       </TableSimple>

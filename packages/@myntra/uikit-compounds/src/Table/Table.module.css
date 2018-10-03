@@ -20,30 +20,43 @@
   border: 1px solid #dee2e6;
 }
 
+div.table {
+  display: table;
+}
+
 .table.fixed {
   table-layout: fixed;
 }
 
-.table thead {
+.table .thead {
   border-bottom: 2px solid #dee2e6;
 }
 
-.table tr {
+.table div.thead {
+  width: 100%;
+  display: table-header-group;
+}
+
+.table div.tbody {
+  width: 100%;
+  display: table-row-group;
+}
+
+.table .row {
+  display: table-row;
   border-bottom: 1px solid #dee2e6;
 }
 
-.table td,
-.table th {
+.table .col {
+  display: table-cell;
   border: 1px solid #dee2e6;
   padding: 0.75rem;
   white-space: nowrap;
+  vertical-align: middle;
 }
 
-.table th {
+.table .col.head {
   background-color: #f3f3f3;
   vertical-align: bottom;
 }
 
-.table td {
-  vertical-align: middle;
-}

@@ -2,7 +2,6 @@
 
 exports[`should render correctly 1`] = `
 <Table
-  cellComponent={[Function]}
   data={
     Array [
       Object {
@@ -14,12 +13,10 @@ exports[`should render correctly 1`] = `
     ]
   }
   layout="fixed"
-  rowComponent={[Function]}
+  renderRow={[Function]}
   rowKey={[Function]}
 >
   <TableSimple
-    Cell={[Function]}
-    Row={[Function]}
     body={
       Object {
         "rows": Array [
@@ -181,6 +178,7 @@ exports[`should render correctly 1`] = `
       }
     }
     layout="fixed"
+    renderRow={[Function]}
   >
     <div
       className="wrapper"
@@ -190,123 +188,105 @@ exports[`should render correctly 1`] = `
       >
         <table
           className="table fixed"
-          data={
-            Array [
-              Object {
-                "content": "foo",
-                "firstName": "John",
-                "id": 1,
-                "lastName": "Doe",
-              },
-            ]
-          }
         >
-          <colgroup>
-            <col
-              key="id"
-              span={1}
-            />
-            <col
-              key="name"
-              span={1}
-            />
-            <col
-              key="content"
-              span={1}
-            />
-          </colgroup>
-          <thead>
-            <Row
+          <thead
+            className="thead"
+          >
+            <renderRow
               key="0"
             >
-              <tr>
-                <Cell
-                  colSpan={1}
-                  head={true}
-                  key="id"
-                  rowSpan={1}
-                  scope="col"
+              <Row>
+                <tr
+                  className="row"
                 >
-                  <th
-                    className=""
+                  <Cell
                     colSpan={1}
+                    head={true}
+                    key="id"
                     rowSpan={1}
-                    scope="col"
                   >
-                    ID
-                  </th>
-                </Cell>
-                <Cell
-                  colSpan={1}
-                  head={true}
-                  key="name"
-                  rowSpan={1}
-                  scope="col"
-                >
-                  <th
-                    className=""
+                    <th
+                      className="col head"
+                      colSpan={1}
+                      rowSpan={1}
+                    >
+                      ID
+                    </th>
+                  </Cell>
+                  <Cell
                     colSpan={1}
+                    head={true}
+                    key="name"
                     rowSpan={1}
-                    scope="col"
                   >
-                    Name
-                  </th>
-                </Cell>
-                <Cell
-                  colSpan={1}
-                  head={true}
-                  key="content"
-                  rowSpan={1}
-                  scope="col"
-                >
-                  <th
-                    className=""
+                    <th
+                      className="col head"
+                      colSpan={1}
+                      rowSpan={1}
+                    >
+                      Name
+                    </th>
+                  </Cell>
+                  <Cell
                     colSpan={1}
+                    head={true}
+                    key="content"
                     rowSpan={1}
-                    scope="col"
                   >
-                    Content
-                  </th>
-                </Cell>
-              </tr>
-            </Row>
+                    <th
+                      className="col head"
+                      colSpan={1}
+                      rowSpan={1}
+                    >
+                      Content
+                    </th>
+                  </Cell>
+                </tr>
+              </Row>
+            </renderRow>
           </thead>
-          <tbody>
-            <Row
+          <tbody
+            className="tbody"
+          >
+            <renderRow
               key="0"
             >
-              <tr>
-                <Cell
-                  key="id"
+              <Row>
+                <tr
+                  className="row"
                 >
-                  <td
-                    className=""
+                  <Cell
+                    key="id"
                   >
-                    1
-                  </td>
-                </Cell>
-                <Cell
-                  key="name"
-                >
-                  <td
-                    className=""
+                    <td
+                      className="col"
+                    >
+                      1
+                    </td>
+                  </Cell>
+                  <Cell
+                    key="name"
                   >
-                    John Doe
-                  </td>
-                </Cell>
-                <Cell
-                  key="content"
-                >
-                  <td
-                    className=""
+                    <td
+                      className="col"
+                    >
+                      John Doe
+                    </td>
+                  </Cell>
+                  <Cell
+                    key="content"
                   >
-                    <span>
-                      foo
-                    </span>
-                  </td>
-                </Cell>
-              </tr>
-            </Row>
+                    <td
+                      className="col"
+                    >
+                      <span>
+                        foo
+                      </span>
+                    </td>
+                  </Cell>
+                </tr>
+              </Row>
+            </renderRow>
           </tbody>
         </table>
       </div>
@@ -317,7 +297,6 @@ exports[`should render correctly 1`] = `
 
 exports[`should render reverse sorted rows 1`] = `
 <Table
-  cellComponent={[Function]}
   data={
     Array [
       Object {
@@ -341,7 +320,7 @@ exports[`should render reverse sorted rows 1`] = `
     ]
   }
   layout="fixed"
-  rowComponent={[Function]}
+  renderRow={[Function]}
   rowKey={[Function]}
   sort={
     Array [
@@ -382,8 +361,6 @@ exports[`should render reverse sorted rows 1`] = `
     }
   >
     <TableSimple
-      Cell={[Function]}
-      Row={[Function]}
       body={
         Object {
           "rows": Array [
@@ -595,6 +572,7 @@ exports[`should render reverse sorted rows 1`] = `
         }
       }
       layout="fixed"
+      renderRow={[Function]}
     >
       <div
         className="wrapper"
@@ -604,205 +582,183 @@ exports[`should render reverse sorted rows 1`] = `
         >
           <table
             className="table fixed"
-            data={
-              Array [
-                Object {
-                  "content": "foo",
-                  "firstName": "John",
-                  "id": 1,
-                  "lastName": "Doe",
-                },
-                Object {
-                  "content": "bar",
-                  "firstName": "Jane",
-                  "id": 2,
-                  "lastName": "Doe",
-                },
-                Object {
-                  "content": "baz",
-                  "firstName": "Jane",
-                  "id": 3,
-                  "lastName": "Do",
-                },
-              ]
-            }
           >
-            <colgroup>
-              <col
-                key="id"
-                span={1}
-              />
-              <col
-                key="name"
-                span={1}
-              />
-              <col
-                key="content"
-                span={1}
-              />
-            </colgroup>
-            <thead>
-              <Row
+            <thead
+              className="thead"
+            >
+              <renderRow
                 key="0"
               >
-                <tr>
-                  <Cell
-                    colSpan={1}
-                    head={true}
-                    key="id"
-                    rowSpan={1}
-                    scope="col"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <th
-                      className=""
+                    <Cell
                       colSpan={1}
+                      head={true}
+                      key="id"
                       rowSpan={1}
-                      scope="col"
                     >
-                      ID
-                    </th>
-                  </Cell>
-                  <Cell
-                    colSpan={1}
-                    head={true}
-                    key="name"
-                    rowSpan={1}
-                    scope="col"
-                  >
-                    <th
-                      className=""
+                      <th
+                        className="col head"
+                        colSpan={1}
+                        rowSpan={1}
+                      >
+                        ID
+                      </th>
+                    </Cell>
+                    <Cell
                       colSpan={1}
+                      head={true}
+                      key="name"
                       rowSpan={1}
-                      scope="col"
                     >
-                      Name
-                    </th>
-                  </Cell>
-                  <Cell
-                    colSpan={1}
-                    head={true}
-                    key="content"
-                    rowSpan={1}
-                    scope="col"
-                  >
-                    <th
-                      className=""
+                      <th
+                        className="col head"
+                        colSpan={1}
+                        rowSpan={1}
+                      >
+                        Name
+                      </th>
+                    </Cell>
+                    <Cell
                       colSpan={1}
+                      head={true}
+                      key="content"
                       rowSpan={1}
-                      scope="col"
                     >
-                      Content
-                    </th>
-                  </Cell>
-                </tr>
-              </Row>
+                      <th
+                        className="col head"
+                        colSpan={1}
+                        rowSpan={1}
+                      >
+                        Content
+                      </th>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
             </thead>
-            <tbody>
-              <Row
+            <tbody
+              className="tbody"
+            >
+              <renderRow
                 key="0"
               >
-                <tr>
-                  <Cell
-                    key="id"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <td
-                      className=""
+                    <Cell
+                      key="id"
                     >
-                      3
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="name"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        3
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="name"
                     >
-                      Jane Do
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="content"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        Jane Do
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="content"
                     >
-                      <span>
-                        baz
-                      </span>
-                    </td>
-                  </Cell>
-                </tr>
-              </Row>
-              <Row
+                      <td
+                        className="col"
+                      >
+                        <span>
+                          baz
+                        </span>
+                      </td>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
+              <renderRow
                 key="1"
               >
-                <tr>
-                  <Cell
-                    key="id"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <td
-                      className=""
+                    <Cell
+                      key="id"
                     >
-                      2
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="name"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        2
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="name"
                     >
-                      Jane Doe
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="content"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        Jane Doe
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="content"
                     >
-                      <span>
-                        bar
-                      </span>
-                    </td>
-                  </Cell>
-                </tr>
-              </Row>
-              <Row
+                      <td
+                        className="col"
+                      >
+                        <span>
+                          bar
+                        </span>
+                      </td>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
+              <renderRow
                 key="2"
               >
-                <tr>
-                  <Cell
-                    key="id"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <td
-                      className=""
+                    <Cell
+                      key="id"
                     >
-                      1
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="name"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        1
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="name"
                     >
-                      John Doe
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="content"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        John Doe
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="content"
                     >
-                      <span>
-                        foo
-                      </span>
-                    </td>
-                  </Cell>
-                </tr>
-              </Row>
+                      <td
+                        className="col"
+                      >
+                        <span>
+                          foo
+                        </span>
+                      </td>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
             </tbody>
           </table>
         </div>
@@ -814,7 +770,6 @@ exports[`should render reverse sorted rows 1`] = `
 
 exports[`should render sorted rows 1`] = `
 <Table
-  cellComponent={[Function]}
   data={
     Array [
       Object {
@@ -832,7 +787,7 @@ exports[`should render sorted rows 1`] = `
     ]
   }
   layout="fixed"
-  rowComponent={[Function]}
+  renderRow={[Function]}
   rowKey={[Function]}
   sort={
     Array [
@@ -860,8 +815,6 @@ exports[`should render sorted rows 1`] = `
     }
   >
     <TableSimple
-      Cell={[Function]}
-      Row={[Function]}
       body={
         Object {
           "rows": Array [
@@ -1048,6 +1001,7 @@ exports[`should render sorted rows 1`] = `
         }
       }
       layout="fixed"
+      renderRow={[Function]}
     >
       <div
         className="wrapper"
@@ -1057,164 +1011,144 @@ exports[`should render sorted rows 1`] = `
         >
           <table
             className="table fixed"
-            data={
-              Array [
-                Object {
-                  "content": "foo",
-                  "firstName": "John",
-                  "id": 1,
-                  "lastName": "Doe",
-                },
-                Object {
-                  "content": "foo",
-                  "firstName": "Jane",
-                  "id": 2,
-                  "lastName": "Doe",
-                },
-              ]
-            }
           >
-            <colgroup>
-              <col
-                key="id"
-                span={1}
-              />
-              <col
-                key="name"
-                span={1}
-              />
-              <col
-                key="content"
-                span={1}
-              />
-            </colgroup>
-            <thead>
-              <Row
+            <thead
+              className="thead"
+            >
+              <renderRow
                 key="0"
               >
-                <tr>
-                  <Cell
-                    colSpan={1}
-                    head={true}
-                    key="id"
-                    rowSpan={1}
-                    scope="col"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <th
-                      className=""
+                    <Cell
                       colSpan={1}
+                      head={true}
+                      key="id"
                       rowSpan={1}
-                      scope="col"
                     >
-                      ID
-                    </th>
-                  </Cell>
-                  <Cell
-                    colSpan={1}
-                    head={true}
-                    key="name"
-                    rowSpan={1}
-                    scope="col"
-                  >
-                    <th
-                      className=""
+                      <th
+                        className="col head"
+                        colSpan={1}
+                        rowSpan={1}
+                      >
+                        ID
+                      </th>
+                    </Cell>
+                    <Cell
                       colSpan={1}
+                      head={true}
+                      key="name"
                       rowSpan={1}
-                      scope="col"
                     >
-                      Name
-                    </th>
-                  </Cell>
-                  <Cell
-                    colSpan={1}
-                    head={true}
-                    key="content"
-                    rowSpan={1}
-                    scope="col"
-                  >
-                    <th
-                      className=""
+                      <th
+                        className="col head"
+                        colSpan={1}
+                        rowSpan={1}
+                      >
+                        Name
+                      </th>
+                    </Cell>
+                    <Cell
                       colSpan={1}
+                      head={true}
+                      key="content"
                       rowSpan={1}
-                      scope="col"
                     >
-                      Content
-                    </th>
-                  </Cell>
-                </tr>
-              </Row>
+                      <th
+                        className="col head"
+                        colSpan={1}
+                        rowSpan={1}
+                      >
+                        Content
+                      </th>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
             </thead>
-            <tbody>
-              <Row
+            <tbody
+              className="tbody"
+            >
+              <renderRow
                 key="0"
               >
-                <tr>
-                  <Cell
-                    key="id"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <td
-                      className=""
+                    <Cell
+                      key="id"
                     >
-                      1
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="name"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        1
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="name"
                     >
-                      John Doe
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="content"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        John Doe
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="content"
                     >
-                      <span>
-                        foo
-                      </span>
-                    </td>
-                  </Cell>
-                </tr>
-              </Row>
-              <Row
+                      <td
+                        className="col"
+                      >
+                        <span>
+                          foo
+                        </span>
+                      </td>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
+              <renderRow
                 key="1"
               >
-                <tr>
-                  <Cell
-                    key="id"
+                <Row>
+                  <tr
+                    className="row"
                   >
-                    <td
-                      className=""
+                    <Cell
+                      key="id"
                     >
-                      2
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="name"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        2
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="name"
                     >
-                      Jane Doe
-                    </td>
-                  </Cell>
-                  <Cell
-                    key="content"
-                  >
-                    <td
-                      className=""
+                      <td
+                        className="col"
+                      >
+                        Jane Doe
+                      </td>
+                    </Cell>
+                    <Cell
+                      key="content"
                     >
-                      <span>
-                        foo
-                      </span>
-                    </td>
-                  </Cell>
-                </tr>
-              </Row>
+                      <td
+                        className="col"
+                      >
+                        <span>
+                          foo
+                        </span>
+                      </td>
+                    </Cell>
+                  </tr>
+                </Row>
+              </renderRow>
             </tbody>
           </table>
         </div>

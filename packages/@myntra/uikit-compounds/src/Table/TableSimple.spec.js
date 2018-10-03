@@ -1,8 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import TableSimple from './TableSimple'
-import TableCell from './TableCell'
-import TableRow from './TableRow'
 
 function prepareForTest(props) {
   return mount(
@@ -24,8 +22,7 @@ function prepareForTest(props) {
           }
         ]
       }}
-      Cell={TableCell}
-      Row={TableRow}
+      renderRow={({ children }) => children}
       {...props}
     />
   )

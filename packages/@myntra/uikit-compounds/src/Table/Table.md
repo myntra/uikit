@@ -19,15 +19,15 @@
 </Table>
 ```
 
-### Freeze Columns
+### Table using `div`
 
 ``` jsx render editor
 <Table data={[
   { id: 1, name: 'Jane Doe', age: 24, status: 'single', visits: 80 },
   { id: 2, name: 'John Doe', age: 26, status: 'single', visits: 120 }
-]}>
-  <Table.Column label="ID" key="id" freeze />
-  <Table.Column label="Name" key="anything" accessor="name" column={{ style: { background: 'rgba(255, 0, 0, .54)' } }}  freeze />
+]} useDiv>
+  <Table.Column label="ID" key="id" />
+  <Table.Column label="Name" key="anything" accessor="name" column={{ style: { background: 'rgba(255, 0, 0, .54)' } }} />
   <Table.Column label="Age" key="age">
     {({ data }) => <span>{ data.age } years</span>}
   </Table.Column>

@@ -19,20 +19,13 @@ import styles from './Table.module.css'
   </tbody>
 </table>
  */
-function Cell({
-  head,
-  children,
-  freeze,
-  className,
-  column, // eslint-disable-line react/prop-types
-  ...props
-}) {
-  const EL = head ? 'th' : 'td'
+function Cell({ head, children, freeze, className, useDiv, ...props }) {
+  const Td = useDiv ? 'div' : head ? 'th' : 'td'
 
   return (
-    <EL {...props} className={classnames(className, { freeze }).use(styles)}>
+    <Td {...props} className={classnames('col', className, { freeze, head }).use(styles)}>
       {children}
-    </EL>
+    </Td>
   )
 }
 
@@ -46,7 +39,9 @@ Cell.propTypes = {
   /** Number of table columns to use */
   colSpan: PropTypes.number,
   /** Contents of the cell */
-  children: PropTypes.any
+  children: PropTypes.any,
+  /** Render div with display table-cell. */
+  useDiv: PropTypes.bool
 }
 
 export default Cell

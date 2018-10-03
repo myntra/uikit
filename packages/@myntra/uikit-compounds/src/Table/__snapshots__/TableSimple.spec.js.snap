@@ -2,8 +2,6 @@
 
 exports[`should render correctly 1`] = `
 <TableSimple
-  Cell={[Function]}
-  Row={[Function]}
   body={
     Object {
       "rows": Array [
@@ -50,6 +48,7 @@ exports[`should render correctly 1`] = `
       ],
     }
   }
+  renderRow={[Function]}
 >
   <div
     className="wrapper"
@@ -60,72 +59,72 @@ exports[`should render correctly 1`] = `
       <table
         className="table"
       >
-        <colgroup>
-          <col
-            key="name"
-            span={2}
-          />
-        </colgroup>
-        <thead>
-          <Row
+        <thead
+          className="thead"
+        >
+          <renderRow
             key="0"
           >
-            <tr>
-              <Cell
-                head={true}
-                key="firstName"
-                scope="col"
+            <Row>
+              <tr
+                className="row"
               >
-                <th
-                  className=""
-                  scope="col"
+                <Cell
+                  head={true}
+                  key="firstName"
                 >
-                  First Name
-                </th>
-              </Cell>
-              <Cell
-                head={true}
-                key="lastName"
-                scope="col"
-              >
-                <th
-                  className=""
-                  scope="col"
+                  <th
+                    className="col head"
+                  >
+                    First Name
+                  </th>
+                </Cell>
+                <Cell
+                  head={true}
+                  key="lastName"
                 >
-                  Last Name
-                </th>
-              </Cell>
-            </tr>
-          </Row>
+                  <th
+                    className="col head"
+                  >
+                    Last Name
+                  </th>
+                </Cell>
+              </tr>
+            </Row>
+          </renderRow>
         </thead>
-        <tbody>
-          <Row
+        <tbody
+          className="tbody"
+        >
+          <renderRow
             key="1"
           >
-            <tr>
-              <Cell
-                head={true}
-                key="firstName"
-                scope="row"
+            <Row>
+              <tr
+                className="row"
               >
-                <th
-                  className=""
-                  scope="row"
+                <Cell
+                  head={true}
+                  key="firstName"
                 >
-                  John
-                </th>
-              </Cell>
-              <Cell
-                key="lastName"
-              >
-                <td
-                  className=""
+                  <th
+                    className="col head"
+                  >
+                    John
+                  </th>
+                </Cell>
+                <Cell
+                  key="lastName"
                 >
-                  Doe
-                </td>
-              </Cell>
-            </tr>
-          </Row>
+                  <td
+                    className="col"
+                  >
+                    Doe
+                  </td>
+                </Cell>
+              </tr>
+            </Row>
+          </renderRow>
         </tbody>
       </table>
     </div>
