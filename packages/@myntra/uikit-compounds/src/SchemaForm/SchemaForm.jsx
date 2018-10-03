@@ -94,7 +94,13 @@ export default class SchemaForm extends PureComponent {
     optionsProvider: PropTypes.func,
     // --
     error: PropTypes.object,
-    onError: PropTypes.func
+    onError: PropTypes.func,
+    /** Event fired on form submission. */
+    onSubmit: PropTypes.func
+  }
+
+  static defaultProps = {
+    onSubmit: () => {}
   }
 
   generateUISchema = memoize((schema, provider) => generateUISchema(schema, provider))
@@ -118,7 +124,7 @@ export default class SchemaForm extends PureComponent {
     const { component: Component, ...props } = this.ui
 
     return (
-      <Form onSubmit={() => {}}>
+      <Form onSubmit={this.props.onSubmit}>
         <Component
           {...props}
           value={this.props.value}
