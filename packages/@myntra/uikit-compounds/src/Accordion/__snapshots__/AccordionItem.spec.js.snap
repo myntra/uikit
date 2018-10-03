@@ -1,3 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`should transition body exit 1`] = `"<div><div class=\\"title\\">Title</div></div>"`;

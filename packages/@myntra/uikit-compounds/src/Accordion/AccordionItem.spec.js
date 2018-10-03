@@ -1,76 +1,83 @@
 import React from 'react'
 import { mount } from 'enzyme'
+import { Provider } from './Accordion'
 import AccordionItem from './AccordionItem'
 
-function prepareForTest(props) {
-  return mount(
-    <AccordionItem {...props} title={<div className="title">Title</div>}>
-      <div className="body">Body</div>
-    </AccordionItem>
-  )
+function createRegistrar() {
+  const m = new WeakMap()
+  let index = 0
+  return item => (m.has(item) ? m.get(item) : m.set(item, index++).get(item))
 }
 
-it('should render title', () => {
-  expect(
-    prepareForTest()
-      .find('.title')
-      .get(0)
-  ).toBeTruthy()
-})
+describe('Accordion.Item', () => {
+  it('renders title node & children', () => {
+    const wrapper = mount(
+      <Provider value={{ active: 0, register: createRegistrar() }}>
+        <AccordionItem title={<div className="one">One</div>}>
+          <div className="foo">Foo</div>
+        </AccordionItem>
+      </Provider>
+    )
 
-it('should always render title', () => {
-  expect(
-    prepareForTest({ show: false })
-      .find('.title')
-      .get(0)
-  ).toBeTruthy()
-})
+    expect(wrapper.find('.one')).toHaveLength(1)
 
-it('should forward props as attrs', () => {
-  expect(
-    prepareForTest({ className: 'foo' })
-      .find('.foo')
-      .get(0)
-  ).toBeTruthy()
-})
+    expect(wrapper.find('.foo')).toHaveLength(1)
+  })
 
-it('should hide body content', () => {
-  expect(
-    prepareForTest()
-      .find('.body')
-      .get(0)
-  ).toBeFalsy()
-})
+  it('renders title node for unselected', () => {
+    const wrapper = mount(
+      <Provider value={{ active: 1, register: createRegistrar() }}>
+        <AccordionItem title={<div className="one title">One</div>}>
+          <div className="foo">Foo</div>
+        </AccordionItem>
 
-it('should show body content', () => {
-  expect(
-    prepareForTest({ show: true })
-      .find('.body')
-      .get(0)
-  ).toBeTruthy()
-})
+        <AccordionItem title={<div className="two title">Two</div>}>
+          <div className="bar">Bar</div>
+        </AccordionItem>
+      </Provider>
+    )
 
-it('should trigger onClick', () => {
-  const spy = jest.fn()
-  const wrapper = prepareForTest({ onClick: spy })
+    expect(wrapper.find('.title')).toHaveLength(2)
+  })
 
-  wrapper.find('.title').simulate('click')
+  it(`renders only active item's children`, () => {
+    const wrapper = mount(
+      <div>
+        <Provider value={{ active: 0, register: createRegistrar() }}>
+          <AccordionItem title={<div className="one">One</div>}>
+            <div className="foo">Foo</div>
+          </AccordionItem>
 
-  expect(spy).toHaveBeenCalled()
-})
+          <AccordionItem title={<div className="two">Two</div>}>
+            <div className="bar">Bar</div>
+          </AccordionItem>
+        </Provider>
+      </div>
+    )
 
-it('should transition body exit', done => {
-  const wrapper = prepareForTest({ show: true })
+    expect(wrapper.text()).toEqual(expect.stringContaining('Foo'))
 
-  expect(wrapper.find('.body').get(0)).toBeTruthy()
+    expect(wrapper.text()).not.toEqual(expect.stringContaining('Bar'))
+  })
 
-  wrapper.setProps({ show: false })
+  it(`dispatches click event on click`, () => {
+    const spy = jest.fn()
+    const wrapper = mount(
+      <Provider value={{ active: 1, onChange: spy, register: createRegistrar() }}>
+        <div>
+          <AccordionItem title={<div className="one">One</div>}>
+            <div className="foo">Foo</div>
+          </AccordionItem>
+        </div>
 
-  expect(wrapper.find('.body').get(0)).toBeTruthy()
+        <AccordionItem title={<div className="two">Two</div>}>
+          <div className="bar">Bar</div>
+        </AccordionItem>
+      </Provider>
+    )
 
-  setTimeout(() => {
-    expect(wrapper.html()).not.toEqual(expect.stringContaining('class="body"'))
-    expect(wrapper.html()).toMatchSnapshot()
-    done()
-  }, 360)
+    wrapper.find('.one').simulate('click')
+
+    expect(spy).toHaveBeenCalledWith(0)
+  })
 })

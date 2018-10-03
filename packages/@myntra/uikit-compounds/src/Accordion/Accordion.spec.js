@@ -5,11 +5,13 @@ import AccordionItem from './AccordionItem'
 
 function prepareForTest(props) {
   return mount(
-    <Accordion {...props}>
-      <AccordionItem title={<div className="title">1</div>}>one body</AccordionItem>
-      <AccordionItem title={<div className="title">2</div>}>two body</AccordionItem>
-      <AccordionItem title={<div className="title">3</div>}>three body</AccordionItem>
-    </Accordion>
+    <div>
+      <Accordion {...props}>
+        <AccordionItem title={<div className="title">1</div>}>one body</AccordionItem>
+        <AccordionItem title={<div className="title">2</div>}>two body</AccordionItem>
+        <AccordionItem title={<div className="title">3</div>}>three body</AccordionItem>
+      </Accordion>
+    </div>
   )
 }
 
@@ -74,15 +76,4 @@ it('should enforce onChange prop when active prop is used', () => {
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
   prepareForTest({ active: 1 })
   expect(spy).toHaveBeenCalledWith(expect.stringContaining('`onChange` prop is required'))
-})
-
-it('should enforce child nodes to be Accordion.Item', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  mount(
-    <Accordion>
-      <div />
-      <div />
-    </Accordion>
-  )
-  expect(spy).toHaveBeenCalledWith(expect.stringContaining('Only `Accordion.Item` is allowed'))
 })

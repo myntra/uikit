@@ -1,7 +1,14 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, createContext } from 'react'
 import PropTypes from 'prop-types'
 import AccordionItem from './AccordionItem'
-import { onlyExtraProps } from '@myntra/uikit-utils'
+
+const { Provider, Consumer } = createContext({
+  active: 0,
+  onChange: () => {},
+  register: () => {}
+})
+
+export { Consumer, Provider }
 
 /**
 
@@ -32,23 +39,33 @@ class Accordion extends PureComponent {
       if ('active' in props && !('onChange' in props)) {
         throw new Error('`onChange` prop is required when using `active` props')
       }
-      props.children.forEach(child => {
-        if (child.type !== AccordionItem) throw new Error('Only `Accordion.Item` is allowed in `Accordion` component')
-      })
     }
   }
 
-  state = {
-    active: 0
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      active: 0
+    }
+
+    this.itemsCount = 0
+    this.itemsToIndex = new WeakMap()
   }
 
-  static filterAttrs = onlyExtraProps(Accordion.propTypes)
+  register = item => {
+    if (this.itemsToIndex.has(item)) {
+      return this.itemsToIndex.get(item)
+    }
 
-  get attrs() {
-    return Accordion.filterAttrs(this.props)
+    const index = this.itemsCount++
+
+    this.itemsToIndex.set(item, index)
+
+    return index
   }
 
-  handleClick = (active, event) => {
+  handleClick = active => {
     if (this.props.onChange) this.props.onChange(active)
     else this.setState({ active })
   }
@@ -57,15 +74,7 @@ class Accordion extends PureComponent {
     const active = typeof this.props.active === 'number' ? this.props.active : this.state.active
 
     return (
-      <div {...this.attrs}>
-        {this.props.children.map((child, index) =>
-          React.cloneElement(child, {
-            key: index,
-            show: active === index,
-            onClick: event => this.handleClick(index, event)
-          })
-        )}
-      </div>
+      <Provider value={{ active, onChange: this.handleClick, register: this.register }}>{this.props.children}</Provider>
     )
   }
 }
