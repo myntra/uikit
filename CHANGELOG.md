@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.0"></a>
+# [0.5.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.4.0...v0.5.0-alpha.0) (2018-10-03)
+
+
+### Features
+
+* **compounds | Accordion:** Allow Accordion.Item in decendent tree ([c65ce44](https://bitbucket.org/myntra/uikit/commits/c65ce44))
+* **compounds | SchemaForm:** Dispatch submit event on form submit ([f834ff3](https://bitbucket.org/myntra/uikit/commits/f834ff3))
+* **compounds | Table:** Custom row renderer and optionally uses div ([3cdf0ee](https://bitbucket.org/myntra/uikit/commits/3cdf0ee))
+
+
+
 <a name="0.4.0"></a>
 # [0.4.0](https://bitbucket.org/myntra/uikit/compare/v0.3.1...v0.4.0) (2018-09-28)
 
