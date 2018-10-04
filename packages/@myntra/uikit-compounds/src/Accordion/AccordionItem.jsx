@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Consumer } from './Accordion'
 
 /* eslint-disable react/prop-types */
-function Item({ active, onChange, register, title, children, renderWrapper: Wrapper }) {
+function Item({ active, onChange, register, title, children }) {
   const index = register()
   const handleClick = event => {
     onChange(index)
@@ -12,10 +12,10 @@ function Item({ active, onChange, register, title, children, renderWrapper: Wrap
   }
 
   return (
-    <Wrapper>
+    <Fragment>
       {React.cloneElement(title, { onClick: handleClick })}
       {active === index && children}
-    </Wrapper>
+    </Fragment>
   )
 }
 /* eslint-enable react/prop-types */
@@ -33,12 +33,7 @@ class AccordionItem extends PureComponent {
     /** @private */
     className: PropTypes.string,
     title: PropTypes.node.isRequired,
-    children: PropTypes.any.isRequired,
-    renderWrapper: PropTypes.func
-  }
-
-  static defaultProps = {
-    renderWrapper: ({ children }) => <div>{children}</div>
+    children: PropTypes.any.isRequired
   }
 
   render() {

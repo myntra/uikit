@@ -71,9 +71,3 @@ it('should work without props', done => {
     done()
   }, 360)
 })
-
-it('should enforce onChange prop when active prop is used', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  prepareForTest({ active: 1 })
-  expect(spy).toHaveBeenCalledWith(expect.stringContaining('`onChange` prop is required'))
-})

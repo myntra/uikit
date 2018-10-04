@@ -33,20 +33,18 @@ class Accordion extends PureComponent {
     active: PropTypes.number,
     /** Event fired when active child changes */
     onChange: PropTypes.func,
-    children: PropTypes.arrayOf(PropTypes.node),
-    /** @private  */
-    _validate(props) {
-      if ('active' in props && !('onChange' in props)) {
-        throw new Error('`onChange` prop is required when using `active` props')
-      }
-    }
+    children: PropTypes.arrayOf(PropTypes.node)
+  }
+
+  static defaultProps = {
+    active: 0
   }
 
   constructor(props) {
     super(props)
 
     this.state = {
-      active: 0
+      active: props.active
     }
 
     this.itemsCount = 0
@@ -71,7 +69,7 @@ class Accordion extends PureComponent {
   }
 
   render() {
-    const active = typeof this.props.active === 'number' ? this.props.active : this.state.active
+    const active = typeof this.props.onChange === 'function' ? this.props.active : this.state.active
 
     return (
       <Provider value={{ active, onChange: this.handleClick, register: this.register }}>{this.props.children}</Provider>
