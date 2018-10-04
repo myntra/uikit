@@ -6,6 +6,19 @@ import Row from './TableRow'
 import Cell from './TableCell'
 
 import styles from './Table.module.css'
+import Sentinel from './Sentinel'
+
+/* eslint-disable react/prop-types */
+const WithSentinel = /* istanbul ignore next: trivial style generation code (difficult to test). */ ({ children }) => (
+  <Sentinel
+    className={classnames('sentinel').use(styles)}
+    transform={({ height }) => ({ marginTop: '-' + (parseFloat(height) - 1) + 'px' })}
+    transformSentinel={({ height }) => ({ height: parseFloat(height) - 2 + 'px' })}
+  >
+    {children}
+  </Sentinel>
+)
+/* eslint-enable react/prop-types */
 
 /**
  A simple table.
@@ -23,7 +36,7 @@ function TableSimple({ head, body, layout, className, renderRow: RowWrapper, use
         <Table className={classnames(className, 'table', { fixed: layout === 'fixed' }).use(styles)}>
           <Thead className={classnames('thead').use(styles)}>
             {head.rows.map(row => (
-              <RowWrapper key={row.id}>
+              <RowWrapper key={row.id} head>
                 <Row useDiv={useDiv}>
                   {row.columns.map(({ children, key, ...props }) => (
                     <Cell {...props} head key={key} useDiv={useDiv}>
@@ -36,7 +49,7 @@ function TableSimple({ head, body, layout, className, renderRow: RowWrapper, use
           </Thead>
           <Tbody className={classnames('tbody').use(styles)}>
             {body.rows.map(row => (
-              <RowWrapper key={row.id}>
+              <RowWrapper key={row.id} data={row.data} index={row.index} WithSentinel={WithSentinel}>
                 <Row useDiv={useDiv}>
                   {row.columns.map(({ children, key, ...props }) => (
                     <Cell key={key} {...props} useDiv={useDiv}>
@@ -61,6 +74,12 @@ TableSimple.propTypes = {
   renderRow: PropTypes.func,
   /** Render div with display table. */
   useDiv: PropTypes.bool
+}
+
+TableSimple.defaultProps = {
+  renderRow({ children }) {
+    return React.Children.only(children)
+  }
 }
 
 export default TableSimple

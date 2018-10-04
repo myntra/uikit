@@ -92,6 +92,8 @@ function prepareCellProps({ rowSpan, colSpan, transformProps, ...props }) {
 export function prepareBody(head, data, id) {
   return {
     rows: data.map((row, index) => ({
+      index,
+      data: row,
       id: id(row, index),
       columns: head.order.map(column => ({
         ...prepareCellProps(column.props),

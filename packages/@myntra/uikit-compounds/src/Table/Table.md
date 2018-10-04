@@ -52,3 +52,30 @@
   <Table.Column label="New Visits" key="visitsNew" accessor={({ visits }) => visits / 2} />
 </Table>
 ```
+
+### Collapsible Rows
+
+``` jsx render editor
+<Accordion active={null}>
+  <Table
+    data={[
+      { id: 1, name: 'Jane Doe' },
+      { id: 2, name: 'John Doe' },
+    ]}
+    useDiv
+    renderRow={({ children, index, data, head, WithSentinel }) => (
+      head ? children :
+      <Accordion.Item title={children} renderWrapper={({ children }) => [children]}>
+        <WithSentinel>
+          <p style={{ padding: '16px' }}>
+            I am {data && data.name} at position {index}.
+          </p>
+        </WithSentinel>
+      </Accordion.Item>
+    )}
+  >
+    <Table.Column label="ID" key="id" />
+    <Table.Column label="Name" key="name" />
+  </Table>
+</Accordion>
+```

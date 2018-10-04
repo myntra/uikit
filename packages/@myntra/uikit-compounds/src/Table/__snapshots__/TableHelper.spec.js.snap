@@ -636,7 +636,14 @@ Object {
           "key": "content",
         },
       ],
+      "data": Object {
+        "content": "foo",
+        "firstName": "John",
+        "id": 1,
+        "lastName": "Doe",
+      },
       "id": 0,
+      "index": 0,
     },
   ],
 }

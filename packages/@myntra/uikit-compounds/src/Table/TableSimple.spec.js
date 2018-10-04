@@ -22,7 +22,6 @@ function prepareForTest(props) {
           }
         ]
       }}
-      renderRow={({ children }) => children}
       {...props}
     />
   )
@@ -32,4 +31,17 @@ it('should render correctly', () => {
   const wrapper = prepareForTest()
 
   expect(wrapper).toMatchSnapshot()
+})
+
+it('should use div', () => {
+  const wrapper = prepareForTest({ useDiv: true })
+
+  expect(wrapper).toMatchSnapshot()
+})
+
+it('should use custom row renderer', () => {
+  const spy = jest.fn().mockImplementation(({ children, WithSentinel }) => children)
+  prepareForTest({ useDiv: true, renderRow: spy })
+
+  expect(spy).toBeCalledTimes(2)
 })

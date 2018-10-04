@@ -37,7 +37,14 @@ exports[`should render correctly 1`] = `
                 "key": "content",
               },
             ],
+            "data": Object {
+              "content": "foo",
+              "firstName": "John",
+              "id": 1,
+              "lastName": "Doe",
+            },
             "id": 0,
+            "index": 0,
           },
         ],
       }
@@ -193,6 +200,7 @@ exports[`should render correctly 1`] = `
             className="thead"
           >
             <renderRow
+              head={true}
               key="0"
             >
               <Row>
@@ -249,6 +257,16 @@ exports[`should render correctly 1`] = `
             className="tbody"
           >
             <renderRow
+              WithSentinel={[Function]}
+              data={
+                Object {
+                  "content": "foo",
+                  "firstName": "John",
+                  "id": 1,
+                  "lastName": "Doe",
+                }
+              }
+              index={0}
               key="0"
             >
               <Row>
@@ -381,7 +399,14 @@ exports[`should render reverse sorted rows 1`] = `
                   "key": "content",
                 },
               ],
+              "data": Object {
+                "content": "baz",
+                "firstName": "Jane",
+                "id": 3,
+                "lastName": "Do",
+              },
               "id": 0,
+              "index": 0,
             },
             Object {
               "columns": Array [
@@ -400,7 +425,14 @@ exports[`should render reverse sorted rows 1`] = `
                   "key": "content",
                 },
               ],
+              "data": Object {
+                "content": "bar",
+                "firstName": "Jane",
+                "id": 2,
+                "lastName": "Doe",
+              },
               "id": 1,
+              "index": 1,
             },
             Object {
               "columns": Array [
@@ -419,7 +451,14 @@ exports[`should render reverse sorted rows 1`] = `
                   "key": "content",
                 },
               ],
+              "data": Object {
+                "content": "foo",
+                "firstName": "John",
+                "id": 1,
+                "lastName": "Doe",
+              },
               "id": 2,
+              "index": 2,
             },
           ],
         }
@@ -587,6 +626,7 @@ exports[`should render reverse sorted rows 1`] = `
               className="thead"
             >
               <renderRow
+                head={true}
                 key="0"
               >
                 <Row>
@@ -643,6 +683,16 @@ exports[`should render reverse sorted rows 1`] = `
               className="tbody"
             >
               <renderRow
+                WithSentinel={[Function]}
+                data={
+                  Object {
+                    "content": "baz",
+                    "firstName": "Jane",
+                    "id": 3,
+                    "lastName": "Do",
+                  }
+                }
+                index={0}
                 key="0"
               >
                 <Row>
@@ -682,6 +732,16 @@ exports[`should render reverse sorted rows 1`] = `
                 </Row>
               </renderRow>
               <renderRow
+                WithSentinel={[Function]}
+                data={
+                  Object {
+                    "content": "bar",
+                    "firstName": "Jane",
+                    "id": 2,
+                    "lastName": "Doe",
+                  }
+                }
+                index={1}
                 key="1"
               >
                 <Row>
@@ -721,6 +781,16 @@ exports[`should render reverse sorted rows 1`] = `
                 </Row>
               </renderRow>
               <renderRow
+                WithSentinel={[Function]}
+                data={
+                  Object {
+                    "content": "foo",
+                    "firstName": "John",
+                    "id": 1,
+                    "lastName": "Doe",
+                  }
+                }
+                index={2}
                 key="2"
               >
                 <Row>
@@ -835,7 +905,14 @@ exports[`should render sorted rows 1`] = `
                   "key": "content",
                 },
               ],
+              "data": Object {
+                "content": "foo",
+                "firstName": "John",
+                "id": 1,
+                "lastName": "Doe",
+              },
               "id": 0,
+              "index": 0,
             },
             Object {
               "columns": Array [
@@ -854,7 +931,14 @@ exports[`should render sorted rows 1`] = `
                   "key": "content",
                 },
               ],
+              "data": Object {
+                "content": "foo",
+                "firstName": "Jane",
+                "id": 2,
+                "lastName": "Doe",
+              },
               "id": 1,
+              "index": 1,
             },
           ],
         }
@@ -1016,6 +1100,7 @@ exports[`should render sorted rows 1`] = `
               className="thead"
             >
               <renderRow
+                head={true}
                 key="0"
               >
                 <Row>
@@ -1072,6 +1157,16 @@ exports[`should render sorted rows 1`] = `
               className="tbody"
             >
               <renderRow
+                WithSentinel={[Function]}
+                data={
+                  Object {
+                    "content": "foo",
+                    "firstName": "John",
+                    "id": 1,
+                    "lastName": "Doe",
+                  }
+                }
+                index={0}
                 key="0"
               >
                 <Row>
@@ -1111,6 +1206,16 @@ exports[`should render sorted rows 1`] = `
                 </Row>
               </renderRow>
               <renderRow
+                WithSentinel={[Function]}
+                data={
+                  Object {
+                    "content": "foo",
+                    "firstName": "Jane",
+                    "id": 2,
+                    "lastName": "Doe",
+                  }
+                }
+                index={1}
                 key="1"
               >
                 <Row>
