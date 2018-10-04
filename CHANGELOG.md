@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.1"></a>
+# [0.5.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.0...v0.5.0-alpha.1) (2018-10-04)
+
+
+### Bug Fixes
+
+* **compounds | Accordion:** Use Fragment to render accordion title & children ([9986eba](https://bitbucket.org/myntra/uikit/commits/9986eba))
+
+
+### Features
+
+* **compounds | Table:** Helper component `WithSentinel` to render custom content with row ([3d980c6](https://bitbucket.org/myntra/uikit/commits/3d980c6))
+
+
+
 <a name="0.5.0-alpha.0"></a>
 # [0.5.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.4.0...v0.5.0-alpha.0) (2018-10-03)
 
