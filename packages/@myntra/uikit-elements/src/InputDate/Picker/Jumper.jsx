@@ -50,7 +50,7 @@ class Jumper extends PureComponent {
     return (
       <div {...props} className={classnames(className, 'jumper').use(styles)}>
         {hasPrev ? (
-          <div className={classnames('prev').use(styles)} role="button" onClick={this.handlePrev}>
+          <div className={classnames('prev').use(styles)} role="button" tabIndex={-1} onClick={this.handlePrev}>
             <Icon name="chevron-left" />
           </div>
         ) : (
@@ -63,7 +63,7 @@ class Jumper extends PureComponent {
         />
         <SelectYear className={classnames('select').use(styles)} year={year} onYearSelect={this.handleYearSelect} />
         {hasNext ? (
-          <div className={classnames('next').use(styles)} role="button" onClick={this.handleNext}>
+          <div className={classnames('next').use(styles)} role="button" tabIndex={-1} onClick={this.handleNext}>
             <Icon name="chevron-right" />
           </div>
         ) : (

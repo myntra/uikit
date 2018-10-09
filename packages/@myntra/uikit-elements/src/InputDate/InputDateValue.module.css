@@ -17,7 +17,7 @@
   cursor: pointer;
   position: absolute;
   right: var(--size-xx-small);
-  bottom: var(--size-xx-small);
+  bottom: var(--size-x-small);
 }
 
 .date-value-active input {

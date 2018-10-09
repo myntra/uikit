@@ -15,7 +15,7 @@ function SelectYear({ year, onYearSelect, ...props }) {
 
   return (
     <div {...props}>
-      <select value={year} onChange={event => onYearSelect(Number(event.target.value))}>
+      <select value={year} tabIndex={-1} onChange={event => onYearSelect(Number(event.target.value))}>
         {yearArray.map(item => (
           <option value={item} key={item}>
             {item}

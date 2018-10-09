@@ -147,7 +147,7 @@ class InputDateValue extends PureComponent {
               this.props.value.to && (
                 <Icon
                   className={classnames('icon').use(styles)}
-                  name="cross"
+                  name="times"
                   title="Clear date"
                   onClick={this.handleToClear}
                 />

@@ -69,6 +69,8 @@ class Preset extends PureComponent {
           .filter(preset => preset.range === undefined || preset.range === this.props.range)
           .map(preset => (
             <div
+              role="button"
+              tabIndex={-1}
               key={preset.label}
               onClick={() => this.handleChange(preset)}
               className={classnames('preset', { active: this.isActive(preset) }).use(styles)}
