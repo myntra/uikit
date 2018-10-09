@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loader renders inline loader 1`] = `
+<Loader
+  type="inline"
+>
+  <div
+    className="loader inline"
+  >
+    <div
+      className="spinner"
+    >
+      <div />
+      <div />
+      <div />
+    </div>
+  </div>
+</Loader>
+`;
