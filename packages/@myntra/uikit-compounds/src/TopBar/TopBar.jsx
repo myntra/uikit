@@ -62,7 +62,7 @@ function TopBar({ title, children }) {
 
 TopBar.propTypes = {
   /** App title */
-  title: PropTypes.string.isRequired,
+  title: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
   children: PropTypes.any
 }
 
