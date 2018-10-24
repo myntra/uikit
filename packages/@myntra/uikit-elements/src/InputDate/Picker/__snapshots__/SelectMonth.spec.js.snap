@@ -6,6 +6,7 @@ exports[`render should render 1`] = `
 >
   <select
     onChange={[Function]}
+    tabIndex={-1}
     value={5}
   >
     <option

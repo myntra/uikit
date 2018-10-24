@@ -6,6 +6,7 @@ exports[`render should render 0 year 1`] = `
 >
   <select
     onChange={[Function]}
+    tabIndex={-1}
     value={2}
   >
     <option
@@ -138,6 +139,7 @@ exports[`render should render 1`] = `
 >
   <select
     onChange={[Function]}
+    tabIndex={-1}
     value={2018}
   >
     <option

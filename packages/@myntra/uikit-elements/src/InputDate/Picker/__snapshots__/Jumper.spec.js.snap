@@ -31,6 +31,7 @@ exports[`render should render next/prev 1`] = `
     className="prev"
     onClick={[Function]}
     role="button"
+    tabIndex={-1}
   >
     <Icon
       name="chevron-left"
@@ -50,6 +51,7 @@ exports[`render should render next/prev 1`] = `
     className="next"
     onClick={[Function]}
     role="button"
+    tabIndex={-1}
   >
     <Icon
       name="chevron-right"
