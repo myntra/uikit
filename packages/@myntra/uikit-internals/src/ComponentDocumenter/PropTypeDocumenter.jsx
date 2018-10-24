@@ -10,13 +10,14 @@ function JSDocTypeDefDocumenter({ reference, rootReference, type, name }) {
       const returns = reference.find(it => it.title === 'returns') || { type: null }
       return (
         <span>
-          function({params.map((param, index) => (
+          function(
+          {params.map((param, index) => (
             <span key={param.name}>
               {param.name}: <JSDocTypeDocumenter {...param.type} rootReference={rootReference} />
               {index + 1 < params.length && <span>, </span>}
             </span>
-          ))}):{' '}
-          <JSDocTypeDocumenter type="NameExpression" name="void" {...returns.type} rootReference={rootReference} />
+          ))}
+          ): <JSDocTypeDocumenter type="NameExpression" name="void" {...returns.type} rootReference={rootReference} />
         </span>
       )
     }
@@ -143,7 +144,8 @@ export default function PropTypeDocumenter({ name, value, raw, meta = [], refere
     case 'arrayOf':
       return (
         <span>
-          Array{'<'}
+          Array
+          {'<'}
           <PropTypeDocumenter {...value} reference={reference} />
           {'>'}
         </span>
@@ -180,12 +182,14 @@ export default function PropTypeDocumenter({ name, value, raw, meta = [], refere
         </span>
       ) : (
         <span>
-          function({params.map((param, index) => (
+          function(
+          {params.map((param, index) => (
             <span key={param.name}>
               {param.name}: <JSDocTypeDocumenter {...param.type} rootReference={reference} />
               {index + 1 < params.length && <span>, </span>}
             </span>
-          ))}): <JSDocTypeDocumenter type="NameExpression" name="void" {...returns.type} rootReference={reference} />
+          ))}
+          ): <JSDocTypeDocumenter type="NameExpression" name="void" {...returns.type} rootReference={reference} />
         </span>
       )
     }

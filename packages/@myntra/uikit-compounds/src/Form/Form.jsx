@@ -1,6 +1,6 @@
 import React from 'react'
 import { classnames } from '@myntra/uikit-utils'
-import { Grid } from '../index.js'
+import { Grid } from '..'
 import PropTypes from 'prop-types'
 import {
   InputText,
@@ -89,9 +89,7 @@ Form.propTypes = {
   _validate({ children }) {
     let count = 0
     React.Children.forEach(children, child => {
-      if (child.type === Form.Action && child.props.type === 'primary') {
-        count++
-      }
+      if (child && child.type === Form.Action && child.props.type === 'primary') count++
     })
     if (count > 1) {
       throw new Error('Form should contain only one primary action.')

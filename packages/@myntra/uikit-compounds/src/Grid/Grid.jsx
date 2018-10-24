@@ -19,7 +19,18 @@ import GridColumn from './GridColumn'
 </div>
  */
 function Grid(props) {
-  const { className, children, gap, gapless, centered, hcentered, vcentered, multiline, ...forwardedProps } = props
+  const {
+    className,
+    children,
+    gap,
+    gapless,
+    centered,
+    hcentered,
+    vcentered,
+    multiline,
+    allowAnyChild,
+    ...forwardedProps
+  } = props
 
   return (
     <div
@@ -40,7 +51,8 @@ Grid.propTypes = {
   /** @private */
   className: PropTypes.string,
   /** @private */
-  children({ children }) {
+  children({ children, allowAnyChild }) {
+    if (allowAnyChild) return
     React.Children.forEach(children, child => {
       if (child && child.type !== GridColumn) {
         throw new Error('Only Grid.Column component is allowed in Grid.')
@@ -58,7 +70,9 @@ Grid.propTypes = {
   /** Horizontally center columns */
   hcentered: PropTypes.bool,
   /** Vertically center columns */
-  vcentered: PropTypes.bool
+  vcentered: PropTypes.bool,
+  /** @private */
+  allowAnyChild: PropTypes.bool
 }
 
 // Export `GridColumn` with `Grid` as they are tightly coupled components.
