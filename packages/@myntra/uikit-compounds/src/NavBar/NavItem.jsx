@@ -33,6 +33,8 @@ export default class NavItem extends React.PureComponent {
     },
     /** url of the nav item */
     href: PropTypes.string,
+    /** @private Depth in tree. */
+    depth: PropTypes.number,
     /** @private Menu is expanded */
     open: PropTypes.bool,
     /** @private Handler to open Menu */
@@ -102,11 +104,14 @@ export default class NavItem extends React.PureComponent {
         <ItemComponent href={href}>
           <div
             onClick={this.handleClick}
-            className={classnames('item', { active: isMenuActive || this.active, 'is-menu': isMenu, collapsed }).use(
-              styles
-            )}
+            className={classnames('item', {
+              active: isMenuActive || this.active,
+              'is-menu': isMenu,
+              collapsed,
+              deep: this.props.depth > 1
+            }).use(styles)}
           >
-            {icon || typeof title === 'string' ? (
+            {icon || (this.props.depth === 1 && typeof title === 'string') ? (
               <div className={classnames('icon').use(styles)}>
                 {icon ? <Icon name={icon} /> : <Avatar name={title} currentColor />}
               </div>
@@ -118,9 +123,10 @@ export default class NavItem extends React.PureComponent {
         </ItemComponent>
         {isMenu && (
           <ul hidden={!open || collapsed} className={classnames('menu').use(styles)}>
-            {React.Children.map(children, (navItem, i) => {
-              return React.cloneElement(navItem, {
+            {React.Children.map(children, (child, i) => {
+              return React.cloneElement(child, {
                 key: `menu-item-${i}`,
+                depth: this.props.depth + 1,
                 onSelect: this.props.onSelect,
                 match: this.props.match,
                 currentPath: this.props.currentPath,

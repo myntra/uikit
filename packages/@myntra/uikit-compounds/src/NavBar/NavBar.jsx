@@ -87,7 +87,7 @@ class NavBar extends React.PureComponent {
   }
 
   handleMouseLeave = () => {
-    this.props.expand === 'auto' && this.setState({ collapsed: true })
+    this.props.expand === 'auto' && this.setState({ collapsed: true, expandedMenu: -1 })
   }
 
   handleClick = () => {
@@ -130,12 +130,13 @@ class NavBar extends React.PureComponent {
           </div>
         </div>
         <ul className={classnames('menu').use(styles)}>
-          {React.Children.map(children, (navOption, i) => {
-            return React.cloneElement(navOption, {
-              key: i,
-              optionIndex: i,
+          {React.Children.map(children, (child, index) => {
+            return React.cloneElement(child, {
+              key: index,
+              depth: 1,
+              optionIndex: index,
               onOpen: this.handleMenuOpen,
-              open: this.state.expandedMenu === i,
+              open: this.state.expandedMenu === index,
               currentPath: currentPath,
               onSelect: this.handleOptionSelect,
               collapsed,

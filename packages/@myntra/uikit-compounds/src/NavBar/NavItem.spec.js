@@ -133,6 +133,7 @@ describe('NavBar Menu', () => {
     ).toEqual({
       title: 'Item1',
       icon: 'alert',
+      depth: NaN,
       href: 'abc',
       onSelect: handleSelect,
       match,
@@ -199,7 +200,7 @@ describe('NavBar Menu', () => {
   })
 
   it('should only render NavItem', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => null)
     mount(
       <NavItem>
         <div />

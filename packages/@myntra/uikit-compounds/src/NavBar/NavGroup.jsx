@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { classnames } from '@myntra/uikit-utils'
 import styles from './NavGroup.module.css'
 import NavItem from './NavItem'
+import { Icon } from '@myntra/uikit-elements'
 
 /**
  Component for Navigation Separator Head
@@ -32,8 +33,8 @@ export default class NavGroup extends React.PureComponent {
     const { title, children, collapsed, ...props } = this.props
     return (
       <li className={classnames('group', { collapsed }).use(styles)}>
-        <div className={classnames('title').use(styles)}>{collapsed ? null : title}</div>
-        <ul className={classnames('items').use(styles)} hidden={collapsed}>
+        <div className={classnames('title').use(styles)}>{collapsed ? <Icon name="" /> : title}</div>
+        <ul className={classnames('items').use(styles)}>
           {React.Children.map(children, navGroupItem => {
             return React.cloneElement(navGroupItem, { ...props, collapsed })
           })}

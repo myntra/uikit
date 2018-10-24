@@ -7,7 +7,7 @@ describe('NavBar Group', () => {
   it('should render list item with title text', () => {
     const navGroup = mount(<NavGroup title="Group" />)
     navGroup.setProps({
-      children: [<NavItem key="groupitem0" title="GroupItem1" />]
+      children: [<NavItem key="group-item0" title="GroupItem1" />]
     })
     expect(navGroup.find('.group > .title').text()).toEqual('Group')
 
@@ -21,7 +21,7 @@ describe('NavBar Group', () => {
   })
 
   it('should only render NavItem', () => {
-    const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
+    const spy = jest.spyOn(console, 'error').mockImplementation(() => null)
     mount(
       <NavGroup>
         <div />
@@ -29,16 +29,5 @@ describe('NavBar Group', () => {
     )
     expect(spy).toHaveBeenCalledWith(expect.stringContaining('Only NavItem component is allowed inside NavGroup.'))
     spy.mockReset()
-  })
-})
-
-describe('NavBar Group Extra', () => {
-  it('should not display text and items if NavBar is collapsed', () => {
-    const navGroup = mount(<NavGroup collapsed />)
-    navGroup.setProps({
-      children: [<NavItem key="groupitem0" title="GroupItem1" />]
-    })
-    expect(navGroup.find('.group > .title').text()).toEqual('')
-    expect(navGroup.find('.items').props().hidden).toBeTruthy()
   })
 })

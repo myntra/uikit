@@ -35,6 +35,11 @@
   display: flex;
 }
 
+.item.deep {
+  margin-left: 15px;
+  padding-left: var(--relative-size-x-small);
+}
+
 .item.active:not(.is-menu) {
   background-color: var(--color-accent);
   color: var(--typography-color-light-primary);

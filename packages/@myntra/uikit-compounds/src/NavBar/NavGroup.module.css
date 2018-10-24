@@ -24,17 +24,3 @@
   padding: var(--size-x-small);
   color: rgba(0, 0, 0, 0.35);
 }
-
-.group.collapsed .title {
-  border-top: solid var(--size-xx-small) var(--color-gray-light);
-  width: var(--size-small);
-  margin: var(--size-base);
-  padding: 0;
-}
-
-.group.collapsed .title:empty {
-  border-top: solid 3px var(--color-gray-base);
-  border-bottom: solid 2px var(--color-gray-base);
-  height: var(--size-x-small);
-  width: var(--size-base);
-}
