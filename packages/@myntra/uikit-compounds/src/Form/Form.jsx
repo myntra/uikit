@@ -71,6 +71,7 @@ function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
       <Grid multiline>
         {React.Children.map(children, field => {
           return (
+            field &&
             field.type !== Form.Action && (
               <Grid.Column size={field.props.fieldSize || defaultFieldSize}>{field}</Grid.Column>
             )
@@ -78,7 +79,7 @@ function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
         })}
       </Grid>
       <div className={classnames('form-actions').use(styles)}>
-        {React.Children.map(children, field => field.type === FormAction && field)}
+        {React.Children.map(children, field => field && field.type === FormAction)}
       </div>
     </form>
   )
