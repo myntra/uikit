@@ -43,11 +43,13 @@ describe('Input Select', () => {
 
   it('should open Selector menu on focus', done => {
     const select = mountSelect()
-    select
+    const input = select
       .find(InputSelectControl)
       .find('input')
-      .at(1)
-      .simulate('focus')
+      .at(0)
+
+    input.simulate('focus')
+
     expect(select.state('isOpen')).toBeTruthy()
     done()
   })
@@ -75,11 +77,12 @@ describe('Input Select', () => {
 
   it('should set search value on change to InputSearch', done => {
     const select = mountSelect()
-    select
+    const input = select
       .find(InputSelectControl)
       .find('input')
-      .last()
-      .simulate('change', { target: { value: 'T' } })
+      .at(0)
+
+    input.simulate('change', { target: { value: 'T' } })
     expect(select.state('searchValue')).toBe('T')
     expect(select.state('filteredOptions')).toEqual([{ label: 'Two', value: 2 }])
     done()

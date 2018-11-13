@@ -27,7 +27,6 @@ export default class InputSelectControl extends PureComponent {
 
     return (
       <div className={classnames('control').use(styles)} onClick={onClick}>
-        {props.value ? null : slotValue}
         <input
           {...props}
           onBlur={this.delayedBlur}
@@ -41,6 +40,7 @@ export default class InputSelectControl extends PureComponent {
           aria-controls={`${instancePrefix}-options`}
           aria-owns={`${instancePrefix}-options`}
         />
+        {props.value ? null : slotValue}
         <div className={classnames('buttons').use(styles)}>{children}</div>
       </div>
     )

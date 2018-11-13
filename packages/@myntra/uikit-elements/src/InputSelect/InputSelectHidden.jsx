@@ -18,7 +18,9 @@ export default class InputSelectHidden extends PureComponent {
         multiple={this.props.values.length > 1}
         value={this.props.values.length > 1 ? this.props.values : this.props.values[0]}
       >
-        {this.props.values.map(value => <option key={value} value={toString(value)} />)}
+        {this.props.values.map(value => (
+          <option key={value} value={toString(value)} />
+        ))}
       </select>
     )
   }
