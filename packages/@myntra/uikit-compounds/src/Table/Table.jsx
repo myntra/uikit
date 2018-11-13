@@ -58,7 +58,7 @@ class Table extends PureComponent {
     /** @private */
     _validateChildren({ children }) {
       React.Children.forEach(children, child => {
-        if (child.type !== Table.Column) {
+        if (child && child.type !== Table.Column) {
           throw new Error('Only Table.Column component can be used as child of Table.')
         }
       })
@@ -76,7 +76,7 @@ class Table extends PureComponent {
     renderRow: ({ children }) => React.Children.only(children)
   }
 
-  prepareHead = memoize((children, order) => prepareHead(children, order))
+  prepareHead = memoize((children, order) => prepareHead(children.filter(Boolean), order))
   prepareBody = memoize((head, data, rowKey) => prepareBody(head, data, rowKey))
   prepareSort = memoize(sort => sort.map(column => (typeof column === 'string' ? { column, order: 'ASC' } : column)))
 
