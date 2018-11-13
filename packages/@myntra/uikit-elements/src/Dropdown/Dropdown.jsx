@@ -151,7 +151,7 @@ class Dropdown extends Component {
 
   positionContent() {
     if (this.props.auto || this.props.container) {
-      setTimeout(() => this.setState(this.calculateAutoPosition(this.triggerRef.current, document.body)), 16)
+      setTimeout(() => this.setState(this.calculateAutoPosition(this.triggerRef.current, document.body)), 1)
     }
   }
 
@@ -261,7 +261,12 @@ class Dropdown extends Component {
         {this.props.isOpen &&
           (this.props.container ? (
             <Portal container={this.props.container}>
-              <div className={classnames('content').use(styles)} style={position} ref={this.wrapperRef}>
+              <div
+                className={classnames('content').use(styles)}
+                style={position}
+                ref={this.wrapperRef}
+                hidden={!position}
+              >
                 <Measure bounds onMeasure={this.handleMeasure}>
                   <div className={classnames('content-wrapper').use(styles)} style={position && position.content}>
                     {this.props.children}

@@ -32,7 +32,7 @@ class Portal extends PureComponent {
   static isReact16 = typeof ReactDOM.createPortal === 'function'
   static propTypes = {
     /** Attach child to specific component/element */
-    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]).isRequired, // eslint-disable-line no-undef
+    container: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.instanceOf(HTMLElement)]).isRequired, // eslint-disable-line no-undef
     /** React child component */
     children: PropTypes.element.isRequired,
     /** Wrapper <div> */
@@ -50,9 +50,11 @@ class Portal extends PureComponent {
   }
 
   get container() {
-    return typeof this.props.container === 'string'
-      ? document.querySelector(this.props.container)
-      : this.props.container
+    return this.props.container === true
+      ? document.body
+      : typeof this.props.container === 'string'
+        ? document.querySelector(this.props.container)
+        : this.props.container
   }
 
   componentDidMount() {
