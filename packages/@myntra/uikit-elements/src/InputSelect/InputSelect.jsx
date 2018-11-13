@@ -332,6 +332,7 @@ export default class InputSelect extends Component {
       <Dropdown
         left
         right
+        container
         className={classnames('select', { disabled: this.props.disabled }).use(styles)}
         isOpen={this.state.isOpen}
         onOpen={this.handleOpen}
