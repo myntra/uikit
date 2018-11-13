@@ -10,6 +10,10 @@
   z-index: var(--z-index-dropdown, 1000);
 }
 
+.content-wrapper {
+  display: inline-block;
+}
+
 .dropdown > .content {
   height: 0;
 }

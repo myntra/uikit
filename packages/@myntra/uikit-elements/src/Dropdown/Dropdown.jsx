@@ -33,7 +33,7 @@ class Dropdown extends Component {
     /** Trigger to open dropdown. */
     trigger: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]).isRequired,
     /** Attach child to specific component/element */
-    container: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(HTMLElement)]), // eslint-disable-line no-undef
+    container: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.instanceOf(HTMLElement)]), // eslint-disable-line no-undef
     /** Dropdown state */
     isOpen: PropTypes.bool.isRequired,
     /**
@@ -86,13 +86,20 @@ class Dropdown extends Component {
       left: false,
       right: false,
       height: props.approxContentHeight,
-      width: props.approxContentWidth
+      width: props.approxContentWidth,
+      position: null
     }
-    this.wrapper =
+    this.wrapperRef =
       typeof React.createRef === 'function'
         ? React.createRef()
         : ref => {
-            this.wrapper.current = ref
+            this.wrapperRef.current = ref
+          }
+    this.triggerRef =
+      typeof React.createRef === 'function'
+        ? React.createRef()
+        : ref => {
+            this.triggerRef.current = ref
           }
   }
 
@@ -143,8 +150,8 @@ class Dropdown extends Component {
   }
 
   positionContent() {
-    if (this.props.auto) {
-      setTimeout(() => this.setState(this.calculateAutoPosition(this.wrapper.current, document.body)), 10)
+    if (this.props.auto || this.props.container) {
+      setTimeout(() => this.setState(this.calculateAutoPosition(this.triggerRef.current, document.body)), 16)
     }
   }
 
@@ -168,7 +175,7 @@ class Dropdown extends Component {
   }
 
   handleMeasure = ({ bounds: { width, height } }) => {
-    if (this.state.width !== width || this.state.height !== height) {
+    if ((width && height && this.state.width !== width) || this.state.height !== height) {
       this.setState({ width, height })
       this.positionContent()
     }
@@ -186,28 +193,65 @@ class Dropdown extends Component {
     const reference = parent.getBoundingClientRect()
 
     const { height, width } = this.state
+    const { auto } = this.props
 
-    const maxWidth = reference.right
-    const maxHeight = reference.bottom
+    const maxWidth = reference.width
+    const maxHeight = reference.height
 
     // Choose:
-    const up = target.bottom + height >= maxHeight && target.top - height > 0
-    const left = target.left + width < maxWidth
-    const right = target.right - width > 0
+    const up = auto ? target.bottom + height >= maxHeight && target.top - height > 0 : this.props.up
+    const left = auto ? target.left + width < maxWidth : this.props.left
+    const right = auto ? (left ? false : target.right - width > 0) : this.props.right
 
-    return { up, left, right: left ? false : right }
+    // Absolute position when using portal.
+    if (this.props.container) {
+      const trigger = this.triggerRef.current
+      const rect = trigger.getBoundingClientRect()
+
+      const position = { top: rect.top, left: rect.left }
+      let el = trigger
+      while (el) {
+        if (el.scrollTop) {
+          position.top += el.scrollTop
+        }
+        if (el.scrollLeft) {
+          position.left += el.scrollLeft
+        }
+
+        el = el.parentElement
+      }
+
+      if (up) {
+        position.top -= height
+      } else {
+        position.top += rect.height
+      }
+
+      if (right && left) {
+        position.right = position.left + rect.width
+        position.content = { width: rect.width }
+      } else if (right) {
+        position.left += rect.width - width
+      }
+
+      return { up, left, right, position }
+    }
+
+    return { up, left, right }
   }
 
   render() {
     const { up, left, right } = this.props.auto ? this.state : this.props
+    const { position } = this.state
 
     return (
       <div
         {...this.forwardedProps}
-        className={classnames(this.props.className, 'dropdown', { open: this.props.isOpen }).use(styles)}
-        ref={this.wrapper}
+        className={classnames(this.props.className, 'dropdown', {
+          open: this.props.isOpen
+        }).use(styles)}
       >
-        <div className={classnames('trigger').use(styles)}>
+        <div className={classnames('trigger').use(styles)} ref={this.triggerRef}>
           {typeof this.props.trigger === 'string' ? (
             <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
           ) : (
@@ -217,20 +261,23 @@ class Dropdown extends Component {
         {this.props.isOpen &&
           (this.props.container ? (
             <Portal container={this.props.container}>
-              <Measure bounds onMeasure={this.handleMeasure}>
-                <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
-                  {this.props.children}
-                </div>
-              </Measure>
+              <div className={classnames('content').use(styles)} style={position} ref={this.wrapperRef}>
+                <Measure bounds onMeasure={this.handleMeasure}>
+                  <div className={classnames('content-wrapper').use(styles)} style={position && position.content}>
+                    {this.props.children}
+                  </div>
+                </Measure>
+              </div>
             </Portal>
           ) : (
             <Measure bounds onMeasure={this.handleMeasure}>
-              <div className={classnames('content', { up, left, right }).use(styles)} ref={this.content}>
+              <div className={classnames('content', { up, left, right }).use(styles)} ref={this.wrapperRef}>
                 {this.props.children}
               </div>
             </Measure>
           ))}
-        {this.props.useClickAway && this.props.isOpen && <ClickAway target={this.wrapper} onClickAway={this.close} />}
+        {this.props.useClickAway &&
+          this.props.isOpen && <ClickAway target={this.wrapperRef} onClickAway={this.close} />}
       </div>
     )
   }
