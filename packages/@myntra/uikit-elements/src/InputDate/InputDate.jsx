@@ -168,6 +168,7 @@ export default class InputDate extends PureComponent {
     return (
       <Dropdown
         auto
+        container
         ref={this.dropdownRef}
         className={classnames(this.props.className, 'input-date').use(styles)}
         isOpen={this.state.isOpen}

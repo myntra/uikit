@@ -66,6 +66,11 @@ class InputDateValue extends PureComponent {
     return this.props.format.toUpperCase().replace(/[^YMD]+/g, match => `"${match}"`)
   }
 
+  componentDidUpdate(oldProps) {
+    this.ignoreNextFocusEvent = oldProps.active !== this.props.active
+    setTimeout(() => (this.ignoreNextFocusEvent = false), 100)
+  }
+
   handleFromChange = value => this.handleChange(value, 'from')
   handleToChange = value => this.handleChange(value, 'to')
   handleChange = (value, key) => {
@@ -89,9 +94,12 @@ class InputDateValue extends PureComponent {
    * @public
    */
   handleBlur = () => this.setState({ value: null })
-  handleFromFocus = () => this.handleRangeFocus('from')
-  handleToFocus = () => this.handleRangeFocus('to')
-  handleRangeFocus = value => {
+  handleFromFocus = e => this.handleRangeFocus('from', e)
+  handleToFocus = e => this.handleRangeFocus('to', e)
+  handleRangeFocus = (value, e) => {
+    if (this.ignoreNextFocusEvent) {
+      return
+    }
     this.props.onRangeFocus && this.props.onRangeFocus(value)
     this.props.onFocus && this.props.onFocus()
   }
@@ -115,9 +123,15 @@ class InputDateValue extends PureComponent {
     return (
       <div className={classnames('date-value', { 'date-value-active': this.props.active }).use(styles)}>
         {this.props.range && (
-          <div key="from" className={classnames('wrapper', { active: this.props.active === 'from' }).use(styles)}>
+          <div
+            key="from"
+            className={classnames('wrapper', {
+              active: this.props.active === 'from'
+            }).use(styles)}
+          >
             <InputMasked
               {...props}
+              id="from"
               value={this.value.from}
               onClick={this.handleFromFocus}
               onFocus={this.handleFromFocus}
@@ -135,9 +149,15 @@ class InputDateValue extends PureComponent {
           </div>
         )}
         {this.props.range && (
-          <div key="to" className={classnames('wrapper', { active: this.props.active === 'to' }).use(styles)}>
+          <div
+            key="to"
+            className={classnames('wrapper', {
+              active: this.props.active === 'to'
+            }).use(styles)}
+          >
             <InputMasked
               {...props}
+              id="to"
               value={this.value.to}
               onClick={this.handleToFocus}
               onFocus={this.handleToFocus}
