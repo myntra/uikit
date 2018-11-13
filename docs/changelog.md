@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.3"></a>
+# [0.5.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.2...v0.5.0-alpha.3) (2018-11-13)
+
+
+### Bug Fixes
+
+* **elements | Dropdown:** Use scroll offset to position content correctly ([3df6715](https://bitbucket.org/myntra/uikit/commits/3df6715))
+* **elements | InputDate:** Preserve end date focus after choosing start date ([fe2a752](https://bitbucket.org/myntra/uikit/commits/fe2a752))
+* **elements | InputSelect:** Render options in body portal to prevent any occlusion ([afa135a](https://bitbucket.org/myntra/uikit/commits/afa135a))
+
+
+### Features
+
+* **compounds | Table:** Configure column order ([6a906e9](https://bitbucket.org/myntra/uikit/commits/6a906e9))
+* **elements | Portal:** Render in document.body if container prop is true ([a199c80](https://bitbucket.org/myntra/uikit/commits/a199c80))
+
+
+
 <a name="0.5.0-alpha.2"></a>
 # [0.5.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.1...v0.5.0-alpha.2) (2018-11-13)
 

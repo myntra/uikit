@@ -1,0 +1,54 @@
+button(modifier) {
+  d(name) {
+    lookup('-button--' + modifier + '--' + name);
+  }
+  f(name) {
+    lookup('-button--' + modifier + '__focus--' + name);
+  }
+
+
+}
+
+/// Tier 3
+
+// > Button
+-button--BorderRadius ?= shape--BorderRadius
+-button--LineHeight ?= 1.5
+-button--Color ?= text--Color;
+-button--FontSize ?= text--FontSize;
+// > Primary Button
+-button--primary--Color ?= text--Color;
+-button--primary--FontSize ?= text--FontSize;
+// > Primary Button (focus)
+-button--primary__focus--Color ?= text--Color;
+-button--primary__focus--FontSize ?= text--FontSize;
+
+.button {
+  &.primary {
+    line-height: -button-LineHeight
+    color: -button--primary--Color
+    font-size: -button--primary--FontSize
+
+    &:focus {
+      color: f('Color');
+      font-size: f('FontSize');
+    }
+  }
+  &.secondary {
+    color: d('Color'); // -button--primary--Color
+    font-size: d('FontSize');
+
+    &:focus {
+      color: f('Color');
+      font-size: f('FontSize');
+    }
+  }
+}
+
+/// Tier 2
+
+text--Color: color-red
+
+/// Tier 1
+
+color-red: #f00
