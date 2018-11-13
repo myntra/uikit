@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.4"></a>
+# [0.5.0-alpha.4](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.3...v0.5.0-alpha.4) (2018-11-13)
+
+
+### Bug Fixes
+
+* **compounds | Form:** Allow null children ([7dab0e0](https://bitbucket.org/myntra/uikit/commits/7dab0e0))
+* **compounds | Table:** Allow null children ([aac41e0](https://bitbucket.org/myntra/uikit/commits/aac41e0))
+
+
+
 <a name="0.5.0-alpha.3"></a>
 # [0.5.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.2...v0.5.0-alpha.3) (2018-11-13)
 
