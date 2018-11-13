@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.2"></a>
+# [0.5.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.1...v0.5.0-alpha.2) (2018-11-13)
+
+
+### Bug Fixes
+
+* **InputDate:** Popup picker does not capture keyboard focus ([e752fc2](https://bitbucket.org/myntra/uikit/commits/e752fc2))
+* **InputSelect:** Render hidden select field for browser ([6ac3eb7](https://bitbucket.org/myntra/uikit/commits/6ac3eb7)), closes [#98](https://bitbucket.org/myntra/uikit/issue/98)
+* **NavBar:** Display icon only for top level items ([86f53fb](https://bitbucket.org/myntra/uikit/commits/86f53fb)), closes [#97](https://bitbucket.org/myntra/uikit/issue/97)
+* **TopBar:** Title prop can be react node ([066e740](https://bitbucket.org/myntra/uikit/commits/066e740))
+
+
+### Features
+
+* **elements | Loader:** Add Loader component ([7a5e5c5](https://bitbucket.org/myntra/uikit/commits/7a5e5c5))
+
+
+
 <a name="0.5.0-alpha.1"></a>
 # [0.5.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.0...v0.5.0-alpha.1) (2018-10-04)
 
