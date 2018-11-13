@@ -47,8 +47,11 @@ class Table extends PureComponent {
         PropTypes.shape({ column: PropTypes.string, order: PropTypes.oneOf(['ASC', 'DESC']) })
       ])
     ),
+    /** List of column keys in order they should be displayed */
+    columnOrder: PropTypes.arrayOf(PropTypes.string),
     /** List of `<Table.Column>` components which declares render behaviour */
     children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
+    /** Render prop to customize contents of row */
     renderRow: PropTypes.func,
     /** Render div with display table. */
     useDiv: PropTypes.bool,
@@ -78,7 +81,7 @@ class Table extends PureComponent {
   prepareSort = memoize(sort => sort.map(column => (typeof column === 'string' ? { column, order: 'ASC' } : column)))
 
   get head() {
-    return this.prepareHead(this.props.children, [])
+    return this.prepareHead(this.props.children, this.props.columnOrder)
   }
 
   get sort() {
