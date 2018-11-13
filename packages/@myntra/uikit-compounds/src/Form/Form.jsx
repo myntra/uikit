@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Children } from 'react'
 import { classnames } from '@myntra/uikit-utils'
 import { Grid } from '..'
 import PropTypes from 'prop-types'
@@ -59,6 +59,15 @@ import FormAction from './FormAction'
 </Form>
  */
 function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
+  const fields = []
+  const actions = []
+
+  Children.map(children, child => {
+    if (!child) return
+    if (child.type !== FormAction) fields.push(child)
+    else actions.push(child)
+  })
+
   return (
     <form
       {...props}
@@ -69,18 +78,13 @@ function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
     >
       {title && <div className={classnames('form-title').use(styles)}>{title}</div>}
       <Grid multiline>
-        {React.Children.map(children, field => {
-          return (
-            field &&
-            field.type !== Form.Action && (
-              <Grid.Column size={field.props.fieldSize || defaultFieldSize}>{field}</Grid.Column>
-            )
-          )
-        })}
+        {fields.map((field, index) => (
+          <Grid.Column key={index} size={field.props.fieldSize || defaultFieldSize}>
+            {field}
+          </Grid.Column>
+        ))}
       </Grid>
-      <div className={classnames('form-actions').use(styles)}>
-        {React.Children.map(children, field => field && field.type === FormAction)}
-      </div>
+      <div className={classnames('form-actions').use(styles)}>{actions}</div>
     </form>
   )
 }
@@ -92,6 +96,7 @@ Form.propTypes = {
     React.Children.forEach(children, child => {
       if (child && child.type === Form.Action && child.props.type === 'primary') count++
     })
+
     if (count > 1) {
       throw new Error('Form should contain only one primary action.')
     }

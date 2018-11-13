@@ -88,6 +88,7 @@ describe('Form component', () => {
         .find('FormGroup')
     ).toHaveLength(2)
 
+    console.log(form.find('.form-actions').html())
     expect(form.find('.form-actions').find('Button')).toHaveLength(2)
     expect(
       form
