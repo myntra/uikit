@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-elements",
-  "version": "0.5.0-alpha.6",
+  "version": "0.5.0-alpha.7",
   "description": "@myntra/uikit-elements",
   "main": "src/index.js",
   "module": "dist/uikit-elements.js",
@@ -21,7 +21,7 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/codemod-utils": "0.4.0",
-    "@myntra/tokens": "0.5.0-alpha.6",
+    "@myntra/tokens": "0.5.0-alpha.7",
     "@myntra/uikit-utils": "0.4.0",
     "date-fns": "^2.0.0-alpha.10",
     "dayjs": "^1.6.7",
