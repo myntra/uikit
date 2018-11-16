@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.5"></a>
+# [0.5.0-alpha.5](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.4...v0.5.0-alpha.5) (2018-11-16)
+
+
+### Bug Fixes
+
+* **elements | Portal:** Use theme class from context to preserve current theme ([ba749e5](https://bitbucket.org/myntra/uikit/commits/ba749e5)), closes [#103](https://bitbucket.org/myntra/uikit/issue/103)
+
+
+### Features
+
+* **compounds | Accordion:** Use legacy context API to provide accordion for react 15.x ([8af50d4](https://bitbucket.org/myntra/uikit/commits/8af50d4))
+* **theme | unity:** Add tokens for the unity theme ([4e1c361](https://bitbucket.org/myntra/uikit/commits/4e1c361)), closes [#101](https://bitbucket.org/myntra/uikit/issue/101)
+
+
+
 <a name="0.5.0-alpha.4"></a>
 # [0.5.0-alpha.4](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.3...v0.5.0-alpha.4) (2018-11-13)
 
