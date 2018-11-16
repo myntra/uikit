@@ -150,7 +150,7 @@ relative-size:
   base: 16
   large: 24
 # timing:
-  # -
+# -
 typography:
   heading:
     h1:
@@ -210,4 +210,4 @@ typography:
     link:
       primary: $color.blue.base
 z-index:
-  dropdown: 1000
+  dropdown: 14

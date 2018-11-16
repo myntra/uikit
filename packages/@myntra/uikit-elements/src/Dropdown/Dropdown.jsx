@@ -6,7 +6,42 @@ import ClickAway from '../ClickAway/ClickAway'
 import Button from '../Button/Button'
 
 import styles from './Dropdown.module.css'
-import { Measure, Portal } from '../index.js'
+import { Measure, Portal } from '../index'
+
+const scrollParents = new WeakMap()
+
+function elementHasOverflow(el) {
+  return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth
+}
+
+function elementHasScrollableOverflow(el) {
+  const RE = /auto|scroll/
+  const style = window.getComputedStyle(el, null)
+
+  return RE.test(style.overflow + style.overflowX + style.overflowY)
+}
+
+function findScrollParents(el) {
+  if (scrollParents.has(el)) return scrollParents.get(el)
+
+  const parents = []
+  let current = el.parentElement
+  while (current) {
+    if (elementHasOverflow(current) || elementHasScrollableOverflow(current)) {
+      parents.push(current)
+    }
+
+    current = current.parentElement
+  }
+
+  if (!parents.length) {
+    parents.push(document.scrollingElement || document.documentElement)
+  }
+
+  scrollParents.set(el, parents)
+
+  return parents
+}
 
 /**
  A bare-bones dropdown implementation. It requires a trigger component or text.
@@ -121,6 +156,10 @@ class Dropdown extends Component {
     return this.filterForwardedProps(this.props)
   }
 
+  componentWillUnmount() {
+    this._clearScrollHandler && this._clearScrollHandler() // clean any scroll events.
+  }
+
   /**
    * Ignore consecutive events.
    *
@@ -209,17 +248,6 @@ class Dropdown extends Component {
       const rect = trigger.getBoundingClientRect()
 
       const position = { top: rect.top, left: rect.left }
-      let el = trigger
-      while (el) {
-        if (el.scrollTop) {
-          position.top += el.scrollTop
-        }
-        if (el.scrollLeft) {
-          position.left += el.scrollLeft
-        }
-
-        el = el.parentElement
-      }
 
       if (up) {
         position.top -= height
@@ -233,6 +261,36 @@ class Dropdown extends Component {
       } else if (right) {
         position.left += rect.width - width
       }
+
+      // Register scroll handler.
+      const recomputePosition = () => {
+        const offsetTop = position.top - rect.top
+        const offsetLeft = position.left - rect.left
+        const newRect = trigger.getBoundingClientRect()
+
+        const newPosition = {
+          left: newRect.left + offsetLeft,
+          top: newRect.top + offsetTop
+        }
+
+        if (position.right) {
+          newPosition.right = newPosition.left + newRect.width
+          newPosition.content = {
+            width: newRect.width
+          }
+        }
+
+        this.setState({ position: newPosition })
+      }
+
+      const scrollParents = findScrollParents(trigger)
+
+      // Clear old scroll events.
+      this._clearScrollHandler && this._clearScrollHandler()
+      this._clearScrollHandler = () =>
+        scrollParents.map(scroll => scroll.removeEventListener('scroll', recomputePosition))
+
+      scrollParents.map(scroll => scroll.addEventListener('scroll', recomputePosition, { passive: true }))
 
       return { up, left, right, position }
     }

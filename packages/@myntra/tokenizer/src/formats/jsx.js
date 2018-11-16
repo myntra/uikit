@@ -20,7 +20,7 @@ export default class ThemeProvider extends Component {
   }
 
   render() {
-    return <div className={styles.theme}>{this.props.children}</div>
+    return React.createElement('div', { className: styles.theme }, this.props.children)
   }
 }
 `
