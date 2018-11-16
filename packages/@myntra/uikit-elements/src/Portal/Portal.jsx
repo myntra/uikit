@@ -39,6 +39,10 @@ class Portal extends PureComponent {
     wrapper: PropTypes.instanceOf(HTMLElement) // eslint-disable-line no-undef
   }
 
+  static contextTypes = {
+    theme: PropTypes.string
+  }
+
   constructor(props) {
     super(props)
     this.fallback = document.createElement('div')
@@ -82,6 +86,10 @@ class Portal extends PureComponent {
   }
 
   render() {
+    if (this.context && this.el) {
+      this.el.classList.add(this.context.theme)
+    }
+
     if (Portal.isReact16) {
       return ReactDOM.createPortal(this.props.children, this.el)
     } else if (Portal.isReact15) {
