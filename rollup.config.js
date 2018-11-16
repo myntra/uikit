@@ -51,10 +51,12 @@ function createConfig(output, plugins = []) {
 
   return {
     input: resolve(`src/index.js`),
-    // Global and Browser ESM builds inlines everything so that they can be
     external,
     plugins: [
-      raw({ include: '**/*.svg' }),
+      raw({
+        // Global and Browser ESM builds inlines everything so that they can be
+        include: '**/*.svg'
+      }),
       css({
         include: '**/*.css',
         exclude: '**/*.module.css',
@@ -77,12 +79,24 @@ function createConfig(output, plugins = []) {
           }
         }
       }),
-      extensions({ extensions: ['.jsx'] }),
+      extensions({
+        extensions: ['.jsx']
+      }),
       babel({
         babelrc: false,
         runtimeHelpers: false,
         externalHelpers: true,
-        presets: [['@babel/preset-env', { modules: false }]],
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              modules: false,
+              targets: {
+                esmodules: true
+              }
+            }
+          ]
+        ],
         plugins: [
           '@babel/plugin-proposal-class-properties',
           '@babel/plugin-transform-react-jsx',
