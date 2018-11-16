@@ -2,11 +2,14 @@ import React, { PureComponent, createContext } from 'react'
 import PropTypes from 'prop-types'
 import AccordionItem from './AccordionItem'
 
-const { Provider, Consumer } = createContext({
-  active: 0,
-  onChange: () => {},
-  register: () => {}
-})
+const { Provider, Consumer } = React.createContext
+  ? createContext({
+      active: 0,
+      onChange: () => {},
+      register: () => {},
+      deregister: () => {}
+    })
+  : {}
 
 export { Consumer, Provider }
 
@@ -40,6 +43,10 @@ class Accordion extends PureComponent {
     active: 0
   }
 
+  static childContextTypes = {
+    'UIKit.Accordion': PropTypes.any
+  }
+
   constructor(props) {
     super(props)
 
@@ -49,6 +56,21 @@ class Accordion extends PureComponent {
 
     this.itemsCount = 0
     this.itemsToIndex = new WeakMap()
+  }
+
+  getChildContext() {
+    // if (!createContext)
+    return {
+      'UIKit.Accordion': {
+        active: this.active,
+        onChange: this.handleClick,
+        register: this.register
+      }
+    }
+  }
+
+  get active() {
+    return typeof this.props.onChange === 'function' ? this.props.active : this.state.active
   }
 
   register = item => {
@@ -69,10 +91,16 @@ class Accordion extends PureComponent {
   }
 
   render() {
-    const active = typeof this.props.onChange === 'function' ? this.props.active : this.state.active
+    if (!React.createContext) {
+      const { active, onChange, ...props } = this.props
+
+      return <div {...props} />
+    }
 
     return (
-      <Provider value={{ active, onChange: this.handleClick, register: this.register }}>{this.props.children}</Provider>
+      <Provider value={{ active: this.active, onChange: this.handleClick, register: this.register }}>
+        {this.props.children}
+      </Provider>
     )
   }
 }

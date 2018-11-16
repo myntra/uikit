@@ -1,6 +1,9 @@
-import React, { PureComponent, Fragment } from 'react'
+import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Consumer } from './Accordion'
+
+// eslint-disable-next-line
+const FragmentWithFallback = Fragment || (({ children }) => <div style={{ display: 'contents' }}>{children}</div>)
 
 /* eslint-disable react/prop-types */
 function Item({ active, onChange, register, title, children }) {
@@ -12,10 +15,10 @@ function Item({ active, onChange, register, title, children }) {
   }
 
   return (
-    <Fragment>
+    <FragmentWithFallback>
       {React.cloneElement(title, { onClick: handleClick })}
       {active === index && children}
-    </Fragment>
+    </FragmentWithFallback>
   )
 }
 /* eslint-enable react/prop-types */
@@ -28,7 +31,7 @@ function Item({ active, onChange, register, title, children }) {
   <span>Expanded</span>
  </Accordion.Item>
 */
-class AccordionItem extends PureComponent {
+class AccordionItem extends Component {
   static propTypes = {
     /** @private */
     className: PropTypes.string,
@@ -36,10 +39,24 @@ class AccordionItem extends PureComponent {
     children: PropTypes.any.isRequired
   }
 
+  static contextTypes = {
+    'UIKit.Accordion': PropTypes.any
+  }
+
   render() {
+    if (!React.createContext) {
+      if (!this.context['UIKit.Accordion']) return null
+
+      const { register, ...context } = this.context['UIKit.Accordion']
+
+      return <Item {...this.props} {...context} register={() => register(this)} />
+    }
+
     return (
       <Consumer>
-        {({ register, ...context }) => <Item {...this.props} {...context} register={() => register(this)} />}
+        {({ register, ...context }) => {
+          return <Item {...this.props} {...context} register={() => register(this)} />
+        }}
       </Consumer>
     )
   }

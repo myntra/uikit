@@ -1,9 +1,10 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Measure } from '@myntra/uikit-elements'
 import { classnames } from '@myntra/uikit-utils'
 
-// import styles from './Sentinel.module.css'
+// eslint-disable-next-line
+const FragmentWithFallback = Fragment || (({ children }) => <div style={{ display: 'contents' }}>{children}</div>)
 
 /**
  * A component that renders a sentinel node with same size as the reference node.
@@ -50,14 +51,16 @@ export default class Sentinel extends PureComponent {
   render() {
     const node = React.Children.only(this.props.children)
 
-    return [
-      <div style={this.props.transformSentinel(this.state.size)} key="sentinel" />,
-      <Measure bounds onMeasure={this.handleResize} key="measure">
-        {React.cloneElement(node, {
-          style: { ...node.props.style, ...this.props.transform(this.state.size) },
-          className: classnames(this.props.className, node.props.className)
-        })}
-      </Measure>
-    ]
+    return (
+      <FragmentWithFallback>
+        <div style={this.props.transformSentinel(this.state.size)} key="sentinel" />
+        <Measure bounds onMeasure={this.handleResize} key="measure">
+          {React.cloneElement(node, {
+            style: { ...node.props.style, ...this.props.transform(this.state.size) },
+            className: classnames(this.props.className, node.props.className)
+          })}
+        </Measure>
+      </FragmentWithFallback>
+    )
   }
 }
