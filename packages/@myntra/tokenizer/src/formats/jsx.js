@@ -1,6 +1,6 @@
 module.exports = (content, write) =>
   write(
-    `import React from 'react'
+    `import React, { Component } from 'react'
 import styles from './tokens.module.css'
 
 // eslint-disable-next-line react/prop-types
@@ -8,7 +8,7 @@ import styles from './tokens.module.css'
  * @since 0.3.0
  * @status READY
  */
-export default class ThemeProvider extends React.PureComponent {
+export default class ThemeProvider extends Component {
   static childContextTypes = {
     theme () {
       return null
