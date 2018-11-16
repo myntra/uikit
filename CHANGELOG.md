@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.0-alpha.8"></a>
+# [0.5.0-alpha.8](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.7...v0.5.0-alpha.8) (2018-11-16)
+
+
+### Bug Fixes
+
+* **elements | Dropdown:** Reposition dropdown on scroll ([4daa413](https://bitbucket.org/myntra/uikit/commits/4daa413))
+* **tokenizer:** Generate 15.x compatible ThemeProvider ([69f7d46](https://bitbucket.org/myntra/uikit/commits/69f7d46))
+
+
+
 <a name="0.5.0-alpha.7"></a>
 # [0.5.0-alpha.7](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.6...v0.5.0-alpha.7) (2018-11-16)
 

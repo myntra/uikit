@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokens-unity",
-  "version": "0.5.0-alpha.7",
+  "version": "0.5.0-alpha.8",
   "description": "Unity design language for Myntra",
   "main": "tokens.js",
   "module": "tokens.esm.js",
