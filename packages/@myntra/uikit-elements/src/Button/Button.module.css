@@ -1,7 +1,7 @@
 .button,
 .button:visited {
   padding: var(--relative-size-x-small) var(--relative-size-large);
-  border-radius: var(--relative-size-large);
+  border-radius: var(--border-radius-default);
   border-style: none;
   cursor: pointer;
   font-size: inherit;

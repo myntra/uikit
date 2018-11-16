@@ -1,8 +1,8 @@
 color:
   # Theme Color Names
-  primary: $color.nuclei-blue.base
-  secondary: $color.nuclei-blue.base
-  accent: $color.nuclei-blue.base
+  primary: $color.unity-blue.base
+  secondary: $color.unity-blue.base
+  accent: $color.unity-blue.base
   success: $color.green.base
   error: $color.red.base
   warning: $color.yellow.base
@@ -18,9 +18,9 @@ color:
     base: rgba(255, 255, 255, 1)
     light: rgba(255, 255, 255, .7)
     x-light: rgba(255, 255, 255, .5)
-  nuclei-blue:
-    base: rgba(79, 71, 200, 1)
-    light: rgba(170, 166, 228, 1)
+  unity-blue:
+    base: rgb(41, 198, 212)
+    light: rgb(41, 198, 212)
   blue:
     base: rgb(82, 142, 230)
   gray:
@@ -43,7 +43,7 @@ font:
 
   size:
     _meta:
-      transformTo: rem
+      transformTo: px
     x-small: !!int 10
     small: !!int 11
     base: !!int 12
@@ -55,7 +55,7 @@ font:
 
   height:
     _meta:
-      transformTo: rem
+      transformTo: px
     x-small: !!int 11
     small: !!int 13
     base: !!int 14
@@ -129,7 +129,7 @@ shape:
       border-color: $color.warning
       color: $typography.color.warning.primary
 border-radius:
-  default: $relative-size.large
+  button: $relative-size.none
 size:
   _meta:
     transformTo: px
