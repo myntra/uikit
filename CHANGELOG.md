@@ -3,13 +3,8 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="0.5.0"></a>
+
 # [0.5.0](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.9...v0.5.0) (2018-11-19)
-
-
-
-<a name="0.5.0-alpha.9"></a>
-
-# [0.5.0-alpha.9](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.8...v0.5.0-alpha.9) (2018-11-19)
 
 ### Features
 
