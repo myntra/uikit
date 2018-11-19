@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-utils",
-  "version": "0.5.0-alpha.9",
+  "version": "0.5.0",
   "description": "@myntra/uikit-utils",
   "main": "src/index.js",
   "module": "dist/uikit-utils.js",
