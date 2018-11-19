@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 <a name="0.5.0"></a>
 
-# [0.5.0](https://bitbucket.org/myntra/uikit/compare/v0.5.0-alpha.9...v0.5.0) (2018-11-19)
+# [0.5.0](https://bitbucket.org/myntra/uikit/compare/v0.4.0...v0.5.0) (2018-11-19)
 
 ### Features
 
