@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { onlyExtraProps } from '@myntra/uikit-utils'
-import { Grid, Form } from '../index.js'
-import SchemaFormField from './SchemaFormField'
+import { Grid, Form } from '..'
+import wrappers from './wrappers.js'
+import { looseEquals } from '@myntra/uikit-utils'
 
 /**
  * Describe component in 150-200 words.
@@ -10,12 +10,17 @@ import SchemaFormField from './SchemaFormField'
  * @since {version}
  * @status EXPERIMENTAL
  */
-class SchemaFormArray extends PureComponent {
+class SchemaFormArray extends Component {
   static propTypes = {
+    type: PropTypes.oneOf(['array']).isRequired,
+
     name: PropTypes.string.isRequired,
     path: PropTypes.string.isRequired,
-    children: PropTypes.array.isRequired,
+    factory: PropTypes.func.isRequired,
+    component: PropTypes.func,
     props: PropTypes.object,
+    layout: PropTypes.object,
+    getDerivedPropsFromValue: PropTypes.func,
     // -- Handle Value & Error --
     value: PropTypes.any,
     error: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
@@ -23,61 +28,97 @@ class SchemaFormArray extends PureComponent {
     onError: PropTypes.func.isRequired
   }
 
+  static defaultProps = {
+    getDerivedPropsFromValue() {},
+    component({ children, ...props }) {
+      return <Form.Group {...props} Field={() => children} />
+    }
+  }
+
   constructor(props) {
     super(props)
-    this.handlers = {}
+    this.handlers = {
+      change: [],
+      error: []
+    }
   }
 
-  forwardedProps = onlyExtraProps(SchemaFormArray.propTypes)
-
-  get values() {
-    return Array.isArray(this.props.value) ? this.props.value : []
+  get value() {
+    return Array.isArray(this.props.value) && this.props.value.length ? this.props.value : [undefined]
   }
 
-  get errors() {
-    return Array.isArray(this.props.error) ? this.props.error : []
+  shouldComponentUpdate(newProps) {
+    return !(looseEquals(this.props.value, newProps.value) && looseEquals(this.props.error, newProps.error))
   }
 
-  handleFieldChange = index => value => {
-    const values = this.values.slice()
+  componentDidUpdate({ value }) {
+    if (!Array.isArray(value)) return
 
-    values[index] = value
-
-    this.props.onChange(values)
+    this.handlers.change.splice(value.length)
+    this.handlers.error.splice(value.length)
   }
 
-  handleFieldError = index => () => {
-    const errors = this.errors.slice()
+  getHandler(type, index) {
+    if (this.handlers[type].length <= index) {
+      this.handlers[type][index] = value => {
+        const copiedValue = (this.props.value || []).slice()
 
-    delete errors[index]
+        copiedValue.splice(index, 1, value)
 
-    this.props.onError(errors)
+        return copiedValue
+      }
+    }
+
+    return this.handlers[type][index]
+  }
+
+  getChangeHandler(index) {
+    return this.getHandler('change', index)
+  }
+
+  getErrorHandler(index) {
+    return this.getHandler('error', index)
+  }
+
+  getError(index) {
+    if (!Array.isArray(this.props.error)) return
+
+    return this.props.error[index]
   }
 
   render() {
-    const values = this.values
-    const errors = this.errors
-    const [field] = this.props.children
+    const Wrapper = this.props.component
+    const { props, layout, value } = this.props
+    const { defaultValue, ...newProps } = { ...props, ...this.props.getDerivedPropsFromValue(value) }
+
+    if (value === undefined || value === null) {
+      // TODO: Add array handler.
+    }
 
     return (
-      <Form.Group
-        {...this.forwardedProps(this.props)}
-        Field={props => (
-          <Grid multiline style={{ marginTop: '4px' }}>
-            {(values.length ? values : [null]).map((value, index) => (
-              <Grid.Column key={index} {...field.props}>
-                <SchemaFormField
-                  {...field}
+      <Grid.Column {...layout}>
+        <Wrapper {...newProps}>
+          <Grid multiline allowAnyChild>
+            {this.value.map((value, index) => {
+              const { type, ...ui } = this.props.factory(index)
+              const Input = wrappers[type]
+
+              return (
+                <Input
+                  key={index}
+                  {...ui}
+                  path={`${this.props.path}/${index}`}
+                  type={type}
                   value={value}
-                  error={errors[index]}
-                  onChange={this.handleFieldChange(index)}
-                  onError={this.handleFieldError(index)}
+                  onChange={this.getChangeHandler(index)}
+                  error={this.getError(index)}
+                  onError={this.getErrorHandler(index)}
                 />
-              </Grid.Column>
-            ))}
+              )
+            })}
           </Grid>
-        )}
-      />
+        </Wrapper>
+      </Grid.Column>
     )
   }
 }

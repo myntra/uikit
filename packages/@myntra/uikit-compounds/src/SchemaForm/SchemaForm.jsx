@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Form } from '../index.js'
-import { memoize } from '@myntra/uikit-utils'
+import { Form } from '..'
 import { generateUISchema } from './SchemaFormUtils'
-import SchemaFormObject from './SchemaFormObject'
-import SchemaFormArray from './SchemaFormArray'
+import wrappers from './wrappers'
 
 const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
 
@@ -26,7 +24,7 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
     "name": {
       "type": "string",
       "title": "Name",
-      "description": "Your full name"
+      "description": "Your full name (type John)"
     },
     "email": {
       "type": "string",
@@ -34,26 +32,23 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
       "description": "Your personal email address",
       "format": "email"
     },
-    "phone": {
+    "dob": {
       "type": "string",
-      "title": "Phone Number",
-      "description": "Your personal contact number",
-      "format": "tel"
+      "title": "Date of Birth",
+      "description": "Your date of birth",
+      "format": "date"
     },
     "addresses": {
       "type": "array",
       "title": "Contact Addresses",
       "description": "Your all contact addresses",
-      "ui": {
-        "fieldSize": 12
+      "layout": {
+        "size": 12
       },
       "items": {
         "type": "object",
         "title": "Contact Address",
         "description": "Your contact address",
-        "ui": {
-          "fieldSize": 12
-        },
         "properties": {
           "line1": {
             "type": "string",
@@ -74,7 +69,25 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
   "required": [
     "name",
     "email"
-  ]
+  ],
+  "dependencies": {
+    "name": {
+      "if": {
+        "properties": {
+          "name": {
+            "const": "John"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "email": {
+            "default": "john@example.com"
+          }
+        }
+      }
+    }
+  }
 }}
   value={this.state.value || {}}
   error={this.state.error}
@@ -100,14 +113,19 @@ export default class SchemaForm extends PureComponent {
   }
 
   static defaultProps = {
-    onSubmit: () => {}
+    onSubmit: () => null
   }
 
-  generateUISchema = memoize((schema, provider) => generateUISchema(schema, provider))
+  constructor(props) {
+    super(props)
+
+    this.ui = generateUISchema(this.props.schema, {
+      resolveComponent: this.componentProvider,
+      resolveOptions: this.props.optionsProvider
+    })
+  }
 
   componentProvider = name => {
-    if (name === 'SchemaForm.Object') return SchemaFormObject
-    if (name === 'SchemaForm.Array') return SchemaFormArray
     if (FORM_FIELD_RE.test(name)) {
       return Form[name.split('.').pop()]
     }
@@ -116,24 +134,24 @@ export default class SchemaForm extends PureComponent {
   handleError = error => this.props.onError && this.props.onError(error)
   handleChange = value => this.props.onChange && this.props.onChange(value)
 
-  get ui() {
-    return this.generateUISchema(this.props.schema, this.componentProvider)
-  }
-
   render() {
-    const { component: Component, ...props } = this.ui
+    const Wrapper = wrappers[this.ui.type]
 
-    return (
-      <Form onSubmit={this.props.onSubmit}>
-        <Component
-          {...props}
-          value={this.props.value}
-          error={this.props.error}
-          onChange={this.handleChange}
-          onError={this.handleError}
-        />
-        {this.props.children}
-      </Form>
-    )
+    try {
+      return (
+        <Form onSubmit={this.props.onSubmit}>
+          <Wrapper
+            {...this.ui}
+            value={this.props.value}
+            error={this.props.error}
+            onChange={this.handleChange}
+            onError={this.handleError}
+          />
+          {this.props.children}
+        </Form>
+      )
+    } catch (e) {
+      return null
+    }
   }
 }

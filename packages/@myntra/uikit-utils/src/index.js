@@ -10,7 +10,8 @@ import {
   isEqual,
   range,
   find,
-  compact
+  compact,
+  get
 } from 'lodash-es'
 
 /**
@@ -21,7 +22,7 @@ import {
  * @param {Array.<T>} any
  * @return {Array.<T>}
  */
-export { unique, map, each, findIndex, findLastIndex, isEqual, find, compact, range }
+export { unique, map, each, findIndex, findLastIndex, isEqual, isString, find, compact, range, get }
 
 /**
  * Wrap single element to array if required.
@@ -158,4 +159,27 @@ export function memoize(func, isEqual = (a, b) => a === b) {
 
     return lastResult
   }
+}
+
+export function looseEquals(a, b) {
+  if (a === b) return true
+  if ((a === null && b) || (a && b === null)) return false
+  if (typeof a !== typeof b) return false
+  if (Array.isArray(a)) {
+    if (a.length !== b.length) return false
+
+    return a.every((item, index) => looseEquals(item, b[index]))
+  }
+  if (a === 'object') {
+    const keysA = Object.keys(a)
+    const keysB = new Set(Object.keys(b))
+
+    if (keysA.length !== keysB.size) return false
+
+    if (keysA.some(key => !keysB.has(key))) return false
+
+    return keysA.every(key => looseEquals(a[key], b[key]))
+  }
+
+  return false
 }

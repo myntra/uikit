@@ -1,122 +1,236 @@
-import { compile } from './JSONSchema'
+import compile from './JSONSchema'
 
-export function assert(condition, message) {
-  if (!condition) throw new Error(message)
-}
+const schemaToUI = new WeakMap()
 
-export function generateUISchema(schema, componentResolver) {
-  assert(schema.type === 'object', 'Invalid schema, expected "object" as root type')
+export function generateUISchema(schema, options) {
+  const name = '$root'
+  const context = { ...options, generate, compile, resolveComponent, resolveProps }
 
-  return generateField({ name: '$root', path: '#', field: schema, schema, componentResolver })
-}
-
-function generateField({ name, path, field, schema, componentResolver, props }) {
-  field.type && assert(typeof field.type === 'string', 'Invalid field type, expected "type" key to be string')
-  if (field.type === 'object') {
-    assert('properties' in field, 'Invalid "object" type field, expected "properties" key')
-
-    const keys = Object.keys(field.properties)
-    const required = new Set(field.required)
-    const children = keys.map(name =>
-      generateField({
-        name,
-        field: field.properties[name],
-        schema,
-        componentResolver,
-        path: `${path}/properties/${name}`,
-        props: {
-          required: required.has(name)
-        }
-      })
-    )
-
-    const props = { ...field.ui, name }
-
-    Object.keys(KEYS_TO_BE_COPIED).forEach(key => {
-      const target = KEYS_TO_BE_COPIED[key] || key
-      if (field[key]) props[target] = field[key]
-    })
-    const dependencies = prepareDependencies({ name, path, field, schema })
-
-    return {
-      name,
-      path,
-      component: componentResolver('SchemaForm.Object'),
-      children,
-      props,
-      dependencies
-    }
-  } else if (field.type === 'array') {
-    assert('items' in field, 'Invalid "array" type field, expected "items" key')
-
-    const children = [generateField({ name, field: field.items, schema, componentResolver, path: `${path}/items` })]
-
-    const props = { ...field.ui, name }
-
-    Object.keys(KEYS_TO_BE_COPIED).forEach(key => {
-      const target = KEYS_TO_BE_COPIED[key] || key
-      if (field[key]) props[target] = field[key]
-    })
-
-    return { name, path, component: componentResolver('SchemaForm.Array'), children, props }
-  } else {
-    const [component, localProps] = generatePrimitive(name, path, field, componentResolver)
-
-    return { name, path, component, props: { ...props, ...localProps } }
-  }
-}
-
-const KEYS_TO_BE_COPIED = { title: 'label', description: '', pattern: '', readOnly: '', multipleOf: 'step' }
-
-function generatePrimitive(
-  name,
-  path,
-  { type: type$, enum: enum$, format: format$, ui = {}, ...field },
-  componentResolver
-) {
-  const { component, ...props } = ui
-
-  props.name = name
-
-  Object.keys(KEYS_TO_BE_COPIED).forEach(key => {
-    const target = KEYS_TO_BE_COPIED[key] || key
-    if (field[key]) props[target] = field[key]
-  })
-
-  if (component) {
-    const ref = componentResolver(component)
-
-    assert(ref, `Unknown component <${component}>`)
-
-    return [ref, props]
+  function generate(schema, config) {
+    return generateAnyField(schema, config, context)
   }
 
-  if (enum$) {
-    if (enum$.length < 5) {
-      return [componentResolver('Form.RadioGroup'), props]
-    } else {
-      return [componentResolver('Form.Select'), props]
+  function resolveComponent(...names) {
+    for (const name of names) {
+      if (name) {
+        const component = options.resolveComponent(name)
+
+        if (component) return component
+      }
     }
   }
 
-  switch (type$) {
-    case 'number':
-      return [componentResolver('Form.Number'), props]
-    case 'integer':
-      return [componentResolver('Form.Number'), { step: 1, ...props }]
-    case 'boolean':
-      return [componentResolver('Form.Switch'), props]
-    case 'string':
-      if (!format$) return [componentResolver('Form.Text'), props]
-      if (format$.startsWith('~')) return [componentResolver('Form.Select'), props]
-      return [componentResolver('Form.Text'), { ...props, type: format$ }]
-  }
+  const ui = generate(schema, { name })
 
-  return []
+  return ui
 }
 
-function prepareDependencies({ field }) {
-  if (!field.dependencies) return
+const defaultProcessors = {
+  title: label => ({ label }),
+  description: description => ({ description }),
+  default: defaultValue => ({ 'data-default-value': defaultValue })
+}
+function resolveProps(schema, processors = {}) {
+  const layout = schema.layout
 
-  return compile({ dependencies: field.dependencies })
+  const props = Object.assign(
+    {},
+    ...Object.keys(schema).map(key => {
+      if (key in processors) return processors[key](schema[key], schema)
+      if (key in defaultProcessors) return defaultProcessors[key](schema[key], schema)
+    }),
+    schema.props
+  )
+
+  return { props, layout }
+}
+
+// Any
+const generators = {
+  object: generateObjectField,
+  array: generateArrayField,
+  string: generateStringField,
+  number: generateNumberField,
+  integer: generateNumberField,
+  boolean: generateBooleanField,
+  enum: generateEnumField,
+  const: generateConstField
+}
+
+function generateAnyField(schema, options, context) {
+  if (schemaToUI.has(schema)) return schemaToUI.get(schema)
+
+  const generator =
+    'type' in schema
+      ? generators[schema.type]
+      : 'enum' in schema
+        ? generators.enum
+        : 'const' in schema
+          ? generators.const
+          : () => null
+  const ui = generator(schema, options, context)
+
+  schemaToUI.set(schema, ui)
+
+  return ui
+}
+
+// Object
+const objectProcessors = {
+  required: names => (Array.isArray(names) ? { required: names } : {})
+}
+
+function generateObjectField(schema, { name }, { generate, resolveComponent, resolveProps, compile }) {
+  const fields = Object.entries(schema.properties)
+
+  const { props, layout } = resolveProps(schema, objectProcessors)
+  const getDerivedPropsFromValue = compile(schema)
+  const children = fields.map(([name, subSchema]) => generate(subSchema, { name }))
+
+  const component = resolveComponent(schema.component)
+
+  return {
+    type: 'object',
+    name,
+    component,
+    props,
+    layout,
+    children,
+    getDerivedPropsFromValue
+  }
+}
+
+// Array
+const arrayProcessors = {
+  maxItems: max => (Number.isSafeInteger(max) ? { max } : {}),
+  mimItems: max => (Number.isSafeInteger(max) ? { max } : {})
+}
+function generateArrayField(schema, { name }, { generate, resolveComponent, resolveProps, compile }) {
+  const { props, layout } = resolveProps(schema, arrayProcessors)
+  const getDerivedPropsFromValue = compile(schema)
+  const isSelect = schema.items.type === 'string' && schema.items.format && schema.items.format.startsWith('~')
+
+  const items = generate(schema.items, { name })
+  const component = isSelect
+    ? resolveComponent(schema.items.component, 'Form.Select')
+    : resolveComponent(schema.component)
+
+  function factory(index) {
+    return items
+  }
+
+  return {
+    type: isSelect ? 'field' : 'array',
+    name,
+    component,
+    props,
+    layout,
+    factory,
+    getDerivedPropsFromValue
+  }
+}
+
+const formatComponents = {
+  date: 'Form.Date'
+}
+// String
+function generateStringField(schema, { name }, { generate, resolveComponent, resolveProps, formats = {} }) {
+  const { props, layout } = resolveProps(schema)
+  const getDerivedPropsFromValue = compile(schema)
+  const format = schema.format
+  const component = resolveComponent(schema.component, formats[format], formatComponents[format], 'Form.Text')
+
+  return {
+    type: 'field',
+    name,
+    component,
+    props,
+    layout,
+    getDerivedPropsFromValue
+  }
+}
+
+// Number
+const numberProcessors = {
+  type: type => (type === 'integer' ? { step: 1 } : {})
+}
+
+function generateNumberField(schema, { name }, { generate, resolveComponent }) {
+  const { props, layout } = resolveProps(schema, numberProcessors)
+  const getDerivedPropsFromValue = compile(schema)
+
+  const component = resolveComponent(schema.component, 'Form.Number')
+
+  return {
+    type: 'field',
+    name,
+    component,
+    props,
+    layout,
+    getDerivedPropsFromValue
+  }
+}
+
+// Boolean
+function generateBooleanField(schema, { name }, { generate, resolveComponent }) {
+  const { props, layout } = resolveProps(schema)
+  const getDerivedPropsFromValue = compile(schema)
+
+  const component = resolveComponent(schema.component, 'Form.CheckBox')
+
+  return {
+    type: 'field',
+    name,
+    component,
+    props,
+    layout,
+    getDerivedPropsFromValue
+  }
+}
+
+// Enum
+function generateEnumField(schema, { name }, { generate, resolveComponent }) {
+  const { props, layout } = resolveProps(schema)
+  const getDerivedPropsFromValue = compile(schema)
+
+  const component = resolveComponent(schema.component, 'Form.Select')
+
+  if (!props.options) {
+    props.options = schema.enum.map(value => ({ label: value, value }))
+  }
+
+  return {
+    type: 'field',
+    name,
+    component,
+    props,
+    layout,
+    getDerivedPropsFromValue
+  }
+}
+
+// const
+const constComponents = {
+  string: 'Form.Text',
+  number: 'Form.Number',
+  boolean: 'Form.CheckBox'
+}
+
+function generateConstField(schema, { name }, { generate, resolveComponent }) {
+  const { props, layout } = resolveProps(schema)
+  const getDerivedPropsFromValue = compile(schema)
+
+  const component = resolveComponent(schema.component, constComponents[typeof schema.const])
+
+  props.readOnly = true
+  props.value = schema.const
+
+  return {
+    type: 'field',
+    name,
+    component,
+    props,
+    layout,
+    getDerivedPropsFromValue
+  }
 }
