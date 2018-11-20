@@ -38,6 +38,8 @@ function findScrollParents(el) {
     parents.push(document.scrollingElement || document.documentElement)
   }
 
+  parents.push(window)
+
   scrollParents.set(el, parents)
 
   return parents
@@ -320,7 +322,7 @@ class Dropdown extends Component {
           (this.props.container ? (
             <Portal container={this.props.container}>
               <div
-                className={classnames('content').use(styles)}
+                className={classnames('content', 'fixed').use(styles)}
                 style={position}
                 ref={this.wrapperRef}
                 hidden={!position}

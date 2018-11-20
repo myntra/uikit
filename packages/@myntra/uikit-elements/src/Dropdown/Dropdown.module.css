@@ -10,6 +10,10 @@
   z-index: var(--z-index-dropdown, 1000);
 }
 
+.content.fixed {
+  position: fixed;
+}
+
 .content-wrapper {
   display: inline-block;
 }
