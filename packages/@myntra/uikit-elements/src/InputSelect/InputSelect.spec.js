@@ -46,7 +46,7 @@ describe('Input Select', () => {
     const input = select
       .find(InputSelectControl)
       .find('input')
-      .at(0)
+      .at(1)
 
     input.simulate('focus')
 
@@ -80,7 +80,7 @@ describe('Input Select', () => {
     const input = select
       .find(InputSelectControl)
       .find('input')
-      .at(0)
+      .at(1)
 
     input.simulate('change', { target: { value: 'T' } })
     expect(select.state('searchValue')).toBe('T')
@@ -94,7 +94,7 @@ describe('Input Select', () => {
     setTimeout(() => {
       expect(select.state('isOpen')).toBe(false)
       done()
-    }, 50)
+    }, 200)
   })
 
   it('should get new filtered options on options change', done => {
