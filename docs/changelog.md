@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.1"></a>
+## [0.5.1](https://bitbucket.org/myntra/uikit/compare/v0.5.0...v0.5.1) (2018-11-20)
+
+
+### Bug Fixes
+
+* **elements | Dropdown:** Use fixed positioning to avoid misplaced container ([bafea32](https://bitbucket.org/myntra/uikit/commits/bafea32))
+* **elements | InputDate:** Close dropdown on value selection and input field blur ([a6e67d1](https://bitbucket.org/myntra/uikit/commits/a6e67d1))
+
+
+
 <a name="0.5.0"></a>
 
 # [0.5.0](https://bitbucket.org/myntra/uikit/compare/v0.4.0...v0.5.0) (2018-11-19)
