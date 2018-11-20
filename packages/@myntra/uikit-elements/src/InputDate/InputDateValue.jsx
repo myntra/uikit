@@ -38,7 +38,6 @@ class InputDateValue extends PureComponent {
     className: PropTypes.string,
     range: PropTypes.bool,
     active: PropTypes.oneOf(['from', 'to']),
-    ignoreBlur: PropTypes.bool,
     value: PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.shape({
@@ -53,7 +52,8 @@ class InputDateValue extends PureComponent {
      */
     onChange: PropTypes.func.isRequired,
     onRangeFocus: PropTypes.func,
-    onFocus: PropTypes.func
+    onFocus: PropTypes.func,
+    onBlur: PropTypes.func
   }
 
   state = { value: null }
@@ -90,10 +90,11 @@ class InputDateValue extends PureComponent {
     }
   }
 
-  /**
-   * @public
-   */
-  handleBlur = () => this.setState({ value: null })
+  resetState = () => this.setState({ value: null })
+  handleBlur = () => {
+    this.resetState()
+    this.props.onBlur && this.props.onBlur()
+  }
   handleFromFocus = e => this.handleRangeFocus('from', e)
   handleToFocus = e => this.handleRangeFocus('to', e)
   handleRangeFocus = (value, e) => {
@@ -113,7 +114,6 @@ class InputDateValue extends PureComponent {
 
   render() {
     const props = {
-      onBlur: this.handleBlur,
       onFocus: this.props.onFocus,
       masks: MASKS,
       pattern: this.pattern,
@@ -135,6 +135,7 @@ class InputDateValue extends PureComponent {
               value={this.value.from}
               onClick={this.handleFromFocus}
               onFocus={this.handleFromFocus}
+              onBlur={this.resetState}
               onChange={this.handleFromChange}
             />
             {this.props.value &&
@@ -161,6 +162,7 @@ class InputDateValue extends PureComponent {
               value={this.value.to}
               onClick={this.handleToFocus}
               onFocus={this.handleToFocus}
+              onBlur={this.handleBlur}
               onChange={this.handleToChange}
             />
             {this.props.value &&
@@ -176,7 +178,7 @@ class InputDateValue extends PureComponent {
         )}
         {!this.props.range && (
           <div key="both" className={classnames('wrapper').use(styles)}>
-            <InputMasked {...props} value={this.value} onChange={this.handleChange} />
+            <InputMasked {...props} value={this.value} onChange={this.handleChange} onBlur={this.handleBlur} />
             {this.props.value && (
               <Icon
                 className={classnames('icon').use(styles)}

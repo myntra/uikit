@@ -111,6 +111,7 @@ export default class InputDate extends PureComponent {
 
   handleRangeFocus = value => this.setState({ activeRangeEnd: value })
   handleChange = value => {
+    let shouldBeClosed = !!value
     if (this.props.range) {
       let shouldBeClosed = !!(value.from && value.to)
       let nextSelection = null
@@ -133,13 +134,13 @@ export default class InputDate extends PureComponent {
         isRangeSelectionActive: !shouldBeClosed,
         activeRangeEnd: nextSelection
       })
-
-      if (shouldBeClosed) {
-        this.close()
-      }
     }
 
     this.props.onChange && this.props.onChange(value)
+
+    if (shouldBeClosed) {
+      this.close()
+    }
   }
 
   handleDropdownOpen = () => this.setState({ isOpen: true, openToDate: this.openToDate || new Date() })
