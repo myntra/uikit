@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.2"></a>
+## [0.5.2](https://bitbucket.org/myntra/uikit/compare/v0.5.1...v0.5.2) (2018-11-20)
+
+
+### Bug Fixes
+
+* **elements | InputSelect:** Search in select options ([4e970ae](https://bitbucket.org/myntra/uikit/commits/4e970ae))
+* **elements | InputSelect:** Search in select options ([fe1150e](https://bitbucket.org/myntra/uikit/commits/fe1150e))
+
+
+
 <a name="0.5.1"></a>
 ## [0.5.1](https://bitbucket.org/myntra/uikit/compare/v0.5.0...v0.5.1) (2018-11-20)
 
