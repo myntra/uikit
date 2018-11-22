@@ -1,7 +1,7 @@
 .button,
 .button:visited {
   padding: var(--relative-size-x-small) var(--relative-size-large);
-  border-radius: var(--border-radius-default);
+  border-radius: var(--border-radius-button);
   border-style: none;
   cursor: pointer;
   font-size: inherit;
@@ -47,7 +47,7 @@
 
 .primary:focus,
 .primary:active:not([disabled]),
-.primary:active:not(:disabled), {
+.primary:active:not(:disabled) {
   background-image: linear-gradient(var(--color-black-x-light), var(--color-black-x-light));
 }
 
