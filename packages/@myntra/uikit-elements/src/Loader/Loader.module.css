@@ -12,14 +12,12 @@
 .loader.small {
   height: 120px;
   font-size: 48px;
-  background-color: var(--color-gray-base);
 }
 
 .loader.large {
   min-height: 284px;
   font-size: 64px;
   height: 100%;
-  background-color: var(--color-gray-base);
 }
 
 .spinner {
