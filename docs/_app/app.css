@@ -109,3 +109,8 @@ a:active {
 .component-status.ready {
   color: var(--color-success);
 }
+
+.theme-switcher {
+  white-space: nowrap;
+  padding-left: 8px;
+}

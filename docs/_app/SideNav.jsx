@@ -38,6 +38,7 @@ export default class Nav extends React.PureComponent {
             </NavBar.Item>
           )
         })}
+        {this.props.children}
       </NavBar>
     )
   }
