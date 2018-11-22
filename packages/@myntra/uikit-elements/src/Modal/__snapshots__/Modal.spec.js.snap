@@ -4,11 +4,7 @@ exports[`Modal renders 1`] = `
 <Dropdown
   approxContentHeight={320}
   approxContentWidth={240}
-  container={
-    <div
-      id="--uikit-modal-container--"
-    />
-  }
+  container={true}
   isOpen={true}
   onOpen={[Function]}
   trigger={
