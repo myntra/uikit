@@ -7,22 +7,6 @@ import styles from './Modal.module.css'
 
 import './Modal.css'
 
-const ID = '--uikit-modal-container--'
-
-function getContainer() {
-  const el = document.getElementById(ID)
-
-  if (el) return el
-
-  const newEl = document.createElement('div')
-
-  newEl.id = ID
-
-  document.body.appendChild(newEl)
-
-  return newEl
-}
-
 /**
  A component to display popup modal.
 
@@ -46,7 +30,7 @@ class Modal extends PureComponent {
     /** @private */
     className: PropTypes.string,
     /** Trigger to open modal */
-    trigger: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]).isRequired,
+    trigger: PropTypes.oneOfType([PropTypes.string.isRequired, PropTypes.element.isRequired]),
     /** Modal title */
     title: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     /** Action buttons */
@@ -90,32 +74,38 @@ class Modal extends PureComponent {
   render() {
     const { trigger, children, isOpen, render, title, actions, ...props } = this.props
 
-    return (
+    const content = (
+      <div className={classnames('modal').use(styles)}>
+        <div className={classnames('backdrop').use(styles)} onClick={this.handleClose} />
+        <div className={classnames('body').use(styles)}>
+          <div className={classnames('content').use(styles)}>
+            {render({ title, actions, children, close: this.handleClose })}
+          </div>
+
+          <Button
+            className={classnames('close').use(styles)}
+            type="link"
+            icon="times"
+            title="close"
+            onClick={this.handleClose}
+          />
+        </div>
+      </div>
+    )
+
+    return trigger ? (
       <Dropdown
         {...props}
         useClickAway={false}
         trigger={typeof trigger === 'string' ? <Button type="primary">{trigger}</Button> : trigger}
         isOpen={typeof isOpen === 'boolean' ? isOpen : this.state.isOpen}
         onOpen={this.handleOpen}
-        container={getContainer()}
+        container
       >
-        <div className={classnames('modal').use(styles)}>
-          <div className={classnames('backdrop').use(styles)} onClick={this.handleClose} />
-          <div className={classnames('body').use(styles)}>
-            <div className={classnames('content').use(styles)}>
-              {render({ title, actions, children, close: this.handleClose })}
-            </div>
-
-            <Button
-              className={classnames('close').use(styles)}
-              type="link"
-              icon="times"
-              title="close"
-              onClick={this.handleClose}
-            />
-          </div>
-        </div>
+        {content}
       </Dropdown>
+    ) : (
+      (typeof isOpen === 'boolean' ? isOpen : this.state.isOpen) && content
     )
   }
 }
