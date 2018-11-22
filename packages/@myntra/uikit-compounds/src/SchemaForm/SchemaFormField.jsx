@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Grid } from '..'
+import { Grid } from '../index'
 
 export default class SchemaFormField extends Component {
   static propTypes = {

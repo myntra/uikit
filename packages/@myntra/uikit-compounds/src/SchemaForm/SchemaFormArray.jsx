@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Grid, Form } from '..'
-import wrappers from './wrappers.js'
+import { Grid, Form } from '../index'
+import wrappers from './wrappers'
 import { looseEquals } from '@myntra/uikit-utils'
 
 /**

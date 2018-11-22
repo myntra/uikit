@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { Form } from '..'
+import { Form } from '../index'
 import { generateUISchema } from './SchemaFormUtils'
 import wrappers from './wrappers'
 
