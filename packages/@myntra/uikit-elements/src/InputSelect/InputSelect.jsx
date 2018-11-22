@@ -11,7 +11,7 @@ import Selector from './InputSelectOptions'
 import { Dropdown, Icon } from '../index.js'
 
 /**
- {describe component}
+ Dropdown selector component.
 
  @since 0.0.0
  @status REVIEWING
@@ -356,10 +356,10 @@ export default class InputSelect extends Component {
             }
           >
             <InputProxy values={values} {...this.props} />
-            {!(this.props.disabled || this.props.required || this.props.multiple) &&
+            {!this.props.disabled &&
               values.length > 0 && (
                 <div className={classnames('button').use(styles)} role="button" onClick={this.handleClearValue}>
-                  <Icon name="cross" title="clear value" />
+                  <Icon name="times" title="clear value" />
                 </div>
               )}
             <div className={classnames('button').use(styles)}>
