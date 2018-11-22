@@ -129,7 +129,7 @@ shape:
       border-color: $color.warning
       color: $typography.color.warning.primary
 border-radius:
-  default: $relative-size.large
+  button: $relative-size.large
 size:
   _meta:
     transformTo: px
