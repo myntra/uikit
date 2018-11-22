@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.3"></a>
+## [0.5.3](https://bitbucket.org/myntra/uikit/compare/v0.5.2...v0.5.3) (2018-11-22)
+
+
+### Bug Fixes
+
+* **compounds | SchemaForm:** Use relative path to import local components ([0d584bd](https://bitbucket.org/myntra/uikit/commits/0d584bd))
+* **elements | Button:** Use border-radius from theme ([274e9d7](https://bitbucket.org/myntra/uikit/commits/274e9d7))
+* **elements | InputSelect:** Hidden search field under selected value ([72c4bb2](https://bitbucket.org/myntra/uikit/commits/72c4bb2))
+* **elements | Loader:** Unexpected background color ([16b2989](https://bitbucket.org/myntra/uikit/commits/16b2989))
+* **elements | Modal:** Embedded modal without trigger not possible ([022f3e1](https://bitbucket.org/myntra/uikit/commits/022f3e1))
+
+
+
 <a name="0.5.2"></a>
 ## [0.5.2](https://bitbucket.org/myntra/uikit/compare/v0.5.1...v0.5.2) (2018-11-20)
 
