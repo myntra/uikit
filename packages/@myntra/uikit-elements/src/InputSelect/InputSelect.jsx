@@ -237,18 +237,7 @@ export default class InputSelect extends Component {
     }
   }
 
-  handleClearValue = event => {
-    if (!this.props.multiple) {
-      const options = this.optionsForValue
-
-      if (options.length) {
-        event.stopPropagation()
-        event.preventDefault()
-
-        this.handleRemove(options[0])
-      }
-    }
-  }
+  handleClearValue = event => this.props.onChange(null)
 
   handleKeyDown = event => {
     switch (event.key || event.keyCode) {
@@ -327,6 +316,7 @@ export default class InputSelect extends Component {
   render() {
     const values = toArray(this.props.value)
     const { multiple, noResultsPlaceholder, renderOption, valueKey, labelKey } = this.props
+    const showClear = !this.props.disabled && !this.props.required && values.length > 0 && values[0] !== null
 
     return (
       <Dropdown
@@ -356,12 +346,11 @@ export default class InputSelect extends Component {
             }
           >
             <InputProxy values={values} {...this.props} />
-            {!this.props.disabled &&
-              values.length > 0 && (
-                <div className={classnames('button').use(styles)} role="button" onClick={this.handleClearValue}>
-                  <Icon name="times" title="clear value" />
-                </div>
-              )}
+            {showClear && (
+              <div className={classnames('button').use(styles)} role="button" onClick={this.handleClearValue}>
+                <Icon name="times" title="clear value" />
+              </div>
+            )}
             <div className={classnames('button').use(styles)}>
               {this.props.isLoading ? (
                 <Icon className={classnames('state-icon').use(styles)} name="spinner" title="loading options" spin />
