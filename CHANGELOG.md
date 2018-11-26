@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.6"></a>
+## [0.5.6](https://bitbucket.org/myntra/uikit/compare/v0.5.5...v0.5.6) (2018-11-26)
+
+
+### Bug Fixes
+
+* **compounds | Form:** Add bottom margin on form field ([3684dba](https://bitbucket.org/myntra/uikit/commits/3684dba))
+* **compounds | Grid:** Contain content overflow ([a66a866](https://bitbucket.org/myntra/uikit/commits/a66a866))
+
+
+
 <a name="0.5.5"></a>
 ## [0.5.5](https://bitbucket.org/myntra/uikit/compare/v0.5.4...v0.5.5) (2018-11-26)
 

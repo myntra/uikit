@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-compounds",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "description": "@myntra/uikit-compounds",
   "main": "src/index.js",
   "module": "dist/uikit-compounds.js",
