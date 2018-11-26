@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.5"></a>
+## [0.5.5](https://bitbucket.org/myntra/uikit/compare/v0.5.4...v0.5.5) (2018-11-26)
+
+
+### Bug Fixes
+
+* **compounds | Grid:** Remove top and bottom padding from column ([cc0f2f9](https://bitbucket.org/myntra/uikit/commits/cc0f2f9))
+* **elements | ClickAway:** Allow function refs ([15347e9](https://bitbucket.org/myntra/uikit/commits/15347e9))
+* **elements | InputSelect:** Hide remove icon for required and allow removing multiple options ([48e0e45](https://bitbucket.org/myntra/uikit/commits/48e0e45))
+
+
+
 <a name="0.5.4"></a>
 ## [0.5.4](https://bitbucket.org/myntra/uikit/compare/v0.5.3...v0.5.4) (2018-11-22)
 
