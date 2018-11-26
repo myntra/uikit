@@ -49,6 +49,8 @@
   flex-shrink: 1;
   padding-left: var(--column-inset);
   padding-right: var(--column-inset);
+  overflow: paged-x;
+  overflow: -webkit-paged-x;
 }
 
 .column.narrow {
