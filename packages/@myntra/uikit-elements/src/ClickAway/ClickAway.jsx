@@ -22,9 +22,12 @@ import PropTypes from 'prop-types'
 export default class ClickAway extends PureComponent {
   static propTypes = {
     /** Target element to watch ClickAway events. */
-    target: PropTypes.shape({
-      current: PropTypes.instanceOf(HTMLElement) // eslint-disable-line no-undef
-    }),
+    target: PropTypes.oneOfType([
+      PropTypes.shape({
+        current: PropTypes.instanceOf(HTMLElement) // eslint-disable-line no-undef
+      }),
+      PropTypes.func
+    ]),
     /**
      * ClickAway event handler function.
      *
