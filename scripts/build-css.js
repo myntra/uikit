@@ -44,13 +44,13 @@ function run(file) {
   if (process.argv[2] === '-w' || process.argv[3] === '-w') {
     console.log('\nWatching... ' + file)
     exec(
-      `sass --no-source-map --watch ${file} ${path.dirname(file)}/${fileName}.module.css`,
+      `node-sass --no-source-map --watch ${file} ${path.dirname(file)}/${fileName}.module.css`,
       error => error && console.error(error)
     )
   } else {
     console.log('Compiling... ' + file)
     exec(
-      `sass --no-source-map ${file} ${path.dirname(file)}/${fileName}.module.css`,
+      `node-sass --no-source-map ${file} ${path.dirname(file)}/${fileName}.module.css`,
       error => error && console.error(error)
     )
     exec(`yarn lint:css --fix ${path.dirname(file)}/${fileName}.module.css`)
