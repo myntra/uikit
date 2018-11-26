@@ -6,7 +6,6 @@
   display: flex;
   margin-left: var(--column-outset);
   margin-right: var(--column-outset);
-  margin-top: var(--column-outset);
 }
 
 .columns:last-child {
@@ -48,7 +47,8 @@
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: var(--column-inset);
+  padding-left: var(--column-inset);
+  padding-right: var(--column-inset);
 }
 
 .column.narrow {
@@ -457,7 +457,8 @@
   }
 }
 
-@media screen and (min-width: 769px), print {
+@media screen and (min-width: 769px),
+  print {
   .column.narrow-tablet {
     flex: none;
   }

@@ -42,7 +42,6 @@ $desktop: 960px !default;
   display: flex;
   margin-left: var(--column-outset);
   margin-right: var(--column-outset);
-  margin-top: var(--column-outset);
 
   &:last-child { margin-bottom: var(--column-outset); }
   &:not(:last-child) { margin-bottom: var(--column-inset); }
@@ -80,7 +79,8 @@ $named-sizes: (
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  padding: var(--column-inset);
+  padding-left: var(--column-inset);
+  padding-right: var(--column-inset);
 
   &.narrow { flex: none; }
 
