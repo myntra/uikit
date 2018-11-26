@@ -17,7 +17,7 @@ import styles from './FormGroup.module.css'
  */
 function FormGroup({ label, error, description, Field, fieldSize, ...props }) {
   return (
-    <label>
+    <label className={classnames('container').use(styles)}>
       <div className={classnames('label').use(styles)}>{label}</div>
       <Field {...props} />
       {description && <FormHelpText>{description}</FormHelpText>}

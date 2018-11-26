@@ -1,4 +1,7 @@
-@import '@myntra/tokens/tokens.css';
+.container {
+  display: block;
+  margin-bottom: var(--size-small);
+}
 
 .label {
   font-size: var(--typography-text-caption-font-size);
