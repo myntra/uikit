@@ -211,3 +211,5 @@ typography:
       primary: $color.blue.base
 z-index:
   dropdown: 14
+  nav: 15
+  modal: 16

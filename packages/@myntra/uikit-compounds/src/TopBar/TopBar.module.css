@@ -16,7 +16,7 @@
   width: 100%;
   background-color: var(--color-gray-xx-light);
   border-bottom: 1px solid var(--color-gray-base);
-  z-index: var(--z-index-nav, 1100);
+  z-index: var(--z-index-nav);
 }
 
 .content {
