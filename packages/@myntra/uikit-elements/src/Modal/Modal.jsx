@@ -1,11 +1,12 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
-import { Button, Dropdown } from '../index.js'
+import { Button, Portal } from '../index.js'
 import { classnames } from '@myntra/uikit-utils'
 import ModalLayout from './ModalLayout'
 import styles from './Modal.module.css'
 
-import './Modal.css'
+// eslint-disable-next-line
+const FragmentWithFallback = Fragment || (({ children }) => <div style={{ display: 'contents' }}>{children}</div>)
 
 /**
  A component to display popup modal.
@@ -72,7 +73,7 @@ class Modal extends PureComponent {
   }
 
   render() {
-    const { trigger, children, isOpen, render, title, actions, ...props } = this.props
+    const { trigger, children, isOpen, render, title, actions } = this.props
 
     const content = (
       <div className={classnames('modal').use(styles)}>
@@ -93,19 +94,15 @@ class Modal extends PureComponent {
       </div>
     )
 
-    return trigger ? (
-      <Dropdown
-        {...props}
-        useClickAway={false}
-        trigger={typeof trigger === 'string' ? <Button type="primary">{trigger}</Button> : trigger}
-        isOpen={typeof isOpen === 'boolean' ? isOpen : this.state.isOpen}
-        onOpen={this.handleOpen}
-        container
-      >
-        {content}
-      </Dropdown>
-    ) : (
-      (typeof isOpen === 'boolean' ? isOpen : this.state.isOpen) && content
+    return (
+      <FragmentWithFallback>
+        {typeof trigger === 'string' ? (
+          <Button label={trigger} secondaryIcon="chevron-down" onClick={this.handleOpen} />
+        ) : trigger ? (
+          React.cloneElement(trigger, { onClick: this.handleOpen })
+        ) : null}
+        {(typeof isOpen === 'boolean' ? isOpen : this.state.isOpen) && <Portal container>{content}</Portal>}
+      </FragmentWithFallback>
     )
   }
 }

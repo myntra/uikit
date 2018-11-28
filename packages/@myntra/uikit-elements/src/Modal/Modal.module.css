@@ -8,6 +8,7 @@
   justify-content: center;
   align-items: center;
   padding: var(--size-large);
+  z-index: var(--z-index-modal);
 }
 
 .backdrop {
