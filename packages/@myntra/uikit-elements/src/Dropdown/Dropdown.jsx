@@ -311,7 +311,11 @@ class Dropdown extends Component {
           open: this.props.isOpen
         }).use(styles)}
       >
-        <div className={classnames('trigger').use(styles)} ref={this.triggerRef}>
+        <div
+          className={classnames('trigger').use(styles)}
+          ref={this.triggerRef}
+          onClick={event => event.stopPropagation()}
+        >
           {typeof this.props.trigger === 'string' ? (
             <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
           ) : (

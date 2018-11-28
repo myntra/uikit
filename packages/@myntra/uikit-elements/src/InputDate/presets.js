@@ -15,7 +15,7 @@ export const CURRENT_WEEK = {
   range: true,
   label: 'Current Week',
   value: () => ({
-    from: onlyDate(dayJS().startOf('week')),
+    from: onlyDate(dayJS().startOf('week')), // TODO(bug): Selects wrong date range.
     to: onlyDate(dayJS())
   })
 }

@@ -13,7 +13,7 @@ import styles from './InputDate.module.css'
  @since 0.0.0
  @status REVIEWING
  @example
- <InputDate range displayFormat="MM/dd" value={this.state.value} onChange={(value) => {console.log(value); this.setState({value})}}/>
+ <InputDate range displayFormat="MM/dd" value={this.state.value} onChange={(value) => this.setState({value})}/>
 **/
 export default class InputDate extends PureComponent {
   static propTypes = {
@@ -56,13 +56,6 @@ export default class InputDate extends PureComponent {
     openToDate: null,
     activeRangeEnd: null,
     isRangeSelectionActive: false
-  }
-
-  constructor(props) {
-    super(props)
-    this.dropdownRef = ref => {
-      this.dropdownRef.current = ref
-    }
   }
 
   get displayFormat() {
@@ -113,12 +106,11 @@ export default class InputDate extends PureComponent {
   handleChange = value => {
     let shouldBeClosed = !!value
     if (this.props.range) {
-      let shouldBeClosed = !!(value.from && value.to)
+      shouldBeClosed = !!(value && value.from && value.to)
       let nextSelection = null
       if (shouldBeClosed && this.props.value) {
         const hasFromChanged = !isDateEqual(this.props.value.from, value.from)
         const hasToChanged = !isDateEqual(this.props.value.to, value.to)
-        // const hasFromSwappedWithTo = isDateEqual(this.props.value.from, value.to)
 
         // Edited from. Wait for to.
         if (hasFromChanged && !hasToChanged) {
@@ -140,11 +132,22 @@ export default class InputDate extends PureComponent {
 
     if (shouldBeClosed) {
       this.close()
+    } else {
+      this.skipClose = true
+      setTimeout(() => (this.skipClose = false), 100)
     }
   }
 
   handleDropdownOpen = () => this.setState({ isOpen: true, openToDate: this.openToDate || new Date() })
-  handleDropdownClose = () => this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
+  handleDropdownClose = () => {
+    if (this.skipClose) {
+      this.skipClose = false
+
+      return
+    }
+
+    this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
+  }
 
   handleBlur = /* istanbul ignore next: difficult to mock activeElement */ event => {
     if (document.activeElement === document.body) return
@@ -162,7 +165,7 @@ export default class InputDate extends PureComponent {
   }
 
   close() {
-    this.dropdownRef.current && this.dropdownRef.current.close()
+    this.handleDropdownClose()
   }
 
   render() {
@@ -170,7 +173,6 @@ export default class InputDate extends PureComponent {
       <Dropdown
         auto
         container
-        ref={this.dropdownRef}
         className={classnames(this.props.className, 'input-date').use(styles)}
         isOpen={this.state.isOpen}
         trigger={
