@@ -28,11 +28,11 @@ function FormGroup({ label, error, description, Field, fieldSize, ...props }) {
 
 FormGroup.propTypes = {
   /** Title */
-  label: PropTypes.string,
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Description */
-  description: PropTypes.string,
+  description: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   /** Error message */
-  error: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
+  error: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.arrayOf(PropTypes.string)]),
   /** Component */
   Field: PropTypes.func,
   /** When used in `<Form>`, controls width */
