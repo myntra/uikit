@@ -58,7 +58,9 @@ export default class InputSelect extends Component {
     /** Event fired when search text changes */
     onSearch: PropTypes.func,
     /** @private */
-    className: PropTypes.string
+    className: PropTypes.string,
+    /** @since v0.5.10 */
+    numberOfOptionsToRender: PropTypes.number
   }
   static defaultProps = {
     multiple: false,
@@ -70,6 +72,7 @@ export default class InputSelect extends Component {
     placeholder: 'Select...',
     valueKey: 'value',
     searchableKeys: [],
+    numberOfOptionsToRender: 20,
     noResultsPlaceholder: <div className={classnames('no-results').use(styles)}>No results found</div>
   }
 
@@ -99,12 +102,13 @@ export default class InputSelect extends Component {
     }
   }
 
-  getSearchOptions = memoize(({ labelKey, searchableKeys, filterOptions }) => {
+  getSearchOptions = memoize(({ labelKey, searchableKeys, filterOptions, numberOfOptionsToRender }) => {
     return {
       searchableKeys: [labelKey, ...searchableKeys],
       sortBy: labelKey,
       sortOrder: 'asc',
-      filterOptions: filterOptions
+      filterOptions: filterOptions,
+      limit: numberOfOptionsToRender
     }
   })
 
