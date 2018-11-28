@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.9"></a>
+## [0.5.9](https://bitbucket.org/myntra/uikit/compare/v0.5.8...v0.5.9) (2018-11-28)
+
+
+### Bug Fixes
+
+* **compounds | Form:** Allow node in form field label and desrciption ([a7ac3e9](https://bitbucket.org/myntra/uikit/commits/a7ac3e9))
+* **elements | Modal:** Render modal in portal to prevent possible occlusion ([186254d](https://bitbucket.org/myntra/uikit/commits/186254d))
+* **tokens:** Add z-index for nav and modal ([008eab1](https://bitbucket.org/myntra/uikit/commits/008eab1))
+
+
+
 <a name="0.5.8"></a>
 ## [0.5.8](https://bitbucket.org/myntra/uikit/compare/v0.5.6...v0.5.8) (2018-11-28)
 
