@@ -12,31 +12,34 @@ export const toArray = any => {
   return [any]
 }
 
-export const sortOptions = (options, searchValue, labelKey) => {
+export const moveSelectedOptionsToTop = (options, selectedOptionValues, valueKey) => {
   // sort options. selected should appear at top.
-  const setOfValues = new Set(toArray(searchValue))
+  const value = new Set(toArray(selectedOptionValues))
+
+  options = options.slice()
+
   options.sort((a, b) => {
-    if (setOfValues.has(a[labelKey]) && setOfValues.has(b[labelKey])) return 0
-    if (setOfValues.has(b[labelKey])) return 1
-    return 0
+    if (value.has(a[valueKey]) && value.has(b[valueKey])) return 0
+    if (value.has(b[valueKey])) return 1
+    return -1
   })
 
-  return options.slice(0, Math.max(20, toArray(searchValue).length))
+  return options
 }
 
 export const createSearchIndex = options => {
   return new Sifter(options)
 }
 
-export const executeFilterSearch = (sifter, list, keyword, options) => {
-  const { searchableKeys, sortBy, sortOrder, filterOptions } = options
+export const executeFilterSearch = (sifter, options, keyword, config) => {
+  const { searchableKeys, sortBy, sortOrder, filterOptions, limit } = config
   const results = sifter.search(keyword, {
     fields: searchableKeys,
     sort: [{ field: sortBy, direction: sortOrder }],
-    limit: 20
+    limit: limit || options.length
   })
 
-  const target = results.items.map(({ id: index }) => list[index])
+  const target = results.items.map(({ id: index }) => options[index])
 
   if (filterOptions) {
     return target.filter(filterOptions)
