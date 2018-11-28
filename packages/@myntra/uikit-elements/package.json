@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-elements",
-  "version": "0.5.10",
+  "version": "0.5.11",
   "description": "@myntra/uikit-elements",
   "main": "src/index.js",
   "module": "dist/uikit-elements.js",

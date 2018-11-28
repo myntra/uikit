@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.11"></a>
+## [0.5.11](https://bitbucket.org/myntra/uikit/compare/v0.5.10...v0.5.11) (2018-11-28)
+
+
+### Bug Fixes
+
+* **elements | InputSelect:** Render only 20 options for non-searchable fields ([df08fa4](https://bitbucket.org/myntra/uikit/commits/df08fa4))
+
+
+
 <a name="0.5.10"></a>
 ## [0.5.10](https://bitbucket.org/myntra/uikit/compare/v0.5.9...v0.5.10) (2018-11-28)
 
