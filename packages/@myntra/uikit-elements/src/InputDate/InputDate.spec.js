@@ -361,12 +361,6 @@ describe('next selection', () => {
 describe('dropdown', () => {
   const wrapper = shallow(<InputDate />)
 
-  wrapper.instance().dropdownRef({
-    close() {
-      wrapper.find(Dropdown).simulate('close')
-    }
-  })
-
   beforeEach(() => {
     wrapper.setState({ isOpen: true })
   })

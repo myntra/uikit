@@ -103,8 +103,8 @@ describe('Input Select', () => {
     select.setProps({ options: [{ label: 'One', value: 1 }, { label: 'Two', value: 2 }, { label: 'Three', value: 3 }] })
     expect(select.state('filteredOptions')).toEqual([
       { label: 'One', value: 1 },
-      { label: 'Three', value: 3 },
-      { label: 'Two', value: 2 }
+      { label: 'Two', value: 2 },
+      { label: 'Three', value: 3 }
     ])
     done()
   })
@@ -249,7 +249,7 @@ describe('Input Select', () => {
       }
       select.setState({ isOpen: true })
       select.instance().handleKeyDown(event)
-      expect(props.onChange).toHaveBeenLastCalledWith(1, { label: 'One', value: 1 })
+      expect(props.onChange).toHaveBeenLastCalledWith(2, { label: 'Two', value: 2 })
       done()
     })
   })

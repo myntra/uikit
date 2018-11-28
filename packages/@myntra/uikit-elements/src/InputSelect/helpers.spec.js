@@ -1,4 +1,4 @@
-import { toString, toArray, sortOptions, createSearchIndex, executeFilterSearch } from './helpers'
+import { toString, toArray, createSearchIndex, executeFilterSearch } from './helpers'
 
 test('toString', () => {
   expect(toString('foo')).toBe('foo')
@@ -20,19 +20,6 @@ test('toArray', () => {
   expect(toArray(1)).toEqual([1])
   expect(toArray(0)).toEqual([0])
   expect(toArray({ foo: 'bar' })).toEqual([{ foo: 'bar' }])
-})
-
-describe('sortOptions', () => {
-  const options = [4, 5, 3, 1, 2]
-  const normalize = items => items.map(label => ({ label }))
-
-  it('should not change order', () => {
-    expect(sortOptions(normalize(options), [], 'label')).toEqual(normalize([4, 5, 3, 1, 2]))
-  })
-
-  it('should collect sorted at top', () => {
-    expect(sortOptions(normalize(options), [5, 1], 'label')).toEqual(normalize([5, 1, 4, 3, 2]))
-  })
 })
 
 describe('executeFilterSearch', () => {
