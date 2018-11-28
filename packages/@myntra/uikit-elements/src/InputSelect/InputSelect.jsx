@@ -124,12 +124,12 @@ export default class InputSelect extends Component {
     return target
   })
 
-  getFilteredOptions(searchText, { value, options, valueKey }) {
+  getFilteredOptions(searchText, { value, options, valueKey, numberOfOptionsToRender }) {
     if (this.props.searchable && searchText) {
       options = executeFilterSearch(this.sifter, options, searchText, this.searchOptions)
     }
 
-    return moveSelectedOptionsToTop(options, value, valueKey)
+    return moveSelectedOptionsToTop(options, value, valueKey).slice(0, numberOfOptionsToRender)
   }
 
   get searchOptions() {
