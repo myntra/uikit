@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.8"></a>
+## [0.5.8](https://bitbucket.org/myntra/uikit/compare/v0.5.6...v0.5.8) (2018-11-28)
+
+
+### Bug Fixes
+
+* **element | InputDate:** Keep date picker open when next month is clicked ([72d3278](https://bitbucket.org/myntra/uikit/commits/72d3278))
+* **elements | InputSelect:** Clear would remove search text if present else value ([5ddd1fa](https://bitbucket.org/myntra/uikit/commits/5ddd1fa))
+* **elements | InputSelect:** Keep selected options at top ([f3ec473](https://bitbucket.org/myntra/uikit/commits/f3ec473))
+* **tokens-unity:** Remove margin and padding override ([777a12f](https://bitbucket.org/myntra/uikit/commits/777a12f))
+
+
+
 <a name="0.5.7"></a>
 ## [0.5.7](https://bitbucket.org/myntra/uikit/compare/v0.5.6...v0.5.7) (2018-11-26)
 
