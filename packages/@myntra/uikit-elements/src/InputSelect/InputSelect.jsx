@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { classnames, memoize, isEqual, findIndex } from '@myntra/uikit-utils'
+import { classnames, memoize, isEqual, findIndex, looseEquals } from '@myntra/uikit-utils'
 
 import styles from './InputSelect.module.css'
-import { toArray, createSearchIndex, executeFilterSearch, sortOptions } from './helpers'
+import { toArray, createSearchIndex, executeFilterSearch, moveSelectedOptionsToTop } from './helpers'
 import Value from './InputSelectValue'
 import InputProxy from './InputSelectHidden'
 import Control from './InputSelectControl'
@@ -18,7 +18,7 @@ import { Dropdown, Icon } from '../index.js'
  @example
  <InputSelect options={[{ label: 'One', value: 1}, { label: 'Two', value: 2}, { label: 'Three', value: 3}, { label: 'Four', value: 4}]}
     value={this.state.value}
-    onChange={(value, option) => this.setState({value})}
+    onChange={(value, option) => this.setState({value})} multiple
   />
  */
 export default class InputSelect extends Component {
@@ -87,14 +87,14 @@ export default class InputSelect extends Component {
 
   componentDidMount() {
     this.setState({
-      filteredOptions: this.getFilteredOptions('')
+      filteredOptions: this.getFilteredOptions(null, this.props)
     })
   }
 
   componentDidUpdate(prevProps) {
-    if (!isEqual(prevProps.options, this.props.options)) {
+    if (!looseEquals(prevProps.value, this.props.value) || !isEqual(prevProps.options, this.props.options)) {
       this.setState({
-        filteredOptions: this.getFilteredOptions(this.searchValue)
+        filteredOptions: this.getFilteredOptions(this.searchText, this.props)
       })
     }
   }
@@ -120,12 +120,12 @@ export default class InputSelect extends Component {
     return target
   })
 
-  getFilteredOptions(searchValue) {
-    if (!this.props.searchable) {
-      return sortOptions(this.props.options, searchValue, this.props.labelKey)
-    } else {
-      return executeFilterSearch(this.sifter, this.props.options, searchValue, this.searchOptions)
+  getFilteredOptions(searchText, { value, options, valueKey }) {
+    if (this.props.searchable && searchText) {
+      options = executeFilterSearch(this.sifter, options, searchText, this.searchOptions)
     }
+
+    return moveSelectedOptionsToTop(options, value, valueKey)
   }
 
   get searchOptions() {
@@ -144,7 +144,7 @@ export default class InputSelect extends Component {
     return this.getOptionsForValue(this.props)
   }
 
-  get searchValue() {
+  get searchText() {
     return this.state.searchValue
   }
 
@@ -237,7 +237,12 @@ export default class InputSelect extends Component {
     }
   }
 
-  handleClearValue = event => this.props.onChange(null)
+  handleClearValue = event => {
+    if (!this.searchText) this.props.onChange(null)
+    this.setState({ searchValue: '' }, () => {
+      this.setState({ isOpen: true, filteredOptions: this.getFilteredOptions(null, this.props) }) // keep open
+    })
+  }
 
   handleKeyDown = event => {
     switch (event.key || event.keyCode) {
@@ -293,16 +298,16 @@ export default class InputSelect extends Component {
     }
   }
 
-  handleInput = searchValue => {
-    if (searchValue !== this.searchValue) {
+  handleInput = searchText => {
+    if (searchText !== this.searchText) {
       this.setState({
-        searchValue,
+        searchValue: searchText,
         focusedIndex: -1,
-        filteredOptions: this.getFilteredOptions(searchValue)
+        filteredOptions: this.getFilteredOptions(searchText, this.props)
       })
     }
 
-    if (this.props.onSearch) this.props.onSearch(searchValue)
+    if (this.props.onSearch) this.props.onSearch(searchText)
   }
 
   handleOptionFocus = (event, option, focusedIndex) => {
