@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-internals",
-  "version": "0.5.11",
+  "version": "0.5.12",
   "description": "Private components. Created for docs but can be used anywhere.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -17,8 +17,8 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/tokens": "0.5.9",
-    "@myntra/uikit-compounds": "0.5.11",
-    "@myntra/uikit-elements": "0.5.11",
+    "@myntra/uikit-compounds": "0.5.12",
+    "@myntra/uikit-elements": "0.5.12",
     "babel-standalone": "^6.26.0",
     "markdown-to-jsx": "^6.6.3",
     "mdxc": "^1.1.1",

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.5.12"></a>
+## [0.5.12](https://bitbucket.org/myntra/uikit/compare/v0.5.11...v0.5.12) (2018-11-29)
+
+
+### Bug Fixes
+
+* **elements | InputDate:** Dropdown closes on month selector click ([1a55f9a](https://bitbucket.org/myntra/uikit/commits/1a55f9a))
+
+
+
 <a name="0.5.11"></a>
 ## [0.5.11](https://bitbucket.org/myntra/uikit/compare/v0.5.10...v0.5.11) (2018-11-28)
 
