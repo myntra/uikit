@@ -8,13 +8,13 @@ exports[`render range 1`] = `
   className="input-date"
   container={true}
   isOpen={false}
-  onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}
   trigger={
     <InputDateValue
       active={null}
       format="yyyy-MM-dd"
+      onBlur={[Function]}
       onChange={[Function]}
       onRangeFocus={[Function]}
       range={true}
@@ -25,6 +25,7 @@ exports[`render range 1`] = `
 >
   <div
     className="wrapper"
+    onClick={[Function]}
   >
     <InputDatePicker
       active={null}
@@ -50,13 +51,13 @@ exports[`render simple 1`] = `
   className="input-date"
   container={true}
   isOpen={false}
-  onBlur={[Function]}
   onClose={[Function]}
   onOpen={[Function]}
   trigger={
     <InputDateValue
       active={null}
       format="yyyy-MM-dd"
+      onBlur={[Function]}
       onChange={[Function]}
       onRangeFocus={[Function]}
       range={false}
@@ -67,6 +68,7 @@ exports[`render simple 1`] = `
 >
   <div
     className="wrapper"
+    onClick={[Function]}
   >
     <InputDatePicker
       active={null}

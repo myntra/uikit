@@ -91,9 +91,9 @@ class InputDateValue extends PureComponent {
   }
 
   resetState = () => this.setState({ value: null })
-  handleBlur = () => {
+  handleBlur = event => {
     this.resetState()
-    this.props.onBlur && this.props.onBlur()
+    this.props.onBlur && this.props.onBlur(event)
   }
   handleFromFocus = e => this.handleRangeFocus('from', e)
   handleToFocus = e => this.handleRangeFocus('to', e)

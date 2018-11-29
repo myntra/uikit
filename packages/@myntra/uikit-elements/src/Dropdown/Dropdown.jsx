@@ -319,7 +319,11 @@ class Dropdown extends Component {
           {typeof this.props.trigger === 'string' ? (
             <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
           ) : (
-            React.cloneElement(this.props.trigger, { onBlur: this.close, onFocus: this.open, onClick: this.toggle })
+            React.cloneElement(this.props.trigger, {
+              onBlur: this.props.trigger.props.onBlur || this.close,
+              onFocus: this.open,
+              onClick: this.toggle
+            })
           )}
         </div>
         {this.props.isOpen &&

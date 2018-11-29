@@ -13,7 +13,10 @@ import styles from './InputDate.module.css'
  @since 0.0.0
  @status REVIEWING
  @example
- <InputDate range displayFormat="MM/dd" value={this.state.value} onChange={(value) => this.setState({value})}/>
+ <div>
+ <InputDate displayFormat="MM/dd" value={this.state.value} onChange={(value) => this.setState({value})}/>
+ <InputDate displayFormat="MM/dd" value={this.state.value} onChange={(value) => this.setState({value})}/>
+ </div>
 **/
 export default class InputDate extends PureComponent {
   static propTypes = {
@@ -56,6 +59,14 @@ export default class InputDate extends PureComponent {
     openToDate: null,
     activeRangeEnd: null,
     isRangeSelectionActive: false
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.wrapperRef = element => {
+      this.wrapperRef.current = element
+    }
   }
 
   get displayFormat() {
@@ -104,7 +115,7 @@ export default class InputDate extends PureComponent {
 
   handleRangeFocus = value => this.setState({ activeRangeEnd: value })
   handleChange = value => {
-    let shouldBeClosed = !!value
+    let shouldBeClosed = !!(value && !this.props.value)
     if (this.props.range) {
       shouldBeClosed = !!(value && value.from && value.to)
       let nextSelection = null
@@ -133,15 +144,20 @@ export default class InputDate extends PureComponent {
     if (shouldBeClosed) {
       this.close()
     } else {
-      this.skipClose = true
-      setTimeout(() => (this.skipClose = false), 100)
+      this.skipClose()
     }
   }
 
   handleDropdownOpen = () => this.setState({ isOpen: true, openToDate: this.openToDate || new Date() })
-  handleDropdownClose = () => {
-    if (this.skipClose) {
-      this.skipClose = false
+  handleDropdownClose = () => this.close()
+
+  closeDelayed = () => setTimeout(this.close, 150)
+
+  close = () => {
+    if (this._skipThisClose) {
+      console.log('Skipping close')
+      clearTimeout(this._skipThisClose)
+      this._skipThisClose = null
 
       return
     }
@@ -149,23 +165,8 @@ export default class InputDate extends PureComponent {
     this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
   }
 
-  handleBlur = /* istanbul ignore next: difficult to mock activeElement */ event => {
-    if (document.activeElement === document.body) return
-    this.closeIfElementIsOutsideTarget(event, document.activeElement)
-  }
-
-  closeIfElementIsOutsideTarget(event, element) {
-    const path = event.path || (event.composedPath ? event.composedPath() : undefined)
-
-    if (
-      path ? path.indexOf(element) < 0 : event.target !== event.currentTarget && !event.currentTarget.contains(element)
-    ) {
-      this.close()
-    }
-  }
-
-  close() {
-    this.handleDropdownClose()
+  skipClose = () => {
+    this._skipThisClose = setTimeout(() => (this._skipThisClose = null), 150)
   }
 
   render() {
@@ -183,13 +184,13 @@ export default class InputDate extends PureComponent {
             active={this.displayActiveRangeEnd}
             onRangeFocus={this.handleRangeFocus}
             onChange={this.handleDisplayValueChange}
+            onBlur={this.closeDelayed}
           />
         }
         onOpen={this.handleDropdownOpen}
         onClose={this.handleDropdownClose}
-        onBlur={this.handleBlur}
       >
-        <div className={classnames('wrapper').use(styles)}>
+        <div className={classnames('wrapper').use(styles)} onClick={this.skipClose}>
           <InputDatePicker
             presets={this.props.range}
             disabledDates={[]}

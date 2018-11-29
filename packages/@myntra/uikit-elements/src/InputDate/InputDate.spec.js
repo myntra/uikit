@@ -381,34 +381,4 @@ describe('dropdown', () => {
     wrapper.instance().close()
     expect(wrapper.state().isOpen).toBe(false)
   })
-
-  test('close if active element is outside', () => {
-    const EVENT_WITH_PATH = { path: [1] }
-    const EVENT_WITH_COMPOSED_PATH = { composedPath: () => [1] }
-    const EVENT_WITH_CURRENT_TARGET = { currentTarget: { contains: a => [1].includes(a) } }
-
-    wrapper.setState({ isOpen: true })
-    wrapper.instance().closeIfElementIsOutsideTarget(EVENT_WITH_PATH, 0)
-    expect(wrapper.state().isOpen).toBe(false)
-
-    wrapper.setState({ isOpen: true })
-    wrapper.instance().closeIfElementIsOutsideTarget(EVENT_WITH_PATH, 1)
-    expect(wrapper.state().isOpen).toBe(true)
-
-    wrapper.setState({ isOpen: true })
-    wrapper.instance().closeIfElementIsOutsideTarget(EVENT_WITH_COMPOSED_PATH, 0)
-    expect(wrapper.state().isOpen).toBe(false)
-
-    wrapper.setState({ isOpen: true })
-    wrapper.instance().closeIfElementIsOutsideTarget(EVENT_WITH_COMPOSED_PATH, 1)
-    expect(wrapper.state().isOpen).toBe(true)
-
-    wrapper.setState({ isOpen: true })
-    wrapper.instance().closeIfElementIsOutsideTarget(EVENT_WITH_CURRENT_TARGET, 0)
-    expect(wrapper.state().isOpen).toBe(false)
-
-    wrapper.setState({ isOpen: true })
-    wrapper.instance().closeIfElementIsOutsideTarget(EVENT_WITH_CURRENT_TARGET, 1)
-    expect(wrapper.state().isOpen).toBe(true)
-  })
 })
