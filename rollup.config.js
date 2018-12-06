@@ -98,6 +98,7 @@ function createConfig(output, plugins = []) {
           ]
         ],
         plugins: [
+          'babel-plugin-remove-test-ids',
           '@babel/plugin-proposal-class-properties',
           '@babel/plugin-transform-react-jsx',
           '@babel/plugin-transform-runtime',

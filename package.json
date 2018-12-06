@@ -50,6 +50,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.0-beta.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
+    "babel-plugin-remove-test-ids": "^1.1.0",
     "chalk": "^2.4.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
