@@ -72,7 +72,9 @@ export default class ComponentDocumenter extends Component {
           <div>
             <h2>Props:</h2>
 
-            <Table data={this.props.props.filter(prop => !prop.private)}>
+            <Table
+              data={this.props.props.filter(prop => !prop.private).filter(prop => !/^(_|className)/.test(prop.name))}
+            >
               <Table.Column key="name" label="Name" />
               <Table.Column key="description" label="Description">
                 {({ data }) => <Markdown>{data.description || ''}</Markdown>}

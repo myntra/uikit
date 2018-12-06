@@ -12,9 +12,10 @@ for (const target of targets) {
 
 module.exports = {
   moduleNameMapper: aliases,
-  setupFiles: ['./scripts/setup-enzyme.js'],
+  setupTestFrameworkScriptFile: '<rootDir>/test/unit/setup-jest.js',
+  setupFiles: ['<rootDir>/test/unit/setup-enzyme.js'],
   transform: {
-    '^.+\\.(js|jsx)$': './scripts/transform-babel.js'
+    '^.+\\.(js|jsx)$': '<rootDir>/scripts/transform-babel.js'
   },
   transformIgnorePatterns: ['<rootDir>/node_modules/(?!lodash-es|@myntra)'],
   collectCoverageFrom: [

@@ -6,9 +6,9 @@ const deIndent = require('de-indent')
 
 function prepare(prop) {
   if (prop.description) {
-    const docs = prop.description.split(/\n[ ]*\n/).map(d => doctrine.parse(d))
+    const docs = prop.description.split(/\n/).map(d => doctrine.parse(d))
 
-    prop.description = (docs.filter(doc => !!doc.description).find(Boolean) || {}).description
+    prop.description = docs.map(({ description }) => description || '').join('\n')
     prop.private = docs.map(doc => doc.tags.some(tag => tag.title === 'private')).some(Boolean)
     prop.meta = docs.length ? docs[docs.length - 1].tags : []
     const reference = docs.map(doc => (doc.tags.length ? doc.tags : null)).filter(Boolean)
@@ -17,6 +17,7 @@ function prepare(prop) {
       prop.reference = reference
     }
   }
+
   return prop
 }
 
@@ -51,6 +52,7 @@ function normalizeType(type) {
  * @returns {Prop}
  */
 function prepareProp(prop) {
+  prop.original = JSON.parse(JSON.stringify(prop))
   prepare(prop)
   if (prop.type) prop.type = normalizeType(prop.type)
 

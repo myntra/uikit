@@ -526,16 +526,16 @@ export function testCodeMod(dir, filename, options = {}) {
   const outputDir = path.resolve(dir, '__codemod__/output')
   const codemods = require(file)
 
-  describe(filename, () => {
+  describe(filename.replace('.codemod.js', ''), () => {
     function read(f) {
       return fs.readFileSync(f, 'utf8').toString()
     }
     for (const name in codemods) {
-      describe(name, () => {
+      describe('codemod => ' + name, () => {
         const fixtures = glob.sync(name + '*.js', { cwd: inputDir })
 
         fixtures.forEach(fixture => {
-          it(fixture, () => {
+          it('fixture :: ' + fixture, () => {
             const isNegative = fixture.includes('.fail.')
             const inputPath = path.resolve(inputDir, fixture)
             const outputPath = path.resolve(outputDir, fixture)

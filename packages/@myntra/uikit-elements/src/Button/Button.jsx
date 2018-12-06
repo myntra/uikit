@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
+import { classnames } from '@myntra/uikit-utils'
 
 import { Icon } from '../index.js'
 import styles from './Button.module.css'
@@ -9,7 +9,7 @@ import styles from './Button.module.css'
  The button/link component.
 
  @since 0.0.0
- @status REVIEWING
+ @status READY
  @example
  <Button>Click Me</Button>
  */
@@ -21,45 +21,78 @@ export default class Button extends PureComponent {
   )
 
   static propTypes = {
-    /** Hyperlink */
+    /**
+     * Link for `href` attribute.
+     *
+     * Button uses `<a>` tag.
+     */
     href: PropTypes.string,
-    /** ReactRouter Link or ReduxRouter Link */
+    /**
+     * Link as expected by Button.RouterLink component.
+     *
+     * Button uses `<RouterLink>` component.
+     */
     to: PropTypes.any,
-    /** Label Text */
+    /** Text displayed on the button. */
     label: PropTypes.string,
-    /** @private */
+    /**
+     * Text displayed on the button.
+     *
+     * `children` prop if set, overrides `label`.
+     */
     children: PropTypes.any,
-    /** Primary Icon */
+    /**
+     * Icon is displayed at the start of the button.
+     */
     icon: PropTypes.string,
-    /** Secondary Icon */
+    /** Addition icon displayed at the end of the button.  */
     secondaryIcon: PropTypes.string,
-    /** Visible button type */
-    type: PropTypes.oneOf(['primary', 'secondary', 'link', 'link.inherit']),
-    /** HTML type attribute for <button> */
+    /** Type of button. */
+    type: PropTypes.oneOf([
+      'primary',
+      'secondary',
+      'link',
+      /** @deprecated */
+      'link.inherit'
+    ]),
+    /** HTML type attribute for <button>. */
     htmlType: PropTypes.string,
-    /** Disabled */
+    /** Disables button element */
     disabled: PropTypes.bool,
-    /** Click event handler */
+    /**
+     * Displays loading state.
+     *
+     * @since 0.6.0
+     */
+    isLoading: PropTypes.bool,
+    /** Use current text color */
+    inheritTextColor: PropTypes.bool,
+    /**
+     * Click event handler
+     *
+     * @type {{(event: MouseEvent): void}}
+     */
     onClick: PropTypes.func,
-    /** @private */
     className: PropTypes.string,
-    /** @private */
-    combination: props => {
+    __validate__: props => {
       if ('href' in props && 'to' in props) {
         throw new Error('`to` and `href` cannot be used together')
+      }
+
+      if (props.type === 'link.inherit') {
+        // TODO(v0.7.0): Remove type="link.inherit"
+        console.warn(
+          'Button type `"link.inherit"` is deprecated and would be removed in v0.7.0. Use `<Button type="link" inheritTextColor />`.'
+        )
       }
     }
   }
 
   static defaultProps = {
     type: 'primary',
-    disabled: false
-  }
-
-  _forwardedProps = onlyExtraProps(Button.propTypes)
-
-  get forwardedProps() {
-    return this._forwardedProps(this.props)
+    disabled: false,
+    isLoading: false,
+    inheritTextColor: false
   }
 
   handleClick = event => {
@@ -73,41 +106,56 @@ export default class Button extends PureComponent {
   }
 
   render() {
-    const { icon, secondaryIcon, htmlType, className } = this.props
-    const Tag = this.props.to ? Button.RouterLink : this.props.href ? 'a' : 'button'
+    const {
+      icon,
+      secondaryIcon,
+      htmlType,
+      className,
+      type,
+      to,
+      href,
+      label,
+      disabled,
+      inheritTextColor,
+      isLoading,
+      children,
+      ...forwardedProps
+    } = this.props
+    const Tag = to ? Button.RouterLink : href ? 'a' : 'button'
     const needLeftSlot = !!icon
     const needRightSlot = !!secondaryIcon
 
     return (
       <Tag
-        {...this.forwardedProps}
+        tabIndex="0" // enable tab navigation.
+        {...forwardedProps}
         type={htmlType}
         className={classnames(
           'button',
           className,
           /* Button Styles */
-          { [this.props.type]: true },
-          this.props.type === 'link.inherit' && ['link', 'inherit'],
-          /* Button States */
           {
-            loading: false
-          }
+            [type]: true,
+            loading: isLoading
+          },
+          inheritTextColor && 'inherit'
         ).use(styles)}
-        href={this.props.href}
-        to={this.props.to}
+        to={to}
+        href={href}
+        disabled={disabled}
         role="button"
-        disabled={this.props.disabled}
         onClick={this.handleClick}
+        data-test-id="target"
       >
         {needLeftSlot && (
-          <span className={classnames('left').use(styles)}>
-            <Icon name={icon} />
+          <span className={classnames('left').use(styles)} data-test-id="primary-icon">
+            <Icon name={icon} aria-hidden="true" />
           </span>
         )}
-        {this.props.children || this.props.label}
+        {children || label}
         {needRightSlot && (
-          <span className={classnames('right').use(styles)}>
-            <Icon name={secondaryIcon} />
+          <span className={classnames('right').use(styles)} data-test-id="secondary-icon">
+            <Icon name={secondaryIcon} aria-hidden="true" />
           </span>
         )}
       </Tag>
