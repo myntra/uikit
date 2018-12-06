@@ -1,5 +1,3 @@
-@import '@myntra/tokens/tokens.css';
-
 .helptext {
   font-size: var(--typography-text-caption-font-size);
   margin-top: var(--size-xx-small);

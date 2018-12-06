@@ -11,13 +11,14 @@ import {
   InputNumber,
   InputRange,
   InputSwitch,
-  InputTextArea
+  InputTextArea,
+  Field,
+  withField
 } from '@myntra/uikit-elements'
 
 import { sizes } from '../Grid/GridColumn'
 
 import styles from './Form.module.css'
-import FormGroup, { withFormGroup } from './FormGroup'
 import FormHelpText from './FormHelpText'
 import FormAction from './FormAction'
 
@@ -79,7 +80,7 @@ function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
       {title && <div className={classnames('form-title').use(styles)}>{title}</div>}
       <Grid multiline>
         {fields.map((field, index) => (
-          <Grid.Column key={index} size={field.props.fieldSize || defaultFieldSize}>
+          <Grid.Column key={index} size={(field.props && field.props.fieldSize) || defaultFieldSize}>
             {field}
           </Grid.Column>
         ))}
@@ -112,17 +113,17 @@ Form.propTypes = {
 }
 
 Form.Action = FormAction
-Form.Group = FormGroup
+Form.Field = Field
 Form.Help = FormHelpText
 
-Form.Text = withFormGroup(InputText)
-Form.Select = withFormGroup(InputSelect)
-Form.CheckBox = withFormGroup(InputCheckBox)
-Form.Date = withFormGroup(InputDate)
-Form.Masked = withFormGroup(InputMasked)
-Form.Number = withFormGroup(InputNumber)
-Form.Range = withFormGroup(InputRange)
-Form.Switch = withFormGroup(InputSwitch)
-Form.TextArea = withFormGroup(InputTextArea)
+Form.Text = withField(InputText)
+Form.Select = withField(InputSelect)
+Form.CheckBox = withField(InputCheckBox)
+Form.Date = withField(InputDate)
+Form.Masked = withField(InputMasked)
+Form.Number = withField(InputNumber)
+Form.Range = withField(InputRange)
+Form.Switch = withField(InputSwitch)
+Form.TextArea = withField(InputTextArea)
 
 export default Form
