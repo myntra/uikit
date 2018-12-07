@@ -2,11 +2,7 @@
 
 exports[`render should render 1`] = `
 <div
-  className={
-    Array [
-      "month",
-    ]
-  }
+  className="month"
 >
   <div
     className="header"
