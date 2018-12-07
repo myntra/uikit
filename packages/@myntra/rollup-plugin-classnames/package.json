@@ -1,0 +1,21 @@
+{
+  "name": "@myntra/rollup-plugin-classnames",
+  "version": "0.5.12",
+  "description": "@myntra/rollup-plugin-classnames",
+  "main": "src/index.js",
+  "module": "dist/rollup-plugin-classnames.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/rollup-plugin-classnames",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ],
+  "dependencies": {
+    "rollup-pluginutils": "^2.3.3"
+  }
+}
