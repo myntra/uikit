@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames, memoize } from '@myntra/uikit-utils'
+import { memoize } from '@myntra/uikit-utils'
 import { getMousePosition, getTouchPosition, addEventsToDocument, removeEventsFromDocument } from './events'
-import styles from './InputRange.module.css'
+import classnames from './InputRange.module.css'
 
 /**
  * Round number with fixed-point notation.
@@ -196,29 +196,25 @@ export default class InputRange extends React.PureComponent {
     const trackStyle = { transform: `scaleX(${this.knobOffset()})` }
 
     return (
-      <div className={classnames('input').use(styles)}>
-        <div className={classnames('container', { disabled }, className).use(styles)}>
-          <div className={classnames('knob').use(styles)}>
-            <div className={classnames('inner-knob').use(styles)} style={knobStyles}>
+      <div className={classnames('input')}>
+        <div className={classnames('container', { disabled }, className)}>
+          <div className={classnames('knob')}>
+            <div className={classnames('inner-knob')} style={knobStyles}>
               <div
-                className={classnames('knob-value', { 'knob-pressed': pressed }).use(styles)}
+                className={classnames('knob-value', { 'knob-pressed': pressed })}
                 onMouseDown={this.handleMouseDown}
                 onTouchStart={this.handleTouchStart}
               />
             </div>
           </div>
-          <div
-            className={classnames('track').use(styles)}
-            onMouseDown={this.handleMouseDown}
-            onTouchStart={this.handleTouchStart}
-          >
+          <div className={classnames('track')} onMouseDown={this.handleMouseDown} onTouchStart={this.handleTouchStart}>
             <div
-              className={classnames('inner-track').use(styles)}
+              className={classnames('inner-track')}
               ref={node => {
                 this.trackNode = node
               }}
             >
-              <span className={classnames('track-value').use(styles)} style={trackStyle} />
+              <span className={classnames('track-value')} style={trackStyle} />
             </div>
           </div>
           <input {...restProps} type="range" hidden readOnly />

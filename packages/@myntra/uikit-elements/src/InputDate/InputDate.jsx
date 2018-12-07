@@ -1,11 +1,11 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
+
 import InputDatePicker from './InputDatePicker'
 import InputDateValue from './InputDateValue'
 import Dropdown from '../Dropdown/Dropdown'
 import { format, parse, DateType, DateRangeType, isDateEqual } from './InputDateUtils'
-import styles from './InputDate.module.css'
+import classnames from './InputDate.module.css'
 
 /**
  The InputDate component.
@@ -174,7 +174,7 @@ export default class InputDate extends PureComponent {
       <Dropdown
         auto
         container
-        className={classnames(this.props.className, 'input-date').use(styles)}
+        className={classnames(this.props.className, 'input-date')}
         isOpen={this.state.isOpen}
         trigger={
           <InputDateValue
@@ -190,7 +190,7 @@ export default class InputDate extends PureComponent {
         onOpen={this.handleDropdownOpen}
         onClose={this.handleDropdownClose}
       >
-        <div className={classnames('wrapper').use(styles)} onClick={this.skipClose}>
+        <div className={classnames('wrapper')} onClick={this.skipClose}>
           <InputDatePicker
             presets={this.props.range}
             disabledDates={[]}

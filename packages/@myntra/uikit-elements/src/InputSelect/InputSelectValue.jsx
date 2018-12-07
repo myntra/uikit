@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames, memoize } from '@myntra/uikit-utils'
+import { memoize } from '@myntra/uikit-utils'
 
-import styles from './InputSelectValue.module.css'
+import classnames from './InputSelectValue.module.css'
 
 export default class InputSelectValue extends PureComponent {
   static propTypes = {
@@ -29,14 +29,8 @@ export default class InputSelectValue extends PureComponent {
     const { disabled, underlay } = this.props
 
     return (
-      <div className={classnames({ underlay }, 'value').use(styles)} title={this.value}>
-        <input
-          className={classnames('input').use(styles)}
-          disabled={disabled}
-          value={this.value}
-          tabIndex={-1}
-          readOnly
-        />
+      <div className={classnames({ underlay }, 'value')} title={this.value}>
+        <input className={classnames('input')} disabled={disabled} value={this.value} tabIndex={-1} readOnly />
       </div>
     )
   }

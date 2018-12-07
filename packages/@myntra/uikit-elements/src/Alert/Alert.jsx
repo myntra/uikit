@@ -1,7 +1,6 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './Alert.module.css'
+import classnames from './Alert.module.css'
 import { Icon } from '../index.js'
 
 const ICONS = {
@@ -20,12 +19,12 @@ const ICONS = {
  */
 function Alert({ className, type, noFill, onClose, children }) {
   return (
-    <div className={classnames('alert', { 'no-fill': noFill }, type, className).use(styles)}>
-      <Icon className={classnames('icon', 'legend').use(styles)} name={ICONS[type]} />
-      <div className={classnames('content').use(styles)}>{children}</div>
+    <div className={classnames('alert', { 'no-fill': noFill }, type, className)}>
+      <Icon className={classnames('icon', 'legend')} name={ICONS[type]} />
+      <div className={classnames('content')}>{children}</div>
       {onClose && (
-        <div className={classnames('close').use(styles)} onClick={onClose} role="button">
-          <Icon name="times" className={classnames('icon').use(styles)} />
+        <div className={classnames('close')} onClick={onClose} role="button">
+          <Icon name="times" className={classnames('icon')} />
         </div>
       )}
     </div>

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
+import { onlyExtraProps } from '@myntra/uikit-utils'
 
-import styles from './Grid.module.css'
+import classnames from './Grid.module.css'
 
 /**
  Sub component of `<Grid>`.
@@ -45,7 +45,7 @@ export default function GridColumn(props) {
         // desktop
         [`is-${props.sizeOnDesktop}-desktop`]: props.sizeOnDesktop,
         [`offset-${props.offsetOnDesktop}-desktop`]: props.offsetOnDesktop
-      }).use(styles)}
+      })}
     >
       {props.children}
     </div>

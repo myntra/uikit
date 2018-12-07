@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './InputDateValue.module.css'
+import classnames from './InputDateValue.module.css'
 import { parse, format } from './InputDateUtils'
 import { Icon, InputMasked } from '../index.js'
 
@@ -121,13 +120,13 @@ class InputDateValue extends PureComponent {
     }
 
     return (
-      <div className={classnames('date-value', { 'date-value-active': this.props.active }).use(styles)}>
+      <div className={classnames('date-value', { 'date-value-active': this.props.active })}>
         {this.props.range && (
           <div
             key="from"
             className={classnames('wrapper', {
               active: this.props.active === 'from'
-            }).use(styles)}
+            })}
           >
             <InputMasked
               {...props}
@@ -140,12 +139,7 @@ class InputDateValue extends PureComponent {
             />
             {this.props.value &&
               this.props.value.from && (
-                <Icon
-                  className={classnames('icon').use(styles)}
-                  name="times"
-                  title="Clear date"
-                  onClick={this.handleFromClear}
-                />
+                <Icon className={classnames('icon')} name="times" title="Clear date" onClick={this.handleFromClear} />
               )}
           </div>
         )}
@@ -154,7 +148,7 @@ class InputDateValue extends PureComponent {
             key="to"
             className={classnames('wrapper', {
               active: this.props.active === 'to'
-            }).use(styles)}
+            })}
           >
             <InputMasked
               {...props}
@@ -167,25 +161,15 @@ class InputDateValue extends PureComponent {
             />
             {this.props.value &&
               this.props.value.to && (
-                <Icon
-                  className={classnames('icon').use(styles)}
-                  name="times"
-                  title="Clear date"
-                  onClick={this.handleToClear}
-                />
+                <Icon className={classnames('icon')} name="times" title="Clear date" onClick={this.handleToClear} />
               )}
           </div>
         )}
         {!this.props.range && (
-          <div key="both" className={classnames('wrapper').use(styles)}>
+          <div key="both" className={classnames('wrapper')}>
             <InputMasked {...props} value={this.value} onChange={this.handleChange} onBlur={this.handleBlur} />
             {this.props.value && (
-              <Icon
-                className={classnames('icon').use(styles)}
-                name="cross"
-                title="Clear date"
-                onClick={this.handleClear}
-              />
+              <Icon className={classnames('icon')} name="cross" title="Clear date" onClick={this.handleClear} />
             )}
           </div>
         )}

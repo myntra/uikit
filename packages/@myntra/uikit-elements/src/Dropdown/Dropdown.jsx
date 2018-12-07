@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { onlyExtraProps, classnames } from '@myntra/uikit-utils'
+import { onlyExtraProps } from '@myntra/uikit-utils'
 
 import ClickAway from '../ClickAway/ClickAway'
 import Button from '../Button/Button'
 
-import styles from './Dropdown.module.css'
+import classnames from './Dropdown.module.css'
 import { Measure, Portal } from '../index'
 
 const scrollParents = new WeakMap()
@@ -309,13 +309,9 @@ class Dropdown extends Component {
         {...this.forwardedProps}
         className={classnames(this.props.className, 'dropdown', {
           open: this.props.isOpen
-        }).use(styles)}
+        })}
       >
-        <div
-          className={classnames('trigger').use(styles)}
-          ref={this.triggerRef}
-          onClick={event => event.stopPropagation()}
-        >
+        <div className={classnames('trigger')} ref={this.triggerRef} onClick={event => event.stopPropagation()}>
           {typeof this.props.trigger === 'string' ? (
             <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
           ) : (
@@ -329,14 +325,9 @@ class Dropdown extends Component {
         {this.props.isOpen &&
           (this.props.container ? (
             <Portal container={this.props.container}>
-              <div
-                className={classnames('content', 'fixed').use(styles)}
-                style={position}
-                ref={this.wrapperRef}
-                hidden={!position}
-              >
+              <div className={classnames('content', 'fixed')} style={position} ref={this.wrapperRef} hidden={!position}>
                 <Measure bounds onMeasure={this.handleMeasure}>
-                  <div className={classnames('content-wrapper').use(styles)} style={position && position.content}>
+                  <div className={classnames('content-wrapper')} style={position && position.content}>
                     {this.props.children}
                   </div>
                 </Measure>
@@ -344,7 +335,7 @@ class Dropdown extends Component {
             </Portal>
           ) : (
             <Measure bounds onMeasure={this.handleMeasure}>
-              <div className={classnames('content', { up, left, right }).use(styles)} ref={this.wrapperRef}>
+              <div className={classnames('content', { up, left, right })} ref={this.wrapperRef}>
                 {this.props.children}
               </div>
             </Measure>

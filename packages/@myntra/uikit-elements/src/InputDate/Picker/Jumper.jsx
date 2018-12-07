@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
+
 import SelectYear from './SelectYear'
 import SelectMonth from './SelectMonth'
-import styles from './Jumper.module.css'
+import classnames from './Jumper.module.css'
 import { UTCDate } from '../InputDateUtils'
 import { Icon } from '../../index.js'
 
@@ -48,26 +48,22 @@ class Jumper extends PureComponent {
     const { year, month, offset, className, onJump, hasNext, hasPrev, ...props } = this.props
 
     return (
-      <div {...props} className={classnames(className, 'jumper').use(styles)}>
+      <div {...props} className={classnames(className, 'jumper')}>
         {hasPrev ? (
-          <div className={classnames('prev').use(styles)} role="button" tabIndex={-1} onClick={this.handlePrev}>
+          <div className={classnames('prev')} role="button" tabIndex={-1} onClick={this.handlePrev}>
             <Icon name="chevron-left" />
           </div>
         ) : (
-          <div className={classnames('prev', 'placeholder').use(styles)} />
+          <div className={classnames('prev', 'placeholder')} />
         )}
-        <SelectMonth
-          month={month}
-          onMonthSelect={this.handleMonthSelect}
-          className={classnames('select').use(styles)}
-        />
-        <SelectYear className={classnames('select').use(styles)} year={year} onYearSelect={this.handleYearSelect} />
+        <SelectMonth month={month} onMonthSelect={this.handleMonthSelect} className={classnames('select')} />
+        <SelectYear className={classnames('select')} year={year} onYearSelect={this.handleYearSelect} />
         {hasNext ? (
-          <div className={classnames('next').use(styles)} role="button" tabIndex={-1} onClick={this.handleNext}>
+          <div className={classnames('next')} role="button" tabIndex={-1} onClick={this.handleNext}>
             <Icon name="chevron-right" />
           </div>
         ) : (
-          <div className={classnames('next', 'placeholder').use(styles)} />
+          <div className={classnames('next', 'placeholder')} />
         )}
       </div>
     )

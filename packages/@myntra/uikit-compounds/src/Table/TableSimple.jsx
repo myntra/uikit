@@ -1,17 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
 import Row from './TableRow'
 import Cell from './TableCell'
 
-import styles from './Table.module.css'
+import classnames from './Table.module.css'
 import Sentinel from './Sentinel'
 
 /* eslint-disable react/prop-types */
 const WithSentinel = /* istanbul ignore next: trivial style generation code (difficult to test). */ ({ children }) => (
   <Sentinel
-    className={classnames('sentinel').use(styles)}
+    className={classnames('sentinel')}
     transform={({ height }) => ({ marginTop: '-' + (parseFloat(height) - 1) + 'px' })}
     transformSentinel={({ height }) => ({ height: parseFloat(height) - 2 + 'px' })}
   >
@@ -31,10 +30,10 @@ function TableSimple({ head, body, layout, className, renderRow: RowWrapper, use
   const Thead = useDiv ? 'div' : 'thead'
   const Tbody = useDiv ? 'div' : 'tbody'
   return (
-    <div className={classnames('wrapper').use(styles)}>
-      <div className={classnames('scroller').use(styles)}>
-        <Table className={classnames(className, 'table', { fixed: layout === 'fixed' }).use(styles)}>
-          <Thead className={classnames('thead').use(styles)}>
+    <div className={classnames('wrapper')}>
+      <div className={classnames('scroller')}>
+        <Table className={classnames(className, 'table', { fixed: layout === 'fixed' })}>
+          <Thead className={classnames('thead')}>
             {head.rows.map(row => (
               <RowWrapper key={row.id} head>
                 <Row useDiv={useDiv}>
@@ -47,7 +46,7 @@ function TableSimple({ head, body, layout, className, renderRow: RowWrapper, use
               </RowWrapper>
             ))}
           </Thead>
-          <Tbody className={classnames('tbody').use(styles)}>
+          <Tbody className={classnames('tbody')}>
             {body.rows.map(row => (
               <RowWrapper key={row.id} data={row.data} index={row.index} WithSentinel={WithSentinel}>
                 <Row useDiv={useDiv}>

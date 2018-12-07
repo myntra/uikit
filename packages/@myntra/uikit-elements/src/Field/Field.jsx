@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Field.module.css'
+
+import classnames from './Field.module.css'
 
 /**
  * A wrapper component to add title, label and description to form fields.
@@ -15,12 +15,12 @@ import styles from './Field.module.css'
  */
 function Field({ title, error, description, htmlFor, children }) {
   return (
-    <div className={classnames('container').use(styles)}>
-      <label id={htmlFor ? htmlFor + '__label' : null} className={classnames('title').use(styles)} htmlFor={htmlFor}>
+    <div className={classnames('container')}>
+      <label id={htmlFor ? htmlFor + '__label' : null} className={classnames('title')} htmlFor={htmlFor}>
         {title}
       </label>
       {children}
-      <div className={classnames('meta').use(styles)}>
+      <div className={classnames('meta')}>
         {error ? (
           <div id={htmlFor ? htmlFor + '__error' : null} role="alert">
             {Array.isArray(error) ? error.join(' ') : error}

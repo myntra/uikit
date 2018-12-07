@@ -1,7 +1,6 @@
 import React from 'react'
 import { Button } from '@myntra/uikit-elements'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './FormAction.module.css'
+import classnames from './FormAction.module.css'
 
 /**
  * @since 0.3.0
@@ -15,7 +14,7 @@ function FormAction(props) {
     <Button
       {...props}
       type={props.type || 'secondary'}
-      className={classnames('action', props.type).use(styles)}
+      className={classnames('action', props.type)}
       htmlType={props.type === 'primary' && !props.htmlType ? 'submit' : 'button'}
     />
   )

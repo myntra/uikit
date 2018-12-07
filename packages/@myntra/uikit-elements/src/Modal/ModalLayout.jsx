@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Modal.module.css'
+
+import classnames from './Modal.module.css'
 
 /**
  @since 0.3.0
@@ -19,15 +19,13 @@ import styles from './Modal.module.css'
  */
 function ModalLayout({ title, actions, children, close }) {
   return (
-    <div className={classnames('wrapper').use(styles)}>
+    <div className={classnames('wrapper')}>
       {title && <h1>{title}</h1>}
 
       {children}
 
       {actions && (
-        <div className={classnames('actions').use(styles)}>
-          {typeof actions === 'function' ? actions(close) : actions}
-        </div>
+        <div className={classnames('actions')}>{typeof actions === 'function' ? actions(close) : actions}</div>
       )}
     </div>
   )

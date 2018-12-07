@@ -1,7 +1,7 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
+
 import PropTypes from 'prop-types'
-import styles from './InputText.module.css'
+import classnames from './InputText.module.css'
 
 /**
  The InputText component.
@@ -17,7 +17,7 @@ const InputText = ({ className, onChange, value, ...props }) => {
         {...props}
         value={typeof value !== 'string' ? '' : value}
         onChange={event => onChange && onChange(event.target.value)}
-        className={classnames('input').use(styles)}
+        className={classnames('input')}
       />
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Typography.module.css'
+
+import classnames from './Typography.module.css'
 
 /**
  * A utility component for styling text.
@@ -31,7 +31,7 @@ function Text({ children, style, color, size, weight, ...props }) {
     size && `text${size}`,
     weight,
     props
-  ).use(styles)
+  )
 
   return React.cloneElement(element, { className })
 }

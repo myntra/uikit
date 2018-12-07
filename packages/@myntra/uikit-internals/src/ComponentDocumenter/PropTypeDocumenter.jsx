@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import { Dropdown } from '@myntra/uikit-elements'
-import styles from './PropTypeDocumenter.module.css'
+import classnames from './PropTypeDocumenter.module.css'
 
 function JSDocTypeDefDocumenter({ reference, rootReference, type, name }) {
   switch (type.name) {
@@ -114,8 +114,8 @@ export default function PropTypeDocumenter({ name, value, raw, meta = [], refere
   switch (name) {
     case 'enum':
       return (
-        <StateFulDropdown trigger={<span className={styles.trigger}>enum</span>}>
-          <div className={styles.list}>
+        <StateFulDropdown trigger={<span className={classnames('trigger')}>enum</span>}>
+          <div className={classnames('list')}>
             {value.map((item, index) => (
               <div key={index}>
                 <code>{props.computed ? item : item.value}</code>

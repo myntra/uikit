@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './FormHelpText.module.css'
+import classnames from './FormHelpText.module.css'
 
 /**
  * Help text for form fields.
@@ -13,7 +12,7 @@ import styles from './FormHelpText.module.css'
  * <Form.Help type="error">An error message.</Form.Help>
  */
 function FormHelp({ children, type }) {
-  return <div className={classnames('helptext', { [`helptext-${type}`]: type }).use(styles)}>{children}</div>
+  return <div className={classnames('helptext', { [`helptext-${type}`]: type })}>{children}</div>
 }
 
 FormHelp.propTypes = {

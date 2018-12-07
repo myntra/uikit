@@ -1,7 +1,6 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './BreadCrumb.module.css'
+import classnames from './BreadCrumb.module.css'
 
 /**
  A breadcrumb item
@@ -16,7 +15,7 @@ import styles from './BreadCrumb.module.css'
  */
 function BreadCrumbItem({ onClick, ...props }) {
   return (
-    <li className={classnames('page').use(styles)} onClick={onClick}>
+    <li className={classnames('page')} onClick={onClick}>
       {props.children}
     </li>
   )

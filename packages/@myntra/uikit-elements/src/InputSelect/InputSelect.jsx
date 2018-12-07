@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { classnames, memoize, isEqual, findIndex, looseEquals } from '@myntra/uikit-utils'
+import { memoize, isEqual, findIndex, looseEquals } from '@myntra/uikit-utils'
 
-import styles from './InputSelect.module.css'
+import classnames from './InputSelect.module.css'
 import { toArray, createSearchIndex, executeFilterSearch, moveSelectedOptionsToTop } from './helpers'
 import Value from './InputSelectValue'
 import InputProxy from './InputSelectHidden'
@@ -73,7 +73,7 @@ export default class InputSelect extends Component {
     valueKey: 'value',
     searchableKeys: [],
     numberOfOptionsToRender: 20,
-    noResultsPlaceholder: <div className={classnames('no-results').use(styles)}>No results found</div>
+    noResultsPlaceholder: <div className={classnames('no-results')}>No results found</div>
   }
 
   constructor(props) {
@@ -332,7 +332,7 @@ export default class InputSelect extends Component {
         left
         right
         container
-        className={classnames('select', { disabled: this.props.disabled }).use(styles)}
+        className={classnames('select', { disabled: this.props.disabled })}
         isOpen={this.state.isOpen}
         onOpen={this.handleOpen}
         onClose={this.handleClose}
@@ -356,17 +356,17 @@ export default class InputSelect extends Component {
           >
             <InputProxy values={values} {...this.props} />
             {showClear && (
-              <div className={classnames('button').use(styles)} role="button" onClick={this.handleClearValue}>
+              <div className={classnames('button')} role="button" onClick={this.handleClearValue}>
                 <Icon name="times" title="clear value" />
               </div>
             )}
-            <div className={classnames('button').use(styles)}>
+            <div className={classnames('button')}>
               {this.props.isLoading ? (
-                <Icon className={classnames('state-icon').use(styles)} name="spinner" title="loading options" spin />
+                <Icon className={classnames('state-icon')} name="spinner" title="loading options" spin />
               ) : (
                 <Icon
                   role="button"
-                  className={classnames('state-icon').use(styles)}
+                  className={classnames('state-icon')}
                   title={this.state.isOpen ? 'close' : 'open'}
                   name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
                 />

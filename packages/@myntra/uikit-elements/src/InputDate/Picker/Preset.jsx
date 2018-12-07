@@ -1,10 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 
-import { classnames } from '@myntra/uikit-utils'
-
 import { isDateEqual } from '../InputDateUtils'
-import styles from './Preset.module.css'
+import classnames from './Preset.module.css'
 
 /**
  A preset date selection list.
@@ -64,7 +62,7 @@ class Preset extends PureComponent {
 
   render() {
     return (
-      <div className={classnames('presets').use(styles)}>
+      <div className={classnames('presets')}>
         {this.props.presets
           .filter(preset => preset.range === undefined || preset.range === this.props.range)
           .map(preset => (
@@ -73,7 +71,7 @@ class Preset extends PureComponent {
               tabIndex={-1}
               key={preset.label}
               onClick={() => this.handleChange(preset)}
-              className={classnames('preset', { active: this.isActive(preset) }).use(styles)}
+              className={classnames('preset', { active: this.isActive(preset) })}
             >
               {preset.label}
             </div>

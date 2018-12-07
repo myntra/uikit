@@ -1,9 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import makeInitials from 'name-initials'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Avatar.module.css'
+import classnames from './Avatar.module.css'
 
 /**
  * A fallback icon for text.
@@ -18,7 +17,7 @@ export default function Avatar({ name, currentColor, className }) {
       viewBox="0 0 32 32"
       width="32"
       height="32"
-      className={classnames('avatar', { inherit: currentColor }, className).use(styles)}
+      className={classnames('avatar', { inherit: currentColor }, className)}
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>{name}</title>

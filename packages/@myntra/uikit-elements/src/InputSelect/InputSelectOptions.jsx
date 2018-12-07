@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
-import styles from './InputSelectOptions.module.css'
+import classnames from './InputSelectOptions.module.css'
 import PropTypes from 'prop-types'
 import Option from './InputSelectOption'
-import { classnames } from '@myntra/uikit-utils'
 
 export default class InputSelectOptions extends PureComponent {
   static propTypes = {
@@ -58,7 +57,7 @@ export default class InputSelectOptions extends PureComponent {
     const values = new Set(this.props.values)
 
     return (
-      <div id={`${instancePrefix}-options`} className={classnames('options').use(styles)} role="listbox" tabIndex={-1}>
+      <div id={`${instancePrefix}-options`} className={classnames('options')} role="listbox" tabIndex={-1}>
         {options.length
           ? options.map((option, index) => (
               <Option

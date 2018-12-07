@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import defaultMasks from './masks'
-import { classnames, each, map, findIndex, findLastIndex, memoize, onlyExtraProps } from '@myntra/uikit-utils'
+import { each, map, findIndex, findLastIndex, memoize, onlyExtraProps } from '@myntra/uikit-utils'
 
-import styles from './InputMasked.module.css'
+import classnames from './InputMasked.module.css'
 /**
  * Input component that provides a template for phone, credit card, etc. Mask patterns include
  * - d - A single digit from 0-9
@@ -257,17 +257,17 @@ export default class InputMasked extends PureComponent {
     const maskedValue = this.getMaskedValue(this.props.value)
     const placeholder = this.getPlaceholder(maskedValue)
     return (
-      <div className={classnames(this.props.className, 'container').use(styles)}>
+      <div className={classnames(this.props.className, 'container')}>
         <input
           {...this.forwardedProps}
-          className={classnames('input', 'masked-input').use(styles)}
+          className={classnames('input', 'masked-input')}
           value={maskedValue}
           onKeyPress={this.handleKeyPress}
           onKeyDown={this.handleKeyDown}
           onChange={() => {}}
           maxLength={this.maskMetadata.length}
         />
-        <input className={classnames('mask', 'input').use(styles)} value={placeholder} readOnly tabIndex={-1} />
+        <input className={classnames('mask', 'input')} value={placeholder} readOnly tabIndex={-1} />
       </div>
     )
   }

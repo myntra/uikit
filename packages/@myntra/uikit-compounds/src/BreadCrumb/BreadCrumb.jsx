@@ -1,7 +1,6 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
 import PropTypes from 'prop-types'
-import styles from './BreadCrumb.module.css'
+import classnames from './BreadCrumb.module.css'
 import BreadCrumbItem from './BreadCrumbItem'
 
 /**
@@ -16,7 +15,7 @@ import BreadCrumbItem from './BreadCrumbItem'
  */
 function BreadCrumb(props) {
   return (
-    <nav className={classnames('pages').use(styles)}>
+    <nav className={classnames('pages')}>
       <ol>{props.children}</ol>
     </nav>
   )

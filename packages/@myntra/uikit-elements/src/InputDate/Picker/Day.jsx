@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Day.module.css'
+import classnames from './Day.module.css'
 import { UTCDate } from '../InputDateUtils'
 
 /**
@@ -102,7 +101,7 @@ export default class Day extends PureComponent {
           end: selected && isSelectionEnd,
           empty: isEmpty,
           today: isToday
-        }).use(styles)}
+        })}
         aria-hidden={isEmpty}
         disabled={disabled}
         title={isEmpty ? null : this.date.toLocaleDateString()}

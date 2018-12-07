@@ -1,9 +1,9 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
+
 import PropTypes from 'prop-types'
 
 import BreadCrumb from '../BreadCrumb/BreadCrumb.jsx'
-import styles from './TopBar.module.css'
+import classnames from './TopBar.module.css'
 import Item from './TopBarItem'
 import { Grid } from '../index.js'
 
@@ -41,17 +41,17 @@ function TopBar({ title, children }) {
   })
 
   return (
-    <div className={classnames('top-bar').use(styles)}>
+    <div className={classnames('top-bar')}>
       <Grid vcentered>
         <Grid.Column>
-          <div className={classnames('head').use(styles)}>
-            <div className={classnames('content').use(styles)}>
-              <div className={classnames('content-left').use(styles)}>
-                <h1 className={classnames('title').use(styles)}>{title}</h1>
+          <div className={classnames('head')}>
+            <div className={classnames('content')}>
+              <div className={classnames('content-left')}>
+                <h1 className={classnames('title')}>{title}</h1>
                 {crumb}
               </div>
-              {slot.length ? <div className={classnames('embeds').use(styles)}>{slot}</div> : null}
-              <nav className={classnames('content-right').use(styles)}>{items}</nav>
+              {slot.length ? <div className={classnames('embeds')}>{slot}</div> : null}
+              <nav className={classnames('content-right')}>{items}</nav>
             </div>
           </div>
         </Grid.Column>

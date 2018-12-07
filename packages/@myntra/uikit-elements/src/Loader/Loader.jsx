@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Loader.module.css'
+import classnames from './Loader.module.css'
 
 /**
  * Infinite progress loading indicator.
@@ -16,8 +15,8 @@ import styles from './Loader.module.css'
  */
 export default function Loader({ className, type }) {
   return (
-    <div className={classnames(className, 'loader', type).use(styles)}>
-      <div className={classnames('spinner').use(styles)}>
+    <div className={classnames(className, 'loader', type)}>
+      <div className={classnames('spinner')}>
         <div />
         <div />
         <div />

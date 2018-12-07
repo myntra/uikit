@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Month from './Month'
 import Jumper from './Jumper'
 
-import styles from './Picker.module.css'
-import { classnames } from '@myntra/uikit-utils'
+import classnames from './Picker.module.css'
+
 import { UTCDate, onlyDate } from '../InputDateUtils'
 import dayJS from 'dayjs'
 
@@ -283,7 +283,7 @@ export default class Picker extends Component {
     const date = this.referenceDate
 
     return (
-      <div className={classnames(this.props.className, 'picker').use(styles)}>
+      <div className={classnames(this.props.className, 'picker')}>
         {range(this.props.monthsToDisplay)
           .map(index => this.createMonthData(date, index))
           .map(({ key, ...props }, offset) => (

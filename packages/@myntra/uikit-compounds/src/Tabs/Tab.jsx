@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Tab.module.css'
+
+import classnames from './Tab.module.css'
 
 /**
  Tabs
@@ -26,7 +26,7 @@ import styles from './Tab.module.css'
  */
 function Tab({ isActive, title, ...props }) {
   return (
-    <div {...props} className={classnames('tab', { active: isActive }).use(styles)}>
+    <div {...props} className={classnames('tab', { active: isActive })}>
       {title}
     </div>
   )

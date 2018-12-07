@@ -1,7 +1,7 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
+
 import PropTypes from 'prop-types'
-import styles from './InputNumber.module.css'
+import classnames from './InputNumber.module.css'
 
 /**
  * The InputNumber component.
@@ -17,7 +17,7 @@ const InputNumber = ({ className, onChange, value, ...props }) => {
         {...props}
         type="number"
         value={typeof value !== 'number' ? '' : value}
-        className={classnames('input').use(styles)}
+        className={classnames('input')}
         onChange={event => onChange && onChange(parseFloat(event.target.value))}
       />
     </div>

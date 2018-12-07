@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Table.module.css'
+
+import classnames from './Table.module.css'
 
 /**
  Render a table cell
@@ -23,7 +23,7 @@ function Cell({ head, children, freeze, className, useDiv, ...props }) {
   const Td = useDiv ? 'div' : head ? 'th' : 'td'
 
   return (
-    <Td {...props} className={classnames('col', className, { freeze, head }).use(styles)}>
+    <Td {...props} className={classnames('col', className, { freeze, head })}>
       {children}
     </Td>
   )

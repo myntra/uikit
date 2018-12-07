@@ -1,19 +1,19 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { memoize, classnames } from '@myntra/uikit-utils'
+import { memoize } from '@myntra/uikit-utils'
 
 import Day from './Day'
 
-import styles from './Month.module.css'
+import classnames from './Month.module.css'
 import { UTCDate } from '../InputDateUtils'
 import dayJS from 'dayjs'
 
 const DAYS_OF_WEEK = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(',')
 const CLASS = {
-  month: classnames('month').use(styles),
-  header: classnames('header').use(styles),
-  day: classnames('day-header').use(styles),
-  days: classnames('days').use(styles)
+  month: classnames('month'),
+  header: classnames('header'),
+  day: classnames('day-header'),
+  days: classnames('days')
 }
 
 /**

@@ -1,7 +1,7 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
+
 import PropTypes from 'prop-types'
-import styles from './InputTextArea.module.css'
+import classnames from './InputTextArea.module.css'
 
 /**
  The textarea component.
@@ -12,11 +12,11 @@ import styles from './InputTextArea.module.css'
  */
 function InputTextArea({ className, noResize, value, onChange, ...props }) {
   return (
-    <div className={classnames(className).use(styles)}>
+    <div className={classnames(className)}>
       <textarea
         {...props}
         value={value || ''}
-        className={classnames('input', { 'no-resize': noResize }).use(styles)}
+        className={classnames('input', { 'no-resize': noResize })}
         onChange={event => onChange && onChange(event.target.value)}
       />
     </div>

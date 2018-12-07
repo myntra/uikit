@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
+
 import IntersectionObserver from 'intersection-observer-polyfill'
 
-import styles from './Image.module.css'
+import classnames from './Image.module.css'
 
 export const OBSERVER = Symbol('Image Observer')
 
@@ -140,14 +140,14 @@ class Image extends Component {
     const { status, isIntersecting } = this.state
 
     return (
-      <div ref={this.ref} className={classnames('image-container', { 'bg-error': status === 'failed' }).use(styles)}>
+      <div ref={this.ref} className={classnames('image-container', { 'bg-error': status === 'failed' })}>
         {isIntersecting && status === 'loaded' ? (
           <img
             {...forwardedProps}
             key="image"
             height={height}
             width={width}
-            className={classnames(className, 'img', status).use(styles)}
+            className={classnames(className, 'img', status)}
           />
         ) : (
           <img

@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon, Avatar } from '@myntra/uikit-elements'
-import styles from './NavItem.module.css'
-import { classnames, memoize } from '@myntra/uikit-utils'
+import classnames from './NavItem.module.css'
+import { memoize } from '@myntra/uikit-utils'
 
 /**
  Component for Navigation Menu Group
@@ -109,20 +109,20 @@ export default class NavItem extends React.PureComponent {
               'is-menu': isMenu,
               collapsed,
               deep: this.props.depth > 1
-            }).use(styles)}
+            })}
           >
             {icon || (this.props.depth === 1 && typeof title === 'string') ? (
-              <div className={classnames('icon').use(styles)}>
+              <div className={classnames('icon')}>
                 {icon ? <Icon name={icon} /> : <Avatar name={title} currentColor />}
               </div>
             ) : null}
-            <span hidden={collapsed} className={classnames('title').use(styles)}>
+            <span hidden={collapsed} className={classnames('title')}>
               {title}
             </span>
           </div>
         </ItemComponent>
         {isMenu && (
-          <ul hidden={!open || collapsed} className={classnames('menu').use(styles)}>
+          <ul hidden={!open || collapsed} className={classnames('menu')}>
             {React.Children.map(children, (child, i) => {
               return React.cloneElement(child, {
                 key: `menu-item-${i}`,

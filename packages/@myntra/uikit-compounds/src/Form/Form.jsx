@@ -1,5 +1,4 @@
 import React, { Children } from 'react'
-import { classnames } from '@myntra/uikit-utils'
 import { Grid } from '../index'
 import PropTypes from 'prop-types'
 import {
@@ -18,7 +17,7 @@ import {
 
 import { sizes } from '../Grid/GridColumn'
 
-import styles from './Form.module.css'
+import classnames from './Form.module.css'
 import FormHelpText from './FormHelpText'
 import FormAction from './FormAction'
 
@@ -77,7 +76,7 @@ function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
         onSubmit(event)
       }}
     >
-      {title && <div className={classnames('form-title').use(styles)}>{title}</div>}
+      {title && <div className={classnames('form-title')}>{title}</div>}
       <Grid multiline>
         {fields.map((field, index) => (
           <Grid.Column key={index} size={(field.props && field.props.fieldSize) || defaultFieldSize}>
@@ -85,7 +84,7 @@ function Form({ children, title, defaultFieldSize, onSubmit, ...props }) {
           </Grid.Column>
         ))}
       </Grid>
-      <div className={classnames('form-actions').use(styles)}>{actions}</div>
+      <div className={classnames('form-actions')}>{actions}</div>
     </form>
   )
 }

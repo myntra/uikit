@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
 import { InputCheckBox } from '../index.js'
 
-import styles from './InputSelectOption.module.css'
+import classnames from './InputSelectOption.module.css'
 
 export default class Option extends Component {
   static propTypes = {
@@ -55,7 +54,7 @@ export default class Option extends Component {
 
     return (
       <div
-        className={classnames('option', { focused: isFocused, selected: isSelected, disabled }).use(styles)}
+        className={classnames('option', { focused: isFocused, selected: isSelected, disabled })}
         id={this.props.id}
         role="option"
         aria-selected={isSelected}
@@ -68,9 +67,7 @@ export default class Option extends Component {
         onTouchEnd={this.handleTouchEnd}
         title={option[labelKey]}
       >
-        {hasCheckBox && (
-          <InputCheckBox className={classnames('checkbox').use(styles)} value={isSelected} tabIndex={-1} />
-        )}
+        {hasCheckBox && <InputCheckBox className={classnames('checkbox')} value={isSelected} tabIndex={-1} />}
         {renderOption ? renderOption(option) : option[labelKey]}
       </div>
     )

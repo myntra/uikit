@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Icon.module.css'
+import classnames from './Icon.module.css'
 import regular from './sprites/regular.svg'
 import { injectSVG, fetchIfRequired } from './sprite'
 
@@ -19,7 +18,7 @@ function Icon({ name, className, title, spin, ...props }) {
   return (
     <svg
       {...props}
-      className={classnames(className, { spin }, 'svg').use(styles)}
+      className={classnames(className, { spin }, 'svg')}
       aria-hidden={title ? null : true}
       xmlns="http://www.w3.org/2000/svg"
     >

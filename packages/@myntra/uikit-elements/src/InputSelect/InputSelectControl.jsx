@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
+
 import { toString } from './helpers'
-import styles from './InputSelectControl.module.css'
+import classnames from './InputSelectControl.module.css'
 
 export default class InputSelectControl extends PureComponent {
   static propTypes = {
@@ -26,13 +26,13 @@ export default class InputSelectControl extends PureComponent {
     const { isOpen, instancePrefix, slotValue, children, onClick, onChange, onBlur, ...props } = this.props
 
     return (
-      <div className={classnames('control').use(styles)} onClick={onClick}>
+      <div className={classnames('control')} onClick={onClick}>
         {props.value ? null : slotValue}
         <input
           {...props}
           onBlur={this.delayedBlur}
           onChange={this.handleChange}
-          className={classnames('input').use(styles)}
+          className={classnames('input')}
           role="combobox"
           autoComplete="off"
           aria-haspopup={toString(isOpen)}
@@ -41,7 +41,7 @@ export default class InputSelectControl extends PureComponent {
           aria-controls={`${instancePrefix}-options`}
           aria-owns={`${instancePrefix}-options`}
         />
-        <div className={classnames('buttons').use(styles)}>{children}</div>
+        <div className={classnames('buttons')}>{children}</div>
       </div>
     )
   }

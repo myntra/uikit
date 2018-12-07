@@ -1,9 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
 import { Icon } from '../index.js'
-import styles from './Button.module.css'
+import classnames from './Button.module.css'
 
 /**
  The button/link component.
@@ -139,7 +138,7 @@ export default class Button extends PureComponent {
             loading: isLoading
           },
           inheritTextColor && 'inherit'
-        ).use(styles)}
+        )}
         to={to}
         href={href}
         disabled={disabled}
@@ -148,13 +147,13 @@ export default class Button extends PureComponent {
         data-test-id="target"
       >
         {needLeftSlot && (
-          <span className={classnames('left').use(styles)} data-test-id="primary-icon">
+          <span className={classnames('left')} data-test-id="primary-icon">
             <Icon name={icon} aria-hidden="true" />
           </span>
         )}
         {children || label}
         {needRightSlot && (
-          <span className={classnames('right').use(styles)} data-test-id="secondary-icon">
+          <span className={classnames('right')} data-test-id="secondary-icon">
             <Icon name={secondaryIcon} aria-hidden="true" />
           </span>
         )}

@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './Table.module.css'
-import { classnames } from '@myntra/uikit-utils'
+import classnames from './Table.module.css'
 
 /**
  Render a table row
@@ -18,7 +17,7 @@ function Row({ children, useDiv, className, ...props }) {
   const Tr = useDiv ? 'div' : 'tr'
 
   return (
-    <Tr className={classnames('row', className).use(styles)} {...props}>
+    <Tr className={classnames('row', className)} {...props}>
       {children}
     </Tr>
   )

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './NavGroup.module.css'
+
+import classnames from './NavGroup.module.css'
 import NavItem from './NavItem'
 import { Icon } from '@myntra/uikit-elements'
 
@@ -32,9 +32,9 @@ export default class NavGroup extends React.PureComponent {
   render() {
     const { title, children, collapsed, ...props } = this.props
     return (
-      <li className={classnames('group', { collapsed }).use(styles)}>
-        <div className={classnames('title').use(styles)}>{collapsed ? <Icon name="" /> : title}</div>
-        <ul className={classnames('items').use(styles)}>
+      <li className={classnames('group', { collapsed })}>
+        <div className={classnames('title')}>{collapsed ? <Icon name="" /> : title}</div>
+        <ul className={classnames('items')}>
           {React.Children.map(children, navGroupItem => {
             return React.cloneElement(navGroupItem, { ...props, collapsed })
           })}

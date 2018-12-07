@@ -1,7 +1,7 @@
 import React from 'react'
-import { classnames } from '@myntra/uikit-utils'
+
 import PropTypes from 'prop-types'
-import styles from './TopBarItem.module.css'
+import classnames from './TopBarItem.module.css'
 import { Icon } from '@myntra/uikit-elements'
 
 /**
@@ -16,8 +16,8 @@ import { Icon } from '@myntra/uikit-elements'
  */
 function TopBarItem({ icon, altText, onClick, className, children }) {
   return (
-    <div className={classnames('item', className).use(styles)} onClick={onClick}>
-      {icon ? <Icon name={icon} title={altText} className={classnames('icon').use(styles)} /> : null}
+    <div className={classnames('item', className)} onClick={onClick}>
+      {icon ? <Icon name={icon} title={altText} className={classnames('icon')} /> : null}
       {children}
     </div>
   )

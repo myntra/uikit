@@ -16,7 +16,7 @@ import 'prismjs/themes/prism-tomorrow.css'
 
 import Playground from './Playground'
 
-import styles from './Markdown.module.css'
+import classnames from './Markdown.module.css'
 
 const { Provider: MarkdownProvider, Consumer: MarkdownConsumer } = React.createContext({})
 
@@ -165,7 +165,7 @@ export default class Markdown extends PureComponent {
 
       return render({
         factories: {
-          wrapper: (_, ...args) => wrapper({ className: styles.markdown }, ...args)
+          wrapper: (_, ...args) => wrapper({ className: classnames('markdown') }, ...args)
         }
       })
     }

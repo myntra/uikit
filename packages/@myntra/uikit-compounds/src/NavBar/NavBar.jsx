@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames, onlyExtraProps } from '@myntra/uikit-utils'
+import { onlyExtraProps } from '@myntra/uikit-utils'
 import { Icon, Avatar } from '@myntra/uikit-elements'
 import NavItem from './NavItem'
 import NavGroup from './NavGroup'
-import styles from './NavBar.module.css'
+import classnames from './NavBar.module.css'
 
 /**
  Component for Navigation
@@ -116,20 +116,18 @@ class NavBar extends React.PureComponent {
     return (
       <nav
         {...NavBar.onlyExtraProps(this.props)}
-        className={classnames('nav', { collapsed }).use(styles)}
+        className={classnames('nav', { collapsed })}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
         onClick={this.handleClick}
       >
-        <div className={classnames('title').use(styles)}>
-          <div className={classnames('content').use(styles)}>
-            <span className={classnames('icon').use(styles)}>
-              {icon ? <Icon name={icon} /> : <Avatar name={title} />}
-            </span>
+        <div className={classnames('title')}>
+          <div className={classnames('content')}>
+            <span className={classnames('icon')}>{icon ? <Icon name={icon} /> : <Avatar name={title} />}</span>
             <span hidden={collapsed}>{title}</span>
           </div>
         </div>
-        <ul className={classnames('menu').use(styles)}>
+        <ul className={classnames('menu')}>
           {React.Children.map(children, (child, index) => {
             return React.cloneElement(child, {
               key: index,

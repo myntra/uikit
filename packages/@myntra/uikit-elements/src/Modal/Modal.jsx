@@ -1,9 +1,9 @@
 import React, { PureComponent, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import { Button, Portal } from '../index.js'
-import { classnames } from '@myntra/uikit-utils'
+
 import ModalLayout from './ModalLayout'
-import styles from './Modal.module.css'
+import classnames from './Modal.module.css'
 
 // eslint-disable-next-line
 const FragmentWithFallback = Fragment || (({ children }) => <div style={{ display: 'contents' }}>{children}</div>)
@@ -76,20 +76,12 @@ class Modal extends PureComponent {
     const { trigger, children, isOpen, render, title, actions } = this.props
 
     const content = (
-      <div className={classnames('modal').use(styles)}>
-        <div className={classnames('backdrop').use(styles)} onClick={this.handleClose} />
-        <div className={classnames('body').use(styles)}>
-          <div className={classnames('content').use(styles)}>
-            {render({ title, actions, children, close: this.handleClose })}
-          </div>
+      <div className={classnames('modal')}>
+        <div className={classnames('backdrop')} onClick={this.handleClose} />
+        <div className={classnames('body')}>
+          <div className={classnames('content')}>{render({ title, actions, children, close: this.handleClose })}</div>
 
-          <Button
-            className={classnames('close').use(styles)}
-            type="link"
-            icon="times"
-            title="close"
-            onClick={this.handleClose}
-          />
+          <Button className={classnames('close')} type="link" icon="times" title="close" onClick={this.handleClose} />
         </div>
       </div>
     )

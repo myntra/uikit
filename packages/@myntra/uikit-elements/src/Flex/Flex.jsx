@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Flex.module.css'
+
+import classnames from './Flex.module.css'
 
 /**
  Flex is a wrapper for inlining flex based styles in JSX.
@@ -150,7 +150,7 @@ export default class Flex extends PureComponent {
             equal
           },
           className
-        ).use(styles),
+        ),
         ...props
       },
       children

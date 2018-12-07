@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './InputCheckBox.module.css'
+
+import classnames from './InputCheckBox.module.css'
 
 /**
  * The input checkbox component
@@ -17,19 +17,19 @@ import styles from './InputCheckBox.module.css'
 
 function InputCheckBox({ className, value, htmlValue, onChange, title, ...props }) {
   return (
-    <label className={classnames(className, 'input').use(styles)}>
-      <div className={classnames('checkbox-input').use(styles)} role="checkbox">
+    <label className={classnames(className, 'input')}>
+      <div className={classnames('checkbox-input')} role="checkbox">
         <input
           {...props}
           type="checkbox"
           checked={!!value}
           value={htmlValue}
-          className={classnames('target').use(styles)}
+          className={classnames('target')}
           onChange={event => onChange && onChange(Boolean(event.target.checked))}
         />
-        <span className={classnames('checkbox').use(styles)} />
+        <span className={classnames('checkbox')} />
       </div>
-      <span className={classnames('content').use(styles)}>{title}</span>
+      <span className={classnames('content')}>{title}</span>
     </label>
   )
 }

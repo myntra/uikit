@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 import Tab from './Tab'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './Tabs.module.css'
+
+import classnames from './Tabs.module.css'
 
 /**
 
@@ -58,8 +58,8 @@ class Tabs extends PureComponent {
     const content = (children[activeIndex] || children[0]).props.children
 
     return (
-      <div className={classnames('tabs').use(styles)}>
-        <div className={classnames('pane').use(styles)}>
+      <div className={classnames('tabs')}>
+        <div className={classnames('pane')}>
           {React.Children.map(this.props.children, (child, index) =>
             React.cloneElement(child, {
               isActive: index === activeIndex,
@@ -67,7 +67,7 @@ class Tabs extends PureComponent {
             })
           )}
         </div>
-        <div className={classnames('content').use(styles)}>{content}</div>
+        <div className={classnames('content')}>{content}</div>
       </div>
     )
   }

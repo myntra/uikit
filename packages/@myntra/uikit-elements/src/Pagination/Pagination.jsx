@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { classnames, range } from '@myntra/uikit-utils'
+import { range } from '@myntra/uikit-utils'
 import { Icon } from '../index.js'
-import styles from './Pagination.module.css'
+import classnames from './Pagination.module.css'
 
 /**
  The Pagination component.
@@ -42,11 +42,11 @@ class Pagination extends PureComponent {
     const end = total < start + size - 1 ? total : start + size - 1
 
     return (
-      <div className={classnames('pagination', className).use(styles)}>
+      <div className={classnames('pagination', className)}>
         {!hideSize && (
-          <div className={classnames('size').use(styles)}>
+          <div className={classnames('size')}>
             <span>Rows per page:</span>
-            <div className={classnames('page-size').use(styles)}>
+            <div className={classnames('page-size')}>
               <select value={size} onChange={this.handleSizeChange}>
                 {sizes.map(item => {
                   return (
@@ -56,26 +56,22 @@ class Pagination extends PureComponent {
                   )
                 })}
               </select>
-              <i className={classnames('select-chevron-down').use(styles)} />
+              <i className={classnames('select-chevron-down')} />
             </div>
           </div>
         )}
 
-        <div className={classnames('size-label').use(styles)}>
+        <div className={classnames('size-label')}>
           <strong>
             {start} to {end}
           </strong>{' '}
           of {total}
         </div>
 
-        <div
-          role="button"
-          className={classnames('arrow-container').use(styles)}
-          onClick={() => this.updatePage(page - 1)}
-        >
-          <Icon name="chevron-left" className={classnames('pagination-arrow').use(styles)} />
+        <div role="button" className={classnames('arrow-container')} onClick={() => this.updatePage(page - 1)}>
+          <Icon name="chevron-left" className={classnames('pagination-arrow')} />
         </div>
-        <select className={classnames('select-page').use(styles)} value={page} onChange={this.handlePageChange}>
+        <select className={classnames('select-page')} value={page} onChange={this.handlePageChange}>
           {pages.map(pageList => {
             return (
               <option value={pageList} key={pageList}>
@@ -84,12 +80,8 @@ class Pagination extends PureComponent {
             )
           })}
         </select>
-        <div
-          role="button"
-          className={classnames('arrow-container').use(styles)}
-          onClick={() => this.updatePage(page + 1)}
-        >
-          <Icon name="chevron-right" className={classnames('pagination-arrow').use(styles)} />
+        <div role="button" className={classnames('arrow-container')} onClick={() => this.updatePage(page + 1)}>
+          <Icon name="chevron-right" className={classnames('pagination-arrow')} />
         </div>
       </div>
     )

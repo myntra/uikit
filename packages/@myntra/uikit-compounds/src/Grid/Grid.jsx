@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
 
-import styles from './Grid.module.css'
+import classnames from './Grid.module.css'
 import GridColumn from './GridColumn'
 
 /**
@@ -40,7 +39,7 @@ function Grid(props) {
         className,
         { multiline, centered, hcentered, vcentered },
         (gap || gapless) && ['variable-gap', 'gap-' + (gap || 'none')]
-      ).use(styles)}
+      )}
     >
       {children}
     </div>

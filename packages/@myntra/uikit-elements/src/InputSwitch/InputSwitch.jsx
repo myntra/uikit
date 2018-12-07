@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { classnames } from '@myntra/uikit-utils'
-import styles from './InputSwitch.module.css'
+
+import classnames from './InputSwitch.module.css'
 
 /**
  Switch component that is implemented using an input checkbox as the controller.
@@ -16,16 +16,16 @@ import styles from './InputSwitch.module.css'
  */
 function InputSwitch({ className, onChange, value, ...props }) {
   return (
-    <label className={classnames(className, 'input').use(styles)}>
+    <label className={classnames(className, 'input')}>
       <input
         {...props}
         type="checkbox"
         checked={!!value}
-        className={classnames('switch-input').use(styles)}
+        className={classnames('switch-input')}
         onChange={event => onChange && onChange(event.target.checked)}
       />
-      <span className={classnames('switch-track').use(styles)}>
-        <span className={classnames('switch-thumb').use(styles)} />
+      <span className={classnames('switch-track')}>
+        <span className={classnames('switch-thumb')} />
       </span>
     </label>
   )
