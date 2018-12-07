@@ -6,6 +6,7 @@ const alias = require('rollup-plugin-alias')
 const babel = require('rollup-plugin-babel')
 const css = require('rollup-plugin-postcss')
 const raw = require('rollup-plugin-string')
+const classnames = require('@myntra/rollup-plugin-classnames') // eslint-disable-line node/no-extraneous-require
 
 if (!process.env.TARGET) {
   throw new Error('TARGET package must be specified via --environment flag.')
@@ -107,6 +108,7 @@ function createConfig(output, plugins = []) {
       }),
       aliasPlugin,
       replacePlugin,
+      classnames({ include: '**/*.module.css' }),
       ...plugins
     ],
     output,

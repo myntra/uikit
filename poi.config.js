@@ -17,7 +17,6 @@ module.exports = {
     targets.forEach(target => (config.resolve.alias[`@myntra/${target}$`] = `@myntra/${target}/src/index.js`))
 
     const jsx = config.module.rules.find(it => it.test.toString().includes('jsx'))
-
     if (jsx) {
       if ('use' in jsx) {
         jsx.use.push({ loader: require.resolve('@myntra/docgen/src/loader.js') })
@@ -26,6 +25,10 @@ module.exports = {
         delete jsx.loader
       }
     }
+
+    config.module.rules
+      .find(it => it.test.toString().includes('css'))
+      .oneOf[1].use.unshift({ loader: require.resolve('@myntra/classnames-loader') })
 
     config.stats = 'verbose'
 
