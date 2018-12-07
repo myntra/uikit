@@ -244,60 +244,67 @@ class Dropdown extends Component {
     const left = auto ? target.left + width < maxWidth : this.props.left
     const right = auto ? (left ? false : target.right - width > 0) : this.props.right
 
+    const layout = { up, left, right }
+
     // Absolute position when using portal.
     if (this.props.container) {
-      const trigger = this.triggerRef.current
-      const rect = trigger.getBoundingClientRect()
-
-      const position = { top: rect.top, left: rect.left }
-
-      if (up) {
-        position.top -= height
-      } else {
-        position.top += rect.height
-      }
-
-      if (right && left) {
-        position.right = position.left + rect.width
-        position.content = { width: rect.width }
-      } else if (right) {
-        position.left += rect.width - width
-      }
-
-      // Register scroll handler.
-      const recomputePosition = () => {
-        const offsetTop = position.top - rect.top
-        const offsetLeft = position.left - rect.left
-        const newRect = trigger.getBoundingClientRect()
-
-        const newPosition = {
-          left: newRect.left + offsetLeft,
-          top: newRect.top + offsetTop
-        }
-
-        if (position.right) {
-          newPosition.right = newPosition.left + newRect.width
-          newPosition.content = {
-            width: newRect.width
-          }
-        }
-
-        this.setState({ position: newPosition })
-      }
-
-      const scrollParents = findScrollParents(trigger)
-
-      // Clear old scroll events.
-      this._clearScrollHandler && this._clearScrollHandler()
-      this._clearScrollHandler = () =>
-        scrollParents.map(scroll => scroll.removeEventListener('scroll', recomputePosition))
-
-      scrollParents.map(scroll => scroll.addEventListener('scroll', recomputePosition, { passive: true }))
-
-      return { up, left, right, position }
+      return this.calculateAbsolutePosition(layout)
     }
 
-    return { up, left, right }
+    return layout
+  }
+
+  calculateAbsolutePosition({ up, left, right }) {
+    const trigger = this.triggerRef.current
+    const rect = trigger.getBoundingClientRect()
+    const { height, width } = this.state
+
+    const position = { top: rect.top, left: rect.left }
+
+    if (up) {
+      position.top -= height
+    } else {
+      position.top += rect.height
+    }
+
+    if (right && left) {
+      position.right = position.left + rect.width
+      position.content = { width: rect.width }
+    } else if (right) {
+      position.left += rect.width - width
+    }
+
+    // Register scroll handler.
+    const recomputePosition = () => {
+      const offsetTop = position.top - rect.top
+      const offsetLeft = position.left - rect.left
+      const newRect = trigger.getBoundingClientRect()
+
+      const newPosition = {
+        left: newRect.left + offsetLeft,
+        top: newRect.top + offsetTop
+      }
+
+      if (position.right) {
+        newPosition.right = newPosition.left + newRect.width
+        newPosition.content = {
+          width: newRect.width
+        }
+      }
+
+      this.setState({ position: newPosition })
+    }
+
+    const scrollParents = findScrollParents(trigger)
+
+    // Clear old scroll events.
+    this._clearScrollHandler && this._clearScrollHandler()
+    this._clearScrollHandler = () =>
+      scrollParents.map(scroll => scroll.removeEventListener('scroll', recomputePosition))
+
+    scrollParents.map(scroll => scroll.addEventListener('scroll', recomputePosition, { passive: true }))
+
+    return { up, left, right, position }
   }
 
   render() {
@@ -311,7 +318,12 @@ class Dropdown extends Component {
           open: this.props.isOpen
         })}
       >
-        <div className={classnames('trigger')} ref={this.triggerRef} onClick={event => event.stopPropagation()}>
+        <div
+          className={classnames('trigger')}
+          ref={this.triggerRef}
+          onClick={event => event.stopPropagation()}
+          data-test-id="trigger"
+        >
           {typeof this.props.trigger === 'string' ? (
             <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
           ) : (
@@ -324,8 +336,14 @@ class Dropdown extends Component {
         </div>
         {this.props.isOpen &&
           (this.props.container ? (
-            <Portal container={this.props.container}>
-              <div className={classnames('content', 'fixed')} style={position} ref={this.wrapperRef} hidden={!position}>
+            <Portal container={this.props.container} data-test-id="portal">
+              <div
+                className={classnames('content', 'fixed')}
+                style={position}
+                ref={this.wrapperRef}
+                hidden={!position}
+                data-test-id="content"
+              >
                 <Measure bounds onMeasure={this.handleMeasure}>
                   <div className={classnames('content-wrapper')} style={position && position.content}>
                     {this.props.children}
@@ -335,13 +353,15 @@ class Dropdown extends Component {
             </Portal>
           ) : (
             <Measure bounds onMeasure={this.handleMeasure}>
-              <div className={classnames('content', { up, left, right })} ref={this.wrapperRef}>
+              <div className={classnames('content', { up, left, right })} ref={this.wrapperRef} data-test-id="content">
                 {this.props.children}
               </div>
             </Measure>
           ))}
         {this.props.useClickAway &&
-          this.props.isOpen && <ClickAway target={this.wrapperRef} onClickAway={this.close} />}
+          this.props.isOpen && (
+            <ClickAway target={this.wrapperRef} onClickAway={this.close} data-test-id="click-away" />
+          )}
       </div>
     )
   }

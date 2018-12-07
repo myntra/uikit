@@ -35,13 +35,9 @@ const matchers = {
    * @param {*} matcher
    */
   toConsole(received, type, matcher) {
-    let pass
+    let consoleArgs = []
     const spy = jest.spyOn(console, type).mockImplementation((...args) => {
-      if (Array.isArray(matcher)) {
-        pass = this.equals(args, matcher)
-      } else {
-        pass = this.equals(args[0], matcher)
-      }
+      consoleArgs.push(args)
     })
 
     received()
@@ -52,17 +48,31 @@ const matchers = {
       expect(spy).toHaveBeenCalled()
     }
 
+    const pass = consoleArgs.some(args => {
+      if (Array.isArray(matcher)) {
+        return this.equals(args, matcher)
+      } else {
+        return this.equals(args.join('\n'), matcher)
+      }
+    })
+
     spy.mockReset()
     spy.mockRestore()
 
     if (pass) {
       return {
-        message: () => `expected console.${type} not to be ${this.utils.printExpected(matcher)}`,
+        message: () =>
+          `expected not to console ${type} ${this.utils.printExpected(matcher)}\n Received: ${this.utils.printExpected(
+            consoleArgs
+          )}`,
         pass: true
       }
     } else {
       return {
-        message: () => `expected console.${type} to be ${this.utils.printExpected(matcher)}`,
+        message: () =>
+          `expected to console ${type} ${this.utils.printExpected(matcher)}\n Received: ${this.utils.printExpected(
+            consoleArgs
+          )}`,
         pass: false
       }
     }
@@ -76,11 +86,11 @@ const matchers = {
     return matchers.toConsole.call(this, received, 'warn', matcher)
   },
 
-  toBeTransparentComponent(Received, props = {}) {
+  toBeTransparentComponent(received, props = {}) {
     let pass, html
 
     try {
-      const wrapper = shallow(<Received {...props} data-transparent-check />)
+      const wrapper = shallow(<received {...props} data-transparent-check />)
 
       html = wrapper.html()
       pass = wrapper.find('[data-transparent-check]').length > 0
@@ -93,7 +103,7 @@ const matchers = {
       return {
         message: () =>
           `expected ${this.utils.printReceived(
-            Received
+            received
           )} not to be a transparent component\nReceived: \n${this.utils.printReceived(html)}`,
         pass: true
       }
@@ -101,8 +111,26 @@ const matchers = {
       return {
         message: () =>
           `expected ${this.utils.printReceived(
-            Received
+            received
           )} to be a transparent component\nReceived: \n${this.utils.printReceived(html)}`,
+        pass: false
+      }
+    }
+  },
+
+  toHaveText(received, expected) {
+    const pass = received.length && typeof received.text() === 'string' && received.text().includes(expected)
+
+    if (pass) {
+      return {
+        message: () =>
+          `expected ${this.utils.printReceived(expected)} to be ${this.utils.printReceived(received.html())}`,
+        pass: true
+      }
+    } else {
+      return {
+        message: () =>
+          `expected ${this.utils.printReceived(expected)} nod to be ${this.utils.printReceived(received.html())}`,
         pass: false
       }
     }

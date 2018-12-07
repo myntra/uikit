@@ -9,16 +9,19 @@ testCodeMod(__dirname, 'Alert.codemod.js')
 
 describe('Alert', () => {
   it('renders', () => {
-    expect(shallow(<Alert>Alert</Alert>)).toMatchSnapshot()
+    const wrapper = shallow(<Alert>Alert</Alert>)
+
+    expect(wrapper.text()).toEqual(expect.stringContaining('Alert'))
   })
-  it('triggers close event on cross click', () => {
-    const handleClose = jest.fn()
-    const wrapper = shallow(<Alert onClose={handleClose}>Alert</Alert>)
-    wrapper.find('.close').simulate('click')
-    expect(handleClose).toHaveBeenCalled()
-  })
-  it('renders unfilled alert', () => {
-    const wrapper = shallow(<Alert noFill>Alert</Alert>)
-    expect(wrapper.hasClass('no-fill')).toBe(true)
+
+  describe('behaviour', () => {
+    it('calls `onClose` prop if close button is clicked', () => {
+      const handleClose = jest.fn()
+      const wrapper = shallow(<Alert onClose={handleClose}>Alert</Alert>)
+
+      wrapper.find('[data-test-id="close"]').simulate('click')
+
+      expect(handleClose).toHaveBeenCalled()
+    })
   })
 })

@@ -1,4 +1,20 @@
 {
+  "UIKit/ComponentUnitTest": {
+		"prefix": "unit-component",
+		"body": [
+			"import React from 'react'",
+			"import { shallow } from 'enzyme'",
+			"import ${1:component} from './${1:component}'",
+			"",
+			"describe('${1:component}', () => {",
+      "  it('renders', () => {",
+      "    const wrapper = shallow(<${1:component} $0></${1:component}>)",
+      "  })",
+			"})",
+			""
+		],
+		"description": "Unit test scaffold for a simple component"
+	},
   "UIKit/Component": {
     "scope": "javascript",
     "prefix": "component",

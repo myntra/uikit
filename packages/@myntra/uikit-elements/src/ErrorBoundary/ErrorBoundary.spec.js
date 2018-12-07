@@ -1,45 +1,38 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 
 import ErrorBoundary from './ErrorBoundary'
 
-const { ExperimentalComponent } = ErrorBoundary
+class CustomComponent extends React.Component {
+  render() {
+    return <div>{this.props.children}</div> // eslint-disable-line
+  }
+}
 
-it('should capture error', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  expect(
-    mount(
+describe('ErrorBoundary', () => {
+  it('renders nothing', () => {
+    const wrapper = shallow(
       <ErrorBoundary>
-        <ExperimentalComponent />
+        <div data-test-it="mock" />
       </ErrorBoundary>
-    ).text()
-  ).toEqual(expect.stringContaining('Oops!!! Something went wrong'))
+    )
 
-  spy.mockRestore()
-})
+    expect(wrapper.html()).toBe('<div data-test-it="mock"></div>')
+  })
 
-it('should render custom message on error', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  expect(
-    mount(
-      <ErrorBoundary message="It's broken.">
-        <ExperimentalComponent />
-      </ErrorBoundary>
-    ).text()
-  ).toEqual(expect.stringContaining("It's broken."))
+  describe('behaviour', () => {
+    it('captures error message', () => {
+      const wrapper = shallow(
+        <ErrorBoundary>
+          <CustomComponent>Child</CustomComponent>
+        </ErrorBoundary>
+      )
 
-  spy.mockRestore()
-})
+      expect(wrapper.text()).not.toEqual(expect.stringContaining('Oops!!! Something went wrong'))
 
-it('should render custom component on error', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  expect(
-    mount(
-      <ErrorBoundary renderMessage={() => <span>{"It's broken."}</span>}>
-        <ExperimentalComponent />
-      </ErrorBoundary>
-    ).text()
-  ).toEqual(expect.stringContaining("It's broken."))
+      wrapper.find(CustomComponent).simulateError('error')
 
-  spy.mockRestore()
+      expect(wrapper.text()).toEqual(expect.stringContaining('Oops!!! Something went wrong'))
+    })
+  })
 })

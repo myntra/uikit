@@ -35,3 +35,17 @@
   Commit messages explain the gist of the change in one line. If required, you may add additional description.
 
   The project uses [conventional commit](https://conventionalcommits.org/) messages to generate changelog.
+
+## Tests
+
+### What to test
+
+1. **It must render:** At the very least, make sure the component renders without error. This verifies there are no JSX syntax errors, that all variables are defined, etc. This could be as simple as verifying that the rendered output is not null.
+
+1. **Test the output:** One step above “it renders” is “it renders the correct thing.” Given a set of props, what output is expected?
+
+1. **Test the states:** Every conditional should be accounted for. If the props are conditional (enabled/disabled, success/warning/error, etc), make sure to test that the deciding logic is working right. Likewise for conditionally-rendered children: if a Logout button is only visible when the user is logged in, for instance, make sure to test for that.
+
+1. **Test the behaviour:** If the component can be interacted with (an input or button with an onClick or onChange or onAnything), test that the events work as expected and call the specified functions with the correct arguments.
+
+1. **Test the edge cases:** Anything that operates on an array could have boundary cases — an empty array, an array with 1 element, a paginated list that should truncate at 25 items, and so on. Try out every edge case you can think of, and make sure they all work correctly.

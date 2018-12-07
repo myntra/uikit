@@ -21,7 +21,7 @@ export default function Avatar({ name, currentColor, className }) {
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>{name}</title>
-      <text x="50%" y="55%" alignmentBaseline="middle" textAnchor="middle" aria-hidden="true">
+      <text x="50%" y="55%" alignmentBaseline="middle" textAnchor="middle" aria-hidden="true" data-test-id="initials">
         {makeInitials(name.replace(/([^ ])([A-Z])/g, (_, a, b) => a + ' ' + b).trim())}
       </text>
     </svg>

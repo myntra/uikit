@@ -2,264 +2,206 @@ import React from 'react'
 import { mount } from 'enzyme'
 
 import Dropdown from './Dropdown'
-import Button from '../Button/Button'
 
-it('should render dropdown correctly', () => {
-  const wrapper = mount(
-    <Dropdown trigger="Open" isOpen={false}>
-      <p>Some Content</p>
-    </Dropdown>
-  )
-
-  expect(wrapper.text()).toBe('Open')
-
-  wrapper.setProps({ isOpen: true })
-  expect(wrapper.text()).toEqual(expect.stringContaining('Some Content'))
-})
-
-it('should render custom trigger', () => {
-  const fn = jest.fn()
-  const wrapper = mount(
-    <Dropdown trigger={<button id="foo">Open</button>} isOpen={false} onOpen={fn}>
-      <p>Some Content</p>
-    </Dropdown>
-  )
-
-  wrapper.find('button').simulate('click')
-
-  expect(fn).toHaveBeenCalled()
-
-  expect(wrapper.find('#foo')).toBeTruthy()
-})
-
-it('should fire events and update state', () => {
-  const handleOpen = jest.fn()
-  const handleClose = jest.fn()
-  const wrapper = mount(
-    <Dropdown trigger="Open" isOpen={false} onOpen={handleOpen} onClose={handleClose}>
-      <p>Some Content</p>
-    </Dropdown>
-  )
-
-  expect(wrapper.props().isOpen).toBe(false)
-
-  wrapper.find(Button).simulate('click')
-  expect(handleOpen).toBeCalledWith()
-
-  wrapper.setProps({ isOpen: true })
-  wrapper.find(Button).simulate('click')
-})
-
-it('should open up and align left', () => {
-  const wrapper = mount(
-    <Dropdown trigger="Open" isOpen={false} up left>
-      <p>Some Content</p>
-    </Dropdown>
-  )
-
-  wrapper.find(Button).simulate('click')
-  wrapper.setProps({ isOpen: true })
-  const el = wrapper.find('.content')
-
-  expect(el.hasClass('up')).toBe(true)
-  expect(el.hasClass('left')).toBe(true)
-  expect(el.hasClass('right')).toBe(false)
-})
-
-describe('prop co-existence', () => {
-  let spy
-  beforeEach(() => {
-    spy = jest.spyOn(console, 'error').mockImplementation(() => {})
+describe('Dropdown', () => {
+  it('renders a collapsed dropdown', () => {
+    const wrapper = mount(
+      <Dropdown trigger="Open" isOpen={false}>
+        <p>Some Content</p>
+      </Dropdown>
+    )
+    expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Open')
+    expect(wrapper.find('[data-test-id="content"]')).not.toHaveText('Some Content')
   })
 
-  afterEach(() => {
-    spy.mockClear()
-    spy.mockReset()
-  })
-
-  it('should warn if auto is used with left', () => {
-    mount(
-      <Dropdown trigger="Open" auto left>
+  it('renders an expanded dropdown', () => {
+    const wrapper = mount(
+      <Dropdown trigger="Open" isOpen={true}>
         <p>Some Content</p>
       </Dropdown>
     )
 
-    expect(spy).toHaveBeenCalledWith(expect.stringContaining('cannot be used with left'))
+    expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Open')
+    expect(wrapper.find('[data-test-id="content"]')).toHaveText('Some Content')
   })
 
-  it('should warn if auto is used with right', () => {
-    mount(
-      <Dropdown trigger="Open" auto right>
+  it('renders in DOM', () => {
+    const wrapper = mount(
+      <Dropdown trigger="Open" isOpen={true}>
         <p>Some Content</p>
       </Dropdown>
     )
 
-    expect(spy).toHaveBeenCalledWith(expect.stringContaining('cannot be used with right'))
+    expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Open')
+    expect(wrapper.find('[data-test-id="content"]')).toHaveText('Some Content')
+    expect(wrapper.find('[data-test-id="portal"]')).toHaveLength(0)
   })
 
-  it('should warn if auto is used with up', () => {
-    mount(
-      <Dropdown trigger="Open" auto up>
+  it('renders in portal', () => {
+    const wrapper = mount(
+      <Dropdown trigger="Open" isOpen={true} container>
         <p>Some Content</p>
       </Dropdown>
     )
 
-    expect(spy).toHaveBeenCalledWith(expect.stringContaining('cannot be used with up'))
+    expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Open')
+    expect(wrapper.find('[data-test-id="content"]')).toHaveText('Some Content')
+    expect(wrapper.find('[data-test-id="portal"]')).toHaveLength(1)
+    expect(wrapper.find('[data-test-id="portal"]')).toHaveText('Some Content')
   })
-})
 
-describe('toggle', () => {
-  it('should ignore consecutive toggle events', () => {
-    let isOpen = false
-    const handleOpen = jest.fn().mockImplementation(() => (isOpen = true))
-    const handleClose = jest.fn().mockImplementation(() => (isOpen = false))
-    const dropdown = mount(
-      <Dropdown trigger="Trigger" isOpen={isOpen} onOpen={handleOpen} onClose={handleClose}>
-        <div>content</div>
+  it('renders with a custom trigger element', () => {
+    const wrapper = mount(
+      <Dropdown trigger={<span data-test-id="custom-trigger">Trigger</span>} isOpen={true}>
+        <p>Some Content</p>
       </Dropdown>
     )
 
-    expect(isOpen).toBe(false)
-
-    dropdown.instance().toggle()
-
-    expect(handleOpen).toHaveBeenCalled()
-    expect(handleClose).not.toHaveBeenCalled()
-    expect(isOpen).toBe(true)
-
-    handleOpen.mockClear()
-
-    expect(dropdown.instance().coolDownTimer > 0).toBe(true)
-    dropdown.instance().toggle()
-    expect(handleOpen).not.toHaveBeenCalled()
-    expect(handleClose).not.toHaveBeenCalled()
-
-    expect(isOpen).toBe(true)
-  })
-})
-
-describe('auto align', () => {
-  it('should call calculateAutoPosition on toggle', done => {
-    const ref = new Dropdown({ auto: true, isOpen: false })
-    const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
-    jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
-    ref.toggle()
-
-    setTimeout(() => {
-      expect(spy).toHaveBeenCalled()
-      done()
-    }, 20)
+    expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Trigger')
+    expect(wrapper.find('[data-test-id="trigger"] [data-test-id="custom-trigger"]')).toHaveText('Trigger')
   })
 
-  it('should call calculateAutoPosition on measure', done => {
-    const ref = new Dropdown({ auto: true, isOpen: false, approxContentWidth: 100, approxContentHeight: 100 })
-    const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
-    jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
-    ref.handleMeasure({
-      bounds: { width: 100, height: 100 }
+  describe('behaviour', () => {
+    it('calls `onOpen` prop if trigger is clicked in collapsed state', () => {
+      const onOpen = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={false} onOpen={onOpen}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('click')
+
+      expect(onOpen).toBeCalledTimes(1)
     })
 
-    setTimeout(() => {
-      expect(spy).not.toHaveBeenCalled()
-      ref.handleMeasure({
-        bounds: { width: 200, height: 200 }
+    it('calls `onClose` prop if trigger is clicked in expanded state', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('click')
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if trigger is clicked in expanded state (in portal)', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose} container>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('click')
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if clicked away from dropdown', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      expect(wrapper.find('[data-test-id="click-away"]')).toBeTag('ClickAway')
+
+      wrapper
+        .find('[data-test-id="click-away"]')
+        .instance()
+        .props.onClickAway()
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if clicked away from dropdown (in portal)', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose} container>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      expect(wrapper.find('[data-test-id="click-away"]')).toBeTag('ClickAway')
+
+      wrapper
+        .find('[data-test-id="click-away"]')
+        .instance()
+        .props.onClickAway()
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+  })
+
+  describe('auto align content', () => {
+    const instance = new Dropdown({ auto: true, approxContentWidth: 100, approxContentHeight: 100 })
+
+    const node = (top, left, width, height) => ({
+      getBoundingClientRect() {
+        return { top, left, right: left + width, bottom: top + height, width, height }
+      }
+    })
+
+    it('auto: default (no element)', () => {
+      expect(instance.calculateAutoPosition(null, node(0, 0, 400, 400))).toEqual({
+        left: false,
+        up: false,
+        right: false
       })
+    })
 
-      setTimeout(() => {
-        expect(spy).toHaveBeenCalled()
-        done()
-      }, 20)
-    }, 20)
-  })
+    it('auto: default (no parent)', () => {
+      expect(instance.calculateAutoPosition(node(0, 0, 400, 400), null)).toEqual({
+        left: false,
+        up: false,
+        right: false
+      })
+    })
 
-  it('should not call calculateAutoPosition on toggle if auto is false', done => {
-    const ref = new Dropdown({ auto: false })
-    const spy = jest.spyOn(ref, 'calculateAutoPosition').mockImplementation(() => ({}))
-    jest.spyOn(ref, 'setState').mockImplementation(() => ({}))
-    ref.toggle()
+    it('auto: bottom left', () => {
+      expect(instance.calculateAutoPosition(node(100, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
+        left: true,
+        up: false,
+        right: false
+      })
+    })
 
-    setTimeout(() => {
-      expect(spy).not.toHaveBeenCalled()
-      done()
-    }, 20)
-  })
-})
+    it('auto: bottom right', () => {
+      expect(instance.calculateAutoPosition(node(100, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
+        left: false,
+        up: false,
+        right: true
+      })
+    })
 
-describe('auto align calculate', () => {
-  const instance = new Dropdown({ auto: true, approxContentWidth: 100, approxContentHeight: 100 })
-  const node = (top, left, width, height) => ({
-    getBoundingClientRect() {
-      return { top, left, right: left + width, bottom: top + height, width, height }
-    }
-  })
+    it('auto: top left', () => {
+      expect(instance.calculateAutoPosition(node(300, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
+        left: true,
+        up: true,
+        right: false
+      })
+    })
 
-  it('auto: default (no element)', () => {
-    expect(instance.calculateAutoPosition(null, node(0, 0, 400, 400))).toEqual({
-      left: false,
-      up: false,
-      right: false
+    it('auto: top right', () => {
+      expect(instance.calculateAutoPosition(node(300, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
+        left: false,
+        up: true,
+        right: true
+      })
     })
   })
-
-  it('auto: default (no parent)', () => {
-    expect(instance.calculateAutoPosition(node(0, 0, 400, 400), null)).toEqual({
-      left: false,
-      up: false,
-      right: false
-    })
-  })
-
-  it('auto: bottom left', () => {
-    expect(instance.calculateAutoPosition(node(100, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
-      left: true,
-      up: false,
-      right: false
-    })
-  })
-
-  it('auto: bottom right', () => {
-    expect(instance.calculateAutoPosition(node(100, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
-      left: false,
-      up: false,
-      right: true
-    })
-  })
-
-  it('auto: top left', () => {
-    expect(instance.calculateAutoPosition(node(300, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
-      left: true,
-      up: true,
-      right: false
-    })
-  })
-
-  it('auto: top right', () => {
-    expect(instance.calculateAutoPosition(node(300, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
-      left: false,
-      up: true,
-      right: true
-    })
-  })
-})
-
-it('should fall-back to custom createRef implementation', () => {
-  const original = React.createRef
-
-  React.createRef = undefined
-
-  const fn = jest.fn()
-
-  const wrapper = mount(
-    <Dropdown trigger="Open" onOpen={fn} isOpen={false}>
-      <p>Some Content</p>
-    </Dropdown>
-  )
-
-  expect(wrapper.text()).toBe('Open')
-
-  wrapper.find(Button).simulate('click')
-
-  expect(fn).toHaveBeenCalled()
-
-  React.createRef = original
 })

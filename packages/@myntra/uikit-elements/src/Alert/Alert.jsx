@@ -23,7 +23,7 @@ function Alert({ className, type, noFill, onClose, children }) {
       <Icon className={classnames('icon', 'legend')} name={ICONS[type]} />
       <div className={classnames('content')}>{children}</div>
       {onClose && (
-        <div className={classnames('close')} onClick={onClose} role="button">
+        <div className={classnames('close')} onClick={onClose} role="button" data-test-id="close">
           <Icon name="times" className={classnames('icon')} />
         </div>
       )}
