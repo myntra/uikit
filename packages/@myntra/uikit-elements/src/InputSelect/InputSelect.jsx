@@ -157,7 +157,12 @@ export default class InputSelect extends Component {
   }
 
   handleClose = () => {
-    this.setState({ isOpen: false, searchValue: '' })
+    this.setState(
+      prevState =>
+        !prevState.searchValue
+          ? { isOpen: false, searchValue: '' }
+          : { isOpen: false, searchValue: '', filteredOptions: this.getFilteredOptions(null, this.props) }
+    )
   }
 
   focusPreviousOption() {
