@@ -711,26 +711,6 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@myntra/eslint-config-standard@^0.1.0":
-  version "0.1.0"
-  resolved "http://registry.myntra.com:8000/@myntra/eslint-config-standard/-/@myntra/eslint-config-standard-0.1.0.tgz#03082dc5c87cd3417f8bbf856ca30bc17f36d88a"
-  dependencies:
-    babel-eslint "^8.2.2"
-    babel-plugin-syntax-jsx "^6.18.0"
-    eslint-config-prettier "^2.9.0"
-    eslint-config-standard "^11.0.0"
-    eslint-plugin-babel "^5.0.0"
-    eslint-plugin-import "^2.12.0"
-    eslint-plugin-jest "^21.15.1"
-    eslint-plugin-json "^1.2.0"
-    eslint-plugin-jsx-a11y "^6.0.3"
-    eslint-plugin-node "^6.0.1"
-    eslint-plugin-prettier "^2.6.0"
-    eslint-plugin-promise "^3.7.0"
-    eslint-plugin-react "^7.7.0"
-    eslint-plugin-standard "^3.0.1"
-    prettier "^1.11.1"
-
 "@nodelib/fs.stat@^1.0.1":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.2.tgz#54c5a964462be3d4d78af631363c18d6fa91ac26"
@@ -3565,6 +3545,11 @@ dateformat@^3.0.0:
 dayjs@^1.6.7:
   version "1.7.6"
   resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.7.6.tgz#bbd0f39ef0aca9615043a1fd159809f056291590"
+
+dayjs@^1.7.7:
+  version "1.7.7"
+  resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.7.7.tgz#8df20f78ac2476e3f5348ef49f8f22ebc3016370"
+  integrity sha512-Qlkiu0NNDpYwhk0syK4ImvAl/5YnsEMkvC2O123INviGeOA3Q8s5VyVkZzmN5SC7Wv9bb1+rfwO+uSqtHB4UWw==
 
 de-indent@^1.0.2:
   version "1.0.2"

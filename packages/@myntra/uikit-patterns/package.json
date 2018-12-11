@@ -20,5 +20,11 @@
   },
   "devDependencies": {
     "enzyme": "^3.3.0"
+  },
+  "dependencies": {
+    "@myntra/uikit-compounds": "^0.5.12",
+    "@myntra/uikit-elements": "^0.5.12",
+    "@myntra/uikit-utils": "^0.5.0",
+    "dayjs": "^1.7.7"
   }
 }

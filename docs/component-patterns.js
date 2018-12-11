@@ -8,7 +8,7 @@ export default function ComponentPatterns(props) {
     <RenderComponents
       {...props}
       packageName="@myntra/uikit-patterns"
-      examples={name => () => import(`@myntra/uikit-patterns/${name}.md`)}
+      examples={name => import(`@myntra/uikit-patterns/src/${name}.md`)}
       components={patterns}
     />
   )

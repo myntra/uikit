@@ -2,11 +2,34 @@
 const React = require('react')
 const { shallow } = require('enzyme')
 
+function isFunction(v) {
+  return typeof v === 'function'
+}
+
+function isClass(v) {
+  return isFunction(v) && /^\s*class\s+/.test(v.toString())
+}
+
 /**
  * @typedef {import("enzyme").CommonWrapper} Wrapper
  */
 
 const matchers = {
+  toBeComponent(received) {
+    const pass = isClass(received) ? isFunction(received.prototype.render) : isFunction(received)
+
+    if (pass) {
+      return {
+        message: () => `expected ${this.utils.printReceived(received)} to be a react component`,
+        pass: true
+      }
+    } else {
+      return {
+        message: () => `expected ${this.utils.printReceived(received)} not to be a react component`,
+        pass: false
+      }
+    }
+  },
   /**
    * @param {Wrapper} wrapper
    * @param {string|Function} tag
