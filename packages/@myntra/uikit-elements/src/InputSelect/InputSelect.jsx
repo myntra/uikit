@@ -59,9 +59,13 @@ export default class InputSelect extends Component {
     onSearch: PropTypes.func,
     /** @private */
     className: PropTypes.string,
-    /** @since v0.5.10 */
+    /**
+     * @since v0.5.10
+     * @deprecated
+     */
     numberOfOptionsToRender: PropTypes.number
   }
+
   static defaultProps = {
     multiple: false,
     disabled: false,
@@ -72,7 +76,6 @@ export default class InputSelect extends Component {
     placeholder: 'Select...',
     valueKey: 'value',
     searchableKeys: [],
-    numberOfOptionsToRender: 20,
     noResultsPlaceholder: <div className={classnames('no-results')}>No results found</div>
   }
 
@@ -107,8 +110,7 @@ export default class InputSelect extends Component {
       searchableKeys: [labelKey, ...searchableKeys],
       sortBy: labelKey,
       sortOrder: 'asc',
-      filterOptions: filterOptions,
-      limit: numberOfOptionsToRender
+      filterOptions: filterOptions
     }
   })
 
@@ -124,12 +126,12 @@ export default class InputSelect extends Component {
     return target
   })
 
-  getFilteredOptions(searchText, { value, options, valueKey, numberOfOptionsToRender }) {
+  getFilteredOptions(searchText, { value, options, valueKey }) {
     if (this.props.searchable && searchText) {
       options = executeFilterSearch(this.sifter, options, searchText, this.searchOptions)
     }
 
-    return moveSelectedOptionsToTop(options, value, valueKey).slice(0, numberOfOptionsToRender)
+    return moveSelectedOptionsToTop(options, value, valueKey)
   }
 
   get searchOptions() {
@@ -341,6 +343,7 @@ export default class InputSelect extends Component {
         isOpen={this.state.isOpen}
         onOpen={this.handleOpen}
         onClose={this.handleClose}
+        data-test-id="dropdown"
         trigger={
           <Control
             multiple={this.props.multiple}
@@ -349,6 +352,7 @@ export default class InputSelect extends Component {
             onChange={this.handleInput}
             onKeyDown={this.handleKeyDown}
             disabled={this.props.disabled}
+            data-test-id="control"
             slotValue={
               <Value
                 optionsForValues={this.optionsForValue}
@@ -356,24 +360,32 @@ export default class InputSelect extends Component {
                 disabled={this.props.disabled}
                 underlay={this.state.isOpen}
                 onRemove={this.handleRemove}
+                data-test-id="value"
               />
             }
           >
-            <InputProxy values={values} {...this.props} />
+            <InputProxy values={values} {...this.props} data-test-id="proxy" />
             {showClear && (
-              <div className={classnames('button')} role="button" onClick={this.handleClearValue}>
+              <div className={classnames('button')} role="button" onClick={this.handleClearValue} data-test-id="clear">
                 <Icon name="times" title="clear value" />
               </div>
             )}
             <div className={classnames('button')}>
               {this.props.isLoading ? (
-                <Icon className={classnames('state-icon')} name="spinner" title="loading options" spin />
+                <Icon
+                  className={classnames('state-icon')}
+                  name="spinner"
+                  title="loading options"
+                  spin
+                  data-test-id="loading"
+                />
               ) : (
                 <Icon
                   role="button"
                   className={classnames('state-icon')}
                   title={this.state.isOpen ? 'close' : 'open'}
                   name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
+                  data-test-id="chevron"
                 />
               )}
             </div>
@@ -392,6 +404,7 @@ export default class InputSelect extends Component {
           valueKey={valueKey}
           labelKey={labelKey}
           noResultsPlaceholder={noResultsPlaceholder}
+          data-test-id="selector"
         />
       </Dropdown>
     )

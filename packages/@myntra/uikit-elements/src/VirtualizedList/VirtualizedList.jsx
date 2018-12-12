@@ -28,7 +28,9 @@ export default class VirtualizedList extends React.Component {
     /**
      * Number of rows to render above and below the visible list window.
      */
-    overScanCount: PropTypes.number
+    overScanCount: PropTypes.number,
+
+    className: PropTypes.string
   }
 
   static defaultProps = {
@@ -67,6 +69,7 @@ export default class VirtualizedList extends React.Component {
   }
 
   handleScroll = event => {
+    // TODO: Use animation frame to avoid unnecessary work.
     this.setState(({ itemHeight, visibleHeight }, { items }) => {
       if (this.list && event.target === this.list.parentElement && itemHeight * items.length > visibleHeight) {
         return { scrollTop: event.target.scrollTop }
@@ -89,6 +92,14 @@ export default class VirtualizedList extends React.Component {
   }
 
   /**
+   * Match height of scrollable area
+   * @returns {Object.<string, string>} Style Object
+   */
+  getScrollHeight = () => {
+    return this.state.visibleHeight ? { maxHeight: `${this.state.visibleHeight}px` } : null
+  }
+
+  /**
    * Calculate height of the list
    * @returns {Object.<string, string>} Style Object
    */
@@ -104,8 +115,8 @@ export default class VirtualizedList extends React.Component {
   getItemStyle = index => {
     const { itemHeight } = this.state
     return {
-      height: `${itemHeight}px`,
-      top: `${itemHeight * index}px`
+      top: `${itemHeight * index}px`,
+      height: `${itemHeight}px`
     }
   }
 
@@ -124,9 +135,9 @@ export default class VirtualizedList extends React.Component {
     }
 
     return (
-      <div className={classnames('container')}>
-        <Measure bounds onMeasure={this.handleContainerMeasure}>
-          <div className={classnames('list-wrapper')}>
+      <Measure bounds onMeasure={this.handleContainerMeasure}>
+        <div className={classnames('container', this.props.className)}>
+          <div className={classnames('scroll')} style={this.getScrollHeight()}>
             <div ref={this.setListRef} className={classnames('list')} style={this.getListHeight()}>
               {this.props.items.map(
                 (item, index) =>
@@ -143,8 +154,8 @@ export default class VirtualizedList extends React.Component {
               )}
             </div>
           </div>
-        </Measure>
-      </div>
+        </div>
+      </Measure>
     )
   }
 }

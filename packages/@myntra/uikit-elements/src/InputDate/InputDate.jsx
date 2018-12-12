@@ -155,7 +155,6 @@ export default class InputDate extends PureComponent {
 
   close = () => {
     if (this._skipThisClose) {
-      console.log('Skipping close')
       clearTimeout(this._skipThisClose)
       this._skipThisClose = null
 

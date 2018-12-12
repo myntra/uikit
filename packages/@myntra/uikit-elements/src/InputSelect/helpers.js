@@ -16,15 +16,14 @@ export const moveSelectedOptionsToTop = (options, selectedOptionValues, valueKey
   // sort options. selected should appear at top.
   const value = new Set(toArray(selectedOptionValues))
 
-  options = options.slice()
+  const prefix = []
+  const suffix = []
 
-  options.sort((a, b) => {
-    if (value.has(a[valueKey]) && value.has(b[valueKey])) return 0
-    if (value.has(b[valueKey])) return 1
-    return -1
+  options.forEach(option => {
+    ;(value.has(option[valueKey]) ? prefix : suffix).push(option)
   })
 
-  return options
+  return prefix.concat(suffix)
 }
 
 export const createSearchIndex = options => {

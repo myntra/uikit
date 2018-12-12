@@ -81,13 +81,6 @@ describe('Form component', () => {
         .find('GridColumn')
     ).toHaveLength(2)
 
-    expect(
-      form
-        .find('form')
-        .find('Grid')
-        .find('FormGroup')
-    ).toHaveLength(2)
-
     expect(form.find('.form-actions').find('Button')).toHaveLength(2)
     expect(
       form

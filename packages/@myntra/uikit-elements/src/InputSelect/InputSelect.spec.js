@@ -1,35 +1,149 @@
 import React from 'react'
-import { mount } from 'enzyme'
+import { shallow } from 'enzyme'
 import { testCodeMod } from '@myntra/codemod-utils'
 
 import InputSelect from './InputSelect'
-import InputSelectValue from './InputSelectValue'
-import InputSelectControl from './InputSelectControl'
-import InputSelectOption from './InputSelectOption'
-import InputSelectOptions from './InputSelectOptions'
 
 testCodeMod(__dirname, 'InputSelect.codemod.js')
 
-describe('Input Select', () => {
-  let props
-  let mountedSelect
-  const mountSelect = () => {
-    if (!mountedSelect) {
-      mountedSelect = mount(<InputSelect {...props} />)
-    }
-    return mountedSelect
-  }
+describe('InputSelect', () => {
+  const options = Array(15)
+    .fill(0)
+    .map((_, index) => ({ value: index, label: `${index}` }))
 
-  beforeEach(() => {
-    props = {
-      options: [{ label: 'One', value: 1 }, { label: 'Two', value: 2 }],
-      onChange: jest.fn(),
-      onInputChange: jest.fn()
-    }
-    mountedSelect = undefined
+  it('renders', () => {
+    expect(() => shallow(<InputSelect value={null} options={[]} onChange={() => null} />)).not.toConsoleError()
   })
 
-  it('should display no value', done => {
+  it('renders options', () => {
+    const wrapper = shallow(<InputSelect value={null} options={options} onChange={() => null} />)
+
+    expect(wrapper.find('[data-test-id="selector"]').prop('options')).toEqual(options)
+  })
+
+  it('renders only filtered options', () => {
+    const wrapper = shallow(<InputSelect value={null} options={options} onChange={() => null} />)
+
+    wrapper.setState({ isOpen: true })
+    wrapper.instance().handleInput('0')
+
+    expect(wrapper.find('[data-test-id="selector"]').prop('options')).toHaveLength(2)
+  })
+
+  it('renders selected options at top', () => {
+    const wrapper = shallow(<InputSelect value={1} options={options} onChange={() => null} />)
+
+    wrapper.setState({ isOpen: true })
+
+    expect(wrapper.find('[data-test-id="selector"]').prop('options')[0]).toEqual(options[1])
+  })
+
+  it('renders selected value', () => {
+    const wrapper = shallow(<InputSelect value={1} options={options} onChange={() => null} />)
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="value"]')
+        .prop('optionsForValues')
+    ).toEqual([options[1]])
+  })
+
+  it('renders multiple selected values', () => {
+    const wrapper = shallow(<InputSelect value={[1, 2]} options={options} onChange={() => null} multiple />)
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="value"]')
+        .prop('optionsForValues')
+    ).toEqual([options[1], options[2]])
+  })
+
+  it('renders clear button', () => {
+    const wrapper = shallow(<InputSelect value={1} options={options} onChange={() => null} />)
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="clear"]')
+    ).toBeTag('[role="button"]')
+  })
+
+  it('does not renders clear button for required', () => {
+    const wrapper = shallow(<InputSelect value={1} options={options} onChange={() => null} required />)
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="clear"]')
+    ).toHaveLength(0)
+  })
+
+  it('does not renders clear button for disabled', () => {
+    const wrapper = shallow(<InputSelect value={1} options={options} onChange={() => null} disabled />)
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="clear"]')
+    ).toHaveLength(0)
+  })
+
+  it('renders loading state', () => {
+    const wrapper = shallow(<InputSelect value={1} options={options} onChange={() => null} />)
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="loading"]')
+    ).toHaveLength(0)
+
+    wrapper.setProps({ isLoading: true })
+
+    expect(
+      wrapper
+        .find('[data-test-id="dropdown"]')
+        .dive()
+        .find('[data-test-id="control"]')
+        .dive()
+        .find('[data-test-id="loading"]')
+    ).toHaveLength(1)
+  })
+
+  describe('behaviour', () => {
+    it('calls `onChange` prop if option is selected', () => {
+      const fn = jest.fn(value => wrapper.setProps({ value }))
+      const wrapper = shallow(<InputSelect value={1} options={options} onChange={fn} />)
+
+      wrapper.find('[data-test-id="selector"]').prop('onOptionSelect')(null, options[2])
+
+      expect(fn).toHaveBeenCalledTimes(1)
+      expect(fn).toHaveBeenLastCalledWith(2, options[2])
+    })
+  })
+})
+
+/*
+it('should display no value', done => {
     const select = mountSelect()
     expect(select.find(InputSelectValue).props().optionsForValues).toEqual([])
     done()
@@ -382,4 +496,4 @@ describe('Input Search open', () => {
     expect(handleChange).toHaveBeenLastCalledWith(1, { label: 'One', value: 1 })
     done()
   })
-})
+*/

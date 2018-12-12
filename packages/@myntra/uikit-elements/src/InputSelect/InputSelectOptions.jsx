@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import classnames from './InputSelectOptions.module.css'
 import PropTypes from 'prop-types'
 import Option from './InputSelectOption'
+import VirtualizedList from '../VirtualizedList/VirtualizedList'
 
 export default class InputSelectOptions extends PureComponent {
   static propTypes = {
@@ -16,7 +17,7 @@ export default class InputSelectOptions extends PureComponent {
     /** Even fired when an option is selected */
     onOptionSelect: PropTypes.func,
     /** List of options */
-    options: PropTypes.array,
+    options: PropTypes.array.isRequired,
     /** List of selected values */
     values: PropTypes.array,
     /** Is multiple selection enabled? */
@@ -57,9 +58,10 @@ export default class InputSelectOptions extends PureComponent {
     const values = new Set(this.props.values)
 
     return (
-      <div id={`${instancePrefix}-options`} className={classnames('options')} role="listbox" tabIndex={-1}>
-        {options.length
-          ? options.map((option, index) => (
+      <div id={`${instancePrefix}-options`} className={classnames('container')} role="listbox" tabIndex={-1}>
+        {options.length ? (
+          <VirtualizedList items={options} className={classnames('options')}>
+            {({ item: option, index }) => (
               <Option
                 id={`${instancePrefix}-option-${index}`}
                 index={index}
@@ -74,8 +76,11 @@ export default class InputSelectOptions extends PureComponent {
                 hasCheckBox={multiple}
                 renderOption={renderOption}
               />
-            ))
-          : noResultsPlaceholder}
+            )}
+          </VirtualizedList>
+        ) : (
+          noResultsPlaceholder
+        )}
       </div>
     )
   }
