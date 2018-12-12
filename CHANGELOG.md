@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0-alpha.0"></a>
+# [0.6.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.5.12...v0.6.0-alpha.0) (2018-12-12)
+
+
+### Bug Fixes
+
+* **components:** Use css as classnames function ([f2d6c04](https://bitbucket.org/myntra/uikit/commits/f2d6c04))
+* **compounds | Form:** Use withField to wrap InputXxx components ([fe02f93](https://bitbucket.org/myntra/uikit/commits/fe02f93))
+* **elements | InputSelect:** Reset filtered options on options dropdown close ([f5134c5](https://bitbucket.org/myntra/uikit/commits/f5134c5)), closes [#107](https://bitbucket.org/myntra/uikit/issue/107) [#5](https://bitbucket.org/myntra/uikit/issue/5)
+
+
+### Features
+
+* **classnames-loader:** Add css module as function loader ([e3f3cd6](https://bitbucket.org/myntra/uikit/commits/e3f3cd6))
+* **elements | Field:** Add a form field container component ([8821501](https://bitbucket.org/myntra/uikit/commits/8821501))
+* **elements | InputSelect:** Use `<VirtualizedList>` to render options ([e65fde5](https://bitbucket.org/myntra/uikit/commits/e65fde5))
+* **elements | Progress:** Add Progress component ([616027b](https://bitbucket.org/myntra/uikit/commits/616027b)), closes [#108](https://bitbucket.org/myntra/uikit/issue/108)
+* **elements | VirtualizedList:** Add a simple virtual list scroller ([ab3c112](https://bitbucket.org/myntra/uikit/commits/ab3c112)), closes [#106](https://bitbucket.org/myntra/uikit/issue/106)
+* **patterns | JobTracker:** Add JobTracker component ([8ce602e](https://bitbucket.org/myntra/uikit/commits/8ce602e)), closes [#109](https://bitbucket.org/myntra/uikit/issue/109)
+* **rollup-plugin-classnames:** Add build plugin to support css module as function ([1978528](https://bitbucket.org/myntra/uikit/commits/1978528))
+
+
+
 <a name="0.5.12"></a>
 ## [0.5.12](https://bitbucket.org/myntra/uikit/compare/v0.5.11...v0.5.12) (2018-11-29)
 

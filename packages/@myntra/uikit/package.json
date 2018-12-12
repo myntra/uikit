@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit",
-  "version": "0.5.12",
+  "version": "0.6.0-alpha.0",
   "description": "@myntra/uikit",
   "main": "src/index.js",
   "module": "dist/uikit.js",
@@ -18,9 +18,9 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/tokens": "0.5.9",
-    "@myntra/uikit-compounds": "0.5.12",
-    "@myntra/uikit-elements": "0.5.12",
-    "@myntra/uikit-patterns": "^0.3.0",
+    "@myntra/uikit-compounds": "0.6.0-alpha.0",
+    "@myntra/uikit-elements": "0.6.0-alpha.0",
+    "@myntra/uikit-patterns": "0.6.0-alpha.0",
     "@myntra/uikit-utils": "0.5.0"
   },
   "peerDependencies": {
