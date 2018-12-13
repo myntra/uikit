@@ -1,7 +1,7 @@
 module.exports = (content, write) =>
   write(
     `import React, { Component } from 'react'
-import styles from './tokens.module.css'
+import classnames from './tokens.module.css'
 
 // eslint-disable-next-line react/prop-types
 /**
@@ -16,11 +16,11 @@ export default class ThemeProvider extends Component {
   }
 
   getChildContext() {
-    return { theme: styles.theme }
+    return { theme: classnames('theme') }
   }
 
   render() {
-    return React.createElement('div', { className: styles.theme }, this.props.children)
+    return React.createElement('div', { className: classnames('theme') }, this.props.children)
   }
 }
 `

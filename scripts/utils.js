@@ -2,8 +2,7 @@ const fs = require('fs')
 
 const targets = (exports.targets = fs.readdirSync('packages/@myntra').filter(f => {
   return (
-    fs.statSync(`packages/@myntra/${f}`).isDirectory() &&
-    !/^(tokens|tokens-unity|uikit-cli|uikit-internals|uikit-patterns|classnames-loader)$/.test(f)
+    fs.statSync(`packages/@myntra/${f}`).isDirectory() && !/^(uikit-cli|uikit-internals|classnames-loader)$/.test(f)
   )
 }))
 

@@ -45,13 +45,11 @@ const packageConfigs = packageFormats.map(format => createConfig(configs[format]
 module.exports = packageConfigs
 
 function createConfig(output, plugins = []) {
-  const external = [].concat(
-    Object.keys(require(resolve(`package.json`)).dependencies),
-    Object.keys(require(resolve(`package.json`)).peerDependencies || {})
-  )
+  const pkg = require(resolve(`package.json`))
+  const external = [].concat(Object.keys(pkg.dependencies || {}), Object.keys(pkg.peerDependencies || {}))
 
   return {
-    input: resolve(`src/index.js`),
+    input: resolve(/tokens/.test(pkg.name) ? pkg.module : pkg.main),
     external,
     plugins: [
       raw({
