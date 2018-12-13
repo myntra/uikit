@@ -1,6 +1,6 @@
 {
   "name": "@myntra/codemod-utils",
-  "version": "0.6.0-alpha.1",
+  "version": "0.6.0-alpha.2",
   "description": "@myntra/codemod-utils",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",
