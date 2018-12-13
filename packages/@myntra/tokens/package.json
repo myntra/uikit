@@ -18,12 +18,14 @@
     "build": "tokenize"
   },
   "files": [
-    "tokens.{js,css,esm.js,scss,jsx,module.css}"
+    "tokens.{js,css,esm.js,scss,jsx,module.css}",
+    "dist"
   ],
   "dependencies": {
     "@myntra/uikit-utils": "^0.5.0"
   },
   "peerDependencies": {
-    "react": ">15.4"
+    "prop-types": ">=15.6",
+    "react": ">=15.6"
   }
 }
