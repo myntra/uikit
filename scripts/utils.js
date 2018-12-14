@@ -1,9 +1,7 @@
 const fs = require('fs')
 
 const targets = (exports.targets = fs.readdirSync('packages/@myntra').filter(f => {
-  return (
-    fs.statSync(`packages/@myntra/${f}`).isDirectory() && !/^(uikit-cli|uikit-internals|classnames-loader)$/.test(f)
-  )
+  return fs.statSync(`packages/@myntra/${f}`).isDirectory() && !/^(uikit-internals)$/.test(f)
 }))
 
 exports.fuzzyMatchTarget = partialTarget => {

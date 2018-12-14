@@ -14,7 +14,9 @@ module.exports = {
       }
     })
 
-    targets.forEach(target => (config.resolve.alias[`@myntra/${target}$`] = `@myntra/${target}/src/index.js`))
+    targets
+      .filter(target => !/tokens/.test(target))
+      .forEach(target => (config.resolve.alias[`@myntra/${target}$`] = `@myntra/${target}/src/index.js`))
 
     const jsx = config.module.rules.find(it => it.test.toString().includes('jsx'))
     if (jsx) {

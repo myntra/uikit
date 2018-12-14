@@ -7,6 +7,7 @@ const babel = require('rollup-plugin-babel')
 const css = require('rollup-plugin-postcss')
 const raw = require('rollup-plugin-string')
 const classnames = require('@myntra/rollup-plugin-classnames') // eslint-disable-line node/no-extraneous-require
+const bundleSize = require('rollup-plugin-bundle-size')
 
 if (!process.env.TARGET) {
   throw new Error('TARGET package must be specified via --environment flag.')
@@ -49,7 +50,7 @@ function createConfig(output, plugins = []) {
   const external = [].concat(Object.keys(pkg.dependencies || {}), Object.keys(pkg.peerDependencies || {}))
 
   return {
-    input: resolve(/tokens/.test(pkg.name) ? pkg.module : pkg.main),
+    input: /tokens/.test(pkg.name) ? resolve(`tokens.jsx`) : resolve(`src/index.js`),
     external,
     plugins: [
       raw({
@@ -107,9 +108,15 @@ function createConfig(output, plugins = []) {
       aliasPlugin,
       replacePlugin,
       classnames({ include: '**/*.module.css' }),
+      bundleSize(),
       ...plugins
     ],
-    output,
+    output: /tokens/.test(pkg.name)
+      ? {
+          file: resolve(`tokens.jsx`),
+          format: `es`
+        }
+      : output,
     onwarn: (msg, warn) => {
       if (!/Circular/.test(msg)) {
         warn(msg)
