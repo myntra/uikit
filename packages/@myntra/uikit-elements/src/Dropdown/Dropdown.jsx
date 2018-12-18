@@ -352,11 +352,13 @@ class Dropdown extends Component {
               </div>
             </Portal>
           ) : (
-            <Measure bounds onMeasure={this.handleMeasure}>
-              <div className={classnames('content', { up, left, right })} ref={this.wrapperRef} data-test-id="content">
-                {this.props.children}
-              </div>
-            </Measure>
+            <div className={classnames('content')} ref={this.wrapperRef}>
+              <Measure bounds onMeasure={this.handleMeasure}>
+                <div className={classnames('content-wrapper', { up, left, right })} data-test-id="content">
+                  {this.props.children}
+                </div>
+              </Measure>
+            </div>
           ))}
         {this.props.useClickAway &&
           this.props.isOpen && (
