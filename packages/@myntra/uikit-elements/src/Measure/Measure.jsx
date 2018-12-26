@@ -22,7 +22,7 @@ class Measure extends PureComponent {
     margin: PropTypes.bool,
     offset: PropTypes.bool,
     scroll: PropTypes.bool,
-    onMeasure: PropTypes.func.isRequired,
+    onMeasure: PropTypes.func,
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired
   }
 
@@ -47,12 +47,14 @@ class Measure extends PureComponent {
   }
 
   handleMeasure = entries => {
-    const content = this.measure(entries[0].target)
+    window.requestAnimationFrame(() => {
+      const content = this.measure(entries[0].target)
 
-    content.entry = entries[0].contentRect
+      content.entry = entries[0].contentRect
 
-    this.setState({ content })
-    this.props.onMeasure(content)
+      this.setState({ content })
+      this.props.onMeasure && this.props.onMeasure(content)
+    })
   }
 
   /**

@@ -1,3 +1,4 @@
-const { classnames } = require('@myntra/uikit-utils')
+/* eslint-disable node/no-extraneous-import */
+import { classnames } from '@myntra/uikit-utils'
 
-module.exports = (...args) => classnames(...args).use({})
+export default (...args) => classnames(...args).use({})

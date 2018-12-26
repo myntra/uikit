@@ -1,19 +1,13 @@
-const path = require('path')
-const { targets } = require('./scripts/utils')
-
 const aliases = {
   '\\.css$': '<rootDir>/test/unit/style.js',
+  '\\.scss$': '<rootDir>/test/unit/style.js',
   '\\.svg$': 'identity-obj-proxy'
-}
-
-for (const target of targets) {
-  aliases[`@myntra/target`] = path.resolve(__dirname, 'packages/@myntra', target, 'src/index.js')
 }
 
 module.exports = {
   moduleNameMapper: aliases,
   setupTestFrameworkScriptFile: '<rootDir>/test/unit/setup-jest.js',
-  setupFiles: ['<rootDir>/test/unit/setup-enzyme.js'],
+  setupFiles: ['<rootDir>/test/unit/setup-enzyme.js', '<rootDir>/test/unit/setup-window.js'],
   transform: {
     '^.+\\.(js|jsx)$': '<rootDir>/scripts/transform-babel.js'
   },
