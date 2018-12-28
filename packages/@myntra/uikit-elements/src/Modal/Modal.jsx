@@ -38,6 +38,8 @@ class Modal extends PureComponent {
     actions: PropTypes.oneOfType([PropTypes.func, PropTypes.element, PropTypes.arrayOf(PropTypes.element)]),
     /** Dropdown state */
     isOpen: PropTypes.bool,
+    /** To hide close button */
+    hideClose: PropTypes.bool,
     /**
      * Event fired when dropdown drawer is displayed
      * @function
@@ -73,7 +75,7 @@ class Modal extends PureComponent {
   }
 
   render() {
-    const { trigger, children, isOpen, render, title, actions } = this.props
+    const { trigger, children, isOpen, render, title, actions, hideClose } = this.props
 
     const content = (
       <div className={classnames('modal')}>
@@ -81,7 +83,9 @@ class Modal extends PureComponent {
         <div className={classnames('body')}>
           <div className={classnames('content')}>{render({ title, actions, children, close: this.handleClose })}</div>
 
-          <Button className={classnames('close')} type="link" icon="times" title="close" onClick={this.handleClose} />
+          {hideClose ? null : (
+            <Button className={classnames('close')} type="link" icon="times" title="close" onClick={this.handleClose} />
+          )}
         </div>
       </div>
     )

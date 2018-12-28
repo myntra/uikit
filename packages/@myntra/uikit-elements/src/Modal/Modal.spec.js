@@ -39,4 +39,13 @@ describe('Modal', () => {
     expect(onClose).toHaveBeenCalledTimes(1)
     expect(wrapper.find('.modal')).toHaveLength(0)
   })
+
+  it('should not render close button for hideClose prop', () => {
+    const wrapper = mount(
+      <Modal trigger="Trigger" hideClose>
+        <span>Some Text</span>
+      </Modal>
+    )
+    expect(wrapper.find('.close')).toHaveLength(0)
+  })
 })
