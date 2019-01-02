@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0-alpha.4"></a>
+# [0.6.0-alpha.4](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.3...v0.6.0-alpha.4) (2019-01-02)
+
+
+### Bug Fixes
+
+* Add lower limit for version of eslint ([e7035a9](https://bitbucket.org/myntra/uikit/commits/e7035a9))
+* **elements | Dropdown:** Wrap contents of dropdown in a container div ([94c1872](https://bitbucket.org/myntra/uikit/commits/94c1872))
+* **elements | Measure:** Update measure target in animation frame to prevent infinite loop ([6ef7309](https://bitbucket.org/myntra/uikit/commits/6ef7309))
+
+
+### Features
+
+* **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/issue/115)
+* **elements | Modal:** Add `hideClose` prop to hide cross button ([427c300](https://bitbucket.org/myntra/uikit/commits/427c300))
+
+
+
 <a name="0.6.0-alpha.3"></a>
 # [0.6.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.2...v0.6.0-alpha.3) (2018-12-14)
 
