@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.0"></a>
+# [0.6.0](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.4...v0.6.0) (2019-01-04)
+
+
+### Bug Fixes
+
+* **elements | Modal:** Remove fixed width ([eb74924](https://bitbucket.org/myntra/uikit/commits/eb74924)), closes [#116](https://bitbucket.org/myntra/uikit/issue/116)
+
+
+
 <a name="0.6.0-alpha.4"></a>
 # [0.6.0-alpha.4](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.3...v0.6.0-alpha.4) (2019-01-02)
 

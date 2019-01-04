@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-cli",
-  "version": "0.6.0-alpha.4",
+  "version": "0.6.0",
   "description": "A command line utility for @myntra/uikit",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",
@@ -17,7 +17,7 @@
     "uikit": "./bin/uikit.js"
   },
   "dependencies": {
-    "@myntra/eslint-config-standard": "0.6.0-alpha.4",
+    "@myntra/eslint-config-standard": "0.6.0",
     "@znck/promised": "^1.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
