@@ -33,7 +33,6 @@
 .wrapper {
   padding: var(--size-large);
   min-width: 300px;
-  width: 50vw;
   background: white;
 }
 
