@@ -9,53 +9,9 @@ All notable changes to this project will be documented in this file. See [standa
 ### Bug Fixes
 
 * **elements | Modal:** Remove fixed width ([eb74924](https://bitbucket.org/myntra/uikit/commits/eb74924)), closes [#116](https://bitbucket.org/myntra/uikit/issue/116)
-
-
-
-<a name="0.6.0-alpha.4"></a>
-# [0.6.0-alpha.4](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.3...v0.6.0-alpha.4) (2019-01-02)
-
-
-### Bug Fixes
-
 * Add lower limit for version of eslint ([e7035a9](https://bitbucket.org/myntra/uikit/commits/e7035a9))
 * **elements | Dropdown:** Wrap contents of dropdown in a container div ([94c1872](https://bitbucket.org/myntra/uikit/commits/94c1872))
 * **elements | Measure:** Update measure target in animation frame to prevent infinite loop ([6ef7309](https://bitbucket.org/myntra/uikit/commits/6ef7309))
-
-
-### Features
-
-* **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/issue/115)
-* **elements | Modal:** Add `hideClose` prop to hide cross button ([427c300](https://bitbucket.org/myntra/uikit/commits/427c300))
-
-
-
-<a name="0.6.0-alpha.3"></a>
-# [0.6.0-alpha.3](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.2...v0.6.0-alpha.3) (2018-12-14)
-
-
-
-<a name="0.6.0-alpha.2"></a>
-# [0.6.0-alpha.2](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.1...v0.6.0-alpha.2) (2018-12-13)
-
-
-
-<a name="0.6.0-alpha.1"></a>
-# [0.6.0-alpha.1](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.0...v0.6.0-alpha.1) (2018-12-13)
-
-
-### Features
-
-* **tokens:** Bundle ThemeProvider component with styles ([b45049a](https://bitbucket.org/myntra/uikit/commits/b45049a))
-
-
-
-<a name="0.6.0-alpha.0"></a>
-# [0.6.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.5.12...v0.6.0-alpha.0) (2018-12-12)
-
-
-### Bug Fixes
-
 * **components:** Use css as classnames function ([f2d6c04](https://bitbucket.org/myntra/uikit/commits/f2d6c04))
 * **compounds | Form:** Use withField to wrap InputXxx components ([fe02f93](https://bitbucket.org/myntra/uikit/commits/fe02f93))
 * **elements | InputSelect:** Reset filtered options on options dropdown close ([f5134c5](https://bitbucket.org/myntra/uikit/commits/f5134c5)), closes [#107](https://bitbucket.org/myntra/uikit/issue/107) [#5](https://bitbucket.org/myntra/uikit/issue/5)
@@ -63,6 +19,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
+* **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/issue/115)
+* **elements | Modal:** Add `hideClose` prop to hide cross button ([427c300](https://bitbucket.org/myntra/uikit/commits/427c300))
+* **tokens:** Bundle ThemeProvider component with styles ([b45049a](https://bitbucket.org/myntra/uikit/commits/b45049a))
 * **classnames-loader:** Add css module as function loader ([e3f3cd6](https://bitbucket.org/myntra/uikit/commits/e3f3cd6))
 * **elements | Field:** Add a form field container component ([8821501](https://bitbucket.org/myntra/uikit/commits/8821501))
 * **elements | InputSelect:** Use `<VirtualizedList>` to render options ([e65fde5](https://bitbucket.org/myntra/uikit/commits/e65fde5))
