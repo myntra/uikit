@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.1"></a>
+## [0.6.1](https://bitbucket.org/myntra/uikit/compare/v0.6.0...v0.6.1) (2019-01-08)
+
+
+### Bug Fixes
+
+* **elements | Field:** Use label prop for title when used in Form ([32fbc21](https://bitbucket.org/myntra/uikit/commits/32fbc21))
+
+
+
 <a name="0.6.0"></a>
 # [0.6.0](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.4...v0.6.0) (2019-01-04)
 
