@@ -59,11 +59,11 @@ export function withField(Component) {
     }
 
     render() {
-      const { title, label, error, description, ...props } = this.props
+      const { label, error, description, ...props } = this.props
       let id = props.id || `__uikit_field_${this.id}_`
 
       return (
-        <Field title={title || label} error={error} description={description} htmlFor={id}>
+        <Field title={label} error={error} description={description} htmlFor={id}>
           <Component
             {...props}
             id={id}
