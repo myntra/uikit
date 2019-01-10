@@ -1,11 +1,14 @@
 {
-  "version": "0.6.1",
+  "version": "0.6.3",
   "lerna": "2.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "allowBranch": ["master", "develop"]
+      "allowBranch": [
+        "master",
+        "develop"
+      ]
     }
   }
 }
