@@ -3,9 +3,9 @@
   "lerna": "2.0.0",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "commands": {
+  "command": {
     "publish": {
-      "allowBranch": "master"
+      "allowBranch": ["master", "develop"]
     }
   }
 }
