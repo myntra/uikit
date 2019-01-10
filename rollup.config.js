@@ -60,11 +60,11 @@ function createConfig(output, plugins = []) {
       css({
         include: '**/*.css',
         exclude: '**/*.module.css',
-        minimize: true
+        minimize: false
       }),
       css({
         include: '**/*.module.css',
-        minimize: true,
+        minimize: false,
         modules: {
           generateScopedName(name, filename, css) {
             return (
