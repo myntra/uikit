@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.6.2"></a>
+## [0.6.2](https://bitbucket.org/myntra/uikit/compare/v0.6.1...v0.6.2) (2019-01-10)
+
+
+### Bug Fixes
+
+* **build:** Minimizing CSS is renaming all animation selectors to `a`, turn off minimization ([3fe0760](https://bitbucket.org/myntra/uikit/commits/3fe0760)), closes [#117](https://bitbucket.org/myntra/uikit/issue/117)
+
+
+
 <a name="0.6.1"></a>
 ## [0.6.1](https://bitbucket.org/myntra/uikit/compare/v0.6.0...v0.6.1) (2019-01-08)
 
