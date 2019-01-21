@@ -5,7 +5,7 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
-  "version": "0.6.3",
+  "version": "0.7.0-alpha.0",
   "engines": {
     "node": ">=8.0"
   },
@@ -38,7 +38,7 @@
     "release:beta": "standard-version -a --prerelease beta",
     "postrelease:beta": "yarn :publish && yarn update:develop",
     "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md package.json CHANGELOG.md",
-    "lerna:version": "lerna version -y --no-changelog --no-commit-hooks --no-push --ignore-changes --force-publish --exact $(node scripts/version.js) -m \"chore(release): publish %s\" && git add packages/ lerna.json"
+    "lerna:version": "lerna version -y --no-changelog --no-commit-hooks --no-push --ignore-changes --force-publish=* --exact $(node scripts/version.js) -m \"chore(release): publish %s\" && git add packages/ lerna.json"
   },
   "workspaces": [
     "packages/@myntra/*"

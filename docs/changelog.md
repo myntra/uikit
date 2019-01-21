@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.0-alpha.0"></a>
+# [0.7.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.6.3...v0.7.0-alpha.0) (2019-01-21)
+
+
+### Features
+
+* **elements | InputMonthPicker:** Add month picker component ([517798c](https://bitbucket.org/myntra/uikit/commits/517798c)), closes [#118](https://bitbucket.org/myntra/uikit/issue/118)
+
+
+
 <a name="0.6.2"></a>
 ## [0.6.2](https://bitbucket.org/myntra/uikit/compare/v0.6.1...v0.6.2) (2019-01-10)
 
