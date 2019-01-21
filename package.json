@@ -37,7 +37,7 @@
     "prerelease:beta": "yarn update:master",
     "release:beta": "standard-version -a --prerelease beta",
     "postrelease:beta": "yarn :publish && yarn update:develop",
-    "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md",
+    "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md package.json CHANGELOG.md",
     "lerna:version": "lerna version -y --no-changelog --no-commit-hooks --no-push --ignore-changes --force-publish --exact $(node scripts/version.js) -m \"chore(release): publish %s\" && git add packages/ lerna.json"
   },
   "workspaces": [
