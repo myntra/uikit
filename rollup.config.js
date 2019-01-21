@@ -60,20 +60,37 @@ function createConfig(output, plugins = []) {
       css({
         include: '**/*.css',
         exclude: '**/*.module.css',
-        minimize: false
+        minimize: {
+          preset: 'default',
+          reduceIdents: false
+        }
       }),
       css({
         include: '**/*.module.css',
-        minimize: false,
+        minimize: {
+          preset: 'default',
+          reduceIdents: false
+        },
         modules: {
           generateScopedName(name, filename, css) {
+            const match = /uikit-(?:elements|compounds|patterns)\/src\/([a-z]+)\/(?:.*?)([a-z]+)\.module\.css$/i.exec(
+              filename
+            )
+
+            if (match) {
+              const [, component, file] = match
+              const namespace = component === file ? component : component + '_' + file
+
+              return ('_u_' + namespace + '_' + name).toLowerCase()
+            }
+
             return (
               '_u_' +
               path
                 .basename(filename)
                 .replace(/(?:\.module)?\.css$/, '')
                 .toLowerCase() +
-              '_' +
+              '_i_' +
               name
             )
           }

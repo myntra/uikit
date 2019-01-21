@@ -54,6 +54,7 @@
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-remove-test-ids": "^1.1.0",
     "chalk": "^2.4.1",
+    "cssnano-preset-default": "^4.0.6",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "enzyme-to-json": "^3.3.4",
