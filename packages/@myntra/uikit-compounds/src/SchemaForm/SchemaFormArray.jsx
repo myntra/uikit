@@ -31,7 +31,7 @@ class SchemaFormArray extends Component {
   static defaultProps = {
     getDerivedPropsFromValue() {},
     component({ children, ...props }) {
-      return <Form.Group {...props} Field={() => children} />
+      return <Form.Field {...props} Field={() => children} />
     }
   }
 
