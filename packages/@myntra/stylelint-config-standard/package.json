@@ -1,6 +1,6 @@
 {
   "name": "@myntra/stylelint-config-standard",
-  "version": "0.7.0-alpha.1",
+  "version": "0.7.0-alpha.2",
   "description": "@myntra/stylelint-config-standard",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/stylelint-config-standard",

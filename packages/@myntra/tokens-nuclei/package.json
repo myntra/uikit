@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokens-nuclei",
-  "version": "0.7.0-alpha.1",
+  "version": "0.7.0-alpha.2",
   "description": "Default design language for Myntra",
   "main": "tokens.js",
   "module": "tokens.esm.js",
@@ -22,7 +22,7 @@
     "dist"
   ],
   "dependencies": {
-    "@myntra/uikit-utils": "0.7.0-alpha.1"
+    "@myntra/uikit-utils": "0.7.0-alpha.2"
   },
   "peerDependencies": {
     "prop-types": ">=15.6",
