@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokenizer",
-  "version": "0.7.0-alpha.2",
+  "version": "0.7.0-alpha.0",
   "description": "@myntra/tokenizer",
   "main": "src/index.js",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokenizer",

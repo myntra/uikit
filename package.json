@@ -21,24 +21,26 @@
     "build:scss": "node scripts/build-css.js",
     "postbuild": "node scripts/create-static-routes.js",
     "test": "jest",
-    "coverage": "jest --coverage",
-    "postcoverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
+    "coverage": "yarn :coverage",
+    ":coverage": "jest --coverage",
+    "post:coverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
     "ci": "node scripts/jenkins-build.js",
     ":build": "yarn prebuild && node scripts/build.js",
     "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
     "update:develop": "git checkout develop && git rebase master && git push origin develop",
+    "pre:publish": "node scripts/build.js",
     ":publish": "./scripts/publish.sh && git push --follow-tags origin master",
-    "prerelease": "yarn update:master",
-    "release": "standard-version -a",
-    "postrelease": "yarn :publish && yarn update:develop",
-    "prerelease:alpha": "yarn update:master",
-    "release:alpha": "standard-version -a --prerelease alpha",
-    "postrelease:alpha": "yarn :publish && yarn update:develop",
-    "prerelease:beta": "yarn update:master",
-    "release:beta": "standard-version -a --prerelease beta",
-    "postrelease:beta": "yarn :publish && yarn update:develop",
+    "pre:release": "yarn update:master",
+    ":release": "standard-version -a",
+    "post:release": "yarn :publish && yarn update:develop",
+    "pre:release:alpha": "yarn update:master",
+    ":release:alpha": "standard-version -a --prerelease alpha",
+    "post:release:alpha": "yarn :publish && yarn update:develop",
+    "pre:release:beta": "yarn update:master",
+    ":release:beta": "standard-version -a --prerelease beta",
+    ":post:release:beta": "yarn :publish && yarn update:develop",
     "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md package.json CHANGELOG.md",
-    "lerna:version": "lerna version -y --no-changelog --no-commit-hooks --no-push --ignore-changes --force-publish=* --exact $(node scripts/version.js) -m \"chore(release): publish %s\" && git add packages/ lerna.json"
+    ":update:versions": "lerna version $(node scripts/version.js) --no-changelog --no-commit-hooks --no-push --exact --force-publish --amend -y --no-git-tag-version"
   },
   "workspaces": [
     "packages/@myntra/*"
@@ -122,7 +124,9 @@
   },
   "standard-version": {
     "scripts": {
-      "postchangelog": "yarn test && yarn changelog && yarn lerna:version && node scripts/build.js"
+      "prechangelog": "yarn test",
+      "changelog": "yarn changelog",
+      "postcommit": "yarn :update:versions"
     }
   }
 }

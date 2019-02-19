@@ -1,6 +1,6 @@
 {
   "name": "@myntra/codemod-utils",
-  "version": "0.7.0-alpha.2",
+  "version": "0.7.0-alpha.0",
   "description": "@myntra/codemod-utils",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",
@@ -15,7 +15,7 @@
     "bin/"
   ],
   "dependencies": {
-    "@myntra/eslint-config-standard": "0.7.0-alpha.2",
+    "@myntra/eslint-config-standard": "0.7.0-alpha.0",
     "debug": "^3.1.0",
     "eslint": "^4.19.1",
     "execa": "^0.10.0",
