@@ -210,6 +210,6 @@ typography:
     link:
       primary: $color.blue.base
 z-index:
-  dropdown: 14
-  nav: 15
-  modal: 16
+  nav: 14
+  modal: 15
+  dropdown: 16
