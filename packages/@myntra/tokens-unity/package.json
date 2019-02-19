@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokens-unity",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Unity design language for Myntra",
   "main": "tokens.js",
   "module": "tokens.esm.js",
@@ -23,7 +23,7 @@
     "dist/"
   ],
   "dependencies": {
-    "@myntra/uikit-utils": "0.7.0"
+    "@myntra/uikit-utils": "0.7.1"
   },
   "peerDependencies": {
     "prop-types": ">=15.6",

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.7.1"></a>
+## [0.7.1](https://bitbucket.org/myntra/uikit/compare/v0.7.0-alpha.2...v0.7.1) (2019-02-19)
+
+
+### Bug Fixes
+
+* **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
+
+
+
 <a name="0.7.0"></a>
 # [0.7.0](https://bitbucket.org/myntra/uikit/compare/v0.7.0-alpha.2...v0.7.0) (2019-02-19)
 

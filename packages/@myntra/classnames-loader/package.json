@@ -1,6 +1,6 @@
 {
   "name": "@myntra/classnames-loader",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "@myntra/classnames-loader",
   "main": "src/index.js",
   "module": "dist/classnames-loader.js",

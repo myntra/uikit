@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-patterns",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "description": "Components baked in with user experience decisions.",
   "main": "src/index.js",
   "module": "src/index.js",
@@ -22,9 +22,9 @@
     "enzyme": "^3.3.0"
   },
   "dependencies": {
-    "@myntra/uikit-compounds": "0.7.0",
-    "@myntra/uikit-elements": "0.7.0",
-    "@myntra/uikit-utils": "0.7.0",
+    "@myntra/uikit-compounds": "0.7.1",
+    "@myntra/uikit-elements": "0.7.1",
+    "@myntra/uikit-utils": "0.7.1",
     "dayjs": "^1.7.7"
   }
 }
