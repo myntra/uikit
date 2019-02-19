@@ -40,7 +40,8 @@
     ":release:beta": "standard-version -a --prerelease beta",
     ":post:release:beta": "yarn :publish && yarn update:develop",
     "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md package.json CHANGELOG.md",
-    ":update:versions": "lerna version $(node scripts/version.js) --no-changelog --no-commit-hooks --no-push --exact --force-publish --amend -y --no-git-tag-version"
+    ":update:versions": "lerna version $(node scripts/version.js) --no-changelog --no-commit-hooks --no-push --exact --force-publish --amend -y --no-git-tag-version",
+    "post:update:versions": "git add lerna.json 'packages/@myntra/*/package.json' && git commit --amend --no-edit"
   },
   "workspaces": [
     "packages/@myntra/*"
