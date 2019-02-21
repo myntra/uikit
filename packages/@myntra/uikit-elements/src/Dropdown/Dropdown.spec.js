@@ -147,6 +147,106 @@ describe('Dropdown', () => {
     })
   })
 
+  describe('behaviour on hover trigger', () => {
+    it('calls `onOpen` prop if trigger is hovered on collapsed state', () => {
+      const onOpen = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={false} onOpen={onOpen} triggerOn={'hover'}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('mouseenter')
+
+      expect(onOpen).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if hovered away from dropdown', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose} triggerOn={'hover'}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('mouseleave')
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if hovered away from dropdown (in portal)', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose} container triggerOn={'hover'}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('mouseleave')
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+  })
+
+  describe('behaviour on focus trigger', () => {
+    it('calls `onOpen` prop if trigger is focused on collapsed state', () => {
+      const onOpen = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={false} onOpen={onOpen} triggerOn={'focus'}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('focus')
+
+      expect(onOpen).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if focused away from dropdown', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose} triggerOn={'focus'}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('blur')
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+
+    it('calls `onClose` prop if focused away from dropdown (in portal)', () => {
+      const onClose = jest.fn()
+      const wrapper = mount(
+        <Dropdown trigger="Open" isOpen={true} onClose={onClose} container triggerOn={'focus'}>
+          <p>Some Content</p>
+        </Dropdown>
+      )
+
+      wrapper
+        .find('[data-test-id="trigger"]')
+        .childAt(0)
+        .simulate('blur')
+
+      expect(onClose).toBeCalledTimes(1)
+    })
+  })
+
   describe('auto align content', () => {
     const instance = new Dropdown({ auto: true, approxContentWidth: 100, approxContentHeight: 100 })
 
@@ -174,6 +274,7 @@ describe('Dropdown', () => {
 
     it('auto: bottom left', () => {
       expect(instance.calculateAutoPosition(node(100, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
+        down: true,
         left: true,
         up: false,
         right: false
@@ -182,6 +283,7 @@ describe('Dropdown', () => {
 
     it('auto: bottom right', () => {
       expect(instance.calculateAutoPosition(node(100, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
+        down: true,
         left: false,
         up: false,
         right: true
@@ -190,6 +292,7 @@ describe('Dropdown', () => {
 
     it('auto: top left', () => {
       expect(instance.calculateAutoPosition(node(300, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
+        down: false,
         left: true,
         up: true,
         right: false
@@ -198,6 +301,7 @@ describe('Dropdown', () => {
 
     it('auto: top right', () => {
       expect(instance.calculateAutoPosition(node(300, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
+        down: false,
         left: false,
         up: true,
         right: true

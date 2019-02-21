@@ -12,8 +12,9 @@
 }
 
 .value .input {
-  width: 100%;
+  width: 90%;
   border-bottom: transparent;
+  text-overflow: ellipsis;
 }
 
 .underlay .input {

@@ -14,10 +14,6 @@
   position: fixed;
 }
 
-.content-wrapper {
-  display: inline-block;
-}
-
 .dropdown > .content {
   height: 0;
 }
@@ -32,11 +28,36 @@
 }
 
 .content.right {
-  right: 0;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .content.left {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.content.up.right,
+.content.down.right {
+  right: 0;
+  left: initial;
+  top: initial;
+  transform: none;
+}
+
+.content.up.left,
+.content.down.left {
   left: 0;
+  top: initial;
+  right: initial;
+  transform: none;
+}
+
+.content.left.right {
+  left: 0;
+  right: 0;
 }
 
 .trigger > * {

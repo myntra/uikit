@@ -104,7 +104,7 @@ export default class Day extends PureComponent {
         })}
         aria-hidden={isEmpty}
         disabled={disabled}
-        title={isEmpty ? null : this.date.toLocaleDateString()}
+        title={isEmpty ? null : this.date.toDateString()}
         onMouseDown={this.handleMouseDown}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}

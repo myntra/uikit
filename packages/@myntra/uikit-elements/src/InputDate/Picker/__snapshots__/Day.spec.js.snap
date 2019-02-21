@@ -10,7 +10,7 @@ exports[`render should render a day 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  title="7/10/2018"
+  title="Tue Jul 10 2018"
 >
   10
 </div>
@@ -27,7 +27,7 @@ exports[`render should render a focused/disabled/selected day 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  title="7/10/2018"
+  title="Tue Jul 10 2018"
 >
   10
 </div>
@@ -43,7 +43,7 @@ exports[`render should render a selection start/end day 1`] = `
   onTouchEnd={[Function]}
   onTouchMove={[Function]}
   onTouchStart={[Function]}
-  title="7/10/2018"
+  title="Tue Jul 10 2018"
 >
   10
 </div>

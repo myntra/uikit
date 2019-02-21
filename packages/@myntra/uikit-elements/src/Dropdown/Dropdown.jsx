@@ -89,6 +89,10 @@ class Dropdown extends Component {
     right: PropTypes.bool,
     /** Align dropdown drawer with the left edge of the trigger. */
     left: PropTypes.bool,
+    /** Align dropdown drawer below the trigger. */
+    down: PropTypes.bool,
+    /** Event to trigger dropdown  */
+    triggerOn: PropTypes.oneOf(['hover', 'click', 'focus']),
     /**
      * Position dropdown drawer in best suited place.
      */
@@ -112,7 +116,8 @@ class Dropdown extends Component {
   static defaultProps = {
     approxContentHeight: 320,
     approxContentWidth: 240,
-    useClickAway: true
+    useClickAway: true,
+    triggerOn: 'click'
   }
 
   constructor(props) {
@@ -243,8 +248,9 @@ class Dropdown extends Component {
     const up = auto ? target.bottom + height >= maxHeight && target.top - height > 0 : this.props.up
     const left = auto ? target.left + width < maxWidth : this.props.left
     const right = auto ? (left ? false : target.right - width > 0) : this.props.right
+    const down = auto ? !up : this.down
 
-    const layout = { up, left, right }
+    const layout = { up, left, right, down }
 
     // Absolute position when using portal.
     if (this.props.container) {
@@ -254,7 +260,7 @@ class Dropdown extends Component {
     return layout
   }
 
-  calculateAbsolutePosition({ up, left, right }) {
+  calculateAbsolutePosition({ up, left, right, down }) {
     const trigger = this.triggerRef.current
     const rect = trigger.getBoundingClientRect()
     const { height, width } = this.state
@@ -263,7 +269,7 @@ class Dropdown extends Component {
 
     if (up) {
       position.top -= height
-    } else {
+    } else if (down) {
       position.top += rect.height
     }
 
@@ -271,7 +277,15 @@ class Dropdown extends Component {
       position.right = position.left + rect.width
       position.content = { width: rect.width }
     } else if (right) {
-      position.left += rect.width - width
+      if (up || down) {
+        position.left += rect.width - width
+      } else {
+        position.top += (rect.height - height) / 2
+        position.left += rect.width
+      }
+    } else if (left && !(up || down)) {
+      position.left -= width
+      position.top += (rect.height - height) / 2
     }
 
     // Register scroll handler.
@@ -307,9 +321,25 @@ class Dropdown extends Component {
     return { up, left, right, position }
   }
 
+  get down() {
+    return (
+      (!this.props.up && !this.props.left && !this.props.right) ||
+      (this.props.left && this.props.right && !this.props.up) ||
+      this.props.down
+    )
+  }
+
   render() {
-    const { up, left, right } = this.props.auto ? this.state : this.props
+    const { up, left, right, down } = this.props.auto ? this.state : { ...this.props, down: this.down }
     const { position } = this.state
+    const { triggerOn } = this.props
+    const triggerEventProps = {
+      onBlur: typeof this.props.trigger !== 'string' ? this.props.trigger.props.onBlur || this.close : this.close,
+      onMouseEnter: triggerOn === 'hover' ? this.open : null,
+      onMouseLeave: triggerOn === 'hover' ? this.close : null,
+      onClick: triggerOn === 'click' ? this.toggle : null,
+      onFocus: ['click', 'focus'].includes(triggerOn) ? this.open : null
+    }
 
     return (
       <div
@@ -325,13 +355,9 @@ class Dropdown extends Component {
           data-test-id="trigger"
         >
           {typeof this.props.trigger === 'string' ? (
-            <Button label={this.props.trigger} secondaryIcon="chevron-down" onBlur={this.close} onClick={this.toggle} />
+            <Button label={this.props.trigger} secondaryIcon="chevron-down" {...triggerEventProps} />
           ) : (
-            React.cloneElement(this.props.trigger, {
-              onBlur: this.props.trigger.props.onBlur || this.close,
-              onFocus: this.open,
-              onClick: this.toggle
-            })
+            React.cloneElement(this.props.trigger, triggerEventProps)
           )}
         </div>
         {this.props.isOpen &&
@@ -352,9 +378,18 @@ class Dropdown extends Component {
               </div>
             </Portal>
           ) : (
-            <div className={classnames('content')} ref={this.wrapperRef}>
+            // <Measure bounds onMeasure={this.handleMeasure}>
+            //   <div
+            //     className={classnames('content', { up, left, right, down })}
+            //     ref={this.wrapperRef}
+            //     data-test-id="content"
+            //   >
+            //     {this.props.children}
+            //   </div>
+            // </Measure>
+            <div className={classnames('content', { up, left, right, down })} ref={this.wrapperRef}>
               <Measure bounds onMeasure={this.handleMeasure}>
-                <div className={classnames('content-wrapper', { up, left, right })} data-test-id="content">
+                <div className={classnames('content-wrapper')} data-test-id="content">
                   {this.props.children}
                 </div>
               </Measure>

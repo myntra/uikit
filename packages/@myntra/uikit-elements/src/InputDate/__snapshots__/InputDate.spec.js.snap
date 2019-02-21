@@ -21,6 +21,7 @@ exports[`render range 1`] = `
       value={Object {}}
     />
   }
+  triggerOn="click"
   useClickAway={true}
 >
   <div
@@ -64,6 +65,7 @@ exports[`render simple 1`] = `
       value=""
     />
   }
+  triggerOn="click"
   useClickAway={true}
 >
   <div
