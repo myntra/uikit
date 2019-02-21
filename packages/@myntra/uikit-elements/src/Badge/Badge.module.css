@@ -1,0 +1,33 @@
+.success {
+  --badge-color: var(--color-success);
+  --badge-background-color: rgba(96, 184, 122, 0.27);
+}
+
+.error {
+  --badge-color: var(--color-error);
+  --badge-background-color: rgba(212, 106, 104, 0.27);
+}
+
+.info {
+  --badge-color: var(--color-info);
+  --badge-background-color: rgba(82, 142, 230, 0.27);
+}
+
+.warning {
+  --badge-color: var(--color-warning);
+  --badge-background-color: rgba(240, 186, 84, 0.27);
+}
+
+.badge {
+  border-radius: 10px;
+  border: solid 1px var(--badge-color);
+  background-color: var(--badge-background-color);
+  padding: 0 6px;
+  width: fit-content;
+}
+
+.content {
+  font-size: var(--typography-text-caption-font-size);
+  font-weight: var(--typography-text-caption-font-weight);
+  color: var(--typography-color-dark-primary);
+}
