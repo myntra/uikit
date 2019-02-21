@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { Grid, Form } from '../index'
+import { Grid } from '../index'
 import wrappers from './wrappers'
 import { looseEquals } from '@myntra/uikit-utils'
+import { Button, Field } from '@myntra/uikit-elements'
+import classnames from './SchemaFormArray.module.css'
 
 /**
  * Describe component in 150-200 words.
@@ -30,9 +32,7 @@ class SchemaFormArray extends Component {
 
   static defaultProps = {
     getDerivedPropsFromValue() {},
-    component({ children, ...props }) {
-      return <Form.Field {...props} Field={() => children} />
-    }
+    component: Field
   }
 
   constructor(props) {
@@ -44,7 +44,7 @@ class SchemaFormArray extends Component {
   }
 
   get value() {
-    return Array.isArray(this.props.value) && this.props.value.length ? this.props.value : [undefined]
+    return Array.isArray(this.props.value) ? this.props.value : [undefined]
   }
 
   shouldComponentUpdate(newProps) {
@@ -86,38 +86,66 @@ class SchemaFormArray extends Component {
     return this.props.error[index]
   }
 
+  add = () => {
+    const value = (this.props.value || []).slice()
+
+    value.push(undefined)
+
+    if (!this.props.value) value.push(undefined)
+
+    this.props.onChange(value)
+  }
+
+  remove = index => {
+    const value = (this.props.value || []).slice()
+
+    value.splice(index, 1)
+
+    this.props.onChange(value)
+  }
+
   render() {
     const Wrapper = this.props.component
     const { props, layout, value } = this.props
     const { defaultValue, ...newProps } = { ...props, ...this.props.getDerivedPropsFromValue(value) }
 
-    if (value === undefined || value === null) {
-      // TODO: Add array handler.
-    }
-
     return (
-      <Grid.Column {...layout}>
+      <Grid.Column {...layout} className={classnames('container')}>
         <Wrapper {...newProps}>
-          <Grid multiline allowAnyChild>
+          <Grid multiline className={classnames('items')}>
             {this.value.map((value, index) => {
               const { type, ...ui } = this.props.factory(index)
               const Input = wrappers[type]
 
               return (
-                <Input
-                  key={index}
-                  {...ui}
-                  path={`${this.props.path}/${index}`}
-                  type={type}
-                  value={value}
-                  onChange={this.getChangeHandler(index)}
-                  error={this.getError(index)}
-                  onError={this.getErrorHandler(index)}
-                />
+                <Grid.Column size={12} key={index}>
+                  <Grid multiline allowAnyChild>
+                    <Input
+                      {...ui}
+                      path={`${this.props.path}/${index}`}
+                      type={type}
+                      value={value}
+                      onChange={this.getChangeHandler(index)}
+                      error={this.getError(index)}
+                      onError={this.getErrorHandler(index)}
+                    />
+                  </Grid>
+                  <div className={classnames('remove-item')}>
+                    <Button onClick={() => this.remove(index)} type="secondary">
+                      Remove
+                    </Button>
+                  </div>
+                </Grid.Column>
               )
             })}
           </Grid>
         </Wrapper>
+
+        <div className={classnames('add-item')}>
+          <Button onClick={this.add} type="secondary">
+            Add
+          </Button>
+        </div>
       </Grid.Column>
     )
   }

@@ -52,15 +52,18 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
         "properties": {
           "line1": {
             "type": "string",
-            "title": "House No."
+            "title": "House No.",
+            "description": "Your house number"
           },
           "street": {
             "type": "string",
-            "title": "Street"
+            "title": "Street",
+            "description": "Your street"
           },
           "city": {
             "type": "string",
-            "title": "City"
+            "title": "City",
+            "description": "Your city"
           }
         }
       }
@@ -82,7 +85,7 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
       "then": {
         "properties": {
           "email": {
-            "default": "john@example.com"
+            "default": 2
           }
         }
       }
@@ -93,6 +96,7 @@ const FORM_FIELD_RE = /^Form\.([A-Za-z0-9]+)$/
   error={this.state.error}
   onChange={value => this.setState({ value })}
   onError={error => this.setState({ error })}
+  optionsProvider={format => { switch(format) { case 'email': return [{ label: 'jane@example.com', value: 1 }, { label: 'john@example.com', value: 2 }] }}}
 >
   <Form.Action label="Save" type="primary" />
 </SchemaForm>
@@ -105,6 +109,7 @@ export default class SchemaForm extends PureComponent {
     children: PropTypes.any,
 
     optionsProvider: PropTypes.func,
+    componentProvider: PropTypes.func,
     // --
     error: PropTypes.object,
     onError: PropTypes.func,
@@ -126,9 +131,10 @@ export default class SchemaForm extends PureComponent {
   }
 
   componentProvider = name => {
-    if (FORM_FIELD_RE.test(name)) {
-      return Form[name.split('.').pop()]
-    }
+    const component = this.props.componentProvider && this.props.componentProvider(name)
+
+    if (component) return component
+    if (FORM_FIELD_RE.test(name)) return Form[name.split('.').pop()]
   }
 
   handleError = error => this.props.onError && this.props.onError(error)

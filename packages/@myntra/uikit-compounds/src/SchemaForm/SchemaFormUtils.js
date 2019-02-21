@@ -4,7 +4,7 @@ const schemaToUI = new WeakMap()
 
 export function generateUISchema(schema, options) {
   const name = '$root'
-  const context = { ...options, generate, compile, resolveComponent, resolveProps }
+  const context = { ...options, generate, compile, resolveComponent, resolveOptions, resolveProps }
 
   function generate(schema, config) {
     return generateAnyField(schema, config, context)
@@ -18,6 +18,10 @@ export function generateUISchema(schema, options) {
         if (component) return component
       }
     }
+  }
+
+  function resolveOptions(format) {
+    if (options.resolveOptions) return options.resolveOptions(format)
   }
 
   const ui = generate(schema, { name })
@@ -105,10 +109,16 @@ const arrayProcessors = {
   maxItems: max => (Number.isSafeInteger(max) ? { max } : {}),
   mimItems: max => (Number.isSafeInteger(max) ? { max } : {})
 }
-function generateArrayField(schema, { name }, { generate, resolveComponent, resolveProps, compile }) {
+function generateArrayField(schema, { name }, { generate, resolveComponent, resolveOptions, resolveProps, compile }) {
   const { props, layout } = resolveProps(schema, arrayProcessors)
-  const getDerivedPropsFromValue = compile(schema)
-  const isSelect = schema.items.type === 'string' && schema.items.format && schema.items.format.startsWith('~')
+  const getDerivedProps = compile(schema)
+  const isSelect = schema.items.type === 'string' && !!schema.items.format && !!resolveOptions(schema.items.format)
+
+  if (isSelect) props.multiple = true
+
+  const getDerivedPropsFromValue = isSelect
+    ? (...args) => ({ ...getDerivedProps(...args), options: resolveOptions(schema.items.format) })
+    : getDerivedProps
 
   const items = generate(schema.items, { name })
   const component = isSelect
@@ -134,11 +144,27 @@ const formatComponents = {
   date: 'Form.Date'
 }
 // String
-function generateStringField(schema, { name }, { generate, resolveComponent, resolveProps, formats = {} }) {
+function generateStringField(
+  schema,
+  { name },
+  { generate, resolveComponent, resolveOptions, resolveProps, formats = {} }
+) {
   const { props, layout } = resolveProps(schema)
-  const getDerivedPropsFromValue = compile(schema)
+  const getDerivedProps = compile(schema)
   const format = schema.format
-  const component = resolveComponent(schema.component, formats[format], formatComponents[format], 'Form.Text')
+  const isSelect = !!format && !!resolveOptions(format)
+  const component = resolveComponent(
+    schema.component,
+    formats[format],
+    formatComponents[format],
+    isSelect ? 'Form.Select' : 'Form.Text'
+  )
+  const getDerivedPropsFromValue = isSelect
+    ? (...args) => ({
+        ...getDerivedProps(...args),
+        options: resolveOptions(format)
+      })
+    : getDerivedProps
 
   return {
     type: 'field',

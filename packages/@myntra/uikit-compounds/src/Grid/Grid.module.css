@@ -12,7 +12,7 @@
   margin-bottom: var(--column-outset);
 }
 
-.columns:not(:last-child) {
+.columns:not(.columns:last-child) {
   margin-bottom: var(--column-inset);
 }
 
