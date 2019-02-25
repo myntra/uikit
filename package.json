@@ -11,7 +11,7 @@
   },
   "scripts": {
     "bootstrap": "node scripts/bootstrap.js",
-    "preinstall": "node scripts/ensure-yarn.js",
+    "preinstall": "node scripts/ensure-pnpm.js",
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
     "lint:js": "eslint --ext .js --ext .jsx --ext .json",
     "lint:css": "stylelint packages/**/*.css docs/**/*.css",
@@ -22,37 +22,36 @@
     "build:scss": "node scripts/build-css.js",
     "postbuild": "node scripts/create-static-routes.js",
     "test": "jest",
-    "coverage": "yarn :coverage",
+    "coverage": "npm run :coverage",
     ":coverage": "jest --coverage",
     "post:coverage": "[ -x \"$(command -v open)\" ] && open coverage/lcov-report/index.html",
     "ci": "node scripts/jenkins-build.js",
-    ":build": "yarn prebuild && node scripts/build.js",
+    ":build": "npm run prebuild && node scripts/build.js",
     "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
     "update:develop": "git checkout develop && git rebase master && git push origin develop",
     "pre:publish": "node scripts/build.js",
     ":publish": "./scripts/publish.sh && git push --follow-tags origin master",
-    "pre:release": "yarn update:master",
+    "pre:release": "npm run update:master",
     ":release": "standard-version -a",
-    "post:release": "yarn :publish && yarn update:develop",
-    "pre:release:alpha": "yarn update:master",
+    "post:release": "npm run :publish && npm run update:develop",
+    "pre:release:alpha": "npm run update:master",
     ":release:alpha": "standard-version -a --prerelease alpha",
-    "post:release:alpha": "yarn :publish && yarn update:develop",
-    "pre:release:beta": "yarn update:master",
+    "post:release:alpha": "npm run :publish && npm run update:develop",
+    "pre:release:beta": "npm run update:master",
     ":release:beta": "standard-version -a --prerelease beta",
-    ":post:release:beta": "yarn :publish && yarn update:develop",
+    ":post:release:beta": "npm run :publish && npm run update:develop",
     "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md package.json CHANGELOG.md",
     ":update:versions": "lerna version $(node scripts/version.js) --no-changelog --no-commit-hooks --no-push --exact --force-publish --amend -y --no-git-tag-version",
     "post:update:versions": "git add lerna.json 'packages/@myntra/*/package.json' && git commit --amend --no-edit"
   },
-  "workspaces": [
-    "packages/@myntra/*"
-  ],
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.46",
     "@babel/plugin-external-helpers": "^7.0.0",
     "@babel/preset-env": "^7.0.0-beta.46",
     "@babel/preset-react": "^7.0.0-beta.46",
+    "@myntra/eslint-config-standard": "link:packages/eslint-config-standard",
     "@types/jest": "^23.3.9",
+    "any-observable": "^0.3.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^23.0.0-beta.1",
     "babel-plugin-dynamic-import-node": "^1.2.0",
@@ -83,6 +82,7 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-string": "^2.0.2",
+    "rxjs": "^6.4.0",
     "sass": "^1.13.2",
     "standard-version": "^4.4.0",
     "style-loader": "^0.21.0",
@@ -93,19 +93,19 @@
   },
   "lint-staged": {
     "*.js": [
-      "yarn lint:js --fix",
+      "npm run lint:js -- --fix",
       "git add"
     ],
     "*.css": [
-      "yarn stylelint --fix",
+      "npm run stylelint -- --fix",
       "git add"
     ],
     "*.jsx": [
-      "yarn lint:js --fix",
+      "npm run lint:js -- --fix",
       "git add"
     ],
     "*.json": [
-      "yarn lint:js --fix",
+      "npm run lint:js -- --fix",
       "git add"
     ]
   },
@@ -121,14 +121,14 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn test --silent --changedSince $(./scripts/remote-tracking-branch.sh)"
+      "pre-push": "npm run test -- --silent --changedSince $(./scripts/remote-tracking-branch.sh)"
     }
   },
   "standard-version": {
     "scripts": {
-      "prechangelog": "yarn test",
-      "changelog": "yarn changelog",
-      "postcommit": "yarn :update:versions"
+      "prechangelog": "npm run test",
+      "changelog": "npm run changelog",
+      "postcommit": "npm run :update:versions"
     }
   }
 }

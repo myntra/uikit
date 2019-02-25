@@ -1,0 +1,26 @@
+{
+  "include": [
+    "components/",
+    "packages/",
+    "themes/",
+    "types/"
+  ],
+  "exclude": [
+    "dist",
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "rootDir": ".",
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "target": "esnext",
+    "module": "esnext",
+    "jsx": "preserve",
+    "lib": ["dom", "esnext"],
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@myntra/*": ["packages/*", "components/uikit-component-*", "components/uikit-theme-*"],
+    }
+  }
+}

@@ -1,0 +1,68 @@
+$-color-primary: make-color(rgb(79, 71, 200), rgba(79, 71, 200, 0.87)) !default;
+$-color-secondary: make-color(rgb(79, 71, 200), rgba(79, 71, 200, 0.87)) !default;
+$-color-accent: make-color(rgb(79, 71, 200), rgba(79, 71, 200, 0.87)) !default;
+$-color-success: make-color(rgb(96, 184, 122), rgba(96, 184, 122, 0.87)) !default;
+$-color-error: make-color(rgb(212, 106, 104), rgba(212, 106, 104, 0.87)) !default;
+$-color-warning: make-color(rgb(240, 186, 84), rgba(240, 186, 84, 0.87)) !default;
+$-color-info: make-color(rgb(82, 142, 230), rgba(82, 142, 230,)) !default;
+
+$-color-gray: make-color(#dfe3e8, #aeb2b8) !default;
+
+$-colors: () !default;
+$-text-colors: () !default;
+
+$-colors: map-merge(
+  (
+    primary:   $-color-primary,
+    secondary: $-color-secondary,
+    accent:    $-color-accent,
+    success:   $-color-success,
+    error:     $-color-error,
+    warning:   $-color-warning,
+    info:      $-color-info,
+    gray:      $-color-gray,
+  ),
+  $colors
+);
+
+$-text-colors: map-merge(
+  (
+    light: (
+      disabled: rgba(0, 0, 0, 0.54),
+      default: rgba(0, 0, 0, 0.87),
+    ),
+    dark: (
+      disabled: rgba(0, 0, 0, 0.54),
+      default: rgba(0, 0, 0, 0.87),
+    ),
+  ),
+  $-text-colors
+);
+
+@function ui-color($name, $variant: base) {
+  @return map-get-or-throw(
+    map-get-or-throw(
+      $-colors,
+      $name,
+      "UIKit(color): Unknown color name [='#{$name}']"
+    ),
+    $variant,
+    "UIKit(color): Unknown color variant name [='#{$name}']"
+  );
+}
+
+@function ui-text-color($name, $variant: default) {
+  @if ($name == dark or $name == light) {
+    @return map-get-or-throw(
+      map-get($-text-colors, $names),
+      $variant,
+      "UIKit(text-color): Unknown #{$name} color: #{$variant}"
+    );
+  }
+
+  @return color($name, text);
+}
+
+@function color-names() {
+  @return map-keys($map: $-colors);
+}

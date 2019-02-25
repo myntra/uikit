@@ -1,106 +1,189 @@
-.button,
-.button:visited {
-  padding: var(--relative-size-x-small) var(--relative-size-large);
-  border-radius: var(--border-radius-button);
-  border-style: none;
+@import "@myntra/uikit-design";
+
+$button: () !default;
+$button: merge(
+  (
+    text: (
+      font-size: 1rem,
+      text-transform: uppercase,
+      white-space: nowrap,
+    ),
+    shape: (
+      padding: ui-context-size(x-small) ui-context-size(large),
+      margin-left: ui-size(x-small),
+      margin-right: ui-size(x-small),
+      border-radius: ui-border-radius()
+    )
+  ),
+  $button,
+  2
+);
+
+$button__states: () !default;
+$button__states: merge(
+  (
+    disabled: (
+      text: (
+        color: ui-text-color(dark, disabled),
+      ),
+      surface: (
+        background-color: ui-color(gray, lighter),
+        border-color: ui-color(gray, darker),
+      ),
+    ),
+    focus-visible: (
+      surface: (
+        outline: 1px dashed currentColor,
+      )
+    )
+  ),
+  $button__states,
+  2
+);
+
+$button__variants: () !default;
+$button__variants: merge(
+  (
+    primary: (
+      text: (
+        color: ui-text-color(light),
+      ),
+      surface: (
+        background-color: ui-color(primary),
+        border: solid 1px ui-color(primary),
+      ),
+      hover: (
+        surface: (
+          background-color: ui-color(primary, dark),
+          border-color: ui-color(primary, darkest),
+        )
+      ),
+    ),
+    secondary: (
+      text: (
+        color: ui-text-color(light),
+      ),
+      surface: (
+        background-color: transparent,
+        border: solid 1px ui-color(primary),
+      ),
+      hover: (
+        surface: (
+          border-color: color(primary, darkest),
+        )
+      ),
+    ),
+    link: (
+      text: (
+        color: ui-text-color(primary),
+      ),
+      surface: (),
+      hover: (),
+      active: ()
+    )
+  ),
+  $button__variants,
+  2
+);
+
+// Composition: Icon
+$button--icon: () !default;
+$button--icon: merge( 
+  (
+    shape: (
+      padding: ui-context-size(x-small),
+    )
+  ),
+  $button--icon
+);
+
+// Composition: Leading Icon
+$button--primary-icon: () !default;
+$button--primary-icon: merge(
+  (
+    shape: (
+      padding: ui-context-size(x-small),
+    )
+  ),
+  $button--primary-icon
+);
+
+// Composition: Trailing Icon
+$button--secondary-icon: () !default;
+$button--secondary-icon: merge(
+  (
+    shape: (
+      padding: ui-context-size(x-small),
+    )
+  ),
+  $button--secondary-icon
+);
+
+.button {
+  $states: (focus-visible, hover, active, disabled);
+
   cursor: pointer;
-  font-size: inherit;
-  text-transform: uppercase;
-  font-weight: var(--font-weight-medium);
-  transition: box-shadow 0.3s, background-image 0.3s;
-  align-self: center;
-}
-
-.button + .button {
-  margin-left: var(--relative-size-x-small);
-}
-
-.button[disabled],
-.button:disabled {
-  cursor: not-allowed;
-}
-
-.button:hover {
-  text-decoration: none;
-}
-
-.button:focus {
-  outline: none;
-}
-
-.button:focus:not(:active),
-.button:hover:not(:active):not([disabled]),
-.button:hover:not(:active):not(:disabled) {
-  box-shadow: var(--shadow-light-small);
-}
-
-.primary,
-.primary:visited {
-  color: var(--typography-color-light-primary);
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-.primary[disabled] {
-  background-color: var(--color-gray-dark);
-}
-
-.primary:focus,
-.primary:active:not([disabled]),
-.primary:active:not(:disabled) {
-  background-image: linear-gradient(var(--color-black-x-light), var(--color-black-x-light));
-}
-
-.secondary,
-.secondary:visited {
-  color: var(--color-primary);
-  border: solid 1px var(--color-primary);
-  background-color: var(--color-transparent-base);
-}
-
-.secondary[disabled],
-.secondary:disabled {
-  color: var(--color-gray-dark);
-  border-color: var(--color-gray-dark);
-}
-
-.secondary:active:not([disabled]),
-.secondary:active:not(:disabled) {
-  background-image: linear-gradient(var(--color-white-x-light), var(--color-white-x-light));
-}
-
-.link,
-.link:visited {
-  color: var(--color-primary);
-  padding-inline-start: 0;
-  background-color: transparent;
-  font-weight: bold;
-}
-
-.link.inherit {
-  color: inherit;
-}
-
-.link[disabled],
-.link:disabled {
-  color: var(--color-gray-dark);
-}
-
-.link:focus:not(:active),
-.link:hover:not(:active):not([disabled]),
-.link:hover:not(:active):not(:disabled) {
-  box-shadow: none;
-}
-
-.left,
-.right {
   display: inline-block;
-}
+  transition: all 0.35s;
+  box-sizing: border-box;
+  
+  // Firefox <35 for Android sets a default background-image gradient on all buttons. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes
+  background-image: none;
 
-.left {
-  margin-right: 0.5em;
-}
+  @include extract($-button);
 
-.right {
-  margin-left: 0.5em;
+  // Firefox will add a small dotted border on a focused button. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Firefox
+  &::-moz-focus-inner {
+    border: 0;
+  }
+
+  &:focus {
+    outline: none;
+  }
+  
+  @each $state in $states {
+    &:#{$state} {
+      @if map-has-key($-button__states, $state) {
+        @include extract(map-get($-button__states, $state));
+      }
+    }
+  }
+
+  @each $variant, $config in $-button__variants {
+    &.#{$variant} {
+      @include extract($config);
+
+      @each $state in $states {
+        &:#{$state} {
+          content: null;
+
+          @if map-has-key($config, $state) {
+            @include extract(map-get($config, $state));
+          } @else if map-has-key($-button__states, $state) {
+            @include extract(map-get($-button__states, $state));
+          }
+        }
+      }
+    }
+  }
+
+  &:disabled {
+    pointer-events: none;
+    user-select: none;
+  }
+
+  &.has-icon {
+    @include extract($-button--icon);
+  }
+
+  + .button {
+    margin-left: 0; // collapse
+  }
+  
+  > .primary-icon {
+    @include extract($uxx-button--primary-icon);
+  }
+  > .secondary-icon {
+    @include extract($-button--secondary-icon);
+  }
 }

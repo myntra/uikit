@@ -19,7 +19,7 @@
   "style": "tokens.css",
   "sideEffects": false,
   "scripts": {
-    "prepare": "yarn build",
+    "prepublishOnly": "npm run build",
     "build": "tokenize"
   },
   "dependencies": {

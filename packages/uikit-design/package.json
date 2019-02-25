@@ -1,0 +1,14 @@
+{
+  "name": "@myntra/uikit-design",
+  "version": "0.7.1",
+  "main": "design.scss",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-design",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "*.scss"
+  ]
+}
