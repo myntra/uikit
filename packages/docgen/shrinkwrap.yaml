@@ -1,0 +1,300 @@
+dependencies:
+  de-indent: registry.npmjs.org/de-indent/1.0.2
+  doctrine: registry.npmjs.org/doctrine/2.1.0
+  loader-utils: registry.npmjs.org/loader-utils/1.2.3
+  react-docgen: registry.npmjs.org/react-docgen/2.21.0
+  react-docgen-typescript: registry.npmjs.org/react-docgen-typescript/1.12.3
+  typescript: registry.npmjs.org/typescript/3.3.3333
+packages:
+  registry.npmjs.org/ast-types/0.10.1:
+    dev: false
+    engines:
+      node: '>= 0.8'
+    name: ast-types
+    resolution:
+      integrity: sha512-UY7+9DPzlJ9VM8eY0b2TUZcZvF+1pO0hzMtAyjBYKhOmnvRlqYNYnWdtsMj0V16CGaMlpL0G1jnLbLo4AyotuQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/ast-types/-/ast-types-0.10.1.tgz'
+    version: 0.10.1
+  registry.npmjs.org/async/2.6.2:
+    dependencies:
+      lodash: registry.npmjs.org/lodash/4.17.11
+    dev: false
+    name: async
+    resolution:
+      integrity: sha512-H1qVYh1MYhEEFLsP97cVKqCGo7KfCyTt6uEWqsTBr9SO84oK9Uwbyd/yCW+6rKJLHksBNUVWZDAjfS+Ccx0Bbg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/async/-/async-2.6.2.tgz'
+    version: 2.6.2
+  registry.npmjs.org/babel-runtime/6.26.0:
+    dependencies:
+      core-js: registry.npmjs.org/core-js/2.6.5
+      regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.11.1
+    dev: false
+    name: babel-runtime
+    resolution:
+      integrity: sha1-llxwWGaOgrVde/4E/yM3vItWR/4=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/babel-runtime/-/babel-runtime-6.26.0.tgz'
+    version: 6.26.0
+  registry.npmjs.org/babylon/5.8.38:
+    dev: false
+    name: babylon
+    resolution:
+      integrity: sha1-7JsSCxG/bM1Bc6GL8hfmC3mFn/0=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/babylon/-/babylon-5.8.38.tgz'
+    version: 5.8.38
+  registry.npmjs.org/balanced-match/1.0.0:
+    dev: false
+    name: balanced-match
+    resolution:
+      integrity: sha1-ibTRmasr7kneFk6gK4nORi1xt2c=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.0.tgz'
+    version: 1.0.0
+  registry.npmjs.org/big.js/5.2.2:
+    dev: false
+    name: big.js
+    resolution:
+      integrity: sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/big.js/-/big.js-5.2.2.tgz'
+    version: 5.2.2
+  registry.npmjs.org/brace-expansion/1.1.11:
+    dependencies:
+      balanced-match: registry.npmjs.org/balanced-match/1.0.0
+      concat-map: registry.npmjs.org/concat-map/0.0.1
+    dev: false
+    name: brace-expansion
+    resolution:
+      integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/brace-expansion/-/brace-expansion-1.1.11.tgz'
+    version: 1.1.11
+  registry.npmjs.org/commander/2.19.0:
+    dev: false
+    name: commander
+    resolution:
+      integrity: sha512-6tvAOO+D6OENvRAh524Dh9jcfKTYDQAqvqezbCW82xj5X0pSrcpxtvRKHLG0yBY6SD7PSDrJaj+0AiOcKVd1Xg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/commander/-/commander-2.19.0.tgz'
+    version: 2.19.0
+  registry.npmjs.org/concat-map/0.0.1:
+    dev: false
+    name: concat-map
+    resolution:
+      integrity: sha1-2Klr13/Wjfd5OnMDajug1UBdR3s=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/concat-map/-/concat-map-0.0.1.tgz'
+    version: 0.0.1
+  registry.npmjs.org/core-js/2.6.5:
+    dev: false
+    name: core-js
+    resolution:
+      integrity: sha512-klh/kDpwX8hryYL14M9w/xei6vrv6sE8gTHDG7/T/+SEovB/G4ejwcfE/CBzO6Edsu+OETZMZ3wcX/EjUkrl5A==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/core-js/-/core-js-2.6.5.tgz'
+    version: 2.6.5
+  registry.npmjs.org/de-indent/1.0.2:
+    dev: false
+    name: de-indent
+    resolution:
+      integrity: sha1-sgOOhG3DO6pXlhKNCAS0VbjB4h0=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/de-indent/-/de-indent-1.0.2.tgz'
+    version: 1.0.2
+  registry.npmjs.org/doctrine/2.1.0:
+    dependencies:
+      esutils: registry.npmjs.org/esutils/2.0.2
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    name: doctrine
+    resolution:
+      integrity: sha512-35mSku4ZXK0vfCuHEDAwt55dg2jNajHZ1odvF+8SSr82EsZY4QmXfuWso8oEd8zRhVObSN18aM0CjSdoBX7zIw==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/doctrine/-/doctrine-2.1.0.tgz'
+    version: 2.1.0
+  registry.npmjs.org/emojis-list/2.1.0:
+    dev: false
+    engines:
+      node: '>= 0.10'
+    name: emojis-list
+    resolution:
+      integrity: sha1-TapNnbAPmBmIDHn6RXrlsJof04k=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/emojis-list/-/emojis-list-2.1.0.tgz'
+    version: 2.1.0
+  registry.npmjs.org/esprima/4.0.1:
+    dev: false
+    engines:
+      node: '>=4'
+    hasBin: true
+    name: esprima
+    resolution:
+      integrity: sha512-eGuFFw7Upda+g4p+QHvnW0RyTX/SVeJBDM/gCtMARO0cLuT2HcEKnTPvhjV6aGeqrCB/sbNop0Kszm0jsaWU4A==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/esprima/-/esprima-4.0.1.tgz'
+    version: 4.0.1
+  registry.npmjs.org/esutils/2.0.2:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    name: esutils
+    resolution:
+      integrity: sha1-Cr9PHKpbyx96nYrMbepPqqBLrJs=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/esutils/-/esutils-2.0.2.tgz'
+    version: 2.0.2
+  registry.npmjs.org/json5/1.0.1:
+    dependencies:
+      minimist: registry.npmjs.org/minimist/1.2.0
+    dev: false
+    hasBin: true
+    name: json5
+    resolution:
+      integrity: sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/json5/-/json5-1.0.1.tgz'
+    version: 1.0.1
+  registry.npmjs.org/loader-utils/1.2.3:
+    dependencies:
+      big.js: registry.npmjs.org/big.js/5.2.2
+      emojis-list: registry.npmjs.org/emojis-list/2.1.0
+      json5: registry.npmjs.org/json5/1.0.1
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    name: loader-utils
+    resolution:
+      integrity: sha512-fkpz8ejdnEMG3s37wGL07iSBDg99O9D5yflE9RGNH3hRdx9SOwYfnGYdZOUIZitN8E+E2vkq3MUMYMvPYl5ZZA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/loader-utils/-/loader-utils-1.2.3.tgz'
+    version: 1.2.3
+  registry.npmjs.org/lodash/4.17.11:
+    dev: false
+    name: lodash
+    resolution:
+      integrity: sha512-cQKh8igo5QUhZ7lg38DYWAxMvjSAKG0A8wGSVimP07SIUEK2UO+arSRKbRZWtelMtN5V0Hkwh5ryOto/SshYIg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/lodash/-/lodash-4.17.11.tgz'
+    version: 4.17.11
+  registry.npmjs.org/minimatch/3.0.4:
+    dependencies:
+      brace-expansion: registry.npmjs.org/brace-expansion/1.1.11
+    dev: false
+    name: minimatch
+    resolution:
+      integrity: sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/minimatch/-/minimatch-3.0.4.tgz'
+    version: 3.0.4
+  registry.npmjs.org/minimist/1.2.0:
+    dev: false
+    name: minimist
+    resolution:
+      integrity: sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz'
+    version: 1.2.0
+  registry.npmjs.org/node-dir/0.1.17:
+    dependencies:
+      minimatch: registry.npmjs.org/minimatch/3.0.4
+    dev: false
+    engines:
+      node: '>= 0.10.5'
+    name: node-dir
+    resolution:
+      integrity: sha1-X1Zl2TNRM1yqvvjxxVRRbPXx5OU=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/node-dir/-/node-dir-0.1.17.tgz'
+    version: 0.1.17
+  registry.npmjs.org/private/0.1.8:
+    dev: false
+    engines:
+      node: '>= 0.6'
+    name: private
+    resolution:
+      integrity: sha512-VvivMrbvd2nKkiG38qjULzlc+4Vx4wm/whI9pQD35YrARNnhxeiRktSOhSukRLFNlzg6Br/cJPet5J/u19r/mg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/private/-/private-0.1.8.tgz'
+    version: 0.1.8
+  registry.npmjs.org/react-docgen-typescript/1.12.3:
+    dev: false
+    name: react-docgen-typescript
+    resolution:
+      integrity: sha512-s1XswWs4ykNdWKsPyfM4qptV5dT8nnjnVi2IcjoS/vGlRNYrc0TkW0scVOrinHZ+ndKhPqA4iVNrdwhxZBzJcg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/react-docgen-typescript/-/react-docgen-typescript-1.12.3.tgz'
+    version: 1.12.3
+  registry.npmjs.org/react-docgen/2.21.0:
+    dependencies:
+      async: registry.npmjs.org/async/2.6.2
+      babel-runtime: registry.npmjs.org/babel-runtime/6.26.0
+      babylon: registry.npmjs.org/babylon/5.8.38
+      commander: registry.npmjs.org/commander/2.19.0
+      doctrine: registry.npmjs.org/doctrine/2.1.0
+      node-dir: registry.npmjs.org/node-dir/0.1.17
+      recast: registry.npmjs.org/recast/0.12.9
+    dev: false
+    hasBin: true
+    name: react-docgen
+    resolution:
+      integrity: sha512-8xNPTrmvHLGNfqlsCYPdXmSkagP1njI5unP3t8WrjTJ4/5hHuP5nb3XH69CnF67HPV5zTkPoafcRBDGSQO6S6A==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/react-docgen/-/react-docgen-2.21.0.tgz'
+    version: 2.21.0
+  registry.npmjs.org/recast/0.12.9:
+    dependencies:
+      ast-types: registry.npmjs.org/ast-types/0.10.1
+      core-js: registry.npmjs.org/core-js/2.6.5
+      esprima: registry.npmjs.org/esprima/4.0.1
+      private: registry.npmjs.org/private/0.1.8
+      source-map: registry.npmjs.org/source-map/0.6.1
+    dev: false
+    engines:
+      node: '>= 0.8'
+    name: recast
+    resolution:
+      integrity: sha512-y7ANxCWmMW8xLOaiopiRDlyjQ9ajKRENBH+2wjntIbk3A6ZR1+BLQttkmSHMY7Arl+AAZFwJ10grg2T6f1WI8A==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/recast/-/recast-0.12.9.tgz'
+    version: 0.12.9
+  registry.npmjs.org/regenerator-runtime/0.11.1:
+    dev: false
+    name: regenerator-runtime
+    resolution:
+      integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz'
+    version: 0.11.1
+  registry.npmjs.org/source-map/0.6.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    name: source-map
+    resolution:
+      integrity: sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz'
+    version: 0.6.1
+  registry.npmjs.org/typescript/3.3.3333:
+    dev: false
+    engines:
+      node: '>=4.2.0'
+    hasBin: true
+    name: typescript
+    resolution:
+      integrity: sha512-JjSKsAfuHBE/fB2oZ8NxtRTk5iGcg6hkYXMnZ3Wc+b2RSqejEqTaem11mHASMnFilHrax3sLK0GDzcJrekZYLw==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/typescript/-/typescript-3.3.3333.tgz'
+    version: 3.3.3333
+shrinkwrapVersion: 5
+specifiers:
+  de-indent: ^1.0.2
+  doctrine: ^2.1.0
+  loader-utils: ^1.2.3
+  react-docgen: ^2.20.1
+  react-docgen-typescript: ^1.12.3
+  typescript: ^3.3.3333

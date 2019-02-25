@@ -1,0 +1,45 @@
+import Button from './src/button'
+
+# Button
+
+<Documenter component={Button}>
+
+```jsx preview editor
+<Button>My Button</Button>
+```
+
+</Documenter>
+
+## Appearances
+
+The appearance of button conveys meaning about type of action.
+
+```jsx preview
+<>
+  <Button type="primary">Primary Button</Button>
+  <Button type="secondary">Secondary Button</Button>
+  <Button type="link">Link Button</Button>
+</>
+```
+
+## States
+
+```jsx preview
+<>
+  <Button type="primary" disabled>Primary Button</Button>
+  <Button type="secondary" disabled>Secondary Button</Button>
+  <Button type="link" disabled>Link Button</Button>
+</>
+```
+
+## Events
+
+The `onClick` prop can be used to provide.
+
+```jsx preview
+const [message, setMessage] = useState('Click Me!')
+
+<Button onClick={setMessage}>
+  {message}
+</Button>
+```

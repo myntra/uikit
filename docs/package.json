@@ -1,0 +1,37 @@
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "spectrum-cli-service serve",
+    "build": "spectrum-cli-service build",
+    "lint": "spectrum-cli-service lint"
+  },
+  "devDependencies": {
+    "@mdx-js/loader": "^0.17.5",
+    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.21",
+    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.21",
+    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.21",
+    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.21",
+    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.21",
+    "@myntra/spectrum-cli-service": "^2.0.0-alpha.21",
+    "front-matter": "^3.0.1"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "@myntra/eslint-config-spectrum-app"
+    ]
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "last 2 chrome versions"
+  ]
+}

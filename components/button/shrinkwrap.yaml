@@ -1,0 +1,113 @@
+dependencies:
+  '@myntra/uikit-component-icon': 'link:../icon'
+  react: registry.npmjs.org/react/16.8.3
+devDependencies:
+  '@types/react': registry.npmjs.org/@types/react/16.8.4
+packages:
+  registry.npmjs.org/@types/prop-types/15.5.9:
+    dev: true
+    name: '@types/prop-types'
+    resolution:
+      integrity: sha512-Nha5b+jmBI271jdTMwrHiNXM+DvThjHOfyZtMX9kj/c/LUj2xiLHsG/1L3tJ8DjAoQN48cHwUwtqBotjyXaSdQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/prop-types/-/prop-types-15.5.9.tgz'
+    version: 15.5.9
+  registry.npmjs.org/@types/react/16.8.4:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.5.9
+      csstype: registry.npmjs.org/csstype/2.6.2
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-Mpz1NNMJvrjf0GcDqiK8+YeOydXfD8Mgag3UtqQ5lXYTsMnOiHcKmO48LiSWMb1rSHB9MV/jlgyNzeAVxWMZRQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/react/-/react-16.8.4.tgz'
+    version: 16.8.4
+  registry.npmjs.org/csstype/2.6.2:
+    dev: true
+    name: csstype
+    resolution:
+      integrity: sha512-Rl7PvTae0pflc1YtxtKbiSqq20Ts6vpIYOD5WBafl4y123DyHUeLrRdQP66sQW8/6gmX8jrYJLXwNeMqYVJcow==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/csstype/-/csstype-2.6.2.tgz'
+    version: 2.6.2
+  registry.npmjs.org/js-tokens/4.0.0:
+    dev: false
+    name: js-tokens
+    resolution:
+      integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz'
+    version: 4.0.0
+  registry.npmjs.org/loose-envify/1.4.0:
+    dependencies:
+      js-tokens: registry.npmjs.org/js-tokens/4.0.0
+    dev: false
+    hasBin: true
+    name: loose-envify
+    resolution:
+      integrity: sha512-lyuxPGr/Wfhrlem2CL/UcnUc1zcqKAImBDzukY7Y5F/yQiNdko6+fRLevlw1HgMySw7f611UIY408EtxRSoK3Q==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/loose-envify/-/loose-envify-1.4.0.tgz'
+    version: 1.4.0
+  registry.npmjs.org/object-assign/4.1.1:
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    name: object-assign
+    resolution:
+      integrity: sha1-IQmtx5ZYh8/AXLvUQsrIv7s2CGM=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/object-assign/-/object-assign-4.1.1.tgz'
+    version: 4.1.1
+  registry.npmjs.org/prop-types/15.7.2:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      react-is: registry.npmjs.org/react-is/16.8.3
+    dev: false
+    name: prop-types
+    resolution:
+      integrity: sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz'
+    version: 15.7.2
+  registry.npmjs.org/react-is/16.8.3:
+    dev: false
+    name: react-is
+    resolution:
+      integrity: sha512-Y4rC1ZJmsxxkkPuMLwvKvlL1Zfpbcu+Bf4ZigkHup3v9EfdYhAlWAaVyA19olXq2o2mGn0w+dFKvk3pVVlYcIA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/react-is/-/react-is-16.8.3.tgz'
+    version: 16.8.3
+  registry.npmjs.org/react/16.8.3:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      scheduler: registry.npmjs.org/scheduler/0.13.3
+    dev: false
+    engines:
+      node: '>=0.10.0'
+    name: react
+    resolution:
+      integrity: sha512-3UoSIsEq8yTJuSu0luO1QQWYbgGEILm+eJl2QN/VLDi7hL+EN18M3q3oVZwmVzzBJ3DkM7RMdRwBmZZ+b4IzSA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/react/-/react-16.8.3.tgz'
+    version: 16.8.3
+  registry.npmjs.org/scheduler/0.13.3:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+    dev: false
+    name: scheduler
+    resolution:
+      integrity: sha512-UxN5QRYWtpR1egNWzJcVLk8jlegxAugswQc984lD3kU7NuobsO37/sRfbpTdBjtnD5TBNFA2Q2oLV5+UmPSmEQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.13.3.tgz'
+    version: 0.13.3
+shrinkwrapVersion: 5
+specifiers:
+  '@myntra/uikit-component-icon': 'link:../icon'
+  '@types/react': ^16.8.4
+  react: ^16.8.3

@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-component-button",
+  "version": "0.7.1",
+  "main": "src/button.tsx",
+  "module": "dist/button.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/button",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "dependencies": {
+    "@myntra/uikit-component-icon": "link:../icon",
+    "react": "16.8.*"
+  },
+  "devDependencies": {
+    "@types/react": "16.8.*"
+  }
+}

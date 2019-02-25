@@ -1,0 +1,30 @@
+{
+  "name": "@myntra/uikit",
+  "version": "0.7.1",
+  "main": "src/index.js",
+  "module": "dist/uikit.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ],
+  "description": "@myntra/uikit",
+  "sideEffects": false,
+  "dependencies": {
+    "@myntra/tokens": "0.7.1",
+    "@myntra/uikit-compounds": "0.7.1",
+    "@myntra/uikit-elements": "0.7.1",
+    "@myntra/uikit-patterns": "0.7.1",
+    "@myntra/uikit-utils": "0.7.1"
+  },
+  "peerDependencies": {
+    "prop-types": ">=15.6",
+    "react": ">=15.6"
+  }
+}

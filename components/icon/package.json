@@ -1,0 +1,17 @@
+{
+  "name": "@myntra/uikit-component-icon",
+  "version": "0.7.1",
+  "main": "src/icon.tsx",
+  "module": "dist/icon.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/Icon",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ]
+}

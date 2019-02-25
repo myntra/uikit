@@ -10,6 +10,7 @@
     "node": ">=8.0"
   },
   "scripts": {
+    "bootstrap": "node scripts/bootstrap.js",
     "preinstall": "node scripts/ensure-yarn.js",
     "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
     "lint:js": "eslint --ext .js --ext .jsx --ext .json",

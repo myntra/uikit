@@ -1,0 +1,21 @@
+dependencies:
+  '@myntra/uikit-utils': 0.7.1
+packages:
+  /@myntra/uikit-utils/0.7.1:
+    dependencies:
+      lodash-es: registry.npmjs.org/lodash-es/4.17.11
+    dev: false
+    resolution:
+      integrity: sha512-12fbmBGRle804zsc5zK2zCyqqCeOlMNxR4btAGFnPxg1TUJ/6dliLO1rqkijiSKO9UDN7ZDu19PBLVN7wvXl/w==
+      tarball: /@myntra/uikit-utils/-/@myntra/uikit-utils-0.7.1.tgz
+  registry.npmjs.org/lodash-es/4.17.11:
+    dev: false
+    name: lodash-es
+    resolution:
+      integrity: sha512-DHb1ub+rMjjrxqlB3H56/6MXtm1lSksDp2rA2cNWjG8mlDUYFhUj3Di2Zn5IwSU87xLv8tNIQ7sSwE/YOX/D/Q==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.11.tgz'
+    version: 4.17.11
+shrinkwrapVersion: 5
+specifiers:
+  '@myntra/uikit-utils': ^0.7.1
