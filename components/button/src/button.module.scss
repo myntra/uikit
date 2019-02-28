@@ -1,26 +1,28 @@
 @import "@myntra/uikit-design";
 
-$button: () !default;
-$button: merge(
+$-button: () !default;
+$-button: merge(
   (
     text: (
-      font-size: 1rem,
+      font-size: ui-font-size(base),
       text-transform: uppercase,
       white-space: nowrap,
     ),
     shape: (
-      padding: ui-context-size(x-small) ui-context-size(large),
+      padding: ui-context-size(small) ui-context-size(xx-large),
       margin-left: ui-size(x-small),
       margin-right: ui-size(x-small),
-      border-radius: ui-border-radius()
+    ),
+    surface: (
+      border-radius: 2rem
     )
   ),
-  $button,
+  $-button,
   2
 );
 
-$button__states: () !default;
-$button__states: merge(
+$-button__states: () !default;
+$-button__states: merge(
   (
     disabled: (
       text: (
@@ -28,8 +30,18 @@ $button__states: merge(
       ),
       surface: (
         background-color: ui-color(gray, lighter),
-        border-color: ui-color(gray, darker),
+        border-color: ui-color(gray, dark),
       ),
+    ),
+    hover: (
+      surface: (
+        box-shadow: ui-shadow()
+      )
+    ),
+    active: (
+      surface: (
+        box-shadow: ui-shadow(flat)
+      )
     ),
     focus-visible: (
       surface: (
@@ -37,12 +49,12 @@ $button__states: merge(
       )
     )
   ),
-  $button__states,
+  $-button__states,
   2
 );
 
-$button__variants: () !default;
-$button__variants: merge(
+$-button__variants: () !default;
+$-button__variants: merge(
   (
     primary: (
       text: (
@@ -52,16 +64,10 @@ $button__variants: merge(
         background-color: ui-color(primary),
         border: solid 1px ui-color(primary),
       ),
-      hover: (
-        surface: (
-          background-color: ui-color(primary, dark),
-          border-color: ui-color(primary, darkest),
-        )
-      ),
     ),
     secondary: (
       text: (
-        color: ui-text-color(light),
+        color: ui-text-color(primary),
       ),
       surface: (
         background-color: transparent,
@@ -69,7 +75,7 @@ $button__variants: merge(
       ),
       hover: (
         surface: (
-          border-color: color(primary, darkest),
+          background-color: ui-color(primary, lighter)
         )
       ),
     ),
@@ -77,46 +83,60 @@ $button__variants: merge(
       text: (
         color: ui-text-color(primary),
       ),
-      surface: (),
-      hover: (),
-      active: ()
+      surface: (
+        background-color: transparent,
+        border: none,
+      ),
+      hover: (
+        text: (
+          color: ui-color(primary, light)
+        ),
+        surface: (
+          box-shadow: none,
+        )
+      ),
+      active: (
+        text: (
+          color: ui-color(primary, dark)
+        ),
+      )
     )
   ),
-  $button__variants,
+  $-button__variants,
   2
 );
 
 // Composition: Icon
-$button--icon: () !default;
-$button--icon: merge( 
+$-button--icon: () !default;
+$-button--icon: merge(
   (
     shape: (
-      padding: ui-context-size(x-small),
+      padding: ui-context-size(small),
     )
   ),
-  $button--icon
+  $-button--icon
 );
 
 // Composition: Leading Icon
-$button--primary-icon: () !default;
-$button--primary-icon: merge(
+$-button--primary-icon: () !default;
+$-button--primary-icon: merge(
   (
     shape: (
-      padding: ui-context-size(x-small),
+      margin-right: ui-context-size(x-small),
     )
   ),
-  $button--primary-icon
+  $-button--primary-icon
 );
 
 // Composition: Trailing Icon
-$button--secondary-icon: () !default;
-$button--secondary-icon: merge(
+$-button--secondary-icon: () !default;
+$-button--secondary-icon: merge(
   (
     shape: (
-      padding: ui-context-size(x-small),
+      margin-left: ui-context-size(x-small),
     )
   ),
-  $button--secondary-icon
+  $-button--secondary-icon
 );
 
 .button {
@@ -124,9 +144,10 @@ $button--secondary-icon: merge(
 
   cursor: pointer;
   display: inline-block;
-  transition: all 0.35s;
+  transition: all 0.15s;
   box-sizing: border-box;
-  
+  line-height: 1;
+
   // Firefox <35 for Android sets a default background-image gradient on all buttons. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes
   background-image: none;
 
@@ -140,7 +161,7 @@ $button--secondary-icon: merge(
   &:focus {
     outline: none;
   }
-  
+
   @each $state in $states {
     &:#{$state} {
       @if map-has-key($-button__states, $state) {
@@ -154,7 +175,7 @@ $button--secondary-icon: merge(
       @include extract($config);
 
       @each $state in $states {
-        &:#{$state} {
+        &:#{$state}, &.#{$state} {
           content: null;
 
           @if map-has-key($config, $state) {
@@ -174,16 +195,23 @@ $button--secondary-icon: merge(
 
   &.has-icon {
     @include extract($-button--icon);
+
+    > .icon {
+      height: 1em;
+      width: 1em;
+    }
   }
 
   + .button {
     margin-left: 0; // collapse
   }
-  
+
   > .primary-icon {
-    @include extract($uxx-button--primary-icon);
+    display: inline-block;
+    @include extract($-button--primary-icon);
   }
   > .secondary-icon {
+    display: inline-block;
     @include extract($-button--secondary-icon);
   }
 }

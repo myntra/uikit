@@ -45,51 +45,19 @@
     "post:update:versions": "git add lerna.json 'packages/@myntra/*/package.json' && git commit --amend --no-edit"
   },
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.46",
-    "@babel/plugin-external-helpers": "^7.0.0",
-    "@babel/preset-env": "^7.0.0-beta.46",
-    "@babel/preset-react": "^7.0.0-beta.46",
-    "@myntra/eslint-config-standard": "link:packages/eslint-config-standard",
-    "@types/jest": "^23.3.9",
+    "@types/react": "^16.8.5",
     "any-observable": "^0.3.0",
-    "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^23.0.0-beta.1",
-    "babel-plugin-dynamic-import-node": "^1.2.0",
-    "babel-plugin-remove-test-ids": "^1.1.0",
     "chalk": "^2.4.1",
-    "cssnano-preset-default": "^4.0.6",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
     "eslint": "^4.19.1",
     "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "husky": "^1.0.0-rc.2",
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^23.0.0-beta.1",
-    "lerna": "^3.10.2",
     "lint-staged": "^7.0.4",
-    "poi": "^10.0.0-rc.3",
-    "postcss-css-variables": "^0.8.1",
-    "postcss-import": "^11.1.0",
-    "postcss-modules": "^1.1.0",
-    "regenerator-runtime": "^0.11.1",
-    "rollup": "^0.66.2",
-    "rollup-plugin-alias": "^1.4.0",
-    "rollup-plugin-babel": "^4.0.3",
-    "rollup-plugin-bundle-size": "^1.0.2",
-    "rollup-plugin-local-resolve": "^1.0.7",
-    "rollup-plugin-postcss": "^1.6.2",
-    "rollup-plugin-replace": "^2.0.0",
-    "rollup-plugin-string": "^2.0.2",
+    "lodash.camelcase": "^4.3.0",
+    "minimist": "^1.2.0",
     "rxjs": "^6.4.0",
-    "sass": "^1.13.2",
     "standard-version": "^4.4.0",
-    "style-loader": "^0.21.0",
-    "stylelint": "^9.2.0",
-    "svg-react-loader": "^0.4.5",
-    "url-loader": "^1.0.1",
-    "webpack": "^4.5.0"
+    "typescript": "^3.3.3333"
   },
   "lint-staged": {
     "*.js": [
@@ -108,15 +76,6 @@
       "npm run lint:js -- --fix",
       "git add"
     ]
-  },
-  "dependencies": {
-    "minimist": "^1.2.0",
-    "prop-types": "^15.6.1",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1",
-    "react-router-dom": "^4.2.2",
-    "scheduler": "^0.11.2",
-    "whatwg-fetch": "^2.0.4"
   },
   "husky": {
     "hooks": {

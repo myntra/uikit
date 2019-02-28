@@ -7,6 +7,7 @@ module.exports = function PostMDXHelperLoader(content) {
   return `
 import Layout from '@layouts/${attributes.layout || 'default-layout'}'
 import Documenter from '@components/documenter'
+import Code from '@components/code'
 
 ${content}`
 }

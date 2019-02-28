@@ -17,7 +17,7 @@ export default class Documenter extends Component {
     /** Component description */
     children: PropTypes.node,
     /** Hide name */
-    hideName: PropTypes.bool,
+    hideName: PropTypes.bool
   }
 
   render() {
@@ -26,12 +26,11 @@ export default class Documenter extends Component {
 
     return (
       <div id={docs.name}>
-        {hideName ? null : <h1>
-          {docs.name}
-        </h1>}
+        {hideName ? null : <h1>{docs.name}</h1>}
 
         <p title={docs.status}>
-          {states[docs.status]} <small>{docs.status}</small> · <a href={'https://bitbucket.com/myntra/uikit/' + docs.file} target="_blank" rel="noopener noreferrer">
+          {states[docs.status]} <small>{docs.status}</small> ·{' '}
+          <a href={'https://bitbucket.com/myntra/uikit/' + docs.file} target="_blank" rel="noopener noreferrer">
             since v{docs.since}
           </a>
         </p>
@@ -43,15 +42,15 @@ export default class Documenter extends Component {
           <div>
             <h2>Props:</h2>
 
-            <Table
-              data={docs.props.filter(prop => !prop.private).filter(prop => !/^(_|className)/.test(prop.name))}
-            >
+            <Table data={docs.props.filter(prop => !prop.private).filter(prop => !/^(_|className)/.test(prop.name))}>
               <Table.Column key="name" label="Name" />
               <Table.Column key="description" label="Description">
-                {({ data }) => { data.description || '' }}
+                {({ data }) => {
+                  data.description || ''
+                }}
               </Table.Column>
               <Table.Column key="type" label="Type">
-                {({ data }) => data.type && data.name !== 'children' ? data.type.name : null}
+                {({ data }) => (data.type && data.name !== 'children' ? data.type.name : null)}
               </Table.Column>
               <Table.Column key="default" label="Default">
                 {({ data }) =>

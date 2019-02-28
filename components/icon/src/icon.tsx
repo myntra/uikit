@@ -2,13 +2,15 @@ import React from 'react'
 
 import classnames from './icon.module.scss'
 
-import './assets/regular.sprite.svg'
+import './assets/icons.sprite.svg'
 
-export type IconNames = 'foo' | 'bar'
+import { IconNameGlobal } from './names'
 
-export interface IconProps extends BaseProps {
+export type IconName = IconNameGlobal[keyof IconNameGlobal]
+
+interface IconProps extends BaseProps {
   /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
-  name: IconNames,
+  name: IconName,
   /** Accessibility text for screen readers */
   title?: string,
   spin?: boolean
@@ -30,7 +32,7 @@ export default function Icon({ name, className, title, spin, ...props } : IconPr
       xmlns="http://www.w3.org/2000/svg"
     >
       {title ? <title>{title}</title> : null}
-      <use xlinkHref={`#-uikit-icon-${name}`} aria-hidden={title ? true : null} />
+      <use xlinkHref={`#uikit-i-${name}`} aria-hidden={title ? true : null} />
     </svg>
   )
 }

@@ -3,8 +3,8 @@ $-base-font-size: 12px;
 $-font-faces: () !default;
 $-font-faces: merge(
   (
-    default: Roboto, Helvetica, sans-serif,
-    alternate: 'Roboto Condensed', sans-serif,
+    default: (Roboto, Helvetica, sans-serif),
+    alternate: ('Roboto Condensed', sans-serif),
   ),
   $-font-faces
 );
@@ -16,7 +16,7 @@ $-font-sizes: merge(
     base:     $-base-font-size,
     large:    $-base-font-size * 1.16666667,
     x-large:  $-base-font-size * 1.33333333,
-    x-large:  $-base-font-size * 1.66666667,
+    xx-large:  $-base-font-size * 1.66666667,
     '1x':  $-base-font-size,
     '2x':  $-base-font-size * 2,
     '3x':  $-base-font-size * 3,
@@ -76,7 +76,7 @@ $-text-styles: merge(
       font-weight: normal,
     ),
     caption: (
-      font-size: ui-font-size(x-small),
+      font-size: ui-font-size(small),
       font-weight: normal,
     ),
     title: (

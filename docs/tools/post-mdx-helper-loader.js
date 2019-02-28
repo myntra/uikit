@@ -4,6 +4,8 @@ module.exports = function PostMDXHelperLoader(content) {
   const options = getOptions(this) || {}
   const components = stringify({
     wrapper: 'Layout',
+    code: 'Code',
+    pre: `'div'`,
     ...options.components
   })
 

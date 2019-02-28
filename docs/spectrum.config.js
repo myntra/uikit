@@ -1,4 +1,4 @@
-const { componentsDir, packagesDir, packages } = require('../scripts/utils')
+const { componentsDir, packagesDir, packages, components } = require('../scripts/utils')
 const path = require('path')
 
 module.exports = {
@@ -8,6 +8,7 @@ module.exports = {
     /* eslint-disable prettier/prettier */
     config.resolve.alias.set('@uikit', componentsDir)
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name))
+    components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
     config.resolve.extensions.add('.ts').add('.tsx').add('.mdx')
 
     config.module.rule('mdx')
@@ -43,6 +44,12 @@ module.exports = {
 
     config.module.rule('scss').oneOf('modules').use('classnames-loader').before('style-loader').loader(require.resolve('../packages/classnames-loader'))
     config.module.rule('css').oneOf('modules').use('classnames-loader').before('style-loader').loader(require.resolve('../packages/classnames-loader'))
+
+    config.module.rule('svg').exclude.add(/\.sprite\.svg$/).end()
+
+    config.module.rule('sprite').test(/\.sprite\.svg$/).use('svg-sprite-loader').loader(require.resolve('./tools/svg-sprite-loader'))
+
+    config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'))
     /* eslint-enable prettier/prettier */
   }
 }

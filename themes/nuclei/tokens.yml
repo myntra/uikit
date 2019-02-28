@@ -1,0 +1,129 @@
+color:
+  primary:
+    name: SCM Purple
+    value:
+      - hsl(244, 64, 47) # dark
+      - hsl(244, 65, 78) # default/base
+      - hsl(244, 35, 87) # light
+      - hsl(244, 8, 97)  # lighter
+
+  success:
+    name: Success
+    value:
+      - hsl(137, 47, 43)
+      - hsl(137, 48, 72)
+      - hsl(137, 25, 83)
+      - hsl(137, 9, 93)
+
+  warning:
+    name: Warning
+    value:
+      - hsl(40, 65, 43)
+      - hsl(40, 65, 94)
+      - hsl(40, 38, 96)
+      - hsl(40, 16, 98)
+
+  error:
+    name: Error
+    value:
+      - hsl(2, 51, 50)
+      - hsl(2, 51, 83)
+      - hsl(2, 32, 90)
+      - hsl(2, 11, 96)
+
+text-color:
+  dark:
+    name: Dark
+    value:
+      - rgba(0, 0, 0, 0.87)
+      - rgba(0, 0, 0, 0.54)
+      - rgba(0, 0, 0, 0.27)
+
+  light:
+    name: Light
+    value:
+      - rgba(255, 255, 255, 0.87)
+      - rgba(255, 255, 255, 0.54)
+      - rgba(255, 255, 255, 0.27)
+
+shadow:
+  flat: none
+  raised: 0 3px 11px 0 rgba(0, 0, 0, 0.21)
+
+font-family:
+  default:
+    name: Roboto
+    value:
+      - Roboto
+      - sans-serif
+
+text-style:
+  title:
+    name: Title
+    value:
+      font-family: default
+      font-size: 28
+      font-weight: 700
+  h1:
+    name: H1
+    value:
+      font-family: default
+      font-size: 24
+      font-weight: 400
+  h2:
+    name: H2
+    value:
+      font-family: default
+      font-size: 20
+      font-weight: 500
+  h3:
+    name: H3
+    value:
+      font-family: default
+      font-size: 16
+      font-weight: 400
+  h4:
+    name: H4
+    value:
+      font-family: default
+      font-size: 14
+      font-weight: 700
+  body:
+    name: Body
+    value:
+      font-family: default
+      font-size: 14
+      font-weight: 400
+  p: &ParagraphTextStyle
+    name: Paragraph
+    value:
+      font-family: default
+      font-size: 12
+      font-weight: 400
+  paragraph: *ParagraphTextStyle
+  caption:
+    name: Caption
+    value:
+      font-family: default
+      font-size: 10
+      font-weight: 400
+  button:
+    description: Button
+    value:
+      font-family: default
+      font-size: 12
+      font-weight: 500
+      text-transform: uppercase
+
+spacing:
+  2xs: 4
+  xs: 8
+  s: 12
+  r: 16
+  m: 20
+  l: 24
+  xl: 32
+  2xl: 40
+
+grid:
+  value: 16

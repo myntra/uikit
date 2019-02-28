@@ -7,6 +7,11 @@
     "build": "spectrum-cli-service build",
     "lint": "spectrum-cli-service lint"
   },
+  "dependencies": {
+    "@babel/standalone": "^7.3.4",
+    "lodash.debounce": "^4.0.8",
+    "react-monaco-editor": "^0.24.0"
+  },
   "devDependencies": {
     "@mdx-js/loader": "^0.17.5",
     "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.21",
@@ -15,7 +20,11 @@
     "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.21",
     "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.21",
     "@myntra/spectrum-cli-service": "^2.0.0-alpha.21",
-    "front-matter": "^3.0.1"
+    "autoprefixer": "^9.4.9",
+    "front-matter": "^3.0.1",
+    "monaco-editor-webpack-plugin": "^1.7.0",
+    "node-sass": "^4.11.0",
+    "raw-loader": "^1.0.0"
   },
   "eslintConfig": {
     "root": true,

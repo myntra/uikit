@@ -1,0 +1,20 @@
+{
+  "name": "@myntra/svg",
+  "version": "0.7.1",
+  "main": "src/index.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/svg",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "dependencies": {
+    "svg-parser": "^1.0.5"
+  }
+}

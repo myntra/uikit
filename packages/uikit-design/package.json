@@ -2,6 +2,7 @@
   "name": "@myntra/uikit-design",
   "version": "0.7.1",
   "main": "design.scss",
+  "module": "dist/uikit-design.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-design",

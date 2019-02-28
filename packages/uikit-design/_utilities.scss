@@ -53,7 +53,7 @@ $errors: ();
       @return map-get($surface, 'border-color');
     }
   }
-  
+
   @return $surface;
 }
 
@@ -76,12 +76,22 @@ $errors: ();
     border-color: map-get($border, 'border-color');
     border-style: map-get($border, 'border-style');
     border-width: map-get($border, 'border-width');
+    border-radius: map-get($border, 'border-radius');
   } @else if type-of($border) == color {
     border-color: $border;
+  } @else if type-of($border) == list {
+    @if is-non-empty-list($border) {
+      border: $border;
+    }
   } @else {
-    border: $border;
+    @include not-implemented('extract-border(#{$border})');
   }
 }
+
+@function is-non-empty-list($value) {
+  @return type-of($value) == list and length($value) > 0;
+}
+
 @mixin extract-margin($margin) {
   @if type-of($margin) == map {
     margin: map-get($margin, 'margin');
@@ -89,6 +99,8 @@ $errors: ();
     margin-right: map-get($margin, 'margin-right');
     margin-top: map-get($margin, 'margin-top');
     margin-bottom: map-get($margin, 'margin-bottom');
+  } @else {
+    @include not-implemented('extract-margin(#{$margin})');
   }
 }
 @mixin extract-padding($padding) {
@@ -98,6 +110,8 @@ $errors: ();
     padding-right: map-get($padding, 'padding-right');
     padding-top: map-get($padding, 'padding-top');
     padding-bottom: map-get($padding, 'padding-bottom');
+  } @else {
+    @include not-implemented('extract-padding(#{$padding})');
   }
 }
 
@@ -112,7 +126,7 @@ $errors: ();
   } @else if type-of($font) == string {
     font: $font;
   } @else {
-    @include not-implemented('font');
+    @include not-implemented('extract-font(#{$font})');
   }
 }
 
@@ -123,9 +137,9 @@ $errors: ();
     color: map-get($text, 'color');
     text-transform: map-get($text, 'text-transform');
     white-space: map-get($text, 'white-space');
-    @include font($text);
+    @include extract-font($text);
   } @else {
-    @include not-implemented('text');
+    @include not-implemented('extract-text(#{$text})');
   }
 }
 
@@ -133,8 +147,9 @@ $errors: ();
   box-shadow: map-get($surface, 'box-shadow');
   outline: map-get($surface, 'outline');
   filter: map-get($surface, 'filter');
-  @include background($surface);
-  @include border($surface);
+
+  @include extract-background($surface);
+  @include extract-border($surface);
 }
 
 @mixin extract-shape($shape) {
@@ -144,26 +159,10 @@ $errors: ();
     @include extract-padding($shape);
     transform: map-get($shape, 'transform');
   } @else {
-    @include not-implemented('shape(#{type-of($shape)})');
+    @include not-implemented('extract-shape(#{$text})');
   }
 }
 
-@mixin extract($config) {
-  @if map-has-key($config, 'shape') {
-    @include extract-shape(map-get($config, 'shape'))
-  }
-  
-  @if map-has-key($config, 'surface') {
-    @include extract-surface(map-get($config, 'surface'))
-  }
-  
-  @if map-has-key($config, 'text') {
-    @include extract-text(map-get($config, 'text'))
-  }
-}
-
-///
-/// @param {String|List|Map} $background
 @mixin extract-background($background) {
   @if type-of($background) == map {
     background: map-get($background, 'background');
@@ -180,8 +179,26 @@ $errors: ();
     background-blend-mode: map-get($background, 'background-blend-mode');
   } @else if type-of($background) == color {
     background-color: $background;
+  } @else if type-of($background) == list {
+    @if is-non-empty-list($background) {
+      background: $background;
+    }
   } @else {
-    background: $background;
+    @include not-implemented("extract-background(#{$background})");
+  }
+}
+
+@mixin extract($config) {
+  @if map-has-key($config, 'shape') {
+    @include extract-shape(map-get($config, 'shape'))
+  }
+
+  @if map-has-key($config, 'surface') {
+    @include extract-surface(map-get($config, 'surface'))
+  }
+
+  @if map-has-key($config, 'text') {
+    @include extract-text(map-get($config, 'text'))
   }
 }
 
@@ -238,12 +255,10 @@ $errors: ();
 @function make-color(
   $base,
   $text,
-  $light: lighten($base, 10%),
-  $dark: darken($base, 10%),
-  $lighter: lighten($base, 20%),
-  $darker: darken($base, 20%),
-  $lightest: lighten($base, 30%),
-  $darkest: darken($base, 30%),
+  $light: lighten($base, 20%),
+  $dark: darken($base, 20%),
+  $lighter: lighten($base, 40%),
+  $darker: darken($base, 40%),
 ) {
   $_: assert(
     color,
@@ -257,13 +272,11 @@ $errors: ();
   );
 
   @return (
-    lightest: $lightest,
     lighter: $lighter,
     light: $light,
     base: $base,
     dark: $dark,
     darker: $darker,
-    darkest: $darkest,
     text: $text
   );
 }

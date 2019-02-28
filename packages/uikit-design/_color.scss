@@ -1,17 +1,17 @@
-$-color-primary: make-color(rgb(79, 71, 200), rgba(79, 71, 200, 0.87)) !default;
-$-color-secondary: make-color(rgb(79, 71, 200), rgba(79, 71, 200, 0.87)) !default;
-$-color-accent: make-color(rgb(79, 71, 200), rgba(79, 71, 200, 0.87)) !default;
-$-color-success: make-color(rgb(96, 184, 122), rgba(96, 184, 122, 0.87)) !default;
+$-color-primary: make-color(#4F47C8, rgba(#4F47C8, 0.87), #9591DE, #2F2B78, #E3E2F7, null) !default;
+$-color-secondary: $-color-primary !default;
+$-color-accent: $-color-primary !default;
+$-color-success: make-color(#60B87A, rgba(#60B87A, 0.87), #A0D4AF, #3A6E49, #d7edde, null) !default;
+$-color-warning: make-color(#f0ba54, rgba(#f0ba54, 0.87), #f6d698, #907032, #fbeed4, null) !default;
 $-color-error: make-color(rgb(212, 106, 104), rgba(212, 106, 104, 0.87)) !default;
-$-color-warning: make-color(rgb(240, 186, 84), rgba(240, 186, 84, 0.87)) !default;
-$-color-info: make-color(rgb(82, 142, 230), rgba(82, 142, 230,)) !default;
+$-color-info: make-color(rgb(82, 142, 230), rgba(82, 142, 230, 0.87)) !default;
 
 $-color-gray: make-color(#dfe3e8, #aeb2b8) !default;
 
 $-colors: () !default;
 $-text-colors: () !default;
 
-$-colors: map-merge(
+$-colors: merge(
   (
     primary:   $-color-primary,
     secondary: $-color-secondary,
@@ -22,14 +22,14 @@ $-colors: map-merge(
     info:      $-color-info,
     gray:      $-color-gray,
   ),
-  $colors
+  $-colors
 );
 
-$-text-colors: map-merge(
+$-text-colors: merge(
   (
     light: (
-      disabled: rgba(0, 0, 0, 0.54),
-      default: rgba(0, 0, 0, 0.87),
+      disabled: rgba(255, 255, 255, 0.54),
+      default: rgba(255, 255, 255, 0.87),
     ),
     dark: (
       disabled: rgba(0, 0, 0, 0.54),
@@ -44,23 +44,23 @@ $-text-colors: map-merge(
     map-get-or-throw(
       $-colors,
       $name,
-      "UIKit(color): Unknown color name [='#{$name}']"
+      "UIKit(color): Unknown color name '#{$name}'"
     ),
     $variant,
-    "UIKit(color): Unknown color variant name [='#{$name}']"
+    "UIKit(color): Unknown variant name '#{$variant}' of color '#{$name}'"
   );
 }
 
 @function ui-text-color($name, $variant: default) {
   @if ($name == dark or $name == light) {
     @return map-get-or-throw(
-      map-get($-text-colors, $names),
+      map-get($-text-colors, $name),
       $variant,
       "UIKit(text-color): Unknown #{$name} color: #{$variant}"
     );
   }
 
-  @return color($name, text);
+  @return ui-color($name, text);
 }
 
 @function color-names() {

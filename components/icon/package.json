@@ -13,5 +13,15 @@
     "src/",
     "dist/",
     "bin/"
-  ]
+  ],
+  "dependencies": {
+    "react": "16.*"
+  },
+  "devDependencies": {
+    "@myntra/svg": "link:../../packages/svg",
+    "@znck/promised": "^1.0.4",
+    "glob": "^7.1.3",
+    "lodash.camelcase": "^4.3.0",
+    "prettier": "^1.16.4"
+  }
 }

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Icon, { IconNames } from '@myntra/uikit-component-icon'
+import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
 
 interface ButtonProps extends BaseProps {
@@ -10,22 +10,23 @@ interface ButtonProps extends BaseProps {
   /** The handler to call when the button is clicked. */
   onClick?(event: MouseEvent): void
   /** The name of the icon (displayed on left side of content). */
-  icon?: IconNames
+  icon?: IconName
   /** The name of the icon (displayed on right side of content). */
-  secondaryIcon?: IconNames
+  secondaryIcon?: IconName
   /** Disables the button (changes visual style and ignores button interactions). */
   disabled: boolean
   /** Changes visual style to show progress. */
   loading: boolean
   /** Uses current text color (useful for link buttons). */
   inheritTextColor: boolean
-  /** The `type` attribute for the button element (as `type` is used for defining visual type) */
+  /** The 'type' attribute for the button element (as 'type' is used for defining visual type) */
   htmlType?: 'submit' | 'reset' | 'button'
   /** The URL to navigate to when the button is clicked (uses client side router). */
   to?: string | object
   /** The URL to navigate to when the button is clicked (uses browser anchor tag). */
   href?: string
 }
+
 
 /**
  * Buttons provide click-able actions.
@@ -48,10 +49,18 @@ export default class Button extends PureComponent<ButtonProps> {
     inheritTextColor: false
   }
 
+  state = {
+    active: false
+  }
+
   handleClick = event => {
     if (this.props.disabled) {
       return event.preventDefault()
     }
+
+    this.setState({ active: true })
+
+    setTimeout(() => this.setState({ active: false }), 100)
 
     if (this.props.onClick) {
       return this.props.onClick(event)
@@ -74,8 +83,9 @@ export default class Button extends PureComponent<ButtonProps> {
       ...props
     } = this.props
     const Tag = to ? Button.RouterLink : href ? 'a' : 'button'
-    const needLeftSlot = !!icon
-    const needRightSlot = !!secondaryIcon
+    const isIconButton = !children
+    const needLeftSlot = !!icon || isIconButton
+    const needRightSlot = !!secondaryIcon && !isIconButton
 
     return (
       <Tag
@@ -86,7 +96,7 @@ export default class Button extends PureComponent<ButtonProps> {
           'button',
           className,
           type,
-          { loading, inherit: inheritTextColor },
+          { loading, inherit: inheritTextColor, active: this.state.active, 'has-icon': isIconButton },
         )}
         to={to}
         href={href}
@@ -96,15 +106,15 @@ export default class Button extends PureComponent<ButtonProps> {
         data-test-id="target"
       >
         {needLeftSlot && (
-          <span className={classnames('left')} data-test-id="primary-icon">
-            <Icon name={icon} aria-hidden="true" />
-          </span>
+          <div className={classnames(isIconButton ? 'icon' : 'primary-icon')} data-test-id="primary-icon">
+            <Icon name={icon || 'question'} aria-hidden="true" />
+          </div>
         )}
         {children}
         {needRightSlot && (
-          <span className={classnames('right')} data-test-id="secondary-icon">
+          <div className={classnames('secondary-icon')} data-test-id="secondary-icon">
             <Icon name={secondaryIcon} aria-hidden="true" />
-          </span>
+          </div>
         )}
       </Tag>
     )
