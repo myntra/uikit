@@ -1,6 +1,7 @@
 const path = require('path')
 const { componentsDir, components } = require('./utils')
 const typescript = require('typescript')
+const babel = require('@babel/core')
 const fs = require('fs')
 const camelCase = require('lodash.camelcase')
 
@@ -31,21 +32,53 @@ fs.writeFileSync(
 )
 // Helpers.
 
-function normalize(types) {
-  const IMPORTS = /import [^;]*;/g
-  const FUNCTION_EXPORTS = /export default function [^;]*;/g
-  const CLASS_EXPORTS = /export default class [^\{]*\{\n(?:[ ]+[^\n]+\n)+\}/g
-  const NORMAL_EXPORTS = /export \{\};/g
-  const REFERENCES = /\/\/\/[^\n]*/g
+function normalize(code) {
+  /** @type {import('typescript').CompilerHost} */
+  const compilerHost = {
+    fileExists: () => true,
+    getCanonicalFileName: filename => filename,
+    getCurrentDirectory: () => '',
+    getDefaultLibFileName: () => 'lib.d.ts',
+    getNewLine: () => '\n',
+    getSourceFile: filename => {
+      return typescript.createSourceFile(filename, code, typescript.ScriptTarget.Latest, true);
+    },
+    readFile: () => null,
+    useCaseSensitiveFileNames: () => true,
+    writeFile: () => null,
+  }
+
+  const program = typescript.createProgram(['types.d.ts'], { noResolve: true }, compilerHost)
+  const ast = program.getSourceFile('types.d.ts')
+
+  let types = ast.statements.filter(
+    statement =>
+      typescript.isInterfaceDeclaration(statement) ||
+      typescript.isTypeAliasDeclaration(statement)
+  ).map(
+    statement => statement.getFullText()
+  ).join('\n')
+
+  const component = ast.statements.find(
+    statement =>
+      (
+        typescript.isFunctionDeclaration(statement) ||
+        typescript.isClassDeclaration(statement)
+      ) && (
+        statement.jsDoc && statement.jsDoc.length
+      )
+  )
+
+  if (component) {
+    const comment = component.jsDoc[0]
+
+    types += '\n' + comment.getFullText()
+  }
 
   return types
-    .replace(IMPORTS, '')
-    .replace(FUNCTION_EXPORTS, '')
-    .replace(CLASS_EXPORTS, '')
-    .replace(NORMAL_EXPORTS, '')
-    .replace(REFERENCES, '')
+    .replace(/\/\/\/[^\n]*/g, '')
     .replace(/\bexport /g, '')
-    .replace(/\bdeclare type /g, 'type ')
+    .replace(/\bdeclare type /g, 'type ') + '\n'
 }
 
 function extractTypes(file) {

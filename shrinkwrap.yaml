@@ -1,6 +1,7 @@
 importers:
   .:
     devDependencies:
+      '@babel/plugin-syntax-typescript': registry.npmjs.org/@babel/plugin-syntax-typescript/7.3.3
       '@types/react': registry.npmjs.org/@types/react/16.8.5
       any-observable: registry.npmjs.org/any-observable/0.3.0
       chalk: registry.npmjs.org/chalk/2.4.2
@@ -15,6 +16,7 @@ importers:
       standard-version: registry.npmjs.org/standard-version/4.4.0
       typescript: registry.npmjs.org/typescript/3.3.3333
     specifiers:
+      '@babel/plugin-syntax-typescript': ^7.3.3
       '@types/react': ^16.8.5
       any-observable: ^0.3.0
       chalk: ^2.4.1
@@ -28,17 +30,30 @@ importers:
       rxjs: ^6.4.0
       standard-version: ^4.4.0
       typescript: ^3.3.3333
+  components/alert:
+    dependencies:
+      '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-icon': 'link:../icon'
+    specifiers:
+      '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-icon': 'link:../icon'
+  components/avatar:
+    dependencies:
+      name-initials: registry.npmjs.org/name-initials/0.1.3
+    specifiers:
+      name-initials: ^0.1.3
   components/button:
     dependencies:
+      '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-design': 'link:../../packages/uikit-design'
       react: registry.npmjs.org/react/16.8.3
-    devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.5
     specifiers:
+      '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-design': 'link:../../packages/uikit-design'
-      '@types/react': 16.8.*
       react: 16.*
   components/icon:
     dependencies:
@@ -155,12 +170,14 @@ importers:
       svg-parser: ^1.0.5
   packages/tokenizer:
     dependencies:
+      ajv: registry.npmjs.org/ajv/6.9.2
       camelcase: registry.npmjs.org/camelcase/5.0.0
-      js-yaml: registry.npmjs.org/js-yaml/3.12.1
+      js-yaml: registry.npmjs.org/js-yaml/3.12.2
       lodash.isplainobject: registry.npmjs.org/lodash.isplainobject/4.0.6
       prettier: registry.npmjs.org/prettier/1.16.4
       tidify: registry.npmjs.org/tidify/0.3.0
     specifiers:
+      ajv: ^6.9.2
       camelcase: ^5.0.0
       js-yaml: ^3.11.0
       lodash.isplainobject: ^4.0.6
@@ -244,7 +261,7 @@ importers:
       '@myntra/tokens': 'link:../tokens'
       '@myntra/uikit-elements': 'link:../uikit-elements'
       '@myntra/uikit-utils': 'link:../uikit-utils'
-      react-transition-group: registry.npmjs.org/react-transition-group/2.5.3
+      react-transition-group: registry.npmjs.org/react-transition-group/2.6.0
     devDependencies:
       enzyme: registry.npmjs.org/enzyme/3.9.0
     specifiers:
@@ -330,6 +347,11 @@ importers:
       lodash-es: registry.npmjs.org/lodash-es/4.17.11
     specifiers:
       lodash-es: ^4.17.8
+  themes/nuclei:
+    dependencies:
+      '@myntra/tokenizer': 'link:../../packages/tokenizer'
+    specifiers:
+      '@myntra/tokenizer': 'link:../../packages/tokenizer'
 packages:
   registry.npmjs.org/@babel/code-frame/7.0.0:
     dependencies:
@@ -443,6 +465,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@babel/helper-get-function-arity/-/helper-get-function-arity-7.0.0-beta.44.tgz'
     version: 7.0.0-beta.44
+  registry.npmjs.org/@babel/helper-plugin-utils/7.0.0:
+    dev: true
+    name: '@babel/helper-plugin-utils'
+    resolution:
+      integrity: sha512-CYAOUCARwExnEixLdB6sDm2dIJ/YgEAKDM1MOeMeZu9Ld/bDgVo8aiWrXwcY7OBh+1Ea2uUcVRcxKk0GJvW7QA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@babel/helper-plugin-utils/-/helper-plugin-utils-7.0.0.tgz'
+    version: 7.0.0
   registry.npmjs.org/@babel/helper-split-export-declaration/7.0.0:
     dependencies:
       '@babel/types': registry.npmjs.org/@babel/types/7.3.4
@@ -506,6 +536,18 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@babel/parser/-/parser-7.3.4.tgz'
     version: 7.3.4
+  registry.npmjs.org/@babel/plugin-syntax-typescript/7.3.3:
+    dependencies:
+      '@babel/helper-plugin-utils': registry.npmjs.org/@babel/helper-plugin-utils/7.0.0
+    dev: true
+    name: '@babel/plugin-syntax-typescript'
+    peerDependencies:
+      '@babel/core': ^7.0.0-0
+    resolution:
+      integrity: sha512-dGwbSMA1YhVS8+31CnPR7LB4pcbrzcV99wQzby4uAfrkZPYZlQ7ImwdpzLqi6Z6IL02b8IAL379CaMwo0x5Lag==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@babel/plugin-syntax-typescript/-/plugin-syntax-typescript-7.3.3.tgz'
+    version: 7.3.3
   registry.npmjs.org/@babel/runtime/7.3.4:
     dependencies:
       regenerator-runtime: registry.npmjs.org/regenerator-runtime/0.12.1
@@ -632,14 +674,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@samverschueren/stream-to-observable/-/stream-to-observable-0.3.0.tgz'
     version: 0.3.0
-  registry.npmjs.org/@types/node/10.12.27:
-    dev: false
-    name: '@types/node'
-    resolution:
-      integrity: sha512-e9wgeY6gaY21on3ve0xAjgBVjGDWq/xUteK0ujsE53bUoxycMkqfnkUgMt6ffZtykZ5X12Mg3T7Pw4TRCObDKg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/@types/node/-/node-10.12.27.tgz'
-    version: 10.12.27
   registry.npmjs.org/@types/node/11.9.5:
     name: '@types/node'
     resolution:
@@ -666,14 +700,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@types/react/-/react-16.8.5.tgz'
     version: 16.8.5
-  registry.npmjs.org/@types/semver/5.5.0:
-    dev: false
-    name: '@types/semver'
-    resolution:
-      integrity: sha512-41qEJgBH/TWgo5NFSvBCJ1qkoi3Q6ONSF2avrHq1LVEZfYpdHmj0y9SuTK+u9ZhG1sYQKBL1AWXKyLWP4RaUoQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/@types/semver/-/semver-5.5.0.tgz'
-    version: 5.5.0
   registry.npmjs.org/@types/unist/2.0.3:
     name: '@types/unist'
     resolution:
@@ -721,32 +747,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/JSONStream/-/JSONStream-1.3.5.tgz'
     version: 1.3.5
-  registry.npmjs.org/abab/1.0.4:
-    dev: false
-    name: abab
-    resolution:
-      integrity: sha1-X6rZwsB/YN12dw9xzwJbYqY8/U4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/abab/-/abab-1.0.4.tgz'
-    version: 1.0.4
-  registry.npmjs.org/abbrev/1.1.1:
-    dev: false
-    name: abbrev
-    resolution:
-      integrity: sha512-nne9/IiQ/hzIhY6pdDnbBtz7DjPTKrY00P/zvPSm5pOFkl6xuGrGnXn/VtTNNfNtAfZ9/1RtehkszU9qcTii0Q==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/abbrev/-/abbrev-1.1.1.tgz'
-    version: 1.1.1
-  registry.npmjs.org/acorn-globals/1.0.9:
-    dependencies:
-      acorn: registry.npmjs.org/acorn/2.7.0
-    dev: false
-    name: acorn-globals
-    resolution:
-      integrity: sha1-VbtemGkVB7dFedBRNBMhfDgMVM8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/acorn-globals/-/acorn-globals-1.0.9.tgz'
-    version: 1.0.9
   registry.npmjs.org/acorn-jsx/3.0.1:
     dependencies:
       acorn: registry.npmjs.org/acorn/3.3.0
@@ -756,17 +756,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-3.0.1.tgz'
     version: 3.0.1
-  registry.npmjs.org/acorn/2.7.0:
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    hasBin: true
-    name: acorn
-    resolution:
-      integrity: sha1-q259nYhqrKiwhbwzEreaGYQz8Oc=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/acorn/-/acorn-2.7.0.tgz'
-    version: 2.7.0
   registry.npmjs.org/acorn/3.3.0:
     engines:
       node: '>=0.4.0'
@@ -823,16 +812,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/ajv/-/ajv-6.9.2.tgz'
     version: 6.9.2
-  registry.npmjs.org/amdefine/1.0.1:
-    dev: false
-    engines:
-      node: '>=0.4.2'
-    name: amdefine
-    resolution:
-      integrity: sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/amdefine/-/amdefine-1.0.1.tgz'
-    version: 1.0.1
   registry.npmjs.org/ansi-escapes/3.2.0:
     engines:
       node: '>=4'
@@ -1019,14 +998,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/array-back/-/array-back-2.0.0.tgz'
     version: 2.0.0
-  registry.npmjs.org/array-equal/1.0.0:
-    dev: false
-    name: array-equal
-    resolution:
-      integrity: sha1-jCpe8kcv2ep0KwTHenUJO6J1fJM=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/array-equal/-/array-equal-1.0.0.tgz'
-    version: 1.0.0
   registry.npmjs.org/array-filter/1.0.0:
     dev: true
     name: array-filter
@@ -1135,48 +1106,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/asap/-/asap-2.0.6.tgz'
     version: 2.0.6
-  registry.npmjs.org/asn1/0.1.11:
-    dev: false
-    engines:
-      node: '>=0.4.9'
-    name: asn1
-    optional: true
-    resolution:
-      integrity: sha1-VZvhg3bQik7E2+gId9J4GGObLfc=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/asn1/-/asn1-0.1.11.tgz'
-    version: 0.1.11
-  registry.npmjs.org/asn1/0.2.4:
-    dependencies:
-      safer-buffer: registry.npmjs.org/safer-buffer/2.1.2
-    dev: false
-    name: asn1
-    resolution:
-      integrity: sha512-jxwzQpLQjSmWXgwaCZE9Nz+glAG01yF1QnWgbhGwHI5A6FRIEY6IVqtHhIepHqI7/kyEyQEagBC5mBEFlIYvdg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/asn1/-/asn1-0.2.4.tgz'
-    version: 0.2.4
-  registry.npmjs.org/assert-plus/0.1.5:
-    dev: false
-    engines:
-      node: '>=0.8'
-    name: assert-plus
-    optional: true
-    resolution:
-      integrity: sha1-7nQAlBMALYTOxyGcasgRgS5yMWA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/assert-plus/-/assert-plus-0.1.5.tgz'
-    version: 0.1.5
-  registry.npmjs.org/assert-plus/1.0.0:
-    dev: false
-    engines:
-      node: '>=0.8'
-    name: assert-plus
-    resolution:
-      integrity: sha1-8S4PPF13sLHN2RRpQuTpbB5N1SU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/assert-plus/-/assert-plus-1.0.0.tgz'
-    version: 1.0.0
   registry.npmjs.org/assign-symbols/1.0.0:
     engines:
       node: '>=0.10.0'
@@ -1231,31 +1160,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/async-each/-/async-each-1.0.1.tgz'
     version: 1.0.1
-  registry.npmjs.org/async/0.2.10:
-    dev: false
-    name: async
-    resolution:
-      integrity: sha1-trvgsGdLnXGXCMo43owjfLUmw9E=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/async/-/async-0.2.10.tgz'
-    version: 0.2.10
-  registry.npmjs.org/async/0.8.0:
-    dev: false
-    name: async
-    resolution:
-      integrity: sha1-7mXsdymML/FFa8RBigUtDwZDURI=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/async/-/async-0.8.0.tgz'
-    version: 0.8.0
-  registry.npmjs.org/async/0.9.2:
-    dev: false
-    name: async
-    optional: true
-    resolution:
-      integrity: sha1-rqdNXmHB+JlhO/ZL2mbUx48v0X0=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/async/-/async-0.9.2.tgz'
-    version: 0.9.2
   registry.npmjs.org/async/1.5.2:
     dev: true
     name: async
@@ -1273,14 +1177,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/async/-/async-2.6.2.tgz'
     version: 2.6.2
-  registry.npmjs.org/asynckit/0.4.0:
-    dev: false
-    name: asynckit
-    resolution:
-      integrity: sha1-x57Zf380y48robyXkLzDZkdLS3k=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/asynckit/-/asynckit-0.4.0.tgz'
-    version: 0.4.0
   registry.npmjs.org/atob/2.1.2:
     engines:
       node: '>= 4.5.0'
@@ -1308,31 +1204,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.4.9.tgz'
     version: 9.4.9
-  registry.npmjs.org/aws-sign2/0.5.0:
-    dev: false
-    name: aws-sign2
-    optional: true
-    resolution:
-      integrity: sha1-xXED96F/wDfwLXwuZLYC6iI/fWM=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.5.0.tgz'
-    version: 0.5.0
-  registry.npmjs.org/aws-sign2/0.7.0:
-    dev: false
-    name: aws-sign2
-    resolution:
-      integrity: sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/aws-sign2/-/aws-sign2-0.7.0.tgz'
-    version: 0.7.0
-  registry.npmjs.org/aws4/1.8.0:
-    dev: false
-    name: aws4
-    resolution:
-      integrity: sha512-ReZxvNHIOv88FlT7rxcXIIC0fPt4KZqZbOlivyWtXLt8ESx84zd3kMC6iK5jVeS2qt+g7ftS7ye4fi06X5rtRQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/aws4/-/aws4-1.8.0.tgz'
-    version: 1.8.0
   registry.npmjs.org/axobject-query/2.0.2:
     dependencies:
       ast-types-flow: registry.npmjs.org/ast-types-flow/0.0.7
@@ -2375,16 +2246,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/base/-/base-0.11.2.tgz'
     version: 0.11.2
-  registry.npmjs.org/bcrypt-pbkdf/1.0.2:
-    dependencies:
-      tweetnacl: registry.npmjs.org/tweetnacl/0.14.5
-    dev: false
-    name: bcrypt-pbkdf
-    resolution:
-      integrity: sha1-pDAdOJtqQ/m2f/PKEaP2Y342Dp4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz'
-    version: 1.0.2
   registry.npmjs.org/big.js/5.2.2:
     dev: false
     name: big.js
@@ -2419,19 +2280,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/boolbase/-/boolbase-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/boom/0.4.2:
-    dependencies:
-      hoek: registry.npmjs.org/hoek/0.9.1
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: boom
-    optional: true
-    resolution:
-      integrity: sha1-emNune1O/O+xnO9JR6PGffrukRs=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/boom/-/boom-0.4.2.tgz'
-    version: 0.4.2
   registry.npmjs.org/brace-expansion/1.1.11:
     dependencies:
       balanced-match: registry.npmjs.org/balanced-match/1.0.0
@@ -2628,16 +2476,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/camelcase-keys/-/camelcase-keys-4.2.0.tgz'
     version: 4.2.0
-  registry.npmjs.org/camelcase/1.2.1:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    name: camelcase
-    resolution:
-      integrity: sha1-m7UwTS4LVmmLLHWLCKPqqdqlijk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/camelcase/-/camelcase-1.2.1.tgz'
-    version: 1.2.1
   registry.npmjs.org/camelcase/2.1.1:
     dev: true
     engines:
@@ -2686,14 +2524,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/cardinal/-/cardinal-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/caseless/0.12.0:
-    dev: false
-    name: caseless
-    resolution:
-      integrity: sha1-G2gcIf+EAzyCZUMJBolCDRhxUdw=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/caseless/-/caseless-0.12.0.tgz'
-    version: 0.12.0
   registry.npmjs.org/catharsis/0.8.9:
     dependencies:
       underscore-contrib: registry.npmjs.org/underscore-contrib/0.3.0
@@ -2872,20 +2702,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/class-utils/-/class-utils-0.3.6.tgz'
     version: 0.3.6
-  registry.npmjs.org/clean-css/2.2.23:
-    dependencies:
-      commander: registry.npmjs.org/commander/2.2.0
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    hasBin: true
-    name: clean-css
-    optional: true
-    resolution:
-      integrity: sha1-BZC1R4tRbEkD7cLYm9P9vdKGMow=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/clean-css/-/clean-css-2.2.23.tgz'
-    version: 2.2.23
   registry.npmjs.org/cli-cursor/2.1.0:
     dependencies:
       restore-cursor: registry.npmjs.org/restore-cursor/2.0.0
@@ -2900,7 +2716,7 @@ packages:
   registry.npmjs.org/cli-highlight/2.0.0:
     dependencies:
       chalk: registry.npmjs.org/chalk/2.4.2
-      highlight.js: registry.npmjs.org/highlight.js/9.15.5
+      highlight.js: registry.npmjs.org/highlight.js/9.15.6
       mz: registry.npmjs.org/mz/2.7.0
       parse5: registry.npmjs.org/parse5/4.0.0
       yargs: registry.npmjs.org/yargs/11.1.0
@@ -2935,19 +2751,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/cli-width/-/cli-width-2.2.0.tgz'
     version: 2.2.0
-  registry.npmjs.org/cli/0.6.6:
-    dependencies:
-      exit: registry.npmjs.org/exit/0.1.2
-      glob: registry.npmjs.org/glob/3.2.11
-    dev: false
-    engines:
-      node: '>=0.2.5'
-    name: cli
-    resolution:
-      integrity: sha1-Aq1Eo4Cr8nraxebwzdewQ9dMU+M=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/cli/-/cli-0.6.6.tgz'
-    version: 0.6.6
   registry.npmjs.org/clipboard/1.7.1:
     dependencies:
       good-listener: registry.npmjs.org/good-listener/1.2.2
@@ -3087,31 +2890,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/colors/-/colors-1.3.3.tgz'
     version: 1.3.3
-  registry.npmjs.org/combined-stream/0.0.7:
-    dependencies:
-      delayed-stream: registry.npmjs.org/delayed-stream/0.0.5
-    dev: false
-    engines:
-      node: '>= 0.8'
-    name: combined-stream
-    optional: true
-    resolution:
-      integrity: sha1-ATfmV7qlp1QcV6w3rF/AfXO03B8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/combined-stream/-/combined-stream-0.0.7.tgz'
-    version: 0.0.7
-  registry.npmjs.org/combined-stream/1.0.7:
-    dependencies:
-      delayed-stream: registry.npmjs.org/delayed-stream/1.0.0
-    dev: false
-    engines:
-      node: '>= 0.8'
-    name: combined-stream
-    resolution:
-      integrity: sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.7.tgz'
-    version: 1.0.7
   registry.npmjs.org/commander/2.17.1:
     dev: true
     name: commander
@@ -3128,17 +2906,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/commander/-/commander-2.19.0.tgz'
     version: 2.19.0
-  registry.npmjs.org/commander/2.2.0:
-    dev: false
-    engines:
-      node: '>= 0.6.x'
-    name: commander
-    optional: true
-    resolution:
-      integrity: sha1-F1rUuTF/P/YV8gHB5XIk9Vo+kd8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/commander/-/commander-2.2.0.tgz'
-    version: 2.2.0
   registry.npmjs.org/compare-func/1.3.2:
     dependencies:
       array-ify: registry.npmjs.org/array-ify/1.0.0
@@ -3194,27 +2961,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/concat-stream/-/concat-stream-1.6.2.tgz'
     version: 1.6.2
-  registry.npmjs.org/config-chain/1.1.12:
-    dependencies:
-      ini: registry.npmjs.org/ini/1.3.5
-      proto-list: registry.npmjs.org/proto-list/1.2.4
-    dev: false
-    name: config-chain
-    resolution:
-      integrity: sha512-a1eOIcu8+7lUInge4Rpf/n4Krkf3Dd9lqhljRzII1/Zno/kRtUWnznPO3jOKBmTEktkt3fkxisUcivoj0ebzoA==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/config-chain/-/config-chain-1.1.12.tgz'
-    version: 1.1.12
-  registry.npmjs.org/console-browserify/1.1.0:
-    dependencies:
-      date-now: registry.npmjs.org/date-now/0.1.4
-    dev: false
-    name: console-browserify
-    resolution:
-      integrity: sha1-8CQcRXMKn8YyOyBtvzjtx0HQuxA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/console-browserify/-/console-browserify-1.1.0.tgz'
-    version: 1.1.0
   registry.npmjs.org/contains-path/0.1.0:
     dev: false
     engines:
@@ -3477,7 +3223,7 @@ packages:
     dependencies:
       import-fresh: registry.npmjs.org/import-fresh/2.0.0
       is-directory: registry.npmjs.org/is-directory/0.3.1
-      js-yaml: registry.npmjs.org/js-yaml/3.12.1
+      js-yaml: registry.npmjs.org/js-yaml/3.12.2
       lodash.get: registry.npmjs.org/lodash.get/4.4.2
       parse-json: registry.npmjs.org/parse-json/4.0.0
     engines:
@@ -3531,19 +3277,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/cross-spawn/-/cross-spawn-6.0.5.tgz'
     version: 6.0.5
-  registry.npmjs.org/cryptiles/0.2.2:
-    dependencies:
-      boom: registry.npmjs.org/boom/0.4.2
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: cryptiles
-    optional: true
-    resolution:
-      integrity: sha1-7ZH/HxetE9N0gohZT4pIoNJvMlw=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/cryptiles/-/cryptiles-0.2.2.tgz'
-    version: 0.2.2
   registry.npmjs.org/css-select/1.0.0:
     dependencies:
       boolbase: registry.npmjs.org/boolbase/1.0.0
@@ -3586,37 +3319,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/css-what/-/css-what-2.1.3.tgz'
     version: 2.1.3
-  registry.npmjs.org/csslint/0.10.0:
-    dependencies:
-      parserlib: registry.npmjs.org/parserlib/0.2.5
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    hasBin: true
-    name: csslint
-    resolution:
-      integrity: sha1-OmoE51Zcjp0ZvrSXZ8fslug2WAU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/csslint/-/csslint-0.10.0.tgz'
-    version: 0.10.0
-  registry.npmjs.org/cssom/0.3.6:
-    dev: false
-    name: cssom
-    resolution:
-      integrity: sha512-DtUeseGk9/GBW0hl0vVPpU22iHL6YB5BUX7ml1hB+GMpo0NX5G4voX3kdWiMSEguFtcW3Vh3djqNF4aIe6ne0A==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/cssom/-/cssom-0.3.6.tgz'
-    version: 0.3.6
-  registry.npmjs.org/cssstyle/0.2.37:
-    dependencies:
-      cssom: registry.npmjs.org/cssom/0.3.6
-    dev: false
-    name: cssstyle
-    resolution:
-      integrity: sha1-VBCXI0yyUTyDzu06zdwn/yeYfVQ=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/cssstyle/-/cssstyle-0.2.37.tgz'
-    version: 0.2.37
   registry.npmjs.org/csstype/2.6.2:
     dev: true
     name: csstype
@@ -3633,17 +3335,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/csv-parse/-/csv-parse-2.5.0.tgz'
     version: 2.5.0
-  registry.npmjs.org/ctype/0.5.3:
-    dev: false
-    engines:
-      node: '>= 0.4'
-    name: ctype
-    optional: true
-    resolution:
-      integrity: sha1-gsGMJGH3QRTvFsE1IkrQuRRMoS8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/ctype/-/ctype-0.5.3.tgz'
-    version: 0.5.3
   registry.npmjs.org/currently-unhandled/0.4.1:
     dependencies:
       array-find-index: registry.npmjs.org/array-find-index/1.0.2
@@ -3675,18 +3366,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/dargs/-/dargs-4.1.0.tgz'
     version: 4.1.0
-  registry.npmjs.org/dashdash/1.14.1:
-    dependencies:
-      assert-plus: registry.npmjs.org/assert-plus/1.0.0
-    dev: false
-    engines:
-      node: '>=0.10'
-    name: dashdash
-    resolution:
-      integrity: sha1-hTz6D3y+L+1d4gMmuN1YEDX24vA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/dashdash/-/dashdash-1.14.1.tgz'
-    version: 1.14.1
   registry.npmjs.org/date-fns/1.30.1:
     dev: true
     name: date-fns
@@ -3704,14 +3383,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/date-fns/-/date-fns-2.0.0-alpha.27.tgz'
     version: 2.0.0-alpha.27
-  registry.npmjs.org/date-now/0.1.4:
-    dev: false
-    name: date-now
-    resolution:
-      integrity: sha1-6vQ5/U1ISK105cx9vvIAZyueNFs=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/date-now/-/date-now-0.1.4.tgz'
-    version: 0.1.4
   registry.npmjs.org/dateformat/3.0.3:
     dev: true
     name: dateformat
@@ -3736,14 +3407,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/de-indent/-/de-indent-1.0.2.tgz'
     version: 1.0.2
-  registry.npmjs.org/debug/0.7.4:
-    dev: false
-    name: debug
-    resolution:
-      integrity: sha1-BuHqgILCyxTjmAbiLi9vdX+Srzk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/debug/-/debug-0.7.4.tgz'
-    version: 0.7.4
   registry.npmjs.org/debug/2.6.9:
     dependencies:
       ms: registry.npmjs.org/ms/2.0.0
@@ -3861,44 +3524,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/define-property/-/define-property-2.0.2.tgz'
     version: 2.0.2
-  registry.npmjs.org/del/3.0.0:
-    dependencies:
-      globby: registry.npmjs.org/globby/6.1.0
-      is-path-cwd: registry.npmjs.org/is-path-cwd/1.0.0
-      is-path-in-cwd: registry.npmjs.org/is-path-in-cwd/1.0.1
-      p-map: registry.npmjs.org/p-map/1.2.0
-      pify: registry.npmjs.org/pify/3.0.0
-      rimraf: registry.npmjs.org/rimraf/2.6.3
-    dev: false
-    engines:
-      node: '>=4'
-    name: del
-    resolution:
-      integrity: sha1-U+z2mf/LyzljdpGrE7rxYIGXZuU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/del/-/del-3.0.0.tgz'
-    version: 3.0.0
-  registry.npmjs.org/delayed-stream/0.0.5:
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    name: delayed-stream
-    optional: true
-    resolution:
-      integrity: sha1-1LH0OpPoKW3+AmlPRoC8N6MTxz8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/delayed-stream/-/delayed-stream-0.0.5.tgz'
-    version: 0.0.5
-  registry.npmjs.org/delayed-stream/1.0.0:
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    name: delayed-stream
-    resolution:
-      integrity: sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz'
-    version: 1.0.0
   registry.npmjs.org/delegate/3.2.0:
     dev: false
     name: delegate
@@ -4027,6 +3652,7 @@ packages:
   registry.npmjs.org/domhandler/2.3.0:
     dependencies:
       domelementtype: registry.npmjs.org/domelementtype/1.3.1
+    dev: true
     name: domhandler
     resolution:
       integrity: sha1-LeWaCCLVAn+r/28DLCsloqir5zg=
@@ -4056,6 +3682,7 @@ packages:
     dependencies:
       dom-serializer: registry.npmjs.org/dom-serializer/0.1.1
       domelementtype: registry.npmjs.org/domelementtype/1.3.1
+    dev: true
     name: domutils
     resolution:
       integrity: sha1-3NhIiib1Y9YQeeSMn3t+Mjc2gs8=
@@ -4106,33 +3733,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/dotgitignore/-/dotgitignore-1.0.3.tgz'
     version: 1.0.3
-  registry.npmjs.org/ecc-jsbn/0.1.2:
-    dependencies:
-      jsbn: registry.npmjs.org/jsbn/0.1.1
-      safer-buffer: registry.npmjs.org/safer-buffer/2.1.2
-    dev: false
-    name: ecc-jsbn
-    resolution:
-      integrity: sha1-OoOpBOVDUyh4dMVkt1SThoSamMk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz'
-    version: 0.1.2
-  registry.npmjs.org/editorconfig/0.15.2:
-    dependencies:
-      '@types/node': registry.npmjs.org/@types/node/10.12.27
-      '@types/semver': registry.npmjs.org/@types/semver/5.5.0
-      commander: registry.npmjs.org/commander/2.19.0
-      lru-cache: registry.npmjs.org/lru-cache/4.1.5
-      semver: registry.npmjs.org/semver/5.6.0
-      sigmund: registry.npmjs.org/sigmund/1.0.1
-    dev: false
-    hasBin: true
-    name: editorconfig
-    resolution:
-      integrity: sha512-GWjSI19PVJAM9IZRGOS+YKI8LN+/sjkSjNyvxL5ucqP9/IqtYNXBaQ/6c/hkPNYQHyOHra2KoXZI/JVpuqwmcQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/editorconfig/-/editorconfig-0.15.2.tgz'
-    version: 0.15.2
   registry.npmjs.org/electron-to-chromium/1.3.113:
     name: electron-to-chromium
     resolution:
@@ -4188,6 +3788,7 @@ packages:
       tarball: 'https://registry.npmjs.org/end-of-stream/-/end-of-stream-1.4.1.tgz'
     version: 1.4.1
   registry.npmjs.org/entities/1.0.0:
+    dev: true
     name: entities
     resolution:
       integrity: sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY=
@@ -4286,24 +3887,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz'
     version: 1.0.5
-  registry.npmjs.org/escodegen/1.11.1:
-    dependencies:
-      esprima: registry.npmjs.org/esprima/3.1.3
-      estraverse: registry.npmjs.org/estraverse/4.2.0
-      esutils: registry.npmjs.org/esutils/2.0.2
-      optionator: registry.npmjs.org/optionator/0.8.2
-    dev: false
-    engines:
-      node: '>=4.0'
-    hasBin: true
-    name: escodegen
-    optionalDependencies:
-      source-map: registry.npmjs.org/source-map/0.6.1
-    resolution:
-      integrity: sha512-JwiqFD9KdGVVpeuRa68yU3zZnBEOcPs0nKW7wZzXky8Z7tffdYUHbe11bPCV5jYlK6DVdKLWLm0f5I/QlL0Kmw==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/escodegen/-/escodegen-1.11.1.tgz'
-    version: 1.11.1
   registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@4.19.1:
     dependencies:
       eslint: registry.npmjs.org/eslint/4.19.1
@@ -4602,7 +4185,7 @@ packages:
       imurmurhash: registry.npmjs.org/imurmurhash/0.1.4
       inquirer: registry.npmjs.org/inquirer/3.3.0
       is-resolvable: registry.npmjs.org/is-resolvable/1.1.0
-      js-yaml: registry.npmjs.org/js-yaml/3.12.1
+      js-yaml: registry.npmjs.org/js-yaml/3.12.2
       json-stable-stringify-without-jsonify: registry.npmjs.org/json-stable-stringify-without-jsonify/1.0.1
       levn: registry.npmjs.org/levn/0.3.0
       lodash: registry.npmjs.org/lodash/4.17.11
@@ -4652,17 +4235,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/esprima/-/esprima-3.0.0.tgz'
     version: 3.0.0
-  registry.npmjs.org/esprima/3.1.3:
-    dev: false
-    engines:
-      node: '>=4'
-    hasBin: true
-    name: esprima
-    resolution:
-      integrity: sha1-/cpRzuYTOJXjyI1TXOSdv/YqRjM=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/esprima/-/esprima-3.1.3.tgz'
-    version: 3.1.3
   registry.npmjs.org/esprima/4.0.1:
     engines:
       node: '>=4'
@@ -4803,16 +4375,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/execall/-/execall-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/exit/0.1.2:
-    dev: false
-    engines:
-      node: '>= 0.8.0'
-    name: exit
-    resolution:
-      integrity: sha1-BjJjj42HfMghB9MKD/8aF8uhzQw=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/exit/-/exit-0.1.2.tgz'
-    version: 0.1.2
   registry.npmjs.org/expand-brackets/0.1.5:
     dependencies:
       is-posix-bracket: registry.npmjs.org/is-posix-bracket/0.1.1
@@ -4877,14 +4439,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/extend-shallow/-/extend-shallow-3.0.2.tgz'
     version: 3.0.2
-  registry.npmjs.org/extend/2.0.2:
-    dev: false
-    name: extend
-    resolution:
-      integrity: sha512-AgFD4VU+lVLP6vjnlNfF7OeInLTyeyckCNPEsuxz1vi786UuK/nk6ynPuhn/h+Ju9++TQyr5EpLRI14fc1QtTQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/extend/-/extend-2.0.2.tgz'
-    version: 2.0.2
   registry.npmjs.org/extend/3.0.2:
     name: extend
     resolution:
@@ -4935,26 +4489,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/extglob/-/extglob-2.0.4.tgz'
     version: 2.0.4
-  registry.npmjs.org/extsprintf/1.3.0:
-    dev: false
-    engines:
-      '0': node >=0.6.0
-    name: extsprintf
-    resolution:
-      integrity: sha1-lpGEQOMEGnpBT4xS48V06zw+HgU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/extsprintf/-/extsprintf-1.3.0.tgz'
-    version: 1.3.0
-  registry.npmjs.org/extsprintf/1.4.0:
-    dev: false
-    engines:
-      '0': node >=0.6.0
-    name: extsprintf
-    resolution:
-      integrity: sha1-4mifjzVvrWLMplo6kcXfX5VRaS8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/extsprintf/-/extsprintf-1.4.0.tgz'
-    version: 1.4.0
   registry.npmjs.org/fast-deep-equal/1.1.0:
     name: fast-deep-equal
     resolution:
@@ -5165,28 +4699,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/find-up/-/find-up-3.0.0.tgz'
     version: 3.0.0
-  registry.npmjs.org/findup-sync/0.2.1:
-    dependencies:
-      glob: registry.npmjs.org/glob/4.3.5
-    dev: false
-    engines:
-      node: '>= 0.6.0'
-    name: findup-sync
-    resolution:
-      integrity: sha1-4KkKRQB1xJRm7lE3MgV1FLgeh4w=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/findup-sync/-/findup-sync-0.2.1.tgz'
-    version: 0.2.1
-  registry.npmjs.org/flagged-respawn/0.3.2:
-    dev: false
-    engines:
-      node: '>= 0.8.0'
-    name: flagged-respawn
-    resolution:
-      integrity: sha1-/xke3c1wiKZ1smEP/8l2vpuAdLU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/flagged-respawn/-/flagged-respawn-0.3.2.tgz'
-    version: 0.3.2
   registry.npmjs.org/flat-cache/1.3.4:
     dependencies:
       circular-json: registry.npmjs.org/circular-json/0.3.3
@@ -5252,52 +4764,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/for-own/-/for-own-0.1.5.tgz'
     version: 0.1.5
-  registry.npmjs.org/forever-agent/0.5.2:
-    dev: false
-    name: forever-agent
-    optional: true
-    resolution:
-      integrity: sha1-bQ4JxJIflKJ/Y9O0nF/v8epMUTA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/forever-agent/-/forever-agent-0.5.2.tgz'
-    version: 0.5.2
-  registry.npmjs.org/forever-agent/0.6.1:
-    dev: false
-    name: forever-agent
-    resolution:
-      integrity: sha1-+8cfDEGt6zf5bFd60e1C2P2sypE=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/forever-agent/-/forever-agent-0.6.1.tgz'
-    version: 0.6.1
-  registry.npmjs.org/form-data/0.1.4:
-    dependencies:
-      async: registry.npmjs.org/async/0.9.2
-      combined-stream: registry.npmjs.org/combined-stream/0.0.7
-      mime: registry.npmjs.org/mime/1.2.11
-    dev: false
-    engines:
-      node: '>= 0.8'
-    name: form-data
-    optional: true
-    resolution:
-      integrity: sha1-kavXiKupcCsaq/qLwBAxoqyeOxI=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/form-data/-/form-data-0.1.4.tgz'
-    version: 0.1.4
-  registry.npmjs.org/form-data/2.3.3:
-    dependencies:
-      asynckit: registry.npmjs.org/asynckit/0.4.0
-      combined-stream: registry.npmjs.org/combined-stream/1.0.7
-      mime-types: registry.npmjs.org/mime-types/2.1.22
-    dev: false
-    engines:
-      node: '>= 0.12'
-    name: form-data
-    resolution:
-      integrity: sha512-1lLKB2Mu3aGP1Q/2eCOx0fNbRMe7XdwktwOruhfqqd0rIJWwN4Dh+E3hrPSlDCXnSR7UtZ1N38rVXm+6+MEhJQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/form-data/-/form-data-2.3.3.tgz'
-    version: 2.3.3
   registry.npmjs.org/fragment-cache/0.2.1:
     dependencies:
       map-cache: registry.npmjs.org/map-cache/0.2.2
@@ -5311,7 +4777,7 @@ packages:
     version: 0.2.1
   registry.npmjs.org/front-matter/2.3.0:
     dependencies:
-      js-yaml: registry.npmjs.org/js-yaml/3.12.1
+      js-yaml: registry.npmjs.org/js-yaml/3.12.2
     dev: false
     name: front-matter
     resolution:
@@ -5406,44 +4872,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz'
     version: 1.0.1
-  registry.npmjs.org/gear-lib/0.9.2:
-    dependencies:
-      async: registry.npmjs.org/async/0.8.0
-      csslint: registry.npmjs.org/csslint/0.10.0
-      gear: registry.npmjs.org/gear/0.9.7
-      glob: registry.npmjs.org/glob/3.2.11
-      handlebars: registry.npmjs.org/handlebars/2.0.0
-      jshint: registry.npmjs.org/jshint/2.5.11
-      jslint: registry.npmjs.org/jslint/0.3.4
-      knox: registry.npmjs.org/knox/0.8.10
-      less: registry.npmjs.org/less/1.7.5
-      mime: registry.npmjs.org/mime/1.2.11
-      uglify-js: registry.npmjs.org/uglify-js/2.4.24
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    name: gear-lib
-    resolution:
-      integrity: sha1-vI1GHryB7K/+mcHagqvg9W65NUA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/gear-lib/-/gear-lib-0.9.2.tgz'
-    version: 0.9.2
-  registry.npmjs.org/gear/0.9.7:
-    dependencies:
-      async: registry.npmjs.org/async/0.8.0
-      liftoff: registry.npmjs.org/liftoff/2.0.3
-      minimist: registry.npmjs.org/minimist/0.1.0
-      mkdirp: registry.npmjs.org/mkdirp/0.5.1
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    hasBin: true
-    name: gear
-    resolution:
-      integrity: sha1-Hq0Z7uY5MZ2OLmVUlMYb2JVud38=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/gear/-/gear-0.9.7.tgz'
-    version: 0.9.7
   registry.npmjs.org/get-caller-file/1.0.3:
     name: get-caller-file
     resolution:
@@ -5533,16 +4961,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/get-value/-/get-value-2.0.6.tgz'
     version: 2.0.6
-  registry.npmjs.org/getpass/0.1.7:
-    dependencies:
-      assert-plus: registry.npmjs.org/assert-plus/1.0.0
-    dev: false
-    name: getpass
-    resolution:
-      integrity: sha1-Xv+OPmhNVprkyysSgmBOi6YhSfo=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/getpass/-/getpass-0.1.7.tgz'
-    version: 0.1.7
   registry.npmjs.org/git-raw-commits/1.3.6:
     dependencies:
       dargs: registry.npmjs.org/dargs/4.1.0
@@ -5633,30 +5051,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/glob-to-regexp/-/glob-to-regexp-0.3.0.tgz'
     version: 0.3.0
-  registry.npmjs.org/glob/3.2.11:
-    dependencies:
-      inherits: registry.npmjs.org/inherits/2.0.3
-      minimatch: registry.npmjs.org/minimatch/0.3.0
-    dev: false
-    name: glob
-    resolution:
-      integrity: sha1-Spc/Y1uRkPcV0QmH1cAP0oFevj0=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/glob/-/glob-3.2.11.tgz'
-    version: 3.2.11
-  registry.npmjs.org/glob/4.3.5:
-    dependencies:
-      inflight: registry.npmjs.org/inflight/1.0.6
-      inherits: registry.npmjs.org/inherits/2.0.3
-      minimatch: registry.npmjs.org/minimatch/2.0.10
-      once: registry.npmjs.org/once/1.4.0
-    dev: false
-    name: glob
-    resolution:
-      integrity: sha1-gPuwjKVA8jiszl0R0em8QedRc9M=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/glob/-/glob-4.3.5.tgz'
-    version: 4.3.5
   registry.npmjs.org/glob/7.1.3:
     dependencies:
       fs.realpath: registry.npmjs.org/fs.realpath/1.0.0
@@ -5795,20 +5189,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/good-listener/-/good-listener-1.2.2.tgz'
     version: 1.2.2
-  registry.npmjs.org/graceful-fs/3.0.11:
-    dependencies:
-      natives: registry.npmjs.org/natives/1.1.6
-    deprecated: please upgrade to graceful-fs 4 for compatibility with current and future versions of Node.js
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    name: graceful-fs
-    optional: true
-    resolution:
-      integrity: sha1-dhPHeKGv6mLyXGMKCG1/Osu92Bg=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/graceful-fs/-/graceful-fs-3.0.11.tgz'
-    version: 3.0.11
   registry.npmjs.org/graceful-fs/4.1.15:
     name: graceful-fs
     resolution:
@@ -5824,21 +5204,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/gud/-/gud-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/handlebars/2.0.0:
-    dependencies:
-      optimist: registry.npmjs.org/optimist/0.3.7
-    dev: false
-    engines:
-      node: '>=0.4.7'
-    hasBin: true
-    name: handlebars
-    optionalDependencies:
-      uglify-js: registry.npmjs.org/uglify-js/2.3.6
-    resolution:
-      integrity: sha1-bp1/hRSjRn+l6fgswVjs/B1ax28=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/handlebars/-/handlebars-2.0.0.tgz'
-    version: 2.0.0
   registry.npmjs.org/handlebars/4.1.0:
     dependencies:
       async: registry.npmjs.org/async/2.6.2
@@ -5856,29 +5221,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/handlebars/-/handlebars-4.1.0.tgz'
     version: 4.1.0
-  registry.npmjs.org/har-schema/2.0.0:
-    dev: false
-    engines:
-      node: '>=4'
-    name: har-schema
-    resolution:
-      integrity: sha1-qUwiJOvKwEeCoNkDVSHyRzW37JI=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/har-schema/-/har-schema-2.0.0.tgz'
-    version: 2.0.0
-  registry.npmjs.org/har-validator/5.1.3:
-    dependencies:
-      ajv: registry.npmjs.org/ajv/6.9.2
-      har-schema: registry.npmjs.org/har-schema/2.0.0
-    dev: false
-    engines:
-      node: '>=6'
-    name: har-validator
-    resolution:
-      integrity: sha512-sNvOCzEQNr/qrvJgc3UG/kD4QtlHycrzwS+6mfTrrSq97BvaYcPZZI1ZSqGSPR73Cxn4LKTD4PttRwfU7jWq5g==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/har-validator/-/har-validator-5.1.3.tgz'
-    version: 5.1.3
   registry.npmjs.org/has-ansi/2.0.0:
     dependencies:
       ansi-regex: registry.npmjs.org/ansi-regex/2.1.1
@@ -5976,53 +5318,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/has/-/has-1.0.3.tgz'
     version: 1.0.3
-  registry.npmjs.org/hawk/1.1.1:
-    dependencies:
-      boom: registry.npmjs.org/boom/0.4.2
-      cryptiles: registry.npmjs.org/cryptiles/0.2.2
-      hoek: registry.npmjs.org/hoek/0.9.1
-      sntp: registry.npmjs.org/sntp/0.2.4
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: hawk
-    optional: true
-    resolution:
-      integrity: sha1-h81JH5tG5OKurKM1QWdmiF0tHtk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/hawk/-/hawk-1.1.1.tgz'
-    version: 1.1.1
-  registry.npmjs.org/highlight.js/9.15.5:
-    dependencies:
-      bluebird: registry.npmjs.org/bluebird/3.5.3
-      commander: registry.npmjs.org/commander/2.19.0
-      del: registry.npmjs.org/del/3.0.0
-      gear: registry.npmjs.org/gear/0.9.7
-      gear-lib: registry.npmjs.org/gear-lib/0.9.2
-      glob: registry.npmjs.org/glob/7.1.3
-      js-beautify: registry.npmjs.org/js-beautify/1.8.9
-      jsdom: registry.npmjs.org/jsdom/9.2.1
-      lodash: registry.npmjs.org/lodash/4.17.11
-      tiny-worker: registry.npmjs.org/tiny-worker/2.1.2
+  registry.npmjs.org/highlight.js/9.15.6:
     dev: false
     name: highlight.js
     resolution:
-      integrity: sha512-rxTzkHOur3JzJGHuKKfd9xoE5cBMkMPsAck1LcchT7WbMe4NjT2o1JQtpSrT2/k6iAsfRCgPOlv8FpZob67g7g==
+      integrity: sha512-zozTAWM1D6sozHo8kqhfYgsac+B+q0PmsjXeyDrYIHHcBN0zTVT66+s2GW1GZv7DbyaROdLXKdabwS/WqPyIdQ==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/highlight.js/-/highlight.js-9.15.5.tgz'
-    version: 9.15.5
-  registry.npmjs.org/hoek/0.9.1:
-    deprecated: The major version is no longer supported. Please update to 4.x or newer
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: hoek
-    optional: true
-    resolution:
-      integrity: sha1-PTIkYrrfB3Fup+uFuviAec3c5QU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/hoek/-/hoek-0.9.1.tgz'
-    version: 0.9.1
+      tarball: 'https://registry.npmjs.org/highlight.js/-/highlight.js-9.15.6.tgz'
+    version: 9.15.6
   registry.npmjs.org/home-or-tmp/2.0.0:
     dependencies:
       os-homedir: registry.npmjs.org/os-homedir/1.0.2
@@ -6083,42 +5386,13 @@ packages:
       domutils: registry.npmjs.org/domutils/1.5.1
       entities: registry.npmjs.org/entities/1.0.0
       readable-stream: registry.npmjs.org/readable-stream/1.1.14
+    dev: true
     name: htmlparser2
     resolution:
       integrity: sha1-mWwosZFRaovoZQGn15dX5ccMEGg=
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/htmlparser2/-/htmlparser2-3.8.3.tgz'
     version: 3.8.3
-  registry.npmjs.org/http-signature/0.10.1:
-    dependencies:
-      asn1: registry.npmjs.org/asn1/0.1.11
-      assert-plus: registry.npmjs.org/assert-plus/0.1.5
-      ctype: registry.npmjs.org/ctype/0.5.3
-    dev: false
-    engines:
-      node: '>=0.8'
-    name: http-signature
-    optional: true
-    resolution:
-      integrity: sha1-T72sEyVZqoMjEh5UB3nAoBKyfmY=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/http-signature/-/http-signature-0.10.1.tgz'
-    version: 0.10.1
-  registry.npmjs.org/http-signature/1.2.0:
-    dependencies:
-      assert-plus: registry.npmjs.org/assert-plus/1.0.0
-      jsprim: registry.npmjs.org/jsprim/1.4.1
-      sshpk: registry.npmjs.org/sshpk/1.16.1
-    dev: false
-    engines:
-      node: '>=0.8'
-      npm: '>=1.3.7'
-    name: http-signature
-    resolution:
-      integrity: sha1-muzZJRFHcvPZW2WmCruPfBj7rOE=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/http-signature/-/http-signature-1.2.0.tgz'
-    version: 1.2.0
   registry.npmjs.org/humanize/0.0.9:
     dev: false
     name: humanize
@@ -6317,17 +5591,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/invert-kv/-/invert-kv-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/ip-regex/2.1.0:
-    dev: false
-    engines:
-      node: '>=4'
-    name: ip-regex
-    optional: true
-    resolution:
-      integrity: sha1-+ni/XS5pE8kRzp+BnuUUa7bYROk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/ip-regex/-/ip-regex-2.1.0.tgz'
-    version: 2.1.0
   registry.npmjs.org/is-accessor-descriptor/0.1.6:
     dependencies:
       kind-of: registry.npmjs.org/kind-of/3.2.2
@@ -6711,40 +5974,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/is-observable/-/is-observable-1.1.0.tgz'
     version: 1.1.0
-  registry.npmjs.org/is-path-cwd/1.0.0:
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    name: is-path-cwd
-    resolution:
-      integrity: sha1-0iXsIxMuie3Tj9p2dHLmLmXxEG0=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/is-path-cwd/-/is-path-cwd-1.0.0.tgz'
-    version: 1.0.0
-  registry.npmjs.org/is-path-in-cwd/1.0.1:
-    dependencies:
-      is-path-inside: registry.npmjs.org/is-path-inside/1.0.1
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    name: is-path-in-cwd
-    resolution:
-      integrity: sha512-FjV1RTW48E7CWM7eE/J2NJvAEEVektecDBVBE5Hh3nM1Jd0kvhHtX68Pr3xsDf857xt3Y4AkwVULK1Vku62aaQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/is-path-in-cwd/-/is-path-in-cwd-1.0.1.tgz'
-    version: 1.0.1
-  registry.npmjs.org/is-path-inside/1.0.1:
-    dependencies:
-      path-is-inside: registry.npmjs.org/path-is-inside/1.0.2
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    name: is-path-inside
-    resolution:
-      integrity: sha1-jvW33lBDej/cprToZe96pVy0gDY=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/is-path-inside/-/is-path-inside-1.0.1.tgz'
-    version: 1.0.1
   registry.npmjs.org/is-plain-obj/1.1.0:
     engines:
       node: '>=0.10.0'
@@ -6878,14 +6107,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/is-text-path/-/is-text-path-1.0.1.tgz'
     version: 1.0.1
-  registry.npmjs.org/is-typedarray/1.0.0:
-    dev: false
-    name: is-typedarray
-    resolution:
-      integrity: sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/is-typedarray/-/is-typedarray-1.0.0.tgz'
-    version: 1.0.0
   registry.npmjs.org/is-utf8/0.2.1:
     dev: true
     name: is-utf8
@@ -6918,6 +6139,7 @@ packages:
       tarball: 'https://registry.npmjs.org/is-word-character/-/is-word-character-1.0.2.tgz'
     version: 1.0.2
   registry.npmjs.org/isarray/0.0.1:
+    dev: true
     name: isarray
     resolution:
       integrity: sha1-ihis/Kmo9Bd+Cav8YDiTmwXR7t8=
@@ -6969,14 +6191,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/isomorphic-fetch/-/isomorphic-fetch-2.2.1.tgz'
     version: 2.2.1
-  registry.npmjs.org/isstream/0.1.2:
-    dev: false
-    name: isstream
-    resolution:
-      integrity: sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/isstream/-/isstream-0.1.2.tgz'
-    version: 0.1.2
   registry.npmjs.org/jest-docblock/21.2.0:
     dev: false
     name: jest-docblock
@@ -7006,21 +6220,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/jest-validate/-/jest-validate-23.6.0.tgz'
     version: 23.6.0
-  registry.npmjs.org/js-beautify/1.8.9:
-    dependencies:
-      config-chain: registry.npmjs.org/config-chain/1.1.12
-      editorconfig: registry.npmjs.org/editorconfig/0.15.2
-      glob: registry.npmjs.org/glob/7.1.3
-      mkdirp: registry.npmjs.org/mkdirp/0.5.1
-      nopt: registry.npmjs.org/nopt/4.0.1
-    dev: false
-    hasBin: true
-    name: js-beautify
-    resolution:
-      integrity: sha512-MwPmLywK9RSX0SPsUJjN7i+RQY9w/yC17Lbrq9ViEefpLRgqAR2BgrMN2AbifkUuhDV8tRauLhLda/9+bE0YQA==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/js-beautify/-/js-beautify-1.8.9.tgz'
-    version: 1.8.9
   registry.npmjs.org/js-tokens/3.0.2:
     name: js-tokens
     resolution:
@@ -7035,17 +6234,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/js-tokens/-/js-tokens-4.0.0.tgz'
     version: 4.0.0
-  registry.npmjs.org/js-yaml/3.12.1:
+  registry.npmjs.org/js-yaml/3.12.2:
     dependencies:
       argparse: registry.npmjs.org/argparse/1.0.10
       esprima: registry.npmjs.org/esprima/4.0.1
     hasBin: true
     name: js-yaml
     resolution:
-      integrity: sha512-um46hB9wNOKlwkHgiuyEVAybXBjwFUV0Z/RaHJblRd9DXltue9FTYvzCr9ErQrK9Adz5MU4gHWVaNUfdmrC8qA==
+      integrity: sha512-QHn/Lh/7HhZ/Twc7vJYQTkjuCa0kaCcDcjK5Zlk2rvnUpy7DxMJ23+Jc2dcyvltwQVg1nygAVlB2oRDFHoRS5Q==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/js-yaml/-/js-yaml-3.12.1.tgz'
-    version: 3.12.1
+      tarball: 'https://registry.npmjs.org/js-yaml/-/js-yaml-3.12.2.tgz'
+    version: 3.12.2
   registry.npmjs.org/js2xmlparser/3.0.0:
     dependencies:
       xmlcreate: registry.npmjs.org/xmlcreate/1.0.2
@@ -7056,14 +6255,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/js2xmlparser/-/js2xmlparser-3.0.0.tgz'
     version: 3.0.0
-  registry.npmjs.org/jsbn/0.1.1:
-    dev: false
-    name: jsbn
-    resolution:
-      integrity: sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/jsbn/-/jsbn-0.1.1.tgz'
-    version: 0.1.1
   registry.npmjs.org/jscodeshift/0.5.1:
     dependencies:
       babel-plugin-transform-flow-strip-types: registry.npmjs.org/babel-plugin-transform-flow-strip-types/6.22.0
@@ -7135,32 +6326,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/jsdoc/-/jsdoc-3.5.5.tgz'
     version: 3.5.5
-  registry.npmjs.org/jsdom/9.2.1:
-    dependencies:
-      abab: registry.npmjs.org/abab/1.0.4
-      acorn: registry.npmjs.org/acorn/2.7.0
-      acorn-globals: registry.npmjs.org/acorn-globals/1.0.9
-      array-equal: registry.npmjs.org/array-equal/1.0.0
-      cssom: registry.npmjs.org/cssom/0.3.6
-      cssstyle: registry.npmjs.org/cssstyle/0.2.37
-      escodegen: registry.npmjs.org/escodegen/1.11.1
-      iconv-lite: registry.npmjs.org/iconv-lite/0.4.24
-      nwmatcher: registry.npmjs.org/nwmatcher/1.4.4
-      parse5: registry.npmjs.org/parse5/1.5.1
-      request: registry.npmjs.org/request/2.88.0
-      sax: registry.npmjs.org/sax/1.2.4
-      symbol-tree: registry.npmjs.org/symbol-tree/3.2.2
-      tough-cookie: registry.npmjs.org/tough-cookie/2.5.0
-      webidl-conversions: registry.npmjs.org/webidl-conversions/3.0.1
-      whatwg-url: registry.npmjs.org/whatwg-url/3.1.0
-      xml-name-validator: registry.npmjs.org/xml-name-validator/2.0.1
-    dev: false
-    name: jsdom
-    resolution:
-      integrity: sha1-Bhy8zG5WPRRJP2U6+S6tw8DTmRA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/jsdom/-/jsdom-9.2.1.tgz'
-    version: 9.2.1
   registry.npmjs.org/jsesc/0.5.0:
     dev: false
     hasBin: true
@@ -7189,39 +6354,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/jsesc/-/jsesc-2.5.2.tgz'
     version: 2.5.2
-  registry.npmjs.org/jshint/2.5.11:
-    dependencies:
-      cli: registry.npmjs.org/cli/0.6.6
-      console-browserify: registry.npmjs.org/console-browserify/1.1.0
-      exit: registry.npmjs.org/exit/0.1.2
-      htmlparser2: registry.npmjs.org/htmlparser2/3.8.3
-      minimatch: registry.npmjs.org/minimatch/1.0.0
-      shelljs: registry.npmjs.org/shelljs/0.3.0
-      strip-json-comments: registry.npmjs.org/strip-json-comments/1.0.4
-      underscore: registry.npmjs.org/underscore/1.6.0
-    dev: false
-    hasBin: true
-    name: jshint
-    resolution:
-      integrity: sha1-4tlYWLuxqngwAQii6BCZ+wlWIuA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/jshint/-/jshint-2.5.11.tgz'
-    version: 2.5.11
-  registry.npmjs.org/jslint/0.3.4:
-    dependencies:
-      nopt: registry.npmjs.org/nopt/1.0.10
-    dev: false
-    engines:
-      node: '>=0.4.12'
-    hasBin: true
-    name: jslint
-    optionalDependencies:
-      glob: registry.npmjs.org/glob/3.2.11
-    resolution:
-      integrity: sha1-+3aKyN4GQfzFcMh8ofvSjik8jXU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/jslint/-/jslint-0.3.4.tgz'
-    version: 0.3.4
   registry.npmjs.org/json-parse-better-errors/1.0.2:
     name: json-parse-better-errors
     resolution:
@@ -7243,14 +6375,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/json-schema-traverse/-/json-schema-traverse-0.4.1.tgz'
     version: 0.4.1
-  registry.npmjs.org/json-schema/0.2.3:
-    dev: false
-    name: json-schema
-    resolution:
-      integrity: sha1-tIDIkuWaLwWVTOcnvT8qTogvnhM=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/json-schema/-/json-schema-0.2.3.tgz'
-    version: 0.2.3
   registry.npmjs.org/json-stable-stringify-without-jsonify/1.0.1:
     name: json-stable-stringify-without-jsonify
     resolution:
@@ -7259,6 +6383,7 @@ packages:
       tarball: 'https://registry.npmjs.org/json-stable-stringify-without-jsonify/-/json-stable-stringify-without-jsonify-1.0.1.tgz'
     version: 1.0.1
   registry.npmjs.org/json-stringify-safe/5.0.1:
+    dev: true
     name: json-stringify-safe
     resolution:
       integrity: sha1-Epai1Y/UXxmg9s4B1lcB4sc1tus=
@@ -7325,21 +6450,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/jsonparse/-/jsonparse-1.3.1.tgz'
     version: 1.3.1
-  registry.npmjs.org/jsprim/1.4.1:
-    dependencies:
-      assert-plus: registry.npmjs.org/assert-plus/1.0.0
-      extsprintf: registry.npmjs.org/extsprintf/1.3.0
-      json-schema: registry.npmjs.org/json-schema/0.2.3
-      verror: registry.npmjs.org/verror/1.10.0
-    dev: false
-    engines:
-      '0': node >=0.6.0
-    name: jsprim
-    resolution:
-      integrity: sha1-MT5mvB5cwG5Di8G3SZwuXFastqI=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/jsprim/-/jsprim-1.4.1.tgz'
-    version: 1.4.1
   registry.npmjs.org/jsx-ast-utils/2.0.1:
     dependencies:
       array-includes: registry.npmjs.org/array-includes/3.0.3
@@ -7409,21 +6519,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/known-css-properties/-/known-css-properties-0.11.0.tgz'
     version: 0.11.0
-  registry.npmjs.org/knox/0.8.10:
-    dependencies:
-      debug: registry.npmjs.org/debug/0.7.4
-      mime: registry.npmjs.org/mime/2.4.0
-      stream-counter: registry.npmjs.org/stream-counter/0.1.0
-      xml2js: registry.npmjs.org/xml2js/0.2.8
-    dev: false
-    engines:
-      node: '>= 0.8'
-    name: knox
-    resolution:
-      integrity: sha1-ai7c2sHSrjedHhmU1Vm5XCg7JYg=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/knox/-/knox-0.8.10.tgz'
-    version: 0.8.10
   registry.npmjs.org/lcid/1.0.0:
     dependencies:
       invert-kv: registry.npmjs.org/invert-kv/1.0.0
@@ -7435,24 +6530,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/lcid/-/lcid-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/less/1.7.5:
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    hasBin: true
-    name: less
-    optionalDependencies:
-      clean-css: registry.npmjs.org/clean-css/2.2.23
-      graceful-fs: registry.npmjs.org/graceful-fs/3.0.11
-      mime: registry.npmjs.org/mime/1.2.11
-      mkdirp: registry.npmjs.org/mkdirp/0.5.1
-      request: registry.npmjs.org/request/2.40.0
-      source-map: registry.npmjs.org/source-map/0.1.43
-    resolution:
-      integrity: sha1-TyIM9yiKJ+rKc5325ICKLUwNV1Y=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/less/-/less-1.7.5.tgz'
-    version: 1.7.5
   registry.npmjs.org/leven/2.1.0:
     engines:
       node: '>=0.10.0'
@@ -7474,22 +6551,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/levn/-/levn-0.3.0.tgz'
     version: 0.3.0
-  registry.npmjs.org/liftoff/2.0.3:
-    dependencies:
-      extend: registry.npmjs.org/extend/2.0.2
-      findup-sync: registry.npmjs.org/findup-sync/0.2.1
-      flagged-respawn: registry.npmjs.org/flagged-respawn/0.3.2
-      minimist: registry.npmjs.org/minimist/1.1.3
-      resolve: registry.npmjs.org/resolve/1.1.7
-    dev: false
-    engines:
-      node: '>= 0.8'
-    name: liftoff
-    resolution:
-      integrity: sha1-+6slNipQasKKPbDFXN6VYvvXBFY=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/liftoff/-/liftoff-2.0.3.tgz'
-    version: 2.0.3
   registry.npmjs.org/linkify-it/2.1.0:
     dependencies:
       uc.micro: registry.npmjs.org/uc.micro/1.0.6
@@ -7861,14 +6922,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/loud-rejection/-/loud-rejection-1.6.0.tgz'
     version: 1.6.0
-  registry.npmjs.org/lru-cache/2.7.3:
-    dev: false
-    name: lru-cache
-    resolution:
-      integrity: sha1-bUUk6LlV+V1PW1iFHOId1y+06VI=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/lru-cache/-/lru-cache-2.7.3.tgz'
-    version: 2.7.3
   registry.npmjs.org/lru-cache/4.1.5:
     dependencies:
       pseudomap: registry.npmjs.org/pseudomap/1.0.2
@@ -8160,58 +7213,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/micromatch/-/micromatch-3.1.10.tgz'
     version: 3.1.10
-  registry.npmjs.org/mime-db/1.38.0:
-    dev: false
-    engines:
-      node: '>= 0.6'
-    name: mime-db
-    resolution:
-      integrity: sha512-bqVioMFFzc2awcdJZIzR3HjZFX20QhilVS7hytkKrv7xFAn8bM1gzc/FOX2awLISvWe0PV8ptFKcon+wZ5qYkg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/mime-db/-/mime-db-1.38.0.tgz'
-    version: 1.38.0
-  registry.npmjs.org/mime-types/1.0.2:
-    dev: false
-    engines:
-      node: '>= 0.8.0'
-    name: mime-types
-    optional: true
-    resolution:
-      integrity: sha1-mVrhOSq4r/y/yyZB3QVOlDwNXc4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/mime-types/-/mime-types-1.0.2.tgz'
-    version: 1.0.2
-  registry.npmjs.org/mime-types/2.1.22:
-    dependencies:
-      mime-db: registry.npmjs.org/mime-db/1.38.0
-    dev: false
-    engines:
-      node: '>= 0.6'
-    name: mime-types
-    resolution:
-      integrity: sha512-aGl6TZGnhm/li6F7yx82bJiBZwgiEa4Hf6CNr8YO+r5UHr53tSTYZb102zyU50DOWWKeOv0uQLRL0/9EiKWCog==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/mime-types/-/mime-types-2.1.22.tgz'
-    version: 2.1.22
-  registry.npmjs.org/mime/1.2.11:
-    dev: false
-    name: mime
-    resolution:
-      integrity: sha1-WCA+7Ybjpe8XrtK32evUfwpg3RA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/mime/-/mime-1.2.11.tgz'
-    version: 1.2.11
-  registry.npmjs.org/mime/2.4.0:
-    dev: false
-    engines:
-      node: '>=4.0.0'
-    hasBin: true
-    name: mime
-    resolution:
-      integrity: sha512-ikBcWwyqXQSHKtciCcctu9YfPbFYZ4+gbHEmE0Q8jzcTYQg5dHCr3g2wwAZjPoJfQVXZq6KXAjpXOTf5/cjT7w==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/mime/-/mime-2.4.0.tgz'
-    version: 2.4.0
   registry.npmjs.org/mimic-fn/1.2.0:
     engines:
       node: '>=4'
@@ -8221,41 +7222,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.2.0.tgz'
     version: 1.2.0
-  registry.npmjs.org/minimatch/0.3.0:
-    dependencies:
-      lru-cache: registry.npmjs.org/lru-cache/2.7.3
-      sigmund: registry.npmjs.org/sigmund/1.0.1
-    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
-    dev: false
-    name: minimatch
-    resolution:
-      integrity: sha1-J12O2qxPG7MyZHIInnlJyDlGmd0=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/minimatch/-/minimatch-0.3.0.tgz'
-    version: 0.3.0
-  registry.npmjs.org/minimatch/1.0.0:
-    dependencies:
-      lru-cache: registry.npmjs.org/lru-cache/2.7.3
-      sigmund: registry.npmjs.org/sigmund/1.0.1
-    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
-    dev: false
-    name: minimatch
-    resolution:
-      integrity: sha1-4N0hILSeG3JM6NcUxSCCKpQ4V20=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/minimatch/-/minimatch-1.0.0.tgz'
-    version: 1.0.0
-  registry.npmjs.org/minimatch/2.0.10:
-    dependencies:
-      brace-expansion: registry.npmjs.org/brace-expansion/1.1.11
-    deprecated: Please update to minimatch 3.0.2 or higher to avoid a RegExp DoS issue
-    dev: false
-    name: minimatch
-    resolution:
-      integrity: sha1-jQh8OcazjAAbl/ynzm0OHoCvusc=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/minimatch/-/minimatch-2.0.10.tgz'
-    version: 2.0.10
   registry.npmjs.org/minimatch/3.0.4:
     dependencies:
       brace-expansion: registry.npmjs.org/brace-expansion/1.1.11
@@ -8291,14 +7257,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/minimist/-/minimist-0.0.8.tgz'
     version: 0.0.8
-  registry.npmjs.org/minimist/0.1.0:
-    dev: false
-    name: minimist
-    resolution:
-      integrity: sha1-md9lelJXTCHJBXSX33QnkLK0wN4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/minimist/-/minimist-0.1.0.tgz'
-    version: 0.1.0
   registry.npmjs.org/minimist/1.1.3:
     name: minimist
     resolution:
@@ -8432,15 +7390,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/nanomatch/-/nanomatch-1.2.13.tgz'
     version: 1.2.13
-  registry.npmjs.org/natives/1.1.6:
-    dev: false
-    name: natives
-    optional: true
-    resolution:
-      integrity: sha512-6+TDFewD4yxY14ptjKaS63GVdtKiES1pTPyxn9Jb0rBqPMZ7VcCiooEhPNsr+mqHtMGxa/5c/HhcC4uPEUw/nA==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/natives/-/natives-1.1.6.tgz'
-    version: 1.1.6
   registry.npmjs.org/natural-compare/1.4.0:
     name: natural-compare
     resolution:
@@ -8520,17 +7469,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/node-releases/-/node-releases-1.1.8.tgz'
     version: 1.1.8
-  registry.npmjs.org/node-uuid/1.4.8:
-    deprecated: Use uuid module instead
-    dev: false
-    hasBin: true
-    name: node-uuid
-    optional: true
-    resolution:
-      integrity: sha1-sEDrCSOWivq/jTL7HxfxFn/auQc=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/node-uuid/-/node-uuid-1.4.8.tgz'
-    version: 1.4.8
   registry.npmjs.org/nomnom/1.8.1:
     dependencies:
       chalk: registry.npmjs.org/chalk/0.4.0
@@ -8543,29 +7481,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/nomnom/-/nomnom-1.8.1.tgz'
     version: 1.8.1
-  registry.npmjs.org/nopt/1.0.10:
-    dependencies:
-      abbrev: registry.npmjs.org/abbrev/1.1.1
-    dev: false
-    hasBin: true
-    name: nopt
-    resolution:
-      integrity: sha1-bd0hvSoxQXuScn3Vhfim83YI6+4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/nopt/-/nopt-1.0.10.tgz'
-    version: 1.0.10
-  registry.npmjs.org/nopt/4.0.1:
-    dependencies:
-      abbrev: registry.npmjs.org/abbrev/1.1.1
-      osenv: registry.npmjs.org/osenv/0.1.5
-    dev: false
-    hasBin: true
-    name: nopt
-    resolution:
-      integrity: sha1-0NRoWv1UFRk8jHUFYC0NF81kR00=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/nopt/-/nopt-4.0.1.tgz'
-    version: 4.0.1
   registry.npmjs.org/normalize-package-data/2.5.0:
     dependencies:
       hosted-git-info: registry.npmjs.org/hosted-git-info/2.7.1
@@ -8681,31 +7596,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/number-is-nan/-/number-is-nan-1.0.1.tgz'
     version: 1.0.1
-  registry.npmjs.org/nwmatcher/1.4.4:
-    dev: false
-    name: nwmatcher
-    resolution:
-      integrity: sha512-3iuY4N5dhgMpCUrOVnuAdGrgxVqV2cJpM+XNccjR2DKOB1RUP0aA+wGXEiNziG/UKboFyGBIoKOaNlJxx8bciQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/nwmatcher/-/nwmatcher-1.4.4.tgz'
-    version: 1.4.4
-  registry.npmjs.org/oauth-sign/0.3.0:
-    dev: false
-    name: oauth-sign
-    optional: true
-    resolution:
-      integrity: sha1-y1QPk7srIqfVlBaRoojWDo6pOG4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.3.0.tgz'
-    version: 0.3.0
-  registry.npmjs.org/oauth-sign/0.9.0:
-    dev: false
-    name: oauth-sign
-    resolution:
-      integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/oauth-sign/-/oauth-sign-0.9.0.tgz'
-    version: 0.9.0
   registry.npmjs.org/object-assign/4.1.1:
     engines:
       node: '>=0.10.0'
@@ -8878,16 +7768,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/onetime/-/onetime-2.0.1.tgz'
     version: 2.0.1
-  registry.npmjs.org/optimist/0.3.7:
-    dependencies:
-      wordwrap: registry.npmjs.org/wordwrap/0.0.3
-    dev: false
-    name: optimist
-    resolution:
-      integrity: sha1-yQlBrVnkJzMokjB00s8ufLxuwNk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/optimist/-/optimist-0.3.7.tgz'
-    version: 0.3.7
   registry.npmjs.org/optimist/0.6.1:
     dependencies:
       minimist: registry.npmjs.org/minimist/0.0.10
@@ -8946,17 +7826,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz'
     version: 1.0.2
-  registry.npmjs.org/osenv/0.1.5:
-    dependencies:
-      os-homedir: registry.npmjs.org/os-homedir/1.0.2
-      os-tmpdir: registry.npmjs.org/os-tmpdir/1.0.2
-    dev: false
-    name: osenv
-    resolution:
-      integrity: sha512-0CWcCECdMVc2Rw3U5w9ZjqX6ga6ubk1xDVKxtBQPK7wis/0F2r9T6k4ydGYhecl7YUBxBVxhL5oisPsNxAPe2g==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/osenv/-/osenv-0.1.5.tgz'
-    version: 0.1.5
   registry.npmjs.org/p-finally/1.0.0:
     engines:
       node: '>=4'
@@ -9013,6 +7882,7 @@ packages:
       tarball: 'https://registry.npmjs.org/p-locate/-/p-locate-3.0.0.tgz'
     version: 3.0.0
   registry.npmjs.org/p-map/1.2.0:
+    dev: true
     engines:
       node: '>=4'
     name: p-map
@@ -9110,14 +7980,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/parse-json/-/parse-json-4.0.0.tgz'
     version: 4.0.0
-  registry.npmjs.org/parse5/1.5.1:
-    dev: false
-    name: parse5
-    resolution:
-      integrity: sha1-m387DeMr543CQBsXVzzK8Pb1nZQ=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/parse5/-/parse5-1.5.1.tgz'
-    version: 1.5.1
   registry.npmjs.org/parse5/3.0.3:
     dependencies:
       '@types/node': registry.npmjs.org/@types/node/11.9.5
@@ -9136,14 +7998,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/parse5/-/parse5-4.0.0.tgz'
     version: 4.0.0
-  registry.npmjs.org/parserlib/0.2.5:
-    dev: false
-    name: parserlib
-    resolution:
-      integrity: sha1-hZB92GBaoGq7PdKV1QuyuPpN0Rc=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/parserlib/-/parserlib-0.2.5.tgz'
-    version: 0.2.5
   registry.npmjs.org/parsimmon/1.12.0:
     dev: false
     name: parsimmon
@@ -9258,6 +8112,7 @@ packages:
       tarball: 'https://registry.npmjs.org/path-type/-/path-type-3.0.0.tgz'
     version: 3.0.0
   registry.npmjs.org/performance-now/2.1.0:
+    dev: true
     name: performance-now
     resolution:
       integrity: sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
@@ -9657,14 +8512,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/prop-types/-/prop-types-15.7.2.tgz'
     version: 15.7.2
-  registry.npmjs.org/proto-list/1.2.4:
-    dev: false
-    name: proto-list
-    resolution:
-      integrity: sha1-IS1b/hMYMGpCD2QCuOJv85ZHqEk=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/proto-list/-/proto-list-1.2.4.tgz'
-    version: 1.2.4
   registry.npmjs.org/pseudomap/1.0.2:
     name: pseudomap
     resolution:
@@ -9672,14 +8519,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/pseudomap/-/pseudomap-1.0.2.tgz'
     version: 1.0.2
-  registry.npmjs.org/psl/1.1.31:
-    dev: false
-    name: psl
-    resolution:
-      integrity: sha512-/6pt4+C+T+wZUieKR620OpzN/LlnNKuWjy1iFLQ/UG35JqHlR/89MP1d96dUfkf6Dne3TuLQzOYEYshJ+Hx8mw==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/psl/-/psl-1.1.31.tgz'
-    version: 1.1.31
   registry.npmjs.org/pump/3.0.0:
     dependencies:
       end-of-stream: registry.npmjs.org/end-of-stream/1.4.1
@@ -9691,14 +8530,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/pump/-/pump-3.0.0.tgz'
     version: 3.0.0
-  registry.npmjs.org/punycode/1.4.1:
-    dev: false
-    name: punycode
-    resolution:
-      integrity: sha1-wNWmOycYgArY4esPpSachN1BhF4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/punycode/-/punycode-1.4.1.tgz'
-    version: 1.4.1
   registry.npmjs.org/punycode/2.1.1:
     engines:
       node: '>=6'
@@ -9719,25 +8550,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/q/-/q-1.5.1.tgz'
     version: 1.5.1
-  registry.npmjs.org/qs/1.0.2:
-    dev: false
-    name: qs
-    optional: true
-    resolution:
-      integrity: sha1-UKk+K1r2aRwxvOpdrnjubqGQN2g=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/qs/-/qs-1.0.2.tgz'
-    version: 1.0.2
-  registry.npmjs.org/qs/6.5.2:
-    dev: false
-    engines:
-      node: '>=0.6'
-    name: qs
-    resolution:
-      integrity: sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/qs/-/qs-6.5.2.tgz'
-    version: 6.5.2
   registry.npmjs.org/quick-lru/1.1.0:
     engines:
       node: '>=4'
@@ -9870,7 +8682,7 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/react-live/-/react-live-1.12.0.tgz'
     version: 1.12.0
-  registry.npmjs.org/react-transition-group/2.5.3:
+  registry.npmjs.org/react-transition-group/2.6.0:
     dependencies:
       dom-helpers: registry.npmjs.org/dom-helpers/3.4.0
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
@@ -9882,10 +8694,10 @@ packages:
       react: '>=15.0.0'
       react-dom: '>=15.0.0'
     resolution:
-      integrity: sha512-2DGFck6h99kLNr8pOFk+z4Soq3iISydwOFeeEVPjTN6+Y01CmvbWmnN02VuTWyFdnRtIDPe+wy2q6Ui8snBPZg==
+      integrity: sha512-VzZ+6k/adL3pJHo4PU/MHEPjW59/TGQtRsXC+wnxsx2mxjQKNHnDdJL/GpYuPJIsyHGjYbBQfIJ2JNOAdPc8GQ==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.5.3.tgz'
-    version: 2.5.3
+      tarball: 'https://registry.npmjs.org/react-transition-group/-/react-transition-group-2.6.0.tgz'
+    version: 2.6.0
   registry.npmjs.org/react/16.8.3:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
@@ -9992,25 +8804,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/read-pkg/-/read-pkg-4.0.1.tgz'
     version: 4.0.1
-  registry.npmjs.org/readable-stream/1.0.34:
-    dependencies:
-      core-util-is: registry.npmjs.org/core-util-is/1.0.2
-      inherits: registry.npmjs.org/inherits/2.0.3
-      isarray: registry.npmjs.org/isarray/0.0.1
-      string_decoder: registry.npmjs.org/string_decoder/0.10.31
-    dev: false
-    name: readable-stream
-    resolution:
-      integrity: sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/readable-stream/-/readable-stream-1.0.34.tgz'
-    version: 1.0.34
   registry.npmjs.org/readable-stream/1.1.14:
     dependencies:
       core-util-is: registry.npmjs.org/core-util-is/1.0.2
       inherits: registry.npmjs.org/inherits/2.0.3
       isarray: registry.npmjs.org/isarray/0.0.1
       string_decoder: registry.npmjs.org/string_decoder/0.10.31
+    dev: true
     name: readable-stream
     resolution:
       integrity: sha1-fPTFTvZI44EwhMY23SB54WbAgdk=
@@ -10375,63 +9175,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/replace-ext/-/replace-ext-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/request/2.40.0:
-    dependencies:
-      forever-agent: registry.npmjs.org/forever-agent/0.5.2
-      json-stringify-safe: registry.npmjs.org/json-stringify-safe/5.0.1
-      mime-types: registry.npmjs.org/mime-types/1.0.2
-      node-uuid: registry.npmjs.org/node-uuid/1.4.8
-      qs: registry.npmjs.org/qs/1.0.2
-    dev: false
-    engines:
-      '0': node >= 0.8.0
-    name: request
-    optional: true
-    optionalDependencies:
-      aws-sign2: registry.npmjs.org/aws-sign2/0.5.0
-      form-data: registry.npmjs.org/form-data/0.1.4
-      hawk: registry.npmjs.org/hawk/1.1.1
-      http-signature: registry.npmjs.org/http-signature/0.10.1
-      oauth-sign: registry.npmjs.org/oauth-sign/0.3.0
-      stringstream: registry.npmjs.org/stringstream/0.0.6
-      tough-cookie: registry.npmjs.org/tough-cookie/3.0.1
-      tunnel-agent: registry.npmjs.org/tunnel-agent/0.4.3
-    resolution:
-      integrity: sha1-TdZw9pbx5uhC5mtLXoOTAaub62c=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/request/-/request-2.40.0.tgz'
-    version: 2.40.0
-  registry.npmjs.org/request/2.88.0:
-    dependencies:
-      aws-sign2: registry.npmjs.org/aws-sign2/0.7.0
-      aws4: registry.npmjs.org/aws4/1.8.0
-      caseless: registry.npmjs.org/caseless/0.12.0
-      combined-stream: registry.npmjs.org/combined-stream/1.0.7
-      extend: registry.npmjs.org/extend/3.0.2
-      forever-agent: registry.npmjs.org/forever-agent/0.6.1
-      form-data: registry.npmjs.org/form-data/2.3.3
-      har-validator: registry.npmjs.org/har-validator/5.1.3
-      http-signature: registry.npmjs.org/http-signature/1.2.0
-      is-typedarray: registry.npmjs.org/is-typedarray/1.0.0
-      isstream: registry.npmjs.org/isstream/0.1.2
-      json-stringify-safe: registry.npmjs.org/json-stringify-safe/5.0.1
-      mime-types: registry.npmjs.org/mime-types/2.1.22
-      oauth-sign: registry.npmjs.org/oauth-sign/0.9.0
-      performance-now: registry.npmjs.org/performance-now/2.1.0
-      qs: registry.npmjs.org/qs/6.5.2
-      safe-buffer: registry.npmjs.org/safe-buffer/5.1.2
-      tough-cookie: registry.npmjs.org/tough-cookie/2.4.3
-      tunnel-agent: registry.npmjs.org/tunnel-agent/0.6.0
-      uuid: registry.npmjs.org/uuid/3.3.2
-    dev: false
-    engines:
-      node: '>= 4'
-    name: request
-    resolution:
-      integrity: sha512-NAqBSrijGLZdM0WZNsInLJpkJokL72XYjUpnB0iwsRgxh7dB6COrHnTBNwN0E+lHDAJzu7kLAkDeY08z2/A0hg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/request/-/request-2.88.0.tgz'
-    version: 2.88.0
   registry.npmjs.org/require-directory/2.1.1:
     engines:
       node: '>=0.10.0'
@@ -10512,14 +9255,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/resolve-url/-/resolve-url-0.2.1.tgz'
     version: 0.2.1
-  registry.npmjs.org/resolve/1.1.7:
-    dev: false
-    name: resolve
-    resolution:
-      integrity: sha1-IDEU2CrSxe2ejgQRs5ModeiJ6Xs=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/resolve/-/resolve-1.1.7.tgz'
-    version: 1.1.7
   registry.npmjs.org/resolve/1.10.0:
     dependencies:
       path-parse: registry.npmjs.org/path-parse/1.0.6
@@ -10664,22 +9399,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/safer-buffer/-/safer-buffer-2.1.2.tgz'
     version: 2.1.2
-  registry.npmjs.org/sax/0.5.8:
-    dev: false
-    name: sax
-    resolution:
-      integrity: sha1-1HLbIo6zMcJQaw6MFVJK25OdEsE=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/sax/-/sax-0.5.8.tgz'
-    version: 0.5.8
-  registry.npmjs.org/sax/1.2.4:
-    dev: false
-    name: sax
-    resolution:
-      integrity: sha512-NqVDv9TpANUjFm0N8uM5GxL36UgKi9/atZw+x7YFnQ8ckwFGKrl4xX4yWtrey3UJm5nP1kUbnYgLopqWNSRhWw==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/sax/-/sax-1.2.4.tgz'
-    version: 1.2.4
   registry.npmjs.org/scheduler/0.13.3:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
@@ -10779,17 +9498,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/shebang-regex/-/shebang-regex-1.0.0.tgz'
     version: 1.0.0
-  registry.npmjs.org/shelljs/0.3.0:
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    hasBin: true
-    name: shelljs
-    resolution:
-      integrity: sha1-NZbmMHp4FUT1kfN9phg2DzHbV7E=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/shelljs/-/shelljs-0.3.0.tgz'
-    version: 0.3.0
   registry.npmjs.org/sifter/0.5.3:
     dependencies:
       async: registry.npmjs.org/async/2.6.2
@@ -10805,14 +9513,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/sifter/-/sifter-0.5.3.tgz'
     version: 0.5.3
-  registry.npmjs.org/sigmund/1.0.1:
-    dev: false
-    name: sigmund
-    resolution:
-      integrity: sha1-P/IfGYytIXX587eBhT/ZTQ0ZtZA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/sigmund/-/sigmund-1.0.1.tgz'
-    version: 1.0.1
   registry.npmjs.org/signal-exit/3.0.2:
     name: signal-exit
     resolution:
@@ -10933,19 +9633,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/snapdragon/-/snapdragon-0.8.2.tgz'
     version: 0.8.2
-  registry.npmjs.org/sntp/0.2.4:
-    dependencies:
-      hoek: registry.npmjs.org/hoek/0.9.1
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: sntp
-    optional: true
-    resolution:
-      integrity: sha1-+4hfGLDzqtGJ+CSGJTa87ux1CQA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/sntp/-/sntp-0.2.4.tgz'
-    version: 0.2.4
   registry.npmjs.org/source-map-resolve/0.5.2:
     dependencies:
       atob: registry.npmjs.org/atob/2.1.2
@@ -10976,31 +9663,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/source-map-url/-/source-map-url-0.4.0.tgz'
     version: 0.4.0
-  registry.npmjs.org/source-map/0.1.34:
-    dependencies:
-      amdefine: registry.npmjs.org/amdefine/1.0.1
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: source-map
-    resolution:
-      integrity: sha1-p8/omux7FoLDsZjQrPtH19CQVms=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/source-map/-/source-map-0.1.34.tgz'
-    version: 0.1.34
-  registry.npmjs.org/source-map/0.1.43:
-    dependencies:
-      amdefine: registry.npmjs.org/amdefine/1.0.1
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: source-map
-    optional: true
-    resolution:
-      integrity: sha1-wkvBRspRfBRx9drL4lcbK3+eM0Y=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/source-map/-/source-map-0.1.43.tgz'
-    version: 0.1.43
   registry.npmjs.org/source-map/0.5.7:
     engines:
       node: '>=0.10.0'
@@ -11107,27 +9769,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/sprintf-js/-/sprintf-js-1.0.3.tgz'
     version: 1.0.3
-  registry.npmjs.org/sshpk/1.16.1:
-    dependencies:
-      asn1: registry.npmjs.org/asn1/0.2.4
-      assert-plus: registry.npmjs.org/assert-plus/1.0.0
-      bcrypt-pbkdf: registry.npmjs.org/bcrypt-pbkdf/1.0.2
-      dashdash: registry.npmjs.org/dashdash/1.14.1
-      ecc-jsbn: registry.npmjs.org/ecc-jsbn/0.1.2
-      getpass: registry.npmjs.org/getpass/0.1.7
-      jsbn: registry.npmjs.org/jsbn/0.1.1
-      safer-buffer: registry.npmjs.org/safer-buffer/2.1.2
-      tweetnacl: registry.npmjs.org/tweetnacl/0.14.5
-    dev: false
-    engines:
-      node: '>=0.10.0'
-    hasBin: true
-    name: sshpk
-    resolution:
-      integrity: sha512-HXXqVUq7+pcKeLqqZj6mHFUMvXtOJt1uoUx09pFW6011inTMxqI8BA8PM95myrIyyKwdnzjdFjLiE6KBPVtJIg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/sshpk/-/sshpk-1.16.1.tgz'
-    version: 1.16.1
   registry.npmjs.org/staged-git-files/1.1.1:
     dev: true
     hasBin: true
@@ -11196,18 +9837,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/stream-connect/-/stream-connect-1.0.2.tgz'
     version: 1.0.2
-  registry.npmjs.org/stream-counter/0.1.0:
-    dependencies:
-      readable-stream: registry.npmjs.org/readable-stream/1.0.34
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    name: stream-counter
-    resolution:
-      integrity: sha1-oDXkKTYftX82Fgbhf82Ki5Z3Mns=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/stream-counter/-/stream-counter-0.1.0.tgz'
-    version: 0.1.0
   registry.npmjs.org/stream-via/1.0.4:
     dev: false
     engines:
@@ -11281,6 +9910,7 @@ packages:
       tarball: 'https://registry.npmjs.org/string.prototype.trim/-/string.prototype.trim-1.1.2.tgz'
     version: 1.1.2
   registry.npmjs.org/string_decoder/0.10.31:
+    dev: true
     name: string_decoder
     resolution:
       integrity: sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
@@ -11331,15 +9961,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/stringify-object/-/stringify-object-3.3.0.tgz'
     version: 3.3.0
-  registry.npmjs.org/stringstream/0.0.6:
-    dev: false
-    name: stringstream
-    optional: true
-    resolution:
-      integrity: sha512-87GEBAkegbBcweToUrdzf3eLhWNg06FJTebl4BVJz/JgWy8CvEr9dRtX5qWphiynMSQlxxi+QqN0z5T32SLlhA==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/stringstream/-/stringstream-0.0.6.tgz'
-    version: 0.0.6
   registry.npmjs.org/strip-ansi/0.1.1:
     dev: false
     engines:
@@ -11436,17 +10057,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/strip-indent/-/strip-indent-2.0.0.tgz'
     version: 2.0.0
-  registry.npmjs.org/strip-json-comments/1.0.4:
-    dev: false
-    engines:
-      node: '>=0.8.0'
-    hasBin: true
-    name: strip-json-comments
-    resolution:
-      integrity: sha1-HhX7ysl9Pumb8tc7TGVrCCu6+5E=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-1.0.4.tgz'
-    version: 1.0.4
   registry.npmjs.org/strip-json-comments/2.0.1:
     engines:
       node: '>=0.10.0'
@@ -11629,14 +10239,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/symbol-observable/-/symbol-observable-1.2.0.tgz'
     version: 1.2.0
-  registry.npmjs.org/symbol-tree/3.2.2:
-    dev: false
-    name: symbol-tree
-    resolution:
-      integrity: sha1-rifbOPZgp64uHDt9G8KQgZuFGeY=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/symbol-tree/-/symbol-tree-3.2.2.tgz'
-    version: 3.2.2
   registry.npmjs.org/table/4.0.2:
     dependencies:
       ajv: registry.npmjs.org/ajv/5.5.2
@@ -11780,14 +10382,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz'
     version: 2.1.0
-  registry.npmjs.org/tiny-worker/2.1.2:
-    dev: false
-    name: tiny-worker
-    resolution:
-      integrity: sha512-t8xrlrw0ScBnJ1K5ziHcD6u2SgWpE9Tozv4EIqpXMnCfEVc3pWzMx+ZFwqpXk20C4WTRoLZVBi9v1tLkaciCTg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tiny-worker/-/tiny-worker-2.1.2.tgz'
-    version: 2.1.2
   registry.npmjs.org/tmp/0.0.33:
     dependencies:
       os-tmpdir: registry.npmjs.org/os-tmpdir/1.0.2
@@ -11855,55 +10449,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/to-regex/-/to-regex-3.0.2.tgz'
     version: 3.0.2
-  registry.npmjs.org/tough-cookie/2.4.3:
-    dependencies:
-      psl: registry.npmjs.org/psl/1.1.31
-      punycode: registry.npmjs.org/punycode/1.4.1
-    dev: false
-    engines:
-      node: '>=0.8'
-    name: tough-cookie
-    resolution:
-      integrity: sha512-Q5srk/4vDM54WJsJio3XNn6K2sCG+CQ8G5Wz6bZhRZoAe/+TxjWB/GlFAnYEbkYVlON9FMk/fE3h2RLpPXo4lQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.4.3.tgz'
-    version: 2.4.3
-  registry.npmjs.org/tough-cookie/2.5.0:
-    dependencies:
-      psl: registry.npmjs.org/psl/1.1.31
-      punycode: registry.npmjs.org/punycode/2.1.1
-    dev: false
-    engines:
-      node: '>=0.8'
-    name: tough-cookie
-    resolution:
-      integrity: sha512-nlLsUzgm1kfLXSXfRZMc1KLAugd4hqJHDTvc2hDIwS3mZAfMEuMbc03SujMF+GEcpaX/qboeycw6iO8JwVv2+g==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tough-cookie/-/tough-cookie-2.5.0.tgz'
-    version: 2.5.0
-  registry.npmjs.org/tough-cookie/3.0.1:
-    dependencies:
-      ip-regex: registry.npmjs.org/ip-regex/2.1.0
-      psl: registry.npmjs.org/psl/1.1.31
-      punycode: registry.npmjs.org/punycode/2.1.1
-    dev: false
-    engines:
-      node: '>=6'
-    name: tough-cookie
-    optional: true
-    resolution:
-      integrity: sha512-yQyJ0u4pZsv9D4clxO69OEjLWYw+jbgspjTue4lTQZLfV0c5l1VmK2y1JK8E9ahdpltPOaAThPcp5nKPUgSnsg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tough-cookie/-/tough-cookie-3.0.1.tgz'
-    version: 3.0.1
-  registry.npmjs.org/tr46/0.0.3:
-    dev: false
-    name: tr46
-    resolution:
-      integrity: sha1-gYT9NH2snNwYWZLzpmIuFLnZq2o=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tr46/-/tr46-0.0.3.tgz'
-    version: 0.0.3
   registry.npmjs.org/trim-newlines/1.0.0:
     dev: true
     engines:
@@ -11971,33 +10516,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/tslib/-/tslib-1.9.3.tgz'
     version: 1.9.3
-  registry.npmjs.org/tunnel-agent/0.4.3:
-    dev: false
-    name: tunnel-agent
-    optional: true
-    resolution:
-      integrity: sha1-Y3PbdpCf5XDgjXNYM2Xtgop07us=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.4.3.tgz'
-    version: 0.4.3
-  registry.npmjs.org/tunnel-agent/0.6.0:
-    dependencies:
-      safe-buffer: registry.npmjs.org/safe-buffer/5.1.2
-    dev: false
-    name: tunnel-agent
-    resolution:
-      integrity: sha1-J6XeoGs2sEoKmWZ3SykIaPD8QP0=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tunnel-agent/-/tunnel-agent-0.6.0.tgz'
-    version: 0.6.0
-  registry.npmjs.org/tweetnacl/0.14.5:
-    dev: false
-    name: tweetnacl
-    resolution:
-      integrity: sha1-WuaBd/GS1EViadEIr6k/+HQ/T2Q=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/tweetnacl/-/tweetnacl-0.14.5.tgz'
-    version: 0.14.5
   registry.npmjs.org/type-check/0.3.2:
     dependencies:
       prelude-ls: registry.npmjs.org/prelude-ls/1.1.2
@@ -12050,38 +10568,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/uc.micro/-/uc.micro-1.0.6.tgz'
     version: 1.0.6
-  registry.npmjs.org/uglify-js/2.3.6:
-    dependencies:
-      async: registry.npmjs.org/async/0.2.10
-      optimist: registry.npmjs.org/optimist/0.3.7
-      source-map: registry.npmjs.org/source-map/0.1.43
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    hasBin: true
-    name: uglify-js
-    optional: true
-    resolution:
-      integrity: sha1-+gmEdwtCi3qbKoBY9GNV0U/vIRo=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/uglify-js/-/uglify-js-2.3.6.tgz'
-    version: 2.3.6
-  registry.npmjs.org/uglify-js/2.4.24:
-    dependencies:
-      async: registry.npmjs.org/async/0.2.10
-      source-map: registry.npmjs.org/source-map/0.1.34
-      uglify-to-browserify: registry.npmjs.org/uglify-to-browserify/1.0.2
-      yargs: registry.npmjs.org/yargs/3.5.4
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    hasBin: true
-    name: uglify-js
-    resolution:
-      integrity: sha1-+tV1XB4Vd2WLsG/5q25UjJW+vW4=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/uglify-js/-/uglify-js-2.4.24.tgz'
-    version: 2.4.24
   registry.npmjs.org/uglify-js/3.4.9:
     dependencies:
       commander: registry.npmjs.org/commander/2.17.1
@@ -12097,14 +10583,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/uglify-js/-/uglify-js-3.4.9.tgz'
     version: 3.4.9
-  registry.npmjs.org/uglify-to-browserify/1.0.2:
-    dev: false
-    name: uglify-to-browserify
-    resolution:
-      integrity: sha1-bgkk1r2mta/jSeOabWMoUKD4grc=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz'
-    version: 1.0.2
   registry.npmjs.org/underscore-contrib/0.3.0:
     dependencies:
       underscore: registry.npmjs.org/underscore/1.6.0
@@ -12351,15 +10829,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/util-deprecate/-/util-deprecate-1.0.2.tgz'
     version: 1.0.2
-  registry.npmjs.org/uuid/3.3.2:
-    dev: false
-    hasBin: true
-    name: uuid
-    resolution:
-      integrity: sha512-yXJmeNaw3DnnKAOKJE51sL/ZaYfWJRl1pK9dr19YFCu0ObS231AB1/LbqTKRAQ5kw8A90rA6fr4riOUpTZvQZA==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/uuid/-/uuid-3.3.2.tgz'
-    version: 3.3.2
   registry.npmjs.org/validate-npm-package-license/3.0.4:
     dependencies:
       spdx-correct: registry.npmjs.org/spdx-correct/3.1.0
@@ -12370,20 +10839,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/validate-npm-package-license/-/validate-npm-package-license-3.0.4.tgz'
     version: 3.0.4
-  registry.npmjs.org/verror/1.10.0:
-    dependencies:
-      assert-plus: registry.npmjs.org/assert-plus/1.0.0
-      core-util-is: registry.npmjs.org/core-util-is/1.0.2
-      extsprintf: registry.npmjs.org/extsprintf/1.4.0
-    dev: false
-    engines:
-      '0': node >=0.6.0
-    name: verror
-    resolution:
-      integrity: sha1-OhBcoXBTr1XW4nDB+CiGguGNpAA=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/verror/-/verror-1.10.0.tgz'
-    version: 1.10.0
   registry.npmjs.org/vfile-location/2.0.4:
     name: vfile-location
     resolution:
@@ -12467,14 +10922,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/walk-back/-/walk-back-3.0.1.tgz'
     version: 3.0.1
-  registry.npmjs.org/webidl-conversions/3.0.1:
-    dev: false
-    name: webidl-conversions
-    resolution:
-      integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/webidl-conversions/-/webidl-conversions-3.0.1.tgz'
-    version: 3.0.1
   registry.npmjs.org/whatwg-fetch/3.0.0:
     dev: false
     name: whatwg-fetch
@@ -12483,17 +10930,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/whatwg-fetch/-/whatwg-fetch-3.0.0.tgz'
     version: 3.0.0
-  registry.npmjs.org/whatwg-url/3.1.0:
-    dependencies:
-      tr46: registry.npmjs.org/tr46/0.0.3
-      webidl-conversions: registry.npmjs.org/webidl-conversions/3.0.1
-    dev: false
-    name: whatwg-url
-    resolution:
-      integrity: sha1-e9yuSQ+SGu9kUftnOexrvY6Qe/Y=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/whatwg-url/-/whatwg-url-3.1.0.tgz'
-    version: 3.1.0
   registry.npmjs.org/which-module/2.0.0:
     name: which-module
     resolution:
@@ -12511,26 +10947,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/which/-/which-1.3.1.tgz'
     version: 1.3.1
-  registry.npmjs.org/window-size/0.1.0:
-    dev: false
-    engines:
-      node: '>= 0.8.0'
-    name: window-size
-    resolution:
-      integrity: sha1-VDjNLqk7IC76Ohn+iIeu58lPnJ0=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/window-size/-/window-size-0.1.0.tgz'
-    version: 0.1.0
-  registry.npmjs.org/wordwrap/0.0.2:
-    dev: false
-    engines:
-      node: '>=0.4.0'
-    name: wordwrap
-    resolution:
-      integrity: sha1-t5Zpu0LstAn4PVg8rVLKF+qhZD8=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/wordwrap/-/wordwrap-0.0.2.tgz'
-    version: 0.0.2
   registry.npmjs.org/wordwrap/0.0.3:
     engines:
       node: '>=0.4.0'
@@ -12620,24 +11036,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/x-is-string/-/x-is-string-0.1.0.tgz'
     version: 0.1.0
-  registry.npmjs.org/xml-name-validator/2.0.1:
-    dev: false
-    name: xml-name-validator
-    resolution:
-      integrity: sha1-TYuPHszTQZqjYgYb7O9RXh5VljU=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/xml-name-validator/-/xml-name-validator-2.0.1.tgz'
-    version: 2.0.1
-  registry.npmjs.org/xml2js/0.2.8:
-    dependencies:
-      sax: registry.npmjs.org/sax/0.5.8
-    dev: false
-    name: xml2js
-    resolution:
-      integrity: sha1-m4FpCTFjH/CdGVdUn69U9PmAs8I=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/xml2js/-/xml2js-0.2.8.tgz'
-    version: 0.2.8
   registry.npmjs.org/xmlcreate/1.0.2:
     dev: false
     name: xmlcreate
@@ -12719,19 +11117,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/yargs/-/yargs-11.1.0.tgz'
     version: 11.1.0
-  registry.npmjs.org/yargs/3.5.4:
-    dependencies:
-      camelcase: registry.npmjs.org/camelcase/1.2.1
-      decamelize: registry.npmjs.org/decamelize/1.2.0
-      window-size: registry.npmjs.org/window-size/0.1.0
-      wordwrap: registry.npmjs.org/wordwrap/0.0.2
-    dev: false
-    name: yargs
-    resolution:
-      integrity: sha1-2K/49mXpTDS9JZvevRv68N3TU2E=
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/yargs/-/yargs-3.5.4.tgz'
-    version: 3.5.4
   registry.npmjs.org/yargs/8.0.2:
     dependencies:
       camelcase: registry.npmjs.org/camelcase/4.1.0

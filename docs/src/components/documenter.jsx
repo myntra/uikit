@@ -24,6 +24,8 @@ export default class Documenter extends Component {
     const { component, hideName = true, children } = this.props
     const docs = component.__docs
 
+    if (!docs) return <div>No docs found</div>
+
     return (
       <div id={docs.name}>
         {hideName ? null : <h1>{docs.name}</h1>}

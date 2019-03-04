@@ -5,26 +5,26 @@ color:
       - hsl(244, 64, 47) # dark
       - hsl(244, 65, 78) # default/base
       - hsl(244, 35, 87) # light
-      - hsl(244, 8, 97)  # lighter
+      - hsl(244,  8, 97)  # lighter
 
-  success:
-    name: Success
+  green:
+    name: Green
     value:
       - hsl(137, 47, 43)
       - hsl(137, 48, 72)
       - hsl(137, 25, 83)
-      - hsl(137, 9, 93)
+      - hsl(137,  9, 93)
 
-  warning:
-    name: Warning
+  yellow:
+    name: Yellow
     value:
       - hsl(40, 65, 43)
       - hsl(40, 65, 94)
       - hsl(40, 38, 96)
       - hsl(40, 16, 98)
 
-  error:
-    name: Error
+  red:
+    name: Red
     value:
       - hsl(2, 51, 50)
       - hsl(2, 51, 83)
@@ -35,9 +35,9 @@ text-color:
   dark:
     name: Dark
     value:
-      - rgba(0, 0, 0, 0.87)
-      - rgba(0, 0, 0, 0.54)
-      - rgba(0, 0, 0, 0.27)
+      - rgba(0, 0, 0, 0.87)  # default
+      - rgba(0, 0, 0, 0.54)  # trivial
+      - rgba(0, 0, 0, 0.27)  # disabled
 
   light:
     name: Light
@@ -47,8 +47,10 @@ text-color:
       - rgba(255, 255, 255, 0.27)
 
 shadow:
-  flat: none
-  raised: 0 3px 11px 0 rgba(0, 0, 0, 0.21)
+  flat:
+    value: none
+  raised:
+    value: 0 3px 11px 0 rgba(0, 0, 0, 0.21)
 
 font-family:
   default:
@@ -115,7 +117,7 @@ text-style:
       font-weight: 500
       text-transform: uppercase
 
-spacing:
+size:
   2xs: 4
   xs: 8
   s: 12

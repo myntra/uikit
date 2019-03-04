@@ -19,6 +19,7 @@
     "tokenize": "bin/tokenize.js"
   },
   "dependencies": {
+    "ajv": "^6.9.2",
     "camelcase": "^5.0.0",
     "js-yaml": "^3.11.0",
     "lodash.isplainobject": "^4.0.6",

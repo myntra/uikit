@@ -77,6 +77,10 @@ $errors: ();
     border-style: map-get($border, 'border-style');
     border-width: map-get($border, 'border-width');
     border-radius: map-get($border, 'border-radius');
+    border-top-left-radius: map-get($border, 'border-top-left-radius');
+    border-top-right-radius: map-get($border, 'border-top-right-radius');
+    border-bottom-left-radius: map-get($border, 'border-bottom-left-radius');
+    border-bottom-right-radius: map-get($border, 'border-bottom-right-radius');
   } @else if type-of($border) == color {
     border-color: $border;
   } @else if type-of($border) == list {
@@ -123,6 +127,7 @@ $errors: ();
     font-variant: map-get($font, 'font-variant');
     font-size-adjust: map-get($font, 'font-size-adjust');
     font-stretch: map-get($font, 'font-stretch');
+    text-transform: map-get($font, 'text-transform');
   } @else if type-of($font) == string {
     font: $font;
   } @else {
@@ -135,7 +140,6 @@ $errors: ();
     color: $text;
   } @else if type-of($text) == map {
     color: map-get($text, 'color');
-    text-transform: map-get($text, 'text-transform');
     white-space: map-get($text, 'white-space');
     @include extract-font($text);
   } @else {

@@ -1098,12 +1098,63 @@ interface IconNameGlobal {
 }
 
 
+interface AlertProps extends BaseProps {
+    /** The visual style to convey purpose of the alert. */
+    type: 'primary' | 'error' | 'warning' | 'success';
+    /** The handler to call when the alert box is dismissed. */
+    onClose?: () => void;
+    /** Displays a alert box with filled background. */
+    solid?: boolean;
+    /** The message/body of the alert box. */
+    children: string | JSX.Element;
+}
+/**
+ * Show a message intended to draw the user's attention.
+ *
+ * @since 0.3.0
+ * @status READY
+ * @category basic
+ */
+
+declare function Alert(props: AlertProps): JSX.Element;
+
+interface AvatarProps extends BaseProps {
+    /** The name of the person/object.  */
+    name: string;
+    /** The size of the avatar. */
+    size?: 'small' | 'medium' | 'large';
+}
+/**
+ * Displays user icon.
+ *
+ * @since 0.3.1
+ * @status EXPERIMENTAL
+ * @category basic
+ */
+
+declare function Avatar(props: AvatarProps): JSX.Element;
+
+interface BadgeProps extends BaseProps {
+    /** The visual style to convey purpose of the badge. */
+    type: 'primary' | 'success' | 'warning' | 'error';
+    /** The label text of the badge. */
+    children: string;
+}
+/**
+ * Displays an information pill/badge.
+ *
+ * @since 0.8.0
+ * @status EXPERIMENTAL
+ * @category basic
+ */
+
+declare function Badge(props: BadgeProps): JSX.Element;
 
 interface ButtonProps extends BaseProps {
     /** The visual style to convey purpose of the button. */
     type: 'primary' | 'secondary' | 'link';
     /** The label text of the button. */
-    children: string;
+    children?: string;
     /** The handler to call when the button is clicked. */
     onClick?(event: MouseEvent): void;
     /** The name of the icon (displayed on left side of content). */
@@ -1131,13 +1182,10 @@ interface ButtonProps extends BaseProps {
  * @category basic
  */
 
-
-
 declare function Button(props: ButtonProps): JSX.Element;
 
-
-
 type IconName = IconNameGlobal[keyof IconNameGlobal];
+
 interface IconProps extends BaseProps {
     /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
     name: IconName;
@@ -1152,7 +1200,5 @@ interface IconProps extends BaseProps {
  * @status REVIEWING
  * @category basic
  */
-
-
 
 declare function Icon(props: IconProps): JSX.Element;

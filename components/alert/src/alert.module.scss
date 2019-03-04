@@ -1,0 +1,60 @@
+@import '@myntra/uikit-design';
+
+$-alert: () !default;
+$-alert: merge(
+  (
+    shape: (
+      border-radius: ui-relative-border-radius()
+    ),
+    surface: (
+      border: 1px solid,
+    )
+  ),
+  $-alert
+);
+
+.alert {
+  $types: (
+    primary: primary,
+    error: red,
+    warning: yellow,
+    success: green
+  );
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: ui-relative-size(xs);
+  padding-left: ui-relative-size();
+  color: ui-text-color(light);
+
+  @include extract($-alert);
+
+  @each $name, $color in $types {
+    &.#{$name} {
+      background-color: ui-color($color, lighter);
+      border-color: ui-color($color);
+      color: ui-text-color($color);
+
+      &.solid {
+        background-color: ui-color($color);
+      }
+    }
+  }
+
+
+  &.solid {
+    color: ui-text-color(light);
+  }
+
+  .content {
+    margin-left: ui-relative-space();
+    flex: 1;
+  }
+
+  .close {
+    margin: (- ui-relative-size(xs));
+    margin-left: 0;
+  }
+
+}

@@ -6,7 +6,7 @@ interface ButtonProps extends BaseProps {
   /** The visual style to convey purpose of the button. */
   type: 'primary' | 'secondary' | 'link'
   /** The label text of the button. */
-  children: string
+  children?: string
   /** The handler to call when the button is clicked. */
   onClick?(event: MouseEvent): void
   /** The name of the icon (displayed on left side of content). */

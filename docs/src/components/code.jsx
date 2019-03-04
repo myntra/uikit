@@ -1,7 +1,6 @@
 import React, { useState, useMemo, useEffect } from 'react'
 import MonacoEditor from 'react-monaco-editor'
 import { transform } from '@babel/standalone'
-import debounce from 'lodash.debounce'
 import Preview from './preview'
 import DTS from '!!raw-loader!../uikit.d.ts'
 
@@ -12,16 +11,18 @@ export default function Code({ preview = false, editor = false, language, tag, c
   const [component, setComponent] = useState(null)
   const [workingComponent, setWorkingComponent] = useState(null)
   const [error, setError] = useState(null)
-  const [debounceCompile] = useState(() => debounce(compile, 500, { maxWait: 5000, leading: true }))
+
+  if (editor) preview = editor
 
   useEffect(
     () => {
       if (preview) {
-        if (!error) setWorkingComponent(() => component)
-
         try {
-          const fn = debounceCompile(source)
-          if (fn) setComponent(() => fn)
+          const fn = compile(source)
+          if (fn) {
+            setComponent(() => fn)
+            if (!workingComponent) setWorkingComponent(() => fn)
+          }
           if (error !== null) setError(null)
         } catch (error) {
           setError(error)
@@ -93,7 +94,7 @@ function compile(code) {
   if (!code) return null
 
   if (!code.startsWith('function ') && !code.startsWith('class ')) {
-    code = `function Example(props) {\n  ${code.replace(/<([A-Z]|>)/, tag => `return ` + tag)}\n}`
+    code = `function Example(props) {\n  ${/\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Z]|>)/, tag => `return ` + tag)}\n}`
   }
 
   const identifiers = []

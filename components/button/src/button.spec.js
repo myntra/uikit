@@ -4,7 +4,7 @@ import { testCodeMod } from '@myntra/codemod-utils'
 
 import Button from './button'
 
-testCodeMod(__dirname, 'Button.codemod.js')
+testCodeMod(__dirname, '../button.codemod.js')
 
 describe('Button', () => {
   it('renders correct tag according to prop provided (href -> <a> | to -> <RouterLink> | -> <button>)', () => {

@@ -1,0 +1,26 @@
+@import '@myntra/uikit-design';
+
+.avatar {
+  height: 1em;
+  width: 1em;
+  border: 1px solid currentColor;
+  border-radius: 100%;
+  color: currentColor;
+  box-sizing: border-box;
+
+  &.small {
+    font-size: to-rem($-vertical-grid-size);
+  }
+
+  &.medium {
+    font-size: to-rem($-vertical-grid-size * 2);
+  }
+
+  &.large {
+    font-size: to-rem($-vertical-grid-size * 4);
+  }
+
+  text {
+    fill: currentColor;
+  }
+}

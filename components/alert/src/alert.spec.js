@@ -3,9 +3,9 @@ import { shallow } from 'enzyme'
 
 import { testCodeMod } from '@myntra/codemod-utils'
 
-import Alert from './Alert'
+import Alert from './alert'
 
-testCodeMod(__dirname, 'Alert.codemod.js')
+testCodeMod(__dirname, '../alert.codemod.js')
 
 describe('Alert', () => {
   it('renders', () => {

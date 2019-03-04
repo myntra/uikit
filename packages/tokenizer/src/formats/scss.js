@@ -1,17 +1,19 @@
-const cssPrettier = require('tidify')
-const { flatten } = require('../utils')
+const prettier = require('prettier')
 
 function toString(any) {
   if (Array.isArray(any)) {
-    return any.map(it => (/["\s']/.test(it) ? `"${it}"` : it)).join(', ')
+    return `(${any.join(', ')})`
+  }
+  if (typeof any === 'object') {
+    return `(${Object.entries(any).map(([name, value]) => `${name}: ${toString(value)}`).join(',')})`
   }
 
   return any
 }
 
-module.exports = (content, write) => {
-  const payload = Object.entries(flatten(content, '-'))
-    .map(([name, value]) => '$' + name + ': ' + toString(value) + ';')
+module.exports = ({ tokens }, write) => {
+  const payload = Object.entries(tokens)
+    .map(([name, value]) => '$-' + name + ':' + toString(value) + ';')
     .join('\n')
-  write(cssPrettier(payload))
+  write(prettier.format(payload, { parser: 'scss' }))
 }

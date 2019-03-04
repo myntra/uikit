@@ -9,9 +9,7 @@ $-button: merge(
       white-space: nowrap,
     ),
     shape: (
-      padding: ui-context-size(small) ui-context-size(xx-large),
-      margin-left: ui-size(x-small),
-      margin-right: ui-size(x-small),
+      padding: ui-context-size(s) ui-context-size('2xl'),
     ),
     surface: (
       border-radius: 2rem
@@ -87,6 +85,10 @@ $-button__variants: merge(
         background-color: transparent,
         border: none,
       ),
+      shape: (
+        padding-left: 0,
+        padding-right: 0
+      ),
       hover: (
         text: (
           color: ui-color(primary, light)
@@ -111,7 +113,7 @@ $-button--icon: () !default;
 $-button--icon: merge(
   (
     shape: (
-      padding: ui-context-size(small),
+      padding: ui-context-size(s),
     )
   ),
   $-button--icon
@@ -122,7 +124,7 @@ $-button--primary-icon: () !default;
 $-button--primary-icon: merge(
   (
     shape: (
-      margin-right: ui-context-size(x-small),
+      margin-right: ui-context-size(xs),
     )
   ),
   $-button--primary-icon
@@ -133,7 +135,7 @@ $-button--secondary-icon: () !default;
 $-button--secondary-icon: merge(
   (
     shape: (
-      margin-left: ui-context-size(x-small),
+      margin-left: ui-context-size(xs),
     )
   ),
   $-button--secondary-icon
@@ -191,6 +193,10 @@ $-button--secondary-icon: merge(
   &:disabled {
     pointer-events: none;
     user-select: none;
+  }
+
+  &.inherit {
+    color: currentColor;
   }
 
   &.has-icon {

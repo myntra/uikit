@@ -1,11 +1,11 @@
 {
-  "name": "@myntra/svg",
+  "name": "@myntra/uikit-component-avatar",
   "version": "0.7.1",
-  "main": "src/index.js",
-  "module": "dist/svg.js",
+  "main": "src/avatar.tsx",
+  "module": "dist/avatar.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/svg",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/avatar",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
@@ -16,6 +16,6 @@
     "*.codemod.js"
   ],
   "dependencies": {
-    "svg-parser": "^1.0.5"
+    "name-initials": "^0.1.3"
   }
 }

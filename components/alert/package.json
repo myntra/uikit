@@ -1,11 +1,11 @@
 {
-  "name": "@myntra/uikit-component-button",
+  "name": "@myntra/uikit-component-alert",
   "version": "0.7.1",
-  "main": "src/button.tsx",
-  "module": "dist/button.js",
+  "main": "src/alert.tsx",
+  "module": "dist/alert.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/button",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/alert",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
@@ -17,8 +17,7 @@
   ],
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
-    "@myntra/uikit-component-icon": "link:../icon",
-    "@myntra/uikit-design": "link:../../packages/uikit-design",
-    "react": "16.*"
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-icon": "link:../icon"
   }
 }

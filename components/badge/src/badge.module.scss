@@ -1,0 +1,49 @@
+.success {
+  --badge-color: var(--color-success);
+  --badge-background-color: rgba(96, 184, 122, 0.27);
+}
+
+.error {
+  --badge-color: var(--color-error);
+  --badge-background-color: rgba(212, 106, 104, 0.27);
+}
+
+.info {
+  --badge-color: var(--color-info);
+  --badge-background-color: rgba(82, 142, 230, 0.27);
+}
+
+.warning {
+  --badge-color: var(--color-warning);
+  --badge-background-color: rgba(240, 186, 84, 0.27);
+}
+
+.badge {
+  display: inline-block;
+  border-radius: 1rem;
+  border: solid 1px;
+  padding: 0 ui-context-size('xs');
+
+  @include use-text-style(caption);
+
+  $types: (
+    primary: primary,
+    success: green,
+    error: red,
+    warning: yellow
+  );
+
+  @each $name, $color in $types {
+    &.#{$name} {
+      background-color: ui-color($color, lighter);
+      border-color: ui-color($color);
+      color: ui-text-color($color);
+    }
+  }
+}
+
+.content {
+  font-size: var(--typography-text-caption-font-size);
+  font-weight: var(--typography-text-caption-font-weight);
+  color: var(--typography-color-dark-primary);
+}

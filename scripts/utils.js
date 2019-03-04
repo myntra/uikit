@@ -3,6 +3,7 @@ const path = require('path')
 
 const packagesDir = path.resolve(__dirname, '../packages')
 const componentsDir = path.resolve(__dirname, '../components')
+const themesDir = path.resolve(__dirname, '../themes')
 
 /**
  * Find directories names
@@ -14,7 +15,12 @@ function findPackages(dir) {
 
 const packages = findPackages(packagesDir)
 const components = findPackages(componentsDir)
-const targets = [...packages.map(package => `@myntra/${package}`), ...components.map(component => `@myntra/uikit-component-${component}`)]
+const themes = findPackages(themesDir)
+const targets = [
+  ...packages.map(package => `@myntra/${package}`),
+  ...components.map(component => `@myntra/uikit-component-${component}`),
+  ...themes.map(theme => `@myntra/uikit-theme-${theme}`)
+]
 
 /**
  * Find package names
@@ -39,12 +45,20 @@ function isComponent(name) {
 }
 
 /**
+ * @param {string} name - full component name
+ */
+function isTheme(name) {
+  return /@myntra\/uikit-theme-/.test(getFullName(name))
+}
+
+/**
  * @param {string} name
  */
 function getFullName(name) {
   name = getShortName(name)
   if (packages.includes(name)) return `@myntra/${name}`
   if (components.includes(name)) return `@myntra/uikit-component-${name}`
+  if (themes.includes(name)) return `@myntra/uikit-theme-${name}`
 
   throw new Error(`Unknown package '${name}'`)
 }
@@ -53,7 +67,7 @@ function getFullName(name) {
  * @param {string} name
  */
 function getShortName(name) {
-  return name.replace(/^@myntra\/(uikit-component-)?/, '')
+  return name.replace(/^@myntra\/(uikit-component-|uikit-theme-)?/, '')
 }
 
 /**
@@ -63,7 +77,7 @@ function getPackageDir(name) {
   const packageName = getFullName(name)
   const dir = getShortName(name)
 
-  return path.resolve(isComponent(packageName) ? componentsDir : packagesDir, dir)
+  return path.resolve(isComponent(packageName) ? componentsDir : isTheme(packageName) ? themesDir : packagesDir, dir)
 }
 
 /**
@@ -73,17 +87,20 @@ function getPackageRepository(name) {
   const packageName = getFullName(name)
   const dir = getShortName(name)
 
-  return `https://bitbucket.org/myntra/uikit/src/master/${isComponent(packageName) ? 'components' : 'packages'}/${dir}`
+  return `https://bitbucket.org/myntra/uikit/src/master/${isComponent(packageName) ? 'components' : isTheme(packageName) ? 'themes' : 'packages'}/${dir}`
 }
 
 module.exports = {
   componentsDir,
   packagesDir,
+  themesDir,
   components,
   packages,
+  themes,
   targets,
   fuzzyMatchTarget,
   isComponent,
+  isTheme,
   getFullName,
   getShortName,
   getPackageDir,

@@ -2,13 +2,13 @@ $-vertical-grid-size: 16px !default;
 
 $-sizes: () !default;
 $-sizes: merge((
-  xx-small: $-vertical-grid-size * 0.25,
-  x-small: $-vertical-grid-size * 0.5,
-  small: $-vertical-grid-size * 0.75,
-  base: $-vertical-grid-size,
-  large: $-vertical-grid-size * 1.25,
-  x-large: $-vertical-grid-size * 1.5,
-  xx-large: $-vertical-grid-size * 1.75,
+  '2xs': $-vertical-grid-size * 0.25,
+  xs: $-vertical-grid-size * 0.5,
+  s: $-vertical-grid-size * 0.75,
+  r: $-vertical-grid-size,
+  l: $-vertical-grid-size * 1.25,
+  xl: $-vertical-grid-size * 1.5,
+  '2xl': $-vertical-grid-size * 1.75,
 ), $-sizes);
 
 $-spacing: () !default;
@@ -28,7 +28,7 @@ $-spacing: merge(
   $-spacing
 );
 
-@function ui-size($name: base) {
+@function ui-size($name: r) {
   @return map-get-or-throw(
     $-sizes,
     $name,
@@ -36,13 +36,13 @@ $-spacing: merge(
   );
 }
 
-@function ui-relative-size($name: base) {
+@function ui-relative-size($name: r) {
   @return to-rem(
     ui-size($name)
   );
 }
 
-@function ui-context-size($name: base) {
+@function ui-context-size($name: r) {
   @return to-em(
     ui-size($name)
   );
@@ -65,18 +65,18 @@ $-spacing: merge(
 }
 
 $-border-radii: () !default;
-$-border-radii: map-merge(
+$-border-radii: merge(
   (
-    small: size(xx-small),
-    medium: size(base),
-    large: size(x-large)
+    small: ui-size('2xs'),
+    medium: ui-size(xs),
+    large: ui-size(s)
   ),
   $-border-radii
 );
 
 @function ui-border-radius($size: small) {
   @return map-get-or-throw(
-    $-sizes,
+    $-border-radii,
     $size,
     "UIKit(border-radius): Unknown size name: #{$size}"
   );

@@ -1,6 +1,16 @@
 const yaml = require('js-yaml')
-const schema = require('./schema.json')
+const Ajv = require('ajv')
 
-const TOKENS_SCHEMA = yaml.Schema.create([yaml.DEFAULT_FULL_SCHEMA], [ShadowType])
+const ajv = new Ajv()
+const validate = ajv.compile(require('./schema.json'))
 
-module.exports = 
+module.exports = function parse(contents) {
+  const tokens = yaml.load(contents)
+
+  if (!validate(tokens)) {
+    console.error(validate.errors)
+    throw new Error('Tokens schema validation error')
+  }
+
+  return tokens
+}

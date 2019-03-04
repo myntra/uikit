@@ -86,3 +86,9 @@ $-text-styles: merge(
   ),
   $-text-styles
 );
+
+@mixin use-text-style($name: p) {
+  $style: map-get-or-throw($-text-styles, $name, 'UIKit(text-style): Unknown text style #{$name}');
+
+  @include extract-font($style);
+}

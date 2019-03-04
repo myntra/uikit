@@ -1,0 +1,26 @@
+import Alert from './src/alert'
+
+# Alert
+
+<Documenter component={Alert}>
+
+```jsx preview editor
+<Alert>
+  {'An alert message.'}
+</Alert>
+```
+
+</Documenter>
+
+
+## Dismissable Alert
+
+```jsx preview
+const [isVisible, setVisible] = useState(true);
+
+return isVisible &&
+  <Alert type="warning" onClose={() => setVisible(false)}>
+    <div>{'CAUTION! The image you are trying to upload has invalid format. It might not render well.'}</div>
+    <Button type="link" inheritTextColor>Proceed Anyway</Button>
+  </Alert>
+```
