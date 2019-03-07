@@ -1,0 +1,217 @@
+color:
+  # Theme Color Names
+  primary: $color.nuclei-blue.base
+  primary-x-light: $color.nuclei-blue.x-light
+  secondary: $color.nuclei-blue.base
+  accent: $color.nuclei-blue.base
+  success: $color.green.base
+  error: $color.red.base
+  warning: $color.yellow.base
+  info: $color.blue.base
+
+  # Color Definitions
+  black:
+    dark: rgb(0, 0, 0)
+    base: rgba(0, 0, 0, .87)
+    light: rgba(0, 0, 0, .54)
+    x-light: rgba(0, 0, 0, .27)
+  white:
+    base: rgba(255, 255, 255, 1)
+    light: rgba(255, 255, 255, .7)
+    x-light: rgba(255, 255, 255, .5)
+  nuclei-blue:
+    base: rgba(79, 71, 200, 1)
+    light: rgba(170, 166, 228, 1)
+    x-light: rgba(79, 71, 200, 0.1)
+  blue:
+    base: rgb(82, 142, 230)
+  gray:
+    xx-light: rgb(249, 249, 249)
+    x-light: rgb(244, 246, 248)
+    light: rgb(238, 238, 238)
+    base: rgb(230, 230, 230)
+    dark: rgb(212, 212, 212)
+  green:
+    base: rgb(96, 184, 122)
+  yellow:
+    base: rgb(240, 186, 84)
+  red:
+    base: rgb(212, 106, 104)
+  transparent:
+    base: rgba(0, 0, 0, 0)
+font:
+  _meta:
+    base: !!int 12
+
+  size:
+    _meta:
+      transformTo: rem
+    x-small: !!int 10
+    small: !!int 11
+    base: !!int 12
+    large: !!int 14
+    x-large: !!int 16
+    xx-large: !!int 20
+    xxx-large: !!int 24
+    xxxx-large: !!int 28
+
+  height:
+    _meta:
+      transformTo: rem
+    x-small: !!int 11
+    small: !!int 13
+    base: !!int 14
+    large: !!int 16
+    x-large: !!int 21
+    xx-large: !!int 24
+    xxx-large: !!int 28
+    xxxx-large: !!int 33
+
+  face:
+    default:
+      - Roboto
+      - Helvetica
+      - sans-serif
+    accent:
+      - Roboto Condensed
+      - sans-serif
+
+  weight:
+    thin: !!int 100
+    light: !!int 300
+    regular: !!int 400
+    medium: !!int 500
+    bold: !!int 700
+    black: !!int 900
+# gradient:
+#  -
+opacity:
+  x-light: !!float 0.1
+  light: !!float 0.2
+  base: !!float 0.5
+  dark: !!float 0.75
+
+shadow:
+  light-small: !!js/shadow 0 2 8 0 $color.black.x-light
+  dark-small: !!js/shadow 0 2 4 0 $color.black.base
+  dark-large: !!js/shadow 0 2 8 0 $color.black.base
+
+shape:
+  error:
+    background-color: $color.error
+    border-color: $color.transparent.base
+    color: $typography.color.light.primary
+  info:
+    background-color: $color.info
+    border-color: $color.transparent.base
+    color: $typography.color.light.primary
+  success:
+    background-color: $color.success
+    border-color: $color.transparent.base
+    color: $typography.color.light.primary
+  warning:
+    background-color: $color.warning
+    border-color: $color.transparent.base
+    color: $typography.color.light.primary
+  outline:
+    error:
+      background-color: $color.transparent.base
+      border-color: $color.error
+      color: $typography.color.error.primary
+    info:
+      background-color: $color.transparent.base
+      border-color: $color.info
+      color: $typography.color.info.primary
+    success:
+      background-color: $color.transparent.base
+      border-color: $color.success
+      color: $typography.color.success.primary
+    warning:
+      background-color: $color.transparent.base
+      border-color: $color.warning
+      color: $typography.color.warning.primary
+border-radius:
+  button: $relative-size.large
+size:
+  _meta:
+    transformTo: px
+  none: 0
+  xx-small: 4
+  x-small: 8
+  small: 12
+  base: 16
+  large: 24
+relative-size:
+  _meta:
+    base: 12
+    transformTo: em
+  none: 0
+  xx-small: 4
+  x-small: 8
+  small: 12
+  base: 16
+  large: 24
+# timing:
+  # -
+typography:
+  heading:
+    h1:
+      font-size: $font.size.xxxx-large
+      font-weight: $font.weight.medium
+      line-height: $font.height.xxxx-large
+    h2:
+      font-size: $font.size.xxx-large
+      font-weight: $font.weight.medium
+      line-height: $font.height.xxx-large
+    h3:
+      font-size: $font.size.xx-large
+      font-weight: $font.weight.medium
+      line-height: $font.height.xx-large
+    h4:
+      font-size: $font.size.x-large
+      font-weight: $font.weight.medium
+      line-height: $font.height.x-large
+  text:
+    table:
+      font-size: $font.size.base
+      font-weight: $font.weight.regular
+      line-height: $font.height.base
+    paragraph:
+      font-size: $font.size.large
+      font-weight: $font.weight.regular
+      line-height: $font.height.large
+    smallText:
+      font-size: $font.size.small
+      font-weight: $font.weight.regular
+      line-height: $font.height.small
+    title:
+      font-size: $font.size.large
+      font-weight: $font.weight.medium
+      line-height: $font.height.large
+    caption:
+      font-size: $font.size.x-small
+      font-weight: $font.weight.regular
+      line-height: $font.height.x-small
+  color:
+    dark:
+      primary: $color.black.base
+      secondary: $color.black.light
+      disabled: $color.black.x-light
+    light:
+      primary: $color.white.base
+      secondary: $color.white.light
+      disabled: $color.white.x-light
+    error:
+      primary: $color.red.base
+    warning:
+      primary: $color.yellow.base
+    success:
+      primary: $color.green.base
+    info:
+      primary: $color.blue.base
+    link:
+      primary: $color.blue.base
+z-index:
+  nav: 1000
+  modal: 1100
+  dropdown: 1200

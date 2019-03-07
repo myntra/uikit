@@ -1,0 +1,9 @@
+.input-date {
+  display: inline-block;
+  width: 100%;
+}
+
+.wrapper {
+  background: white;
+  box-shadow: var(--shadow-light-small);
+}

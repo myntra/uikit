@@ -1,0 +1,3 @@
+.theme-reset * {
+  font-family: var(--font-face-default);
+}

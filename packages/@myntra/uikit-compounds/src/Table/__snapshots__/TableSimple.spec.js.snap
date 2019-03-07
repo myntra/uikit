@@ -1,0 +1,278 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<TableSimple
+  body={
+    Object {
+      "rows": Array [
+        Object {
+          "columns": Array [
+            Object {
+              "children": "John",
+              "head": true,
+              "key": "firstName",
+            },
+            Object {
+              "children": "Doe",
+              "key": "lastName",
+            },
+          ],
+          "id": 1,
+        },
+      ],
+    }
+  }
+  head={
+    Object {
+      "colgroup": Array [
+        Object {
+          "colSpan": 2,
+          "column": Object {},
+          "key": "name",
+        },
+      ],
+      "rows": Array [
+        Object {
+          "columns": Array [
+            Object {
+              "children": "First Name",
+              "key": "firstName",
+            },
+            Object {
+              "children": "Last Name",
+              "key": "lastName",
+            },
+          ],
+          "id": 0,
+        },
+      ],
+    }
+  }
+  renderRow={[Function]}
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="scroller"
+    >
+      <table
+        className="table"
+      >
+        <thead
+          className="thead"
+        >
+          <renderRow
+            head={true}
+            key="0"
+          >
+            <Row>
+              <tr
+                className="row"
+              >
+                <Cell
+                  head={true}
+                  key="firstName"
+                >
+                  <th
+                    className="col head"
+                  >
+                    First Name
+                  </th>
+                </Cell>
+                <Cell
+                  head={true}
+                  key="lastName"
+                >
+                  <th
+                    className="col head"
+                  >
+                    Last Name
+                  </th>
+                </Cell>
+              </tr>
+            </Row>
+          </renderRow>
+        </thead>
+        <tbody
+          className="tbody"
+        >
+          <renderRow
+            WithSentinel={[Function]}
+            key="1"
+          >
+            <Row>
+              <tr
+                className="row"
+              >
+                <Cell
+                  head={true}
+                  key="firstName"
+                >
+                  <th
+                    className="col head"
+                  >
+                    John
+                  </th>
+                </Cell>
+                <Cell
+                  key="lastName"
+                >
+                  <td
+                    className="col"
+                  >
+                    Doe
+                  </td>
+                </Cell>
+              </tr>
+            </Row>
+          </renderRow>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</TableSimple>
+`;
+
+exports[`should use div 1`] = `
+<TableSimple
+  body={
+    Object {
+      "rows": Array [
+        Object {
+          "columns": Array [
+            Object {
+              "children": "John",
+              "head": true,
+              "key": "firstName",
+            },
+            Object {
+              "children": "Doe",
+              "key": "lastName",
+            },
+          ],
+          "id": 1,
+        },
+      ],
+    }
+  }
+  head={
+    Object {
+      "colgroup": Array [
+        Object {
+          "colSpan": 2,
+          "column": Object {},
+          "key": "name",
+        },
+      ],
+      "rows": Array [
+        Object {
+          "columns": Array [
+            Object {
+              "children": "First Name",
+              "key": "firstName",
+            },
+            Object {
+              "children": "Last Name",
+              "key": "lastName",
+            },
+          ],
+          "id": 0,
+        },
+      ],
+    }
+  }
+  renderRow={[Function]}
+  useDiv={true}
+>
+  <div
+    className="wrapper"
+  >
+    <div
+      className="scroller"
+    >
+      <div
+        className="table"
+      >
+        <div
+          className="thead"
+        >
+          <renderRow
+            head={true}
+            key="0"
+          >
+            <Row
+              useDiv={true}
+            >
+              <div
+                className="row"
+              >
+                <Cell
+                  head={true}
+                  key="firstName"
+                  useDiv={true}
+                >
+                  <div
+                    className="col head"
+                  >
+                    First Name
+                  </div>
+                </Cell>
+                <Cell
+                  head={true}
+                  key="lastName"
+                  useDiv={true}
+                >
+                  <div
+                    className="col head"
+                  >
+                    Last Name
+                  </div>
+                </Cell>
+              </div>
+            </Row>
+          </renderRow>
+        </div>
+        <div
+          className="tbody"
+        >
+          <renderRow
+            WithSentinel={[Function]}
+            key="1"
+          >
+            <Row
+              useDiv={true}
+            >
+              <div
+                className="row"
+              >
+                <Cell
+                  head={true}
+                  key="firstName"
+                  useDiv={true}
+                >
+                  <div
+                    className="col head"
+                  >
+                    John
+                  </div>
+                </Cell>
+                <Cell
+                  key="lastName"
+                  useDiv={true}
+                >
+                  <div
+                    className="col"
+                  >
+                    Doe
+                  </div>
+                </Cell>
+              </div>
+            </Row>
+          </renderRow>
+        </div>
+      </div>
+    </div>
+  </div>
+</TableSimple>
+`;

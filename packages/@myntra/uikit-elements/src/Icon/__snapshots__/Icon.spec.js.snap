@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render SVG icon 1`] = `"<svg class=\\"svg\\" aria-hidden=\\"true\\" xmlns=\\"http://www.w3.org/2000/svg\\"><use xlink:href=\\"#alert\\"></use></svg>"`;
+
+exports[`should render title with SVG icon 1`] = `"<svg class=\\"svg\\" xmlns=\\"http://www.w3.org/2000/svg\\"><title>This is dangerous!</title><use xlink:href=\\"#alert\\" aria-hidden=\\"true\\"></use></svg>"`;

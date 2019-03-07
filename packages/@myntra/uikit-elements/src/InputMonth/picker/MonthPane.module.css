@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em;
+}
+
+.month {
+  cursor: pointer;
+  flex: 1 33.333333%;
+  padding: 1em;
+  text-align: center;
+  border-radius: var(--size-xx-small);
+  margin: 0.5em 0;
+}
+
+.selected {
+  background: var(--color-primary);
+  color: var(--typography-color-light-primary);
+}
+
+.month:not(.selected):hover {
+  color: var(--color-primary);
+}
+
+.month-number {
+  font-size: 1.25em;
+  font-weight: 400;
+}

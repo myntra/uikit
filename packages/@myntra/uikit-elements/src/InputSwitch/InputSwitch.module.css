@@ -1,0 +1,60 @@
+@import '../Input/Input.css';
+
+.input {
+  display: inline-block;
+  border-bottom-color: transparent;
+  padding-right: var(--relative-size-x-small);
+}
+
+.switch-input {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  margin: 0;
+}
+
+.switch-track {
+  position: relative;
+  display: inline-block;
+  width: 2.5em;
+  height: 0.8em;
+  border-radius: 0.8em;
+  background: var(--color-black-light);
+  cursor: pointer;
+  transition-duration: 0.28s;
+  transition-property: background-color;
+}
+
+.switch-thumb {
+  position: absolute;
+  top: -0.2em;
+  left: 0;
+  width: 1.2em;
+  height: 1.2em;
+  border-radius: 50%;
+  background: var(--color-white-base);
+  box-shadow: var(--shadow-light-small);
+  cursor: pointer;
+  transition-duration: 0.28s; /* TODO: replace with token */
+  transition-property: left, background-color;
+}
+
+.switch-input:checked + .switch-track {
+  background: var(--color-nuclei-blue-light);
+}
+
+.switch-input:focus + .switch-track {
+  box-shadow: var(--shadow-light-small);
+}
+
+.switch-input:checked + .switch-track > .switch-thumb {
+  left: 1.3em;
+  background: var(--color-primary);
+}
+
+.switch-input:disabled + .switch-track {
+  box-shadow: none;
+  opacity: var(--opacity-base);
+  cursor: not-allowed;
+}

@@ -1,0 +1,25 @@
+.helptext {
+  font-size: var(--typography-text-caption-font-size);
+  margin-top: var(--size-xx-small);
+  color: var(--typography-color-dark-secondary);
+}
+
+.helptext + .helptext {
+  margin-top: 0;
+}
+
+.helptext-error {
+  color: var(--typography-color-error-primary);
+}
+
+.helptext-success {
+  color: var(--typography-color-success-primary);
+}
+
+.helptext-warning {
+  color: var(--typography-color-warning-primary);
+}
+
+.helptext-info {
+  color: var(--typography-color-info-primary);
+}

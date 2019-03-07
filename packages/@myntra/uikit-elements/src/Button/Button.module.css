@@ -1,0 +1,106 @@
+.button,
+.button:visited {
+  padding: var(--relative-size-x-small) var(--relative-size-large);
+  border-radius: var(--border-radius-button);
+  border-style: none;
+  cursor: pointer;
+  font-size: inherit;
+  text-transform: uppercase;
+  font-weight: var(--font-weight-medium);
+  transition: box-shadow 0.3s, background-image 0.3s;
+  align-self: center;
+}
+
+.button + .button {
+  margin-left: var(--relative-size-x-small);
+}
+
+.button[disabled],
+.button:disabled {
+  cursor: not-allowed;
+}
+
+.button:hover {
+  text-decoration: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus:not(:active),
+.button:hover:not(:active):not([disabled]),
+.button:hover:not(:active):not(:disabled) {
+  box-shadow: var(--shadow-light-small);
+}
+
+.primary,
+.primary:visited {
+  color: var(--typography-color-light-primary);
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.primary[disabled] {
+  background-color: var(--color-gray-dark);
+}
+
+.primary:focus,
+.primary:active:not([disabled]),
+.primary:active:not(:disabled) {
+  background-image: linear-gradient(var(--color-black-x-light), var(--color-black-x-light));
+}
+
+.secondary,
+.secondary:visited {
+  color: var(--color-primary);
+  border: solid 1px var(--color-primary);
+  background-color: var(--color-transparent-base);
+}
+
+.secondary[disabled],
+.secondary:disabled {
+  color: var(--color-gray-dark);
+  border-color: var(--color-gray-dark);
+}
+
+.secondary:active:not([disabled]),
+.secondary:active:not(:disabled) {
+  background-image: linear-gradient(var(--color-white-x-light), var(--color-white-x-light));
+}
+
+.link,
+.link:visited {
+  color: var(--color-primary);
+  padding-inline-start: 0;
+  background-color: transparent;
+  font-weight: bold;
+}
+
+.link.inherit {
+  color: inherit;
+}
+
+.link[disabled],
+.link:disabled {
+  color: var(--color-gray-dark);
+}
+
+.link:focus:not(:active),
+.link:hover:not(:active):not([disabled]),
+.link:hover:not(:active):not(:disabled) {
+  box-shadow: none;
+}
+
+.left,
+.right {
+  display: inline-block;
+}
+
+.left {
+  margin-right: 0.5em;
+}
+
+.right {
+  margin-left: 0.5em;
+}

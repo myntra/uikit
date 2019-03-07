@@ -1,0 +1,12 @@
+.input-upload {
+  text-overflow: ellipsis;
+  margin-right: 15px;
+}
+
+.button-browse {
+  margin-right: 5px;
+}
+
+.progress-bar {
+  width: 150px;
+}

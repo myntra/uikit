@@ -1,0 +1,30 @@
+{
+  "name": "@myntra/tokens",
+  "version": "0.9.2",
+  "description": "Default design language for Myntra",
+  "main": "tokens.js",
+  "module": "tokens.esm.js",
+  "browser": "dist/tokens.js",
+  "style": "tokens.css",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/tokens",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tokenize"
+  },
+  "files": [
+    "tokens.{js,css,esm.js,scss,jsx,module.css}",
+    "dist"
+  ],
+  "dependencies": {
+    "@myntra/uikit-utils": "0.9.2"
+  },
+  "peerDependencies": {
+    "prop-types": ">=15.6",
+    "react": ">=15.6"
+  }
+}

@@ -1,0 +1,24 @@
+
+
+.trigger {
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.list {
+  background: white;
+  box-shadow: var(--shadow-light-small);
+}
+
+.list > div {
+  padding: var(--size-x-small) var(--size-base);
+  border-bottom: solid 1px var(--color-gray-xx-light);
+}
+
+.list code {
+  color: var(--color-accent);
+}
+
+.func {
+  white-space: nowrap;
+}

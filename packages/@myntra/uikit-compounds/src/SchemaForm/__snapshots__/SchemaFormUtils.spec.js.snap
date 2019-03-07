@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generateUISchema should generate UI schema 1`] = `
+Object {
+  "children": Array [
+    Object {
+      "component": undefined,
+      "getDerivedPropsFromValue": [Function],
+      "layout": undefined,
+      "name": "name",
+      "props": Object {
+        "description": "Your full name",
+        "label": "Name",
+      },
+      "type": "field",
+    },
+    Object {
+      "component": undefined,
+      "getDerivedPropsFromValue": [Function],
+      "layout": undefined,
+      "name": "email",
+      "props": Object {
+        "description": "Your personal email address",
+        "label": "Email Address",
+      },
+      "type": "field",
+    },
+    Object {
+      "component": undefined,
+      "factory": [Function],
+      "getDerivedPropsFromValue": [Function],
+      "layout": undefined,
+      "name": "addresses",
+      "props": Object {
+        "description": "Your all contact addresses",
+        "label": "Contact Addresses",
+      },
+      "type": "array",
+    },
+  ],
+  "component": undefined,
+  "getDerivedPropsFromValue": [Function],
+  "layout": undefined,
+  "name": "$root",
+  "props": Object {
+    "label": "Simple Form",
+    "required": Array [
+      "name",
+      "email",
+    ],
+  },
+  "type": "object",
+}
+`;

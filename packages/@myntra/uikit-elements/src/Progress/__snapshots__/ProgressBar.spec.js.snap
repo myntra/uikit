@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ProgressBar> All props given 1`] = `
+<div
+  className="progress-bar"
+>
+  <div
+    className="hello"
+  >
+    <Text
+      color="inherit"
+    >
+      hello
+    </Text>
+  </div>
+  <div
+    className="bar-container"
+  >
+    <div
+      className="bar info"
+      style={
+        Object {
+          "height": "10px",
+          "width": "70%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`<ProgressBar> no props given 1`] = `
+<div
+  className="progress-bar"
+>
+  <div
+    className="bar-container"
+  >
+    <div
+      className="bar success"
+      style={
+        Object {
+          "height": "9px",
+          "width": "0%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`<ProgressBar> renders correctly to 80% 1`] = `
+<div
+  className="progress-bar"
+>
+  <div
+    className="bar-container"
+  >
+    <div
+      className="bar success"
+      style={
+        Object {
+          "height": "9px",
+          "width": "80%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`<ProgressBar> title renders correctly 1`] = `
+<div
+  className="progress-bar"
+>
+  <div
+    className="title"
+  >
+    <Text
+      color="inherit"
+    >
+      title
+    </Text>
+  </div>
+  <div
+    className="bar-container"
+  >
+    <div
+      className="bar success"
+      style={
+        Object {
+          "height": "9px",
+          "width": "80%",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`<ProgressBar> with height 10px  1`] = `
+<div
+  className="progress-bar"
+>
+  <div
+    className="bar-container"
+  >
+    <div
+      className="bar danger"
+      style={
+        Object {
+          "height": "10px",
+          "width": "0%",
+        }
+      }
+    />
+  </div>
+</div>
+`;

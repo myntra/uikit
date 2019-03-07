@@ -1,0 +1,35 @@
+
+
+.markdown code {
+  color: var(--color-accent);
+}
+
+.markdown pre > code {
+  color: inherit;
+}
+
+.markdown > table {
+  display: block;
+  width: 100%;
+  overflow: auto;
+  border-collapse: collapse;
+}
+
+.markdown > table th,
+.markdown > table td {
+  padding: var(--size-small) var(--size-small);
+  border: 1px solid #dfe2e5;
+}
+
+.markdown > table th {
+  border-bottom-width: 2px;
+}
+
+.markdown > table tr {
+  background-color: #fff;
+  border-top: 1px solid #c6cbd1;
+}
+
+.markdown > table tr:nth-child(2n) {
+  background-color: #f6f8fa;
+}

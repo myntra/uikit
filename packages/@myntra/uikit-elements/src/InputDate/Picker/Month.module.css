@@ -1,0 +1,44 @@
+
+
+.month {
+  display: inline-block;
+  background-color: var(--color-gray-xx-light);
+  padding: var(--size-xx-small) var(--size-base);
+}
+
+.month + .month {
+  margin-left: 0.125rem;
+}
+
+.days {
+  display: flex;
+  flex-flow: wrap;
+  width: 17.5rem; /* 7 * width of day */
+  height: 16.5rem; /* 6 * height of day (including margin) */
+  cursor: pointer;
+}
+
+.days > * {
+  flex: 0 0 2.5rem;
+}
+
+/* If month has 4 effective weeks. (Month of Feb starting on Sunday with 28 days.) */
+.days > :nth-of-type(28):last-child {
+  margin-bottom: 5.5rem;
+}
+
+/* If month has 5 effective weeks. (Any month with 30/31 days starting in first half of week.) */
+.days > :nth-of-type(35):last-child {
+  margin-bottom: 2.75rem;
+}
+
+.day-header {
+  width: 2.5rem;
+  color: var(--typography-color-dark-secondary);
+  font-size: var(--typography-text-smallText-font-size);
+  font-weight: var(--typography-text-smallText-font-weight);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+}

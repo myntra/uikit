@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Modal renders 1`] = `
+<Fragment>
+  <button
+    onClick={[Function]}
+  >
+    Trigger
+  </button>
+  <Portal
+    container={true}
+  >
+    <div
+      className="modal"
+    >
+      <div
+        className="backdrop"
+        onClick={[Function]}
+      />
+      <div
+        className="body"
+      >
+        <div
+          className="content"
+        >
+          <div
+            className="wrapper"
+          >
+            <h1>
+              Title
+            </h1>
+            <span>
+              Some
+            </span>
+            <p>
+              Text
+            </p>
+            <div
+              className="actions"
+            >
+              <button>
+                Action
+              </button>
+            </div>
+          </div>
+        </div>
+        <Button
+          className="close"
+          disabled={false}
+          icon="times"
+          inheritTextColor={false}
+          isLoading={false}
+          onClick={[Function]}
+          title="close"
+          type="link"
+        />
+      </div>
+    </div>
+  </Portal>
+</Fragment>
+`;

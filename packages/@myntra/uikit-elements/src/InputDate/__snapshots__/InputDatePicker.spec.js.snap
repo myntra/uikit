@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<Picker
+  disabledDates={Array []}
+  disabledRanges={Object {}}
+  format="yyyy-MM-dd"
+  max={null}
+  min={null}
+  monthsToDisplay={1}
+  onChange={[Function]}
+  range={false}
+  value={null}
+>
+  <Preset
+    onChange={[Function]}
+    presets={
+      Array [
+        Object {
+          "label": "Today",
+          "value": [Function],
+        },
+        Object {
+          "label": "Yesterday",
+          "value": [Function],
+        },
+        Object {
+          "label": "Current Week",
+          "range": true,
+          "value": [Function],
+        },
+        Object {
+          "label": "Last 7 Days",
+          "range": true,
+          "value": [Function],
+        },
+        Object {
+          "label": "Last 30 Days",
+          "range": true,
+          "value": [Function],
+        },
+        Object {
+          "label": "Last Week",
+          "range": true,
+          "value": [Function],
+        },
+        Object {
+          "label": "Last Month",
+          "range": true,
+          "value": [Function],
+        },
+        Object {
+          "label": "Last Year",
+          "range": true,
+          "value": [Function],
+        },
+      ]
+    }
+    range={false}
+    value={null}
+  />
+</Picker>
+`;
+
+exports[`normalize dates onChange 1`] = `
+<Picker
+  disabledDates={Array []}
+  disabledRanges={Object {}}
+  format="yyyy-MM-dd"
+  max={null}
+  min={null}
+  monthsToDisplay={1}
+  onChange={[Function]}
+  range={false}
+  value={null}
+>
+  <Preset
+    onChange={[Function]}
+    presets={Array []}
+    range={false}
+    value={null}
+  />
+</Picker>
+`;

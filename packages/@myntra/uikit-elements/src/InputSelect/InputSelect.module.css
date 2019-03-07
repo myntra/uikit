@@ -1,0 +1,17 @@
+
+@import '../Input/Input.css';
+
+.select {
+  display: inline-block;
+  width: 100%;
+}
+
+.select.disabled {
+  cursor: not-allowed;
+}
+
+.button {
+  padding: var(--relative-size-xx-small);
+  display: inline-block;
+  cursor: pointer;
+}

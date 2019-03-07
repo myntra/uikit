@@ -1,0 +1,17 @@
+@import '../Input/Input.css';
+
+.input {
+  width: 100%;
+}
+
+/* Hide number spinner box on Firefox & Edge. */
+.input:not(:focus) {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}
+
+/* Hide number spinner box on Chrome & Safari. */
+.input::-webkit-inner-spin-button:not(:focus),
+.input::-webkit-outer-spin-button:not(:focus) {
+  visibility: hidden;
+}

@@ -1,0 +1,35 @@
+.bar-container {
+  width: 100%;
+  border-radius: 100px;
+  background-color: var(--color-blue-base);
+}
+
+.bar {
+  border-radius: 100px;
+  background-color: var(--color-green-base);
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.progress-bar {
+  min-width: 50px;
+  width: 100%;
+}
+
+.info {
+  background-color: var(--typography-color-link-primary);
+}
+
+.success {
+  background-color: var(--color-success);
+}
+
+.warning {
+  background-color: var(--color-warning);
+}
+
+.danger {
+  background-color: var(--color-error);
+}

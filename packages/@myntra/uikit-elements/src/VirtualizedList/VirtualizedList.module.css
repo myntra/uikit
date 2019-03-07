@@ -1,0 +1,20 @@
+.container {
+  height: 100%;
+  overflow: hidden;
+}
+
+.scroll {
+  overflow-y: auto;
+}
+
+.list {
+  position: relative;
+}
+
+.item {
+  left: 0;
+  right: 0;
+  position: absolute;
+  will-change: top;
+  overflow: hidden;
+}

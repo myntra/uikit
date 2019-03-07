@@ -1,0 +1,25 @@
+.section {
+  background-color: var(--color-white-base);
+  margin-bottom: var(--size-base);
+}
+
+.header {
+  padding: var(--size-base);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.content {
+  padding: 0px var(--size-base) var(--size-base);
+}
+
+.nopadding {
+  padding-left: 0px;
+  padding-right: 0px;
+}
