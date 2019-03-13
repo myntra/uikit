@@ -12,10 +12,14 @@ export default class Preview extends PureComponent {
     this.props.onError(error)
   }
 
+  componentDidUpdate() {
+    this.props.onError(null)
+  }
+
   render() {
     const Component = this.props.component
 
-    return <Suspense fallback={<div>Loading components...</div>}>
+    return <Suspense fallback={<div>Loading required UIKit components...</div>}>
       <div style={{ padding: '24px' }}>{Component ? <Component context={{ ...React, ...components }} /> : null}</div>
     </Suspense>
   }

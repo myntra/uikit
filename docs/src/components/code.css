@@ -1,0 +1,15 @@
+.code--container {
+  position: relative;
+  padding: 16px;
+  margin: 16px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 0.00625rem solid rgba(0, 0, 0, 0.1);
+}
+
+.code--edit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}

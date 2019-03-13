@@ -1,3 +1,3 @@
-interface BaseProps {
-  className?: string | string[] | { [key: string]: any } | undefined
-}
+import './api'
+import './style'
+import './svg'

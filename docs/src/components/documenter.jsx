@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-import Table from '../../../packages/uikit-compounds/src/Table/Table'
-
 const states = {
   DEPRECATED: '💔',
   EXPERIMENTAL: '️❤️',
@@ -38,34 +36,8 @@ export default class Documenter extends Component {
         </p>
 
         {docs.description}
+
         {children}
-
-        {docs.props.length > 0 && (
-          <div>
-            <h2>Props:</h2>
-
-            <Table data={docs.props.filter(prop => !prop.private).filter(prop => !/^(_|className)/.test(prop.name))}>
-              <Table.Column key="name" label="Name" />
-              <Table.Column key="description" label="Description">
-                {({ data }) => {
-                  data.description || ''
-                }}
-              </Table.Column>
-              <Table.Column key="type" label="Type">
-                {({ data }) => (data.type && data.name !== 'children' ? data.type.name : null)}
-              </Table.Column>
-              <Table.Column key="default" label="Default">
-                {({ data }) =>
-                  data.defaultValue ? (
-                    <code style={{ background: 'lightgray', padding: '4px', lineHeight: 2 }}>
-                      {data.defaultValue.value}
-                    </code>
-                  ) : null
-                }
-              </Table.Column>
-            </Table>
-          </div>
-        )}
       </div>
     )
   }

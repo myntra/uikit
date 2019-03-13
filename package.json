@@ -90,5 +90,10 @@
       "changelog": "npm run changelog",
       "postcommit": "npm run :update:versions"
     }
+  },
+  "prettier": {
+    "comma": "es5",
+    "semi": false,
+    "singleQuote": true
   }
 }

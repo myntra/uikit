@@ -1,7 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext, createContext, useCallback } from 'react'
 import Documenter from '@components/documenter'
+import Editor, { EditorContext } from '@components/editor'
+import Button from '@uikit/button'
 
-async function findComponent(getModule, Component, setComponent) {
+import './_name.css'
+import CodePreview from '@components/code-preview';
+
+async function findFile(getModule, Component, setComponent) {
   try {
     const Module = await getModule()
 
@@ -11,19 +16,19 @@ async function findComponent(getModule, Component, setComponent) {
   }
 }
 
-async function findDocumentation(name, Component, setComponent) {
-  const readme = await findComponent(() => import(`@uikit/${name}/readme`))
+async function findDocumentation(name, setComponent) {
+  const readme = await findFile(() => import(`@uikit/${name}/readme.mdx`))
 
   if (readme) {
-    if (readme !== Component) setComponent(() => readme)
+    setComponent(() => readme)
 
     return
   }
 
-  const component = await findComponent(() => import(`@uikit/${name}/src/${name}.tsx`))
+  const component = await findFile(() => import(`@uikit/${name}/src/${name}.tsx`))
 
   if (component) {
-    if (component !== Component) setComponent(() => () => <Documenter component={component} hideName={false} />)
+    setComponent(() => () => <Documenter component={component} hideName={false} />)
 
     return
   }
@@ -33,10 +38,29 @@ async function findDocumentation(name, Component, setComponent) {
 
 export default function ComponentDocumentationPage({ name }) {
   const [Component, setComponent] = useState(null)
+  const [source, setSource] = useState(null)
+  const [isActive, setActive] = useState(false)
 
   useEffect(() => {
-    findDocumentation(name, Component, setComponent)
+    findDocumentation(name, setComponent)
   })
 
-  return Component ? <Component components={{ wrapper: 'div' }} /> : null
+  // TODO: Add ClickAway here!
+  return (
+    <div className="component">
+      <EditorContext.Provider value={{
+        source, setSource: source => {
+          setSource(source)
+          setActive(true)
+        }
+      }}>
+        {Component ? <Component components={{ wrapper: 'div' }} /> : null}
+      </EditorContext.Provider>
+      {<div className={`editor ${isActive ? 'active' : ''}`}>
+        <Button className="close" icon="times" onClick={() => setActive(false)} />
+        <CodePreview className="preview" source={source} />
+        <Editor value={source} onChange={setSource} />
+      </div>}
+    </div>
+  )
 }

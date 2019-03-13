@@ -5,13 +5,24 @@ import classnames from './alert.module.scss'
 
 
 interface AlertProps extends BaseProps {
-  /** The visual style to convey purpose of the alert. */
+  /**
+   * The visual style to convey purpose of the alert.
+   * ```jsx
+   * <Alert type="error">message here</Alert>
+   * ```
+   */
   type: 'primary' | 'error' | 'warning' | 'success'
-  /** The handler to call when the alert box is dismissed. */
+  /**
+   * The handler to call when the alert box is dismissed.
+   */
   onClose?: () => void
-  /** Displays a alert box with filled background. */
+  /**
+   * Displays a alert box with filled background.
+   */
   solid?: boolean
-  /** The message/body of the alert box. */
+  /**
+   * The message/body of the alert box.
+   */
   children: string | JSX.Element
 }
 

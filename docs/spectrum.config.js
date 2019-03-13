@@ -52,7 +52,7 @@ module.exports = {
 
     config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'))
 
-    config.module.rule('scss').oneOf('modules').use('sass-loader').options({
+    config.module.rule('scss').oneOf('modules').use('sass-loader').loader(require.resolve('sass-loader')).options({
       data: (context) => {
         if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
 
