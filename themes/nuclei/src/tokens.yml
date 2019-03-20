@@ -33,14 +33,14 @@ color:
 
 text-color:
   dark:
-    name: Dark
+    name: Black
     value:
-      - rgba(0, 0, 0, 0.87)  # default
-      - rgba(0, 0, 0, 0.54)  # trivial
-      - rgba(0, 0, 0, 0.27)  # disabled
+      - rgba(0, 0, 0, 0.87)  # High Emphasis
+      - rgba(0, 0, 0, 0.54)  # Mid Emphasis
+      - rgba(0, 0, 0, 0.27)  # Disabled
 
   light:
-    name: Light
+    name: White
     value:
       - rgba(255, 255, 255, 0.87)
       - rgba(255, 255, 255, 0.54)

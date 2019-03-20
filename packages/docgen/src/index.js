@@ -6,46 +6,7 @@ const fs = require('fs')
 const path = require('path')
 const deIndent = require('de-indent')
 
-function prepare(prop) {
-  if (prop.description) {
-    const docs = prop.description.split(/\n/).map(d => doctrine.parse(d))
 
-    prop.description = docs.map(({ description }) => description || '').join('\n')
-    prop.private = docs.map(doc => doc.tags.some(tag => tag.title === 'private')).some(Boolean)
-    prop.meta = docs.length ? docs[docs.length - 1].tags : []
-    const reference = docs.map(doc => (doc.tags.length ? doc.tags : null)).filter(Boolean)
-
-    if (reference.length) {
-      prop.reference = reference
-    }
-  }
-
-  return prop
-}
-
-function normalizeType(type) {
-  switch (type.name) {
-    case 'union':
-      type.value = type.value.map(normalizeType)
-      break
-    case 'shape':
-      type.value = Object.entries(type.value).reduce((acc, [key, value]) => {
-        acc[key] = normalizeType(value)
-        return acc
-      }, {})
-      break
-    case 'arrayOf':
-      type.value = normalizeType(type.value)
-      break
-    case 'enum':
-      if (type.computed) {
-        type.value = `--{computed}-->${type.value}<--{computed}--`
-      }
-      break
-  }
-
-  return prepare(type)
-}
 
 /**
  * Parse JSDoc from prop description.
@@ -54,9 +15,17 @@ function normalizeType(type) {
  * @returns {Prop}
  */
 function prepareProp(prop) {
-  prop.original = JSON.parse(JSON.stringify(prop))
-  prepare(prop)
-  if (prop.type) prop.type = normalizeType(prop.type)
+  if (prop.description) {
+    const meta = doctrine.parse(prop.description)
+
+    prop.description = meta.description
+
+    meta.tags.forEach(({ title, description, ...tag }) => {
+      prop[title] = description || true
+    })
+  }
+
+  delete prop.parent
 
   return prop
 }

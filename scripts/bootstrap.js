@@ -6,7 +6,7 @@ const fs = require('fs')
 const path = require('path')
 
 const { version } = require('../package.json')
-const { targets, getPackageDir, getPackageRepository, getShortName, isComponent, isTheme } = require('./utils')
+const { targets, getPackageDir, getPackageRepository, getShortName, isComponent, isTheme, pascalCase } = require('./utils')
 
 targets.forEach(name => {
   const shortName = getShortName(name)
@@ -32,9 +32,30 @@ targets.forEach(name => {
 
   fs.writeFileSync(pkgFile, JSON.stringify(pkg, null, 2))
 
-  const readmeFile = path.join(rootDir, `README.md`)
-  if (!fs.existsSync(readmeFile)) {
-    fs.writeFileSync(readmeFile, `# ${name}`)
+  if (isComponent(name)) {
+    const readmeFile = path.join(rootDir, `readme.mdx`)
+
+    if (!fs.existsSync(readmeFile)) {
+      const component = pascalCase(shortName)
+      fs.writeFileSync(readmeFile, `
+        import ${component} from './src/${shortName}'
+
+        # ${component}
+
+        <Documenter component={${component}}>
+
+        \`\`\`jsx preview
+        // TODO: Add example.
+        \`\`\`
+
+        </Documenter>
+        `)
+    }
+  } else {
+    const readmeFile = path.join(rootDir, `README.md`)
+    if (!fs.existsSync(readmeFile)) {
+      fs.writeFileSync(readmeFile, `# ${name}`)
+    }
   }
 
   const mainFile = path.join(rootDir, pkg.main)

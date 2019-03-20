@@ -22,7 +22,7 @@ export default function Editor({ value: source, onChange }) {
           tabSize: 2
         })
 
-        monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ noLib: true, allowNonTsExtensions: true });
+        monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ lib: true, allowNonTsExtensions: true });
         try {
           monaco.languages.typescript.javascriptDefaults.addExtraLib(
             DTS,

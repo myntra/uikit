@@ -10,7 +10,7 @@ const themesDir = path.resolve(__dirname, '../themes')
  * @param {string} dir - target directory
  */
 function findPackages(dir) {
-  return fs.readdirSync(dir).filter(filename => fs.statSync(path.resolve(dir, filename)).isDirectory())
+  return fs.readdirSync(dir).filter(filename => fs.statSync(path.resolve(dir, filename)).isDirectory() && filename !== '@myntra')
 }
 
 const packages = findPackages(packagesDir)
@@ -21,6 +21,24 @@ const targets = [
   ...components.map(component => `@myntra/uikit-component-${component}`),
   ...themes.map(theme => `@myntra/uikit-theme-${theme}`)
 ]
+
+/**
+ * Convert to camelCase
+ * @param {string} name
+ */
+function camelCase(name) {
+  return name.replace(/[^a-zA-Z0-9]([a-z])/g, (_, char) => char.toUpperCase())
+}
+
+/**
+ * Convert to PascalCase
+ * @param {string} name
+ */
+function pascalCase(name) {
+  name = camelCase(name)
+
+  return name[0].toUpperCase() + name.substr(1)
+}
 
 /**
  * Find package names
@@ -105,4 +123,6 @@ module.exports = {
   getShortName,
   getPackageDir,
   getPackageRepository,
+  camelCase,
+  pascalCase
 }

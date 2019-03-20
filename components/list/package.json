@@ -1,0 +1,18 @@
+{
+  "name": "@myntra/uikit-component-list",
+  "version": "0.7.1",
+  "main": "src/list.tsx",
+  "module": "dist/list.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/list",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ]
+}

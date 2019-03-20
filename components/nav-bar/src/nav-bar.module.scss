@@ -1,0 +1,72 @@
+@import "@myntra/uikit-design";
+
+$-nav-bar: ()!default;
+$-nav-bar: merge(
+  (
+    close-width: 54px,
+    open-width: 240px,
+    surface: (
+      background-color: white,
+      box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.21)
+    )
+  ),
+  $-nav-bar
+);
+
+$-nav-bar--header: () !default;
+$-nav-bar--header: merge(
+  (
+    height: 64px,
+    shape: (
+      padding: 0 ui-relative-size(),
+      border-bottom: 1px solid ui-color(gray),
+    )
+  ),
+  $-nav-bar--header
+);
+
+$-nav-bar--body: () !default;
+$-nav-bar--body: merge(
+  (),
+  $-nav-bar--body
+);
+
+.nav {
+  width: map-get($-nav-bar, 'close-width');
+  overflow: hidden;
+
+  @include extract($-nav-bar);
+
+  transition: width 0.35s ease-in-out;
+}
+
+.nav:hover,
+.nav.is-open {
+  width: map-get($-nav-bar, 'open-width');
+}
+
+.header {
+  height: map-get($-nav-bar--header, 'height');
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+
+  @include extract($-nav-bar--header);
+}
+
+.header img {
+  height: 2rem;
+  width: 2rem;
+  margin-right: ui-relative-size();
+}
+
+.body {
+  padding-left: ui-relative-size(s);
+  padding-right: ui-relative-size(s);
+  width: map-get($-nav-bar, 'open-width') - 2 * ui-size(s);
+
+  @include extract($-nav-bar--body);
+}

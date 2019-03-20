@@ -1,0 +1,28 @@
+{
+  "name": "@myntra/uikit-component-nav-bar",
+  "version": "0.7.1",
+  "main": "src/nav-bar.tsx",
+  "module": "dist/nav-bar.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/nav-bar",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "components": [
+    "src/nav-bar-group.tsx",
+    "src/nav-bar-item.tsx"
+  ],
+  "dependencies": {
+    "@myntra/uikit-can-i-use": "link:../../packages/uikit-can-i-use",
+    "@myntra/uikit-component-avatar": "link:../avatar",
+    "@myntra/uikit-component-icon": "link:../icon",
+    "@myntra/uikit-context": "link:../../packages/uikit-context"
+  }
+}

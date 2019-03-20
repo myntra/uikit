@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, useContext } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
+import UIKitContext from '@myntra/uikit-context'
 
 interface ButtonProps extends BaseProps {
   /** The visual style to convey purpose of the button. */
@@ -34,13 +35,22 @@ interface ButtonProps extends BaseProps {
  * @since 0.0.0
  * @status READY
  * @category basic
+ * @see http://uikit.myntra.com/components/button
  */
 export default class Button extends PureComponent<ButtonProps> {
-  static RouterLink = props => (
-    <a href={props.to} {...props}>
-      {props.children}
-    </a>
-  )
+  static RouterLink = props => {
+    if (CAN_USE_HOOKS) {
+      const { RouterLink } = useContext(UIKitContext)
+
+      return <RouterLink {...props} />
+    }
+
+    return (
+      <UIKitContext.Consumer>
+        {({ RouterLink }) => <RouterLink {...props} />}
+      </UIKitContext.Consumer>
+    )
+  }
 
   static defaultProps = {
     type: 'secondary',

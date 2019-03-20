@@ -1,0 +1,18 @@
+@import '@myntra/uikit-design';
+
+.nav-group {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-left: 0;
+  width: 100%;
+  cursor: unset;
+}
+
+.nav-group .nav-group {
+  margin-left: 2em; // size of icon.
+  padding-left: ui-relative-size('2xs');
+}
+
+.nav-group-title {
+  display: inline-block;
+}

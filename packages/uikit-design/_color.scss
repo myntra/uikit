@@ -1,12 +1,33 @@
-$-color-primary: make-color(#4F47C8, rgba(#4F47C8, 0.87), #9591DE, #2F2B78, #E3E2F7, null) !default;
-$-color-secondary: $-color-primary !default;
-$-color-accent: $-color-primary !default;
-$-color-success: make-color(#60B87A, rgba(#60B87A, 0.87), #A0D4AF, #3A6E49, #d7edde, null) !default;
-$-color-warning: make-color(#f0ba54, rgba(#f0ba54, 0.87), #f6d698, #907032, #fbeed4, null) !default;
-$-color-error: make-color(rgb(212, 106, 104), rgba(212, 106, 104, 0.87)) !default;
-$-color-info: make-color(rgb(82, 142, 230), rgba(82, 142, 230, 0.87)) !default;
+$-color-primary: make-color(
+  hsl(244, 53.5%, 52.7%), hsla(244, 53.5%, 52.7%, 0.87),
+  hsl(244, 53.9%, 71.8%), hsl(244, 47.1%, 32%),
+  hsl(244, 56.4%, 93.1%), null
+) !default;
 
-$-color-gray: make-color(#dfe3e8, #aeb2b8) !default;
+$-color-success: make-color(
+  hsl(138, 38.2%, 54.7%), hsla(138, 38.2%, 54.7%, 0.87),
+  hsl(138, 37.9%, 72.6%), hsl(138, 30.7%, 32.9%),
+  hsl(138, 37.4%, 88.8%), null
+) !default;
+
+$-color-warning: make-color(
+  hsl(40, 83.6%, 63.5%), hsla(40, 83.6%, 63.5%, 0.87),
+  hsl(40, 82%, 77.8%), hsl(40, 48.1%, 37.8%),
+  hsl(40, 79.7%, 90.2%), null
+) !default;
+
+$-color-error: make-color(
+  hsl(2, 55.5%, 61.8%), hsla(2, 55.5%, 61.8%, 0.87),
+  hsl(2, 55.8%, 77.4%), hsl(2, 34.2%, 37.3%),
+  hsl(2, 56.9%, 90.7%), null
+) !default;
+
+$-color-gray: make-color(
+  #e6e6e6, rgba(0, 0, 0, .54),
+  #eee, #d4d4d4,
+  #f4f6f8, #d4d4d4,
+  #f9f9f9, null
+) !default;
 
 $-colors: () !default;
 $-text-colors: () !default;
@@ -14,12 +35,16 @@ $-text-colors: () !default;
 $-colors: merge(
   (
     primary:   $-color-primary,
-    secondary: $-color-secondary,
-    accent:    $-color-accent,
+
     success:   $-color-success,
+    green:     $-color-success,
+
     error:     $-color-error,
+    red:       $-color-error,
+
     warning:   $-color-warning,
-    info:      $-color-info,
+    yellow:   $-color-warning,
+
     gray:      $-color-gray,
   ),
   $-colors

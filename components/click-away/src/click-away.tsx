@@ -1,13 +1,32 @@
-import React, { PureComponent, RefObject } from 'react'
+import { PureComponent, RefObject } from 'react'
 
 export interface ClickAwayProps {
-  target?: RefObject<HTMLElement>
-  children?: JSX.Element
+  /**
+   * Reference to the container which requires click away functionality.
+   */
+  target: RefObject<HTMLElement>
+  /**
+   * The handler to call when click-away is triggered.
+   */
   onClickAway: () => void
+  /**
+   * Browser event which triggers click-away.
+   */
   domEventName?: 'click' | 'mousedown' | 'mouseup'
 }
 
+/**
+ * Watch for clicks outside the target element.
+ *
+ * @since 0.0.0
+ * @status REVIEWING
+ * @category advanced
+ */
 export default class ClickAway extends PureComponent<ClickAwayProps> {
+  static defaultProps = {
+    domEventName: 'click'
+  }
+
   componentDidUpdate(oldProps) {
     if (oldProps.domEventName !== this.props.domEventName) {
       this.unregister(oldProps.domEventName)
@@ -46,12 +65,6 @@ export default class ClickAway extends PureComponent<ClickAwayProps> {
   }
 
   render() {
-    if (this.props.children) {
-      const node = React.Children.only(this.props.children)
-
-
-    }
-
     return null
   }
 }

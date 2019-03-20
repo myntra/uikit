@@ -1,8 +1,19 @@
 const { componentsDir, packagesDir, packages, components, themes, themesDir } = require('../scripts/utils')
 const path = require('path')
+const { version } = require('react')
+
+const VERSION = parseFloat(version)
 
 module.exports = {
   lintOnSave: false,
+  define: {
+    __DEV__: process.env.NODE_ENV !== 'production',
+    CAN_USE_HOOKS: VERSION > 16.7,
+    CAN_USE_CONTEXT: VERSION > 16.2,
+    CAN_USE_PORTAL: VERSION >= 16,
+    CAN_USE_FRAGMENT: VERSION >= 16,
+    CAN_USE_SUSPENSE: VERSION > 16.5,
+  },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
     /* eslint-disable prettier/prettier */
@@ -56,7 +67,8 @@ module.exports = {
       data: (context) => {
         if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
 
-        return `@import '@myntra/uikit-theme-nuclei/style.scss';`
+        return ''
+        // return `@import '@myntra/uikit-theme-nuclei/style.scss';`
       }
     })
     /* eslint-enable prettier/prettier */

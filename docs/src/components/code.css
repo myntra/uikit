@@ -3,13 +3,41 @@
   padding: 16px;
   margin: 16px 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   border: 0.00625rem solid rgba(0, 0, 0, 0.1);
+  background-color: #f9fbff;
+  overflow: auto;
+}
+
+.code--align-center {
+  justify-content: center;
+}
+
+.code--align-left {
+  justify-content: flex-start;
+}
+
+.code--align-right {
+  justify-content: flex-end;
 }
 
 .code--edit {
   position: absolute;
   top: 5px;
   right: 5px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.code--container .code-preview--refresh {
+  right: 42px;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.code--container:hover .code--edit,
+.code--container:hover .code-preview--refresh,
+.code--container:focus-within .code--edit,
+.code--container:focus-within .code-preview--refresh {
+  opacity: 1;
 }

@@ -1,7 +1,12 @@
 .component {
   min-height: 90vh;
+  position: relative;
+}
+
+.content {
   width: 600px;
-  margin: 16px auto;
+  transition: transform 0.35s;
+  margin: 32px auto 120px;
 }
 
 .editor {
@@ -9,24 +14,37 @@
   top: 0;
   bottom: 0;
   left: 100%;
-  width: 80%;
+  width: calc(100% - 640px);
   transition: all 0.35s;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   z-index: 10000;
   background: white;
+  overflow: hidden;
 }
 
-.editor.active {
-  left: 20%;
+.editor .code-preview--refresh {
+  right: 42px;
+}
+
+.active .editor {
+  left: 640px;
+}
+
+.active .content {
+  transform: translate(calc(-50vw + 325px), 0);
 }
 
 .editor .close {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 5px;
+  right: 5px;
   z-index: 10001;
 }
 
 .editor .preview {
-  max-height: 50%;
+  background: #f3f3f3;
+  height: 35%;
+  padding: 32px 16px 16px;
+  margin-bottom: 16px;
+  overflow: auto;
 }

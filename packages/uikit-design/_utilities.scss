@@ -73,6 +73,10 @@ $errors: ();
 @mixin extract-border($border) {
   @if type-of($border) == map {
     border: map-get($border, 'border');
+    border-top: map-get($border, 'border-top');
+    border-right: map-get($border, 'border-right');
+    border-bottom: map-get($border, 'border-bottom');
+    border-left: map-get($border, 'border-left');
     border-color: map-get($border, 'border-color');
     border-style: map-get($border, 'border-style');
     border-width: map-get($border, 'border-width');
@@ -263,6 +267,8 @@ $errors: ();
   $dark: darken($base, 20%),
   $lighter: lighten($base, 40%),
   $darker: darken($base, 40%),
+  $lightest: null,
+  $darkest: null,
 ) {
   $_: assert(
     color,
@@ -276,11 +282,13 @@ $errors: ();
   );
 
   @return (
+    lightest: $lightest,
     lighter: $lighter,
     light: $light,
     base: $base,
     dark: $dark,
     darker: $darker,
+    darkest: $darkest,
     text: $text
   );
 }

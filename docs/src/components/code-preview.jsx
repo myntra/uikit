@@ -4,6 +4,7 @@ import Preview from './preview'
 import { EditorContext } from './editor'
 import Alert from '@uikit/alert'
 import Button from '@uikit/button'
+import './code-preview.css'
 
 export function useCompiler(source, { watch = true, once = true } = {}) {
   const [component, setComponent] = useState(null)
@@ -39,6 +40,7 @@ export function useCompiler(source, { watch = true, once = true } = {}) {
 export default function CodePreview({ className, source }) {
   const [component, compilerError, clearError] = useCompiler(source)
   const [error, setError] = useState(null)
+  const [key, setKey] = useState(0)
 
   useEffect(function onCompilerErrorChange() {
     if (!compilerError) setError(null)
@@ -46,7 +48,8 @@ export default function CodePreview({ className, source }) {
 
   return (
     <div className={className}>
-      {<Preview component={component} onError={setError} />}
+      {<Button className="code-preview--refresh" icon="sync" title="Refresh"  onClick={() => setKey(key + 1) } />}
+      {<Preview key={key} component={component} onError={setError} />}
       {compilerError && <Alert type="error" onClose={clearError}>{compilerError.message}</Alert>}
       {error && <Alert type="error" onClose={() => setError(null)}>{error.message}<pre>{error.stack}</pre></Alert>}
     </div>
@@ -59,7 +62,7 @@ function compile(code) {
   if (!code) return null
 
   if (!code.startsWith('function ') && !code.startsWith('class ')) {
-    code = `function Example(props) {\n  ${/\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Z]|>)/, tag => `return ` + tag)}\n}`
+    code = `function Example(props) {\n  ${/\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Za-z0-9\.]+(?: [^>]*)?|>)/, tag => `return ` + tag)}\n}`
   }
 
   const identifiers = []
@@ -93,8 +96,8 @@ function compile(code) {
 function unknownIdentifierPlugin(identifiers) {
   return {
     visitor: {
-      JSXIdentifier(path) {
-        const name = path.node.name
+      JSXOpeningElement(path) {
+        const name = path.node.name.object ? path.node.name.object.name : path.node.name.name
         if (/^[A-Z]/.test(name)) {
           if (!identifiers.includes(name) && name !== 'React') {
             identifiers.push(name)

@@ -1,0 +1,22 @@
+{
+  "name": "@myntra/uikit-context",
+  "version": "0.7.1",
+  "main": "src/index.tsx",
+  "module": "dist/uikit-context.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-context",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "dependencies": {
+    "@myntra/uikit-can-i-use": "link:../uikit-can-i-use",
+    "react": "^16.8.4"
+  }
+}

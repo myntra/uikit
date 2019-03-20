@@ -90,9 +90,6 @@ $-button__variants: merge(
         padding-right: 0
       ),
       hover: (
-        text: (
-          color: ui-color(primary, light)
-        ),
         surface: (
           box-shadow: none,
         )
@@ -161,7 +158,7 @@ $-button--secondary-icon: merge(
   }
 
   &:focus {
-    outline: none;
+    // outline: none; // TODO: :focus-visible is not supported by many browsers.
   }
 
   @each $state in $states {

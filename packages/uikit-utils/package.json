@@ -1,20 +1,20 @@
 {
   "name": "@myntra/uikit-utils",
   "version": "0.9.2",
-  "description": "@myntra/uikit-utils",
   "main": "src/index.js",
   "module": "dist/uikit-utils.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-utils",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
-  "author": "Rahul Kadyan <hi@znck.me>",
   "files": [
     "src/",
     "dist/",
     "bin/"
   ],
-  "license": "UNLICENSED",
+  "description": "@myntra/uikit-utils",
   "sideEffects": false,
   "dependencies": {
     "lodash-es": "^4.17.8"

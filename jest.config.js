@@ -1,26 +1,22 @@
 const aliases = {
   '\\.css$': '<rootDir>/test/unit/style.js',
   '\\.scss$': '<rootDir>/test/unit/style.js',
-  '\\.svg$': 'identity-obj-proxy'
+  '\\.sprite\\.svg$': '<rootDir>/test/unit/svg.js',
+  '@myntra/uikit-utils': '<rootDir>/packages/uikit-utils'
 }
 
 module.exports = {
   moduleNameMapper: aliases,
-  setupTestFrameworkScriptFile: '<rootDir>/test/unit/setup-jest.js',
+  setupFilesAfterEnv: ['<rootDir>/test/unit/setup-jest.js'],
   setupFiles: ['<rootDir>/test/unit/setup-enzyme.js', '<rootDir>/test/unit/setup-window.js'],
   transform: {
-    '^.+\\.(js|jsx)$': '<rootDir>/scripts/transform-babel.js'
+    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.jsx?$': 'babel-jest'
   },
-  transformIgnorePatterns: ['<rootDir>/node_modules/(?!lodash-es|@myntra)'],
-  collectCoverageFrom: [
-    'packages/**/*.{js,jsx}',
-    '!**/test/**',
-    '!**/__codemod__/**',
-    '!**/node_modules/**',
-    '!packages/@myntra/uikit-elements/src/InputDate/presets.js',
-    '!packages/@myntra/{uikit-internals,eslint-config-standard,stylelint-config-standard,uikit-cli,tokens,docgen,tokenizer}/**',
-    '!packages/@myntra/{uikit-internals,uikit-elements,uikit-compounds,uikit-patterns,uikit}/src/index.js'
-  ],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+  testPathIgnorePatterns: ['/node_modules/', '/old-packages/'],
+  transformIgnorePatterns: ['node_modules/(?!(lodash-es))/'],
+  collectCoverageFrom: ['components/**/*.{ts,tsx}'],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageDirectory: 'coverage',
   coverageThreshold: process.env.CI
@@ -32,5 +28,11 @@ module.exports = {
           statements: -20
         }
       }
-    : {}
+    : {},
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.test.json',
+      packageJson: '<rootDir>/package.json'
+    }
+  }
 }

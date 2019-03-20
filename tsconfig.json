@@ -7,7 +7,8 @@
   ],
   "exclude": [
     "dist",
-    "node_modules"
+    "node_modules",
+    "old-packages"
   ],
   "compilerOptions": {
     "rootDir": ".",
@@ -15,7 +16,7 @@
     "moduleResolution": "node",
     "target": "esnext",
     "module": "esnext",
-    "jsx": "preserve",
+    "jsx": "react",
     "lib": ["dom", "esnext"],
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,

@@ -1,5 +1,6 @@
 const { createTransformer } = require('babel-jest') // eslint-disable-line node/no-unpublished-require
 const rootBabelOptions = {
+  babelrc: false,
   envName: 'test',
   presets: ['@babel/env', '@babel/react'],
   plugins: [

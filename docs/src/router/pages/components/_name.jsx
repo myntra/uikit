@@ -1,7 +1,8 @@
-import React, { useEffect, useState, useContext, createContext, useCallback } from 'react'
+import React, { useEffect, useState, useContext, createContext, useCallback, useRef } from 'react'
 import Documenter from '@components/documenter'
 import Editor, { EditorContext } from '@components/editor'
 import Button from '@uikit/button'
+import { withRootState } from '@spectrum'
 
 import './_name.css'
 import CodePreview from '@components/code-preview';
@@ -40,24 +41,25 @@ export default function ComponentDocumentationPage({ name }) {
   const [Component, setComponent] = useState(null)
   const [source, setSource] = useState(null)
   const [isActive, setActive] = useState(false)
+  const ref = useRef(null)
+  const hide = useCallback(() => setActive(false), [setActive])
 
   useEffect(() => {
     findDocumentation(name, setComponent)
   })
 
-  // TODO: Add ClickAway here!
   return (
-    <div className="component">
+    <div className={`component ${isActive ? 'active' : ''}`}>
       <EditorContext.Provider value={{
         source, setSource: source => {
           setSource(source)
           setActive(true)
         }
       }}>
-        {Component ? <Component components={{ wrapper: 'div' }} /> : null}
+        {Component ? <Component components={{ wrapper: ({ children }) => <div className="content">{children}</div> }} /> : null}
       </EditorContext.Provider>
-      {<div className={`editor ${isActive ? 'active' : ''}`}>
-        <Button className="close" icon="times" onClick={() => setActive(false)} />
+      {<div className={`editor`} ref={ref}>
+        <Button className="close" icon="times" onClick={hide} />
         <CodePreview className="preview" source={source} />
         <Editor value={source} onChange={setSource} />
       </div>}

@@ -1,0 +1,113 @@
+import NavBar from './src/nav-bar'
+
+# NavBar
+
+<Documenter component={NavBar}>
+
+```jsx preview align=left
+<NavBar title="My Application">
+  <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+  <NavBar.Item icon="dice-two">Dice 2</NavBar.Item>
+
+  <NavBar.Group title="Dices" icon="dice">
+    <NavBar.Item icon="dice-five">Dice 5</NavBar.Item>
+    <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+  </NavBar.Group>
+</NavBar>
+```
+
+</Documenter>
+
+## Examples & Use Cases
+
+### Browser Navigation
+
+```jsx preview align=left
+<NavBar title="Components" currentPath={window.location.pathname}>
+  <NavBar.Item to="/components/avatar" renderIcon={() => <Avatar name="Avatar" />}>
+    Avatar
+  </NavBar.Item>
+  <NavBar.Item to="/components/button" renderIcon={() => <Avatar name="Button" />}>
+    Button
+  </NavBar.Item>
+  <NavBar.Item to="/components/nav-bar" renderIcon={() => <Avatar name="NavBar" />}>
+    NavBar
+  </NavBar.Item>
+</NavBar>
+```
+
+### Custom Navigation
+
+```jsx preview align=left
+const [location, setLocation] = useState('/foo');
+
+<NavBar title="Hypothetical" currentPath={location} renderLink={({ children }) => children}>
+  <NavBar.Item to="/foo" icon="box" onClick={() => setLocation('/foo')}>Foo</NavBar.Item>
+  <NavBar.Item to="/bar" icon="adjust" onClick={() => setLocation('/bar')}>Bar</NavBar.Item>
+  <NavBar.Item to="/baz" icon="ambulance" onClick={() => setLocation('/baz')}>Baz</NavBar.Item>
+</NavBar>
+```
+
+### Integration with Spectrum
+
+Add UIKit plugin using `spectrum add uikit`, it would auto-configure everything.
+
+### Integration with ReduxFirstRouter
+
+```jsx
+import Link from 'redux-first-router-link'
+import { connect } from 'react-redux'
+
+function MyApplication({ currentPath }) {
+  return (
+    <NavBar
+      currentPath={currentPath}
+      renderLink={({ href, children }) => (
+        <Link to={href}>{children}</Link>
+      )}>
+      ...
+    </NavBar>
+  )
+}
+
+export default connect(
+  state => ({
+    currentPath: state.router.location.type
+  })
+)(MyApplication)
+```
+
+## Sub-components
+
+### NavBar.Group
+
+<Documenter component={NavBar.Group} sub>
+
+```jsx preview align=left
+<NavBar title="My Application">
+  <NavBar.Group title="Dices" icon="dice">
+    <NavBar.Item icon="dice-five">Dice 5</NavBar.Item>
+    <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+  </NavBar.Group>
+
+  <NavBar.Group title="Accessible Devices" icon="diagnoses">
+    <NavBar.Item icon="mobile">Mobile</NavBar.Item>
+    <NavBar.Item icon="tablet">Desktop</NavBar.Item>
+  </NavBar.Group>
+</NavBar>
+```
+
+</Documenter>
+
+### NavBar.Item
+
+<Documenter component={NavBar.Item} sub>
+
+```jsx preview align=left
+<NavBar title="My Application">
+  <NavBar.Item renderIcon={() => <Avatar name="Foo" />}>Foo</NavBar.Item>
+  <NavBar.Item renderIcon={() => <Avatar name="Bar" />}>Bar</NavBar.Item>
+</NavBar>
+```
+
+</Documenter>

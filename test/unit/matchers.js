@@ -109,11 +109,11 @@ const matchers = {
     return matchers.toConsole.call(this, received, 'warn', matcher)
   },
 
-  toBeTransparentComponent(received, props = {}) {
+  toBeTransparentComponent(Received, props = {}) {
     let pass, html
 
     try {
-      const wrapper = shallow(<received {...props} data-transparent-check />)
+      const wrapper = shallow(React.createElement(Received, { ...props, 'data-transparent-check': true }))
 
       html = wrapper.html()
       pass = wrapper.find('[data-transparent-check]').length > 0
@@ -126,7 +126,7 @@ const matchers = {
       return {
         message: () =>
           `expected ${this.utils.printReceived(
-            received
+            Received
           )} not to be a transparent component\nReceived: \n${this.utils.printReceived(html)}`,
         pass: true
       }
@@ -134,7 +134,7 @@ const matchers = {
       return {
         message: () =>
           `expected ${this.utils.printReceived(
-            received
+            Received
           )} to be a transparent component\nReceived: \n${this.utils.printReceived(html)}`,
         pass: false
       }
