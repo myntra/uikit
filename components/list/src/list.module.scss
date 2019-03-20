@@ -1,0 +1,55 @@
+@import '@myntra/uikit-design';
+
+.list {
+  list-style: none;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-left: 0;
+  border: 1px solid ui-color(gray, light);
+  overflow: auto;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.item {
+  cursor: pointer;
+  padding: 12px;
+  border-bottom: 1px solid ui-color(gray, light);
+  position: relative;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &.is-disabled {
+    color: ui-text-color(dark, disabled);
+    cursor: not-allowed;
+  }
+
+  &.is-active,
+  &:not(.is-disabled):hover {
+    background-color: ui-color(primary, lighter);
+  }
+}
+
+.checkbox {
+  margin-right: 12px;
+}
+
+.is-single-selectable {
+  .is-selected::before {
+    background-color: ui-color(primary);
+    content: ' ';
+    position: absolute;
+    width: 4px;
+    top: 0;
+    left: 0;
+    bottom: 0;
+  }
+
+  .checkbox {
+    display: none;
+  }
+}

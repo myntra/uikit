@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, createContext, useCallback, useRef } from 'react'
+import React, { useEffect, useMemo, useState, useContext, createContext, useCallback, useRef, Children } from 'react'
 import Documenter from '@components/documenter'
 import Editor, { EditorContext } from '@components/editor'
 import Button from '@uikit/button'
@@ -43,6 +43,9 @@ export default function ComponentDocumentationPage({ name }) {
   const [isActive, setActive] = useState(false)
   const ref = useRef(null)
   const hide = useCallback(() => setActive(false), [setActive])
+  const content = useMemo(() => (
+    Component ? <Component components={{ wrapper: ({ children }) => <div className="content">{children}</div> }} /> : null
+  ), [Component])
 
   useEffect(() => {
     findDocumentation(name, setComponent)
@@ -56,7 +59,7 @@ export default function ComponentDocumentationPage({ name }) {
           setActive(true)
         }
       }}>
-        {Component ? <Component components={{ wrapper: ({ children }) => <div className="content">{children}</div> }} /> : null}
+        {content}
       </EditorContext.Provider>
       {<div className={`editor`} ref={ref}>
         <Button className="close" icon="times" onClick={hide} />

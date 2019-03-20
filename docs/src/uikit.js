@@ -4,6 +4,7 @@ export { default as Badge } from '@myntra/uikit-component-badge'
 export { default as Button } from '@myntra/uikit-component-button'
 export { default as ClickAway } from '@myntra/uikit-component-click-away'
 export { default as Icon } from '@myntra/uikit-component-icon'
+export { default as List } from '@myntra/uikit-component-list'
 export { default as NavBar } from '@myntra/uikit-component-nav-bar'
 export const META = [
   {
@@ -41,6 +42,10 @@ export const META = [
     "since": "0.0.0",
     "status": "REVIEWING",
     "path": "/components/icon"
+  },
+  {
+    "name": "List",
+    "path": "/components/list"
   },
   {
     "name": "NavBar",

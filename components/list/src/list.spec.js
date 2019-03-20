@@ -19,6 +19,6 @@ describe('List', () => {
     'Baz',
   ]
   it('should render list of items', () => {
-    
+    const
   })
 })

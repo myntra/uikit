@@ -151,6 +151,37 @@ interface IconProps extends BaseProps {
 
 declare function Icon(props: IconProps): JSX.Element;
 
+// -----------[[List]]--------------- //
+
+interface ListProps<T = never> extends BaseProps {
+  /**
+   * An array of items to render in the list.
+   */
+  items: T[];
+  /**
+   * Renders markup for displaying a list item.
+   */
+  children(props: { index: number; id: string | number | T; item: T }): void;
+  /**
+   * The selected value in the list.
+   */
+  value?: T | T[];
+  /**
+   * The callback fired when a list item is selected or unselected.
+   */
+  onChange?(value: T | T[]): void;
+  /**
+   * A getter function to get unique ID of a list item.
+   */
+  idForItem?(item: T): T | number | string;
+  /**
+   * Sets selection mode to multiple.
+   */
+  multiple?: boolean;
+}
+
+declare function List(props: ListProps): JSX.Element;
+
 // -----------[[NavBar]]--------------- //
 
 interface NavBarProps extends BaseProps {
@@ -161,13 +192,13 @@ interface NavBarProps extends BaseProps {
   /**
    * URL of the current page. NavBar uses `currentPath` for highlighting active nav links.
    */
-  currentPath: string;
+  currentPath: string | any;
   /**
    * Check if current path is active.
    *
    * @since 0.10.0
    */
-  isActivePath?(navLinkPath: string, currentPath: string): boolean;
+  isActivePath?(navLinkPath: any, currentPath: any): boolean;
   /**
    * Control NavBar state.
    */
@@ -178,7 +209,7 @@ interface NavBarProps extends BaseProps {
    *
    * @since 0.10.0
    */
-  renderLink?(props: { href: string; children: JSX.Element }): JSX.Element;
+  renderLink?(props: LinkProps): JSX.Element;
   /**
    * The callback called when user clicks on the NavBar.
    */
@@ -227,7 +258,7 @@ declare namespace NavBar {
      */
     children: React.ReactNode;
     /**
-     * Internal nav item ID.
+     * Internal nav item ID. Auto injected.
      *
      * @private
      */
@@ -248,6 +279,14 @@ declare namespace NavBar {
 
   interface NavBarItemProps extends BaseProps {
     /**
+     * The title of the link.
+     */
+    children: React.ReactNode;
+    /**
+     * The location of the linked page.
+     */
+    to?: string | any;
+    /**
      * The name of the icon (displayed on left side of title).
      */
     icon?: IconName;
@@ -255,10 +294,6 @@ declare namespace NavBar {
      * Render a custom [Icon](/components/icon) or an [Avatar](/components/avatar).
      */
     renderIcon?(): React.ReactNode;
-    /**
-     * The title of the link.
-     */
-    children: React.ReactNode;
     /**
      * The callback fired on item click or press.
      *
