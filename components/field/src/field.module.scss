@@ -1,0 +1,38 @@
+@import '@myntra/uikit-design';
+
+.container {
+  margin-bottom: ui-size(s);
+}
+
+.title {
+  display: block;
+  text-transform: uppercase;
+
+  @include use-text-style(small);
+}
+
+.required {
+  color: ui-text-color(red);
+  padding-left: 2px;
+}
+
+.meta {
+  height: 1.5em;
+  margin-top: ui-size('2xs');
+  margin-bottom: 1 - ui-size(s);
+  overflow: hidden;
+}
+
+.meta:hover {
+  overflow: visible;
+}
+
+.meta > * {
+  color: ui-text-color(dark, mid-emphasis); // TODO: Change to mid-emphasis.
+
+  @include use-text-style(small)
+}
+
+.meta > [role="alert"] {
+  color: ui-text-color(red);
+}

@@ -11,9 +11,10 @@ export const EditorContext = createContext({
   }
 })
 
-export default function Editor({ value: source, onChange }) {
+export default function Editor({ value: source, onChange, ...props }) {
   return (
     <MonacoEditor
+      {...props}
       language="javascript"
       value={source}
       onChange={source => onChange(source)}

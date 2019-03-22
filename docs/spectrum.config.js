@@ -12,7 +12,7 @@ module.exports = {
     CAN_USE_CONTEXT: VERSION > 16.2,
     CAN_USE_PORTAL: VERSION >= 16,
     CAN_USE_FRAGMENT: VERSION >= 16,
-    CAN_USE_SUSPENSE: VERSION > 16.5,
+    CAN_USE_SUSPENSE: VERSION > 16.5
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
@@ -21,9 +21,13 @@ module.exports = {
     components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name))
     themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name))
-    config.resolve.extensions.add('.ts').add('.tsx').add('.mdx')
+    config.resolve.extensions
+      .add('.ts')
+      .add('.tsx')
+      .add('.mdx')
 
-    config.module.rule('mdx')
+    config.module
+      .rule('mdx')
       .test(/\.mdx$/)
       .use('babel-loader')
       .loader('babel-loader')
@@ -38,14 +42,15 @@ module.exports = {
       .loader(require.resolve('./tools/pre-mdx-helper-loader'))
       .end()
 
-    config.module.rule('js')
+    config.module
+      .rule('js')
       .use('docgen-loader')
-      .before('babel-loader')
+      .after('babel-loader')
       .loader(require.resolve('../packages/docgen/loader'))
       .options({ root: path.dirname(__dirname), test: { test: any => any.startsWith(componentsDir) } })
 
-
-    config.module.rule('ts')
+    config.module
+      .rule('ts')
       .use('ts-loader')
       .options({ transpileOnly: true })
       .end()
@@ -54,23 +59,61 @@ module.exports = {
       .loader(require.resolve('../packages/docgen/loader'))
       .options({ root: path.dirname(__dirname), test: { test: any => any.startsWith(componentsDir) } })
 
-    config.module.rule('scss').oneOf('modules').use('classnames-loader').before('style-loader').loader(require.resolve('../packages/classnames-loader'))
-    config.module.rule('css').oneOf('modules').use('classnames-loader').before('style-loader').loader(require.resolve('../packages/classnames-loader'))
+    config.module
+      .rule('scss')
+      .oneOf('modules')
+      .use('classnames-loader')
+      .before('style-loader')
+      .loader(require.resolve('../packages/classnames-loader'))
+    config.module
+      .rule('css')
+      .oneOf('modules')
+      .use('classnames-loader')
+      .before('style-loader')
+      .loader(require.resolve('../packages/classnames-loader'))
+    config.module
+      .rule('scss')
+      .oneOf('modules')
+      .use('css-loader')
+      .tap(options => ({
+        ...options,
+        getLocalIdent(context, _, name) {
+          const filename = context.resourcePath
+          const component = filename
+            .replace(componentsDir + '/', '')
+            .split('/')
+            .shift()
 
-    config.module.rule('svg').exclude.add(/\.sprite\.svg$/).end()
+          return `_u-${component}-${name}`
+        }
+      }))
 
-    config.module.rule('sprite').test(/\.sprite\.svg$/).use('svg-sprite-loader').loader(require.resolve('./tools/svg-sprite-loader'))
+    config.module
+      .rule('svg')
+      .exclude.add(/\.sprite\.svg$/)
+      .end()
+
+    config.module
+      .rule('sprite')
+      .test(/\.sprite\.svg$/)
+      .use('svg-sprite-loader')
+      .loader(require.resolve('./tools/svg-sprite-loader'))
 
     config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'))
 
-    config.module.rule('scss').oneOf('modules').use('sass-loader').loader(require.resolve('sass-loader')).options({
-      data: (context) => {
-        if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
+    config.module
+      .rule('scss')
+      .oneOf('modules')
+      .use('sass-loader')
+      .loader(require.resolve('sass-loader'))
+      .options({
+        data: context => {
+          if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
 
-        return ''
-        // return `@import '@myntra/uikit-theme-nuclei/style.scss';`
-      }
-    })
+          return ''
+          // return `@import '@myntra/uikit-theme-nuclei/style.scss';`
+        }
+      })
     /* eslint-enable prettier/prettier */
   }
 }

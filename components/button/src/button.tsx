@@ -15,11 +15,11 @@ interface ButtonProps extends BaseProps {
   /** The name of the icon (displayed on right side of content). */
   secondaryIcon?: IconName
   /** Disables the button (changes visual style and ignores button interactions). */
-  disabled: boolean
+  disabled?: boolean
   /** Changes visual style to show progress. */
-  loading: boolean
+  loading?: boolean
   /** Uses current text color (useful for link buttons). */
-  inheritTextColor: boolean
+  inheritTextColor?: boolean
   /** The 'type' attribute for the button element (as 'type' is used for defining visual type) */
   htmlType?: 'submit' | 'reset' | 'button'
   /** The URL to navigate to when the button is clicked (uses client side router). */
@@ -27,7 +27,6 @@ interface ButtonProps extends BaseProps {
   /** The URL to navigate to when the button is clicked (uses browser anchor tag). */
   href?: string
 }
-
 
 /**
  * Buttons provide click-able actions.
@@ -45,18 +44,30 @@ export default class Button extends PureComponent<ButtonProps> {
       return <RouterLink {...props} />
     }
 
-    return (
-      <UIKitContext.Consumer>
-        {({ RouterLink }) => <RouterLink {...props} />}
-      </UIKitContext.Consumer>
-    )
+    return <UIKitContext.Consumer>{({ RouterLink }) => <RouterLink {...props} />}</UIKitContext.Consumer>
+  }
+
+  static Link = props => {
+    if (CAN_USE_HOOKS) {
+      const { Link } = useContext(UIKitContext)
+
+      return <Link {...props} />
+    }
+
+    return <UIKitContext.Consumer>{({ Link }) => <Link {...props} />}</UIKitContext.Consumer>
+  }
+
+  static propsTypes = {
+    __$validation({ to, href }) {
+      if (to && href) throw new Error(`The props 'to' and 'href' cannot coexist.`)
+    }
   }
 
   static defaultProps = {
     type: 'secondary',
     disabled: false,
+    inheritTextColor: false,
     loading: false,
-    inheritTextColor: false
   }
 
   state = {
@@ -68,8 +79,8 @@ export default class Button extends PureComponent<ButtonProps> {
       return event.preventDefault()
     }
 
+    // show button press animation.
     this.setState({ active: true })
-
     setTimeout(() => this.setState({ active: false }), 100)
 
     if (this.props.onClick) {
@@ -92,22 +103,22 @@ export default class Button extends PureComponent<ButtonProps> {
       children,
       ...props
     } = this.props
-    const Tag = to ? Button.RouterLink : href ? 'a' : 'button'
+    const Tag = (to ? Button.RouterLink : href ? Button.Link : 'button') as any
     const isIconButton = !children
     const needLeftSlot = !!icon || isIconButton
     const needRightSlot = !!secondaryIcon && !isIconButton
 
     return (
       <Tag
-        tabIndex="0" // enable tab navigation.
+        tabIndex={0} // enable tab navigation.
         {...props}
         type={htmlType}
-        className={classnames(
-          'button',
-          className,
-          type,
-          { loading, inherit: inheritTextColor, active: this.state.active, 'has-icon': isIconButton },
-        )}
+        className={classnames('button', className, type, {
+          loading,
+          inherit: inheritTextColor,
+          active: this.state.active,
+          'has-icon': isIconButton
+        })}
         to={to}
         href={href}
         disabled={disabled}

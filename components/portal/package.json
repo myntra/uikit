@@ -1,0 +1,26 @@
+{
+  "name": "@myntra/uikit-component-portal",
+  "version": "0.7.1",
+  "main": "src/portal.jsx",
+  "module": "dist/portal.js",
+  "browser": "src/portal.jsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/portal",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4",
+    "react-dom": ">=15.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}

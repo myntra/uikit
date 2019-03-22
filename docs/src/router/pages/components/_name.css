@@ -17,9 +17,11 @@
   width: calc(100% - 640px);
   transition: all 0.35s;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
-  z-index: 10000;
+  z-index: 900;
   background: white;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .editor .code-preview--refresh {
@@ -45,6 +47,24 @@
   background: #f3f3f3;
   height: 35%;
   padding: 32px 16px 16px;
-  margin-bottom: 16px;
   overflow: auto;
+}
+
+.monaco {
+  flex: 1;
+}
+
+.grid-example {
+  flex: 1;
+  width: 500px;
+}
+
+.grid-example [class*=column]:not([class*=columns]) {
+  text-align: center;
+}
+
+.grid-example [class*=column]:not([class*=columns]) > * {
+  background: #efefef;
+  border: 1px solid #ccc;
+  padding: 0.75rem;
 }

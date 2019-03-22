@@ -51,6 +51,7 @@ const matchers = {
       }
     }
   },
+
   /**
    * @this {typeof jest}
    * @param {{(): void}} received
@@ -58,46 +59,47 @@ const matchers = {
    * @param {*} matcher
    */
   toConsole(received, type, matcher) {
-    let consoleArgs = []
+    const CONSOLE_ARGS = []
     const spy = jest.spyOn(console, type).mockImplementation((...args) => {
-      consoleArgs.push(args)
+      CONSOLE_ARGS.push(args)
     })
 
-    received()
+    try {
+      received()
 
-    if (this.isNot) {
-      expect(spy).not.toHaveBeenCalled()
-    } else {
-      expect(spy).toHaveBeenCalled()
-    }
-
-    const pass = consoleArgs.some(args => {
-      if (Array.isArray(matcher)) {
-        return this.equals(args, matcher)
+      if (this.isNot) {
+        expect(spy).not.toHaveBeenCalled()
       } else {
-        return this.equals(args.join('\n'), matcher)
+        expect(spy).toHaveBeenCalled()
       }
-    })
 
-    spy.mockReset()
-    spy.mockRestore()
+      const pass = CONSOLE_ARGS.some(args => {
+        if (Array.isArray(matcher)) {
+          return this.equals(args, matcher)
+        } else {
+          return this.equals(args.join('\n'), matcher)
+        }
+      })
 
-    if (pass) {
-      return {
-        message: () =>
-          `expected not to console ${type} ${this.utils.printExpected(matcher)}\n Received: ${this.utils.printExpected(
-            consoleArgs
-          )}`,
-        pass: true
+      if (pass) {
+        return {
+          message: () =>
+            `expected not to console ${type} ${this.utils.printExpected(
+              matcher
+            )}\n Received: ${this.utils.printExpected(CONSOLE_ARGS)}`,
+          pass: true
+        }
+      } else {
+        return {
+          message: () =>
+            `expected to console ${type} ${this.utils.printExpected(matcher)}\n Received: ${this.utils.printExpected(
+              CONSOLE_ARGS
+            )}`,
+          pass: false
+        }
       }
-    } else {
-      return {
-        message: () =>
-          `expected to console ${type} ${this.utils.printExpected(matcher)}\n Received: ${this.utils.printExpected(
-            consoleArgs
-          )}`,
-        pass: false
-      }
+    } finally {
+      spy.mockRestore()
     }
   },
 

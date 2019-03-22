@@ -3,7 +3,6 @@ import Icon, { IconName } from '@myntra/uikit-component-icon'
 import Button from '@myntra/uikit-component-button'
 import classnames from './alert.module.scss'
 
-
 interface AlertProps extends BaseProps {
   /**
    * The visual style to convey purpose of the alert.
@@ -40,20 +39,22 @@ const ICONS = {
  * @status READY
  * @category basic
  */
-export default function Alert({ className, type, solid, onClose, children }: AlertProps): JSX.Element {
+export default function Alert({ className, type, solid, onClose, children, ...props }: AlertProps): JSX.Element {
+  // TODO: Add ARIA support for dismiss action.
   return (
-    <div className={classnames('alert', { solid }, type, className)}>
+    <div {...props} className={classnames('alert', { solid }, type, className)} role="alert">
       <Icon name={ICONS[type]} />
       <div className={classnames('content')}>{children}</div>
       {onClose && (
-        <Button className={classnames('close')} type="link" icon="times" inheritTextColor onClick={onClose} data-test-id="close" />
+        <Button
+          className={classnames('close')}
+          type="link"
+          icon="times"
+          inheritTextColor
+          onClick={onClose}
+          data-test-id="close"
+        />
       )}
     </div>
   )
-}
-
-Alert.defaultProps = {
-  noFill: false,
-  onClose: null,
-  type: 'error'
 }

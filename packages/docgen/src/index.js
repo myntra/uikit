@@ -6,8 +6,6 @@ const fs = require('fs')
 const path = require('path')
 const deIndent = require('de-indent')
 
-
-
 /**
  * Parse JSDoc from prop description.
  *
@@ -41,6 +39,10 @@ function parseTS(file, source) {
   }).parse(file)[0]
 }
 
+function parseJS(file, source) {
+  return ReactDocGen.parse(source)
+}
+
 /**
  * Parse file to JSDoc Meta
  * @argument {string} filename
@@ -51,7 +53,7 @@ module.exports = function parse(file, source, root = process.cwd()) {
   const isTS = /\.tsx$/.test(file)
   source = source || fs.readFileSync(file)
 
-  const meta = isTS ? parseTS(file, source) : ReactDocGen.parse(source)
+  const meta = isTS ? parseTS(file, source) : parseJS(file, source)
 
   if (!meta) throw new Error('Failed to parse ' + file)
 

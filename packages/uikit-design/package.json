@@ -3,6 +3,7 @@
   "version": "0.7.1",
   "main": "design.scss",
   "module": "design.scss",
+  "browser": "src/index.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-design",

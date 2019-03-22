@@ -53,7 +53,7 @@ declare function Avatar(props: AvatarProps): JSX.Element;
 
 interface BadgeProps extends BaseProps {
   /** The visual style to convey purpose of the badge. */
-  type: "primary" | "success" | "warning" | "error";
+  type?: "primary" | "success" | "warning" | "error";
   /** The label text of the badge. */
   children: string;
 }
@@ -81,11 +81,11 @@ interface ButtonProps extends BaseProps {
   /** The name of the icon (displayed on right side of content). */
   secondaryIcon?: IconName;
   /** Disables the button (changes visual style and ignores button interactions). */
-  disabled: boolean;
+  disabled?: boolean;
   /** Changes visual style to show progress. */
-  loading: boolean;
+  loading?: boolean;
   /** Uses current text color (useful for link buttons). */
-  inheritTextColor: boolean;
+  inheritTextColor?: boolean;
   /** The 'type' attribute for the button element (as 'type' is used for defining visual type) */
   htmlType?: "submit" | "reset" | "button";
   /** The URL to navigate to when the button is clicked (uses client side router). */
@@ -130,6 +130,25 @@ interface ClickAwayProps {
 
 declare function ClickAway(props: ClickAwayProps): JSX.Element;
 
+// -----------[[Dropdown]]--------------- //
+
+declare function Dropdown(props: DropdownProps): JSX.Element;
+
+// -----------[[ErrorBoundary]]--------------- //
+
+declare function ErrorBoundary(props: ErrorBoundaryProps): JSX.Element;
+
+// -----------[[Field]]--------------- //
+
+declare function Field(props: FieldProps): JSX.Element;
+
+// -----------[[Grid]]--------------- //
+
+declare function Grid(props: GridProps): JSX.Element;
+declare namespace Grid {
+  declare function Column(props: GridColumnProps): JSX.Element;
+}
+
 // -----------[[Icon]]--------------- //
 
 type IconName = IconNameGlobal[keyof IconNameGlobal];
@@ -151,9 +170,13 @@ interface IconProps extends BaseProps {
 
 declare function Icon(props: IconProps): JSX.Element;
 
+// -----------[[Image]]--------------- //
+
+declare function Image(props: ImageProps): JSX.Element;
+
 // -----------[[List]]--------------- //
 
-interface ListProps<T = never> extends BaseProps {
+interface ListProps<T = any> extends BaseProps {
   /**
    * An array of items to render in the list.
    */
@@ -175,12 +198,28 @@ interface ListProps<T = never> extends BaseProps {
    */
   idForItem?(item: T): T | number | string;
   /**
+   * Checks if the item is disabled or not.
+   */
+  isItemDisabled?(item: T): boolean;
+  /**
    * Sets selection mode to multiple.
    */
   multiple?: boolean;
 }
+/**
+ * An accessible list of item.
+ *
+ * @since 0.10.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/list
+ */
 
 declare function List(props: ListProps): JSX.Element;
+
+// -----------[[Measure]]--------------- //
+
+declare function Measure(props: MeasureProps): JSX.Element;
 
 // -----------[[NavBar]]--------------- //
 
@@ -314,6 +353,10 @@ declare namespace NavBar {
 
   declare function Item(props: NavBarItemProps): JSX.Element;
 }
+
+// -----------[[Portal]]--------------- //
+
+declare function Portal(props: PortalProps): JSX.Element;
 
 // ----------[[DeclaredTypes]]---------- //
 

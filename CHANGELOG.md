@@ -3,218 +3,181 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="0.7.1"></a>
+
 ## [0.7.1](https://bitbucket.org/myntra/uikit/compare/v0.7.0-alpha.2...v0.7.1) (2019-02-19)
 
-
 ### Bug Fixes
 
-* **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
-
-
+- **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
 
 <a name="0.7.0"></a>
+
 # [0.7.0](https://bitbucket.org/myntra/uikit/compare/v0.7.0-alpha.2...v0.7.0) (2019-02-19)
 
-
 ### Bug Fixes
 
-* **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
-
-
+- **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
 
 <a name="0.7.0-alpha.0"></a>
+
 # [0.7.0-alpha.0](https://bitbucket.org/myntra/uikit/compare/v0.6.3...v0.7.0-alpha.0) (2019-01-21)
 
-
 ### Features
 
-* **elements | InputMonthPicker:** Add month picker component ([517798c](https://bitbucket.org/myntra/uikit/commits/517798c)), closes [#118](https://bitbucket.org/myntra/uikit/issue/118)
-
-
+- **elements | InputMonthPicker:** Add month picker component ([517798c](https://bitbucket.org/myntra/uikit/commits/517798c)), closes [#118](https://bitbucket.org/myntra/uikit/issue/118)
 
 <a name="0.6.2"></a>
+
 ## [0.6.2](https://bitbucket.org/myntra/uikit/compare/v0.6.1...v0.6.2) (2019-01-10)
 
-
 ### Bug Fixes
 
-* **build:** Minimizing CSS is renaming all animation selectors to `a`, turn off minimization ([3fe0760](https://bitbucket.org/myntra/uikit/commits/3fe0760)), closes [#117](https://bitbucket.org/myntra/uikit/issue/117)
-
-
+- **build:** Minimizing CSS is renaming all animation selectors to `a`, turn off minimization ([3fe0760](https://bitbucket.org/myntra/uikit/commits/3fe0760)), closes [#117](https://bitbucket.org/myntra/uikit/issue/117)
 
 <a name="0.6.1"></a>
+
 ## [0.6.1](https://bitbucket.org/myntra/uikit/compare/v0.6.0...v0.6.1) (2019-01-08)
 
-
 ### Bug Fixes
 
-* **elements | Field:** Use label prop for title when used in Form ([32fbc21](https://bitbucket.org/myntra/uikit/commits/32fbc21))
-
-
+- **elements | Field:** Use label prop for title when used in Form ([32fbc21](https://bitbucket.org/myntra/uikit/commits/32fbc21))
 
 <a name="0.6.0"></a>
-# [0.6.0](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.4...v0.6.0) (2019-01-04)
 
+# [0.6.0](https://bitbucket.org/myntra/uikit/compare/v0.6.0-alpha.4...v0.6.0) (2019-01-04)
 
 ### Bug Fixes
 
-* Add lower limit for version of eslint ([e7035a9](https://bitbucket.org/myntra/uikit/commits/e7035a9))
-* **elements | Dropdown:** Wrap contents of dropdown in a container div ([94c1872](https://bitbucket.org/myntra/uikit/commits/94c1872))
-* **elements | InputSelect:** Reset filtered options on options dropdown close ([f5134c5](https://bitbucket.org/myntra/uikit/commits/f5134c5)), closes [#107](https://bitbucket.org/myntra/uikit/issue/107) [#5](https://bitbucket.org/myntra/uikit/issue/5)
-* **elements | Measure:** Update measure target in animation frame to prevent infinite loop ([6ef7309](https://bitbucket.org/myntra/uikit/commits/6ef7309))
-* **elements | Modal:** Remove fixed width ([eb74924](https://bitbucket.org/myntra/uikit/commits/eb74924)), closes [#116](https://bitbucket.org/myntra/uikit/issue/116)
-* **components:** Use css as classnames function ([f2d6c04](https://bitbucket.org/myntra/uikit/commits/f2d6c04))
-* **compounds | Form:** Use withField to wrap InputXxx components ([fe02f93](https://bitbucket.org/myntra/uikit/commits/fe02f93))
-
+- Add lower limit for version of eslint ([e7035a9](https://bitbucket.org/myntra/uikit/commits/e7035a9))
+- **elements | Dropdown:** Wrap contents of dropdown in a container div ([94c1872](https://bitbucket.org/myntra/uikit/commits/94c1872))
+- **elements | InputSelect:** Reset filtered options on options dropdown close ([f5134c5](https://bitbucket.org/myntra/uikit/commits/f5134c5)), closes [#107](https://bitbucket.org/myntra/uikit/issue/107) [#5](https://bitbucket.org/myntra/uikit/issue/5)
+- **elements | Measure:** Update measure target in animation frame to prevent infinite loop ([6ef7309](https://bitbucket.org/myntra/uikit/commits/6ef7309))
+- **elements | Modal:** Remove fixed width ([eb74924](https://bitbucket.org/myntra/uikit/commits/eb74924)), closes [#116](https://bitbucket.org/myntra/uikit/issue/116)
+- **components:** Use css as classnames function ([f2d6c04](https://bitbucket.org/myntra/uikit/commits/f2d6c04))
+- **compounds | Form:** Use withField to wrap InputXxx components ([fe02f93](https://bitbucket.org/myntra/uikit/commits/fe02f93))
 
 ### Features
 
-* **elements | Field:** Add a form field container component ([8821501](https://bitbucket.org/myntra/uikit/commits/8821501))
-* **elements | InputSelect:** Use `<VirtualizedList>` to render options ([e65fde5](https://bitbucket.org/myntra/uikit/commits/e65fde5))
-* **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/issue/115)
-* **elements | Modal:** Add `hideClose` prop to hide cross button ([427c300](https://bitbucket.org/myntra/uikit/commits/427c300))
-* **elements | Progress:** Add Progress component ([616027b](https://bitbucket.org/myntra/uikit/commits/616027b)), closes [#108](https://bitbucket.org/myntra/uikit/issue/108)
-* **elements | VirtualizedList:** Add a simple virtual list scroller ([ab3c112](https://bitbucket.org/myntra/uikit/commits/ab3c112)), closes [#106](https://bitbucket.org/myntra/uikit/issue/106)
-* **patterns | JobTracker:** Add JobTracker component ([8ce602e](https://bitbucket.org/myntra/uikit/commits/8ce602e)), closes [#109](https://bitbucket.org/myntra/uikit/issue/109)
-* **tokens:** Bundle ThemeProvider component with styles ([b45049a](https://bitbucket.org/myntra/uikit/commits/b45049a))
-* **classnames-loader:** Add css module as function loader ([e3f3cd6](https://bitbucket.org/myntra/uikit/commits/e3f3cd6))
-* **rollup-plugin-classnames:** Add build plugin to support css module as function ([1978528](https://bitbucket.org/myntra/uikit/commits/1978528))
-
-
+- **elements | Field:** Add a form field container component ([8821501](https://bitbucket.org/myntra/uikit/commits/8821501))
+- **elements | InputSelect:** Use `<VirtualizedList>` to render options ([e65fde5](https://bitbucket.org/myntra/uikit/commits/e65fde5))
+- **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/issue/115)
+- **elements | Modal:** Add `hideClose` prop to hide cross button ([427c300](https://bitbucket.org/myntra/uikit/commits/427c300))
+- **elements | Progress:** Add Progress component ([616027b](https://bitbucket.org/myntra/uikit/commits/616027b)), closes [#108](https://bitbucket.org/myntra/uikit/issue/108)
+- **elements | VirtualizedList:** Add a simple virtual list scroller ([ab3c112](https://bitbucket.org/myntra/uikit/commits/ab3c112)), closes [#106](https://bitbucket.org/myntra/uikit/issue/106)
+- **patterns | JobTracker:** Add JobTracker component ([8ce602e](https://bitbucket.org/myntra/uikit/commits/8ce602e)), closes [#109](https://bitbucket.org/myntra/uikit/issue/109)
+- **tokens:** Bundle ThemeProvider component with styles ([b45049a](https://bitbucket.org/myntra/uikit/commits/b45049a))
+- **classnames-loader:** Add css module as function loader ([e3f3cd6](https://bitbucket.org/myntra/uikit/commits/e3f3cd6))
+- **rollup-plugin-classnames:** Add build plugin to support css module as function ([1978528](https://bitbucket.org/myntra/uikit/commits/1978528))
 
 <a name="0.5.12"></a>
+
 ## [0.5.12](https://bitbucket.org/myntra/uikit/compare/v0.5.11...v0.5.12) (2018-11-29)
 
-
 ### Bug Fixes
 
-* **elements | InputDate:** Dropdown closes on month selector click ([1a55f9a](https://bitbucket.org/myntra/uikit/commits/1a55f9a))
-
-
+- **elements | InputDate:** Dropdown closes on month selector click ([1a55f9a](https://bitbucket.org/myntra/uikit/commits/1a55f9a))
 
 <a name="0.5.11"></a>
+
 ## [0.5.11](https://bitbucket.org/myntra/uikit/compare/v0.5.10...v0.5.11) (2018-11-28)
 
-
 ### Bug Fixes
 
-* **elements | InputSelect:** Render only 20 options for non-searchable fields ([df08fa4](https://bitbucket.org/myntra/uikit/commits/df08fa4))
-
-
+- **elements | InputSelect:** Render only 20 options for non-searchable fields ([df08fa4](https://bitbucket.org/myntra/uikit/commits/df08fa4))
 
 <a name="0.5.10"></a>
+
 ## [0.5.10](https://bitbucket.org/myntra/uikit/compare/v0.5.9...v0.5.10) (2018-11-28)
 
-
 ### Bug Fixes
 
-* **elements | InputSelect:** Render only 20 options by default ([ba25364](https://bitbucket.org/myntra/uikit/commits/ba25364))
-
-
+- **elements | InputSelect:** Render only 20 options by default ([ba25364](https://bitbucket.org/myntra/uikit/commits/ba25364))
 
 <a name="0.5.9"></a>
+
 ## [0.5.9](https://bitbucket.org/myntra/uikit/compare/v0.5.8...v0.5.9) (2018-11-28)
 
-
 ### Bug Fixes
 
-* **compounds | Form:** Allow node in form field label and desrciption ([a7ac3e9](https://bitbucket.org/myntra/uikit/commits/a7ac3e9))
-* **elements | Modal:** Render modal in portal to prevent possible occlusion ([186254d](https://bitbucket.org/myntra/uikit/commits/186254d))
-* **tokens:** Add z-index for nav and modal ([008eab1](https://bitbucket.org/myntra/uikit/commits/008eab1))
-
-
+- **compounds | Form:** Allow node in form field label and desrciption ([a7ac3e9](https://bitbucket.org/myntra/uikit/commits/a7ac3e9))
+- **elements | Modal:** Render modal in portal to prevent possible occlusion ([186254d](https://bitbucket.org/myntra/uikit/commits/186254d))
+- **tokens:** Add z-index for nav and modal ([008eab1](https://bitbucket.org/myntra/uikit/commits/008eab1))
 
 <a name="0.5.8"></a>
+
 ## [0.5.8](https://bitbucket.org/myntra/uikit/compare/v0.5.6...v0.5.8) (2018-11-28)
 
-
 ### Bug Fixes
 
-* **element | InputDate:** Keep date picker open when next month is clicked ([72d3278](https://bitbucket.org/myntra/uikit/commits/72d3278))
-* **elements | InputSelect:** Clear would remove search text if present else value ([5ddd1fa](https://bitbucket.org/myntra/uikit/commits/5ddd1fa))
-* **elements | InputSelect:** Keep selected options at top ([f3ec473](https://bitbucket.org/myntra/uikit/commits/f3ec473))
-* **tokens-unity:** Remove margin and padding override ([777a12f](https://bitbucket.org/myntra/uikit/commits/777a12f))
-
-
+- **element | InputDate:** Keep date picker open when next month is clicked ([72d3278](https://bitbucket.org/myntra/uikit/commits/72d3278))
+- **elements | InputSelect:** Clear would remove search text if present else value ([5ddd1fa](https://bitbucket.org/myntra/uikit/commits/5ddd1fa))
+- **elements | InputSelect:** Keep selected options at top ([f3ec473](https://bitbucket.org/myntra/uikit/commits/f3ec473))
+- **tokens-unity:** Remove margin and padding override ([777a12f](https://bitbucket.org/myntra/uikit/commits/777a12f))
 
 <a name="0.5.7"></a>
+
 ## [0.5.7](https://bitbucket.org/myntra/uikit/compare/v0.5.6...v0.5.7) (2018-11-26)
 
-
 ### Bug Fixes
 
-* **tokens-unity:** Remove margin and padding override ([777a12f](https://bitbucket.org/myntra/uikit/commits/777a12f))
-
-
+- **tokens-unity:** Remove margin and padding override ([777a12f](https://bitbucket.org/myntra/uikit/commits/777a12f))
 
 <a name="0.5.6"></a>
+
 ## [0.5.6](https://bitbucket.org/myntra/uikit/compare/v0.5.5...v0.5.6) (2018-11-26)
 
-
 ### Bug Fixes
 
-* **compounds | Form:** Add bottom margin on form field ([3684dba](https://bitbucket.org/myntra/uikit/commits/3684dba))
-* **compounds | Grid:** Contain content overflow ([a66a866](https://bitbucket.org/myntra/uikit/commits/a66a866))
-
-
+- **compounds | Form:** Add bottom margin on form field ([3684dba](https://bitbucket.org/myntra/uikit/commits/3684dba))
+- **compounds | Grid:** Contain content overflow ([a66a866](https://bitbucket.org/myntra/uikit/commits/a66a866))
 
 <a name="0.5.5"></a>
+
 ## [0.5.5](https://bitbucket.org/myntra/uikit/compare/v0.5.4...v0.5.5) (2018-11-26)
 
-
 ### Bug Fixes
 
-* **compounds | Grid:** Remove top and bottom padding from column ([cc0f2f9](https://bitbucket.org/myntra/uikit/commits/cc0f2f9))
-* **elements | ClickAway:** Allow function refs ([15347e9](https://bitbucket.org/myntra/uikit/commits/15347e9))
-* **elements | InputSelect:** Hide remove icon for required and allow removing multiple options ([48e0e45](https://bitbucket.org/myntra/uikit/commits/48e0e45))
-
-
+- **compounds | Grid:** Remove top and bottom padding from column ([cc0f2f9](https://bitbucket.org/myntra/uikit/commits/cc0f2f9))
+- **elements | ClickAway:** Allow function refs ([15347e9](https://bitbucket.org/myntra/uikit/commits/15347e9))
+- **elements | InputSelect:** Hide remove icon for required and allow removing multiple options ([48e0e45](https://bitbucket.org/myntra/uikit/commits/48e0e45))
 
 <a name="0.5.4"></a>
+
 ## [0.5.4](https://bitbucket.org/myntra/uikit/compare/v0.5.3...v0.5.4) (2018-11-22)
 
-
 ### Bug Fixes
 
-* **elements | Button:** Missing border-radius variable ([3ef5810](https://bitbucket.org/myntra/uikit/commits/3ef5810))
-
-
+- **elements | Button:** Missing border-radius variable ([3ef5810](https://bitbucket.org/myntra/uikit/commits/3ef5810))
 
 <a name="0.5.3"></a>
+
 ## [0.5.3](https://bitbucket.org/myntra/uikit/compare/v0.5.2...v0.5.3) (2018-11-22)
 
-
 ### Bug Fixes
 
-* **compounds | SchemaForm:** Use relative path to import local components ([0d584bd](https://bitbucket.org/myntra/uikit/commits/0d584bd))
-* **elements | Button:** Use border-radius from theme ([274e9d7](https://bitbucket.org/myntra/uikit/commits/274e9d7))
-* **elements | InputSelect:** Hidden search field under selected value ([72c4bb2](https://bitbucket.org/myntra/uikit/commits/72c4bb2))
-* **elements | Loader:** Unexpected background color ([16b2989](https://bitbucket.org/myntra/uikit/commits/16b2989))
-* **elements | Modal:** Embedded modal without trigger not possible ([022f3e1](https://bitbucket.org/myntra/uikit/commits/022f3e1))
-
-
+- **compounds | SchemaForm:** Use relative path to import local components ([0d584bd](https://bitbucket.org/myntra/uikit/commits/0d584bd))
+- **elements | Button:** Use border-radius from theme ([274e9d7](https://bitbucket.org/myntra/uikit/commits/274e9d7))
+- **elements | InputSelect:** Hidden search field under selected value ([72c4bb2](https://bitbucket.org/myntra/uikit/commits/72c4bb2))
+- **elements | Loader:** Unexpected background color ([16b2989](https://bitbucket.org/myntra/uikit/commits/16b2989))
+- **elements | Modal:** Embedded modal without trigger not possible ([022f3e1](https://bitbucket.org/myntra/uikit/commits/022f3e1))
 
 <a name="0.5.2"></a>
+
 ## [0.5.2](https://bitbucket.org/myntra/uikit/compare/v0.5.1...v0.5.2) (2018-11-20)
 
-
 ### Bug Fixes
 
-* **elements | InputSelect:** Search in select options ([4e970ae](https://bitbucket.org/myntra/uikit/commits/4e970ae))
-* **elements | InputSelect:** Search in select options ([fe1150e](https://bitbucket.org/myntra/uikit/commits/fe1150e))
-
-
+- **elements | InputSelect:** Search in select options ([4e970ae](https://bitbucket.org/myntra/uikit/commits/4e970ae))
+- **elements | InputSelect:** Search in select options ([fe1150e](https://bitbucket.org/myntra/uikit/commits/fe1150e))
 
 <a name="0.5.1"></a>
-## [0.5.1](https://bitbucket.org/myntra/uikit/compare/v0.5.0...v0.5.1) (2018-11-20)
 
+## [0.5.1](https://bitbucket.org/myntra/uikit/compare/v0.5.0...v0.5.1) (2018-11-20)
 
 ### Bug Fixes
 
-* **elements | Dropdown:** Use fixed positioning to avoid misplaced container ([bafea32](https://bitbucket.org/myntra/uikit/commits/bafea32))
-* **elements | InputDate:** Close dropdown on value selection and input field blur ([a6e67d1](https://bitbucket.org/myntra/uikit/commits/a6e67d1))
-
-
+- **elements | Dropdown:** Use fixed positioning to avoid misplaced container ([bafea32](https://bitbucket.org/myntra/uikit/commits/bafea32))
+- **elements | InputDate:** Close dropdown on value selection and input field blur ([a6e67d1](https://bitbucket.org/myntra/uikit/commits/a6e67d1))
 
 <a name="0.5.0"></a>
 

@@ -1,0 +1,30 @@
+{
+  "name": "@myntra/uikit-component-dropdown",
+  "version": "0.7.1",
+  "main": "src/dropdown.jsx",
+  "module": "dist/dropdown.js",
+  "browser": "src/dropdown.jsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/dropdown",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-click-away": "link:../click-away",
+    "@myntra/uikit-component-measure": "link:../measure",
+    "@myntra/uikit-component-portal": "link:../portal",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils",
+    "prop-types": "^15.7.2"
+  }
+}

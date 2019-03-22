@@ -1,192 +1,74 @@
-/* eslint-disable node/no-unpublished-require */
-const fs = require('fs')
+const { isComponent, isTheme, getPackageDir, getFullName, getShortName, componentsDir } = require('./scripts/utils')
 const path = require('path')
-const replace = require('rollup-plugin-replace')
-const alias = require('rollup-plugin-alias')
-const babel = require('rollup-plugin-babel')
-const css = require('rollup-plugin-postcss')
-const raw = require('rollup-plugin-string')
-const classnames = require('@myntra/rollup-plugin-classnames') // eslint-disable-line node/no-extraneous-require
-const bundleSize = require('rollup-plugin-bundle-size')
+const ts = require('rollup-plugin-typescript2')
+const postcss = require('rollup-plugin-postcss')
+const nodeResolve = require('rollup-plugin-node-resolve')
+const classnames = require('@myntra/rollup-plugin-classnames')
+const postcssImport = require('postcss-import')
+const hash = require('hasha')
 
 if (!process.env.TARGET) {
-  throw new Error('TARGET package must be specified via --environment flag.')
+  throw new Error(`No target found`)
 }
 
-const packagesDir = path.resolve(__dirname, 'packages/@myntra')
-const packageDir = path.resolve(packagesDir, process.env.TARGET)
-const name = path.basename(packageDir)
-const resolve = p => './' + path.relative(__dirname, path.resolve(packageDir, p))
-const pkg = require(resolve(`package.json`))
-const packageOptions = pkg.buildOptions || {}
+const name = getFullName(process.env.TARGET)
+const shortName = getShortName(name)
+const dir = getPackageDir(process.env.TARGET)
+const pkg = require(`${dir}/package.json`)
 
-// build aliases dynamically
-const aliasOptions = { resolve: ['.jsx'] }
-fs.readdirSync(packagesDir).forEach(dir => {
-  if (fs.statSync(path.resolve(packagesDir, dir)).isDirectory()) {
-    aliasOptions[`@myntra/${dir}`] = path.resolve(packagesDir, `${dir}/src/index`)
-  }
-})
-const aliasPlugin = alias(aliasOptions)
-
-const configs = {
-  esm: {
-    file: resolve(`dist/${name}.js`),
-    format: `es`
-  }
+function get(file) {
+  return path.resolve(dir, file)
 }
-const replacePlugin = replace({
-  'process.env.NODE_ENV': `'production'`
-})
-const defaultFormats = ['esm']
-const inlineFormats = process.env.FORMATS && process.env.FORMATS.split(',')
-const packageFormats = inlineFormats || packageOptions.formats || defaultFormats
-const packageConfigs = packageFormats.map(format => createConfig(configs[format]))
 
-module.exports = packageConfigs
+const configs = (module.exports = [])
 
-function createConfig(output, plugins = []) {
-  const pkg = require(resolve(`package.json`))
-  const external = [].concat(Object.keys(pkg.dependencies || {}), Object.keys(pkg.peerDependencies || {}))
-
-  return {
-    input: /tokens/.test(pkg.name) ? resolve(`tokens.jsx`) : resolve(`src/index.js`),
-    external,
+// compile component with given theme.
+if (isComponent(name)) {
+  configs.push({
+    input: get(pkg.main),
+    output: {
+      file: get(pkg.module),
+      format: 'esm'
+    },
+    external(name) {
+      return name in pkg.dependencies
+    },
     plugins: [
-      raw({
-        // Global and Browser ESM builds inlines everything so that they can be
-        include: '**/*.svg'
-      }),
-      css({
-        include: '**/*.css',
-        exclude: '**/*.module.css',
-        minimize: {
-          preset: 'default',
-          reduceIdents: false
-        }
-      }),
-      css({
-        include: '**/*.module.css',
-        minimize: {
-          preset: 'default',
-          reduceIdents: false
-        },
-        modules: {
-          generateScopedName(name, filename, css) {
-            const match = /uikit-(?:elements|compounds|patterns)\/src\/([a-z]+)\/(?:.*?)([a-z]+)\.module\.css$/i.exec(
-              filename
-            )
-
-            if (match) {
-              const [, component, file] = match
-              const namespace = component === file ? component : component + '_' + file
-
-              return ('_u_' + namespace + '_' + name).toLowerCase()
-            }
-
-            return (
-              '_u_' +
-              path
-                .basename(filename)
-                .replace(/(?:\.module)?\.css$/, '')
-                .toLowerCase() +
-              '_i_' +
-              name
-            )
-          }
-        }
-      }),
-      extensions({
-        extensions: ['.jsx']
-      }),
-      babel({
-        babelrc: false,
-        runtimeHelpers: false,
-        externalHelpers: true,
-        presets: [
+      nodeResolve(),
+      ts(),
+      postcss({
+        use: [
           [
-            '@babel/preset-env',
+            'sass',
             {
-              modules: false,
-              targets: {
-                esmodules: true
-              }
+              importer: [
+                (imported, importer, done) => {
+                  if (imported === '@myntra/uikit-design') {
+                    return {
+                      file: require.resolve('./packages/uikit-design')
+                    }
+                  }
+
+                  done()
+                }
+              ]
             }
           ]
         ],
-        plugins: [
-          'babel-plugin-remove-test-ids',
-          '@babel/plugin-proposal-class-properties',
-          '@babel/plugin-transform-react-jsx',
-          '@babel/plugin-transform-runtime',
-          '@babel/plugin-external-helpers'
-        ]
-      }),
-      aliasPlugin,
-      replacePlugin,
-      classnames({ include: '**/*.module.css' }),
-      bundleSize(),
-      ...plugins
-    ],
-    output: /tokens/.test(pkg.name)
-      ? {
-          file: resolve(`tokens.jsx`),
-          format: `es`
+        minimize: true,
+        plugins: [postcssImport()],
+        modules: {
+          generateScopedName(name, filename, css) {
+            const component = filename
+              .replace(componentsDir + '/', '')
+              .split('/')
+              .shift()
+
+            return `_u${hash(`${component}:${name}`, { algorithm: 'md5' }).substr(0, 5)}`
+          }
         }
-      : output,
-    onwarn: (msg, warn) => {
-      if (!/Circular/.test(msg)) {
-        warn(msg)
-      }
-    }
-  }
-}
-
-function isFile(file) {
-  try {
-    return fs.statSync(file).isFile()
-  } catch (err) {
-    return false
-  }
-}
-
-function addExtensionIfNecessary(file, extensions) {
-  const name = path.basename(file)
-  const files = fs.readdirSync(path.dirname(file))
-
-  if (~files.indexOf(name) && isFile(file)) return file
-  for (const ext of extensions) {
-    if (~files.indexOf(`${name}${ext}`) && isFile(`${file}${ext}`)) {
-      return `${file}${ext}`
-    }
-  }
-
-  return null
-}
-
-function extensions({ extensions }) {
-  if (!extensions || !extensions.length) {
-    throw new Error(`Must specify { extensions: [..] } as non-empty array!`)
-  }
-
-  return {
-    name: 'extensions',
-
-    resolveId(importee, importer) {
-      // absolute paths are left untouched
-      if (path.isAbsolute(importee)) {
-        return addExtensionIfNecessary(path.resolve(importee), extensions)
-      }
-
-      // if this is the entry point, resolve against cwd
-      if (importer === undefined) {
-        return addExtensionIfNecessary(path.resolve(process.cwd(), importee), extensions)
-      }
-
-      // external modules are skipped at this stage
-      if (importee[0] !== '.') return null
-
-      return addExtensionIfNecessary(path.resolve(path.dirname(importer), importee), extensions)
-    }
-  }
+      }),
+      classnames()
+    ]
+  })
 }

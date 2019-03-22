@@ -130,3 +130,6 @@ GitHub.sublime-settings
 
 
 # End of https://www.gitignore.io/api/osx,node,code,sublimetext
+
+# Rollup
+.rpt2_cache/

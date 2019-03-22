@@ -3,6 +3,7 @@
   "version": "0.7.1",
   "main": "src/button.tsx",
   "module": "dist/button.js",
+  "browser": "src/button.jsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/button",
@@ -15,10 +16,13 @@
     "bin/",
     "*.codemod.js"
   ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@myntra/uikit-component-icon": "link:../icon",
-    "@myntra/uikit-design": "link:../../packages/uikit-design",
-    "react": "16.*"
+    "@myntra/uikit-context": "link:../../packages/uikit-context",
+    "@myntra/uikit-design": "link:../../packages/uikit-design"
   }
 }

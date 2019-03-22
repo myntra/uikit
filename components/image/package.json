@@ -1,0 +1,26 @@
+{
+  "name": "@myntra/uikit-component-image",
+  "version": "0.7.1",
+  "main": "src/image.jsx",
+  "module": "dist/image.js",
+  "browser": "src/image.jsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/image",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "intersection-observer-polyfill": "^0.1.0",
+    "prop-types": "^15.7.2"
+  }
+}

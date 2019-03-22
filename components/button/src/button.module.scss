@@ -158,7 +158,7 @@ $-button--secondary-icon: merge(
   }
 
   &:focus {
-    // outline: none; // TODO: :focus-visible is not supported by many browsers.
+    outline: none; // TODO: :focus-visible is not supported by many browsers.
   }
 
   @each $state in $states {

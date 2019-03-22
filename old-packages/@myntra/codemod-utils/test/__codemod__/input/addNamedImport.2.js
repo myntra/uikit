@@ -1,1 +1,0 @@
-import Bar from 'foo'

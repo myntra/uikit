@@ -12,23 +12,29 @@ export function useCompiler(source, { watch = true, once = true } = {}) {
   const [error, setError] = useState(null)
   const [counter, setCounter] = useState(0)
 
-  useEffect(function compileOnSourceChange() {
-    if (watch || (counter === 0 && once)) {
-      setCounter(counter + 1)
-      try {
-        const component = compile(source)
+  useEffect(
+    function compileOnSourceChange() {
+      if (watch || (counter === 0 && once)) {
+        setCounter(counter + 1)
+        try {
+          const component = compile(source)
 
-        if (component) {
-          const factory = () => component
-          setComponent(factory)
-          if (!fallback) setFallback(factory)
-          setError(null)
-        } else throw new Error(`No component returned by 'compiler'`)
-      } catch (error) {
-        setError(() => error)
+          if (component) {
+            const factory = () => component
+            setComponent(factory)
+            if (!fallback) setFallback(factory)
+            setError(null)
+          } else if (source) {
+            throw new Error(`No component returned by 'compiler'`)
+          }
+        } catch (error) {
+          console.error(error)
+          setError(() => error)
+        }
       }
-    }
-  }, [source])
+    },
+    [source]
+  )
 
   function clearError() {
     setError(null)
@@ -42,27 +48,41 @@ export default function CodePreview({ className, source }) {
   const [error, setError] = useState(null)
   const [key, setKey] = useState(0)
 
-  useEffect(function onCompilerErrorChange() {
-    if (!compilerError) setError(null)
-  }, [compilerError])
+  useEffect(
+    function onCompilerErrorChange() {
+      if (!compilerError) setError(null)
+    },
+    [compilerError]
+  )
 
   return (
     <div className={className}>
-      {<Button className="code-preview--refresh" icon="sync" title="Refresh"  onClick={() => setKey(key + 1) } />}
+      {<Button className="code-preview--refresh" icon="sync" title="Refresh" onClick={() => setKey(key + 1)} />}
       {<Preview key={key} component={component} onError={setError} />}
-      {compilerError && <Alert type="error" onClose={clearError}>{compilerError.message}</Alert>}
-      {error && <Alert type="error" onClose={() => setError(null)}>{error.message}<pre>{error.stack}</pre></Alert>}
+      {compilerError && (
+        <Alert type="error" onClose={clearError}>
+          {compilerError.message}
+        </Alert>
+      )}
+      {error && (
+        <Alert type="error" onClose={() => setError(null)}>
+          {error.message}
+          <pre>{error.stack}</pre>
+        </Alert>
+      )}
     </div>
   )
 }
 
 function compile(code) {
-  code = code.trim()
-
   if (!code) return null
 
+  code = code.trim()
+
   if (!code.startsWith('function ') && !code.startsWith('class ')) {
-    code = `function Example(props) {\n  ${/\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Za-z0-9\.]+(?: [^>]*)?|>)/, tag => `return ` + tag)}\n}`
+    code = `function Example(props) {\n  ${
+      /\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Za-z0-9\.]+(?: [^>]*)?|>)/, tag => `return ` + tag)
+    }\n}`
   }
 
   const identifiers = []
@@ -85,9 +105,13 @@ function compile(code) {
 
       code = `${prefix}\n  render() {\n    const { ${identifiers.join(', ')} } = this.props.context\n${suffix}`
     }
+  } else {
+    code = output.code
   }
 
-  return new Function('React', `return ${code}`)(React)
+  const fn = new Function('React', `${code}\nreturn Example`)
+
+  return fn(React)
 }
 
 /**
@@ -97,18 +121,30 @@ function unknownIdentifierPlugin(identifiers) {
   return {
     visitor: {
       JSXOpeningElement(path) {
-        const name = path.node.name.object ? path.node.name.object.name : path.node.name.name
-        if (/^[A-Z]/.test(name)) {
-          if (!identifiers.includes(name) && name !== 'React') {
-            identifiers.push(name)
+        const { node, scope } = path
+
+        const name = node.name.object ? node.name.object.name : node.name.name
+        const binding = scope.getBinding(name)
+
+        if (!binding) {
+          if (/^[A-Z]/.test(name)) {
+            if (!identifiers.includes(name) && name !== 'React') {
+              identifiers.push(name)
+            }
           }
         }
       },
       Identifier(path) {
+        const { node, scope } = path
+
         const name = path.node.name
-        if (/^use[A-Z]/.test(name)) {
-          if (!identifiers.includes(name)) {
-            identifiers.push(name)
+        const binding = scope.getBinding(name)
+
+        if (!binding) {
+          if (/^use[A-Z]/.test(name)) {
+            if (!identifiers.includes(name)) {
+              identifiers.push(name)
+            }
           }
         }
       }

@@ -53,11 +53,13 @@ $-colors: merge(
 $-text-colors: merge(
   (
     light: (
-      disabled: rgba(255, 255, 255, 0.54),
+      disabled: rgba(255, 255, 255, 0.27),
+      mid-emphasis: rgba(255, 255, 255, 0.54),
       default: rgba(255, 255, 255, 0.87),
     ),
     dark: (
-      disabled: rgba(0, 0, 0, 0.54),
+      disabled: rgba(0, 0, 0, 0.27),
+      mid-emphasis: rgba(0, 0, 0, 0.54),
       default: rgba(0, 0, 0, 0.87),
     ),
   ),

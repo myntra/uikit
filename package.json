@@ -10,17 +10,13 @@
     "node": ">=8.0"
   },
   "scripts": {
+    "build": "node scripts/build.js",
     "bootstrap": "node scripts/bootstrap.js",
     "preinstall": "node scripts/ensure-pnpm.js",
-    "lint": "eslint --ext .js --ext .jsx --ext .json packages/ docs/ .",
-    "lint:js": "eslint --ext .js --ext .jsx --ext .json",
-    "lint:css": "stylelint packages/**/*.css docs/**/*.css",
-    "predev": "lerna run build",
-    "dev": "poi --jsx react docs/_app/index.js",
-    "prebuild": "lerna run build",
-    "build": "poi build --jsx react docs/_app/index.js",
-    "build:scss": "node scripts/build-css.js",
-    "postbuild": "node scripts/create-static-routes.js",
+    "lint:js": "eslint",
+    "lint:css": "stylelint",
+    "docs:dev": "cd docs && npm run serve",
+    "docs:build": "cd docs && npm run build",
     "test": "jest",
     "coverage": "npm run :coverage",
     ":coverage": "jest --coverage",
@@ -29,18 +25,15 @@
     ":build": "npm run prebuild && node scripts/build.js",
     "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
     "update:develop": "git checkout develop && git rebase master && git push origin develop",
-    "pre:publish": "node scripts/build.js",
+    "pre:publish": "npm run build",
     ":publish": "./scripts/publish.sh && git push --follow-tags origin master",
     "pre:release": "npm run update:master",
     ":release": "standard-version -a",
     "post:release": "npm run :publish && npm run update:develop",
-    "pre:release:alpha": "npm run update:master",
-    ":release:alpha": "standard-version -a --prerelease alpha",
-    "post:release:alpha": "npm run :publish && npm run update:develop",
     "pre:release:beta": "npm run update:master",
     ":release:beta": "standard-version -a --prerelease beta",
     ":post:release:beta": "npm run :publish && npm run update:develop",
-    "changelog": "cp CHANGELOG.md docs/changelog.md && git add docs/changelog.md package.json CHANGELOG.md",
+    "changelog": "package.json CHANGELOG.md",
     ":update:versions": "lerna version $(node scripts/version.js) --no-changelog --no-commit-hooks --no-push --exact --force-publish --amend -y --no-git-tag-version",
     "post:update:versions": "git add lerna.json 'packages/@myntra/*/package.json' && git commit --amend --no-edit"
   },
@@ -52,9 +45,12 @@
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@myntra/docgen": "link:packages/docgen",
+    "@myntra/rollup-plugin-classnames": "link:packages/rollup-plugin-classnames",
     "@types/jest": "^24.0.11",
     "@types/react": "^16.8.5",
     "any-observable": "^0.3.0",
+    "autoprefixer": "^9.5.0",
     "babel-jest": "^24.5.0",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "chalk": "^2.4.1",
@@ -65,36 +61,25 @@
     "execa": "^1.0.0",
     "fs-extra": "^7.0.0",
     "glob": "^7.1.3",
+    "hasha": "^4.0.1",
     "husky": "^1.0.0-rc.2",
     "jest": "^24.5.0",
     "lint-staged": "^7.0.4",
     "lodash.camelcase": "^4.3.0",
     "minimist": "^1.2.0",
+    "node-sass": "^4.11.0",
+    "postcss-import": "^12.0.1",
     "prettier": "^1.16.4",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
+    "rollup": "^1.7.0",
+    "rollup-plugin-node-resolve": "^4.0.1",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-typescript2": "^0.20.1",
     "rxjs": "^6.4.0",
     "standard-version": "^4.4.0",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333"
-  },
-  "lint-staged": {
-    "*.js": [
-      "npm run lint:js -- --fix",
-      "git add"
-    ],
-    "*.css": [
-      "npm run stylelint -- --fix",
-      "git add"
-    ],
-    "*.jsx": [
-      "npm run lint:js -- --fix",
-      "git add"
-    ],
-    "*.json": [
-      "npm run lint:js -- --fix",
-      "git add"
-    ]
   },
   "husky": {
     "hooks": {
@@ -113,8 +98,5 @@
     "comma": "es5",
     "semi": false,
     "singleQuote": true
-  },
-  "dependencies": {
-    "@myntra/docgen": "link:packages/docgen"
   }
 }

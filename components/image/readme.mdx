@@ -1,0 +1,38 @@
+import Image from './src/image'
+
+# Image
+
+<Documenter component={Image}>
+
+```jsx preview
+<Image src="//picsum.photos/300/200" height={200} width={300} />
+```
+
+</Documenter>
+
+## Examples
+
+### Grid Image List
+
+```jsx preview
+<>
+  <Grid>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g1" height={200} width={300} /></Grid.Column>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g2" height={200} width={300} /></Grid.Column>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g3" height={200} width={300} /></Grid.Column>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g4" height={200} width={300} /></Grid.Column>
+  </Grid>
+  <Grid>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g6" height={200} width={300} /></Grid.Column>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g7" height={200} width={300} /></Grid.Column>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g8" height={200} width={300} /></Grid.Column>
+    <Grid.Column><Image src="https://picsum.photos/300/200?g9" height={200} width={300} /></Grid.Column>
+  </Grid>
+</>
+```
+
+### Fallback Image
+
+```jsx preview
+<Image src="image-does-not-exist.jpg" height={200} width={300}  />
+```

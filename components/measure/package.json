@@ -1,0 +1,26 @@
+{
+  "name": "@myntra/uikit-component-measure",
+  "version": "0.7.1",
+  "main": "src/measure.jsx",
+  "module": "dist/measure.js",
+  "browser": "src/measure.jsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/measure",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

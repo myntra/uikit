@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-component-field",
+  "version": "0.7.1",
+  "main": "src/field.jsx",
+  "module": "dist/field.js",
+  "browser": "src/field.jsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/field",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
+  }
+}

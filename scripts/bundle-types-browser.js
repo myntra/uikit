@@ -94,6 +94,7 @@ function writeUIKitTypesForDocsEditor(components) {
   )
 
   function extractTypes(file) {
+    if (!/\.tsx?$/.test(file)) return ''
     let types = ''
 
     program.emit(program.getSourceFile(file), (_, content) => types = content, undefined, true)
@@ -173,7 +174,7 @@ function normalize(code) {
 }
 
 function componentName(file) {
-  const name = camelCase(path.basename(file).replace(/\.tsx$/, ''))
+  const name = camelCase(path.basename(file).replace(/\.(?:t|j)sx$/, ''))
 
   return name[0].toUpperCase() + name.slice(1)
 }

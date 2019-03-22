@@ -3,6 +3,7 @@
   "version": "0.7.1",
   "main": "src/alert.tsx",
   "module": "dist/alert.js",
+  "browser": "src/alert.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/alert",
@@ -15,6 +16,9 @@
     "bin/",
     "*.codemod.js"
   ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@myntra/uikit-component-button": "link:../button",

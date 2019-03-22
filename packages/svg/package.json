@@ -3,6 +3,7 @@
   "version": "0.7.1",
   "main": "src/index.js",
   "module": "dist/svg.js",
+  "browser": "src/index.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/svg",

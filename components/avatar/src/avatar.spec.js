@@ -1,8 +1,13 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Avatar from '/avatar'
+import Avatar from './avatar'
 
 describe('Avatar', () => {
+  it('is a component', () => {
+    expect(Avatar).toBeComponent()
+    expect(Avatar).toBeTransparentComponent({ name: 'Jane Doe' })
+  })
+
   it('renders avatar', () => {
     const wrapper = shallow(<Avatar name="Jane Doe" />)
 

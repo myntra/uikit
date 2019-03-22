@@ -2,10 +2,11 @@ import React, { useEffect, useMemo, useState, useContext, createContext, useCall
 import Documenter from '@components/documenter'
 import Editor, { EditorContext } from '@components/editor'
 import Button from '@uikit/button'
+import Measure from '@uikit/measure'
 import { withRootState } from '@spectrum'
+import CodePreview from '@components/code-preview';
 
 import './_name.css'
-import CodePreview from '@components/code-preview';
 
 async function findFile(getModule, Component, setComponent) {
   try {
@@ -64,7 +65,13 @@ export default function ComponentDocumentationPage({ name }) {
       {<div className={`editor`} ref={ref}>
         <Button className="close" icon="times" onClick={hide} />
         <CodePreview className="preview" source={source} />
-        <Editor value={source} onChange={setSource} />
+        <Measure bounds>
+          {({ content: { bounds: { width = 200, height = 100 } }, ref }) => (
+            <div className="monaco" ref={ref}>
+              <Editor value={source} width={width} height={height} onChange={setSource} />
+            </div>
+          )}
+        </Measure>
       </div>}
     </div>
   )

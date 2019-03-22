@@ -18,6 +18,7 @@ targets.forEach(name => {
     version,
     main: isComponent(name) ? `src/${shortName}.tsx` : `src/index.ts`,
     module: `dist/${shortName}.js`,
+    browser: isComponent(name) ? `src/${shortName}.tsx` : `src/index.ts`,
     author: 'Rahul Kadyan <hi@znck.me>',
     license: 'UNLICENSED',
     repository: getPackageRepository(name),
@@ -26,6 +27,13 @@ targets.forEach(name => {
     },
     files: ['src/', 'dist/', 'bin/', '*.codemod.js']
   }
+
+  if (isComponent(name)) {
+    pkg.peerDependencies = {
+      react: '>=15.4'
+    }
+  }
+
   if (fs.existsSync(pkgFile)) {
     Object.assign(pkg, require(pkgFile))
   }
@@ -38,18 +46,18 @@ targets.forEach(name => {
     if (!fs.existsSync(readmeFile)) {
       const component = pascalCase(shortName)
       fs.writeFileSync(readmeFile, `
-        import ${component} from './src/${shortName}'
+import ${component} from './src/${shortName}'
 
-        # ${component}
+# ${component}
 
-        <Documenter component={${component}}>
+<Documenter component={${component}}>
 
-        \`\`\`jsx preview
-        // TODO: Add example.
-        \`\`\`
+\`\`\`jsx preview
+// TODO: Add example.
+\`\`\`
 
-        </Documenter>
-        `)
+</Documenter>
+`.trimLeft())
     }
   } else {
     const readmeFile = path.join(rootDir, `README.md`)

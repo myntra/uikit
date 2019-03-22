@@ -17,9 +17,10 @@ interface AvatarProps extends BaseProps {
  * @status EXPERIMENTAL
  * @category basic
  */
-export default function Avatar({ name, size, className }: AvatarProps) {
+export default function Avatar({ name, size, className, ...props }: AvatarProps) {
   return (
     <svg
+      {...props}
       viewBox="0 0 32 32"
       width="32"
       height="32"

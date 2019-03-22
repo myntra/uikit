@@ -1,0 +1,84 @@
+@import './helper';
+
+$named-sizes: (
+  full: 100%,
+  three-quarters: 75%,
+  two-thirds: 66.6666%,
+  half: 50%,
+  one-third: 33.3333%,
+  one-quarter: 25%,
+  one-fifth: 20%,
+  two-fifth: 40%,
+  three-fifth: 60%,
+  four-fifth: 80%,
+);
+// -- Column --
+.column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  padding-left: var(--column-inset);
+  padding-right: var(--column-inset);
+  overflow: paged-x;
+  overflow: -webkit-paged-x;
+
+  &.narrow { flex: none; }
+
+  @each $name, $value in $named-sizes {
+    .columns.mobile > &.is-#{$name} { width: $value; flex: none; }
+    .columns.mobile > &.offset-#{$name} { margin-left: $value; }
+  }
+  @for $i from 1 through 12 {
+    .columns.mobile > &.is-#{$i} { width: percentage($i / 12); flex: none; }
+    .columns.mobile > &.offset-#{$i} { margin-left: percentage($i / 12); }
+  }
+
+  @include mobile {
+    &.narrow-mobile { flex: none; }
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}-mobile { width: $value; flex: none; }
+      &.offset-#{$name}-mobile { margin-left: $value; }
+    }
+    @for $i from 1 through 12 {
+      &.is-#{$i}-mobile { width: percentage($i / 12); flex: none; }
+      &.offset-#{$i}-mobile { margin-left: percentage($i / 12); }
+    }
+  }
+
+  @include tablet {
+    &.narrow-tablet { flex: none; }
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}, &.is-#{$name}-tablet { width: $value; flex: none; }
+      &.offset-#{$name}, &.offset-#{$name}-tablet { margin-left: $value; }
+    }
+    @for $i from 1 through 12 {
+      &.is-#{$i}, &.is-#{$i}-tablet { width: percentage($i / 12); flex: none; }
+      &.offset-#{$i}, &.offset-#{$i}-tablet { margin-left: percentage($i / 12); }
+    }
+  }
+
+  @include touch {
+    &.narrow-touch { flex: none; }
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}-touch { width: $value; flex: none; }
+      &.offset-#{$name}-touch { margin-left: $value; }
+    }
+    @for $i from 1 through 12 {
+      &.is-#{$i}-touch { width: percentage($i / 12); flex: none; }
+      &.offset-#{$i}-touch { margin-left: percentage($i / 12); }
+    }
+  }
+
+  @include desktop {
+    &.narrow-desktop { flex: none; }
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}-desktop { width: $value; flex: none; }
+      &.offset-#{$name}-desktop { margin-left: $value; }
+    }
+    @for $i from 1 through 12 {
+      &.is-#{$i}-desktop { width: percentage($i / 12); flex: none; }
+      &.offset-#{$i}-desktop { margin-left: percentage($i / 12); }
+    }
+  }
+}

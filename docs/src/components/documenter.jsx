@@ -53,7 +53,7 @@ export default class Documenter extends Component {
                   <div className="documenter--prop-name">{prop.name}</div>
                   <div className="documenter--prop-type" title={prop.type ? prop.type.name : 'any'}>{prop.type ? prop.type.name : 'any'}</div>
                   <div className="documenter--prop-value">
-                    {prop.required ? <span className="documenter--prop-required">required</span> : JSON.stringify(prop.defaultValue, null, 2)}
+                    {prop.required ? <span className="documenter--prop-required">required</span> : 'defaultValue' in prop ? JSON.stringify(prop.defaultValue, null, 2) : 'undefined' }
                   </div>
                 </div>
                 <div className="documenter--prop-description">

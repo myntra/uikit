@@ -9,9 +9,8 @@ testCodeMod(__dirname, '../alert.codemod.js')
 
 describe('Alert', () => {
   it('renders', () => {
-    const wrapper = shallow(<Alert>Alert</Alert>)
-
-    expect(wrapper.text()).toEqual(expect.stringContaining('Alert'))
+    expect(Alert).toBeComponent()
+    expect(Alert).toBeTransparentComponent()
   })
 
   describe('behaviour', () => {

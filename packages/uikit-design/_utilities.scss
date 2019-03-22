@@ -210,10 +210,8 @@ $errors: ();
   }
 }
 
-/**
- * Calculate the luminance for a color.
- * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
- */
+// Calculate the luminance for a color.
+// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 @function luminance($color) {
   $red: nth($linear-channel-values, red($color) + 1);
   $green: nth($linear-channel-values, green($color) + 1);
@@ -222,10 +220,8 @@ $errors: ();
   @return 0.2126 * $red + 0.7152 * $green + 0.0722 * $blue;
 }
 
-/**
- * Calculate the contrast ratio between two colors.
- * See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
- */
+// Calculate the contrast ratio between two colors.
+// See https://www.w3.org/TR/WCAG20-TECHS/G17.html#G17-tests
 @function contrast($back, $front) {
   $back-lum: luminance($back) + 0.05;
   $fore-lum: luminance($front) + 0.05;
@@ -233,9 +229,7 @@ $errors: ();
   @return max($back-lum, $fore-lum) / min($back-lum, $fore-lum);
 }
 
-/**
- * Deep merge maps.
- */
+// Deep merge maps.
 @function merge($map1, $map2, $depth: 1) {
   @if type-of($map2) != map {
     @return $map1;

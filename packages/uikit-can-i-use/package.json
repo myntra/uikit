@@ -3,6 +3,7 @@
   "version": "0.7.1",
   "main": "src/index.ts",
   "module": "dist/uikit-can-i-use.js",
+  "browser": "src/index.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-can-i-use",

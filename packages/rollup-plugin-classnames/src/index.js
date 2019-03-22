@@ -1,6 +1,8 @@
 const { createFilter } = require('rollup-pluginutils')
 
-module.exports = function ClassNames(options = {}) {
+module.exports = function ClassNames(options = {
+  include: '*.module.scss'
+}) {
   const shouldTransform = createFilter(options.include, options.exclude)
 
   return {

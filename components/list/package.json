@@ -3,6 +3,7 @@
   "version": "0.7.1",
   "main": "src/list.tsx",
   "module": "dist/list.js",
+  "browser": "src/list.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/list",
@@ -15,6 +16,9 @@
     "bin/",
     "*.codemod.js"
   ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
   "dependencies": {
     "react": "16.*"
   }
