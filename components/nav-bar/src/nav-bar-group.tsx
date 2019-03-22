@@ -52,11 +52,13 @@ export default function NavBarGroup({ title, children, className, __$navId: id, 
     return depth > 0 ? (
       <NavBarItem
         {...props}
+        data-is-nav-group={true}
         className={className}
         onActivation={event => {
+          const li = event.target.closest('li')
+          if (!li || !li.dataset.isNavGroup) return
           // Stop event propagation so parent NavBar.Group is not triggered.
           event.stopPropagation()
-
           // Toggle state of the NavBar.Group.
           isActiveGroup(id) ? setActiveGroup(id.slice(0, id.length - 1)) : setActiveGroup(id)
         }}

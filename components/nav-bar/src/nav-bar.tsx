@@ -49,7 +49,12 @@ interface NavBarProps extends BaseProps {
    *
    * @since 0.10.0
    */
-  renderLink?(props: LinkProps): JSX.Element
+  renderLink?(props: LinkProps): any
+
+  /**
+   * The callback fired when NavBar.Item is clicked.
+   */
+  onNavLinkClick?(link: { to: any }): void
 
   /**
    * The callback called when user clicks on the NavBar.
@@ -193,6 +198,10 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
 
       this.props.onChange(navLink.path)
     }
+
+    if (this.props.onNavLinkClick && navLink.path) {
+      this.props.onNavLinkClick({ to: navLink.path })
+    }
   }
 
   isActiveNavLinkPath = (navLinkPath: string): boolean => {
@@ -200,6 +209,7 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
   }
 
   setActiveGroup = (id: number[]) => {
+    // debugger
     this.setState({ activeGroup: id })
   }
 

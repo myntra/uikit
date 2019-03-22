@@ -14,7 +14,7 @@
   top: 0;
   bottom: 0;
   left: 100%;
-  width: calc(100% - 640px);
+  width: calc(100% - 694px);
   transition: all 0.35s;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   z-index: 900;
@@ -29,7 +29,7 @@
 }
 
 .active .editor {
-  left: 640px;
+  left: 694px;
 }
 
 .active .content {

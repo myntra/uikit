@@ -7,7 +7,7 @@ export interface NavBarItemProps extends BaseProps {
   /**
    * The title of the link.
    */
-  children: React.ReactNode
+  children: any
 
   /**
    * The location of the linked page.
@@ -22,7 +22,7 @@ export interface NavBarItemProps extends BaseProps {
   /**
    * Render a custom [Icon](/components/icon) or an [Avatar](/components/avatar).
    */
-  renderIcon?(): React.ReactNode
+  renderIcon?(): any
 
   /**
    * The callback fired on item click or press.
@@ -57,13 +57,13 @@ export default function NavBarItem({
 
   const render = ({ onNavLinkClick, isActivePath, renderLink }: NavBarContext) => (
     <li
-      onClick={
-        (onActivation || onNavLinkClick) &&
-        (event => {
-          if (onActivation) onActivation(event)
-          if (onNavLinkClick) onNavLinkClick(event as any)
-        })
-      }
+      onClick={event => {
+        // Stop event propagation so parent NavBar.Group is not triggered.
+        console.log(event.target.closest('li'))
+
+        if (onActivation) onActivation(event)
+        if (onNavLinkClick) onNavLinkClick({ path: to })
+      }}
       onKeyDown={
         onActivation &&
         (event => {
@@ -77,6 +77,7 @@ export default function NavBarItem({
           }
         })
       }
+      data-is-nav-group={false}
       {...props}
       className={classnames('nav-item', className, { 'is-active': to && isActivePath(to) })}
     >

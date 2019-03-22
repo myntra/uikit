@@ -5,10 +5,9 @@ module.exports = function PostMDXHelperLoader(content) {
   const { body, attributes } = fm(content)
 
   return `
+import Layout from '@layouts/${attributes.layout || 'default-layout'}'
 import Documenter from '@components/documenter'
 import Code from '@components/code'
-
-export const layout = '${attributes.layout || 'default-layout'}'
 
 ${content}`
 }

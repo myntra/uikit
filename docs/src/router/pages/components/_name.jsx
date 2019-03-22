@@ -4,7 +4,8 @@ import Editor, { EditorContext } from '@components/editor'
 import Button from '@uikit/button'
 import Measure from '@uikit/measure'
 import { withRootState } from '@spectrum'
-import CodePreview from '@components/code-preview';
+import CodePreview from '@components/code-preview'
+import Layout from '@layouts/default-layout'
 
 import './_name.css'
 
@@ -44,35 +45,51 @@ export default function ComponentDocumentationPage({ name }) {
   const [isActive, setActive] = useState(false)
   const ref = useRef(null)
   const hide = useCallback(() => setActive(false), [setActive])
-  const content = useMemo(() => (
-    Component ? <Component components={{ wrapper: ({ children }) => <div className="content">{children}</div> }} /> : null
-  ), [Component])
+  const content = useMemo(
+    () =>
+      Component ? (
+        <Component components={{ wrapper: ({ children }) => <div className="content">{children}</div> }} />
+      ) : null,
+    [Component]
+  )
 
   useEffect(() => {
     findDocumentation(name, setComponent)
   })
 
   return (
-    <div className={`component ${isActive ? 'active' : ''}`}>
-      <EditorContext.Provider value={{
-        source, setSource: source => {
-          setSource(source)
-          setActive(true)
+    <Layout>
+      <div className={`component ${isActive ? 'active' : ''}`}>
+        <EditorContext.Provider
+          value={{
+            source,
+            setSource: source => {
+              setSource(source)
+              setActive(true)
+            }
+          }}
+        >
+          {content}
+        </EditorContext.Provider>
+        {
+          <div className={`editor`} ref={ref}>
+            <Button className="close" icon="times" onClick={hide} />
+            <CodePreview className="preview" source={source} />
+            <Measure bounds>
+              {({
+                content: {
+                  bounds: { width = 200, height = 100 }
+                },
+                ref
+              }) => (
+                <div className="monaco" ref={ref}>
+                  <Editor value={source} width={width} height={height} onChange={setSource} />
+                </div>
+              )}
+            </Measure>
+          </div>
         }
-      }}>
-        {content}
-      </EditorContext.Provider>
-      {<div className={`editor`} ref={ref}>
-        <Button className="close" icon="times" onClick={hide} />
-        <CodePreview className="preview" source={source} />
-        <Measure bounds>
-          {({ content: { bounds: { width = 200, height = 100 } }, ref }) => (
-            <div className="monaco" ref={ref}>
-              <Editor value={source} width={width} height={height} onChange={setSource} />
-            </div>
-          )}
-        </Measure>
-      </div>}
-    </div>
+      </div>
+    </Layout>
   )
 }

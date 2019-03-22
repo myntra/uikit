@@ -17,6 +17,9 @@ $-nav-bar--header: () !default;
 $-nav-bar--header: merge(
   (
     height: 64px,
+    surface: (
+      background-color: white,
+    ),
     shape: (
       padding: 0 ui-relative-size(),
       border-bottom: 1px solid ui-color(gray),
@@ -37,7 +40,10 @@ $-nav-bar--body: merge(
 
   @include extract($-nav-bar);
 
+  z-index: ui-z-index(nav);
+
   transition: width 0.35s ease-in-out;
+  overflow-y: auto;
 }
 
 .nav:hover,
@@ -55,6 +61,11 @@ $-nav-bar--body: merge(
   overflow: hidden;
 
   @include extract($-nav-bar--header);
+
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 1;
 }
 
 .header img {
