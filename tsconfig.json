@@ -3,7 +3,7 @@
     "components/",
     "packages/",
     "themes/",
-    "types/"
+    "@types/"
   ],
   "exclude": [
     "dist",

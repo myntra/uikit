@@ -21,5 +21,8 @@
   },
   "dependencies": {
     "react": "16.*"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.10"
   }
 }

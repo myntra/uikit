@@ -50,33 +50,38 @@ function injectNavId(children: any, id: number[]) {
 export default function NavBarGroup({ title, children, className, __$navId: id, ...props }: NavBarGroupProps) {
   function render(depth: number, setActiveGroup: any, isActiveGroup: (id: any) => boolean) {
     return depth > 0 ? (
-      <NavBarItem
-        {...props}
-        data-is-nav-group={true}
-        className={className}
-        onActivation={event => {
-          const li = event.target.closest('li')
-          if (!li || !li.dataset.isNavGroup) return
-          // Stop event propagation so parent NavBar.Group is not triggered.
-          event.stopPropagation()
-          // Toggle state of the NavBar.Group.
-          isActiveGroup(id) ? setActiveGroup(id.slice(0, id.length - 1)) : setActiveGroup(id)
-        }}
-        aria-haspopup="true"
-        aria-expanded={`${isActiveGroup(id)}`}
-        tabIndex={0}
-        role="button"
-      >
-        <div className={classnames('nav-group-title')}>{title}</div>
+      <>
+        <NavBarItem
+          {...props}
+          data-is-nav-group={true}
+          className={className}
+          onActivation={event => {
+            // Stop event propagation so parent NavBar.Group is not triggered.
+            event.stopPropagation()
+            // Toggle state of the NavBar.Group.
+            isActiveGroup(id) ? setActiveGroup(id.slice(0, id.length - 1)) : setActiveGroup(id)
+          }}
+          aria-haspopup="true"
+          aria-expanded={`${isActiveGroup(id)}`}
+          tabIndex={0}
+          key={id.join('.') + ':title'}
+          role="button"
+        >
+          <div className={classnames('nav-group-title')}>{title}</div>
+        </NavBarItem>
         {isActiveGroup(id) && (
           <Context.Provider value={{ depth: depth + 1 }}>
-            <ul className={classnames('nav-group')}>{injectNavId(children, id)}</ul>
+            <ul className={classnames('nav-group')} key={id.join('.')}>
+              {injectNavId(children, id)}
+            </ul>
           </Context.Provider>
         )}
-      </NavBarItem>
+      </>
     ) : (
       <Context.Provider value={{ depth: depth + 1 }}>
-        <ul className={classnames('nav-group', className)}>{injectNavId(children, id)}</ul>
+        <ul className={classnames('nav-group', className)} key={id.join('.')}>
+          {injectNavId(children, id)}
+        </ul>
       </Context.Provider>
     )
   }

@@ -1,12 +1,12 @@
 @import '@myntra/uikit-design';
 
 .avatar {
-  height: 1em;
+  box-sizing: border-box;
   width: 1em;
+  height: 1em;
+  color: currentColor;
   border: 1px solid currentColor;
   border-radius: 100%;
-  color: currentColor;
-  box-sizing: border-box;
 
   &.small {
     font-size: to-rem($-vertical-grid-size);

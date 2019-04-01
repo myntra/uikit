@@ -7,7 +7,7 @@ $-alert: merge(
       border-radius: ui-relative-border-radius()
     ),
     surface: (
-      border: 1px solid,
+      border: 1px solid
     )
   ),
   $-alert
@@ -32,9 +32,9 @@ $-alert: merge(
 
   @each $name, $color in $types {
     &.#{$name} {
+      color: ui-text-color($color);
       background-color: ui-color($color, lighter);
       border-color: ui-color($color);
-      color: ui-text-color($color);
 
       &.solid {
         background-color: ui-color($color);
@@ -42,19 +42,17 @@ $-alert: merge(
     }
   }
 
-
   &.solid {
     color: ui-text-color(light);
   }
 
   .content {
-    margin-left: ui-relative-space();
     flex: 1;
+    margin-left: ui-relative-space();
   }
 
   .close {
-    margin: (- ui-relative-size(xs));
+    margin: (-ui-relative-size(xs));
     margin-left: 0;
   }
-
 }

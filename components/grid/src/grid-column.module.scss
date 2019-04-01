@@ -10,7 +10,7 @@ $named-sizes: (
   one-fifth: 20%,
   two-fifth: 40%,
   three-fifth: 60%,
-  four-fifth: 80%,
+  four-fifth: 80%
 );
 // -- Column --
 .column {
@@ -18,67 +18,140 @@ $named-sizes: (
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
-  padding-left: var(--column-inset);
   padding-right: var(--column-inset);
+  padding-left: var(--column-inset);
   overflow: paged-x;
   overflow: -webkit-paged-x;
 
-  &.narrow { flex: none; }
+  &.narrow {
+    flex: none;
+  }
 
   @each $name, $value in $named-sizes {
-    .columns.mobile > &.is-#{$name} { width: $value; flex: none; }
-    .columns.mobile > &.offset-#{$name} { margin-left: $value; }
+    .columns.mobile > &.is-#{$name} {
+      flex: none;
+      width: $value;
+    }
+    .columns.mobile > &.offset-#{$name} {
+      margin-left: $value;
+    }
   }
+
   @for $i from 1 through 12 {
-    .columns.mobile > &.is-#{$i} { width: percentage($i / 12); flex: none; }
-    .columns.mobile > &.offset-#{$i} { margin-left: percentage($i / 12); }
+    .columns.mobile > &.is-#{$i} {
+      flex: none;
+      width: percentage($i / 12);
+    }
+    .columns.mobile > &.offset-#{$i} {
+      margin-left: percentage($i / 12);
+    }
   }
 
   @include mobile {
-    &.narrow-mobile { flex: none; }
-    @each $name, $value in $named-sizes {
-      &.is-#{$name}-mobile { width: $value; flex: none; }
-      &.offset-#{$name}-mobile { margin-left: $value; }
+    &.narrow-mobile {
+      flex: none;
     }
+
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}-mobile {
+        flex: none;
+        width: $value;
+      }
+      &.offset-#{$name}-mobile {
+        margin-left: $value;
+      }
+    }
+
     @for $i from 1 through 12 {
-      &.is-#{$i}-mobile { width: percentage($i / 12); flex: none; }
-      &.offset-#{$i}-mobile { margin-left: percentage($i / 12); }
+      &.is-#{$i}-mobile {
+        flex: none;
+        width: percentage($i / 12);
+      }
+      &.offset-#{$i}-mobile {
+        margin-left: percentage($i / 12);
+      }
     }
   }
 
   @include tablet {
-    &.narrow-tablet { flex: none; }
-    @each $name, $value in $named-sizes {
-      &.is-#{$name}, &.is-#{$name}-tablet { width: $value; flex: none; }
-      &.offset-#{$name}, &.offset-#{$name}-tablet { margin-left: $value; }
+    &.narrow-tablet {
+      flex: none;
     }
+
+    @each $name, $value in $named-sizes {
+      &.is-#{$name},
+      &.is-#{$name}-tablet {
+        flex: none;
+        width: $value;
+      }
+      &.offset-#{$name},
+      &.offset-#{$name}-tablet {
+        margin-left: $value;
+      }
+    }
+
     @for $i from 1 through 12 {
-      &.is-#{$i}, &.is-#{$i}-tablet { width: percentage($i / 12); flex: none; }
-      &.offset-#{$i}, &.offset-#{$i}-tablet { margin-left: percentage($i / 12); }
+      &.is-#{$i},
+      &.is-#{$i}-tablet {
+        flex: none;
+        width: percentage($i / 12);
+      }
+      &.offset-#{$i},
+      &.offset-#{$i}-tablet {
+        margin-left: percentage($i / 12);
+      }
     }
   }
 
   @include touch {
-    &.narrow-touch { flex: none; }
-    @each $name, $value in $named-sizes {
-      &.is-#{$name}-touch { width: $value; flex: none; }
-      &.offset-#{$name}-touch { margin-left: $value; }
+    &.narrow-touch {
+      flex: none;
     }
+
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}-touch {
+        flex: none;
+        width: $value;
+      }
+      &.offset-#{$name}-touch {
+        margin-left: $value;
+      }
+    }
+
     @for $i from 1 through 12 {
-      &.is-#{$i}-touch { width: percentage($i / 12); flex: none; }
-      &.offset-#{$i}-touch { margin-left: percentage($i / 12); }
+      &.is-#{$i}-touch {
+        flex: none;
+        width: percentage($i / 12);
+      }
+      &.offset-#{$i}-touch {
+        margin-left: percentage($i / 12);
+      }
     }
   }
 
   @include desktop {
-    &.narrow-desktop { flex: none; }
-    @each $name, $value in $named-sizes {
-      &.is-#{$name}-desktop { width: $value; flex: none; }
-      &.offset-#{$name}-desktop { margin-left: $value; }
+    &.narrow-desktop {
+      flex: none;
     }
+
+    @each $name, $value in $named-sizes {
+      &.is-#{$name}-desktop {
+        flex: none;
+        width: $value;
+      }
+      &.offset-#{$name}-desktop {
+        margin-left: $value;
+      }
+    }
+
     @for $i from 1 through 12 {
-      &.is-#{$i}-desktop { width: percentage($i / 12); flex: none; }
-      &.offset-#{$i}-desktop { margin-left: percentage($i / 12); }
+      &.is-#{$i}-desktop {
+        flex: none;
+        width: percentage($i / 12);
+      }
+      &.offset-#{$i}-desktop {
+        margin-left: percentage($i / 12);
+      }
     }
   }
 }

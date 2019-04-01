@@ -1,4 +1,4 @@
-@import "@myntra/uikit-design";
+@import '@myntra/uikit-design';
 
 $-button: () !default;
 $-button: merge(
@@ -6,10 +6,10 @@ $-button: merge(
     text: (
       font-size: ui-font-size(base),
       text-transform: uppercase,
-      white-space: nowrap,
+      white-space: nowrap
     ),
     shape: (
-      padding: ui-context-size(s) ui-context-size('2xl'),
+      padding: ui-context-size(s) ui-context-size('2xl')
     ),
     surface: (
       border-radius: 2rem
@@ -24,12 +24,12 @@ $-button__states: merge(
   (
     disabled: (
       text: (
-        color: ui-text-color(dark, disabled),
+        color: ui-text-color(dark, disabled)
       ),
       surface: (
         background-color: ui-color(gray, lighter),
-        border-color: ui-color(gray, dark),
-      ),
+        border-color: ui-color(gray, dark)
+      )
     ),
     hover: (
       surface: (
@@ -43,7 +43,7 @@ $-button__states: merge(
     ),
     focus-visible: (
       surface: (
-        outline: 1px dashed currentColor,
+        outline: 1px dashed currentColor
       )
     )
   ),
@@ -56,34 +56,34 @@ $-button__variants: merge(
   (
     primary: (
       text: (
-        color: ui-text-color(light),
+        color: ui-text-color(light)
       ),
       surface: (
         background-color: ui-color(primary),
-        border: solid 1px ui-color(primary),
-      ),
+        border: solid 1px ui-color(primary)
+      )
     ),
     secondary: (
       text: (
-        color: ui-text-color(primary),
+        color: ui-text-color(primary)
       ),
       surface: (
         background-color: transparent,
-        border: solid 1px ui-color(primary),
+        border: solid 1px ui-color(primary)
       ),
       hover: (
         surface: (
           background-color: ui-color(primary, lighter)
         )
-      ),
+      )
     ),
     link: (
       text: (
-        color: ui-text-color(primary),
+        color: ui-text-color(primary)
       ),
       surface: (
         background-color: transparent,
-        border: none,
+        border: none
       ),
       shape: (
         padding-left: 0,
@@ -91,13 +91,13 @@ $-button__variants: merge(
       ),
       hover: (
         surface: (
-          box-shadow: none,
+          box-shadow: none
         )
       ),
       active: (
         text: (
           color: ui-color(primary, dark)
-        ),
+        )
       )
     )
   ),
@@ -110,7 +110,7 @@ $-button--icon: () !default;
 $-button--icon: merge(
   (
     shape: (
-      padding: ui-context-size(s),
+      padding: ui-context-size(s)
     )
   ),
   $-button--icon
@@ -121,7 +121,7 @@ $-button--primary-icon: () !default;
 $-button--primary-icon: merge(
   (
     shape: (
-      margin-right: ui-context-size(xs),
+      margin-right: ui-context-size(xs)
     )
   ),
   $-button--primary-icon
@@ -132,7 +132,7 @@ $-button--secondary-icon: () !default;
 $-button--secondary-icon: merge(
   (
     shape: (
-      margin-left: ui-context-size(xs),
+      margin-left: ui-context-size(xs)
     )
   ),
   $-button--secondary-icon
@@ -141,14 +141,14 @@ $-button--secondary-icon: merge(
 .button {
   $states: (focus-visible, hover, active, disabled);
 
-  cursor: pointer;
-  display: inline-block;
-  transition: all 0.15s;
   box-sizing: border-box;
+  display: inline-block;
   line-height: 1;
+  cursor: pointer;
 
   // Firefox <35 for Android sets a default background-image gradient on all buttons. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes
   background-image: none;
+  transition: all 0.15s;
 
   @include extract($-button);
 
@@ -174,7 +174,8 @@ $-button--secondary-icon: merge(
       @include extract($config);
 
       @each $state in $states {
-        &:#{$state}, &.#{$state} {
+        &:#{$state},
+        &.#{$state} {
           content: null;
 
           @if map-has-key($config, $state) {
@@ -200,8 +201,8 @@ $-button--secondary-icon: merge(
     @include extract($-button--icon);
 
     > .icon {
-      height: 1em;
       width: 1em;
+      height: 1em;
     }
   }
 
@@ -211,10 +212,12 @@ $-button--secondary-icon: merge(
 
   > .primary-icon {
     display: inline-block;
+
     @include extract($-button--primary-icon);
   }
   > .secondary-icon {
     display: inline-block;
+
     @include extract($-button--secondary-icon);
   }
 }

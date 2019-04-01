@@ -1,4 +1,13 @@
-import React, { createContext as createNativeContext, ProviderProps, ConsumerProps, PureComponent, Children, FunctionComponent, Component } from 'react'
+import React, {
+  createContext as createNativeContext,
+  ProviderProps,
+  ConsumerProps,
+  PureComponent,
+  Children,
+  FunctionComponent,
+  Component,
+  Context
+} from 'react'
 
 export interface LinkProps {
   href: string | any
@@ -11,8 +20,8 @@ export interface RouterLinkProps {
 }
 
 export interface UIKitContext {
-  Link: React.FunctionComponent<LinkProps>,
-  RouterLink: React.FunctionComponent<RouterLinkProps>
+  Link: FunctionComponent<LinkProps>
+  RouterLink: FunctionComponent<RouterLinkProps>
 }
 
 export const DEFAULT_CONTEXT: UIKitContext = {
@@ -26,7 +35,7 @@ export const DEFAULT_CONTEXT: UIKitContext = {
 
 // Fallback Context.
 let counter = 0
-export function createContext<T>(defaultValue: T): React.Context<T> {
+export function createContext<T>(defaultValue: T): Context<T> {
   if (CAN_USE_CONTEXT) return createNativeContext(defaultValue)
 
   const id = `__$$Context${counter++}`
@@ -35,7 +44,7 @@ export function createContext<T>(defaultValue: T): React.Context<T> {
 
   class Provider extends PureComponent<ProviderProps<T>> {
     static childContextTypes = {
-      [id]() { }
+      [id]() {}
     }
 
     static get $$typeof() {
@@ -53,7 +62,7 @@ export function createContext<T>(defaultValue: T): React.Context<T> {
 
   class Consumer extends Component<ConsumerProps<T>> {
     static contextTypes = {
-      [id]() { }
+      [id]() {}
     }
 
     static get $$typeof() {
@@ -61,9 +70,7 @@ export function createContext<T>(defaultValue: T): React.Context<T> {
     }
 
     render() {
-      return this.props.children(
-        (this.context && this.context[id]) || defaultValue
-      )
+      return this.props.children((this.context && this.context[id]) || defaultValue)
     }
   }
 

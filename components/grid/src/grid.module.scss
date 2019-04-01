@@ -5,21 +5,35 @@
   --column-gap: var(--size-base);
   --column-inset: var(--column-gap);
   --column-outset: calc(-1 * var(--column-gap));
-  display: flex;
-  margin-left: var(--column-outset);
-  margin-right: var(--column-outset);
 
-  &:last-child { margin-bottom: var(--column-outset); }
-  &:not(:last-child) { margin-bottom: var(--column-inset); }
-  &.hcentered, &.centered { justify-content: center; }
-  &.multiline { flex-wrap: wrap; }
-  &.vcentered, &.centered { align-items: center; }
+  display: flex;
+  margin-right: var(--column-outset);
+  margin-left: var(--column-outset);
+
+  &:last-child {
+    margin-bottom: var(--column-outset);
+  }
+  &:not(:last-child) {
+    margin-bottom: var(--column-inset);
+  }
+  &.hcentered,
+  &.centered {
+    justify-content: center;
+  }
+  &.multiline {
+    flex-wrap: wrap;
+  }
+  &.vcentered,
+  &.centered {
+    align-items: center;
+  }
 
   @include tablet {
     &:not(.desktop) {
       display: flex;
     }
   }
+
   @include desktop {
     &.desktop {
       display: flex;
@@ -29,11 +43,12 @@
 
 .columns.variable-gap {
   --column-gap: var(--column-gap, 0.75rem);
-  margin-left: calc(-1 * var(--column-gap));
+
   margin-right: calc(-1 * var(--column-gap));
+  margin-left: calc(-1 * var(--column-gap));
   .column {
-    padding-left: var(--column-gap);
     padding-right: var(--column-gap);
+    padding-left: var(--column-gap);
   }
 
   @each $size in 'none', 'xx-small', 'x-small', 'small', 'base', 'large' {

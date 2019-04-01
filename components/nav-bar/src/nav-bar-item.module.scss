@@ -4,17 +4,17 @@ $-nav-bar-item: () !default;
 $-nav-bar-item: merge(
   (
     icon-size: 2rem,
-    space: ui-relative-size(xs),
+    space: ui-relative-size(xs)
   ),
   $-nav-bar-item
 );
 
 .nav-item {
-  list-style: none;
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  align-items: center;
   margin: map-get($-nav-bar-item, space) 0;
+  list-style: none;
   cursor: pointer;
 }
 
@@ -36,9 +36,9 @@ $-nav-bar-item: merge(
 }
 
 .icon {
-  font-size: map-get($-nav-bar-item, icon-size);
+  display: inline-block;
   width: map-get($-nav-bar-item, icon-size);
   height: map-get($-nav-bar-item, icon-size);
-  display: inline-block;
   margin-right: ui-relative-size(s);
+  font-size: map-get($-nav-bar-item, icon-size);
 }

@@ -4,6 +4,8 @@ import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
 
+import LogoMyntraJabong from './logos/myntra-jabong.png'
+
 // TODO: Use click away to close NavBar (if mouse leave fails)
 
 import classnames from './nav-bar.module.scss'
@@ -178,15 +180,15 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
   }
 
   handleBlur = (event: any) => {
-    this.close()
+    // DO NOT CLOSE ON BLUR.
   }
 
   open = () => {
-    this.setState({ isOpen: true })
+    if (!this.state.isOpen) this.setState({ isOpen: true })
   }
 
   close = () => {
-    this.setState({ isOpen: false, activeGroup: ROOT_NAV_GROUP_ID })
+    if (this.state.isOpen) this.setState({ isOpen: false, activeGroup: ROOT_NAV_GROUP_ID })
   }
 
   handleNavLinkClick = (navLink: { path: string }) => {
@@ -233,6 +235,7 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
         }}
       >
         <nav
+          id={`${this.idPrefix}nav`}
           className={classnames('nav', this.props.className, { 'is-open': this.isOpen })}
           tabIndex={0}
           onClick={this.handleClick}
@@ -243,11 +246,16 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
           labelled-by={`${this.idPrefix}header`}
         >
           <header id={`${this.idPrefix}header`} className={classnames('header')}>
-            <img src="" />
+            <img src={LogoMyntraJabong} alt="Myntra Jabong" />
             {this.props.title}
           </header>
 
-          <NavBarGroup className={classnames('body')} title={this.props.title} __$navId={ROOT_NAV_GROUP_ID}>
+          <NavBarGroup
+            className={classnames('body')}
+            title={this.props.title}
+            __$navId={ROOT_NAV_GROUP_ID}
+            key={ROOT_NAV_GROUP_ID.join('.')}
+          >
             {this.props.children}
           </NavBarGroup>
         </nav>

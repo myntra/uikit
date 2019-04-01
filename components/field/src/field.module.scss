@@ -12,8 +12,8 @@
 }
 
 .required {
-  color: ui-text-color(red);
   padding-left: 2px;
+  color: ui-text-color(red);
 }
 
 .meta {
@@ -30,9 +30,9 @@
 .meta > * {
   color: ui-text-color(dark, mid-emphasis); // TODO: Change to mid-emphasis.
 
-  @include use-text-style(small)
+  @include use-text-style(small);
 }
 
-.meta > [role="alert"] {
+.meta > [role='alert'] {
   color: ui-text-color(red);
 }

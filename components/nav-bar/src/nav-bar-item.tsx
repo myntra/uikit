@@ -58,9 +58,6 @@ export default function NavBarItem({
   const render = ({ onNavLinkClick, isActivePath, renderLink }: NavBarContext) => (
     <li
       onClick={event => {
-        // Stop event propagation so parent NavBar.Group is not triggered.
-        console.log(event.target.closest('li'))
-
         if (onActivation) onActivation(event)
         if (onNavLinkClick) onNavLinkClick({ path: to })
       }}
@@ -70,9 +67,6 @@ export default function NavBarItem({
           if (event.key === 'Space' || event.key === 'Enter') {
             // Prevent scrolling if the Space key is pressed.
             event.preventDefault()
-            // Stop event propagation otherwise NavBar.Item inside NavBar.Group
-            // can expand/collapse parent NavBar.Group.
-            event.stopPropagation()
             onActivation(event)
           }
         })

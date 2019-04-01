@@ -28,5 +28,8 @@
     "@myntra/uikit-component-avatar": "link:../avatar",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-context": "link:../../packages/uikit-context"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.10"
   }
 }

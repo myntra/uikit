@@ -1,6 +1,6 @@
-@import "@myntra/uikit-design";
+@import '@myntra/uikit-design';
 
-$-nav-bar: ()!default;
+$-nav-bar: () !default;
 $-nav-bar: merge(
   (
     close-width: 54px,
@@ -18,32 +18,27 @@ $-nav-bar--header: merge(
   (
     height: 64px,
     surface: (
-      background-color: white,
+      background-color: white
     ),
     shape: (
-      padding: 0 ui-relative-size(),
-      border-bottom: 1px solid ui-color(gray),
+      padding: 0 ui-relative-size('s'),
+      border-bottom: 1px solid ui-color(gray)
     )
   ),
   $-nav-bar--header
 );
 
 $-nav-bar--body: () !default;
-$-nav-bar--body: merge(
-  (),
-  $-nav-bar--body
-);
+$-nav-bar--body: merge((), $-nav-bar--body);
 
 .nav {
+  z-index: ui-z-index(nav);
   width: map-get($-nav-bar, 'close-width');
   overflow: hidden;
+  overflow-y: auto;
+  transition: width 0.35s ease-in-out;
 
   @include extract($-nav-bar);
-
-  z-index: ui-z-index(nav);
-
-  transition: width 0.35s ease-in-out;
-  overflow-y: auto;
 }
 
 .nav:hover,
@@ -52,32 +47,31 @@ $-nav-bar--body: merge(
 }
 
 .header {
-  height: map-get($-nav-bar--header, 'height');
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  white-space: nowrap;
-  overflow: hidden;
-
-  @include extract($-nav-bar--header);
-
   position: sticky;
   top: 0;
   left: 0;
   z-index: 1;
-}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: map-get($-nav-bar--header, 'height');
+  overflow: hidden;
+  white-space: nowrap;
 
-.header img {
-  height: 2rem;
-  width: 2rem;
-  margin-right: ui-relative-size();
+  @include extract($-nav-bar--header);
+
+  img {
+    width: 2rem;
+    height: 2rem;
+    margin-right: ui-relative-size('s');
+    object-fit: contain;
+  }
 }
 
 .body {
-  padding-left: ui-relative-size(s);
-  padding-right: ui-relative-size(s);
   width: map-get($-nav-bar, 'open-width') - 2 * ui-size(s);
+  padding-right: ui-relative-size(s);
+  padding-left: ui-relative-size(s);
 
   @include extract($-nav-bar--body);
 }

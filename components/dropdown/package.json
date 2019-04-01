@@ -26,5 +26,8 @@
     "@myntra/uikit-component-portal": "link:../portal",
     "@myntra/uikit-utils": "link:../../packages/uikit-utils",
     "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.10"
   }
 }

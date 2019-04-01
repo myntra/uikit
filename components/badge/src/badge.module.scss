@@ -2,10 +2,10 @@
 
 .badge {
   display: inline-block;
-  border-radius: 1rem;
-  border: solid 1px;
   padding: 0 ui-context-size('xs');
   text-transform: uppercase;
+  border: solid 1px;
+  border-radius: 1rem;
 
   @include use-text-style(caption);
 
@@ -18,9 +18,9 @@
 
   @each $name, $color in $types {
     &.#{$name} {
+      color: ui-text-color($color);
       background-color: ui-color($color, lighter);
       border-color: ui-color($color);
-      color: ui-text-color($color);
     }
   }
 }

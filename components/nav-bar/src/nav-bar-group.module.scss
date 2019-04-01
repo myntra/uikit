@@ -1,11 +1,11 @@
 @import '@myntra/uikit-design';
 
 .nav-group {
+  width: 100%;
+  padding-left: 0;
+  cursor: unset;
   margin-block-start: 0;
   margin-block-end: 0;
-  padding-left: 0;
-  width: 100%;
-  cursor: unset;
 }
 
 .nav-group .nav-group {

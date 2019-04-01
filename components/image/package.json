@@ -22,5 +22,8 @@
   "dependencies": {
     "intersection-observer-polyfill": "^0.1.0",
     "prop-types": "^15.7.2"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.10"
   }
 }

@@ -19,5 +19,8 @@
   "dependencies": {
     "@myntra/uikit-can-i-use": "link:../uikit-can-i-use",
     "react": "^16.8.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.10"
   }
 }
