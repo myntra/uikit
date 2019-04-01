@@ -72,22 +72,31 @@ describe('NavBar', () => {
       expect(fn).toHaveBeenCalled()
 
       reset()
-      wrapper.simulate('keydown', { key: 'Space', preventDefault, stopPropagation })
+      wrapper.simulate('keydown', {
+        key: 'Space',
+        preventDefault,
+        stopPropagation
+      })
       expect(fn).toHaveBeenCalled()
       expect(preventDefault).toHaveBeenCalled()
-      expect(stopPropagation).toHaveBeenCalled()
 
       reset()
-      wrapper.simulate('keydown', { key: 'Enter', preventDefault, stopPropagation })
+      wrapper.simulate('keydown', {
+        key: 'Enter',
+        preventDefault,
+        stopPropagation
+      })
       expect(fn).toHaveBeenCalled()
       expect(preventDefault).toHaveBeenCalled()
-      expect(stopPropagation).toHaveBeenCalled()
 
       reset()
-      wrapper.simulate('keydown', { key: 'Escape', preventDefault, stopPropagation })
+      wrapper.simulate('keydown', {
+        key: 'Escape',
+        preventDefault,
+        stopPropagation
+      })
       expect(fn).not.toHaveBeenCalled()
       expect(preventDefault).not.toHaveBeenCalled()
-      expect(stopPropagation).not.toHaveBeenCalled()
     })
   })
 })
