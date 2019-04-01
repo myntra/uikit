@@ -6,9 +6,6 @@ import classnames from './alert.module.scss'
 interface AlertProps extends BaseProps {
   /**
    * The visual style to convey purpose of the alert.
-   * ```jsx
-   * <Alert type="error">message here</Alert>
-   * ```
    */
   type: 'primary' | 'error' | 'warning' | 'success'
   /**
@@ -39,10 +36,21 @@ const ICONS = {
  * @status READY
  * @category basic
  */
-export default function Alert({ className, type, solid, onClose, children, ...props }: AlertProps): JSX.Element {
+export default function Alert({
+  className,
+  type,
+  solid,
+  onClose,
+  children,
+  ...props
+}: AlertProps): JSX.Element {
   // TODO: Add ARIA support for dismiss action.
   return (
-    <div {...props} className={classnames('alert', { solid }, type, className)} role="alert">
+    <div
+      {...props}
+      className={classnames('alert', { solid }, type, className)}
+      role="alert"
+    >
       <Icon name={ICONS[type]} />
       <div className={classnames('content')}>{children}</div>
       {onClose && (
@@ -57,4 +65,8 @@ export default function Alert({ className, type, solid, onClose, children, ...pr
       )}
     </div>
   )
+}
+
+Alert.defaultProps = {
+  type: 'error'
 }

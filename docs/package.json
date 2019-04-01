@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "spectrum-cli-service serve",
     "build": "spectrum-cli-service build",
-    "lint": "spectrum-cli-service lint"
+    "lint": "spectrum-cli-service lint",
+    "setup:ide": "spectrum-cli-service ide"
   },
   "dependencies": {
     "@babel/standalone": "^7.3.4",
