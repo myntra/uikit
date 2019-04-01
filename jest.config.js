@@ -1,6 +1,7 @@
 const aliases = {
   '\\.css$': '<rootDir>/test/unit/style.js',
   '\\.scss$': '<rootDir>/test/unit/style.js',
+  '\\.png$': '<rootDir>/test/unit/image.js',
   '\\.sprite\\.svg$': '<rootDir>/test/unit/svg.js',
   '@myntra/uikit-utils': '<rootDir>/packages/uikit-utils'
 }
@@ -8,7 +9,10 @@ const aliases = {
 module.exports = {
   moduleNameMapper: aliases,
   setupFilesAfterEnv: ['<rootDir>/test/unit/setup-jest.js'],
-  setupFiles: ['<rootDir>/test/unit/setup-enzyme.js', '<rootDir>/test/unit/setup-window.js'],
+  setupFiles: [
+    '<rootDir>/test/unit/setup-enzyme.js',
+    '<rootDir>/test/unit/setup-window.js'
+  ],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
     '^.+\\.jsx?$': 'babel-jest'

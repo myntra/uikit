@@ -1,5 +1,12 @@
+// False positive unpublished require.
+// eslint-disable-next-line node/no-unpublished-require
 const { componentsDir, packagesDir, packages, components, themes, themesDir } = require('../scripts/utils')
+
 const path = require('path')
+
+// ¯\_(ツ)_/¯ React based Design System.
+// It is defined in root directory.
+// eslint-disable-next-line node/no-extraneous-require
 const { version } = require('react')
 
 const VERSION = parseFloat(version)
@@ -16,6 +23,7 @@ module.exports = {
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
+    config.profile(true).stats('verbose')
     /* eslint-disable prettier/prettier */
     config.resolve.alias.set('@uikit', componentsDir)
     components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
@@ -99,6 +107,8 @@ module.exports = {
       .use('svg-sprite-loader')
       .loader(require.resolve('./tools/svg-sprite-loader'))
 
+    // Added to devDependencies.
+    // eslint-disable-next-line node/no-unpublished-require
     config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'))
 
     config.module
@@ -108,7 +118,7 @@ module.exports = {
       .loader(require.resolve('sass-loader'))
       .options({
         data: context => {
-          if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
+          // if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
 
           return ''
           // return `@import '@myntra/uikit-theme-nuclei/style.scss';`

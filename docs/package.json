@@ -16,27 +16,18 @@
   },
   "devDependencies": {
     "@mdx-js/loader": "^0.17.5",
-    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.24",
-    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.24",
-    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.24",
-    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.24",
-    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.24",
-    "@myntra/spectrum-cli-service": "^2.0.0-alpha.24",
+    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.33",
+    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.33",
+    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.33",
+    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.33",
+    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.33",
+    "@myntra/spectrum-cli-service": "^2.0.0-alpha.33",
     "autoprefixer": "^9.4.9",
     "front-matter": "^3.0.1",
     "monaco-editor-webpack-plugin": "^1.7.0",
     "node-sass": "^4.11.0",
     "raw-loader": "^1.0.0",
     "sass-loader": "https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70"
-  },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "@myntra/eslint-config-spectrum-app"
-    ]
   },
   "prettier": {
     "comma": "es5",
@@ -50,5 +41,6 @@
   },
   "browserslist": [
     "last 2 chrome versions"
-  ]
+  ],
+  "packageManager": "pnpm"
 }
