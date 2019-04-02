@@ -28,7 +28,6 @@
     "front-matter": "^3.0.1",
     "loader-utils": "^1.2.3",
     "monaco-editor-webpack-plugin": "^1.7.0",
-    "node-sass": "^4.11.0",
     "raw-loader": "^1.0.0",
     "remark-autolink-headings": "^5.1.0",
     "remark-emoji": "^2.0.2",
@@ -37,6 +36,7 @@
     "remark-slug": "^5.1.1",
     "remark-squeeze-paragraphs": "^3.0.3",
     "remark-toc": "^5.1.1",
+    "sass": "^1.17.3",
     "sass-loader": "https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70"
   },
   "prettier": {
