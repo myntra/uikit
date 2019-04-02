@@ -13,32 +13,43 @@ $-nav-bar-item: merge(
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  margin: map-get($-nav-bar-item, space) 0;
+  margin: map-get($-nav-bar-item, space) 1px;
   list-style: none;
   cursor: pointer;
+
+  &:focus,
+  &:focus-within {
+    outline: 1px dashed ui-color(primary, light);
+  }
+
+  &:focus-visible {
+    outline: 1px dashed ui-color(primary, light);
+  }
+
+  &:focus:not(:focus-visible) &:focus-within:not(:focus-visible) {
+    outline: none;
+  }
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+  }
+
+  *:focus {
+    outline: none;
+  }
 }
 
 .is-active {
   background-color: ui-color(primary, lighter);
 }
 
-.nav-item:focus {
-  outline: none;
-}
-
-.nav-item:focus-visible {
-  outline: initial;
-}
-
-.nav-item > a {
-  color: inherit;
-  text-decoration: none;
-}
-
 .icon {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   width: map-get($-nav-bar-item, icon-size);
   height: map-get($-nav-bar-item, icon-size);
   margin-right: ui-relative-size(s);
-  font-size: map-get($-nav-bar-item, icon-size);
+  font-size: map-get($-nav-bar-item, icon-size) * 0.75;
 }

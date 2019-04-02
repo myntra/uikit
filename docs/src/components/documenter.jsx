@@ -35,7 +35,8 @@ export default class Documenter extends Component {
 
         <p title={docs.status}>
           <span title={docs.status}>{states[docs.status]}</span>
-          <span>since v{docs.since}</span> · <a href={'https://bitbucket.com/myntra/uikit/' + docs.file} target="_blank" rel="noopener noreferrer">
+          <span>since v{docs.since}</span> ·{' '}
+          <a href={'https://bitbucket.com/myntra/uikit/' + docs.file} target="_blank" rel="noopener noreferrer">
             see source code
           </a>
         </p>
@@ -44,27 +45,41 @@ export default class Documenter extends Component {
 
         {children}
 
-        {this.props.sub ? <h4>API</h4> : <h2>API</h2>}
-        <div className="documenter--props">
-          {
-            docs.props.filter(prop => !prop.private).map(prop => (
-              <div id={`${docs.name}-${prop.name}`} className="documenter--prop" key={prop.name}>
-                <div className="documenter--prop-header">
-                  <div className="documenter--prop-name">{prop.name}</div>
-                  <div className="documenter--prop-type" title={prop.type ? prop.type.name : 'any'}>{prop.type ? prop.type.name : 'any'}</div>
-                  <div className="documenter--prop-value">
-                    {prop.required ? <span className="documenter--prop-required">required</span> : 'defaultValue' in prop ? JSON.stringify(prop.defaultValue, null, 2) : 'undefined' }
+        <details>
+          <summary>Component API table for developers.</summary>
+
+          {this.props.sub ? <h4>API</h4> : <h2>API</h2>}
+          <div className="documenter--props">
+            {docs.props
+              .filter(prop => !prop.private)
+              .map(prop => (
+                <div id={`${docs.name}-${prop.name}`} className="documenter--prop" key={prop.name}>
+                  <div className="documenter--prop-header">
+                    <div className="documenter--prop-name">{prop.name}</div>
+                    <div className="documenter--prop-type" title={prop.type ? prop.type.name : 'any'}>
+                      {prop.type ? prop.type.name : 'any'}
+                    </div>
+                    <div className="documenter--prop-value">
+                      {prop.required ? (
+                        <span className="documenter--prop-required">required</span>
+                      ) : 'defaultValue' in prop ? (
+                        JSON.stringify(prop.defaultValue, null, 2)
+                      ) : (
+                        'undefined'
+                      )}
+                    </div>
+                  </div>
+                  <div className="documenter--prop-description">
+                    {prop.since && <p>Available in v{prop.since}+</p>}
+                    {prop.deprecated && (
+                      <Markdown>{`_This prop has been **deprecated**._ ` + prop.deprecated}</Markdown>
+                    )}
+                    <Markdown>{prop.description}</Markdown>
                   </div>
                 </div>
-                <div className="documenter--prop-description">
-                  {prop.since && <p>Available in v{prop.since}+</p>}
-                  {prop.deprecated && <Markdown>{`_This prop has been **deprecated**._ ` + prop.deprecated}</Markdown>}
-                  <Markdown>{prop.description}</Markdown>
-                </div>
-              </div>
-            ))
-          }
-        </div>
+              ))}
+          </div>
+        </details>
       </div>
     )
   }

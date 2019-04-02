@@ -1,13 +1,23 @@
 const fm = require('front-matter')
-const { getOptions } = require('loader-utils')
 
 module.exports = function PostMDXHelperLoader(content) {
-  const { body, attributes } = fm(content)
+  const {
+    body,
+    attributes: { layout, ...attributes }
+  } = fm(content)
+  const Layout = layout
+    ? `
+const InternalLayoutComponent = React.lazy(() => import('@layouts/${layout}'))
+const __$layoutProps = ${JSON.stringify(attributes)}
+export const layout = ({ children }) =>  <InternalLayoutComponent {...__$layoutProps}}>{children}</InternalLayoutComponent>
+`
+    : ''
 
   return `
-import Layout from '@layouts/${attributes.layout || 'default-layout'}'
 import Documenter from '@components/documenter'
 import Code from '@components/code'
 
-${content}`
+${Layout}
+
+${body}`
 }

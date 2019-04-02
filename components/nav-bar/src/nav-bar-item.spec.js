@@ -73,7 +73,7 @@ describe('NavBar', () => {
 
       reset()
       wrapper.simulate('keydown', {
-        key: 'Space',
+        key: ' ',
         preventDefault,
         stopPropagation
       })

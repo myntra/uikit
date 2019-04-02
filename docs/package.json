@@ -6,7 +6,8 @@
     "serve": "spectrum-cli-service serve",
     "build": "spectrum-cli-service build",
     "lint": "spectrum-cli-service lint",
-    "setup:ide": "spectrum-cli-service ide"
+    "setup:ide": "spectrum-cli-service ide",
+    "setup:inspect": "spectrum-cli-service inspect"
   },
   "dependencies": {
     "@babel/standalone": "^7.3.4",
@@ -17,17 +18,25 @@
   },
   "devDependencies": {
     "@mdx-js/loader": "^0.17.5",
-    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.35",
-    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.35",
-    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.35",
-    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.35",
-    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.35",
-    "@myntra/spectrum-cli-service": "^2.0.0-alpha.35",
+    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.46",
+    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.46",
+    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.46",
+    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.46",
+    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.46",
+    "@myntra/spectrum-cli-service": "^2.0.0-alpha.46",
     "autoprefixer": "^9.4.9",
     "front-matter": "^3.0.1",
+    "loader-utils": "^1.2.3",
     "monaco-editor-webpack-plugin": "^1.7.0",
     "node-sass": "^4.11.0",
     "raw-loader": "^1.0.0",
+    "remark-autolink-headings": "^5.1.0",
+    "remark-emoji": "^2.0.2",
+    "remark-github": "^7.0.6",
+    "remark-sectionize": "^1.0.1",
+    "remark-slug": "^5.1.1",
+    "remark-squeeze-paragraphs": "^3.0.3",
+    "remark-toc": "^5.1.1",
     "sass-loader": "https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70"
   },
   "prettier": {

@@ -1,6 +1,6 @@
 import React, { PureComponent, Suspense } from 'react'
 import PropTypes from 'prop-types'
-import * as components from "../uikit";
+import * as components from '../uikit'
 
 export default class Preview extends PureComponent {
   static propTypes = {
@@ -19,8 +19,24 @@ export default class Preview extends PureComponent {
   render() {
     const Component = this.props.component
 
-    return <Suspense fallback={<div>Loading required UIKit components...</div>}>
-      <div style={{ padding: '24px' }}>{Component ? <Component context={{ ...React, ...components }} /> : null}</div>
-    </Suspense>
+    return (
+      <Suspense
+        fallback={
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+          >
+            Loading required UIKit components...
+          </div>
+        }
+      >
+        <div style={{ padding: '24px' }}>{Component ? <Component context={{ ...React, ...components }} /> : null}</div>
+      </Suspense>
+    )
   }
 }

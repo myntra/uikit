@@ -33,7 +33,9 @@ export const Context = createContext<NavBarGroupContext>({
 
 function injectNavId(children: any, id: number[]) {
   return React.Children.map(children, (child: any, index) =>
-    child && child.type === NavBarGroup ? React.cloneElement(child, { __$navId: [...id, index] }) : child
+    child && child.type === NavBarGroup
+      ? React.cloneElement(child, { __$navId: [...id, index] })
+      : child
   )
 }
 
@@ -47,19 +49,30 @@ function injectNavId(children: any, id: number[]) {
  * @category sub-component
  * @see http://uikit.myntra.com/components/nav-bar#NavBarGroup
  */
-export default function NavBarGroup({ title, children, className, __$navId: id, ...props }: NavBarGroupProps) {
-  function render(depth: number, setActiveGroup: any, isActiveGroup: (id: any) => boolean) {
+export default function NavBarGroup({
+  title,
+  children,
+  className,
+  __$navId: id,
+  ...props
+}: NavBarGroupProps) {
+  function render(
+    depth: number,
+    setActiveGroup: any,
+    isActiveGroup: (id: any) => boolean
+  ) {
     return depth > 0 ? (
       <>
         <NavBarItem
           {...props}
-          data-is-nav-group={true}
           className={className}
-          onActivation={event => {
+          onActivation={(event) => {
             // Stop event propagation so parent NavBar.Group is not triggered.
             event.stopPropagation()
             // Toggle state of the NavBar.Group.
-            isActiveGroup(id) ? setActiveGroup(id.slice(0, id.length - 1)) : setActiveGroup(id)
+            isActiveGroup(id)
+              ? setActiveGroup(id.slice(0, id.length - 1))
+              : setActiveGroup(id)
           }}
           aria-haspopup="true"
           aria-expanded={`${isActiveGroup(id)}`}
@@ -95,7 +108,9 @@ export default function NavBarGroup({ title, children, className, __$navId: id, 
     return (
       <NavBarContext.Consumer>
         {({ setActiveGroup, isActiveGroup }) => (
-          <Context.Consumer>{({ depth }) => render(depth, setActiveGroup, isActiveGroup)}</Context.Consumer>
+          <Context.Consumer>
+            {({ depth }) => render(depth, setActiveGroup, isActiveGroup)}
+          </Context.Consumer>
         )}
       </NavBarContext.Consumer>
     )

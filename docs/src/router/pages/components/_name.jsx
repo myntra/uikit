@@ -1,11 +1,10 @@
-import React, { useEffect, useMemo, useState, useContext, createContext, useCallback, useRef, Children } from 'react'
+import React, { useEffect, useMemo, useState, useCallback, useRef } from 'react'
+import PropTypes from 'prop-types'
 import Documenter from '@components/documenter'
 import Editor, { EditorContext } from '@components/editor'
 import Button from '@uikit/button'
 import Measure from '@uikit/measure'
-import { withRootState } from '@spectrum'
 import CodePreview from '@components/code-preview'
-import Layout from '@layouts/default-layout'
 
 import './_name.css'
 
@@ -31,12 +30,50 @@ async function findDocumentation(name, setComponent) {
   const component = await findFile(() => import(`@uikit/${name}/src/${name}.tsx`))
 
   if (component) {
+    // Wrapping component in Documenter.
+    // eslint-disable-next-line react/display-name
     setComponent(() => () => <Documenter component={component} hideName={false} />)
 
     return
   }
 
+  // Not a real component. Displays error message for missing component.
+  // eslint-disable-next-line react/display-name
   setComponent(() => () => <div>Cannot find component named: {name}</div>)
+}
+
+function useWindowWidth() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+
+  useEffect(() => {
+    let frame
+    window.addEventListener('resize', () => {
+      if (frame) return
+      frame = requestAnimationFrame(() => {
+        frame = null
+        setWindowWidth(window.innerWidth)
+      })
+    })
+  })
+
+  return windowWidth
+}
+
+function useEditorAutoSize() {
+  const windowWidth = useWindowWidth()
+  const [contentWidth, setContentWidth] = useState(600)
+  const handleContentMeasure = useCallback(({ bounds: { width } }) => setContentWidth(Math.min(width, 600)), [])
+  const editorWidth = Math.max(320, contentWidth, windowWidth - contentWidth - 32 - 54)
+  const editorPosition = windowWidth - editorWidth
+  const contentPosition =
+    contentWidth + editorWidth > windowWidth ? -contentWidth - 16 : (contentWidth - windowWidth) / 2 + 54
+
+  return {
+    handleContentMeasure,
+    editorWidth,
+    editorPosition,
+    contentPosition
+  }
 }
 
 export default function ComponentDocumentationPage({ name }) {
@@ -44,10 +81,12 @@ export default function ComponentDocumentationPage({ name }) {
   const [source, setSource] = useState(null)
   const [isActive, setActive] = useState(false)
   const ref = useRef(null)
-  const hide = useCallback(() => setActive(false), [setActive])
+  const { handleContentMeasure, editorWidth, editorPosition, contentPosition } = useEditorAutoSize()
+  const hide = useCallback(() => setActive(false), [])
   const content = useMemo(
     () =>
       Component ? (
+        // eslint-disable-next-line react/display-name
         <Component components={{ wrapper: ({ children }) => <div className="content">{children}</div> }} />
       ) : null,
     [Component]
@@ -55,11 +94,24 @@ export default function ComponentDocumentationPage({ name }) {
 
   useEffect(() => {
     findDocumentation(name, setComponent)
-  })
+  }, [name])
+
+  useEffect(() => {
+    if (isActive && ref.current) {
+      ref.current.querySelector('.monaco > *').focus()
+    }
+  }, [isActive])
 
   return (
-    <Layout>
-      <div className={`component ${isActive ? 'active' : ''}`}>
+    <Measure bounds onMeasure={handleContentMeasure}>
+      <div
+        className={`component ${isActive ? 'active' : ''}`}
+        style={{
+          '--editor-width': `${editorWidth}px`,
+          '--editor-position': `${editorPosition}px`,
+          '--content-position': `translateX(${contentPosition}px)`
+        }}
+      >
         <EditorContext.Provider
           value={{
             source,
@@ -76,20 +128,25 @@ export default function ComponentDocumentationPage({ name }) {
             <Button className="close" icon="times" onClick={hide} />
             <CodePreview className="preview" source={source} />
             <Measure bounds>
-              {({
-                content: {
-                  bounds: { width = 200, height = 100 }
-                },
-                ref
-              }) => (
+              {({ content: { bounds: editorSize }, ref }) => (
                 <div className="monaco" ref={ref}>
-                  <Editor value={source} width={width} height={height} onChange={setSource} />
+                  <Editor
+                    value={source}
+                    width={editorSize.width || 600}
+                    height={editorSize.height || 300}
+                    onChange={setSource}
+                  />
                 </div>
               )}
             </Measure>
           </div>
         }
       </div>
-    </Layout>
+    </Measure>
   )
+}
+
+ComponentDocumentationPage.propTypes = {
+  name: PropTypes.string,
+  children: PropTypes.any
 }

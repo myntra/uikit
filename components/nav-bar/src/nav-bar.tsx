@@ -1,5 +1,5 @@
 import React, { PureComponent, useContext } from 'react'
-import UIKitContext, { LinkProps } from '@myntra/uikit-context/src'
+import UIKitContext, { LinkProps } from '@myntra/uikit-context'
 import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
@@ -18,7 +18,9 @@ const LinkFromUIKitContext = ({ href, children }: LinkProps) => {
   }
 
   return (
-    <UIKitContext.Consumer>{({ RouterLink }) => <RouterLink to={href}>{children}</RouterLink>}</UIKitContext.Consumer>
+    <UIKitContext.Consumer>
+      {({ RouterLink }) => <RouterLink to={href}>{children}</RouterLink>}
+    </UIKitContext.Consumer>
   )
 }
 
@@ -100,7 +102,10 @@ const ROOT_NAV_GROUP_ID = [0]
  * @category opinionated
  * @see http://uikit.myntra.com/components/nav-bar
  */
-export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean; activeGroup: number[] }> {
+export default class NavBar extends PureComponent<
+  NavBarProps,
+  { isOpen: boolean; activeGroup: number[] }
+> {
   // Sub-components
   static Group = NavBarGroup
   static Item = NavBarItem
@@ -129,7 +134,8 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
 
   get isOpen(): boolean {
     if (this.props.expand) {
-      if (__DEV__) console.warn(`The prop 'expand' is deprecated. Use 'isOpen' instead.`)
+      if (__DEV__)
+        console.warn(`The prop 'expand' is deprecated. Use 'isOpen' instead.`)
 
       if (this.props.expand !== 'auto') return this.props.expand === 'open'
     }
@@ -143,7 +149,10 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
 
   get renderLink() {
     if (this.props.linkComponent) {
-      if (__DEV__) console.warn(`The prop 'linkComponent' is deprecated. Use 'renderLink' instead.`)
+      if (__DEV__)
+        console.warn(
+          `The prop 'linkComponent' is deprecated. Use 'renderLink' instead.`
+        )
 
       return this.props.linkComponent
     }
@@ -153,9 +162,13 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
 
   get isActivePath() {
     if (this.props.match) {
-      if (__DEV__) console.warn(`The prop 'match' is deprecated. Use 'isActivePath' instead.`)
+      if (__DEV__)
+        console.warn(
+          `The prop 'match' is deprecated. Use 'isActivePath' instead.`
+        )
 
-      return (href: string, currentPath: string) => this.props.match({ href, currentPath })
+      return (href: string, currentPath: string) =>
+        this.props.match({ href, currentPath })
     }
 
     return this.props.isActivePath
@@ -188,7 +201,8 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
   }
 
   close = () => {
-    if (this.state.isOpen) this.setState({ isOpen: false, activeGroup: ROOT_NAV_GROUP_ID })
+    if (this.state.isOpen)
+      this.setState({ isOpen: false, activeGroup: ROOT_NAV_GROUP_ID })
   }
 
   handleNavLinkClick = (navLink: { path: string }) => {
@@ -217,8 +231,30 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
 
   isActiveGroup = (id: number[]) => {
     return (
-      id.length <= this.state.activeGroup.length && id.every((value, index) => value === this.state.activeGroup[index])
+      id.length <= this.state.activeGroup.length &&
+      id.every((value, index) => value === this.state.activeGroup[index])
     )
+  }
+
+  get attrs() {
+    const {
+      children,
+      currentPath,
+      expand,
+      isActivePath,
+      isOpen,
+      linkComponent,
+      match,
+      onChange,
+      onClick,
+      onNavLinkClick,
+      renderLink,
+      title,
+      className,
+      ...attrs
+    } = this.props
+
+    return attrs
   }
 
   render() {
@@ -235,9 +271,13 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
         }}
       >
         <nav
-          id={`${this.idPrefix}nav`}
-          className={classnames('nav', this.props.className, { 'is-open': this.isOpen })}
           tabIndex={0}
+          role="navigation"
+          {...this.attrs}
+          id={`${this.idPrefix}nav`}
+          className={classnames('nav', this.props.className, {
+            'is-open': this.isOpen
+          })}
           onClick={this.handleClick}
           onFocus={this.handleFocus}
           onBlur={this.handleBlur}
@@ -245,7 +285,10 @@ export default class NavBar extends PureComponent<NavBarProps, { isOpen: boolean
           onMouseLeave={this.handleMouseLeave}
           labelled-by={`${this.idPrefix}header`}
         >
-          <header id={`${this.idPrefix}header`} className={classnames('header')}>
+          <header
+            id={`${this.idPrefix}header`}
+            className={classnames('header')}
+          >
             <img src={LogoMyntraJabong} alt="Myntra Jabong" />
             {this.props.title}
           </header>

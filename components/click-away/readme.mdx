@@ -4,9 +4,6 @@ import ClickAway from './src/click-away'
 
 <Documenter component={ClickAway}>
 
-
-</Documenter>
-
 ```jsx preview
 const ref = useRef();
 const [message, setMessage] = useState('Initial State.');
@@ -27,3 +24,5 @@ const handleOutside = useCallback(() => setMessage('Clicked Outside.'), [setMess
   <ClickAway onClickAway={handleOutside} target={ref} />
 </div>
 ```
+
+</Documenter>

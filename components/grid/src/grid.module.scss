@@ -2,20 +2,15 @@
 
 // -- Row --
 .columns {
-  --column-gap: var(--size-base);
-  --column-inset: var(--column-gap);
-  --column-outset: calc(-1 * var(--column-gap));
+  --column-gap: #{ui-size(r)};
+  --column-inset: calc(var(--column-gap) / 2);
+  --column-outset: calc(1 - var(--column-gap) / 2);
 
+  box-sizing: border-box;
   display: flex;
   margin-right: var(--column-outset);
   margin-left: var(--column-outset);
 
-  &:last-child {
-    margin-bottom: var(--column-outset);
-  }
-  &:not(:last-child) {
-    margin-bottom: var(--column-inset);
-  }
   &.hcentered,
   &.centered {
     justify-content: center;
@@ -27,33 +22,23 @@
   &.centered {
     align-items: center;
   }
-
-  @include tablet {
-    &:not(.desktop) {
-      display: flex;
-    }
-  }
-
-  @include desktop {
-    &.desktop {
-      display: flex;
-    }
-  }
 }
 
 .columns.variable-gap {
-  --column-gap: var(--column-gap, 0.75rem);
+  --column-gap: #{ui-size(r)};
 
-  margin-right: calc(-1 * var(--column-gap));
-  margin-left: calc(-1 * var(--column-gap));
-  .column {
-    padding-right: var(--column-gap);
-    padding-left: var(--column-gap);
-  }
+  $sizes: (
+    'none': 0,
+    'xx-small': ui-size('2xs'),
+    'x-small': ui-size('xs'),
+    'small': ui-size('s'),
+    'base': ui-size('r'),
+    'large': ui-size('l')
+  );
 
-  @each $size in 'none', 'xx-small', 'x-small', 'small', 'base', 'large' {
+  @each $size, $value in $sizes {
     &.gap-#{$size} {
-      --column-gap: var(--size-#{$size});
+      --column-gap: #{$value};
     }
   }
 }

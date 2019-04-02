@@ -40,11 +40,6 @@ $-button__states: merge(
       surface: (
         box-shadow: ui-shadow(flat)
       )
-    ),
-    focus-visible: (
-      surface: (
-        outline: 1px dashed currentColor
-      )
     )
   ),
   $-button__states,
@@ -157,8 +152,21 @@ $-button--secondary-icon: merge(
     border: 0;
   }
 
+  &:disabled {
+    pointer-events: none;
+    user-select: none;
+  }
+
   &:focus {
-    outline: none; // TODO: :focus-visible is not supported by many browsers.
+    outline: 1px dashed ui-color(primary, light);
+  }
+
+  &:focus-visible {
+    outline: 1px dashed ui-color(primary, light);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
   }
 
   @each $state in $states {
@@ -188,11 +196,6 @@ $-button--secondary-icon: merge(
     }
   }
 
-  &:disabled {
-    pointer-events: none;
-    user-select: none;
-  }
-
   &.inherit {
     color: currentColor;
   }
@@ -204,10 +207,6 @@ $-button--secondary-icon: merge(
       width: 1em;
       height: 1em;
     }
-  }
-
-  + .button {
-    margin-left: 0; // collapse
   }
 
   > .primary-icon {

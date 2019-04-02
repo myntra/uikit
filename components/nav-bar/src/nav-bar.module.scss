@@ -35,15 +35,27 @@ $-nav-bar--body: merge((), $-nav-bar--body);
   z-index: ui-z-index(nav);
   width: map-get($-nav-bar, 'close-width');
   overflow: hidden;
-  overflow-y: auto;
   transition: width 0.35s ease-in-out;
 
   @include extract($-nav-bar);
-}
 
-.nav:hover,
-.nav.is-open {
-  width: map-get($-nav-bar, 'open-width');
+  &:hover,
+  &.is-open {
+    width: map-get($-nav-bar, 'open-width');
+    overflow-y: auto;
+  }
+
+  &:focus {
+    outline: 1px dashed ui-color(primary, light);
+  }
+
+  &:focus-visible {
+    outline: 1px dashed ui-color(primary, light);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
 }
 
 .header {
@@ -54,6 +66,7 @@ $-nav-bar--body: merge((), $-nav-bar--body);
   display: flex;
   flex-direction: row;
   align-items: center;
+  width: map-get($-nav-bar, 'open-width');
   height: map-get($-nav-bar--header, 'height');
   overflow: hidden;
   white-space: nowrap;
@@ -61,6 +74,7 @@ $-nav-bar--body: merge((), $-nav-bar--body);
   @include extract($-nav-bar--header);
 
   img {
+    display: inline-block;
     width: 2rem;
     height: 2rem;
     margin-right: ui-relative-size('s');

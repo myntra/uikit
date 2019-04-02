@@ -1,0 +1,33 @@
+{
+  "overrides": [
+    {
+      "files": ["src/**/*"],
+      "env": {
+        "node": false,
+        "browser": true
+      },
+      "rules": {
+        "node/no-extraneous-import": ["error", {
+          "allowModules": ["react", "prop-types", "redux-first-router"]
+      }]
+      }
+    },
+    {
+      "files": ["src/**/*.spec.js"],
+      "env": {
+        "node": true,
+        "browser": true
+      }
+    },
+    {
+      "files": ["*.config.js", "tools/*.js"],
+      "env": {
+        "node": true,
+        "browser": false
+      },
+      "rules": {
+        "node/no-unpublished-require": false
+      }
+    }
+  ]
+}

@@ -55,27 +55,34 @@ export default function NavBarItem({
   // TODO: use renderLink prop from context.
   // TODO: Upgrade to use callback.
 
-  const render = ({ onNavLinkClick, isActivePath, renderLink }: NavBarContext) => (
+  const render = ({
+    onNavLinkClick,
+    isActivePath,
+    renderLink
+  }: NavBarContext) => (
     <li
-      onClick={event => {
+      role="link"
+      onClick={(event) => {
         if (onActivation) onActivation(event)
         if (onNavLinkClick) onNavLinkClick({ path: to })
       }}
-      onKeyDown={
-        onActivation &&
-        (event => {
-          if (event.key === 'Space' || event.key === 'Enter') {
-            // Prevent scrolling if the Space key is pressed.
-            event.preventDefault()
-            onActivation(event)
-          }
-        })
-      }
-      data-is-nav-group={false}
+      onKeyDown={(event) => {
+        if (event.key === ' ' || event.key === 'Enter') {
+          // Prevent scrolling if the Space key is pressed.
+          event.preventDefault()
+          if (onActivation) onActivation(event)
+          if (onNavLinkClick) onNavLinkClick({ path: to })
+        }
+      }}
+      tabIndex={0}
       {...props}
-      className={classnames('nav-item', className, { 'is-active': to && isActivePath(to) })}
+      className={classnames('nav-item', className, {
+        'is-active': to && isActivePath(to)
+      })}
     >
-      <div className={classnames('icon')}>{renderIcon ? renderIcon() : icon ? <Icon name={icon} /> : null}</div>
+      <div className={classnames('icon')}>
+        {renderIcon ? renderIcon() : icon ? <Icon name={icon} /> : null}
+      </div>
       {to ? renderLink({ href: to, children }) : children}
     </li>
   )
@@ -85,6 +92,6 @@ export default function NavBarItem({
 
     return render(context)
   } else {
-    return <Context.Consumer>{context => render(context)}</Context.Consumer>
+    return <Context.Consumer>{(context) => render(context)}</Context.Consumer>
   }
 }
