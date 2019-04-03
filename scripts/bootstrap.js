@@ -1,14 +1,20 @@
 /* eslint-disable node/no-unpublished-require */
 // create package.json, README, etc. for packages that don't have them yet
 
-const args = require('minimist')(process.argv.slice(2))
 const fs = require('fs')
 const path = require('path')
 
 const { version } = require('../package.json')
-const { targets, getPackageDir, getPackageRepository, getShortName, isComponent, isTheme, pascalCase } = require('./utils')
+const {
+  targets,
+  getPackageDir,
+  getPackageRepository,
+  getShortName,
+  isComponent,
+  pascalCase
+} = require('./utils')
 
-targets.forEach(name => {
+targets.forEach((name) => {
   const shortName = getShortName(name)
   const rootDir = getPackageDir(name)
 
@@ -38,14 +44,16 @@ targets.forEach(name => {
     Object.assign(pkg, require(pkgFile))
   }
 
-  fs.writeFileSync(pkgFile, JSON.stringify(pkg, null, 2))
+  fs.writeFileSync(pkgFile, JSON.stringify(pkg, null, 2) + '\n')
 
   if (isComponent(name)) {
     const readmeFile = path.join(rootDir, `readme.mdx`)
 
     if (!fs.existsSync(readmeFile)) {
       const component = pascalCase(shortName)
-      fs.writeFileSync(readmeFile, `
+      fs.writeFileSync(
+        readmeFile,
+        `
 import ${component} from './src/${shortName}'
 
 # ${component}
@@ -57,7 +65,8 @@ import ${component} from './src/${shortName}'
 \`\`\`
 
 </Documenter>
-`.trimLeft())
+`.trimLeft()
+      )
     }
   } else {
     const readmeFile = path.join(rootDir, `README.md`)

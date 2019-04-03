@@ -4,9 +4,6 @@
   "main": "src/grid.jsx",
   "module": "dist/grid.js",
   "browser": "src/grid.jsx",
-  "components": [
-    "src/grid-column.jsx"
-  ],
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/grid",
@@ -22,6 +19,9 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "components": [
+    "src/grid-column.jsx"
+  ],
   "dependencies": {
     "prop-types": "^15.7.2"
   },

@@ -45,6 +45,7 @@ importers:
       lint-staged: registry.npmjs.org/lint-staged/7.3.0
       lodash.camelcase: registry.npmjs.org/lodash.camelcase/4.3.0
       minimist: registry.npmjs.org/minimist/1.2.0
+      npm-run-all: registry.npmjs.org/npm-run-all/4.1.5
       postcss-import: registry.npmjs.org/postcss-import/12.0.1
       prettier: registry.npmjs.org/prettier/1.16.4
       react: registry.npmjs.org/react/16.8.6
@@ -104,6 +105,7 @@ importers:
       lint-staged: ^7.0.4
       lodash.camelcase: ^4.3.0
       minimist: ^1.2.0
+      npm-run-all: ^4.1.5
       postcss-import: ^12.0.1
       prettier: ^1.16.4
       react: ^16.8.4
@@ -14979,6 +14981,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/memory-fs/-/memory-fs-0.4.1.tgz'
     version: 0.4.1
+  registry.npmjs.org/memorystream/0.3.1:
+    dev: true
+    engines:
+      node: '>= 0.10.0'
+    name: memorystream
+    resolution:
+      integrity: sha1-htcJCzDORV1j+64S3aUaR93K+bI=
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/memorystream/-/memorystream-0.3.1.tgz'
+    version: 0.3.1
   registry.npmjs.org/meow/3.7.0:
     dependencies:
       camelcase-keys: registry.npmjs.org/camelcase-keys/2.1.0
@@ -15796,6 +15808,27 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/npm-path/-/npm-path-2.0.4.tgz'
     version: 2.0.4
+  registry.npmjs.org/npm-run-all/4.1.5:
+    dependencies:
+      ansi-styles: registry.npmjs.org/ansi-styles/3.2.1
+      chalk: registry.npmjs.org/chalk/2.4.2
+      cross-spawn: registry.npmjs.org/cross-spawn/6.0.5
+      memorystream: registry.npmjs.org/memorystream/0.3.1
+      minimatch: registry.npmjs.org/minimatch/3.0.4
+      pidtree: registry.npmjs.org/pidtree/0.3.0
+      read-pkg: registry.npmjs.org/read-pkg/3.0.0
+      shell-quote: registry.npmjs.org/shell-quote/1.6.1
+      string.prototype.padend: registry.npmjs.org/string.prototype.padend/3.0.0
+    dev: true
+    engines:
+      node: '>= 4'
+    hasBin: true
+    name: npm-run-all
+    resolution:
+      integrity: sha512-Oo82gJDAVcaMdi3nuoKFavkIHBRVqQ1qvMb+9LHk/cF4P6B2m8aP04hGf7oL6wZ9BuGwX1onlLhpuoofSyoQDQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/npm-run-all/-/npm-run-all-4.1.5.tgz'
+    version: 4.1.5
   registry.npmjs.org/npm-run-path/2.0.2:
     dependencies:
       path-key: registry.npmjs.org/path-key/2.0.1
@@ -16692,6 +16725,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/performance-now/-/performance-now-2.1.0.tgz'
     version: 2.1.0
+  registry.npmjs.org/pidtree/0.3.0:
+    dev: true
+    engines:
+      node: '>=0.10'
+    hasBin: true
+    name: pidtree
+    resolution:
+      integrity: sha512-9CT4NFlDcosssyg8KVFltgokyKZIFjoBxw8CTGy+5F38Y1eQWrt8tRayiUOXE+zVKQnYu5BR8JjCtvK3BcnBhg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/pidtree/-/pidtree-0.3.0.tgz'
+    version: 0.3.0
   registry.npmjs.org/pify/2.3.0:
     engines:
       node: '>=0.10.0'
