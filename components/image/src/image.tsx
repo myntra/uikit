@@ -17,8 +17,9 @@ interface ImageContainerObserver {
   raw: IntersectionObserver
 }
 
-export function createObserver(root: Element): ImageContainerObserver {
+export function createObserver(root: Element | null): ImageContainerObserver {
   root = root || document.body
+
   if (root[OBSERVER]) return root[OBSERVER]
 
   let counter = 0

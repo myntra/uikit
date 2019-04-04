@@ -1,5 +1,4 @@
 import React from 'react'
-import { shallow } from 'enzyme'
 import List from './list'
 
 /*
@@ -16,6 +15,6 @@ List Specification.
 describe('List', () => {
   const items = ['Foo', 'Bar', 'Baz']
   it('should render list of items', () => {
-    shallow(<List items={items} />)
+    mountShallow(<List items={items}>{(item) => item}</List>)
   })
 })

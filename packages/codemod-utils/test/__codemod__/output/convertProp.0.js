@@ -5,9 +5,7 @@ import { interopPropTransformer } from '@myntra/uikit'
 const interopPropTransformerFoo$0 = interopPropTransformer(
   {},
   {
-    foo: function(value) {
-      return Boolean(value)
-    }
+    foo: (value) => Boolean(value)
   }
 )
 

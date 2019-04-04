@@ -17,7 +17,12 @@ export function createHelper(file, api) {
 
   return { j, h, root }
 }
-
+/**
+ * Make helpers.
+ * @param {import('jscodeshift')} j
+ * @param {import('jscodeshift').File} root
+ * @param {string} file
+ */
 export default function helpers(j, root, file) {
   /**
    * Get first AST node from AST paths.
@@ -41,7 +46,8 @@ export default function helpers(j, root, file) {
   function findLastNonRelativeImportStatement() {
     const result = root.find(
       j.Statement,
-      node => node.type === 'ImportDeclaration' && !node.source.value.startsWith('.')
+      (node) =>
+        node.type === 'ImportDeclaration' && !node.source.value.startsWith('.')
     )
 
     if (result.size()) return result.paths()[result.size() - 1]
@@ -53,7 +59,10 @@ export default function helpers(j, root, file) {
    * @returns {ASTNode}
    */
   function findFirstNonImportStatement() {
-    const result = root.find(j.Statement, node => node.type !== 'ImportDeclaration')
+    const result = root.find(
+      j.Statement,
+      (node) => node.type !== 'ImportDeclaration'
+    )
 
     if (result.size()) return first(result)
   }
@@ -65,7 +74,9 @@ export default function helpers(j, root, file) {
    * @returns {ASTNode}
    */
   function findImport(source) {
-    return root.find(j.ImportDeclaration).filter(decl => decl.value.source.value === source)
+    return root
+      .find(j.ImportDeclaration)
+      .filter((decl) => decl.value.source.value === source)
   }
 
   /**
@@ -126,11 +137,16 @@ export default function helpers(j, root, file) {
 
     const globalCollisions = root
       .find(j.ImportDeclaration)
-      .filter(n => n.node.source.value !== source)
-      .find(j.Identifier, n => n.name === local && n.type !== (named ? 'ImportSpecifier' : 'ImportDefaultSpecifier'))
+      .filter((n) => n.node.source.value !== source)
+      .find(
+        j.Identifier,
+        (n) =>
+          n.name === local &&
+          n.type !== (named ? 'ImportSpecifier' : 'ImportDefaultSpecifier')
+      )
       .paths()
       .filter(
-        n =>
+        (n) =>
           j(n)
             .closestScope()
             .get().value.type === 'Program'
@@ -156,8 +172,12 @@ export default function helpers(j, root, file) {
     }
 
     const specifier = named
-      ? existing.value.specifiers.find(s => s.type === 'ImportSpecifier' && s.imported.name === local)
-      : existing.value.specifiers.find(s => s.type === 'ImportDefaultSpecifier')
+      ? existing.value.specifiers.find(
+          (s) => s.type === 'ImportSpecifier' && s.imported.name === local
+        )
+      : existing.value.specifiers.find(
+          (s) => s.type === 'ImportDefaultSpecifier'
+        )
 
     if (!specifier) {
       // import <default>, { name as local, ... } from source
@@ -168,7 +188,12 @@ export default function helpers(j, root, file) {
       )
     } else if (specifier.local.name !== local) {
       insertAfterImports(
-        j.variableDeclaration('const', [j.variableDeclarator(j.identifier(name), j.identifier(specifier.local.name))])
+        j.variableDeclaration('const', [
+          j.variableDeclarator(
+            j.identifier(name),
+            j.identifier(specifier.local.name)
+          )
+        ])
       )
     }
   }
@@ -206,7 +231,10 @@ export default function helpers(j, root, file) {
    */
   function getPropInteropNode(localComponentName) {
     const name = 'interopPropTransformer' + localComponentName + '$0'
-    const result = root.find(j.VariableDeclaration, node => node.declarations[0].id.name === name)
+    const result = root.find(
+      j.VariableDeclaration,
+      (node) => node.declarations[0].id.name === name
+    )
 
     if (result.size()) return first(result).value
 
@@ -215,7 +243,10 @@ export default function helpers(j, root, file) {
     const interop = j.variableDeclaration('const', [
       j.variableDeclarator(
         j.identifier(name),
-        j.callExpression(j.identifier('interopPropTransformer'), [j.objectExpression([]), j.objectExpression([])])
+        j.callExpression(j.identifier('interopPropTransformer'), [
+          j.objectExpression([]),
+          j.objectExpression([])
+        ])
       )
     ])
 
@@ -235,10 +266,12 @@ export default function helpers(j, root, file) {
     const decl = node.declarations[0]
     const mapping = decl.init.arguments[0]
 
-    const existing = mapping.properties.find(it => it.key.name === from)
+    const existing = mapping.properties.find((it) => it.key.name === from)
 
     if (!existing) {
-      mapping.properties.push(j.objectProperty(j.identifier(from), j.literal(to)))
+      mapping.properties.push(
+        j.objectProperty(j.identifier(from), j.literal(to))
+      )
     }
   }
 
@@ -253,12 +286,19 @@ export default function helpers(j, root, file) {
     const decl = node.declarations[0]
     const coercions = decl.init.arguments[1]
 
-    const existing = coercions.properties.find(it => it.key.name === from)
+    const existing = coercions.properties.find((it) => it.key.name === from)
 
     if (!existing) {
-      coercions.properties.push(
-        j.objectProperty(j.identifier(from), first(j('const foo = ' + fn.toString()).find(j.FunctionExpression)).value)
-      )
+      const code = j('const foo = ' + fn.toString())
+      const node =
+        first(code.find(j.ArrowFunctionExpression)) ||
+        first(code.find(j.FunctionExpression))
+
+      if (node) {
+        coercions.properties.push(
+          j.objectProperty(j.identifier(from), node.value)
+        )
+      }
     }
   }
 
@@ -272,8 +312,14 @@ export default function helpers(j, root, file) {
   function findComponentWhere(localComponentName, paths, condition) {
     const localPaths =
       paths ||
-      root.find(j.JSXElement, { openingElement: { name: { type: 'JSXIdentifier', name: localComponentName } } })
-    return localPaths.filter(element => (condition ? condition(element) : true))
+      root.find(j.JSXElement, {
+        openingElement: {
+          name: { type: 'JSXIdentifier', name: localComponentName }
+        }
+      })
+    return localPaths.filter((element) =>
+      condition ? condition(element) : true
+    )
   }
 
   /**
@@ -284,14 +330,21 @@ export default function helpers(j, root, file) {
    * @param {string} propValue
    * @param {any} paths
    */
-  function findComponentWhereProp(localComponentName, propName, propValue, paths) {
-    return findComponentWhere(localComponentName, paths, element => {
+  function findComponentWhereProp(
+    localComponentName,
+    propName,
+    propValue,
+    paths
+  ) {
+    return findComponentWhere(localComponentName, paths, (element) => {
       return element.node.openingElement.attributes.some(
-        attribute =>
+        (attribute) =>
           attribute.type === 'JSXAttribute' &&
           attribute.name.name === propName &&
           attribute.value.type === 'Literal' &&
-          (Array.isArray(propValue) ? propValue : [propValue]).includes(attribute.value.value)
+          (Array.isArray(propValue) ? propValue : [propValue]).includes(
+            attribute.value.value
+          )
       )
     })
   }
@@ -306,7 +359,7 @@ export default function helpers(j, root, file) {
   function forAttributesOnComponent(localComponentName, paths, fn) {
     return findComponentWhere(localComponentName, paths)
       .find(j.JSXOpeningElement)
-      .replaceWith(element => {
+      .replaceWith((element) => {
         element.node.attributes.forEach((attribute, index) => {
           fn(element, attribute, index)
         })
@@ -324,20 +377,38 @@ export default function helpers(j, root, file) {
    */
   function renameProp(localComponentName, oldPropName, newPropName, paths) {
     d(`renameProp: <${localComponentName} -${oldPropName} +${newPropName} />`)
-    forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
-      if (attribute.type === 'JSXAttribute' && attribute.name.name === oldPropName) {
-        element.node.attributes.splice(index, 1, j.jsxAttribute(j.jsxIdentifier(newPropName), attribute.value))
-      } else if (attribute.type === 'JSXSpreadAttribute') {
-        const interop = getPropInteropNode(localComponentName)
-        const name = interop.declarations[0].id.name
+    forAttributesOnComponent(
+      localComponentName,
+      paths,
+      (element, attribute, index) => {
+        if (
+          attribute.type === 'JSXAttribute' &&
+          attribute.name.name === oldPropName
+        ) {
+          element.node.attributes.splice(
+            index,
+            1,
+            j.jsxAttribute(j.jsxIdentifier(newPropName), attribute.value)
+          )
+        } else if (attribute.type === 'JSXSpreadAttribute') {
+          const interop = getPropInteropNode(localComponentName)
+          const name = interop.declarations[0].id.name
 
-        if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
-          attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
+          if (
+            !(
+              attribute.argument.type === 'CallExpression' &&
+              attribute.argument.callee.name === name
+            )
+          ) {
+            attribute.argument = j.callExpression(j.identifier(name), [
+              attribute.argument
+            ])
+          }
+
+          addPropInteropMapping(interop, oldPropName, newPropName)
         }
-
-        addPropInteropMapping(interop, oldPropName, newPropName)
       }
-    })
+    )
   }
 
   /**
@@ -348,11 +419,15 @@ export default function helpers(j, root, file) {
    */
   function removeProp(localComponentName, prop, paths) {
     d(`removeProp: <${localComponentName} -${prop} />`)
-    forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
-      if (attribute.type === 'JSXAttribute' && attribute.name.name === prop) {
-        element.node.attributes.splice(index, 1)
+    forAttributesOnComponent(
+      localComponentName,
+      paths,
+      (element, attribute, index) => {
+        if (attribute.type === 'JSXAttribute' && attribute.name.name === prop) {
+          element.node.attributes.splice(index, 1)
+        }
       }
-    })
+    )
   }
 
   /**
@@ -365,13 +440,13 @@ export default function helpers(j, root, file) {
   function renameJSxTag(oldComponentName, newComponentName, paths) {
     const elementPaths = findComponentWhere(oldComponentName, paths)
 
-    elementPaths.find(j.JSXOpeningElement).replaceWith(element => {
+    elementPaths.find(j.JSXOpeningElement).replaceWith((element) => {
       element.node.name = j.jsxIdentifier(newComponentName)
 
       return element.node
     })
 
-    elementPaths.find(j.JSXClosingElement).replaceWith(element => {
+    elementPaths.find(j.JSXClosingElement).replaceWith((element) => {
       element.node.name = j.jsxIdentifier(newComponentName)
 
       return element.node
@@ -386,31 +461,52 @@ export default function helpers(j, root, file) {
    * @param {function(any): any} fn
    */
   function coerceProp(localComponentName, prop, fn, paths) {
-    forAttributesOnComponent(localComponentName, paths, (element, attribute, index) => {
-      if (
-        attribute.type === 'JSXSpreadAttribute' ||
-        (attribute.type === 'JSXAttribute' && attribute.name.name === prop)
-      ) {
-        const interop = getPropInteropNode(localComponentName)
-        const name = interop.declarations[0].id.name
-        addPropInteropCoercion(interop, prop, fn)
+    forAttributesOnComponent(
+      localComponentName,
+      paths,
+      (element, attribute, index) => {
+        if (
+          attribute.type === 'JSXSpreadAttribute' ||
+          (attribute.type === 'JSXAttribute' && attribute.name.name === prop)
+        ) {
+          const interop = getPropInteropNode(localComponentName)
+          const name = interop.declarations[0].id.name
+          addPropInteropCoercion(interop, prop, fn)
 
-        if (attribute.type === 'JSXAttribute') {
-          attribute.value = j.jsxExpressionContainer(
-            j.callExpression(
-              j.memberExpression(j.memberExpression(j.identifier(name), j.identifier('coercions')), j.identifier(prop)),
-              [attribute.value.type === 'JSXExpressionContainer' ? attribute.value.expression : attribute.value]
+          if (attribute.type === 'JSXAttribute') {
+            attribute.value = j.jsxExpressionContainer(
+              j.callExpression(
+                j.memberExpression(
+                  j.memberExpression(
+                    j.identifier(name),
+                    j.identifier('coercions')
+                  ),
+                  j.identifier(prop)
+                ),
+                [
+                  attribute.value.type === 'JSXExpressionContainer'
+                    ? attribute.value.expression
+                    : attribute.value
+                ]
+              )
             )
-          )
-        } else if (!(attribute.argument.type === 'CallExpression' && attribute.argument.callee.name === name)) {
-          attribute.argument = j.callExpression(j.identifier(name), [attribute.argument])
+          } else if (
+            !(
+              attribute.argument.type === 'CallExpression' &&
+              attribute.argument.callee.name === name
+            )
+          ) {
+            attribute.argument = j.callExpression(j.identifier(name), [
+              attribute.argument
+            ])
+          }
+
+          addPropInteropCoercion(interop, prop, fn)
         }
 
-        addPropInteropCoercion(interop, prop, fn)
+        return element.node
       }
-
-      return element.node
-    })
+    )
   }
 
   /**
@@ -420,15 +516,19 @@ export default function helpers(j, root, file) {
    * @param {any} propNames
    */
   function renameProps(localComponentName, propNames, paths) {
-    Object.entries(propNames).forEach(([from, to]) => renameProp(localComponentName, from, to, paths))
+    Object.entries(propNames).forEach(([from, to]) =>
+      renameProp(localComponentName, from, to, paths)
+    )
   }
 
   function removeProps(localComponentName, props, paths) {
-    props.forEach(prop => removeProp(localComponentName, prop, paths))
+    props.forEach((prop) => removeProp(localComponentName, prop, paths))
   }
 
   function getDefaultImportLocalName(node) {
-    const defaultSpecifier = node.value.specifiers.find(specifier => specifier.type === 'ImportDefaultSpecifier')
+    const defaultSpecifier = node.value.specifiers.find(
+      (specifier) => specifier.type === 'ImportDefaultSpecifier'
+    )
 
     if (defaultSpecifier) return defaultSpecifier.local.name
 
@@ -469,7 +569,8 @@ export default function helpers(j, root, file) {
    */
   function getNamedImportLocalName(node, name) {
     const defaultSpecifier = node.value.specifiers.find(
-      specifier => specifier.type === 'ImportSpecifier' && specifier.imported.name === name
+      (specifier) =>
+        specifier.type === 'ImportSpecifier' && specifier.imported.name === name
     )
 
     if (defaultSpecifier) return defaultSpecifier.local.name
@@ -503,7 +604,8 @@ export default function helpers(j, root, file) {
     toSource: () => {
       const { results } = engine.executeOnText(root.toSource())
 
-      if (!results || !results.length || !results[0].output) throw Error('ESlint failed')
+      if (!results || !results.length || !results[0].output)
+        throw Error('ESlint failed')
 
       return results[0].output
     }
@@ -526,15 +628,17 @@ export function testCodeMod(dir, filename, options = {}) {
   const outputDir = path.resolve(dir, '__codemod__/output')
   const codemods = require(file)
 
+  // eslint-disable-next-line jest/valid-describe
   describe(filename.replace('.codemod.js', ''), () => {
     function read(f) {
       return fs.readFileSync(f, 'utf8').toString()
     }
     for (const name in codemods) {
+      // eslint-disable-next-line jest/valid-describe
       describe('codemod => ' + name, () => {
         const fixtures = glob.sync(name + '*.js', { cwd: inputDir })
 
-        fixtures.forEach(fixture => {
+        fixtures.forEach((fixture) => {
           it('fixture :: ' + fixture, () => {
             const isNegative = fixture.includes('.fail.')
             const inputPath = path.resolve(inputDir, fixture)

@@ -8,7 +8,7 @@ module.exports = (content, write) => {
 
   const source =
     Object.keys(content)
-      .map(name => `const ${name} = ${JSON.stringify(content[name])}`)
+      .map((name) => `const ${name} = ${JSON.stringify(content[name])}`)
       .join('\n') +
     '\nexport ' +
     exported +
@@ -19,7 +19,7 @@ module.exports = (content, write) => {
 
   write(
     prettier.format(source, {
-      parser: 'babylon',
+      parser: 'babel',
       singleQuote: true,
       semi: false,
       tabWidth: 2

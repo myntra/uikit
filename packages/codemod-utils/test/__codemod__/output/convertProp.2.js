@@ -5,12 +5,15 @@ import { interopPropTransformer } from '@myntra/uikit'
 const interopPropTransformerFoo$0 = interopPropTransformer(
   {},
   {
-    foo: function(value) {
-      return Boolean(value)
-    }
+    foo: (value) => Boolean(value)
   }
 )
 
 export default function Component({ foo, ...props }) {
-  return <Foo {...interopPropTransformerFoo$0(props)} foo={interopPropTransformerFoo$0.coercions.foo(foo)} />
+  return (
+    <Foo
+      {...interopPropTransformerFoo$0(props)}
+      foo={interopPropTransformerFoo$0.coercions.foo(foo)}
+    />
+  )
 }
