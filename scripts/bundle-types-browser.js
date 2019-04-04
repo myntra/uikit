@@ -130,14 +130,19 @@ function writeUIKitAsyncImports(files) {
   const META = []
 
   files.forEach((file, index) => {
-    const docs = docgen(file)
+    try {
+      const docs = docgen(file)
 
-    META.push({
-      name: componentName(file),
-      since: docs.since,
-      status: docs.status,
-      path: '/components/' + components[index]
-    })
+      META.push({
+        name: componentName(file),
+        since: docs.since,
+        status: docs.status,
+        path: '/components/' + components[index]
+      })
+    } catch (error) {
+      console.error(`In ${file}:`)
+      console.error(error)
+    }
   })
 
   fs.writeFileSync(

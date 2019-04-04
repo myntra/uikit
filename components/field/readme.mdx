@@ -5,8 +5,20 @@ import Field from './src/field'
 <Documenter component={Field}>
 
 ```jsx preview
-// TODO: Use InputText here.
+<Field title="Name">
+  <input type="text" />
+</Field>
+```
 
+</Documenter>
+
+## Examples
+
+### Field Description
+
+The `<Field>` component can display description for the input.
+
+```jsx preview
 <Field
   title="Name"
   description="Enter your full name."
@@ -15,4 +27,52 @@ import Field from './src/field'
 </Field>
 ```
 
-</Documenter>
+### Required Field
+
+The `<Field>` component displays a visual indication for required fields.
+
+```jsx preview
+<Field
+  title="Name"
+  required
+>
+  <input type="text" />
+</Field>
+```
+
+### Error Message
+
+The `<Field>` component can display error message in place of description.
+
+```jsx preview
+<Field
+  title="Email"
+  error="Invalid email address!"
+>
+  <input type="email" />
+</Field>
+```
+
+We can run custom validations and provide error problematically. If `error` is present,
+it will display the error, else it will display description.
+
+```jsx preview
+const [email, setEmail] = useState('');
+
+<Field
+  title="Email"
+  description="Enter your email address."
+  error={
+    !email // if empty email field
+    || /^[^@]+@myntra\.com$/.test(email) // or valid email value
+      ? null // then no error
+      : 'Invalid email address!'
+  }
+>
+  <input
+    type="email"
+    value={email}
+    onChange={event => setEmail(event.target.value)}
+  />
+</Field>
+```

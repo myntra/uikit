@@ -1,0 +1,33 @@
+import InputText from './src/input-text'
+
+# InputText
+
+<Documenter component={InputText}>
+
+```jsx preview
+const [value, setValue] = useState();
+
+<InputText value={value} onChange={setValue} />
+```
+
+</Documenter>
+
+## Examples
+
+## With placeholder text
+
+```jsx preview
+const [value, setValue] = useState();
+
+<InputText value={value} onChange={setValue} placeholder="Your name" />
+```
+
+## With label text
+
+```jsx preview
+const [value, setValue] = useState();
+
+<Field title="Name" description="Your name">
+  <InputText value={value} onChange={setValue} />
+</Field>
+```

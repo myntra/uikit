@@ -32,3 +32,12 @@ declare module 'jest' {
     }
   }
 }
+
+import * as Enzyme from 'enzyme'
+import * as CodeMod from '@myntra/codemod-utils'
+
+declare namespace global {
+  export const mount: Enzyme.mount
+  export const mountShallow: Enzyme.shallow
+  export function testCodeMod(dir: string, file: string): void
+}

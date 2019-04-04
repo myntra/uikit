@@ -48,6 +48,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.2.0",
     "@babel/preset-env": "^7.3.4",
     "@babel/preset-react": "^7.0.0",
+    "@myntra/codemod-utils": "link:packages/codemod-utils",
     "@myntra/docgen": "link:packages/docgen",
     "@myntra/eslint-config-standard": "link:packages/eslint-config-standard",
     "@myntra/rollup-plugin-classnames": "link:packages/rollup-plugin-classnames",

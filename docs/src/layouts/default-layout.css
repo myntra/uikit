@@ -40,8 +40,8 @@ pre {
 .anchor-link {
   margin-right: 4px;
   margin-left: -20px;
+  transition: opacity 0.35s fade-in;
   opacity: 0;
-  transition: all 0.35s ease-in;
 }
 
 h1:hover .anchor-link,
@@ -49,7 +49,12 @@ h2:hover .anchor-link,
 h3:hover .anchor-link,
 h4:hover .anchor-link,
 h5:hover .anchor-link,
-h6:hover .anchor-link {
+h6:hover .anchor-link,
+.anchor-link:hover {
   opacity: 1;
-  transition-delay: 2s;
+}
+
+a[href^='#'] {
+  height: 28px;
+  display: inline-block;
 }

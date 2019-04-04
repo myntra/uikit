@@ -1,0 +1,7 @@
+@import 'input';
+
+.input {
+  @include ui-input-style();
+
+  width: 100%;
+}

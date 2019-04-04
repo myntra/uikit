@@ -9,99 +9,106 @@ export { default as Field } from '@myntra/uikit-component-field'
 export { default as Grid } from '@myntra/uikit-component-grid'
 export { default as Icon } from '@myntra/uikit-component-icon'
 export { default as Image } from '@myntra/uikit-component-image'
+export { default as InputText } from '@myntra/uikit-component-input-text'
 export { default as List } from '@myntra/uikit-component-list'
 export { default as Measure } from '@myntra/uikit-component-measure'
 export { default as NavBar } from '@myntra/uikit-component-nav-bar'
 export { default as Portal } from '@myntra/uikit-component-portal'
 export const META = [
   {
-    "name": "Alert",
-    "since": "0.3.0",
-    "status": "READY",
-    "path": "/components/alert"
+    name: 'Alert',
+    since: '0.3.0',
+    status: 'READY',
+    path: '/components/alert'
   },
   {
-    "name": "Avatar",
-    "since": "0.3.1",
-    "status": "EXPERIMENTAL",
-    "path": "/components/avatar"
+    name: 'Avatar',
+    since: '0.3.1',
+    status: 'EXPERIMENTAL',
+    path: '/components/avatar'
   },
   {
-    "name": "Badge",
-    "since": "0.8.0",
-    "status": "EXPERIMENTAL",
-    "path": "/components/badge"
+    name: 'Badge',
+    since: '0.8.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/badge'
   },
   {
-    "name": "Button",
-    "since": "0.0.0",
-    "status": "READY",
-    "path": "/components/button"
+    name: 'Button',
+    since: '0.0.0',
+    status: 'READY',
+    path: '/components/button'
   },
   {
-    "name": "ClickAway",
-    "since": "0.0.0",
-    "status": "REVIEWING",
-    "path": "/components/click-away"
+    name: 'ClickAway',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/click-away'
   },
   {
-    "name": "Dropdown",
-    "since": "0.0.0",
-    "status": "READY",
-    "path": "/components/dropdown"
+    name: 'Dropdown',
+    since: '0.0.0',
+    status: 'READY',
+    path: '/components/dropdown'
   },
   {
-    "name": "ErrorBoundary",
-    "since": "0.0.0",
-    "status": "REVIEWING",
-    "path": "/components/error-boundary"
+    name: 'ErrorBoundary',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/error-boundary'
   },
   {
-    "name": "Field",
-    "since": "0.6.0",
-    "status": "EXPERIMENTAL",
-    "path": "/components/field"
+    name: 'Field',
+    since: '0.6.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/field'
   },
   {
-    "name": "Grid",
-    "since": "0.0.0",
-    "status": "REVIEWING",
-    "path": "/components/grid"
+    name: 'Grid',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/grid'
   },
   {
-    "name": "Icon",
-    "since": "0.0.0",
-    "status": "REVIEWING",
-    "path": "/components/icon"
+    name: 'Icon',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/icon'
   },
   {
-    "name": "Image",
-    "since": "0.3.0",
-    "status": "EXPERIMENTAL",
-    "path": "/components/image"
+    name: 'Image',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/image'
   },
   {
-    "name": "List",
-    "since": "0.10.0",
-    "status": "READY",
-    "path": "/components/list"
+    name: 'InputText',
+    since: '0.0.0',
+    status: 'READY',
+    path: '/components/input-text'
   },
   {
-    "name": "Measure",
-    "since": "0.3.0",
-    "status": "EXPERIMENTAL",
-    "path": "/components/measure"
+    name: 'List',
+    since: '0.10.0',
+    status: 'READY',
+    path: '/components/list'
   },
   {
-    "name": "NavBar",
-    "since": "0.3.0",
-    "status": "EXPERIMENTAL",
-    "path": "/components/nav-bar"
+    name: 'Measure',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/measure'
   },
   {
-    "name": "Portal",
-    "since": "0.0.0",
-    "status": "REVIEWING",
-    "path": "/components/portal"
+    name: 'NavBar',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/nav-bar'
+  },
+  {
+    name: 'Portal',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/portal'
   }
 ]

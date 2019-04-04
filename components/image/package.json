@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-component-image",
   "version": "0.7.1",
-  "main": "src/image.jsx",
+  "main": "src/image.tsx",
   "module": "dist/image.js",
-  "browser": "src/image.jsx",
+  "browser": "src/image.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/image",

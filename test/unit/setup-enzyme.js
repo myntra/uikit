@@ -1,5 +1,10 @@
 // setup file
-var enzyme = require('enzyme') // eslint-disable-line node/no-unpublished-require
-var Adapter = require('enzyme-adapter-react-16') // eslint-disable-line node/no-unpublished-require
+const enzyme = require('enzyme')
+const Adapter = require('enzyme-adapter-react-16')
+const { testCodeMod } = require('@myntra/codemod-utils')
 
 enzyme.configure({ adapter: new Adapter() })
+
+global.mountShallow = enzyme.shallow
+global.mount = enzyme.mount
+global.testCodeMod = testCodeMod

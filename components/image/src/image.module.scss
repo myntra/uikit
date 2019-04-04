@@ -3,10 +3,10 @@
 .img {
   display: block;
   outline: none;
-  animation: fadein 350ms;
+  animation: fadeIn 350ms;
 }
 
-@keyframes fadein {
+@keyframes fadeIn {
   from {
     opacity: 0;
   }

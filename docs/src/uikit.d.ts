@@ -166,7 +166,63 @@ declare function Icon(props: IconProps): JSX.Element
 
 // -----------[[Image]]--------------- //
 
+interface ImageContainerObserver {
+  observe(
+    element: HTMLElement,
+    handler: (entry: IntersectionObserverEntry, observer: IntersectionObserver) => void
+  ): void
+  unobserve(element: HTMLElement): void
+  raw: IntersectionObserver
+}
+
+interface ImageProps extends BaseProps {
+  /** Image source file/link. */
+  src: string
+  /** Image height */
+  height: number | string
+  /** Image width */
+  width: number | string
+  /**
+   * Lazy loading image
+   * @private
+   * @deprecated
+   */
+  lazyLoad: boolean
+  /** Lazy load image */
+  lazy: boolean
+}
+/**
+ * A component to lazy load images.
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ */
+
 declare function Image(props: ImageProps): JSX.Element
+
+// -----------[[InputText]]--------------- //
+interface InputTextProps extends BaseProps {
+  /** Sets the text format for the field. */
+  type: 'text' | 'email' | 'password' | 'tel' | 'url'
+  /** Current value of the text input field. */
+  value?: string
+  /** The handler to call when the value changes. */
+  onChange?(value: string): void
+  /** Displays a disabled text field */
+  disabled?: boolean
+  /** Displays a readonly text field */
+  readOnly?: boolean
+}
+/**
+ * A text input component for text-like data (email, tel, text, password and url).
+ *
+ * @since 0.0.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/input-text
+ */
+
+declare function InputText(props: InputTextProps): JSX.Element
 
 // -----------[[List]]--------------- //
 
