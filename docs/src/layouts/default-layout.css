@@ -14,6 +14,17 @@ pre {
   overflow: auto;
 }
 
+blockquote {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+  padding-left: 1rem;
+
+  border-left: 4px solid #ccc;
+}
+
 #app,
 .layout-container {
   height: 100%;

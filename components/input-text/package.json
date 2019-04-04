@@ -14,7 +14,8 @@
     "src/",
     "dist/",
     "bin/",
-    "*.codemod.js"
+    "*.codemod.js",
+    "*.scss"
   ],
   "peerDependencies": {
     "react": ">=15.4"

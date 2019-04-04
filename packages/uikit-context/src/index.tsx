@@ -25,11 +25,19 @@ export interface UIKitContext {
 }
 
 export const DEFAULT_CONTEXT: UIKitContext = {
-  Link({ href, children }) {
-    return <a href={href}>{children}</a>
+  Link({ href, children, ...attrs }) {
+    return (
+      <a {...attrs} href={href}>
+        {children}
+      </a>
+    )
   },
-  RouterLink({ to, children }) {
-    return <a href={`${to}`}>{children}</a>
+  RouterLink({ to, children, ...attrs }) {
+    return (
+      <a {...attrs} href={`${to}`}>
+        {children}
+      </a>
+    )
   }
 }
 
@@ -70,7 +78,9 @@ export function createContext<T>(defaultValue: T): Context<T> {
     }
 
     render() {
-      return this.props.children((this.context && this.context[id]) || defaultValue)
+      return this.props.children(
+        (this.context && this.context[id]) || defaultValue
+      )
     }
   }
 

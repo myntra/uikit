@@ -1,9 +1,9 @@
 $-colors: (
   primary: (
-    dark: #2F2B78,
+    dark: #2f2b78,
     base: #4f47c8,
     text: hsla(244, 65, 78, 0.87),
-    light: rgba(#4F47C8, 0.87),
+    light: rgba(#4f47c8, 0.87),
     lighter: hsl(244, 8, 97)
   ),
   green: (
@@ -21,6 +21,13 @@ $-colors: (
     lighter: hsl(40, 16, 98)
   ),
   red: (
+    dark: hsl(2, 51, 50),
+    base: hsl(2, 51, 83),
+    text: hsla(2, 51, 83, 0.87),
+    light: hsl(2, 32, 90),
+    lighter: hsl(2, 11, 96)
+  ),
+  gray: (
     dark: hsl(2, 51, 50),
     base: hsl(2, 51, 83),
     text: hsla(2, 51, 83, 0.87),
@@ -134,13 +141,13 @@ $-text-styles: (
   )
 );
 $-sizes: (
-  2xs: 4px,
-  xs: 8px,
-  s: 12px,
-  r: 16px,
-  m: 20px,
-  l: 24px,
-  xl: 32px,
-  2xl: 40px
+  '2xs': 4px,
+  'xs': 8px,
+  's': 12px,
+  'r': 16px,
+  'm': 20px,
+  'l': 24px,
+  'xl': 32px,
+  '2xl': 40px
 );
 $-vertical-grid-size: 16px;

@@ -9,6 +9,7 @@ export { default as Field } from '@myntra/uikit-component-field'
 export { default as Grid } from '@myntra/uikit-component-grid'
 export { default as Icon } from '@myntra/uikit-component-icon'
 export { default as Image } from '@myntra/uikit-component-image'
+export { default as InputCheckbox } from '@myntra/uikit-component-input-checkbox'
 export { default as InputText } from '@myntra/uikit-component-input-text'
 export { default as List } from '@myntra/uikit-component-list'
 export { default as Measure } from '@myntra/uikit-component-measure'
@@ -80,6 +81,12 @@ export const META = [
     since: '0.3.0',
     status: 'EXPERIMENTAL',
     path: '/components/image'
+  },
+  {
+    name: 'InputCheckbox',
+    since: '0.0.0',
+    status: 'READY',
+    path: '/components/input-checkbox'
   },
   {
     name: 'InputText',

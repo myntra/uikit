@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Markdown from './markdown'
+import Button from '@uikit/button'
 
 import './documenter.css'
 
@@ -45,11 +46,25 @@ export default class Documenter extends Component {
         {hideName ? null : <h1>{docs.name}</h1>}
 
         <p title={docs.status}>
-          <span title={docs.status}>{states[docs.status]}</span>
-          <span>since v{docs.since}</span> ·{' '}
-          <a href={'https://bitbucket.com/myntra/uikit/' + docs.file} target="_blank" rel="noopener noreferrer">
-            see source code
-          </a>
+          <small
+            title={`The ${docs.name} component is in ${docs.status} state.`}
+            style={{ textTransform: 'lowercase' }}
+          >
+            {states[docs.status]} {docs.status}
+          </small>{' '}
+          ·{' '}
+          <small title={`The ${docs.name} component is available in UIKit v${docs.since}+.`}>since v{docs.since}</small>{' '}
+          ·{' '}
+          <Button
+            type="link"
+            inheritTextColor
+            href={'https://bitbucket.com/myntra/uikit/' + docs.file}
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Go to bitbucket.com"
+          >
+            <span style={{ textTransform: 'initial' }}>see source code</span>
+          </Button>
         </p>
 
         <Markdown>{docs.description}</Markdown>

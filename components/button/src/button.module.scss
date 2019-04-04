@@ -84,6 +84,14 @@ $-button__variants: merge(
         padding-left: 0,
         padding-right: 0
       ),
+      disabled: (
+        text: (
+          color: ui-text-color(dark, disabled)
+        ),
+        surface: (
+          background-color: transparent
+        )
+      ),
       hover: (
         surface: (
           box-shadow: none
