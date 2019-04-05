@@ -23,6 +23,11 @@ module.exports = {
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
     config.profile(true).stats('verbose')
+
+    config.watchOptions({
+      ignored: ['**/*.spec.js', '__codemod__']
+    })
+
     /* eslint-disable prettier/prettier */
     config.resolve.alias.set('@uikit', componentsDir)
     components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
