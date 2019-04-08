@@ -77,7 +77,7 @@ export default function NavBarItem({
       tabIndex={0}
       {...props}
       className={classnames('item', className, {
-        'is-active': isActivePath(to),
+        'is-active': isActivePath && isActivePath(to),
         'no-icon': !renderIcon && !icon
       })}
     >
