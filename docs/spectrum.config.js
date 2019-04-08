@@ -11,8 +11,10 @@ const { version } = require('react')
 const VERSION = parseFloat(version)
 
 module.exports = {
+  basePath: `/${process.env.BRANCH === 'master' ? '/' : process.env.BRANCH || '/'}`,
   lintOnSave: false,
   define: {
+    PATH_PREFIX: JSON.stringify(process.env.BRANCH === 'master' || !process.env.BRANCH ? '' : '/' + process.env.BRANCH),
     __DEV__: process.env.NODE_ENV !== 'production',
     CAN_USE_HOOKS: VERSION > 16.7,
     CAN_USE_CONTEXT: VERSION > 16.2,

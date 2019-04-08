@@ -29,23 +29,11 @@ blockquote {
 .layout-container {
   height: 100%;
 }
-.layout-container {
-  display: flex;
-  overflow: hidden;
-}
-
-.layout-nav {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-}
 
 .layout-main {
-  flex: 1;
   padding: 1rem;
-  margin-left: 54px;
   overflow: auto;
+  position: relative;
 }
 
 .anchor-link {

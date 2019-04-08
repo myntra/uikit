@@ -1,0 +1,42 @@
+import Page from './src/page'
+
+# Page
+
+<Documenter component={Page}>
+
+```jsx preview
+<Page
+  renderNavBar={() => (
+    <NavBar title="My Application">
+      <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+      <NavBar.Item icon="dice-two">Dice 2</NavBar.Item>
+
+      <NavBar.Group title="Dices" icon="dice">
+        <NavBar.Item icon="dice-five">Dice 5</NavBar.Item>
+        <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+      </NavBar.Group>
+    </NavBar>
+  )}
+  renderTopBar={() => (
+    <TopBar
+        title="Dices"
+        user={{ email: 'jane.doe@myntra.com' }}
+    >
+      <BreadCrumb>
+        <BreadCrumb.Item>Home</BreadCrumb.Item>
+        <BreadCrumb.Item>Dices</BreadCrumb.Item>
+        <BreadCrumb.Item>Dices 5</BreadCrumb.Item>
+      </BreadCrumb>
+
+      <TopBar.Item>Profile</TopBar.Item>
+      <TopBar.Item>Logout</TopBar.Item>
+    </TopBar>
+  )}
+>
+  <div style={{ padding: '1rem', background: 'white', height: '100%', boxSizing: 'border-box' }}>
+    This is a Page!
+  </div>
+</Page>
+```
+
+</Documenter>

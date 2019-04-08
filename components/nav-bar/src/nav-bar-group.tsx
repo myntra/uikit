@@ -1,5 +1,6 @@
 import React, { useContext } from 'react'
 import { createContext } from '@myntra/uikit-context'
+import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { NavBarItemProps } from './nav-bar-item'
@@ -80,11 +81,26 @@ export default function NavBarGroup({
           key={id.join('.') + ':title'}
           role="button"
         >
-          <div className={classnames('nav-group-title')}>{title}</div>
+          <div className={classnames('group-container')}>
+            <div className={classnames('group-title')}>{title}</div>
+
+            <Icon
+              className={classnames('group-expand')}
+              name={isActiveGroup(id) ? 'chevron-up' : 'chevron-down'}
+              onClick={(event) => {
+                // Stop event propagation so parent NavBar.Group is not triggered.
+                event.stopPropagation()
+                // Toggle state of the NavBar.Group.
+                isActiveGroup(id)
+                  ? setActiveGroup(id.slice(0, id.length - 1))
+                  : setActiveGroup(id)
+              }}
+            />
+          </div>
         </NavBarItem>
         {isActiveGroup(id) && (
           <Context.Provider value={{ depth: depth + 1 }}>
-            <ul className={classnames('nav-group')} key={id.join('.')}>
+            <ul className={classnames('group')} key={id.join('.')}>
               {injectNavId(children, id)}
             </ul>
           </Context.Provider>
@@ -92,7 +108,7 @@ export default function NavBarGroup({
       </>
     ) : (
       <Context.Provider value={{ depth: depth + 1 }}>
-        <ul className={classnames('nav-group', className)} key={id.join('.')}>
+        <ul className={classnames('group', className)} key={id.join('.')}>
           {injectNavId(children, id)}
         </ul>
       </Context.Provider>

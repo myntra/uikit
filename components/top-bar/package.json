@@ -1,0 +1,28 @@
+{
+  "name": "@myntra/uikit-component-top-bar",
+  "version": "0.7.1",
+  "main": "src/top-bar.tsx",
+  "module": "dist/top-bar.js",
+  "browser": "src/top-bar.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/top-bar",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-bread-crumb": "link:../bread-crumb",
+    "@myntra/uikit-component-dropdown": "link:../dropdown",
+    "@myntra/uikit-component-icon": "link:../icon",
+    "@myntra/uikit-component-list": "link:../list"
+  }
+}

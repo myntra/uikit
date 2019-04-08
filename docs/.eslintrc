@@ -6,6 +6,9 @@
         "node": false,
         "browser": true
       },
+      "globals": {
+        "PATH_PREFIX": "readonly"
+      },
       "rules": {
         "node/no-extraneous-import": ["error", {
           "allowModules": ["react", "prop-types", "redux-first-router"]

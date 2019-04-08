@@ -3,19 +3,27 @@
 $-nav-bar-item: () !default;
 $-nav-bar-item: merge(
   (
-    icon-size: 2rem,
+    icon-size: 24px,
     space: ui-relative-size(xs)
   ),
   $-nav-bar-item
 );
 
-.nav-item {
+.item {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  margin: map-get($-nav-bar-item, space) 1px;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem -0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   list-style: none;
   cursor: pointer;
+  border-radius: 2rem;
+
+  &:hover {
+    background-color: ui-color(gray, lightest);
+  }
 
   &:focus,
   &:focus-within {
@@ -31,6 +39,7 @@ $-nav-bar-item: merge(
   }
 
   a {
+    flex: 1;
     color: currentColor;
     text-decoration: none;
   }
@@ -38,18 +47,26 @@ $-nav-bar-item: merge(
   *:focus {
     outline: none;
   }
-}
 
-.is-active {
-  background-color: ui-color(primary, lighter);
-}
+  .is-active {
+    background-color: ui-color(primary, lighter);
+  }
 
-.icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: map-get($-nav-bar-item, icon-size);
-  height: map-get($-nav-bar-item, icon-size);
-  margin-right: ui-relative-size(s);
-  font-size: map-get($-nav-bar-item, icon-size) * 0.75;
+  .item-icon {
+    display: inline-flex;
+    flex: 0 0 map-get($-nav-bar-item, icon-size);
+    align-items: center;
+    justify-content: center;
+    width: map-get($-nav-bar-item, icon-size);
+    height: map-get($-nav-bar-item, icon-size);
+    margin-right: ui-relative-size(s);
+    font-size: 1.25rem;
+  }
+
+  &.no-icon {
+    padding-left: 0.5rem;
+    .item-icon {
+      display: none;
+    }
+  }
 }

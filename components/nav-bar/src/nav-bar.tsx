@@ -1,5 +1,6 @@
 import React, { PureComponent, useContext } from 'react'
 import UIKitContext, { LinkProps } from '@myntra/uikit-context'
+import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
@@ -289,6 +290,11 @@ export default class NavBar extends PureComponent<
             id={`${this.idPrefix}header`}
             className={classnames('header')}
           >
+            <Icon
+              className={classnames('hamburger')}
+              name="bars"
+              title="Navigation"
+            />
             <img src={LogoMyntraJabong} alt="Myntra Jabong" />
             {this.props.title}
           </header>

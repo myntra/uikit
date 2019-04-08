@@ -1,0 +1,22 @@
+{
+  "name": "@myntra/uikit-component-page",
+  "version": "0.7.1",
+  "main": "src/page.tsx",
+  "module": "dist/page.js",
+  "browser": "src/page.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/page",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  }
+}

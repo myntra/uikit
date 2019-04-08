@@ -61,6 +61,32 @@ interface BadgeProps extends BaseProps {
 
 declare function Badge(props: BadgeProps): JSX.Element
 
+// -----------[[BreadCrumb]]--------------- //
+
+interface BreadCrumbProps extends BaseProps {}
+/**
+ * The BreadCrumb component.
+ *
+ * @since 0.3.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/bread-crumb
+ */
+
+declare function BreadCrumb(props: BreadCrumbProps): JSX.Element
+declare namespace BreadCrumb {
+  interface BreadCrumbItem extends BaseProps {}
+  /**
+   * A breadcrumb item
+   * @since 0.3.0
+   * @status READY
+   * @category basic
+   * @see http://uikit.myntra.com/components/bread-crum#BreadCrumbIcon
+   */
+
+  declare function Item(props: BreadCrumbItemProps): JSX.Element
+}
+
 // -----------[[Button]]--------------- //
 
 interface ButtonProps extends BaseProps {
@@ -216,11 +242,11 @@ interface InputCheckBoxProps extends BaseProps {
    */
   onChange?(value: boolean): void
   /**
-   * Displays a disabled checkbox field
+   * Displays a disabled checkbox field.
    */
   disabled?: boolean
   /**
-   * Displays a readonly checkbox field\
+   * Displays a readonly checkbox field.
    */
   readOnly?: boolean
   /**
@@ -460,9 +486,57 @@ declare namespace NavBar {
   declare function Item(props: NavBarItemProps): JSX.Element
 }
 
+// -----------[[Page]]--------------- //
+interface PageProps extends BaseProps {
+  /**
+   * Renders a nav using [NavBar](../components/nav-bar).
+   */
+  renderNavBar?(): JSX.Element
+  /**
+   * Renders a header using [TopBar](../components/top-bar).
+   */
+  renderTopBar?(): JSX.Element
+  /**
+   * Contents of the page.
+   */
+  children: JSX.Element
+}
+/**
+ * A basic layout component with side nav and header.
+ *
+ * @since 0.11.0
+ * @status READY
+ * @category layout
+ * @see http://uikit.myntra.com/components/page
+ */
+
+declare function Page(props: PageProps): JSX.Element
+
 // -----------[[Portal]]--------------- //
 
 declare function Portal(props: PortalProps): JSX.Element
+
+// -----------[[TopBar]]--------------- //
+
+interface TopBarProps extends BaseProps {
+  title: string
+  user: Partial<{
+    name: string
+    photo: string
+  }> & {
+    email: string
+  }
+}
+/**
+ * A component for page header
+ *
+ * @since 0.3.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/top-bar
+ */
+
+declare function TopBar(props: TopBarProps): JSX.Element
 
 // ----------[[DeclaredTypes]]---------- //
 

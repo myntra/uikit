@@ -1,6 +1,7 @@
 export { default as Alert } from '@myntra/uikit-component-alert'
 export { default as Avatar } from '@myntra/uikit-component-avatar'
 export { default as Badge } from '@myntra/uikit-component-badge'
+export { default as BreadCrumb } from '@myntra/uikit-component-bread-crumb'
 export { default as Button } from '@myntra/uikit-component-button'
 export { default as ClickAway } from '@myntra/uikit-component-click-away'
 export { default as Dropdown } from '@myntra/uikit-component-dropdown'
@@ -14,7 +15,9 @@ export { default as InputText } from '@myntra/uikit-component-input-text'
 export { default as List } from '@myntra/uikit-component-list'
 export { default as Measure } from '@myntra/uikit-component-measure'
 export { default as NavBar } from '@myntra/uikit-component-nav-bar'
+export { default as Page } from '@myntra/uikit-component-page'
 export { default as Portal } from '@myntra/uikit-component-portal'
+export { default as TopBar } from '@myntra/uikit-component-top-bar'
 export const META = [
   {
     name: 'Alert',
@@ -33,6 +36,12 @@ export const META = [
     since: '0.8.0',
     status: 'EXPERIMENTAL',
     path: '/components/badge'
+  },
+  {
+    name: 'BreadCrumb',
+    since: '0.3.0',
+    status: 'READY',
+    path: '/components/bread-crumb'
   },
   {
     name: 'Button',
@@ -113,9 +122,21 @@ export const META = [
     path: '/components/nav-bar'
   },
   {
+    name: 'Page',
+    since: '0.11.0',
+    status: 'READY',
+    path: '/components/page'
+  },
+  {
     name: 'Portal',
     since: '0.0.0',
     status: 'REVIEWING',
     path: '/components/portal'
+  },
+  {
+    name: 'TopBar',
+    since: '0.3.0',
+    status: 'READY',
+    path: '/components/top-bar'
   }
 ]

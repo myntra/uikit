@@ -1,0 +1,57 @@
+@import '@myntra/uikit-design';
+
+// .page {
+//   max-height: 100vh;
+//   display: grid;
+//   overflow: hidden;
+//   grid-template:
+//     'a b' 57px
+//     'a c' auto / 57px auto;
+
+//   .nav {
+//     grid-area: a;
+//     z-index: 2;
+//   }
+
+//   .header {
+//     grid-area: b;
+//     z-index: 1;
+//   }
+
+//   .main {
+//     grid-area: c;
+//     z-index: 0;
+//     overflow: auto;
+//   }
+// }
+
+.page {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+
+  .nav {
+    z-index: 2;
+    width: 57px;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    overflow: auto;
+  }
+
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .main {
+    flex: 1;
+  }
+}

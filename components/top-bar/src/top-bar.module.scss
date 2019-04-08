@@ -1,0 +1,55 @@
+@import '@myntra/uikit-design';
+
+.top-bar {
+  z-index: ui-z-index('nav');
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  min-width: 320px;
+  padding: 0.75rem 1rem;
+  background-color: white;
+  border-bottom: 1px solid ui-color(gray);
+
+  .title {
+    h1 {
+      @include use-text-style('title');
+
+      padding: 0;
+      margin: 0;
+      line-height: 1em;
+      color: ui-text-color('dark');
+    }
+  }
+
+  .container {
+    flex: 1;
+  }
+
+  .nav {
+    flex: 0;
+  }
+
+  .user {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    white-space: nowrap;
+    cursor: pointer;
+
+    @include use-text-style('caption');
+  }
+
+  .user-name {
+    display: inline-block;
+    padding: 0.5rem;
+  }
+
+  .user-avatar {
+    font-size: 1rem;
+  }
+
+  .menu {
+    background-color: white;
+  }
+}

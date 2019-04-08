@@ -76,11 +76,12 @@ export default function NavBarItem({
       }}
       tabIndex={0}
       {...props}
-      className={classnames('nav-item', className, {
-        'is-active': to && isActivePath(to)
+      className={classnames('item', className, {
+        'is-active': isActivePath(to),
+        'no-icon': !renderIcon && !icon
       })}
     >
-      <div className={classnames('icon')}>
+      <div className={classnames('item-icon')}>
         {renderIcon ? renderIcon() : icon ? <Icon name={icon} /> : null}
       </div>
       {to ? renderLink({ href: to, children }) : children}
