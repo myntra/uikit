@@ -170,6 +170,19 @@ declare namespace Grid {
   declare function Column(props: GridColumnProps): JSX.Element
 }
 
+// -----------[[Group]]--------------- //
+interface GroupProps extends BaseProps {}
+/**
+ * A group component to combine multiple group-able components.
+ *
+ * @since 0.11.0
+ * @status READY
+ * @category composition
+ * @see http://uikit.myntra.com/components/group
+ */
+
+declare function Group(props: GroupProps): JSX.Element
+
 // -----------[[Icon]]--------------- //
 
 type IconName = IconNameGlobal[keyof IconNameGlobal]
@@ -607,7 +620,7 @@ interface ProgressBarProps extends BaseProps {
   /**
    * Visual style of progress bar.
    *
-   * @since v0.11.0
+   * @since 0.11.0
    */
   appearance?: 'success' | 'info' | 'warning' | 'danger'
   /**
@@ -617,27 +630,14 @@ interface ProgressBarProps extends BaseProps {
   /**
    * Height of progress bar.
    *
-   * @since v0.11.0
+   * @since 0.11.0
    */
   size?: 'small' | 'medium' | 'large'
 }
 
 interface ProgressCircleProps extends BaseProps {
-  /**
-   * Completion state in percentage.
-   */
   value: number
-  /**
-   * Visual style of progress bar.
-   *
-   * @since v0.11.0
-   */
   appearance?: 'success' | 'info' | 'warning' | 'danger'
-  /**
-   * Height of progress bar.
-   *
-   * @since v0.11.0
-   */
   size?: 'small' | 'medium' | 'large'
 }
 
@@ -667,6 +667,28 @@ interface TopBarProps extends BaseProps {
  */
 
 declare function TopBar(props: TopBarProps): JSX.Element
+
+interface TopBarProps extends BaseProps {
+  title: string
+  user: Partial<{
+    name: string
+    photo: string
+  }> & {
+    email: string
+  }
+}
+/**
+ * A component for page header
+ *
+ * @since 0.3.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/top-bar
+ */
+
+declare namespace TopBar {
+  declare function TobBarItem(props: TopBarTobBarItemProps): JSX.Element
+}
 
 // ----------[[DeclaredTypes]]---------- //
 

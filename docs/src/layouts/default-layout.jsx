@@ -30,7 +30,7 @@ function DefaultLayout({ router, children, goto }) {
         >
           <NavBar.Group title="Components" icon="cubes">
             <NavBar.Item key="_" to="/components">
-              All
+              - Index -
             </NavBar.Item>
             {META.map(component => (
               <NavBar.Item key={component.name} to={`${PATH_PREFIX}${component.path}`}>

@@ -246,14 +246,14 @@ importers:
   components/input-s3-file:
     dependencies:
       '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-group': 'link:../group'
       '@myntra/uikit-component-input-text': 'link:../input-text'
-      '@myntra/uikit-component-progress': 'link:../progress'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-group': 'link:../group'
       '@myntra/uikit-component-input-text': 'link:../input-text'
-      '@myntra/uikit-component-progress': 'link:../progress'
       '@types/react': ^16.8.13
   components/input-text:
     dependencies:

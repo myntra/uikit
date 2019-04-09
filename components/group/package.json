@@ -1,0 +1,22 @@
+{
+  "name": "@myntra/uikit-component-group",
+  "version": "0.7.1",
+  "main": "src/group.tsx",
+  "module": "dist/group.js",
+  "browser": "src/group.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/group",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  }
+}

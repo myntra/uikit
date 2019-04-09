@@ -31,11 +31,7 @@ $-button__states: merge(
         border-color: ui-color(gray, dark)
       )
     ),
-    hover: (
-      surface: (
-        box-shadow: ui-shadow()
-      )
-    ),
+    hover: (),
     active: (
       surface: (
         box-shadow: ui-shadow(flat)
@@ -92,11 +88,6 @@ $-button__variants: merge(
           background-color: transparent
         )
       ),
-      hover: (
-        surface: (
-          box-shadow: none
-        )
-      ),
       active: (
         text: (
           color: ui-color(primary, dark)
@@ -144,6 +135,7 @@ $-button--secondary-icon: merge(
 .button {
   $states: (focus-visible, hover, active, disabled);
 
+  position: relative;
   box-sizing: border-box;
   display: inline-block;
   line-height: 1;
@@ -166,15 +158,11 @@ $-button--secondary-icon: merge(
   }
 
   &:focus {
-    outline: 1px dashed ui-color(primary, light);
+    outline: none;
   }
 
   &:focus-visible {
     outline: 1px dashed ui-color(primary, light);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
   }
 
   @each $state in $states {
@@ -217,6 +205,15 @@ $-button--secondary-icon: merge(
     }
   }
 
+  .loading-icon {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: ui-context-size(s) ui-context-size('2xl');
+  }
+
   > .primary-icon {
     display: inline-block;
 
@@ -227,4 +224,34 @@ $-button--secondary-icon: merge(
 
     @include extract($-button--secondary-icon);
   }
+
+  + .button {
+    margin-left: 1.25rem;
+  }
+}
+
+:global(._u-group-container) {
+  .button {
+    margin-left: 0;
+  }
+
+  > .button:not(:first-child):not(:last-child) {
+    border-left: none;
+    border-radius: 0;
+  }
+
+  > .button:first-child:not(:last-child) {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  > .button:not(:first-child):last-child {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.button.loading > :not(.loading-icon) {
+  color: transparent;
 }

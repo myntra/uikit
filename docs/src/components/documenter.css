@@ -1,6 +1,12 @@
 .documenter--prop {
+  position: relative;
   padding: 8px;
   margin-bottom: 8px;
+}
+
+a.anchor {
+  position: absolute;
+  top: -60px;
 }
 
 .documenter--prop-header {

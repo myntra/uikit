@@ -79,7 +79,8 @@ export default class Documenter extends Component {
             {docs.props
               .filter(prop => !prop.private)
               .map(prop => (
-                <div id={`${docs.name}-${prop.name}`} className="documenter--prop" key={prop.name}>
+                <div className="documenter--prop" key={prop.name}>
+                  <a id={`${docs.name}-${prop.name}`} href="#" className="anchor" />
                   <div className="documenter--prop-header">
                     <div className="documenter--prop-name">{prop.name}</div>
                     <div className="documenter--prop-type" title={prop.type ? prop.type.name : 'any'}>

@@ -37,29 +37,38 @@ interface ButtonProps extends BaseProps {
  * @see http://uikit.myntra.com/components/button
  */
 export default class Button extends PureComponent<ButtonProps> {
-  static RouterLink = props => {
+  static RouterLink = (props) => {
     if (CAN_USE_HOOKS) {
       const { RouterLink } = useContext(UIKitContext)
 
       return <RouterLink {...props} />
     }
 
-    return <UIKitContext.Consumer>{({ RouterLink }) => <RouterLink {...props} />}</UIKitContext.Consumer>
+    return (
+      <UIKitContext.Consumer>
+        {({ RouterLink }) => <RouterLink {...props} />}
+      </UIKitContext.Consumer>
+    )
   }
 
-  static Link = props => {
+  static Link = (props) => {
     if (CAN_USE_HOOKS) {
       const { Link } = useContext(UIKitContext)
 
       return <Link {...props} />
     }
 
-    return <UIKitContext.Consumer>{({ Link }) => <Link {...props} />}</UIKitContext.Consumer>
+    return (
+      <UIKitContext.Consumer>
+        {({ Link }) => <Link {...props} />}
+      </UIKitContext.Consumer>
+    )
   }
 
   static propsTypes = {
     __$validation({ to, href }) {
-      if (to && href) throw new Error(`The props 'to' and 'href' cannot coexist.`)
+      if (to && href)
+        throw new Error(`The props 'to' and 'href' cannot coexist.`)
     }
   }
 
@@ -67,14 +76,14 @@ export default class Button extends PureComponent<ButtonProps> {
     type: 'secondary',
     disabled: false,
     inheritTextColor: false,
-    loading: false,
+    loading: false
   }
 
   state = {
     active: false
   }
 
-  handleClick = event => {
+  handleClick = (event) => {
     if (this.props.disabled) {
       return event.preventDefault()
     }
@@ -127,14 +136,26 @@ export default class Button extends PureComponent<ButtonProps> {
         data-test-id="target"
       >
         {needLeftSlot && (
-          <div className={classnames(isIconButton ? 'icon' : 'primary-icon')} data-test-id="primary-icon">
+          <div
+            className={classnames(isIconButton ? 'icon' : 'primary-icon')}
+            data-test-id="primary-icon"
+          >
             <Icon name={icon || 'question'} aria-hidden="true" />
           </div>
         )}
-        {children}
+        <span>{children}</span>
         {needRightSlot && (
-          <div className={classnames('secondary-icon')} data-test-id="secondary-icon">
+          <div
+            className={classnames('secondary-icon')}
+            data-test-id="secondary-icon"
+          >
             <Icon name={secondaryIcon} aria-hidden="true" />
+          </div>
+        )}
+
+        {loading && (
+          <div className={classnames('loading-icon')}>
+            <Icon name="circle-notch" spin />
           </div>
         )}
       </Tag>

@@ -202,8 +202,7 @@ export default class NavBar extends PureComponent<
   }
 
   close = () => {
-    if (this.state.isOpen)
-      this.setState({ isOpen: false, activeGroup: ROOT_NAV_GROUP_ID })
+    if (this.state.isOpen) this.setState({ isOpen: false })
   }
 
   handleNavLinkClick = (navLink: { path: string }) => {

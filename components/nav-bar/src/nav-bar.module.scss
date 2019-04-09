@@ -30,15 +30,11 @@ $-nav-bar: merge(
   }
 
   &:focus {
-    outline: 1px dashed ui-color(primary, light);
+    outline: none;
   }
 
   &:focus-visible {
     outline: 1px dashed ui-color(primary, light);
-  }
-
-  &:focus:not(:focus-visible) {
-    outline: none;
   }
 
   .header {
@@ -66,6 +62,7 @@ $-nav-bar: merge(
     }
 
     .hamburger {
+      box-sizing: content-box;
       width: map-get($-nav-bar, 'icon-size');
       height: map-get($-nav-bar, 'icon-size');
       padding: 4px;

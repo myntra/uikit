@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react'
 import classnames from './input-s3-file.module.scss'
 import Button from '@myntra/uikit-component-button'
+import Group from '@myntra/uikit-component-group'
 import Input from '@myntra/uikit-component-input-text'
-import Progress from '@myntra/uikit-component-progress'
 
 interface InputS3FileProps extends BaseProps {
   /**
@@ -32,15 +32,15 @@ interface InputS3FileProps extends BaseProps {
    */
   onError?(error: Error): void
   /**
-   * @deprecated
+   * @deprecated - It is no more required.
    */
   inputWidth?: string | number
   /**
-   * @deprecated - Use [autoStart](#S3Upload-autoStartUpload) instead.
+   * @deprecated - Use [autoStartUpload](#InputS3File-autoStartUpload) instead.
    */
   autostart?: boolean
   /**
-   * @deprecated - Use [clearOnSuccess](#S3Upload-clearOnSuccess) instead.
+   * @deprecated - Use [clearOnSuccess](#InputS3File-clearOnSuccess) instead.
    */
   autoclear?: boolean
 }
@@ -70,11 +70,19 @@ export default class InputS3File extends PureComponent<
     placeholder: 'Choose a file...'
   }
 
+  refInputFile: React.RefObject<HTMLInputElement>
+
   state = {
     isUploading: false,
     uploadProgress: 0,
     filename: null,
     file: null
+  }
+
+  constructor(props) {
+    super(props)
+
+    this.refInputFile = React.createRef()
   }
 
   handleInputChange = (event) => {
@@ -94,7 +102,13 @@ export default class InputS3File extends PureComponent<
     }
   }
 
-  private handleOnUpload = () => {
+  private handleBrowseClick = () => {
+    if (this.refInputFile.current && !this.state.isUploading) {
+      this.refInputFile.current.click()
+    }
+  }
+
+  private handleUploadClick = () => {
     if (!this.state.file) {
       this.emitFileNotFoundError()
     } else {
@@ -203,39 +217,34 @@ export default class InputS3File extends PureComponent<
           className={classnames('preview')}
           placeholder={placeholder}
           value={this.state.filename}
+          onClick={this.handleBrowseClick}
         />
         <input
           className={classnames('file')}
           type="file"
           hidden
           onChange={this.handleInputChange}
+          ref={this.refInputFile}
         />
-        {this.state.isUploading ? (
-          <Progress
-            className={classnames('progress')}
-            type="bar"
-            appearance="success"
-            value={this.state.uploadProgress}
-          />
-        ) : (
-          <>
-            <Button
-              className={classnames('button')}
-              type="secondary"
-              disabled={this.state.isUploading}
-            >
-              Browse
-            </Button>
-            {!(autoStartUpload || autostart) && (
-              <Button
-                className={classnames('button')}
-                type="secondary"
-                disabled={this.state.isUploading}
-              >
-                Upload
-              </Button>
-            )}
-          </>
+
+        <Button
+          className={classnames('button')}
+          type="secondary"
+          loading={autoStartUpload ? this.state.isUploading : false}
+          disabled={autoStartUpload ? false : this.state.isUploading}
+          onClick={this.handleBrowseClick}
+        >
+          Browse
+        </Button>
+        {!(autoStartUpload || autostart) && (
+          <Button
+            className={classnames('button')}
+            type="secondary"
+            loading={this.state.isUploading}
+            onClick={this.handleUploadClick}
+          >
+            Upload
+          </Button>
         )}
       </div>
     )

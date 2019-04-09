@@ -24,5 +24,8 @@
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-component-list": "link:../list"
-  }
+  },
+  "components": [
+    "src/tob-bar-item.tsx"
+  ]
 }

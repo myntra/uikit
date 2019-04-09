@@ -22,8 +22,7 @@
   "tsMain": "src/input-s3-file.tsx",
   "dependencies": {
     "@myntra/uikit-component-button": "link:../button",
-    "@myntra/uikit-component-input-text": "link:../input-text",
-    "@myntra/uikit-component-progress": "link:../progress"
+    "@myntra/uikit-component-input-text": "link:../input-text"
   },
   "devDependencies": {
     "@types/react": "^16.8.13"

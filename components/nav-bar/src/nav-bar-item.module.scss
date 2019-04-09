@@ -27,15 +27,11 @@ $-nav-bar-item: merge(
 
   &:focus,
   &:focus-within {
-    outline: 1px dashed ui-color(primary, light);
+    outline: none;
   }
 
   &:focus-visible {
     outline: 1px dashed ui-color(primary, light);
-  }
-
-  &:focus:not(:focus-visible) &:focus-within:not(:focus-visible) {
-    outline: none;
   }
 
   a {
@@ -64,7 +60,7 @@ $-nav-bar-item: merge(
   }
 
   &.no-icon {
-    padding-left: 0.5rem;
+    padding-left: 0.75rem;
     .item-icon {
       display: none;
     }

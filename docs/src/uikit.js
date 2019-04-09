@@ -8,6 +8,7 @@ export { default as Dropdown } from '@myntra/uikit-component-dropdown'
 export { default as ErrorBoundary } from '@myntra/uikit-component-error-boundary'
 export { default as Field } from '@myntra/uikit-component-field'
 export { default as Grid } from '@myntra/uikit-component-grid'
+export { default as Group } from '@myntra/uikit-component-group'
 export { default as Icon } from '@myntra/uikit-component-icon'
 export { default as Image } from '@myntra/uikit-component-image'
 export { default as InputCheckbox } from '@myntra/uikit-component-input-checkbox'
@@ -80,6 +81,12 @@ export const META = [
     since: '0.0.0',
     status: 'REVIEWING',
     path: '/components/grid'
+  },
+  {
+    name: 'Group',
+    since: '0.11.0',
+    status: 'READY',
+    path: '/components/group'
   },
   {
     name: 'Icon',

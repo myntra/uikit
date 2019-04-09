@@ -6,7 +6,7 @@ import Field from './src/field'
 
 ```jsx preview
 <Field title="Name">
-  <input type="text" />
+  <InputText value="" onChange={() => null} />
 </Field>
 ```
 
@@ -23,7 +23,7 @@ The `<Field>` component can display description for the input.
   title="Name"
   description="Enter your full name."
 >
-  <input type="text" />
+  <InputText value="" onChange={() => null} />
 </Field>
 ```
 
@@ -36,7 +36,7 @@ The `<Field>` component displays a visual indication for required fields.
   title="Name"
   required
 >
-  <input type="text" />
+  <InputText value="" onChange={() => null} />
 </Field>
 ```
 
@@ -49,7 +49,7 @@ The `<Field>` component can display error message in place of description.
   title="Email"
   error="Invalid email address!"
 >
-  <input type="email" />
+  <InputText value="" onChange={() => null} />
 </Field>
 ```
 
@@ -69,10 +69,10 @@ const [email, setEmail] = useState('');
       : 'Invalid email address!'
   }
 >
-  <input
+  <InputText
     type="email"
     value={email}
-    onChange={event => setEmail(event.target.value)}
+    onChange={setEmail}
   />
 </Field>
 ```
