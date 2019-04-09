@@ -1,0 +1,22 @@
+{
+  "name": "@myntra/uikit-component-s3-upload",
+  "version": "0.7.1",
+  "main": "src/s3-upload.tsx",
+  "module": "dist/s3-upload.js",
+  "browser": "src/s3-upload.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/s3-upload",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  }
+}
