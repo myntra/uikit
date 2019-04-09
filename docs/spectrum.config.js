@@ -115,13 +115,13 @@ module.exports = {
       .rule('scss')
       .oneOf('modules')
       .use('classnames-loader')
-      .before('style-loader')
+      .before(process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader')
       .loader(require.resolve('../packages/classnames-loader'))
     config.module
       .rule('css')
       .oneOf('modules')
       .use('classnames-loader')
-      .before('style-loader')
+      .before(process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader')
       .loader(require.resolve('../packages/classnames-loader'))
     config.module
       .rule('scss')

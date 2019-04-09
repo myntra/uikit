@@ -5,6 +5,7 @@
   "scripts": {
     "serve": "spectrum-cli-service serve",
     "build": "spectrum-cli-service build",
+    "postbuild": "cp dist/index.html dist/200.html",
     "lint": "spectrum-cli-service lint",
     "setup:ide": "spectrum-cli-service ide",
     "setup:inspect": "spectrum-cli-service inspect"

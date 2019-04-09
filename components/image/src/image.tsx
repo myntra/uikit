@@ -92,7 +92,7 @@ interface ImageProps extends BaseProps {
  * @since 0.3.0
  * @status EXPERIMENTAL
  */
-class Image extends Component<
+export default class Image extends Component<
   ImageProps,
   { status: string; isIntersecting: boolean }
 > {
@@ -218,5 +218,3 @@ class Image extends Component<
     )
   }
 }
-
-export default Image
