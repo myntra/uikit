@@ -90,16 +90,17 @@ function writeUIKitTypesForDocsEditor(components) {
       `\ndeclare function ${name}(props: ${name}Props): JSX.Element;\n`
 
     if (namespaced.length) {
-      code += `declare namespace ${name} {\n`
+      let namespaceCode = `declare namespace ${name} {\n`
       const namespace = name
 
       namespaced.forEach(({ name, file }) => {
-        code +=
-          extractTypes(file) +
-          `\ndeclare function ${name}(props: ${namespace}${name}Props): JSX.Element;\n`
+        code += extractTypes(file) + '\n'
+        namespaceCode += `declare function ${name}(props: ${namespace}${name}Props): JSX.Element;\n`
       })
 
-      code += `\n}\n`
+      namespaceCode += `\n}\n`
+
+      code += namespaceCode
     }
   }
 

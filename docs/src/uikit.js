@@ -11,12 +11,14 @@ export { default as Grid } from '@myntra/uikit-component-grid'
 export { default as Icon } from '@myntra/uikit-component-icon'
 export { default as Image } from '@myntra/uikit-component-image'
 export { default as InputCheckbox } from '@myntra/uikit-component-input-checkbox'
+export { default as InputS3File } from '@myntra/uikit-component-input-s3-file'
 export { default as InputText } from '@myntra/uikit-component-input-text'
 export { default as List } from '@myntra/uikit-component-list'
 export { default as Measure } from '@myntra/uikit-component-measure'
 export { default as NavBar } from '@myntra/uikit-component-nav-bar'
 export { default as Page } from '@myntra/uikit-component-page'
 export { default as Portal } from '@myntra/uikit-component-portal'
+export { default as Progress } from '@myntra/uikit-component-progress'
 export { default as TopBar } from '@myntra/uikit-component-top-bar'
 export const META = [
   {
@@ -98,6 +100,12 @@ export const META = [
     path: '/components/input-checkbox'
   },
   {
+    name: 'InputS3File',
+    since: '0.11.0',
+    status: 'READY',
+    path: '/components/input-s3-file'
+  },
+  {
     name: 'InputText',
     since: '0.0.0',
     status: 'READY',
@@ -132,6 +140,12 @@ export const META = [
     since: '0.0.0',
     status: 'REVIEWING',
     path: '/components/portal'
+  },
+  {
+    name: 'Progress',
+    since: '0.6.0',
+    status: 'READY',
+    path: '/components/progress'
   },
   {
     name: 'TopBar',

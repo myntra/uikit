@@ -74,16 +74,16 @@ interface BreadCrumbProps extends BaseProps {}
  */
 
 declare function BreadCrumb(props: BreadCrumbProps): JSX.Element
-declare namespace BreadCrumb {
-  interface BreadCrumbItem extends BaseProps {}
-  /**
-   * A breadcrumb item
-   * @since 0.3.0
-   * @status READY
-   * @category basic
-   * @see http://uikit.myntra.com/components/bread-crum#BreadCrumbIcon
-   */
+interface BreadCrumbItem extends BaseProps {}
+/**
+ * A breadcrumb item
+ * @since 0.3.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/bread-crum#BreadCrumbIcon
+ */
 
+declare namespace BreadCrumb {
   declare function Item(props: BreadCrumbItemProps): JSX.Element
 }
 
@@ -165,6 +165,7 @@ declare function Field(props: FieldProps): JSX.Element
 // -----------[[Grid]]--------------- //
 
 declare function Grid(props: GridProps): JSX.Element
+
 declare namespace Grid {
   declare function Column(props: GridColumnProps): JSX.Element
 }
@@ -274,10 +275,70 @@ interface InputCheckBoxProps extends BaseProps {
 
 declare function InputCheckbox(props: InputCheckboxProps): JSX.Element
 
+// -----------[[InputS3File]]--------------- //
+
+interface InputS3FileProps extends BaseProps {
+  /**
+   * Auto start upload on file selection/change.
+   * @since v0.11.0
+   */
+  autoStartUpload?: boolean
+  /**
+   * Clear value on successful upload.
+   * @since v0.11.0
+   */
+  clearOnSuccess?: boolean
+  /**
+   *
+   */
+  placeholder?: string
+  /**
+   *
+   */
+  apiRoot: string
+  /**
+   * The handler called when file is uploaded successfully.
+   */
+  onSuccess?(payload: { name: string; url: string }): void
+  /**
+   * The handler called if any error occurs.
+   */
+  onError?(error: Error): void
+  /**
+   * @deprecated
+   */
+  inputWidth?: string | number
+  /**
+   * @deprecated - Use [autoStart](#S3Upload-autoStartUpload) instead.
+   */
+  autostart?: boolean
+  /**
+   * @deprecated - Use [clearOnSuccess](#S3Upload-clearOnSuccess) instead.
+   */
+  autoclear?: boolean
+}
+
+interface InputS3FileState {
+  isUploading: boolean
+  uploadProgress: number
+  filename: string | null
+  file: string | null
+  error?: string | null
+}
+/**
+ * The InputS3File component.
+ * @since 0.11.0
+ * @status READY
+ * @category convention
+ * @see http://uikit.myntra.com/components/input-s3-file
+ */
+
+declare function InputS3File(props: InputS3FileProps): JSX.Element
+
 // -----------[[InputText]]--------------- //
 interface InputTextProps extends BaseProps {
   /** Sets the text format for the field. */
-  type: 'text' | 'email' | 'password' | 'tel' | 'url'
+  type?: 'text' | 'email' | 'password' | 'tel' | 'url'
   /** Current value of the text input field. */
   value?: string
   /** The handler to call when the value changes. */
@@ -414,75 +475,75 @@ interface NavBarProps extends BaseProps {
  */
 
 declare function NavBar(props: NavBarProps): JSX.Element
+
+interface NavBarGroupProps extends BaseProps, NavBarItemProps {
+  /**
+   * The title of the nav group.
+   */
+  title: string
+  /**
+   * List of nav links and groups. Only [NavBar.Group](#NavBarGroup) and [NavBar.Item](#NavBarItem) should be used here.
+   */
+  children: React.ReactNode
+  /**
+   * Internal nav item ID. Auto injected.
+   *
+   * @private
+   */
+  __$navId: number[]
+}
+
+interface NavBarGroupContext {
+  depth: number
+}
+/**
+ * A group of [links](#NavGroupItem) in the nav bar.
+ *
+ * This component should be used as a child of [NavBar](#NavBar) or other [NavBar.Group](#NavBarGroup) component.
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ * @category sub-component
+ * @see http://uikit.myntra.com/components/nav-bar#NavBarGroup
+ */
+
+interface NavBarItemProps extends BaseProps {
+  /**
+   * The title of the link.
+   */
+  children: any
+  /**
+   * The location of the linked page.
+   */
+  to?: string | any
+  /**
+   * The name of the icon (displayed on left side of title).
+   */
+  icon?: IconName
+  /**
+   * Render a custom [Icon](/components/icon) or an [Avatar](/components/avatar).
+   */
+  renderIcon?(): any
+  /**
+   * The callback fired on item click or press.
+   *
+   * @private
+   */
+  onActivation?: (event: Event | any) => void
+}
+/**
+ * A component to display links in the nav.
+ *
+ * This component should be used as a child of [NavBar](#NavBar) or [NavBar.Group](#NavBarGroup) component.
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ * @category sub-component
+ * @see http://uikit.myntra.com/components/nav-bar#NavBarItem
+ */
+
 declare namespace NavBar {
-  interface NavBarGroupProps extends BaseProps, NavBarItemProps {
-    /**
-     * The title of the nav group.
-     */
-    title: string
-    /**
-     * List of nav links and groups. Only [NavBar.Group](#NavBarGroup) and [NavBar.Item](#NavBarItem) should be used here.
-     */
-    children: React.ReactNode
-    /**
-     * Internal nav item ID. Auto injected.
-     *
-     * @private
-     */
-    __$navId: number[]
-  }
-
-  interface NavBarGroupContext {
-    depth: number
-  }
-  /**
-   * A group of [links](#NavGroupItem) in the nav bar.
-   *
-   * This component should be used as a child of [NavBar](#NavBar) or other [NavBar.Group](#NavBarGroup) component.
-   *
-   * @since 0.3.0
-   * @status EXPERIMENTAL
-   * @category sub-component
-   * @see http://uikit.myntra.com/components/nav-bar#NavBarGroup
-   */
-
   declare function Group(props: NavBarGroupProps): JSX.Element
-
-  interface NavBarItemProps extends BaseProps {
-    /**
-     * The title of the link.
-     */
-    children: any
-    /**
-     * The location of the linked page.
-     */
-    to?: string | any
-    /**
-     * The name of the icon (displayed on left side of title).
-     */
-    icon?: IconName
-    /**
-     * Render a custom [Icon](/components/icon) or an [Avatar](/components/avatar).
-     */
-    renderIcon?(): any
-    /**
-     * The callback fired on item click or press.
-     *
-     * @private
-     */
-    onActivation?: (event: Event | any) => void
-  }
-  /**
-   * A component to display links in the nav.
-   *
-   * This component should be used as a child of [NavBar](#NavBar) or [NavBar.Group](#NavBarGroup) component.
-   *
-   * @since 0.3.0
-   * @status EXPERIMENTAL
-   * @category sub-component
-   * @see http://uikit.myntra.com/components/nav-bar#NavBarItem
-   */
-
   declare function Item(props: NavBarItemProps): JSX.Element
 }
 
@@ -491,11 +552,11 @@ interface PageProps extends BaseProps {
   /**
    * Renders a nav using [NavBar](../components/nav-bar).
    */
-  renderNavBar?(): JSX.Element
+  renderNavBar(): JSX.Element
   /**
    * Renders a header using [TopBar](../components/top-bar).
    */
-  renderTopBar?(): JSX.Element
+  renderTopBar(): JSX.Element
   /**
    * Contents of the page.
    */
@@ -515,6 +576,75 @@ declare function Page(props: PageProps): JSX.Element
 // -----------[[Portal]]--------------- //
 
 declare function Portal(props: PortalProps): JSX.Element
+
+// -----------[[Progress]]--------------- //
+
+type ProgressProps =
+  | ({
+      /**
+       * Type of progress view (bar or circular).
+       */
+      type: 'bar'
+    } & ProgressBarProps)
+  | ({
+      type: 'circle'
+    } & ProgressCircleProps)
+/**
+ * A component to display loading progress.
+ *
+ * @since 0.6.0
+ * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/progress
+ */
+
+declare function Progress(props: ProgressProps): JSX.Element
+interface ProgressBarProps extends BaseProps {
+  /**
+   * Completion state in percentage.
+   */
+  value: number
+  /**
+   * Visual style of progress bar.
+   *
+   * @since v0.11.0
+   */
+  appearance?: 'success' | 'info' | 'warning' | 'danger'
+  /**
+   * @deprecated - Use children prop.
+   */
+  title?: string
+  /**
+   * Height of progress bar.
+   *
+   * @since v0.11.0
+   */
+  size?: 'small' | 'medium' | 'large'
+}
+
+interface ProgressCircleProps extends BaseProps {
+  /**
+   * Completion state in percentage.
+   */
+  value: number
+  /**
+   * Visual style of progress bar.
+   *
+   * @since v0.11.0
+   */
+  appearance?: 'success' | 'info' | 'warning' | 'danger'
+  /**
+   * Height of progress bar.
+   *
+   * @since v0.11.0
+   */
+  size?: 'small' | 'medium' | 'large'
+}
+
+declare namespace Progress {
+  declare function Bar(props: ProgressBarProps): JSX.Element
+  declare function Circle(props: ProgressCircleProps): JSX.Element
+}
 
 // -----------[[TopBar]]--------------- //
 

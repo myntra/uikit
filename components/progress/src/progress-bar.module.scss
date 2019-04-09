@@ -1,0 +1,51 @@
+@import '@myntra/uikit-design';
+
+.bar {
+  width: 100%;
+  border-radius: 100px;
+
+  --u-progress-size: 8px;
+
+  &.small {
+    --u-progress-size: 4px;
+  }
+
+  &.medium {
+    --u-progress-size: 16px;
+  }
+
+  &.large {
+    --u-progress-size: 32px;
+  }
+
+  .title {
+    margin-bottom: 8px;
+  }
+
+  .background {
+    width: 100%;
+    height: var(--u-progress-size);
+    background-color: ui-color(gray, light);
+  }
+
+  .foreground {
+    height: 100%;
+    background-color: var(--u-progress-color);
+  }
+}
+
+.info {
+  --u-progress-color: #{ui-color(primary)};
+}
+
+.success {
+  --u-progress-color: #{ui-color(success)};
+}
+
+.warning {
+  --u-progress-color: #{ui-color(warning)};
+}
+
+.danger {
+  --u-progress-color: #{ui-color(error)};
+}

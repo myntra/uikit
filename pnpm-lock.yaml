@@ -243,6 +243,18 @@ importers:
       '@myntra/uikit-component-input-text': 'link:../input-text'
     specifiers:
       '@myntra/uikit-component-input-text': 'link:../input-text'
+  components/input-s3-file:
+    dependencies:
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-input-text': 'link:../input-text'
+      '@myntra/uikit-component-progress': 'link:../progress'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-input-text': 'link:../input-text'
+      '@myntra/uikit-component-progress': 'link:../progress'
+      '@types/react': ^16.8.13
   components/input-text:
     dependencies:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
@@ -288,6 +300,13 @@ importers:
     specifiers:
       '@types/react': ^16.8.10
       prop-types: ^15.7.2
+  components/s3-upload:
+    dependencies:
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-input-text': 'link:../input-text'
+    specifiers:
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-input-text': 'link:../input-text'
   components/top-bar:
     dependencies:
       '@myntra/uikit-component-bread-crumb': 'link:../bread-crumb'
@@ -3457,7 +3476,6 @@ packages:
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.0
       csstype: registry.npmjs.org/csstype/2.6.3
-    dev: false
     name: '@types/react'
     resolution:
       integrity: sha512-otJ4ntMuHGrvm67CdDJMAls4WqotmAmW0g3HmWi9LCjSWXrxoXY/nHXrtmMfvPEEmGFNm6NdgMsJmnfH820Qaw==

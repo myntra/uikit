@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-component-s3-upload",
   "version": "0.7.1",
-  "main": "src/s3-upload.tsx",
-  "module": "dist/s3-upload.js",
-  "browser": "src/s3-upload.tsx",
+  "main": "src/input-s3-file.tsx",
+  "module": "dist/input-s3-file.js",
+  "browser": "src/input-s3-file.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/s3-upload",
@@ -18,5 +18,14 @@
   ],
   "peerDependencies": {
     "react": ">=15.4"
+  },
+  "tsMain": "src/input-s3-file.tsx",
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-input-text": "link:../input-text",
+    "@myntra/uikit-component-progress": "link:../progress"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
   }
 }
