@@ -21,6 +21,8 @@ export { default as Page } from '@myntra/uikit-component-page'
 export { default as Portal } from '@myntra/uikit-component-portal'
 export { default as Progress } from '@myntra/uikit-component-progress'
 export { default as TopBar } from '@myntra/uikit-component-top-bar'
+export { default as VirtualGrid } from '@myntra/uikit-component-virtual-grid'
+export { default as VirtualList } from '@myntra/uikit-component-virtual-list'
 export const META = [
   {
     name: 'Alert',
@@ -85,7 +87,7 @@ export const META = [
   {
     name: 'Group',
     since: '0.11.0',
-    status: 'READY',
+    status: 'EXPERIMENTAL',
     path: '/components/group'
   },
   {
@@ -159,5 +161,15 @@ export const META = [
     since: '0.3.0',
     status: 'READY',
     path: '/components/top-bar'
+  },
+  {
+    name: 'VirtualGrid',
+    since: 'v0.8.0',
+    status: 'READY',
+    path: '/components/virtual-grid'
+  },
+  {
+    name: 'VirtualList',
+    path: '/components/virtual-list'
   }
 ]

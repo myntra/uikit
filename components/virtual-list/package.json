@@ -1,0 +1,28 @@
+{
+  "name": "@myntra/uikit-component-virtual-list",
+  "version": "0.7.1",
+  "main": "src/virtual-list.tsx",
+  "module": "dist/virtual-list.js",
+  "browser": "src/virtual-list.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/virtual-list",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=16.0",
+    "react-dom": ">=16.0"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13",
+    "@types/react-dom": "^16.8.3",
+    "react-dom": "^16.8.6"
+  }
+}

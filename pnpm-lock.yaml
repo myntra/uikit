@@ -318,6 +318,23 @@ importers:
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-component-list': 'link:../list'
+  components/virtual-grid:
+    dependencies:
+      '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
+      '@types/react': ^16.8.13
+  components/virtual-list:
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+      '@types/react-dom': registry.npmjs.org/@types/react-dom/16.8.3
+      react-dom: registry.npmjs.org/react-dom/16.8.6
+    specifiers:
+      '@types/react': ^16.8.13
+      '@types/react-dom': ^16.8.3
+      react-dom: ^16.8.6
   docs:
     dependencies:
       '@babel/standalone': registry.npmjs.org/@babel/standalone/7.4.3
@@ -3461,6 +3478,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@types/q/-/q-1.5.2.tgz'
     version: 1.5.2
+  registry.npmjs.org/@types/react-dom/16.8.3:
+    dependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    dev: true
+    name: '@types/react-dom'
+    resolution:
+      integrity: sha512-HF5hD5YR3z9Mn6kXcW1VKe4AQ04ZlZj1EdLBae61hzQ3eEWWxMgNLUbIxeZp40BnSxqY1eAYLsH9QopQcxzScA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/react-dom/-/react-dom-16.8.3.tgz'
+    version: 16.8.3
   registry.npmjs.org/@types/react/16.8.10:
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.0

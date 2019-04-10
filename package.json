@@ -19,6 +19,7 @@
     "refresh:types": "node scripts/bundle-types-browser.js",
     "preinstall": "node scripts/ensure-pnpm.js",
     ":eslint": "eslint",
+    ":prettier": "prettier",
     ":stylelint": "stylelint",
     "docs:dev": "cd docs && npm run serve",
     "docs:build": "cd docs && npm run build",
@@ -114,15 +115,5 @@
       "changelog": "npm run changelog",
       "postcommit": "npm run :update:versions"
     }
-  },
-  "prettier": {
-    "comma": "es5",
-    "semi": false,
-    "singleQuote": true,
-    "endOfLine": "lf",
-    "arrowParens": "always",
-    "htmlWhitespaceSensitivity": "strict",
-    "useTabs": false,
-    "printWidth": 80
   }
 }

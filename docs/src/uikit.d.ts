@@ -176,7 +176,7 @@ interface GroupProps extends BaseProps {}
  * A group component to combine multiple group-able components.
  *
  * @since 0.11.0
- * @status READY
+ * @status EXPERIMENTAL
  * @category composition
  * @see http://uikit.myntra.com/components/group
  */
@@ -318,15 +318,15 @@ interface InputS3FileProps extends BaseProps {
    */
   onError?(error: Error): void
   /**
-   * @deprecated
+   * @deprecated - It is no more required.
    */
   inputWidth?: string | number
   /**
-   * @deprecated - Use [autoStart](#S3Upload-autoStartUpload) instead.
+   * @deprecated - Use [autoStartUpload](#InputS3File-autoStartUpload) instead.
    */
   autostart?: boolean
   /**
-   * @deprecated - Use [clearOnSuccess](#S3Upload-clearOnSuccess) instead.
+   * @deprecated - Use [clearOnSuccess](#InputS3File-clearOnSuccess) instead.
    */
   autoclear?: boolean
 }
@@ -668,27 +668,344 @@ interface TopBarProps extends BaseProps {
 
 declare function TopBar(props: TopBarProps): JSX.Element
 
-interface TopBarProps extends BaseProps {
-  title: string
-  user: Partial<{
-    name: string
-    photo: string
-  }> & {
-    email: string
-  }
+interface VirtualGridProps extends BaseProps {
+  /**
+   * Number of rows in the grid.
+   */
+  rows: number
+  /**
+   * Number of columns in the grid.
+   */
+  columns: number
+  /**
+   * Height of the grid container.
+   */
+  height: number
+  /**
+   * Width of the grid container.
+   */
+  width: number
+  /**
+   * A callback to render grid item at given cell.
+   */
+  children(props: {
+    rowIndex: number
+    columnIndex: number
+    offsetTop: number
+    offsetLeft: number
+    rowHeight: number
+    columnWidth: number
+    isScrolling: boolean
+    style: Record<string, string | number>
+  }): JSX.Element
+  /**
+   * Number of columns (from start) always rendered.
+   */
+  fixedColumns?: number
+  /**
+   * Number of rows to render outside of viewport.
+   */
+  overScanRows?: number
+  /**
+   * Number of columns to render outside of viewport.
+   */
+  overScanColumns?: number
+  /**
+   * Estimated item height to estimate content height.
+   */
+  estimatedCellHeight?: number
+  /**
+   * Estimated item width to estimate content width.
+   */
+  estimatedCellWidth: number
+  renderScroller?(props: {
+    onScroll(event: {
+      target: {
+        scrollTop: number
+        scrollLeft: number
+      }
+    }): void
+    width: number
+    height: number
+    style: Record<string, string | number>
+    children: any
+  }): JSX.Element
+  renderContainer?(props: {
+    /**
+     * Height of grid content.
+     */
+    offsetHeight: number
+    /**
+     * Width of grid content.
+     */
+    offsetWidth: number
+    /**
+     * Height of rendered content.
+     */
+    renderedHeight: number
+    /**
+     * Width of rendered content.
+     */
+    renderedWidth: number
+    /**
+     * Scroll position from left.
+     */
+    offsetLeft: number
+    /**
+     * Scroll position from top.
+     */
+    offsetTop: number
+    /**
+     * Styles to position and configure scroll behaviour.
+     */
+    style: Record<string, string | number>
+    className?: string
+    children: any
+  }): JSX.Element
+  renderRow?(props: {
+    grid: VirtualGrid
+    offsetTop: number
+    height: number
+    rowIndex: number
+    isScrolling: boolean
+    scrollLeft: number
+    children: any
+  }): JSX.Element
+  onMeasure?(event: {
+    row: number
+    column: number
+    size: {
+      width: number
+      height: number
+    }
+  }): void
 }
 /**
- * A component for page header
- *
- * @since 0.3.0
+ * @since v0.8.0
  * @status READY
- * @category basic
- * @see http://uikit.myntra.com/components/top-bar
  */
 
 declare namespace TopBar {
   declare function TobBarItem(props: TopBarTobBarItemProps): JSX.Element
 }
+
+// -----------[[VirtualGrid]]--------------- //
+
+interface VirtualGridProps extends BaseProps {
+  /**
+   * Number of rows in the grid.
+   */
+  rows: number
+  /**
+   * Number of columns in the grid.
+   */
+  columns: number
+  /**
+   * Height of the grid container.
+   */
+  height: number
+  /**
+   * Width of the grid container.
+   */
+  width: number
+  /**
+   * A callback to render grid item at given cell.
+   */
+  children(props: {
+    rowIndex: number
+    columnIndex: number
+    offsetTop: number
+    offsetLeft: number
+    rowHeight: number
+    columnWidth: number
+    isScrolling: boolean
+    style: Record<string, string | number>
+  }): JSX.Element
+  /**
+   * Number of columns (from start) always rendered.
+   */
+  fixedColumns?: number
+  /**
+   * Number of rows to render outside of viewport.
+   */
+  overScanRows?: number
+  /**
+   * Number of columns to render outside of viewport.
+   */
+  overScanColumns?: number
+  /**
+   * Estimated item height to estimate content height.
+   */
+  estimatedCellHeight?: number
+  /**
+   * Estimated item width to estimate content width.
+   */
+  estimatedCellWidth: number
+  renderScroller?(props: {
+    onScroll(event: {
+      target: {
+        scrollTop: number
+        scrollLeft: number
+      }
+    }): void
+    width: number
+    height: number
+    style: Record<string, string | number>
+    children: any
+  }): JSX.Element
+  renderContainer?(props: {
+    /**
+     * Height of grid content.
+     */
+    offsetHeight: number
+    /**
+     * Width of grid content.
+     */
+    offsetWidth: number
+    /**
+     * Height of rendered content.
+     */
+    renderedHeight: number
+    /**
+     * Width of rendered content.
+     */
+    renderedWidth: number
+    /**
+     * Scroll position from left.
+     */
+    offsetLeft: number
+    /**
+     * Scroll position from top.
+     */
+    offsetTop: number
+    /**
+     * Styles to position and configure scroll behaviour.
+     */
+    style: Record<string, string | number>
+    className?: string
+    children: any
+  }): JSX.Element
+  renderRow?(props: {
+    grid: VirtualGrid
+    offsetTop: number
+    height: number
+    rowIndex: number
+    isScrolling: boolean
+    scrollLeft: number
+    children: any
+  }): JSX.Element
+  onMeasure?(event: {
+    row: number
+    column: number
+    size: {
+      width: number
+      height: number
+    }
+  }): void
+}
+/**
+ * @since v0.8.0
+ * @status READY
+ */
+
+declare function VirtualGrid(props: VirtualGridProps): JSX.Element
+
+// -----------[[VirtualList]]--------------- //
+
+interface VirtualListProps extends BaseProps {
+  /**
+   * Number of items in the list.
+   */
+  itemCount: number
+  /**
+   * Height (or width for horizontal list) of the list container.
+   */
+  viewportSize: number
+  /**
+   * A callback to render list item at given position.
+   */
+  children(props: {
+    list: VirtualList
+    index: number
+    offset: number
+    size: number
+    style: Record<string, string | number>
+  }): JSX.Element
+  /**
+   * Estimated item height (or width) to estimate content height (or width).
+   */
+  estimatedItemSize?: number
+  /**
+   * Number of items to render outside of viewport.
+   */
+  overScanItemCount?: number
+  /**
+   * Number of items (from start) always rendered.
+   */
+  fixedItemCount?: number
+  /**
+   * List scroll direction.
+   */
+  direction?: 'horizontal' | 'vertical'
+  /**
+   * Render a wrapper element which would have scrollbars.
+   */
+  renderScroller?(props: {
+    /**
+     * A callback function to recompute visible area on scroll.
+     */
+    onScroll(event: {
+      target: {
+        scrollLeft: number
+        screenTop: number
+      }
+    }): void
+    /**
+     * Height or width of the content.
+     */
+    size: number
+    /**
+     * Styles to position and configure scroll behaviour.
+     */
+    style: Record<string, string | number>
+    className?: string
+    children: any
+  }): JSX.Element
+  /**
+   * Render inner container of scroller container. This sets the scroll height and
+   * positions rendered content in visible window.
+   */
+  renderContainer?(props: {
+    /**
+     * Offset of rendered content from top (or left in horizontal scroller).
+     */
+    offsetStart: number
+    /**
+     * Scroll position from top (or left in horizontal scroller).
+     */
+    offsetScroll: number
+    /**
+     * Height or width of the content.
+     */
+    size: number
+    /**
+     * Styles to position and configure scroll behaviour.
+     */
+    style: Record<string, string | number>
+    className?: string
+    children: any
+  }): JSX.Element
+}
+/**
+ * A list renderer using windowing concept.
+ *
+ * @since 0.7.0
+ * @status READY
+ * @category advanced
+ * @see http://uikit.myntra.com/components/virtual-list
+ */
+
+declare function VirtualList(props: VirtualListProps): JSX.Element
 
 // ----------[[DeclaredTypes]]---------- //
 

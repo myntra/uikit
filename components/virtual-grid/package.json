@@ -1,0 +1,28 @@
+{
+  "name": "@myntra/uikit-component-virtual-grid",
+  "version": "0.7.1",
+  "main": "src/virtual-grid.tsx",
+  "module": "dist/virtual-grid.js",
+  "browser": "src/virtual-grid.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/virtual-grid",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-virtual-list": "link:../virtual-list"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  }
+}
