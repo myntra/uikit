@@ -12,7 +12,8 @@ writeUIKitTypesForDocsEditor(components)
 
 // Helpers.
 function getMainFile(component) {
-  return path.resolve(componentsDir, component, getPackageJSON(component).main)
+  const pkg = getPackageJSON(component)
+  return path.resolve(componentsDir, component, pkg.tsMain || pkg.main)
 }
 
 function getSourceDir(component) {
@@ -30,15 +31,15 @@ function getComponents(component) {
 
   return {
     name,
-    file: path.resolve(componentsDir, component, pkg.main),
+    file: path.resolve(componentsDir, component, pkg.tsMain || pkg.main),
     namespaced: (pkg.components || []).map((filename) => {
       const file = path.resolve(componentsDir, component, filename)
 
       return {
         name: componentName(file).replace(re, ''),
-        file
+        file,
       }
-    })
+    }),
   }
 }
 
@@ -76,13 +77,14 @@ function writeUIKitTypesForDocsEditor(components) {
     jsx: typescript.JsxEmit.React,
     module: typescript.ModuleKind.CommonJS,
     target: typescript.ScriptTarget.Latest,
-    emitDeclarationOnly: true
+    emitDeclarationOnly: true,
   })
 
   let code = ''
 
   for (const component of components) {
     const { name, file, namespaced } = getComponents(component)
+    // console.log(`${name} - ${path.relative(process.cwd(), file)}`)
 
     code += `\n\n// -----------[[${name}]]--------------- //\n`
     code +=
@@ -115,10 +117,18 @@ function writeUIKitTypesForDocsEditor(components) {
   function extractTypes(file) {
     if (!/\.tsx?$/.test(file)) return ''
     let types = ''
+    const typeFile = file.replace(/\.tsx?$/, '.d.ts')
+
+    if (typeFile in extractTypes) return extractTypes[typeFile]
 
     program.emit(
       program.getSourceFile(file),
-      (_, content) => (types = content),
+      (f, content) => {
+        extractTypes[f] = content
+        if (f === typeFile) {
+          types = content
+        }
+      },
       undefined,
       true
     )
@@ -138,7 +148,7 @@ function writeUIKitAsyncImports(files) {
         name: componentName(file),
         since: docs.since,
         status: docs.status,
-        path: '/components/' + components[index]
+        path: '/components/' + components[index],
       })
     } catch (error) {
       console.error(`In ${file}:`)
@@ -178,7 +188,7 @@ function normalize(code) {
     },
     readFile: () => null,
     useCaseSensitiveFileNames: () => true,
-    writeFile: () => null
+    writeFile: () => null,
   }
 
   const program = typescript.createProgram(

@@ -11,7 +11,7 @@ import {
   range,
   find,
   compact,
-  get
+  get,
 } from 'lodash-es'
 
 /**
@@ -22,7 +22,19 @@ import {
  * @param {Array.<T>} any
  * @return {Array.<T>}
  */
-export { unique, map, each, findIndex, findLastIndex, isEqual, isString, find, compact, range, get }
+export {
+  unique,
+  map,
+  each,
+  findIndex,
+  findLastIndex,
+  isEqual,
+  isString,
+  find,
+  compact,
+  range,
+  get,
+}
 
 /**
  * Wrap single element to array if required.
@@ -33,7 +45,11 @@ export { unique, map, each, findIndex, findLastIndex, isEqual, isString, find, c
  * @return {Array.<T>}
  */
 export function toArray(any) {
-  return Array.isArray(any) ? any : any === undefined || any === null ? [] : [any]
+  return Array.isArray(any)
+    ? any
+    : any === undefined || any === null
+    ? []
+    : [any]
 }
 
 /**
@@ -63,15 +79,17 @@ export function toSet(any) {
 export function classnames(...args) {
   const classes = []
 
-  classes.use = cssModule => {
-    return unique(classes.map(it => cssModule[it] || it).filter(isString)).join(' ')
+  classes.use = (cssModule) => {
+    return unique(
+      classes.map((it) => cssModule[it] || it).filter(isString)
+    ).join(' ')
   }
 
   classes.toString = () => {
     return unique(classes.filter(isString)).join(' ')
   }
 
-  args.forEach(arg => {
+  args.forEach((arg) => {
     if (isString(arg)) classes.push(arg)
     else if (isArray(arg)) classes.push(...arg)
     else if (isPlainObject(arg)) {
@@ -94,7 +112,7 @@ export function classnames(...args) {
  */
 export function objectWithoutProperties(source, keys) {
   const target = Object.assign({}, source)
-  const remove = key => delete target[key]
+  const remove = (key) => delete target[key]
   ;(Array.isArray(keys) ? keys : Object.keys(keys)).forEach(remove)
 
   return target
@@ -111,7 +129,7 @@ export function objectWithoutProperties(source, keys) {
 export function onlyExtraProps(propTypes) {
   const keys = Object.keys(propTypes)
 
-  return memoize(props => objectWithoutProperties(props, keys))
+  return memoize((props) => objectWithoutProperties(props, keys))
 }
 
 /**
@@ -143,9 +161,9 @@ export function isEqualShallow(prev, next, isEqual = (a, b) => a === b) {
  *
  * @export
  * @template T
- * @param {function(...any): T} func
+ * @param {T} func
  * @param {function(any, any): boolean} [isEqual=(a, b) => a === b]
- * @returns {function(...any): T}
+ * @returns {T}
  */
 export function memoize(func, isEqual = (a, b) => a === b) {
   let lastArgs = null
@@ -176,9 +194,9 @@ export function looseEquals(a, b) {
 
     if (keysA.length !== keysB.size) return false
 
-    if (keysA.some(key => !keysB.has(key))) return false
+    if (keysA.some((key) => !keysB.has(key))) return false
 
-    return keysA.every(key => looseEquals(a[key], b[key]))
+    return keysA.every((key) => looseEquals(a[key], b[key]))
   }
 
   return false

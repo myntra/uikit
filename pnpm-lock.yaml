@@ -128,25 +128,30 @@ importers:
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-icon': 'link:../icon'
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-icon': 'link:../icon'
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
   components/avatar:
     dependencies:
       name-initials: registry.npmjs.org/name-initials/0.1.3
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       name-initials: ^0.1.3
   components/badge:
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
+  components/bread-crumb:
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@types/react': ^16.8.13
   components/button:
     dependencies:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
@@ -154,18 +159,18 @@ importers:
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-design': 'link:../../packages/uikit-design'
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-design': 'link:../../packages/uikit-design'
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
   components/click-away:
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
   components/dropdown:
     dependencies:
       '@myntra/uikit-component-button': 'link:../button'
@@ -175,54 +180,59 @@ importers:
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
       prop-types: registry.npmjs.org/prop-types/15.7.2
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-click-away': 'link:../click-away'
       '@myntra/uikit-component-measure': 'link:../measure'
       '@myntra/uikit-component-portal': 'link:../portal'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       prop-types: ^15.7.2
   components/error-boundary:
     dependencies:
       prop-types: registry.npmjs.org/prop-types/15.7.2
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       prop-types: ^15.7.2
   components/field:
     dependencies:
       prop-types: registry.npmjs.org/prop-types/15.7.2
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       prop-types: ^15.7.2
   components/grid:
     dependencies:
       prop-types: registry.npmjs.org/prop-types/15.7.2
     devDependencies:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       prop-types: ^15.7.2
+  components/group:
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@types/react': ^16.8.13
   components/icon:
     dependencies:
       react: registry.npmjs.org/react/16.8.6
     devDependencies:
       '@myntra/svg': 'link:../../packages/svg'
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
       '@znck/promised': registry.npmjs.org/@znck/promised/1.0.4
       glob: registry.npmjs.org/glob/7.1.3
       lodash.camelcase: registry.npmjs.org/lodash.camelcase/4.3.0
       prettier: registry.npmjs.org/prettier/1.16.4
     specifiers:
       '@myntra/svg': 'link:../../packages/svg'
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       '@znck/promised': ^1.0.4
       glob: ^7.1.3
       lodash.camelcase: ^4.3.0
@@ -233,49 +243,53 @@ importers:
       intersection-observer-polyfill: registry.npmjs.org/intersection-observer-polyfill/0.1.0
       prop-types: registry.npmjs.org/prop-types/15.7.2
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       intersection-observer-polyfill: ^0.1.0
       prop-types: ^15.7.2
   components/input-checkbox:
     dependencies:
       '@myntra/uikit-component-input-text': 'link:../input-text'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/uikit-component-input-text': 'link:../input-text'
+      '@types/react': ^16.8.13
   components/input-s3-file:
     dependencies:
       '@myntra/uikit-component-button': 'link:../button'
-      '@myntra/uikit-component-group': 'link:../group'
       '@myntra/uikit-component-input-text': 'link:../input-text'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/uikit-component-button': 'link:../button'
-      '@myntra/uikit-component-group': 'link:../group'
       '@myntra/uikit-component-input-text': 'link:../input-text'
       '@types/react': ^16.8.13
   components/input-text:
     dependencies:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/codemod-utils': 'link:../../packages/codemod-utils'
+      '@types/react': ^16.8.13
   components/list:
     dependencies:
       react: registry.npmjs.org/react/16.8.6
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       react: 16.*
   components/measure:
     dependencies:
       prop-types: registry.npmjs.org/prop-types/15.7.2
       resize-observer-polyfill: registry.npmjs.org/resize-observer-polyfill/1.5.1
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       prop-types: ^15.7.2
       resize-observer-polyfill: ^1.5.1
   components/nav-bar:
@@ -285,21 +299,31 @@ importers:
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
       '@myntra/uikit-component-avatar': 'link:../avatar'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
+  components/page:
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@types/react': ^16.8.13
   components/portal:
     dependencies:
       prop-types: registry.npmjs.org/prop-types/15.7.2
     devDependencies:
-      '@types/react': registry.npmjs.org/@types/react/16.8.10
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
-      '@types/react': ^16.8.10
+      '@types/react': ^16.8.13
       prop-types: ^15.7.2
+  components/progress:
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@types/react': ^16.8.13
   components/s3-upload:
     dependencies:
       '@myntra/uikit-component-button': 'link:../button'
@@ -307,17 +331,34 @@ importers:
     specifiers:
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-input-text': 'link:../input-text'
+  components/table:
+    dependencies:
+      '@myntra/uikit-component-dropdown': 'link:../dropdown'
+      '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-measure': 'link:../measure'
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
+    specifiers:
+      '@myntra/uikit-component-dropdown': 'link:../dropdown'
+      '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-measure': 'link:../measure'
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+      '@types/react': ^16.8.13
   components/top-bar:
     dependencies:
       '@myntra/uikit-component-bread-crumb': 'link:../bread-crumb'
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-component-list': 'link:../list'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@myntra/uikit-component-bread-crumb': 'link:../bread-crumb'
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-component-list': 'link:../list'
+      '@types/react': ^16.8.13
   components/virtual-grid:
     dependencies:
       '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
@@ -344,12 +385,12 @@ importers:
       react-monaco-editor: registry.npmjs.org/react-monaco-editor/0.24.1
     devDependencies:
       '@mdx-js/loader': registry.npmjs.org/@mdx-js/loader/0.17.5
-      '@myntra/spectrum-cli-plugin-babel': 2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904
-      '@myntra/spectrum-cli-plugin-eslint': 2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904
-      '@myntra/spectrum-cli-plugin-redux': 2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904
-      '@myntra/spectrum-cli-plugin-router': 2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904
-      '@myntra/spectrum-cli-plugin-typescript': 2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
+      '@myntra/spectrum-cli-plugin-babel': 2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744
+      '@myntra/spectrum-cli-plugin-eslint': 2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744
+      '@myntra/spectrum-cli-plugin-redux': 2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744
+      '@myntra/spectrum-cli-plugin-router': 2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744
+      '@myntra/spectrum-cli-plugin-typescript': 2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
       autoprefixer: registry.npmjs.org/autoprefixer/9.5.1
       front-matter: registry.npmjs.org/front-matter/3.0.1
       loader-utils: registry.npmjs.org/loader-utils/1.2.3
@@ -362,17 +403,17 @@ importers:
       remark-slug: registry.npmjs.org/remark-slug/5.1.1
       remark-squeeze-paragraphs: registry.npmjs.org/remark-squeeze-paragraphs/3.0.3
       remark-toc: registry.npmjs.org/remark-toc/5.1.1
-      sass: registry.npmjs.org/sass/1.17.4
+      sass: registry.npmjs.org/sass/1.18.0
       sass-loader: github.com/webpack-contrib/sass-loader/6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70
     specifiers:
       '@babel/standalone': ^7.3.4
       '@mdx-js/loader': ^0.17.5
-      '@myntra/spectrum-cli-plugin-babel': ^2.0.0-alpha.53
-      '@myntra/spectrum-cli-plugin-eslint': ^2.0.0-alpha.53
-      '@myntra/spectrum-cli-plugin-redux': ^2.0.0-alpha.53
-      '@myntra/spectrum-cli-plugin-router': ^2.0.0-alpha.53
-      '@myntra/spectrum-cli-plugin-typescript': ^2.0.0-alpha.53
-      '@myntra/spectrum-cli-service': ^2.0.0-alpha.53
+      '@myntra/spectrum-cli-plugin-babel': ^2.0.0-alpha.55
+      '@myntra/spectrum-cli-plugin-eslint': ^2.0.0-alpha.55
+      '@myntra/spectrum-cli-plugin-redux': ^2.0.0-alpha.55
+      '@myntra/spectrum-cli-plugin-router': ^2.0.0-alpha.55
+      '@myntra/spectrum-cli-plugin-typescript': ^2.0.0-alpha.55
+      '@myntra/spectrum-cli-service': ^2.0.0-alpha.55
       autoprefixer: ^9.4.9
       front-matter: ^3.0.1
       loader-utils: ^1.2.3
@@ -634,7 +675,7 @@ importers:
       '@myntra/tokenizer': 'link:../../packages/tokenizer'
 lockfileVersion: 5
 packages:
-  /@myntra/babel-preset-spectrum-app/2.0.0-alpha.53:
+  /@myntra/babel-preset-spectrum-app/2.0.0-alpha.55:
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.4.3
       '@babel/helper-plugin-utils': registry.npmjs.org/@babel/helper-plugin-utils/7.0.0
@@ -648,8 +689,8 @@ packages:
       core-js: registry.npmjs.org/core-js/2.6.5
     dev: true
     resolution:
-      integrity: sha512-eiyTQLW8zfi3HKJ03Ez5NdjtnpJVmGoKPXdOtfY7cXFTD6VXxgTJ3ffwXkZHR3jZIF0slMpSP4oCMc5nbWf7Fg==
-      tarball: /@myntra/babel-preset-spectrum-app/-/@myntra/babel-preset-spectrum-app-2.0.0-alpha.53.tgz
+      integrity: sha512-MOlLqmsoQsaCxKA3HmGlHrpoV5OeFGpAOA8mF4xQ+OOpwJlQzwqhCSjNT3qYwAaXgff1uddZg2je7pj3J6cUyg==
+      tarball: /@myntra/babel-preset-spectrum-app/-/@myntra/babel-preset-spectrum-app-2.0.0-alpha.55.tgz
   /@myntra/codemod-utils/0.9.2:
     dependencies:
       '@myntra/eslint-config-standard': 0.9.2_eslint@4.19.1
@@ -664,7 +705,7 @@ packages:
     resolution:
       integrity: sha512-AWxxE66sE+r0k5z/Zq1k4rhQPTH0ioGwQH3B+9+Xynyf41NJecLZDRz6OkmK18j0pN6kCRWqGs+2gULFDRi3uQ==
       tarball: /@myntra/codemod-utils/-/@myntra/codemod-utils-0.9.2.tgz
-  /@myntra/eslint-config-spectrum-app/2.0.0-alpha.53:
+  /@myntra/eslint-config-spectrum-app/2.0.0-alpha.55:
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.4.3
       babel-eslint: registry.npmjs.org/babel-eslint/10.0.1_eslint@5.16.0
@@ -684,8 +725,8 @@ packages:
       prettier: registry.npmjs.org/prettier/1.16.4
     dev: true
     resolution:
-      integrity: sha512-I0qrp9XmK+x/6ShXamkMq4b9HdSwQSFJXrzXxoskIig5TqaPYeIjP5z+MkUALKs/ll2dPhVyUEWVDOzWi+DdTw==
-      tarball: /@myntra/eslint-config-spectrum-app/-/@myntra/eslint-config-spectrum-app-2.0.0-alpha.53.tgz
+      integrity: sha512-1DreLml+fB0d31c9oXc1mw3zkDDTWHjBBfsld78BsKpV8ZrqQZcfzTxJTtiGQKHYFqNJfcTBNLeeG2ALp4JB8Q==
+      tarball: /@myntra/eslint-config-spectrum-app/-/@myntra/eslint-config-spectrum-app-2.0.0-alpha.55.tgz
   /@myntra/eslint-config-standard/0.9.2_eslint@4.19.1:
     dependencies:
       babel-eslint: registry.npmjs.org/babel-eslint/8.2.6
@@ -710,12 +751,12 @@ packages:
     resolution:
       integrity: sha512-vsD2C2rBixtAMgz1qjzxCu5FBxI/ihQPSX2gYTkx4wgTc4o/abl3tXOcLuMG9enZPq6UdWz/RZUG85IP/rdzCg==
       tarball: /@myntra/eslint-config-standard/-/@myntra/eslint-config-standard-0.9.2.tgz
-  /@myntra/spectrum-cli-plugin-babel/2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904:
+  /@myntra/spectrum-cli-plugin-babel/2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744:
     dependencies:
       '@babel/core': registry.npmjs.org/@babel/core/7.4.3
       '@babel/polyfill': registry.npmjs.org/@babel/polyfill/7.4.3
-      '@myntra/babel-preset-spectrum-app': 2.0.0-alpha.53
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
+      '@myntra/babel-preset-spectrum-app': 2.0.0-alpha.55
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
       babel-loader: registry.npmjs.org/babel-loader/8.0.5_@babel+core@7.4.3
       cache-loader: registry.npmjs.org/cache-loader/2.0.1
       core-js: registry.npmjs.org/core-js/2.6.5
@@ -725,13 +766,13 @@ packages:
       '@myntra/spectrum-cli-service': '*'
       webpack: '>=4.0.0'
     resolution:
-      integrity: sha512-xmcxyajC0ora0ZDWVKUV92D8BXz00ycFyrl71dAg1Sma1r6YzXE6EHvEA+Wl1uxndZFlbHAH+kmdNJ8D3dx5tw==
-      tarball: /@myntra/spectrum-cli-plugin-babel/-/@myntra/spectrum-cli-plugin-babel-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-cli-plugin-eslint/2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904:
+      integrity: sha512-y6A+N6rm9tvlYCrh4QLpEuLCIYFSI6cWIJWwmvARTMB7dDucaFH2uq8SpEMSrpVHaeidcwpqCtijGTMnIc1BAA==
+      tarball: /@myntra/spectrum-cli-plugin-babel/-/@myntra/spectrum-cli-plugin-babel-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-cli-plugin-eslint/2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744:
     dependencies:
-      '@myntra/eslint-config-spectrum-app': 2.0.0-alpha.53
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
-      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.53
+      '@myntra/eslint-config-spectrum-app': 2.0.0-alpha.55
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
+      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.55
       eslint: registry.npmjs.org/eslint/5.16.0
       eslint-loader: registry.npmjs.org/eslint-loader/2.1.2_eslint@5.16.0
       globby: registry.npmjs.org/globby/8.0.2
@@ -740,13 +781,13 @@ packages:
       '@myntra/spectrum-cli-service': '*'
       webpack: '>=4.0.0'
     resolution:
-      integrity: sha512-fN29QGgXV2ziIXUGJ+C2BNpueFsrf76TcZPeycbiEeyAGB2iDT1//qTY6OXXf46du+t85LNjM1SXylCrEsOElw==
-      tarball: /@myntra/spectrum-cli-plugin-eslint/-/@myntra/spectrum-cli-plugin-eslint-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-cli-plugin-redux/2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904:
+      integrity: sha512-+3n03o1TWEWSi4JVtGcYXEjtOKihTduuXCWznTP4JUzFrR7xkMalEr5CNUYmRUOLms1fSx5YNPHVcty6P2L7tw==
+      tarball: /@myntra/spectrum-cli-plugin-eslint/-/@myntra/spectrum-cli-plugin-eslint-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-cli-plugin-redux/2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744:
     dependencies:
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
-      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.53
-      '@myntra/spectrum-internal-helpers-plugin': 2.0.0-alpha.53
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
+      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.55
+      '@myntra/spectrum-internal-helpers-plugin': 2.0.0-alpha.55
       react: registry.npmjs.org/react/16.8.6
       react-redux: registry.npmjs.org/react-redux/6.0.1_react@16.8.6+redux@4.0.1
       redux: registry.npmjs.org/redux/4.0.1
@@ -757,44 +798,44 @@ packages:
       '@myntra/spectrum-cli-service': '*'
       webpack: '>=4.0.0'
     resolution:
-      integrity: sha512-5SDOs3dnjf5wc2QZwroJuK2f7VVnySmA4l8kwxMsBE/vwk0ZjY2NREKvl9Mh0kFTfA1KikLJ4yv8Pkn3iZHjFA==
-      tarball: /@myntra/spectrum-cli-plugin-redux/-/@myntra/spectrum-cli-plugin-redux-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-cli-plugin-router/2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904:
+      integrity: sha512-heXglkIXOKxC+56zPV8vxLIxDkCbDlJ0izCIwE+hBHm5d/0g3XukVZcGFtYcy6BZXfihJT7sqQLG+jIygWkqwg==
+      tarball: /@myntra/spectrum-cli-plugin-redux/-/@myntra/spectrum-cli-plugin-redux-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-cli-plugin-router/2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744:
     dependencies:
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
-      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.53
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
+      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.55
       glob: registry.npmjs.org/glob/7.1.3
       history: registry.npmjs.org/history/4.9.0
       react: registry.npmjs.org/react/16.8.6
-      react-redux: registry.npmjs.org/react-redux/6.0.1_react@16.8.6+redux@4.0.1
+      react-redux: registry.npmjs.org/react-redux/7.0.1_react@16.8.6+redux@4.0.1
       redux: registry.npmjs.org/redux/4.0.1
       redux-first-router: registry.npmjs.org/redux-first-router/2.1.1_redux@4.0.1
-      redux-first-router-link: registry.npmjs.org/redux-first-router-link/2.1.1_536e5cc1b4486995ab9937367c59b42a
+      redux-first-router-link: registry.npmjs.org/redux-first-router-link/2.1.1_442104df0600cdb967905fa085f62593
       redux-first-router-restore-scroll: registry.npmjs.org/redux-first-router-restore-scroll/1.2.2_redux-first-router@2.1.1
     dev: true
     peerDependencies:
       '@myntra/spectrum-cli-service': '*'
       webpack: '>=4.0.0'
     resolution:
-      integrity: sha512-CYl3C4+q+IP0B7HmLjWah69oo/mSSFK5RjgG45VX1ZmgqWxGWS51KgII79K3LvjDc2SNb/kclZnnS5N4TT0Jow==
-      tarball: /@myntra/spectrum-cli-plugin-router/-/@myntra/spectrum-cli-plugin-router-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-cli-plugin-typescript/2.0.0-alpha.53_ccfe677ff5cd2b814846b483b3e92904:
+      integrity: sha512-xVxuXyKkMyXSZgQ/KJohPC+u8LJkKALgInWz+nbSdp4zveXZMYj+K1oekDx38iJvEWj6O741v6TrXN5giyX4+A==
+      tarball: /@myntra/spectrum-cli-plugin-router/-/@myntra/spectrum-cli-plugin-router-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-cli-plugin-typescript/2.0.0-alpha.55_9ca0c55f9e6e84d4dea24d577c88d744:
     dependencies:
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
-      ts-loader: registry.npmjs.org/ts-loader/5.3.3_typescript@3.4.2
-      typescript: registry.npmjs.org/typescript/3.4.2
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
+      ts-loader: registry.npmjs.org/ts-loader/5.3.3_typescript@3.4.3
+      typescript: registry.npmjs.org/typescript/3.4.3
     dev: true
     peerDependencies:
       '@myntra/spectrum-cli-service': '*'
       webpack: '>=4.0.0'
     resolution:
-      integrity: sha512-pwfiAUN7Xg8ylkQp8+KFBSd9VRXU0P49zM/+CHnUKIQsbdPxFfhzNpxD/MJ89RBKVAPLV7Kkvohg4phwOyOabA==
-      tarball: /@myntra/spectrum-cli-plugin-typescript/-/@myntra/spectrum-cli-plugin-typescript-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-cli-service/2.0.0-alpha.53:
+      integrity: sha512-/CtgEpMXlXE4YpBCx4OMkZRQUFqxHt+ImMWvyy0Wopr8j6rFffpscvGHCK+zujCAI5GXCbK9iK2koQui9qxz9Q==
+      tarball: /@myntra/spectrum-cli-plugin-typescript/-/@myntra/spectrum-cli-plugin-typescript-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-cli-service/2.0.0-alpha.55:
     dependencies:
       '@intervolga/optimize-cssnano-plugin': registry.npmjs.org/@intervolga/optimize-cssnano-plugin/1.0.6_webpack@4.29.6
-      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.53
-      '@myntra/spectrum-internal-helpers-plugin': 2.0.0-alpha.53
+      '@myntra/spectrum-cli-shared-utils': 2.0.0-alpha.55
+      '@myntra/spectrum-internal-helpers-plugin': 2.0.0-alpha.55
       '@vue/preload-webpack-plugin': registry.npmjs.org/@vue/preload-webpack-plugin/1.1.0_54bb3b4ade3087c8af7de9b317a3d270
       address: registry.npmjs.org/address/1.0.3
       cache-loader: registry.npmjs.org/cache-loader/2.0.1_webpack@4.29.6
@@ -840,7 +881,7 @@ packages:
       webpack: registry.npmjs.org/webpack/4.29.6_webpack@4.29.6
       webpack-bundle-analyzer: registry.npmjs.org/webpack-bundle-analyzer/3.2.0
       webpack-chain: registry.npmjs.org/webpack-chain/5.2.4
-      webpack-dev-server: registry.npmjs.org/webpack-dev-server/3.2.1_webpack@4.29.6
+      webpack-dev-server: registry.npmjs.org/webpack-dev-server/3.3.1_webpack@4.29.6
       webpack-merge: registry.npmjs.org/webpack-merge/4.2.1
       webpack-virtual-modules: registry.npmjs.org/webpack-virtual-modules/0.1.10
       webpackbar: registry.npmjs.org/webpackbar/3.1.5_webpack@4.29.6
@@ -849,9 +890,9 @@ packages:
       node: '>8.0.0'
     hasBin: true
     resolution:
-      integrity: sha512-RrTanuiLtu39/QltFycFujQ7dd8UFXC/Nd+D9MoaF9++ImKx3CTqGnQFWsELhKsX7f0AkKTsexponyM6BnOf6g==
-      tarball: /@myntra/spectrum-cli-service/-/@myntra/spectrum-cli-service-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-cli-shared-utils/2.0.0-alpha.53:
+      integrity: sha512-Pt0Rq+iiLjAnCYySNMSvL39fNDkJ8AKmwO8mnWlvoD8Ekxnb54x7nPV+dVLnWAj8ZILQBsj1Drc9+1yVAJYkPg==
+      tarball: /@myntra/spectrum-cli-service/-/@myntra/spectrum-cli-service-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-cli-shared-utils/2.0.0-alpha.55:
     dependencies:
       chalk: registry.npmjs.org/chalk/2.4.2
       ejs: registry.npmjs.org/ejs/2.6.1
@@ -869,17 +910,17 @@ packages:
       webpack-virtual-modules: registry.npmjs.org/webpack-virtual-modules/0.1.10
     dev: true
     resolution:
-      integrity: sha512-eB95NO33CD1gn9sPn/zPGp/sPwUTewwSLXTVGw+nha41zb2ANemU2E5CD7hlw8K3G2WAxGBAz5TdJoLmCWLipQ==
-      tarball: /@myntra/spectrum-cli-shared-utils/-/@myntra/spectrum-cli-shared-utils-2.0.0-alpha.53.tgz
-  /@myntra/spectrum-internal-helpers-plugin/2.0.0-alpha.53:
+      integrity: sha512-qLNDiWny0c81PMEBAl226nXkqratBSYNbK7Xu92L1fpUQeJRrQpgz4bm8Xsre5xntEdhBmY5ymJv+a9J+yBobg==
+      tarball: /@myntra/spectrum-cli-shared-utils/-/@myntra/spectrum-cli-shared-utils-2.0.0-alpha.55.tgz
+  /@myntra/spectrum-internal-helpers-plugin/2.0.0-alpha.55:
     dependencies:
-      '@myntra/spectrum-cli-service': 2.0.0-alpha.53
+      '@myntra/spectrum-cli-service': 2.0.0-alpha.55
       debug: registry.npmjs.org/debug/4.1.1
       fs-extra: registry.npmjs.org/fs-extra/7.0.1
     dev: true
     resolution:
-      integrity: sha512-LchJTQZ60ZOXTkjaSMc8kVNwobHBZ8wkb1yP+nL5rOYOoVRMzbR/GsELKErVJFjpBbCEnWFeu3Nux/Hwuf/Fcw==
-      tarball: /@myntra/spectrum-internal-helpers-plugin/-/@myntra/spectrum-internal-helpers-plugin-2.0.0-alpha.53.tgz
+      integrity: sha512-TIKHkUEieABw924GD1G3Udk/s5xdea4FggAh5twdmn8W+1Gzq+p9+F/A+Dwh6QVuuQ49IYwINKZstkYrvp6iAA==
+      tarball: /@myntra/spectrum-internal-helpers-plugin/-/@myntra/spectrum-internal-helpers-plugin-2.0.0-alpha.55.tgz
   /@myntra/tokens/0.9.2:
     dependencies:
       '@myntra/uikit-utils': 0.9.2
@@ -3380,7 +3421,7 @@ packages:
   registry.npmjs.org/@types/glob/5.0.30:
     dependencies:
       '@types/minimatch': registry.npmjs.org/@types/minimatch/3.0.3
-      '@types/node': registry.npmjs.org/@types/node/11.13.0
+      '@types/node': registry.npmjs.org/@types/node/11.13.2
     dev: true
     name: '@types/glob'
     resolution:
@@ -3455,6 +3496,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@types/node/-/node-11.13.0.tgz'
     version: 11.13.0
+  registry.npmjs.org/@types/node/11.13.2:
+    name: '@types/node'
+    resolution:
+      integrity: sha512-HOtU5KqROKT7qX/itKHuTtt5fV0iXbheQvrgbLNXFJQBY/eh+VS5vmmTAVlo3qIGMsypm0G4N1t2AXjy1ZicaQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/node/-/node-11.13.2.tgz'
+    version: 11.13.2
   registry.npmjs.org/@types/node/8.0.0:
     dev: true
     name: '@types/node'
@@ -3544,7 +3592,7 @@ packages:
     version: 2.0.3
   registry.npmjs.org/@types/vfile-message/1.0.1:
     dependencies:
-      '@types/node': registry.npmjs.org/@types/node/11.13.0
+      '@types/node': registry.npmjs.org/@types/node/11.13.2
       '@types/unist': registry.npmjs.org/@types/unist/2.0.3
     name: '@types/vfile-message'
     resolution:
@@ -3554,7 +3602,7 @@ packages:
     version: 1.0.1
   registry.npmjs.org/@types/vfile/3.0.2:
     dependencies:
-      '@types/node': registry.npmjs.org/@types/node/11.13.0
+      '@types/node': registry.npmjs.org/@types/node/11.13.2
       '@types/unist': registry.npmjs.org/@types/unist/2.0.3
       '@types/vfile-message': registry.npmjs.org/@types/vfile-message/1.0.1
     name: '@types/vfile'
@@ -3566,7 +3614,7 @@ packages:
   registry.npmjs.org/@types/webpack/4.4.27:
     dependencies:
       '@types/anymatch': registry.npmjs.org/@types/anymatch/1.3.1
-      '@types/node': registry.npmjs.org/@types/node/11.13.0
+      '@types/node': registry.npmjs.org/@types/node/11.13.2
       '@types/tapable': registry.npmjs.org/@types/tapable/1.0.4
       '@types/uglify-js': registry.npmjs.org/@types/uglify-js/3.0.4
       source-map: registry.npmjs.org/source-map/0.6.1
@@ -6126,7 +6174,7 @@ packages:
     dependencies:
       caniuse-lite: registry.npmjs.org/caniuse-lite/1.0.30000957
       electron-to-chromium: registry.npmjs.org/electron-to-chromium/1.3.124
-      node-releases: registry.npmjs.org/node-releases/1.1.13
+      node-releases: registry.npmjs.org/node-releases/1.1.14
     hasBin: true
     name: browserslist
     resolution:
@@ -8322,18 +8370,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/decamelize/-/decamelize-1.2.0.tgz'
     version: 1.2.0
-  registry.npmjs.org/decamelize/2.0.0:
-    dependencies:
-      xregexp: registry.npmjs.org/xregexp/4.0.0
-    dev: true
-    engines:
-      node: '>=4'
-    name: decamelize
-    resolution:
-      integrity: sha512-Ikpp5scV3MSYxY39ymh45ZLEecsTdv/Xj2CaQfI8RLMuwi7XvjX9H/fhraiSuU+C5w5NTDu4ZU72xNiZnurBPg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/decamelize/-/decamelize-2.0.0.tgz'
-    version: 2.0.0
   registry.npmjs.org/decode-uri-component/0.2.0:
     engines:
       node: '>=0.10'
@@ -8456,23 +8492,23 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/define-property/-/define-property-2.0.2.tgz'
     version: 2.0.2
-  registry.npmjs.org/del/3.0.0:
+  registry.npmjs.org/del/4.1.0:
     dependencies:
       globby: registry.npmjs.org/globby/6.1.0
-      is-path-cwd: registry.npmjs.org/is-path-cwd/1.0.0
-      is-path-in-cwd: registry.npmjs.org/is-path-in-cwd/1.0.1
-      p-map: registry.npmjs.org/p-map/1.2.0
-      pify: registry.npmjs.org/pify/3.0.0
+      is-path-cwd: registry.npmjs.org/is-path-cwd/2.0.0
+      is-path-in-cwd: registry.npmjs.org/is-path-in-cwd/2.0.0
+      p-map: registry.npmjs.org/p-map/2.1.0
+      pify: registry.npmjs.org/pify/4.0.1
       rimraf: registry.npmjs.org/rimraf/2.6.3
     dev: true
     engines:
-      node: '>=4'
+      node: '>=6'
     name: del
     resolution:
-      integrity: sha1-U+z2mf/LyzljdpGrE7rxYIGXZuU=
+      integrity: sha512-C4kvKNlYrwXhKxz97BuohF8YoGgQ23Xm9lvoHmgT7JaPGprSEjk3+XFled74Yt/x0ZABUHg2D67covzAPUKx5Q==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/del/-/del-3.0.0.tgz'
-    version: 3.0.0
+      tarball: 'https://registry.npmjs.org/del/-/del-4.1.0.tgz'
+    version: 4.1.0
   registry.npmjs.org/delayed-stream/1.0.0:
     dev: true
     engines:
@@ -8865,7 +8901,7 @@ packages:
     version: 1.0.3
   registry.npmjs.org/dts-bundle-generator/2.1.0:
     dependencies:
-      typescript: registry.npmjs.org/typescript/3.4.2
+      typescript: registry.npmjs.org/typescript/3.4.3
       yargs: registry.npmjs.org/yargs/11.1.0
     dev: true
     hasBin: true
@@ -12958,28 +12994,28 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/is-observable/-/is-observable-1.1.0.tgz'
     version: 1.1.0
-  registry.npmjs.org/is-path-cwd/1.0.0:
+  registry.npmjs.org/is-path-cwd/2.0.0:
     dev: true
     engines:
-      node: '>=0.10.0'
+      node: '>=6'
     name: is-path-cwd
     resolution:
-      integrity: sha1-0iXsIxMuie3Tj9p2dHLmLmXxEG0=
+      integrity: sha512-m5dHHzpOXEiv18JEORttBO64UgTEypx99vCxQLjbBvGhOJxnTNglYoFXxwo6AbsQb79sqqycQEHv2hWkHZAijA==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/is-path-cwd/-/is-path-cwd-1.0.0.tgz'
-    version: 1.0.0
-  registry.npmjs.org/is-path-in-cwd/1.0.1:
+      tarball: 'https://registry.npmjs.org/is-path-cwd/-/is-path-cwd-2.0.0.tgz'
+    version: 2.0.0
+  registry.npmjs.org/is-path-in-cwd/2.0.0:
     dependencies:
       is-path-inside: registry.npmjs.org/is-path-inside/1.0.1
     dev: true
     engines:
-      node: '>=0.10.0'
+      node: '>=6'
     name: is-path-in-cwd
     resolution:
-      integrity: sha512-FjV1RTW48E7CWM7eE/J2NJvAEEVektecDBVBE5Hh3nM1Jd0kvhHtX68Pr3xsDf857xt3Y4AkwVULK1Vku62aaQ==
+      integrity: sha512-6Vz5Gc9s/sDA3JBVu0FzWufm8xaBsqy1zn8Q6gmvGP6nSDMw78aS4poBNeatWjaRpTpxxLn1WOndAiOlk+qY8A==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/is-path-in-cwd/-/is-path-in-cwd-1.0.1.tgz'
-    version: 1.0.1
+      tarball: 'https://registry.npmjs.org/is-path-in-cwd/-/is-path-in-cwd-2.0.0.tgz'
+    version: 2.0.0
   registry.npmjs.org/is-path-inside/1.0.1:
     dependencies:
       path-is-inside: registry.npmjs.org/path-is-inside/1.0.2
@@ -16096,12 +16132,22 @@ packages:
   registry.npmjs.org/node-releases/1.1.13:
     dependencies:
       semver: registry.npmjs.org/semver/5.7.0
+    dev: true
     name: node-releases
     resolution:
       integrity: sha512-fKZGviSXR6YvVPyc011NHuJDSD8gFQvLPmc2d2V3BS4gr52ycyQ1Xzs7a8B+Ax3Ni/W+5h1h4SqmzeoA8WZRmA==
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/node-releases/-/node-releases-1.1.13.tgz'
     version: 1.1.13
+  registry.npmjs.org/node-releases/1.1.14:
+    dependencies:
+      semver: registry.npmjs.org/semver/5.7.0
+    name: node-releases
+    resolution:
+      integrity: sha512-d58EpVZRhQE60kWiWUaaPlK9dyC4zg3ZoMcHcky2d4hDksyQj0rUozwInOl0C66mBsqo01Tuns8AvxnL5S7PKg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/node-releases/-/node-releases-1.1.14.tgz'
+    version: 1.1.14
   registry.npmjs.org/nomnom/1.8.1:
     dependencies:
       chalk: registry.npmjs.org/chalk/0.4.0
@@ -16754,6 +16800,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/p-map/-/p-map-2.0.0.tgz'
     version: 2.0.0
+  registry.npmjs.org/p-map/2.1.0:
+    dev: true
+    engines:
+      node: '>=6'
+    name: p-map
+    resolution:
+      integrity: sha512-y3b8Kpd8OAN444hxfBbFfj1FY/RjtTd8tzYwhUqNYXx0fXx2iX4maP4Qr6qhIKbQXI02wTLAda4fYUbDagTUFw==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/p-map/-/p-map-2.1.0.tgz'
+    version: 2.1.0
   registry.npmjs.org/p-queue/2.4.2:
     dev: true
     engines:
@@ -18630,6 +18686,27 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/react-redux/-/react-redux-6.0.1.tgz'
     version: 6.0.1
+  registry.npmjs.org/react-redux/7.0.1_react@16.8.6+redux@4.0.1:
+    dependencies:
+      '@babel/runtime': registry.npmjs.org/@babel/runtime/7.4.3
+      hoist-non-react-statics: registry.npmjs.org/hoist-non-react-statics/3.3.0
+      invariant: registry.npmjs.org/invariant/2.2.4
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      react: registry.npmjs.org/react/16.8.6
+      react-is: registry.npmjs.org/react-is/16.8.6
+      redux: registry.npmjs.org/redux/4.0.1
+    dev: true
+    id: registry.npmjs.org/react-redux/7.0.1
+    name: react-redux
+    peerDependencies:
+      react: ^16.8.4
+      redux: ^2.0.0 || ^3.0.0 || ^4.0.0-0
+    resolution:
+      integrity: sha512-orSiI/QXtGiiJmf8lN/zVTx4hysFo/kGOsce28IUu/mu98AGemBwPTDzf64P4Vf/miRmevO8/w2RSw2awDd21w==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/react-redux/-/react-redux-7.0.1.tgz'
+    version: 7.0.1
   registry.npmjs.org/react-test-renderer/16.8.6:
     dependencies:
       object-assign: registry.npmjs.org/object-assign/4.1.1
@@ -18921,12 +18998,12 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/redeyed/-/redeyed-1.0.1.tgz'
     version: 1.0.1
-  registry.npmjs.org/redux-first-router-link/2.1.1_536e5cc1b4486995ab9937367c59b42a:
+  registry.npmjs.org/redux-first-router-link/2.1.1_442104df0600cdb967905fa085f62593:
     dependencies:
       path-to-regexp: registry.npmjs.org/path-to-regexp/1.7.0
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.8.6
-      react-redux: registry.npmjs.org/react-redux/6.0.1_react@16.8.6+redux@4.0.1
+      react-redux: registry.npmjs.org/react-redux/7.0.1_react@16.8.6+redux@4.0.1
       redux: registry.npmjs.org/redux/4.0.1
       redux-first-router: registry.npmjs.org/redux-first-router/2.1.1_redux@4.0.1
       rudy-history: registry.npmjs.org/rudy-history/1.0.0
@@ -19929,7 +20006,7 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/sass/-/sass-1.17.3.tgz'
     version: 1.17.3
-  registry.npmjs.org/sass/1.17.4:
+  registry.npmjs.org/sass/1.18.0:
     dependencies:
       chokidar: registry.npmjs.org/chokidar/2.1.5
     dev: true
@@ -19938,10 +20015,10 @@ packages:
     hasBin: true
     name: sass
     resolution:
-      integrity: sha512-NM/RkY54d6C5xJMWk7Z+p0/TfIB71/46/T335Egc0O3G+NeKKVFz1s9EwBlekRnYq3fUCTsbk0zPNMpee5LIdA==
+      integrity: sha512-Mc579V+BhH693tqt+lvph+gmRqmC6BjtsEVsjkW1944DEA5a0wPuCi781hL3fY4EDuqZnEVPbu42CZRywwE97g==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/sass/-/sass-1.17.4.tgz'
-    version: 1.17.4
+      tarball: 'https://registry.npmjs.org/sass/-/sass-1.18.0.tgz'
+    version: 1.18.0
   registry.npmjs.org/sax/1.2.4:
     dev: true
     name: sax
@@ -20463,6 +20540,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.11.tgz'
     version: 0.5.11
+  registry.npmjs.org/source-map-support/0.5.12:
+    dependencies:
+      buffer-from: registry.npmjs.org/buffer-from/1.1.1
+      source-map: registry.npmjs.org/source-map/0.6.1
+    dev: true
+    name: source-map-support
+    resolution:
+      integrity: sha512-4h2Pbvyy15EE02G+JOZpUCmqWJuqrs+sEkzewTm++BPi7Hvn/HwcqLAcNxYAyI0x13CpPPn+kMjl+hplXMHITQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/source-map-support/-/source-map-support-0.5.12.tgz'
+    version: 0.5.12
   registry.npmjs.org/source-map-url/0.4.0:
     name: source-map-url
     resolution:
@@ -21538,7 +21626,7 @@ packages:
     dependencies:
       commander: registry.npmjs.org/commander/2.20.0
       source-map: registry.npmjs.org/source-map/0.6.1
-      source-map-support: registry.npmjs.org/source-map-support/0.5.11
+      source-map-support: registry.npmjs.org/source-map-support/0.5.12
     dev: true
     engines:
       node: '>=6.0.0'
@@ -21972,14 +22060,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/ts-jest/-/ts-jest-24.0.1.tgz'
     version: 24.0.1
-  registry.npmjs.org/ts-loader/5.3.3_typescript@3.4.2:
+  registry.npmjs.org/ts-loader/5.3.3_typescript@3.4.3:
     dependencies:
       chalk: registry.npmjs.org/chalk/2.4.2
       enhanced-resolve: registry.npmjs.org/enhanced-resolve/4.1.0
       loader-utils: registry.npmjs.org/loader-utils/1.2.3
       micromatch: registry.npmjs.org/micromatch/3.1.10
       semver: registry.npmjs.org/semver/5.7.0
-      typescript: registry.npmjs.org/typescript/3.4.2
+      typescript: registry.npmjs.org/typescript/3.4.3
     dev: true
     engines:
       node: '>=6.11.5'
@@ -22067,17 +22155,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/typescript/-/typescript-3.4.1.tgz'
     version: 3.4.1
-  registry.npmjs.org/typescript/3.4.2:
+  registry.npmjs.org/typescript/3.4.3:
     dev: true
     engines:
       node: '>=4.2.0'
     hasBin: true
     name: typescript
     resolution:
-      integrity: sha512-Og2Vn6Mk7JAuWA1hQdDQN/Ekm/SchX80VzLhjKN9ETYrIepBFAd8PkOdOTK2nKt0FCkmMZKBJvQ1dV1gIxPu/A==
+      integrity: sha512-FFgHdPt4T/duxx6Ndf7hwgMZZjZpB+U0nMNGVCYPq0rEzWKjEDobm4J6yb3CS7naZ0yURFqdw9Gwc7UOh/P9oQ==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/typescript/-/typescript-3.4.2.tgz'
-    version: 3.4.2
+      tarball: 'https://registry.npmjs.org/typescript/-/typescript-3.4.3.tgz'
+    version: 3.4.3
   registry.npmjs.org/typical/2.6.1:
     dev: false
     name: typical
@@ -22827,7 +22915,7 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/webpack-dev-middleware/-/webpack-dev-middleware-3.6.2.tgz'
     version: 3.6.2
-  registry.npmjs.org/webpack-dev-server/3.2.1_webpack@4.29.6:
+  registry.npmjs.org/webpack-dev-server/3.3.1_webpack@4.29.6:
     dependencies:
       ansi-html: registry.npmjs.org/ansi-html/0.0.7
       bonjour: registry.npmjs.org/bonjour/3.5.0
@@ -22835,7 +22923,7 @@ packages:
       compression: registry.npmjs.org/compression/1.7.4
       connect-history-api-fallback: registry.npmjs.org/connect-history-api-fallback/1.6.0
       debug: registry.npmjs.org/debug/4.1.1
-      del: registry.npmjs.org/del/3.0.0
+      del: registry.npmjs.org/del/4.1.0
       express: registry.npmjs.org/express/4.16.4
       html-entities: registry.npmjs.org/html-entities/1.2.1
       http-proxy-middleware: registry.npmjs.org/http-proxy-middleware/0.19.1
@@ -22848,7 +22936,7 @@ packages:
       portfinder: registry.npmjs.org/portfinder/1.0.20
       schema-utils: registry.npmjs.org/schema-utils/1.0.0
       selfsigned: registry.npmjs.org/selfsigned/1.10.4
-      semver: registry.npmjs.org/semver/5.7.0
+      semver: registry.npmjs.org/semver/6.0.0
       serve-index: registry.npmjs.org/serve-index/1.9.1
       sockjs: registry.npmjs.org/sockjs/0.3.19
       sockjs-client: registry.npmjs.org/sockjs-client/1.3.0
@@ -22859,20 +22947,20 @@ packages:
       webpack: registry.npmjs.org/webpack/4.29.6_webpack@4.29.6
       webpack-dev-middleware: registry.npmjs.org/webpack-dev-middleware/3.6.2_webpack@4.29.6
       webpack-log: registry.npmjs.org/webpack-log/2.0.0
-      yargs: registry.npmjs.org/yargs/12.0.2
+      yargs: registry.npmjs.org/yargs/12.0.5
     dev: true
     engines:
       node: '>= 6.11.5'
     hasBin: true
-    id: registry.npmjs.org/webpack-dev-server/3.2.1
+    id: registry.npmjs.org/webpack-dev-server/3.3.1
     name: webpack-dev-server
     peerDependencies:
       webpack: ^4.0.0
     resolution:
-      integrity: sha512-sjuE4mnmx6JOh9kvSbPYw3u/6uxCLHNWfhWaIPwcXWsvWOPN+nc5baq4i9jui3oOBRXGonK9+OI0jVkaz6/rCw==
+      integrity: sha512-jY09LikOyGZrxVTXK0mgIq9y2IhCoJ05848dKZqX1gAGLU1YDqgpOT71+W53JH/wI4v6ky4hm+KvSyW14JEs5A==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-3.2.1.tgz'
-    version: 3.2.1
+      tarball: 'https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-3.3.1.tgz'
+    version: 3.3.1
   registry.npmjs.org/webpack-log/2.0.0:
     dependencies:
       ansi-colors: registry.npmjs.org/ansi-colors/3.2.4
@@ -23222,14 +23310,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/xmlcreate/-/xmlcreate-1.0.2.tgz'
     version: 1.0.2
-  registry.npmjs.org/xregexp/4.0.0:
-    dev: true
-    name: xregexp
-    resolution:
-      integrity: sha512-PHyM+sQouu7xspQQwELlGwwd05mXUFqwFYfqPO0cC7x4fxyHnnuetmQr6CjJiafIDoH4MogHb9dOoJzR/Y4rFg==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/xregexp/-/xregexp-4.0.0.tgz'
-    version: 4.0.0
   registry.npmjs.org/xtend/4.0.1:
     engines:
       node: '>=0.4'
@@ -23280,7 +23360,7 @@ packages:
     version: 10.1.0
   registry.npmjs.org/yargs-parser/11.1.1:
     dependencies:
-      camelcase: registry.npmjs.org/camelcase/5.2.0
+      camelcase: registry.npmjs.org/camelcase/5.3.1
       decamelize: registry.npmjs.org/decamelize/1.2.0
     dev: true
     name: yargs-parser
@@ -23328,27 +23408,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/yargs/-/yargs-11.1.0.tgz'
     version: 11.1.0
-  registry.npmjs.org/yargs/12.0.2:
-    dependencies:
-      cliui: registry.npmjs.org/cliui/4.1.0
-      decamelize: registry.npmjs.org/decamelize/2.0.0
-      find-up: registry.npmjs.org/find-up/3.0.0
-      get-caller-file: registry.npmjs.org/get-caller-file/1.0.3
-      os-locale: registry.npmjs.org/os-locale/3.1.0
-      require-directory: registry.npmjs.org/require-directory/2.1.1
-      require-main-filename: registry.npmjs.org/require-main-filename/1.0.1
-      set-blocking: registry.npmjs.org/set-blocking/2.0.0
-      string-width: registry.npmjs.org/string-width/2.1.1
-      which-module: registry.npmjs.org/which-module/2.0.0
-      y18n: registry.npmjs.org/y18n/4.0.0
-      yargs-parser: registry.npmjs.org/yargs-parser/10.1.0
-    dev: true
-    name: yargs
-    resolution:
-      integrity: sha512-e7SkEx6N6SIZ5c5H22RTZae61qtn3PYUE8JYbBFlK9sYmh3DMQ6E5ygtaG/2BW0JZi4WGgTR2IV5ChqlqrDGVQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/yargs/-/yargs-12.0.2.tgz'
-    version: 12.0.2
   registry.npmjs.org/yargs/12.0.5:
     dependencies:
       cliui: registry.npmjs.org/cliui/4.1.0

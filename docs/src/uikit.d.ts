@@ -646,6 +646,55 @@ declare namespace Progress {
   declare function Circle(props: ProgressCircleProps): JSX.Element
 }
 
+// -----------[[Table]]--------------- //
+
+interface TableProps extends BaseProps {
+  data: any[]
+  virtualized?: boolean
+  sort?:
+    | string[]
+    | {
+        column: string
+        order: 'ASC' | 'DESC'
+      }[]
+  layout?: 'auto' | 'fixed'
+  columnOrder?: string[]
+  useDiv?: boolean
+  rowKey?(rowData: any, index: number): string
+}
+/**
+ * A simple table.
+ *
+ * @since 0.3.0
+ * @status REVIEWING
+ */
+
+declare function Table(props: TableProps): JSX.Element
+
+interface TableColumnProps extends BaseProps {
+  /** Table column header */
+  label: string | JSX.Element
+  /** Fixed column. */
+  fixed: boolean
+  /** Number of table columns to use */
+  colSpan: number
+  /** Accessor to get value. Either a string key or a getter function. */
+  accessor: string | ((data: any) => string | JSX.Element)
+  /** Either a function to render the cell value or list of sub columns */
+  children: ReactElement<TableColumnProps> | ReactElement<TableColumnProps>[] | ((props: { data: any }) => JSX.Element)
+}
+/**
+ * Declarative way of defining table column configuration. It is a render-less component
+ * use to declare rendering behavior of the table.
+ *
+ * @since 0.3.0
+ * @status READY
+ */
+
+declare namespace Table {
+  declare function Column(props: TableColumnProps): JSX.Element
+}
+
 // -----------[[TopBar]]--------------- //
 
 interface TopBarProps extends BaseProps {
@@ -668,125 +717,31 @@ interface TopBarProps extends BaseProps {
 
 declare function TopBar(props: TopBarProps): JSX.Element
 
-interface VirtualGridProps extends BaseProps {
+interface TopBarItemProps extends BaseProps {
   /**
-   * Number of rows in the grid.
+   * Adds icon.
    */
-  rows: number
+  icon?: IconName
   /**
-   * Number of columns in the grid.
+   * Description of icon.
    */
-  columns: number
+  altText?: string
   /**
-   * Height of the grid container.
+   * Breadcrumb text or link.
    */
-  height: number
-  /**
-   * Width of the grid container.
-   */
-  width: number
-  /**
-   * A callback to render grid item at given cell.
-   */
-  children(props: {
-    rowIndex: number
-    columnIndex: number
-    offsetTop: number
-    offsetLeft: number
-    rowHeight: number
-    columnWidth: number
-    isScrolling: boolean
-    style: Record<string, string | number>
-  }): JSX.Element
-  /**
-   * Number of columns (from start) always rendered.
-   */
-  fixedColumns?: number
-  /**
-   * Number of rows to render outside of viewport.
-   */
-  overScanRows?: number
-  /**
-   * Number of columns to render outside of viewport.
-   */
-  overScanColumns?: number
-  /**
-   * Estimated item height to estimate content height.
-   */
-  estimatedCellHeight?: number
-  /**
-   * Estimated item width to estimate content width.
-   */
-  estimatedCellWidth: number
-  renderScroller?(props: {
-    onScroll(event: {
-      target: {
-        scrollTop: number
-        scrollLeft: number
-      }
-    }): void
-    width: number
-    height: number
-    style: Record<string, string | number>
-    children: any
-  }): JSX.Element
-  renderContainer?(props: {
-    /**
-     * Height of grid content.
-     */
-    offsetHeight: number
-    /**
-     * Width of grid content.
-     */
-    offsetWidth: number
-    /**
-     * Height of rendered content.
-     */
-    renderedHeight: number
-    /**
-     * Width of rendered content.
-     */
-    renderedWidth: number
-    /**
-     * Scroll position from left.
-     */
-    offsetLeft: number
-    /**
-     * Scroll position from top.
-     */
-    offsetTop: number
-    /**
-     * Styles to position and configure scroll behaviour.
-     */
-    style: Record<string, string | number>
-    className?: string
-    children: any
-  }): JSX.Element
-  renderRow?(props: {
-    grid: VirtualGrid
-    offsetTop: number
-    height: number
-    rowIndex: number
-    isScrolling: boolean
-    scrollLeft: number
-    children: any
-  }): JSX.Element
-  onMeasure?(event: {
-    row: number
-    column: number
-    size: {
-      width: number
-      height: number
-    }
-  }): void
+  children: JSX.Element
 }
 /**
- * @since v0.8.0
+ * A component for page header
+ *
+ * @since 0.3.0
  * @status READY
+ * @category basic
+ * @see http://uikit.myntra.com/components/top-bar#TopBarItem
  */
 
 declare namespace TopBar {
-  declare function TobBarItem(props: TopBarTobBarItemProps): JSX.Element
+  declare function Item(props: TopBarItemProps): JSX.Element
 }
 
 // -----------[[VirtualGrid]]--------------- //
@@ -904,8 +859,12 @@ interface VirtualGridProps extends BaseProps {
   }): void
 }
 /**
- * @since v0.8.0
+ * A grid using windowing technique to render only visible area.
+ *
+ * @since 0.8.0
  * @status READY
+ * @category advanced
+ * @see http://uikit.myntra.com/components/virtual-grid
  */
 
 declare function VirtualGrid(props: VirtualGridProps): JSX.Element
@@ -997,7 +956,7 @@ interface VirtualListProps extends BaseProps {
   }): JSX.Element
 }
 /**
- * A list renderer using windowing concept.
+ * A list using windowing technique to render only visible area.
  *
  * @since 0.7.0
  * @status READY

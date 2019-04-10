@@ -8,9 +8,6 @@ import {
 } from './helpers'
 import CellMeasure from './virtual-list-cell-measure'
 
-export * from './helpers'
-export { CellMeasure }
-
 export interface VirtualListProps extends BaseProps {
   /**
    * Number of items in the list.
@@ -92,7 +89,7 @@ export interface VirtualListProps extends BaseProps {
 }
 
 /**
- * A list renderer using windowing concept.
+ * A list using windowing technique to render only visible area.
  *
  * @since 0.7.0
  * @status READY
@@ -200,7 +197,6 @@ export default class VirtualList extends PureComponent<
 
   computeScrollOffsets(offsetScroll) {
     offsetScroll = Math.max(0, offsetScroll)
-    console.log(offsetScroll, this.state.offsetScroll)
     if (offsetScroll !== this.state.offsetScroll) {
       this.setState({
         offsetScroll,
@@ -217,6 +213,13 @@ export default class VirtualList extends PureComponent<
       itemCount,
       overScanItemCount,
       fixedItemCount,
+      className,
+      children: renderItem,
+      direction,
+      estimatedItemSize,
+      renderContainer,
+      renderScroller,
+      ...props
     } = this.props
     const { offsetScroll, scrollDirection } = this.state
 
@@ -231,15 +234,13 @@ export default class VirtualList extends PureComponent<
       itemCount
     )
 
-    // console.log(JSON.stringify({ scrollDirection, visibleRange, range, overScanItemCount }, null, 2))
-
     const children = []
 
     const renderChild = (index) => {
       const { offset, size } = this.manager.getCellAt(index)
       const style = this.genStyle(offset, size)
 
-      const node = this.props.children({
+      const node = renderItem({
         list: this,
         index,
         offset,
@@ -276,20 +277,23 @@ export default class VirtualList extends PureComponent<
       renderChild(index)
     }
 
-    return this.props.renderScroller({
-      className: this.props.className,
+    return renderScroller({
+      ...props,
+      className,
       onScroll: this.handleScroll,
       size: this.manager.size,
       style: this.isHorizontal
         ? {
+            ...props.style,
             overflowX: 'auto',
             width: viewportSize + 'px',
           }
         : {
+            ...props.style,
             overflowY: 'auto',
             height: viewportSize + 'px',
           },
-      children: this.props.renderContainer({
+      children: renderContainer({
         offsetStart: this.manager.getCellAt(range.start).offset,
         offsetScroll,
         size: this.manager.size,

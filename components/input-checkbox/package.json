@@ -21,5 +21,8 @@
   },
   "dependencies": {
     "@myntra/uikit-component-input-text": "link:../input-text"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
   }
 }

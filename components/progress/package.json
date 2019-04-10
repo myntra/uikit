@@ -22,5 +22,8 @@
   "components": [
     "src/progress-bar.tsx",
     "src/progress-circle.tsx"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  }
 }

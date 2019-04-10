@@ -25,6 +25,6 @@
     "@myntra/uikit-component-icon": "link:../icon"
   },
   "devDependencies": {
-    "@types/react": "^16.8.10"
+    "@types/react": "^16.8.13"
   }
 }

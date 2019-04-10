@@ -21,5 +21,8 @@
   },
   "components": [
     "src/bread-crumb-item.tsx"
-  ]
+  ],
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  }
 }

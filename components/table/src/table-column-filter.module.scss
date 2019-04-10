@@ -1,0 +1,47 @@
+@import '@myntra/uikit-design';
+
+.filter {
+  min-width: 190px;
+  max-height: 300px;
+  margin-top: 3px;
+  background: white;
+  outline: none;
+  box-shadow: var(--shadow-light-small);
+}
+
+.trigger {
+  display: flex;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search {
+  padding: 0 8px;
+}
+
+.badge {
+  width: max-content;
+  padding: 0 6px;
+  margin-top: 2px;
+  font-size: var(--typography-text-caption-font-size);
+  background-color: rgba(96, 184, 122, 0.27);
+  border: solid 1px var(--color-success);
+  border-radius: 10px;
+}
+
+.labels {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.selected {
+  font-size: var(--typography-text-caption-font-size);
+  font-weight: var(--font-weight-bold);
+}
+
+.clear {
+  font-size: var(--typography-text-caption-font-size);
+  color: var(--color-primary);
+  cursor: pointer;
+}

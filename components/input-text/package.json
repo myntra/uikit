@@ -22,5 +22,8 @@
   },
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
   }
 }

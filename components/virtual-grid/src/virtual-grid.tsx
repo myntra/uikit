@@ -119,8 +119,12 @@ export interface VirtualGridProps extends BaseProps {
 }
 
 /**
- * @since v0.8.0
+ * A grid using windowing technique to render only visible area.
+ *
+ * @since 0.8.0
  * @status READY
+ * @category advanced
+ * @see http://uikit.myntra.com/components/virtual-grid
  */
 export default class VirtualGrid extends PureComponent<
   VirtualGridProps,

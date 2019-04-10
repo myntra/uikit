@@ -1,12 +1,12 @@
 {
-  "name": "@myntra/uikit-component-top-bar",
+  "name": "@myntra/uikit-component-table",
   "version": "0.7.1",
-  "main": "src/top-bar.tsx",
-  "module": "dist/top-bar.js",
-  "browser": "src/top-bar.tsx",
+  "main": "src/table.tsx",
+  "module": "dist/table.js",
+  "browser": "src/table.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
-  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/top-bar",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/table",
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
@@ -20,15 +20,15 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-component-bread-crumb": "link:../bread-crumb",
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",
-    "@myntra/uikit-component-list": "link:../list"
+    "@myntra/uikit-component-measure": "link:../measure",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
   },
-  "components": [
-    "src/top-bar-item.tsx"
-  ],
   "devDependencies": {
     "@types/react": "^16.8.13"
-  }
+  },
+  "components": [
+    "src/table-column.tsx"
+  ]
 }

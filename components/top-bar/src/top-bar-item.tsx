@@ -1,9 +1,8 @@
 import React from 'react'
-
-import classnames from './top-bar-item.module.scss'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
+import classnames from './top-bar-item.module.scss'
 
-interface TopBarItemProps extends BaseProps {
+export interface TopBarItemProps extends BaseProps {
   /**
    * Adds icon.
    */

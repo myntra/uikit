@@ -23,6 +23,6 @@
     "name-initials": "^0.1.3"
   },
   "devDependencies": {
-    "@types/react": "^16.8.10"
+    "@types/react": "^16.8.13"
   }
 }

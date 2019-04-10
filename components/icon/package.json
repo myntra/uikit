@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@myntra/svg": "link:../../packages/svg",
-    "@types/react": "^16.8.10",
+    "@types/react": "^16.8.13",
     "@znck/promised": "^1.0.4",
     "glob": "^7.1.3",
     "lodash.camelcase": "^4.3.0",

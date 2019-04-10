@@ -26,6 +26,6 @@
     "@myntra/uikit-design": "link:../../packages/uikit-design"
   },
   "devDependencies": {
-    "@types/react": "^16.8.10"
+    "@types/react": "^16.8.13"
   }
 }
