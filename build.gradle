@@ -10,11 +10,18 @@ buildscript {
     }
 }
 
+task install(type: Exec) {
+    commandLine 'pnpm', 'install', '--frozen-lockfile'
+}
+
 task build(type: Exec) {
-    commandLine 'npm', 'run', 'docs:build'
+    dependsOn install
+    commandLine 'npm', 'run', 'build'
 }
 
 task rpm(type: Rpm) {
+    dependsOn build
+
     packageName = 'uikit'
     version = '1.0.0'
     release = "$System.env.BRANCH"

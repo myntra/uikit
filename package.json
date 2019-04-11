@@ -27,7 +27,6 @@
     "test": "jest",
     "coverage": "jest --coverage",
     "coverage:open": "run-s coverage 'open coverage/lcov-report/index.html'",
-    "ci": "node scripts/jenkins-build.js",
     "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
     "update:develop": "git checkout develop && git rebase master && git push origin develop",
     "pre:publish": "npm run build",
