@@ -22,12 +22,10 @@ task install(type: Exec) {
 
 task build(type: Exec) {
     dependsOn install
-    commandLine 'npm', 'run', 'build'
+    commandLine 'npm', 'run', 'docs:build'
 }
 
 task rpm(type: Rpm) {
-    dependsOn build
-
     packageName = 'uikit'
     version = '1.0.0'
     release = "$System.env.BRANCH"
