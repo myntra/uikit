@@ -10,7 +10,13 @@ buildscript {
     }
 }
 
+task pnpm(type: Exec) {
+  commandLine 'npm', 'install', '--global', 'pnpm'
+}
+
 task install(type: Exec) {
+    dependsOn pnpm
+
     commandLine 'pnpm', 'install', '--frozen-lockfile'
 }
 
