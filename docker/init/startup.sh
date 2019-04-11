@@ -1,3 +1,5 @@
 #!/usr/bin/env bash
 
-npm run :serve -- docs/dist &> serve.log &
+npm install --global serve
+
+serve docs/dist &> serve.log &

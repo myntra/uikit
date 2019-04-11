@@ -1,4 +1,7 @@
 .git
+.gradle
+.vscode
+node_modules
 components
 packages
 themes
