@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-rm 200.html
+rm ../current/200.html
