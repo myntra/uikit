@@ -38,7 +38,8 @@
     "remark-squeeze-paragraphs": "^3.0.3",
     "remark-toc": "^5.1.1",
     "sass": "^1.17.3",
-    "sass-loader": "https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70"
+    "sass-loader": "https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70",
+    "webpack-filter-warnings-plugin": "^1.2.1"
   },
   "prettier": {
     "comma": "es5",

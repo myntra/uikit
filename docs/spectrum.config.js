@@ -24,8 +24,6 @@ module.exports = {
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
-    config.profile(true).stats('verbose')
-
     config.watchOptions({
       ignored: ['**/*.spec.js', '__codemod__']
     })

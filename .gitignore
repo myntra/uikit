@@ -3,6 +3,7 @@ coverage/
 docs~*.tar
 
 *.sprite
+*.pid
 
 # Created by https://www.gitignore.io/api/osx,node,code,sublimetext
 

@@ -1,0 +1,33 @@
+apply plugin: 'rpm'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.trigonic:gradle-rpm-plugin:1.4'
+    }
+}
+
+task build(type: Exec) {
+    commandLine 'npm', 'run', 'docs:build'
+}
+
+task rpm(type: Rpm) {
+    packageName = 'uikit'
+    version = '1.0.0'
+    release = "$System.env.BRANCH"
+    arch = NOARCH
+    os = LINUX
+
+    ext.root = "/myntra/uikit/releases/1.0.0/" + release
+
+    //path in generated rpm
+    into root
+
+    //source files
+    from('docs/dist'){
+        into '.'
+    }
+}
