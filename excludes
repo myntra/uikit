@@ -8,4 +8,8 @@ themes
 build
 test
 scripts
+@types
+docs/src
+docs/node_modules
+tar
 .*rc
