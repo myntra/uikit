@@ -30,4 +30,8 @@ task rpm(type: Rpm) {
     from('docs/dist'){
         into '.'
     }
+
+    from('.shuttle'){
+        into '.'
+    }
 }

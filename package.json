@@ -21,7 +21,7 @@
     ":eslint": "eslint",
     ":prettier": "prettier",
     ":stylelint": "stylelint",
-    ":serve": "serve docs/dist",
+    ":serve": "serve",
     "docs:dev": "cd docs && npm run serve",
     "docs:build": "cd docs && npm run build",
     "test": "jest",
