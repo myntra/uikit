@@ -2,4 +2,4 @@
 
 npm install --global serve
 
-serve -l 5000 docs/dist &> serve.log &
+serve -l 5000 /myntra/${APP}/docs/dist &> serve.log &
