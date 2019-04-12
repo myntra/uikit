@@ -29,7 +29,11 @@ describe('NavBar', () => {
 
     it('should render sub nav group', () => {
       const ID = [0]
-      const context = { setActiveGroup: jest.fn(), isActiveGroup: jest.fn().mockImplementation(id => id === ID) }
+      const context = {
+        setActiveGroup: jest.fn(),
+        isActiveGroup: jest.fn().mockImplementation((id) => id === ID),
+        isOpen: true,
+      }
       const wrapper = mount(
         <NavContext.Provider value={context}>
           <DepthContext.Provider value={{ depth: 1 }}>
@@ -55,7 +59,11 @@ describe('NavBar', () => {
     })
 
     it('should inject __$navId in sub NavBarGroup components', () => {
-      const context = { setActiveGroup: jest.fn(), isActiveGroup: jest.fn() }
+      const context = {
+        setActiveGroup: jest.fn(),
+        isActiveGroup: jest.fn(),
+        isOpen: true,
+      }
       const wrapper = mount(
         <NavContext.Provider value={context}>
           <NavBarGroup __$navId={[0]}>
@@ -79,15 +87,16 @@ describe('NavBar', () => {
     it('should collapse/expand component', () => {
       let activeNavId = [0, 0]
       const context = {
-        setActiveGroup: jest.fn().mockImplementation(
-          id => {
-            activeNavId = id
-            wrapper.update()
-          }
-        ),
+        setActiveGroup: jest.fn().mockImplementation((id) => {
+          activeNavId = id
+          wrapper.update()
+        }),
         isActiveGroup: jest
           .fn()
-          .mockImplementation(id => activeNavId[0] === id[0] && activeNavId[1] === id[1])
+          .mockImplementation(
+            (id) => activeNavId[0] === id[0] && activeNavId[1] === id[1]
+          ),
+        isOpen: true,
       }
 
       const wrapper = mount(

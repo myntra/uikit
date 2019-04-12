@@ -26,7 +26,7 @@ export default class TopBar extends PureComponent<
   static Item = Item
 
   state = {
-    isOpen: false
+    isOpen: false,
   }
 
   handleOpen = () => this.setState({ isOpen: true })
@@ -59,6 +59,7 @@ export default class TopBar extends PureComponent<
           <Dropdown
             down
             right
+            container
             isOpen={this.state.isOpen}
             onOpen={this.handleOpen}
             onClose={this.handleClose}

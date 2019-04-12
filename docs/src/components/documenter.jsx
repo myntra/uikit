@@ -58,7 +58,7 @@ export default class Documenter extends Component {
           <Button
             type="link"
             inheritTextColor
-            href={'https://bitbucket.com/myntra/uikit/' + docs.file}
+            href={'https://bitbucket.com/myntra/uikit/src/next/' + docs.file}
             target="_blank"
             rel="noopener noreferrer"
             title="Go to bitbucket.com"

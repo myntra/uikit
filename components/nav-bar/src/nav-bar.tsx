@@ -41,7 +41,13 @@ interface NavBarProps extends BaseProps {
    *
    * @since 0.10.0
    */
-  isActivePath?(navLinkPath: any, currentPath: any): boolean
+  isActivePath?(
+    navLinkPath: any,
+    currentPath: any,
+    options?: {
+      isGroup: boolean
+    }
+  ): boolean
 
   /**
    * Control NavBar state.
@@ -112,17 +118,19 @@ export default class NavBar extends PureComponent<
   static Item = NavBarItem
 
   static defaultProps = {
-    isActivePath(navLinkPath, currentPath) {
-      return navLinkPath === currentPath
+    isActivePath(navLinkPath, currentPath, { isGroup }) {
+      return isGroup && typeof currentPath === 'string'
+        ? currentPath.startsWith(navLinkPath)
+        : !!navLinkPath && navLinkPath === currentPath
     },
     renderLink({ href, children }) {
       return <LinkFromUIKitContext href={href}>{children}</LinkFromUIKitContext>
-    }
+    },
   }
 
   state = {
     isOpen: false,
-    activeGroup: ROOT_NAV_GROUP_ID
+    activeGroup: ROOT_NAV_GROUP_ID,
   }
 
   idPrefix: string
@@ -220,8 +228,8 @@ export default class NavBar extends PureComponent<
     }
   }
 
-  isActiveNavLinkPath = (navLinkPath: string): boolean => {
-    return this.isActivePath(navLinkPath, this.props.currentPath)
+  isActiveNavLinkPath = (navLinkPath: string, isGroup?: boolean): boolean => {
+    return this.isActivePath(navLinkPath, this.props.currentPath, { isGroup })
   }
 
   setActiveGroup = (id: number[]) => {
@@ -267,7 +275,7 @@ export default class NavBar extends PureComponent<
           renderLink: this.renderLink,
           isOpen: this.isOpen,
           onNavLinkClick: this.handleNavLinkClick,
-          setActiveGroup: this.setActiveGroup
+          setActiveGroup: this.setActiveGroup,
         }}
       >
         <nav
@@ -276,7 +284,7 @@ export default class NavBar extends PureComponent<
           {...this.attrs}
           id={`${this.idPrefix}nav`}
           className={classnames('nav', this.props.className, {
-            'is-open': this.isOpen
+            'is-open': this.isOpen,
           })}
           onClick={this.handleClick}
           onFocus={this.handleFocus}

@@ -5,7 +5,7 @@ $-nav-bar: merge(
   (
     icon-size: 16px,
     close-width: 56px,
-    open-width: 252px
+    open-width: 252px,
   ),
   $-nav-bar
 );
@@ -17,7 +17,7 @@ $-nav-bar: merge(
   height: 100%;
   overflow: hidden;
   background-color: white;
-  border-right: 1px solid ui-color(gray);
+  border-right: 1px solid ui-color('gray');
   transition: width 0.35s ease-in-out;
 
   @include extract($-nav-bar);
@@ -34,7 +34,7 @@ $-nav-bar: merge(
   }
 
   &:focus-visible {
-    outline: 1px dashed ui-color(primary, light);
+    outline: 1px dashed ui-color('primary', 'light');
   }
 
   .header {
@@ -51,7 +51,7 @@ $-nav-bar: merge(
     overflow: hidden;
     white-space: nowrap;
     background-color: white;
-    border-bottom: 1px solid ui-color(gray);
+    border-bottom: 1px solid ui-color('gray');
 
     img {
       display: inline-block;

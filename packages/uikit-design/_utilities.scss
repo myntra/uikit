@@ -49,6 +49,7 @@ $errors: ();
     @if map-has($surface, 'background-color') {
       @return map-get($surface, 'background-color');
     }
+
     @if map-has($surface, 'border-color') {
       @return map-get($surface, 'border-color');
     }
@@ -56,7 +57,6 @@ $errors: ();
 
   @return $surface;
 }
-
 
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
@@ -67,7 +67,7 @@ $errors: ();
 }
 
 @mixin not-implemented($name) {
-  _: throw-error('@#{$name}: NOT IMPLEMENTED');
+  --error-not-implemented: throw-error('@#{$name}: NOT IMPLEMENTED');
 }
 
 @mixin extract-border($border) {
@@ -111,6 +111,7 @@ $errors: ();
     @include not-implemented('extract-margin(#{$margin})');
   }
 }
+
 @mixin extract-padding($padding) {
   @if type-of($padding) == map {
     padding: map-get($padding, 'padding');
@@ -145,6 +146,7 @@ $errors: ();
   } @else if type-of($text) == map {
     color: map-get($text, 'color');
     white-space: map-get($text, 'white-space');
+
     @include extract-font($text);
   } @else {
     @include not-implemented('extract-text(#{$text})');
@@ -152,9 +154,9 @@ $errors: ();
 }
 
 @mixin extract-surface($surface) {
-  box-shadow: map-get($surface, 'box-shadow');
-  outline: map-get($surface, 'outline');
   filter: map-get($surface, 'filter');
+  outline: map-get($surface, 'outline');
+  box-shadow: map-get($surface, 'box-shadow');
 
   @include extract-background($surface);
   @include extract-border($surface);
@@ -165,6 +167,7 @@ $errors: ();
     @include extract-border($shape);
     @include extract-margin($shape);
     @include extract-padding($shape);
+
     transform: map-get($shape, 'transform');
   } @else {
     @include not-implemented('extract-shape(#{$text})');
@@ -192,21 +195,21 @@ $errors: ();
       background: $background;
     }
   } @else {
-    @include not-implemented("extract-background(#{$background})");
+    @include not-implemented('extract-background(#{$background})');
   }
 }
 
 @mixin extract($config) {
   @if map-has-key($config, 'shape') {
-    @include extract-shape(map-get($config, 'shape'))
+    @include extract-shape(map-get($config, 'shape'));
   }
 
   @if map-has-key($config, 'surface') {
-    @include extract-surface(map-get($config, 'surface'))
+    @include extract-surface(map-get($config, 'surface'));
   }
 
   @if map-has-key($config, 'text') {
-    @include extract-text(map-get($config, 'text'))
+    @include extract-text(map-get($config, 'text'));
   }
 }
 
@@ -253,7 +256,6 @@ $errors: ();
   @return $map1;
 }
 
-
 @function make-color(
   $base,
   $text,
@@ -262,7 +264,7 @@ $errors: ();
   $lighter: lighten($base, 40%),
   $darker: darken($base, 40%),
   $lightest: null,
-  $darkest: null,
+  $darkest: null
 ) {
   $_: assert(
     color,
@@ -276,13 +278,13 @@ $errors: ();
   );
 
   @return (
-    lightest: $lightest,
-    lighter: $lighter,
-    light: $light,
-    base: $base,
-    dark: $dark,
-    darker: $darker,
-    darkest: $darkest,
-    text: $text
+    'lightest': $lightest,
+    'lighter': $lighter,
+    'light': $light,
+    'base': $base,
+    'dark': $dark,
+    'darker': $darker,
+    'darkest': $darkest,
+    'text': $text
   );
 }

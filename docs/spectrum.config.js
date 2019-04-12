@@ -89,6 +89,9 @@ module.exports = {
       .end()
       .use('pre-mdx-loader')
       .loader(require.resolve('./tools/pre-mdx-helper-loader'))
+      .options({
+        basePath: path.dirname(__dirname)
+      })
       .end()
 
     config.module

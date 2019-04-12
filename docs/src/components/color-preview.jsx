@@ -8,10 +8,10 @@ export default function ColorPreview({ name, base, light, dark, lighter, darker,
   return (
     <Grid>
       <Grid.Column>
-        <ColorCard name={`${name}`} color={base} />
+        <ColorCard name={`${name} Dark`} color={dark} />
       </Grid.Column>
       <Grid.Column>
-        <ColorCard name={`${name} Dark`} color={dark} />
+        <ColorCard name={`${name}`} color={base} />
       </Grid.Column>
       <Grid.Column>
         <ColorCard name={`${name} Light`} color={light} />

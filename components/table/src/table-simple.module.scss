@@ -19,7 +19,7 @@
   border-spacing: 0;
   border-collapse: collapse;
   background-color: transparent;
-  border: 1px solid ui-color(gray);
+  border: 1px solid ui-color('gray');
 }
 
 div.table {
@@ -31,7 +31,7 @@ div.table {
 }
 
 .table .thead {
-  border-bottom: 2px solid ui-color(gray);
+  border-bottom: 2px solid ui-color('gray');
 }
 
 .table div.thead {
@@ -51,7 +51,7 @@ div.table {
 }
 
 .row:hover {
-  background-color: ui-color(primary, 'lightest');
+  background-color: ui-color('primary', 'lightest');
 }
 
 .table .col {
@@ -59,7 +59,7 @@ div.table {
   padding: 0.75rem;
   white-space: nowrap;
   vertical-align: middle;
-  border: 1px solid ui-color(gray);
+  border: 1px solid ui-color('gray');
 }
 
 .table .col.head {
@@ -67,7 +67,7 @@ div.table {
   top: 0;
   font-weight: bold;
   vertical-align: bottom;
-  background-color: ui-color(gray, 'light');
+  background-color: ui-color('gray', 'light');
 }
 
 .table .col.head::before,
@@ -80,17 +80,17 @@ div.table {
 
 .table .col.head::before {
   top: -1px;
-  border-top: 1px solid ui-color(gray);
+  border-top: 1px solid ui-color('gray');
 }
 
 .table .col.head::after {
   bottom: -1px;
-  border-bottom: 1px solid ui-color(gray);
+  border-bottom: 1px solid ui-color('gray');
 }
 
 .sentinel {
   position: absolute;
   width: 100%;
   margin-left: -1px;
-  border: 1px solid ui-color(gray);
+  border: 1px solid ui-color('gray');
 }

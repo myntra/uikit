@@ -1,0 +1,30 @@
+---
+layout: docs
+---
+
+import { META } from '@/uikit'
+import { AppLink } from '@spectrum'
+import { Table } from '@myntra/uikit'
+
+# Components
+
+Following is the list of all components available in UIKit.
+
+> **NOTE:** DO NOT USE **DEPRECATED** COMPONENTS.
+
+<Table data={META}>
+  <Table.Column label="Name" key="name">
+    {({ data: component }) => <AppLink to={component.path}>{component.name}</AppLink>}
+  </Table.Column>
+  <Table.Column label="Available" key="since">
+    {({ data: component }) => `v${component.since}+`}
+  </Table.Column>
+  <Table.Column label="Status" key="status">
+    {({ data: component }) => `${({
+      DEPRECATED: '💔',
+      EXPERIMENTAL: '️❤️',
+      REVIEWING: '💛',
+      READY: '💚'
+    })[component.status]} ${component.status}`}
+  </Table.Column>
+</Table>

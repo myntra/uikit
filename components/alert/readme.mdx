@@ -4,7 +4,7 @@ import Alert from './src/alert'
 
 <Documenter component={Alert}>
 
-```jsx preview editor
+```jsx preview
 <Alert>
   {'An alert message.'}
 </Alert>
@@ -14,32 +14,16 @@ import Alert from './src/alert'
 
 ## Appearances
 
-### Error Alert
+Alerts are used to convey messages to the user. There are different types of alerts:
 
 ```jsx preview
-<Alert type="error">An example of error alert.</Alert>
+<>
+  <Alert type="error">An example of error alert.</Alert>
+  <Alert type="warning">An example of warning alert.</Alert>
+  <Alert type="success">An example of success alert.</Alert>
+  <Alert type="primary">An example of primary alert.</Alert>
+</>
 ```
-
-### Warning Alert
-
-```jsx preview
-<Alert type="warning">An example of warning alert.</Alert>
-```
-
-### Success Alert
-
-```jsx preview
-<Alert type="success">An example of success alert.</Alert>
-```
-
-### Primary Alert
-
-It should be used to convey general information.
-
-```jsx preview
-<Alert type="primary">An example of primary alert.</Alert>
-```
-
 
 ## Dismissable Alert
 

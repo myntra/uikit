@@ -2,7 +2,7 @@ const yaml = require('./yaml')
 const fs = require('fs')
 const path = require('path')
 
-module.exports = function (filename) {
+module.exports = function(filename) {
   if (!fs.existsSync(filename)) {
     console.log('No tokens.yml file found.')
     process.exit(0)
@@ -22,7 +22,9 @@ module.exports = function (filename) {
   }
 
   Object.entries(formats).forEach(([ext, handler]) => {
-    handler({ data, tokens }, content => fs.writeFileSync(path.resolve(dir, 'tokens.' + ext), content))
+    handler({ data, tokens }, (content) =>
+      fs.writeFileSync(path.resolve(dir, 'tokens.' + ext), content)
+    )
   })
 }
 
@@ -34,9 +36,10 @@ function prepare(tokens) {
 
     for (const id in tokens.color) {
       const { value } = tokens.color[id]
-      const [dark, base, light, lighter] = value
-      const text = base.substr(0, base.length - 1).replace('hsl', 'hsla') + ', 0.87)'
-      colors[id] = { dark, base, text, light, lighter }
+      const [dark, base, light, lighter, lightest] = value
+      const text =
+        base.substr(0, base.length - 1).replace('hsl', 'hsla') + ', 0.87)'
+      colors[id] = { dark, base, text, light, lighter, lightest }
     }
 
     normalizedTokens.colors = colors
@@ -60,14 +63,16 @@ function prepare(tokens) {
   }
 
   const fontFaces = {
-    default: null
+    default: null,
   }
 
   if (tokens['font-family']) {
     for (const id in tokens['font-family']) {
       const { value } = tokens['font-family'][id]
 
-      fontFaces[id] = value.map(value => / /.test(value) ? `'${value}'` : value)
+      fontFaces[id] = value.map((value) =>
+        / /.test(value) ? `'${value}'` : value
+      )
     }
     normalizedTokens['font-faces'] = fontFaces
   }
@@ -89,7 +94,8 @@ function prepare(tokens) {
       const style = {}
 
       if ('font-family' in value) {
-        if (!fontFaces[value['font-family']]) throw new Error(`Unknown font-family '${value['font-family']}'`)
+        if (!fontFaces[value['font-family']])
+          throw new Error(`Unknown font-family '${value['font-family']}'`)
 
         style['font-family'] = fontFaces[value['font-family']]
       }

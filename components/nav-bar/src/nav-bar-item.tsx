@@ -58,7 +58,7 @@ export default function NavBarItem({
   const render = ({
     onNavLinkClick,
     isActivePath,
-    renderLink
+    renderLink,
   }: NavBarContext) => (
     <li
       role="link"
@@ -78,13 +78,15 @@ export default function NavBarItem({
       {...props}
       className={classnames('item', className, {
         'is-active': isActivePath && isActivePath(to),
-        'no-icon': !renderIcon && !icon
+        'no-icon': !renderIcon && !icon,
       })}
     >
       <div className={classnames('item-icon')}>
         {renderIcon ? renderIcon() : icon ? <Icon name={icon} /> : null}
       </div>
-      {to ? renderLink({ href: to, children }) : children}
+      {to && !props['data-is-have-group']
+        ? renderLink({ href: to, children })
+        : children}
     </li>
   )
 

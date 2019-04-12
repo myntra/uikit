@@ -6,14 +6,14 @@ $-button: merge(
     text: (
       font-size: ui-font-size(base),
       text-transform: uppercase,
-      white-space: nowrap
+      white-space: nowrap,
     ),
     shape: (
-      padding: ui-context-size(s) ui-context-size('2xl')
+      padding: ui-context-size(s) ui-context-size('2xl'),
     ),
     surface: (
-      border-radius: 2rem
-    )
+      border-radius: 2rem,
+    ),
   ),
   $-button,
   2
@@ -24,19 +24,19 @@ $-button__states: merge(
   (
     disabled: (
       text: (
-        color: ui-text-color(dark, disabled)
+        color: ui-text-color(dark, disabled),
       ),
       surface: (
-        background-color: ui-color(gray, lighter),
-        border-color: ui-color(gray, dark)
-      )
+        background-color: ui-color('gray', lighter),
+        border-color: ui-color('gray', 'dark'),
+      ),
     ),
     hover: (),
     active: (
       surface: (
-        box-shadow: ui-shadow(flat)
-      )
-    )
+        box-shadow: ui-shadow(flat),
+      ),
+    ),
   ),
   $-button__states,
   2
@@ -47,53 +47,53 @@ $-button__variants: merge(
   (
     primary: (
       text: (
-        color: ui-text-color(light)
+        color: ui-text-color(light),
       ),
       surface: (
-        background-color: ui-color(primary),
-        border: solid 1px ui-color(primary)
-      )
+        background-color: ui-color('primary'),
+        border: solid 1px ui-color('primary'),
+      ),
     ),
     secondary: (
       text: (
-        color: ui-text-color(primary)
+        color: ui-text-color('primary'),
       ),
       surface: (
         background-color: transparent,
-        border: solid 1px ui-color(primary)
+        border: solid 1px ui-color('primary'),
       ),
       hover: (
         surface: (
-          background-color: ui-color(primary, lighter)
-        )
-      )
+          background-color: ui-color('primary', 'light' er),
+        ),
+      ),
     ),
     link: (
       text: (
-        color: ui-text-color(primary)
+        color: ui-text-color('primary'),
       ),
       surface: (
         background-color: transparent,
-        border: none
+        border: none,
       ),
       shape: (
         padding-left: 0,
-        padding-right: 0
+        padding-right: 0,
       ),
       disabled: (
         text: (
-          color: ui-text-color(dark, disabled)
+          color: ui-text-color(dark, disabled),
         ),
         surface: (
-          background-color: transparent
-        )
+          background-color: transparent,
+        ),
       ),
       active: (
         text: (
-          color: ui-color(primary, dark)
-        )
-      )
-    )
+          color: ui-color('primary', 'dark'),
+        ),
+      ),
+    ),
   ),
   $-button__variants,
   2
@@ -104,8 +104,8 @@ $-button--icon: () !default;
 $-button--icon: merge(
   (
     shape: (
-      padding: ui-context-size(s)
-    )
+      padding: ui-context-size(s),
+    ),
   ),
   $-button--icon
 );
@@ -115,8 +115,8 @@ $-button--primary-icon: () !default;
 $-button--primary-icon: merge(
   (
     shape: (
-      margin-right: ui-context-size(xs)
-    )
+      margin-right: ui-context-size(xs),
+    ),
   ),
   $-button--primary-icon
 );
@@ -126,8 +126,8 @@ $-button--secondary-icon: () !default;
 $-button--secondary-icon: merge(
   (
     shape: (
-      margin-left: ui-context-size(xs)
-    )
+      margin-left: ui-context-size(xs),
+    ),
   ),
   $-button--secondary-icon
 );
@@ -162,7 +162,7 @@ $-button--secondary-icon: merge(
   }
 
   &:focus-visible {
-    outline: 1px dashed ui-color(primary, light);
+    outline: 1px dashed ui-color('primary', 'light');
   }
 
   @each $state in $states {

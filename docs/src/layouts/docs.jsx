@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import DefaultLayout from './default-layout'
 
-import './docs-page.css'
+import './docs.css'
 
 export default function DocsPageLayout({ children }) {
   return (

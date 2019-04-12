@@ -23,7 +23,7 @@
   margin: 0.07em 0.015em -0.07em 0.18em;
   cursor: pointer;
   background: white;
-  border: 0.0714em solid ui-color(gray, 'dark');
+  border: 0.0714em solid ui-color('gray', 'dark');
   border-radius: 0.08em;
   transition: box-shadow 0.2s, background-color 0.2s;
 }
@@ -49,7 +49,7 @@
   }
 
   &[disabled] + .checkbox {
-    background-color: ui-color(gray);
-    border-color: ui-color(gray, 'dark');
+    background-color: ui-color('gray');
+    border-color: ui-color('gray', 'dark');
   }
 }

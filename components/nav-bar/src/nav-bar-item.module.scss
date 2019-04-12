@@ -4,7 +4,7 @@ $-nav-bar-item: () !default;
 $-nav-bar-item: merge(
   (
     icon-size: 24px,
-    space: ui-relative-size(xs)
+    space: ui-relative-size(xs),
   ),
   $-nav-bar-item
 );
@@ -12,8 +12,8 @@ $-nav-bar-item: merge(
 .item {
   display: flex;
   align-items: center;
-  padding: 0.25rem 0.5rem;
-  margin: 0.25rem -0.5rem;
+  padding: 0.25rem 0.25rem; // 24px + (4px=0.25rem * 2) = 32px width.
+  margin: 0.25rem -0.282rem; // Would give correct 32px width for icon.
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -22,7 +22,7 @@ $-nav-bar-item: merge(
   border-radius: 2rem;
 
   &:hover {
-    background-color: ui-color(gray, lightest);
+    background-color: ui-color('gray', lightest);
   }
 
   &:focus,
@@ -31,7 +31,7 @@ $-nav-bar-item: merge(
   }
 
   &:focus-visible {
-    outline: 1px dashed ui-color(primary, light);
+    outline: 1px dashed ui-color('primary', 'light');
   }
 
   a {
@@ -44,8 +44,8 @@ $-nav-bar-item: merge(
     outline: none;
   }
 
-  .is-active {
-    background-color: ui-color(primary, lighter);
+  &.is-active {
+    background-color: ui-color('primary', 'light' er);
   }
 
   .item-icon {

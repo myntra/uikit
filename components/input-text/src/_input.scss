@@ -4,7 +4,7 @@
   color: ui-text-color('dark');
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid ui-color(gray, 'dark');
+  border-bottom: 1px solid ui-color('gray', 'dark');
 
   &:focus {
     border-bottom: 1px solid ui-color('primary');

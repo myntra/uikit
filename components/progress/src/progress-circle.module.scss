@@ -49,17 +49,17 @@
 }
 
 .info {
-  --u-progress-color: #{ui-color(primary)};
+  --u-progress-color: #{ui-color('primary')};
 }
 
 .success {
-  --u-progress-color: #{ui-color(success)};
+  --u-progress-color: #{ui-color('success')};
 }
 
 .warning {
-  --u-progress-color: #{ui-color(warning)};
+  --u-progress-color: #{ui-color('warning')};
 }
 
 .danger {
-  --u-progress-color: #{ui-color(error)};
+  --u-progress-color: #{ui-color('error')};
 }

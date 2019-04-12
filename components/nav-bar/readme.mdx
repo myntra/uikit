@@ -18,21 +18,6 @@ import NavBar from './src/nav-bar'
 
 </Documenter>
 
-## Notes to Designers
-
-- Do not add more than 7 top level nav links.
-
-## Notes to Developers
-
-- If you are rendering any focusable item in `<NavBar.Item>`, make
-  sure to add `tabIndex="-1"` to prevent duplicate tab key trap in same item.
-
-  ```jsx
-  <NavBar.Item>
-    <a href="#top" tabIndex="-1">Scroll to top</a>
-  </NavBar.Item>
-  ```
-
 ## Examples & Use Cases
 
 ### Browser Navigation
@@ -63,10 +48,6 @@ const [location, setLocation] = useState('/foo');
 </NavBar>
 ```
 
-### Integration with Spectrum
-
-Add UIKit plugin using `spectrum add uikit`, it would auto-configure everything.
-
 ### Integration with ReduxFirstRouter
 
 ```jsx
@@ -91,6 +72,22 @@ export default connect(
   })
 )(MyApplication)
 ```
+
+
+## Notes to Designers
+
+- Do not add more than 7 top level nav links.
+
+## Notes to Developers
+
+- If you are rendering any focusable item in `<NavBar.Item>`, make
+  sure to add `tabIndex="-1"` to prevent duplicate tab key trap in same item.
+
+  ```jsx
+  <NavBar.Item>
+    <a href="#top" tabIndex="-1">Scroll to top</a>
+  </NavBar.Item>
+  ```
 
 ## Sub-components
 

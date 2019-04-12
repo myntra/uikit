@@ -1,144 +1,149 @@
 $-colors: (
-  primary: (
-    dark: #2f2b78,
-    base: #4f47c8,
-    text: hsla(244, 65, 78, 0.87),
-    light: rgba(#4f47c8, 0.87),
-    lighter: hsl(244, 8, 97)
+  'primary': (
+    'dark': hsl(244, 64, 47),
+    'base': hsl(244, 65, 78),
+    'text': hsla(244, 65, 78, 0.87),
+    'light': hsl(244, 35, 87),
+    'lighter': hsl(244, 8, 97),
+    'lightest': undefined,
   ),
-  green: (
-    dark: hsl(137, 47, 43),
-    base: hsl(137, 48, 72),
-    text: hsla(137, 48, 72, 0.87),
-    light: hsl(137, 25, 83),
-    lighter: hsl(137, 9, 93)
+  'green': (
+    'dark': hsl(137, 47, 43),
+    'base': hsl(137, 48, 72),
+    'text': hsla(137, 48, 72, 0.87),
+    'light': hsl(137, 25, 83),
+    'lighter': hsl(137, 9, 93),
+    'lightest': undefined,
   ),
-  yellow: (
-    dark: hsl(40, 65, 43),
-    base: hsl(40, 65, 50),
-    text: hsla(40, 65, 50, 0.87),
-    light: hsl(40, 38, 96),
-    lighter: hsl(40, 16, 98)
+  'yellow': (
+    'dark': hsl(40, 65, 43),
+    'base': hsl(40, 65, 94),
+    'text': hsla(40, 65, 94, 0.87),
+    'light': hsl(40, 38, 96),
+    'lighter': hsl(40, 16, 98),
+    'lightest': undefined,
   ),
-  red: (
-    dark: hsl(2, 51, 50),
-    base: hsl(2, 51, 83),
-    text: hsla(2, 51, 83, 0.87),
-    light: hsl(2, 32, 90),
-    lighter: hsl(2, 11, 96)
+  'red': (
+    'dark': hsl(2, 51, 50),
+    'base': hsl(2, 51, 83),
+    'text': hsla(2, 51, 83, 0.87),
+    'light': hsl(2, 32, 90),
+    'lighter': hsl(2, 11, 96),
+    'lightest': undefined,
   ),
-  gray: (
-    dark: hsl(2, 51, 50),
-    base: hsl(2, 51, 83),
-    text: hsla(2, 51, 83, 0.87),
-    light: hsl(2, 32, 90),
-    lighter: hsl(2, 11, 96)
-  )
+  'gray': (
+    'dark': hsl(2, 51, 50),
+    'base': hsl(2, 51, 83),
+    'text': hsla(2, 51, 83, 0.87),
+    'light': hsl(2, 32, 90),
+    'lighter': hsl(2, 11, 96),
+    'lightest': hsl(2, 11, 96),
+  ),
 );
 $-text-colors: (
-  dark: (
-    default: rgba(0, 0, 0, 0.87),
-    disabled: rgba(0, 0, 0, 0.27),
-    trivial: rgba(0, 0, 0, 0.54)
+  'dark': (
+    'default': rgba(0, 0, 0, 0.87),
+    'disabled': rgba(0, 0, 0, 0.27),
+    'trivial': rgba(0, 0, 0, 0.54),
   ),
-  light: (
-    default: rgba(255, 255, 255, 0.87),
-    disabled: rgba(255, 255, 255, 0.27),
-    trivial: rgba(255, 255, 255, 0.54)
-  )
+  'light': (
+    'default': rgba(255, 255, 255, 0.87),
+    'disabled': rgba(255, 255, 255, 0.27),
+    'trivial': rgba(255, 255, 255, 0.54),
+  ),
 );
 $-font-faces: (
-  default: (
+  'default': (
     Roboto,
-    sans-serif
-  )
+    sans-serif,
+  ),
 );
 $-shadows: (
-  flat: none,
-  raised: 0 3px 11px 0 rgba(0, 0, 0, 0.21)
+  'flat': none,
+  'raised': 0 3px 11px 0 rgba(0, 0, 0, 0.21),
 );
 $-text-styles: (
-  title: (
-    font-family: (
+  'title': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 28px,
-    font-weight: 700
+    'font-size': 28px,
+    'font-weight': 700,
   ),
-  h1: (
-    font-family: (
+  'h1': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 24px,
-    font-weight: 400
+    'font-size': 24px,
+    'font-weight': 400,
   ),
-  h2: (
-    font-family: (
+  'h2': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 20px,
-    font-weight: 500
+    'font-size': 20px,
+    'font-weight': 500,
   ),
-  h3: (
-    font-family: (
+  'h3': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 16px,
-    font-weight: 400
+    'font-size': 16px,
+    'font-weight': 400,
   ),
-  h4: (
-    font-family: (
+  'h4': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 14px,
-    font-weight: 700
+    'font-size': 14px,
+    'font-weight': 700,
   ),
-  body: (
-    font-family: (
+  'body': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 14px,
-    font-weight: 400
+    'font-size': 14px,
+    'font-weight': 400,
   ),
-  p: (
-    font-family: (
+  'p': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 12px,
-    font-weight: 400
+    'font-size': 12px,
+    'font-weight': 400,
   ),
-  paragraph: (
-    font-family: (
+  'paragraph': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 12px,
-    font-weight: 400
+    'font-size': 12px,
+    'font-weight': 400,
   ),
-  caption: (
-    font-family: (
+  'caption': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 10px,
-    font-weight: 400
+    'font-size': 10px,
+    'font-weight': 400,
   ),
-  button: (
-    font-family: (
+  'button': (
+    'font-family': (
       Roboto,
-      sans-serif
+      sans-serif,
     ),
-    font-size: 12px,
-    font-weight: 500,
-    text-transform: uppercase
-  )
+    'font-size': 12px,
+    'font-weight': 500,
+    'text-transform': uppercase,
+  ),
 );
 $-sizes: (
   '2xs': 4px,
@@ -148,6 +153,6 @@ $-sizes: (
   'm': 20px,
   'l': 24px,
   'xl': 32px,
-  '2xl': 40px
+  '2xl': 40px,
 );
 $-vertical-grid-size: 16px;

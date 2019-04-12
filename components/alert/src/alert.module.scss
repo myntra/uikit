@@ -4,11 +4,11 @@ $-alert: () !default;
 $-alert: merge(
   (
     shape: (
-      border-radius: ui-relative-border-radius()
+      border-radius: ui-relative-border-radius(),
     ),
     surface: (
-      border: 1px solid
-    )
+      border: 1px solid,
+    ),
   ),
   $-alert
 );
@@ -18,7 +18,7 @@ $-alert: merge(
     primary: primary,
     error: red,
     warning: yellow,
-    success: green
+    success: green,
   );
 
   display: flex;
@@ -26,6 +26,7 @@ $-alert: merge(
   align-items: flex-start;
   padding: ui-relative-size(xs);
   padding-left: ui-relative-size();
+  margin-bottom: 0.25rem;
   color: ui-text-color(light);
 
   @include extract($-alert);

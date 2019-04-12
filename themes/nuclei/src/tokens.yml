@@ -31,6 +31,15 @@ color:
       - hsl(2, 32, 90)
       - hsl(2, 11, 96)
 
+  gray:
+    name: Red
+    value:
+      - hsl(2, 51, 50)
+      - hsl(2, 51, 83)
+      - hsl(2, 32, 90)
+      - hsl(2, 11, 96)
+      - hsl(2, 11, 96)
+
 text-color:
   dark:
     name: Black

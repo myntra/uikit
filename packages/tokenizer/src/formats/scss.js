@@ -5,7 +5,9 @@ function toString(any) {
     return `(${any.join(', ')})`
   }
   if (typeof any === 'object') {
-    return `(${Object.entries(any).map(([name, value]) => `${name}: ${toString(value)}`).join(',')})`
+    return `(${Object.entries(any)
+      .map(([name, value]) => `'${name}': ${toString(value)}`)
+      .join(',')})`
   }
 
   return any

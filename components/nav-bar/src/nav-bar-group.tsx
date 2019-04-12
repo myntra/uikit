@@ -29,7 +29,7 @@ interface NavBarGroupContext {
 }
 
 export const Context = createContext<NavBarGroupContext>({
-  depth: 0
+  depth: 0,
 })
 
 function injectNavId(children: any, id: number[]) {
@@ -55,18 +55,23 @@ export default function NavBarGroup({
   children,
   className,
   __$navId: id,
+  to,
   ...props
 }: NavBarGroupProps) {
   function render(
     depth: number,
     setActiveGroup: any,
-    isActiveGroup: (id: any) => boolean
+    isActiveGroup: (id: any) => boolean,
+    isActivePath: (to: any, isGroup?: boolean) => boolean,
+    isOpen: boolean
   ) {
     return depth > 0 ? (
       <>
         <NavBarItem
           {...props}
-          className={className}
+          className={classnames(className, {
+            'is-active': to && isActivePath(to, true),
+          })}
           onActivation={(event) => {
             // Stop event propagation so parent NavBar.Group is not triggered.
             event.stopPropagation()
@@ -98,7 +103,7 @@ export default function NavBarGroup({
             />
           </div>
         </NavBarItem>
-        {isActiveGroup(id) && (
+        {isOpen && isActiveGroup(id) && (
           <Context.Provider value={{ depth: depth + 1 }}>
             <ul className={classnames('group')} key={id.join('.')}>
               {injectNavId(children, id)}
@@ -116,16 +121,20 @@ export default function NavBarGroup({
   }
 
   if (CAN_USE_HOOKS) {
-    const { setActiveGroup, isActiveGroup } = useContext(NavBarContext)
+    const { setActiveGroup, isActiveGroup, isOpen, isActivePath } = useContext(
+      NavBarContext
+    )
     const { depth } = useContext(Context)
 
-    return render(depth, setActiveGroup, isActiveGroup)
+    return render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
   } else {
     return (
       <NavBarContext.Consumer>
-        {({ setActiveGroup, isActiveGroup }) => (
+        {({ setActiveGroup, isActiveGroup, isOpen, isActivePath }) => (
           <Context.Consumer>
-            {({ depth }) => render(depth, setActiveGroup, isActiveGroup)}
+            {({ depth }) =>
+              render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
+            }
           </Context.Consumer>
         )}
       </NavBarContext.Consumer>

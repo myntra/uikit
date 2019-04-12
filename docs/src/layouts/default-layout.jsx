@@ -16,7 +16,6 @@ function DefaultLayout({ router, children, goto }) {
           tabIndex={1}
           currentPath={router.location.pathname}
           onNavLinkClick={({ to }) => goto(to, router.location.routesMap)}
-          isActivePath={(item, currentPath) => item && item.startsWith(currentPath)}
           title="UIKit | Myntra"
           className="layout-nav"
           renderLink={({ href, children, ...props }) => (
@@ -25,11 +24,14 @@ function DefaultLayout({ router, children, goto }) {
             </AppLink>
           )}
         >
+          <NavBar.Item to="/" icon="home">
+            Home
+          </NavBar.Item>
           <NavBar.Group title="Guidelines" icon="pencil-paintbrush">
             <NavBar.Item to="/guide/colors">Colors</NavBar.Item>
           </NavBar.Group>
-          <NavBar.Group title="Components" icon="cubes">
-            <NavBar.Item key="_" to="/components">
+          <NavBar.Group title="Components" icon="cubes" to="/components">
+            <NavBar.Item key="_" to="/components/">
               - Index -
             </NavBar.Item>
             {META.map(component => (
@@ -38,6 +40,14 @@ function DefaultLayout({ router, children, goto }) {
               </NavBar.Item>
             ))}
           </NavBar.Group>
+          <NavBar.Group title="Spectrum" icon="box" to="/spectrum">
+            <NavBar.Item key="_" to="/spectrum/">
+              Getting Started
+            </NavBar.Item>
+          </NavBar.Group>
+          <NavBar.Item to="/contributing" icon="people-carry">
+            Contributing
+          </NavBar.Item>
         </NavBar>
       )}
       renderTopBar={() => (

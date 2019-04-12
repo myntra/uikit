@@ -13,7 +13,7 @@
 
 .required {
   padding-left: 2px;
-  color: ui-text-color(red);
+  color: ui-text-color('red');
 }
 
 .meta {
@@ -34,5 +34,5 @@
 }
 
 .meta > [role='alert'] {
-  color: ui-text-color(red);
+  color: ui-text-color('red');
 }
