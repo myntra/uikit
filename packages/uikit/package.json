@@ -14,10 +14,35 @@
     "src/",
     "dist/",
     "bin/",
-    "*.codemod.js"
+    "*.codemod.js",
+    "*.scss"
   ],
   "dependencies": {
+    "@myntra/uikit-component-alert": "link:../../components/alert",
+    "@myntra/uikit-component-avatar": "link:../../components/avatar",
+    "@myntra/uikit-component-badge": "link:../../components/badge",
+    "@myntra/uikit-component-bread-crumb": "link:../../components/bread-crumb",
     "@myntra/uikit-component-button": "link:../../components/button",
-    "@myntra/uikit-component-icon": "link:../../components/icon"
+    "@myntra/uikit-component-click-away": "link:../../components/click-away",
+    "@myntra/uikit-component-dropdown": "link:../../components/dropdown",
+    "@myntra/uikit-component-error-boundary": "link:../../components/error-boundary",
+    "@myntra/uikit-component-field": "link:../../components/field",
+    "@myntra/uikit-component-grid": "link:../../components/grid",
+    "@myntra/uikit-component-group": "link:../../components/group",
+    "@myntra/uikit-component-icon": "link:../../components/icon",
+    "@myntra/uikit-component-image": "link:../../components/image",
+    "@myntra/uikit-component-input-checkbox": "link:../../components/input-checkbox",
+    "@myntra/uikit-component-input-text": "link:../../components/input-text",
+    "@myntra/uikit-component-list": "link:../../components/list",
+    "@myntra/uikit-component-measure": "link:../../components/measure",
+    "@myntra/uikit-component-nav-bar": "link:../../components/nav-bar",
+    "@myntra/uikit-component-page": "link:../../components/page",
+    "@myntra/uikit-component-portal": "link:../../components/portal",
+    "@myntra/uikit-component-progress": "link:../../components/progress",
+    "@myntra/uikit-component-s3-upload": "link:../../components/input-s3-file",
+    "@myntra/uikit-component-table": "link:../../components/table",
+    "@myntra/uikit-component-top-bar": "link:../../components/top-bar",
+    "@myntra/uikit-component-virtual-grid": "link:../../components/virtual-grid",
+    "@myntra/uikit-component-virtual-list": "link:../../components/virtual-list"
   }
 }

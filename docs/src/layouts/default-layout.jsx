@@ -1,14 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import NavBar from '@uikit/nav-bar'
-import TopBar from '@uikit/top-bar'
-import Page from '@uikit/page'
-import BreadCrumb from '@uikit/bread-crumb'
+import { Alert, Page, NavBar, BreadCrumb, TopBar, ErrorBoundary } from '@myntra/uikit'
 import { META } from '../uikit'
 import { withRootState, AppLink } from '@spectrum'
 import { pathToAction } from 'redux-first-router' // TODO: Add this to spectrum. '@spectrum/router:push'
 
-import './default-layout.css'
+import './default-layout.scss'
 
 function DefaultLayout({ router, children, goto }) {
   return (
@@ -28,12 +25,15 @@ function DefaultLayout({ router, children, goto }) {
             </AppLink>
           )}
         >
+          <NavBar.Group title="Guidelines" icon="pencil-paintbrush">
+            <NavBar.Item to="/guide/colors">Colors</NavBar.Item>
+          </NavBar.Group>
           <NavBar.Group title="Components" icon="cubes">
             <NavBar.Item key="_" to="/components">
               - Index -
             </NavBar.Item>
             {META.map(component => (
-              <NavBar.Item key={component.name} to={`${PATH_PREFIX}${component.path}`}>
+              <NavBar.Item key={component.name} to={component.path}>
                 {component.name}
               </NavBar.Item>
             ))}
@@ -74,7 +74,19 @@ function DefaultLayout({ router, children, goto }) {
         </TopBar>
       )}
     >
-      <main className="layout-main">{children}</main>
+      <main className="layout-main">
+        <ErrorBoundary
+          renderFallback={({ error, info }) => (
+            <Alert>
+              {error.message}
+              <br />
+              <pre>{info.componentStack}</pre>
+            </Alert>
+          )}
+        >
+          {children}
+        </ErrorBoundary>
+      </main>
     </Page>
   )
 }

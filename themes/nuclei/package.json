@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-theme-nuclei",
   "version": "0.7.1",
-  "main": "src/index.ts",
+  "main": "src/tokens.js",
   "module": "dist/nuclei.js",
-  "browser": "src/index.ts",
+  "browser": "src/tokens.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/themes/nuclei",

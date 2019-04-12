@@ -11,7 +11,6 @@ const { version } = require('react')
 const VERSION = parseFloat(version)
 
 module.exports = {
-  basePath: `/${process.env.BRANCH === 'master' ? '/' : process.env.BRANCH || '/'}`,
   lintOnSave: false,
   define: {
     PATH_PREFIX: JSON.stringify(process.env.BRANCH === 'master' || !process.env.BRANCH ? '' : '/' + process.env.BRANCH),
@@ -29,7 +28,7 @@ module.exports = {
     })
 
     /* eslint-disable prettier/prettier */
-    config.resolve.alias.set('@uikit', componentsDir)
+    config.resolve.alias.set('@uikit', componentsDir).set('@theme', '@myntra/uikit-theme-nuclei')
     components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name))
     themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name))

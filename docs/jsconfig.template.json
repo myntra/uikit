@@ -2,7 +2,11 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "paths": {
-      "@myntra/*": ["../packages/*", "../components/uikit-component-*", "../themes/uikit-theme-*"]
+      "@myntra/uikit-components-*": ["../components/*"],
+      "@myntra/uikit-theme-*": ["../themes/*"],
+      "@myntra/*": ["../packages/*"],
+      "@theme": ["../themes/nuclei/src/tokens.js"],
+      "@theme/*": ["../themes/nuclei/*"]
     }
   }
 }

@@ -1,0 +1,30 @@
+---
+layout: docs-page
+---
+
+import ColorPreview from '@components/color-preview'
+import tokens from '@theme'
+
+# Colors
+
+The SCM color palette is designed and implemented in a themeable manner.
+
+- The colours are equal in status. They always appear in full tone and may not be darkened, lightened or displayed transparently.
+- The color variables are determined by common roles and usage; it is not based singularly on a color value (i.e. unique hex code).
+- The same color value may be assigned to multiple variables in a theme's palette when the values have distinctly different roles.
+
+## Primary Color
+
+<ColorPreview name="Primary" {...tokens.colors.primary} />
+
+## Green
+
+<ColorPreview name="Green" {...tokens.colors.green} />
+
+## Red
+
+<ColorPreview name="Red" {...tokens.colors.red} />
+
+## Yellow
+
+<ColorPreview name="Yellow" {...tokens.colors.yellow} />
