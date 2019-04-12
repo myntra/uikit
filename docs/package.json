@@ -5,7 +5,6 @@
   "scripts": {
     "serve": "spectrum-cli-service serve",
     "build": "spectrum-cli-service build",
-    "postbuild": "cp dist/index.html dist/200.html",
     "lint": "spectrum-cli-service lint",
     "setup:ide": "spectrum-cli-service ide",
     "setup:inspect": "spectrum-cli-service inspect"
@@ -20,12 +19,12 @@
   },
   "devDependencies": {
     "@mdx-js/loader": "^0.17.5",
-    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.55",
-    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.55",
-    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.55",
-    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.55",
-    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.55",
-    "@myntra/spectrum-cli-service": "^2.0.0-alpha.55",
+    "@myntra/spectrum-cli-plugin-babel": "^2.0.0-alpha.56",
+    "@myntra/spectrum-cli-plugin-eslint": "^2.0.0-alpha.56",
+    "@myntra/spectrum-cli-plugin-redux": "^2.0.0-alpha.56",
+    "@myntra/spectrum-cli-plugin-router": "^2.0.0-alpha.56",
+    "@myntra/spectrum-cli-plugin-typescript": "^2.0.0-alpha.56",
+    "@myntra/spectrum-cli-service": "^2.0.0-alpha.56",
     "autoprefixer": "^9.4.9",
     "front-matter": "^3.0.1",
     "loader-utils": "^1.2.3",
