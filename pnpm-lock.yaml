@@ -429,7 +429,7 @@ importers:
       remark-squeeze-paragraphs: ^3.0.3
       remark-toc: ^5.1.1
       sass: ^1.17.3
-      sass-loader: 'https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70'
+      sass-loader: 'git+https://github.com/webpack-contrib/sass-loader.git#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70'
       webpack-filter-warnings-plugin: ^1.2.1
   packages/classnames-loader:
     dependencies:
@@ -928,7 +928,6 @@ packages:
     peerDependencies:
       webpack: ^3.0.0 || ^4.0.0
     resolution:
-      registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://codeload.github.com/webpack-contrib/sass-loader/tar.gz/6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70'
     version: 7.1.0
   registry.npmjs.org/@babel/code-frame/7.0.0:
@@ -22700,7 +22699,6 @@ packages:
       tapable: registry.npmjs.org/tapable/1.1.3
       terser-webpack-plugin: registry.npmjs.org/terser-webpack-plugin/1.2.3_webpack@4.29.6
       watchpack: registry.npmjs.org/watchpack/1.6.0
-      webpack: registry.npmjs.org/webpack/4.29.6_webpack@4.29.6
       webpack-sources: registry.npmjs.org/webpack-sources/1.3.0
     dev: true
     engines:
