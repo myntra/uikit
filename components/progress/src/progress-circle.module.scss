@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 .circle {
   position: relative;
@@ -53,13 +53,13 @@
 }
 
 .success {
-  --u-progress-color: #{ui-color('success')};
+  --u-progress-color: #{ui-color('green')};
 }
 
 .warning {
-  --u-progress-color: #{ui-color('warning')};
+  --u-progress-color: #{ui-color('yellow')};
 }
 
 .danger {
-  --u-progress-color: #{ui-color('error')};
+  --u-progress-color: #{ui-color('red')};
 }

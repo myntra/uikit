@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 $-nav-bar-item: () !default;
 $-nav-bar-item: merge(
@@ -20,6 +20,8 @@ $-nav-bar-item: merge(
   list-style: none;
   cursor: pointer;
   border-radius: 2rem;
+
+  @include use-text-style('body');
 
   &:hover {
     background-color: ui-color('gray', lightest);
@@ -45,7 +47,7 @@ $-nav-bar-item: merge(
   }
 
   &.is-active {
-    background-color: ui-color('primary', 'light' er);
+    background-color: ui-color('primary', 'lighter');
   }
 
   .item-icon {
@@ -56,7 +58,7 @@ $-nav-bar-item: merge(
     width: map-get($-nav-bar-item, icon-size);
     height: map-get($-nav-bar-item, icon-size);
     margin-right: ui-relative-size(s);
-    font-size: 1.25rem;
+    font-size: 1rem;
   }
 
   &.no-icon {

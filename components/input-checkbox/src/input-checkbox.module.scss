@@ -1,5 +1,5 @@
-@import '@myntra/uikit-design';
-@import '@myntra/uikit-component-input-text/style';
+@import '@design';
+@import '@myntra/uikit-component-input-text/style.scss';
 
 .input {
   @include ui-input-style();
@@ -22,7 +22,7 @@
   height: 0.84em;
   margin: 0.07em 0.015em -0.07em 0.18em;
   cursor: pointer;
-  background: white;
+  background: #fff;
   border: 0.0714em solid ui-color('gray', 'dark');
   border-radius: 0.08em;
   transition: box-shadow 0.2s, background-color 0.2s;

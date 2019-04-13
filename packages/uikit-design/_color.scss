@@ -51,11 +51,8 @@ $-text-colors: () !default;
 $-colors: merge(
   (
     'primary': $-color-primary,
-    'success': $-color-success,
     'green': $-color-success,
-    'error': $-color-error,
     'red': $-color-error,
-    'warning': $-color-warning,
     'yellow': $-color-warning,
     'gray': $-color-gray,
   ),
@@ -83,7 +80,7 @@ $-text-colors: merge(
     map-get-or-throw(
       $-colors,
       $name,
-      "UIKit(color): Unknown color name '#{$name}'"
+      "UIKit(color): Unknown color name #{type-of($name) + ' ' + $variant} '#{$name}'"
     ),
     $variant,
     "UIKit(color): Unknown variant name '#{$variant}' of color '#{$name}'"

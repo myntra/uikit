@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 $-button: () !default;
 $-button: merge(
@@ -47,7 +47,7 @@ $-button__variants: merge(
   (
     primary: (
       text: (
-        color: ui-text-color(light),
+        color: ui-text-color('light'),
       ),
       surface: (
         background-color: ui-color('primary'),
@@ -64,7 +64,7 @@ $-button__variants: merge(
       ),
       hover: (
         surface: (
-          background-color: ui-color('primary', 'light' er),
+          background-color: ui-color('primary', 'lighter'),
         ),
       ),
     ),

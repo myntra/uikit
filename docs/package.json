@@ -12,6 +12,7 @@
   "dependencies": {
     "@babel/standalone": "^7.3.4",
     "@myntra/uikit": "link:../packages/uikit",
+    "@myntra/uikit-theme-nuclei": "link:../themes/nuclei",
     "lodash.debounce": "^4.0.8",
     "marked": "^0.6.1",
     "prismjs": "^1.15.0",

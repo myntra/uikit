@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 .top-bar {
   z-index: ui-z-index('nav');
@@ -6,17 +6,22 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-width: 320px;
+  min-width: 304px;
+  height: 56px;
   padding: 0.75rem 1rem;
-  background-color: white;
+  line-height: 1;
+  background-color: #fff;
   border-bottom: 1px solid ui-color('gray');
+
+  * {
+    line-height: 1;
+  }
 
   .title {
     h1 {
-      @include use-text-style('title');
-
       padding: 0;
       margin: 0;
+      font-size: 16px;
       line-height: 1em;
       color: ui-text-color('dark');
     }
@@ -50,6 +55,6 @@
   }
 
   .menu {
-    background-color: white;
+    background-color: #fff;
   }
 }

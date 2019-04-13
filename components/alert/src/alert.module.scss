@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 $-alert: () !default;
 $-alert: merge(
@@ -15,10 +15,10 @@ $-alert: merge(
 
 .alert {
   $types: (
-    primary: primary,
-    error: red,
-    warning: yellow,
-    success: green,
+    'primary': 'primary',
+    'error': 'red',
+    'warning': 'yellow',
+    'success': 'green',
   );
 
   display: flex;
@@ -27,14 +27,14 @@ $-alert: merge(
   padding: ui-relative-size(xs);
   padding-left: ui-relative-size();
   margin-bottom: 0.25rem;
-  color: ui-text-color(light);
+  color: ui-text-color('light');
 
   @include extract($-alert);
 
   @each $name, $color in $types {
     &.#{$name} {
       color: ui-text-color($color);
-      background-color: ui-color($color, lighter);
+      background-color: ui-color($color, 'lighter');
       border-color: ui-color($color);
 
       &.solid {
@@ -44,7 +44,7 @@ $-alert: merge(
   }
 
   &.solid {
-    color: ui-text-color(light);
+    color: ui-text-color('light');
   }
 
   .content {

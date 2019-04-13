@@ -4,7 +4,7 @@
 
 .content {
   max-width: 600px;
-  margin: 32px auto 120px;
+  margin: auto;
   transition: transform 0.35s;
 }
 
@@ -18,7 +18,7 @@
   flex-direction: column;
   width: var(--editor-width);
   overflow: hidden;
-  background: white;
+  background: #fff;
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
   transition: all 0.35s;
 }

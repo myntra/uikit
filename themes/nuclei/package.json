@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-theme-nuclei",
   "version": "0.7.1",
-  "main": "src/tokens.js",
+  "main": "src/index.ts",
   "module": "dist/nuclei.js",
-  "browser": "src/tokens.js",
+  "browser": "src/index.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/themes/nuclei",
@@ -14,12 +14,16 @@
     "src/",
     "dist/",
     "bin/",
-    "*.codemod.js"
+    "*.codemod.js",
+    "*.scss"
   ],
   "scripts": {
     "build:tokens": "tokenize src/tokens.yml"
   },
   "dependencies": {
+    "@myntra/uikit-design": "link:../../packages/uikit-design"
+  },
+  "devDependencies": {
     "@myntra/tokenizer": "link:../../packages/tokenizer"
   }
 }

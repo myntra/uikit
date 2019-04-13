@@ -11,11 +11,11 @@ module.exports = {
     'stylelint-config-prettier',
     // Override rules to allow linting of CSS modules
     // https://github.com/pascalduez/stylelint-config-css-modules
-    'stylelint-config-css-modules'
+    'stylelint-config-css-modules',
   ],
   plugins: [
     // Bring in some extra rules for SCSS
-    'stylelint-scss'
+    'stylelint-scss',
   ],
   // Rule lists:
   // - https://stylelint.io/user-guide/rules/
@@ -38,8 +38,8 @@ module.exports = {
       {
         except: ['blockless-after-same-name-blockless', 'first-nested'],
         ignore: ['after-comment'],
-        ignoreAtRules: ['else']
-      }
+        ignoreAtRules: ['else'],
+      },
     ],
     // ===
     // SCSS
@@ -53,6 +53,7 @@ module.exports = {
     'scss/selector-no-redundant-nesting-selector': true,
     // Allow SCSS and CSS module keywords beginning with `@`
     'at-rule-no-unknown': null,
-    'scss/at-rule-no-unknown': true
-  }
+    'color-named': 'never',
+    'scss/at-rule-no-unknown': true,
+  },
 }

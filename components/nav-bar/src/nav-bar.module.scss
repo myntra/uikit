@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 $-nav-bar: () !default;
 $-nav-bar: merge(
@@ -16,7 +16,7 @@ $-nav-bar: merge(
   width: map-get($-nav-bar, 'close-width');
   height: 100%;
   overflow: hidden;
-  background-color: white;
+  background-color: #fff;
   border-right: 1px solid ui-color('gray');
   transition: width 0.35s ease-in-out;
 
@@ -47,11 +47,14 @@ $-nav-bar: merge(
     flex-direction: row;
     align-items: center;
     width: map-get($-nav-bar, 'open-width');
+    height: 56px;
     padding: 0.75rem 1rem;
     overflow: hidden;
     white-space: nowrap;
-    background-color: white;
+    background-color: #fff;
     border-bottom: 1px solid ui-color('gray');
+
+    @include use-text-style('h3');
 
     img {
       display: inline-block;

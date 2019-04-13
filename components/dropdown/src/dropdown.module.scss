@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 .dropdown {
   position: relative;
@@ -23,7 +23,7 @@
 }
 
 .content-wrapper {
-  background: white;
+  background: #fff;
   animation: 350ms ease-in 0s 1 fade-in;
 }
 

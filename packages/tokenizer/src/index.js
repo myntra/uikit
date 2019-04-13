@@ -55,7 +55,7 @@ function prepare(tokens) {
       if (!disabled) {
         textColors[id] = { default: base, disabled: trivial }
       } else {
-        textColors[id] = { default: base, disabled, trivial }
+        textColors[id] = { default: base, disabled, 'mid-emphasis': trivial }
       }
     }
 

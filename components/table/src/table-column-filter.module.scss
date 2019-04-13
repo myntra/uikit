@@ -1,10 +1,10 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 .filter {
   min-width: 190px;
   max-height: 300px;
   margin-top: 3px;
-  background: white;
+  background: #fff;
   outline: none;
   box-shadow: var(--shadow-light-small);
 }

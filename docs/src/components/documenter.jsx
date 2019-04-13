@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Markdown from './markdown'
-import Button from '@uikit/button'
+import { Button } from '@myntra/uikit'
 
 import './documenter.css'
 
@@ -45,7 +45,7 @@ export default class Documenter extends Component {
       <div id={docs.name}>
         {hideName ? null : <h1>{docs.name}</h1>}
 
-        <p title={docs.status}>
+        <div title={docs.status} style={{ marginTop: '-0.5rem' }}>
           <small
             title={`The ${docs.name} component is in ${docs.status} state.`}
             style={{ textTransform: 'lowercase' }}
@@ -65,7 +65,7 @@ export default class Documenter extends Component {
           >
             <span style={{ textTransform: 'initial' }}>see source code</span>
           </Button>
-        </p>
+        </div>
 
         <Markdown>{docs.description}</Markdown>
 
@@ -90,7 +90,11 @@ export default class Documenter extends Component {
                       {prop.required ? (
                         <span className="documenter--prop-required">required</span>
                       ) : 'defaultValue' in prop ? (
-                        JSON.stringify(prop.defaultValue, null, 2)
+                        JSON.stringify(
+                          prop.defaultValue && prop.defaultValue.value ? prop.defaultValue.value : prop.defaultValue,
+                          null,
+                          2
+                        )
                       ) : (
                         'undefined'
                       )}

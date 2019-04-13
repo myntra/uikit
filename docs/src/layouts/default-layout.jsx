@@ -27,7 +27,7 @@ function DefaultLayout({ router, children, goto }) {
           <NavBar.Item to="/" icon="home">
             Home
           </NavBar.Item>
-          <NavBar.Group title="Guidelines" icon="pencil-paintbrush">
+          <NavBar.Group title="Guidelines" icon="pencil-paintbrush" to="/guide">
             <NavBar.Item to="/guide/colors">Colors</NavBar.Item>
           </NavBar.Group>
           <NavBar.Group title="Components" icon="cubes" to="/components">

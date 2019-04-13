@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import CodePreview from './code-preview'
 import { EditorContext } from './editor'
-import Button from '@uikit/button'
+import { Button } from '@myntra/uikit'
 import Prism from 'prismjs'
 
 import 'prismjs/themes/prism.css'

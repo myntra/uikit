@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 .list {
   padding-left: 0;
@@ -30,7 +30,7 @@
 
   &.is-active,
   &:not(.is-disabled):hover {
-    background-color: ui-color('primary', 'light' er);
+    background-color: ui-color('primary', 'lighter');
   }
 }
 

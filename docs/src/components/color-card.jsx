@@ -35,7 +35,7 @@ export function hslToHex(hsl) {
 
   if (s === 0) {
     val = l * 255
-    return [val, val, val]
+    return rgbToHex([val, val, val])
   }
 
   if (l < 0.5) {

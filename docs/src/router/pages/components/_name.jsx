@@ -1,9 +1,7 @@
 import React, { useEffect, useMemo, useState, useCallback, useRef } from 'react'
 import PropTypes from 'prop-types'
-import Documenter from '@components/documenter'
 import Editor, { EditorContext } from '@components/editor'
-import Button from '@uikit/button'
-import Measure from '@uikit/measure'
+import { Measure, Button } from '@myntra/uikit'
 import CodePreview from '@components/code-preview'
 
 import './_name.css'
@@ -19,20 +17,10 @@ async function findFile(getModule, Component, setComponent) {
 }
 
 async function findDocumentation(name, setComponent) {
-  const readme = await findFile(() => import(`@uikit/${name}/readme.mdx`))
+  const readme = await findFile(() => import(`@component-docs/${name}/readme.mdx`))
 
   if (readme) {
     setComponent(() => readme)
-
-    return
-  }
-
-  const component = await findFile(() => import(`@uikit/${name}/src/${name}.tsx`))
-
-  if (component) {
-    // Wrapping component in Documenter.
-    // eslint-disable-next-line react/display-name
-    setComponent(() => () => <Documenter component={component} hideName={false} />)
 
     return
   }

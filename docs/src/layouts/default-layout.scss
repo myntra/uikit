@@ -5,6 +5,7 @@ html {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
   font-size: 16px;
+  line-height: 1.5;
 }
 
 body {
@@ -81,10 +82,19 @@ h3 {
 h4 {
   @include use-text-style('h4');
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0.5em 0;
+}
+
 p,
 article,
 section {
-  @include use-text-style('p');
+  @include use-text-style('body');
 }
 
 hr {

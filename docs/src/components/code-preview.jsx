@@ -1,9 +1,8 @@
-import React, { useState, useMemo, useEffect, useContext } from 'react'
+import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import { transform } from '@babel/standalone'
 import Preview from './preview'
-import { EditorContext } from './editor'
-import Alert from '@uikit/alert'
-import Button from '@uikit/button'
+import { Alert, Button } from '@myntra/uikit'
 import './code-preview.css'
 
 export function useCompiler(source, { watch = true, once = true } = {}) {
@@ -81,7 +80,7 @@ function compile(code) {
 
   if (!code.startsWith('function ') && !code.startsWith('class ')) {
     code = `function Example(props) {\n  ${
-      /\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Za-z0-9\.]+(?: [^>]*)?|>)/, tag => `return ` + tag)
+      /\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Za-z0-9.]+(?: [^>]*)?|>)/, tag => `return ` + tag)
     }\n}`
   }
 
@@ -95,13 +94,11 @@ function compile(code) {
     code = output.code.trim()
 
     if (code.startsWith('function ')) {
-      let [, name, args, body] = /^function\s+([^\(]+)\(([^\)]*)\)[^\{]*\{((?:.|\n)*)$/.exec(code)
-
-      args = `props`
+      let [, name, , body] = /^function\s+([^(]+)\(([^)]*)\)[^{]*\{((?:.|\n)*)$/.exec(code)
 
       code = `function ${name}(props) {\n  const { ${identifiers.join(', ')} } = props.context\n${body}`
     } else if (code.startsWith('class ')) {
-      const [prefix, suffix] = code.split(/render\s*\([^\)]*\)[^\{}]*\{/, 2)
+      const [prefix, suffix] = code.split(/render\s*\([^)]*\)[^{}]*\{/, 2)
 
       code = `${prefix}\n  render() {\n    const { ${identifiers.join(', ')} } = this.props.context\n${suffix}`
     }
@@ -109,6 +106,7 @@ function compile(code) {
     code = output.code
   }
 
+  // eslint-disable-next-line no-new-func
   const fn = new Function('React', `${code}\nreturn Example`)
 
   return fn(React)
@@ -137,7 +135,7 @@ function unknownIdentifierPlugin(identifiers) {
       Identifier(path) {
         const { node, scope } = path
 
-        const name = path.node.name
+        const name = node.name
         const binding = scope.getBinding(name)
 
         if (!binding) {
@@ -150,4 +148,9 @@ function unknownIdentifierPlugin(identifiers) {
       }
     }
   }
+}
+
+CodePreview.propTypes = {
+  className: PropTypes.string,
+  source: PropTypes.string
 }

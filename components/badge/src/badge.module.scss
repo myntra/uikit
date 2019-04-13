@@ -1,4 +1,4 @@
-@import '@myntra/uikit-design';
+@import '@design';
 
 .badge {
   display: inline-block;
@@ -10,10 +10,10 @@
   @include use-text-style(caption);
 
   $types: (
-    primary: primary,
-    success: green,
-    error: red,
-    warning: yellow
+    'primary': 'primary',
+    'success': 'green',
+    'error': 'red',
+    'warning': 'yellow',
   );
 
   @each $name, $color in $types {

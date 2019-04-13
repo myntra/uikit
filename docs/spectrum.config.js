@@ -28,7 +28,10 @@ module.exports = {
     })
 
     /* eslint-disable prettier/prettier */
-    config.resolve.alias.set('@uikit', componentsDir).set('@theme', '@myntra/uikit-theme-nuclei')
+    config.resolve.alias
+      .set('@component-docs', componentsDir)
+      .set('@design', '@myntra/uikit-theme-nuclei/design.scss')
+      .set('@theme', '@myntra/uikit-theme-nuclei')
     components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name))
     themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name))
@@ -154,20 +157,6 @@ module.exports = {
     // Added to devDependencies.
     // eslint-disable-next-line node/no-unpublished-require
     config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'))
-
-    config.module
-      .rule('scss')
-      .oneOf('modules')
-      .use('sass-loader')
-      .loader(require.resolve('sass-loader'))
-      .options({
-        data: context => {
-          // if (/@myntra\/uikit-theme-/.test(context.resourcePath)) return ''
-
-          return ''
-          // return `@import '@myntra/uikit-theme-nuclei/style.scss';`
-        }
-      })
     /* eslint-enable prettier/prettier */
   }
 }

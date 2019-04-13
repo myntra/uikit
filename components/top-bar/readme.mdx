@@ -7,17 +7,28 @@ import TopBar from './src/top-bar'
 ```jsx preview
 <TopBar
     title="UIKit Documentation"
-    user={{ email: 'jane.doe@myntra.com' }}
+    user={{ name: 'Jane' }}
  >
-    <BreadCrumb>
-      <BreadCrumb.Item>Home</BreadCrumb.Item>
-      <BreadCrumb.Item>Components</BreadCrumb.Item>
-      <BreadCrumb.Item>TopBar</BreadCrumb.Item>
-    </BreadCrumb>
+  <BreadCrumb>
+    <BreadCrumb.Item>Home</BreadCrumb.Item>
+    <BreadCrumb.Item>Components</BreadCrumb.Item>
+    <BreadCrumb.Item>TopBar</BreadCrumb.Item>
+  </BreadCrumb>
 
-    <TopBar.Item>Profile</TopBar.Item>
-    <TopBar.Item>Logout</TopBar.Item>
+  <TopBar.Item>Profile</TopBar.Item>
+  <TopBar.Item>Logout</TopBar.Item>
 </TopBar>
 ```
 
 </Documenter>
+
+
+```jsx preview
+<TopBar
+    title="UIKit Documentation"
+    user={{ name: 'Jane' }}
+ >
+  <TopBar.Item>Profile</TopBar.Item>
+  <TopBar.Item>Logout</TopBar.Item>
+</TopBar>
+```

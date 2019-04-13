@@ -2,43 +2,43 @@ color:
   primary:
     name: SCM Purple
     value:
-      - hsl(244, 64, 47) # dark
-      - hsl(244, 65, 78) # default/base
-      - hsl(244, 35, 87) # light
-      - hsl(244,  8, 97)  # lighter
+      - hsl(244, 47, 32) # dark
+      - hsl(244, 54, 53) # default/base
+      - hsl(244, 54, 72) # light
+      - hsl(244, 54, 93)  # lighter
 
   green:
     name: Green
     value:
-      - hsl(137, 47, 43)
-      - hsl(137, 48, 72)
-      - hsl(137, 25, 83)
-      - hsl(137,  9, 93)
+      - hsl(137, 31, 33)
+      - hsl(138, 38, 55)
+      - hsl(137, 38, 73)
+      - hsl(139, 38, 89)
 
   yellow:
     name: Yellow
     value:
-      - hsl(40, 65, 43)
-      - hsl(40, 65, 94)
-      - hsl(40, 38, 96)
-      - hsl(40, 16, 98)
+      - hsl(40, 48, 38)
+      - hsl(39, 84, 64)
+      - hsl(40, 84, 78)
+      - hsl(40, 83, 91)
 
   red:
     name: Red
     value:
-      - hsl(2, 51, 50)
-      - hsl(2, 51, 83)
-      - hsl(2, 32, 90)
-      - hsl(2, 11, 96)
+      - hsl(2, 34, 37)
+      - hsl(1, 56, 62)
+      - hsl(2, 56, 77)
+      - hsl(2, 55, 90)
 
   gray:
-    name: Red
+    name: Gray
     value:
-      - hsl(2, 51, 50)
-      - hsl(2, 51, 83)
-      - hsl(2, 32, 90)
-      - hsl(2, 11, 96)
-      - hsl(2, 11, 96)
+      - hsl(0, 0, 83)
+      - hsl(0, 0, 90) 
+      - hsl(0, 0, 93)
+      - hsl(220, 22, 96)
+      - hsl(0, 0, 98)
 
 text-color:
   dark:

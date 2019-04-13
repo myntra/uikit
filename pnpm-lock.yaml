@@ -375,6 +375,7 @@ importers:
     dependencies:
       '@babel/standalone': registry.npmjs.org/@babel/standalone/7.4.3
       '@myntra/uikit': 'link:../packages/uikit'
+      '@myntra/uikit-theme-nuclei': 'link:../themes/nuclei'
       lodash.debounce: registry.npmjs.org/lodash.debounce/4.0.8
       marked: registry.npmjs.org/marked/0.6.2
       prismjs: registry.npmjs.org/prismjs/1.16.0
@@ -412,6 +413,7 @@ importers:
       '@myntra/spectrum-cli-plugin-typescript': ^2.0.0-alpha.56
       '@myntra/spectrum-cli-service': ^2.0.0-alpha.56
       '@myntra/uikit': 'link:../packages/uikit'
+      '@myntra/uikit-theme-nuclei': 'link:../themes/nuclei'
       autoprefixer: ^9.4.9
       front-matter: ^3.0.1
       loader-utils: ^1.2.3
@@ -429,7 +431,7 @@ importers:
       remark-squeeze-paragraphs: ^3.0.3
       remark-toc: ^5.1.1
       sass: ^1.17.3
-      sass-loader: 'git+https://github.com/webpack-contrib/sass-loader.git#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70'
+      sass-loader: 'https://github.com/webpack-contrib/sass-loader#6c9654d2e36e7aaa35a25be9c3c6f4bda9b12b70'
       webpack-filter-warnings-plugin: ^1.2.1
   packages/classnames-loader:
     dependencies:
@@ -669,9 +671,12 @@ importers:
       lodash-es: ^4.17.8
   themes/nuclei:
     dependencies:
+      '@myntra/uikit-design': 'link:../../packages/uikit-design'
+    devDependencies:
       '@myntra/tokenizer': 'link:../../packages/tokenizer'
     specifiers:
       '@myntra/tokenizer': 'link:../../packages/tokenizer'
+      '@myntra/uikit-design': 'link:../../packages/uikit-design'
 lockfileVersion: 5
 packages:
   /@myntra/babel-preset-spectrum-app/2.0.0-alpha.56:
@@ -22700,6 +22705,7 @@ packages:
       tapable: registry.npmjs.org/tapable/1.1.3
       terser-webpack-plugin: registry.npmjs.org/terser-webpack-plugin/1.2.3_webpack@4.29.6
       watchpack: registry.npmjs.org/watchpack/1.6.0
+      webpack: registry.npmjs.org/webpack/4.29.6_webpack@4.29.6
       webpack-sources: registry.npmjs.org/webpack-sources/1.3.0
     dev: true
     engines:
