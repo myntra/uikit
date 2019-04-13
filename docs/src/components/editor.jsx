@@ -1,6 +1,12 @@
-import React, { useContext, createContext } from 'react'
-import MonacoEditor from 'react-monaco-editor'
-import DTS from '!!raw-loader!../uikit.d.ts'
+import React, { createContext } from 'react'
+import PropTypes from 'prop-types'
+
+const MonacoEditor = React.lazy(() =>
+  import(
+    /* webpackPrefetch: true */
+    /* webpackChunkName: 'monaco/editor' */ 'react-monaco-editor'
+  )
+)
 
 export const EditorContext = createContext({
   /** @type {string} */
@@ -23,11 +29,10 @@ export default function Editor({ value: source, onChange, ...props }) {
           tabSize: 2
         })
 
-        monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ lib: true, allowNonTsExtensions: true });
+        monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ lib: true, allowNonTsExtensions: true })
         try {
-          monaco.languages.typescript.javascriptDefaults.addExtraLib(
-            DTS,
-            'file:///global.d.ts'
+          import(/* webpackPrefetch: true */ /* webpackChunkName: 'monaco/types' */ '!!raw-loader!../uikit.d.ts').then(
+            ({ default: DTS }) => monaco.languages.typescript.javascriptDefaults.addExtraLib(DTS, 'file:///global.d.ts')
           )
         } catch (e) {
           // duplicate lib error.
@@ -54,9 +59,14 @@ export default function Editor({ value: source, onChange, ...props }) {
           renderWhitespace: 'all',
           scrollBeyondLastLine: false,
           scrollBeyondLastColumn: false,
-          wordBasedSuggestions: false,
+          wordBasedSuggestions: false
         }
       }}
     />
   )
+}
+
+Editor.propTypes = {
+  value: PropTypes.string,
+  onChange: PropTypes.func
 }

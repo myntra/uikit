@@ -239,6 +239,7 @@ export default class NavBar extends PureComponent<
 
   isActiveGroup = (id: number[]) => {
     return (
+      Array.isArray(id) &&
       id.length <= this.state.activeGroup.length &&
       id.every((value, index) => value === this.state.activeGroup[index])
     )

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { transform } from '@babel/standalone'
 import Preview from './preview'
 import { Alert, Button } from '@myntra/uikit'
 import './code-preview.css'
@@ -13,24 +12,28 @@ export function useCompiler(source, { watch = true, once = true } = {}) {
 
   useEffect(
     function compileOnSourceChange() {
-      if (watch || (counter === 0 && once)) {
-        setCounter(counter + 1)
-        try {
-          const component = compile(source)
+      const run = async () => {
+        if (watch || (counter === 0 && once)) {
+          setCounter(counter + 1)
+          try {
+            const component = await compile(source)
 
-          if (component) {
-            const factory = () => component
-            setComponent(factory)
-            if (!fallback) setFallback(factory)
-            setError(null)
-          } else if (source) {
-            throw new Error(`No component returned by 'compiler'`)
+            if (component) {
+              const factory = () => component
+              setComponent(factory)
+              if (!fallback) setFallback(factory)
+              setError(null)
+            } else if (source) {
+              throw new Error(`No component returned by 'compiler'`)
+            }
+          } catch (error) {
+            console.error(error)
+            setError(() => error)
           }
-        } catch (error) {
-          console.error(error)
-          setError(() => error)
         }
       }
+
+      run()
     },
     [source]
   )
@@ -73,8 +76,13 @@ export default function CodePreview({ className, source }) {
   )
 }
 
-function compile(code) {
+async function compile(code) {
   if (!code) return null
+
+  const babel = await import(
+    /* webpackPrefetch: true */
+    /* webpackChunkName: 'monaco/babel' */ '@babel/standalone'
+  )
 
   code = code.trim()
 
@@ -85,7 +93,7 @@ function compile(code) {
   }
 
   const identifiers = []
-  const output = transform(code, {
+  const output = await babel.transform(code, {
     presets: ['es2017', 'react'],
     plugins: [unknownIdentifierPlugin(identifiers)]
   })

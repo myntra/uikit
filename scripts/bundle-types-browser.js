@@ -111,7 +111,13 @@ function writeUIKitTypesForDocsEditor(components) {
 
   fs.writeFileSync(
     path.resolve(__dirname, '../docs/src/uikit.d.ts'),
-    prettier.format(code, { parser: 'typescript' })
+    prettier.format(code, {
+      parser: 'typescript',
+      singleQuote: true,
+      semi: false,
+      trailingComma: 'es5',
+      printWidth: 120,
+    })
   )
 
   function extractTypes(file) {
@@ -157,16 +163,71 @@ function writeUIKitAsyncImports(files) {
   })
 
   fs.writeFileSync(
+    path.resolve(__dirname, '../packages/uikit/src/index.ts'),
+    prettier.format(
+      files
+        .map(
+          (file, index) =>
+            `export { default as  ${componentName(
+              file
+            )} } from '@myntra/uikit-component-${components[index]}'`
+        )
+        .join('\n'),
+      {
+        parser: 'babel',
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'es5',
+      }
+    )
+  )
+
+  fs.writeFileSync(
     path.resolve(__dirname, '../docs/src/uikit.js'),
-    // `import React from 'react'\n` +
-    files
-      .map(
-        (file, index) =>
-          `export { default as ${componentName(
-            file
-          )} } from '@myntra/uikit-component-${components[index]}'`
-      )
-      .join('\n') + `\nexport const META = ${JSON.stringify(META, null, 2)}`
+    prettier.format(
+      `
+      import { lazy } from 'react'
+      function asyncComponent(factory) {
+        const Component = lazy(factory)
+
+        return new Proxy(Component, {
+          get(target, name) {
+            if (typeof name === 'string' && /^[A-Z]/.test(name)) {
+              const result = Component._result
+
+              return Component._status === 1
+                ? result[name]
+                : lazy(async () => {
+                    const { default: Component } = await factory()
+
+                    return { __esModule: true, default: Component[name] }
+                  })
+            }
+
+            return target[name]
+          }
+        })
+      }
+    ` +
+        files
+          .map(
+            (file, index) =>
+              `export const ${componentName(
+                file
+              )} = asyncComponent(() => import(/* webpackChunkName: 'components/${
+                components[index]
+              }' */ '@myntra/uikit-component-${components[index]}'))`
+          )
+          .join('\n') +
+        `\nexport const META = ${JSON.stringify(META, null, 2)}`,
+      {
+        parser: 'babel',
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'es5',
+        printWidth: 120,
+      }
+    )
   )
 }
 

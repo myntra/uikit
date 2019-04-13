@@ -42,6 +42,19 @@ blockquote {
   overflow: auto;
   position: relative;
   height: 100%;
+
+  h1[id]::before,
+  h2[id]::before,
+  h3[id]::before,
+  h4[id]::before,
+  h5[id]::before {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    width: 0px;
+    padding-top: 60px;
+    margin-top: -60px;
+  }
 }
 
 .anchor-link {
@@ -100,15 +113,6 @@ section {
 hr {
   border: none;
   border-top: 1px solid ui-color('gray', 'light');
-}
-
-[id]::before {
-  content: ' ';
-  display: block;
-  visibility: hidden;
-  width: 0px;
-  padding-top: 60px;
-  margin-top: -60px;
 }
 
 details > summary {

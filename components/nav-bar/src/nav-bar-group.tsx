@@ -65,6 +65,8 @@ export default function NavBarGroup({
     isActivePath: (to: any, isGroup?: boolean) => boolean,
     isOpen: boolean
   ) {
+    if (!id) return null
+
     return depth > 0 ? (
       <>
         <NavBarItem

@@ -435,7 +435,13 @@ interface NavBarProps extends BaseProps {
    *
    * @since 0.10.0
    */
-  isActivePath?(navLinkPath: any, currentPath: any): boolean
+  isActivePath?(
+    navLinkPath: any,
+    currentPath: any,
+    options?: {
+      isGroup: boolean
+    }
+  ): boolean
   /**
    * Control NavBar state.
    */

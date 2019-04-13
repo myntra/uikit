@@ -21,8 +21,12 @@ module.exports = {
     CAN_USE_FRAGMENT: VERSION >= 16,
     CAN_USE_SUSPENSE: VERSION > 16.5
   },
+  css: {
+    extract: false
+  },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
+    const styleLoader = 'style-loader' // process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader'
     config.watchOptions({
       ignored: ['**/*.spec.js', '__codemod__']
     })
@@ -118,13 +122,13 @@ module.exports = {
       .rule('scss')
       .oneOf('modules')
       .use('classnames-loader')
-      .before(process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader')
+      .before(styleLoader)
       .loader(require.resolve('../packages/classnames-loader'))
     config.module
       .rule('css')
       .oneOf('modules')
       .use('classnames-loader')
-      .before(process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader')
+      .before(styleLoader)
       .loader(require.resolve('../packages/classnames-loader'))
     config.module
       .rule('scss')
@@ -156,7 +160,9 @@ module.exports = {
 
     // Added to devDependencies.
     // eslint-disable-next-line node/no-unpublished-require
-    config.plugin('monaco-editor').use(require('monaco-editor-webpack-plugin'))
+    config
+      .plugin('monaco-editor')
+      .use(require('monaco-editor-webpack-plugin'), [{ languages: ['javascript', 'typescript'], output: 'monaco' }])
     /* eslint-enable prettier/prettier */
   }
 }

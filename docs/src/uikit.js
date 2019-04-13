@@ -1,29 +1,103 @@
-export { default as Alert } from '@myntra/uikit-component-alert'
-export { default as Avatar } from '@myntra/uikit-component-avatar'
-export { default as Badge } from '@myntra/uikit-component-badge'
-export { default as BreadCrumb } from '@myntra/uikit-component-bread-crumb'
-export { default as Button } from '@myntra/uikit-component-button'
-export { default as ClickAway } from '@myntra/uikit-component-click-away'
-export { default as Dropdown } from '@myntra/uikit-component-dropdown'
-export { default as ErrorBoundary } from '@myntra/uikit-component-error-boundary'
-export { default as Field } from '@myntra/uikit-component-field'
-export { default as Grid } from '@myntra/uikit-component-grid'
-export { default as Group } from '@myntra/uikit-component-group'
-export { default as Icon } from '@myntra/uikit-component-icon'
-export { default as Image } from '@myntra/uikit-component-image'
-export { default as InputCheckbox } from '@myntra/uikit-component-input-checkbox'
-export { default as InputS3File } from '@myntra/uikit-component-input-s3-file'
-export { default as InputText } from '@myntra/uikit-component-input-text'
-export { default as List } from '@myntra/uikit-component-list'
-export { default as Measure } from '@myntra/uikit-component-measure'
-export { default as NavBar } from '@myntra/uikit-component-nav-bar'
-export { default as Page } from '@myntra/uikit-component-page'
-export { default as Portal } from '@myntra/uikit-component-portal'
-export { default as Progress } from '@myntra/uikit-component-progress'
-export { default as Table } from '@myntra/uikit-component-table'
-export { default as TopBar } from '@myntra/uikit-component-top-bar'
-export { default as VirtualGrid } from '@myntra/uikit-component-virtual-grid'
-export { default as VirtualList } from '@myntra/uikit-component-virtual-list'
+import { lazy } from 'react'
+function asyncComponent(factory) {
+  const Component = lazy(factory)
+
+  return new Proxy(Component, {
+    get(target, name) {
+      if (typeof name === 'string' && /^[A-Z]/.test(name)) {
+        const result = Component._result
+
+        return Component._status === 1
+          ? result[name]
+          : lazy(async () => {
+              const { default: Component } = await factory()
+
+              return { __esModule: true, default: Component[name] }
+            })
+      }
+
+      return target[name]
+    }
+  })
+}
+export const Alert = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/alert' */ '@myntra/uikit-component-alert')
+)
+export const Avatar = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/avatar' */ '@myntra/uikit-component-avatar')
+)
+export const Badge = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/badge' */ '@myntra/uikit-component-badge')
+)
+export const BreadCrumb = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/bread-crumb' */ '@myntra/uikit-component-bread-crumb')
+)
+export const Button = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/button' */ '@myntra/uikit-component-button')
+)
+export const ClickAway = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/click-away' */ '@myntra/uikit-component-click-away')
+)
+export const Dropdown = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/dropdown' */ '@myntra/uikit-component-dropdown')
+)
+export const ErrorBoundary = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/error-boundary' */ '@myntra/uikit-component-error-boundary')
+)
+export const Field = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/field' */ '@myntra/uikit-component-field')
+)
+export const Grid = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/grid' */ '@myntra/uikit-component-grid')
+)
+export const Group = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/group' */ '@myntra/uikit-component-group')
+)
+export const Icon = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/icon' */ '@myntra/uikit-component-icon')
+)
+export const Image = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/image' */ '@myntra/uikit-component-image')
+)
+export const InputCheckbox = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-checkbox' */ '@myntra/uikit-component-input-checkbox')
+)
+export const InputS3File = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-s3-file')
+)
+export const InputText = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-text' */ '@myntra/uikit-component-input-text')
+)
+export const List = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/list' */ '@myntra/uikit-component-list')
+)
+export const Measure = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/measure' */ '@myntra/uikit-component-measure')
+)
+export const NavBar = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/nav-bar' */ '@myntra/uikit-component-nav-bar')
+)
+export const Page = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/page' */ '@myntra/uikit-component-page')
+)
+export const Portal = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/portal' */ '@myntra/uikit-component-portal')
+)
+export const Progress = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/progress' */ '@myntra/uikit-component-progress')
+)
+export const Table = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/table' */ '@myntra/uikit-component-table')
+)
+export const TopBar = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/top-bar' */ '@myntra/uikit-component-top-bar')
+)
+export const VirtualGrid = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/virtual-grid' */ '@myntra/uikit-component-virtual-grid')
+)
+export const VirtualList = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/virtual-list' */ '@myntra/uikit-component-virtual-list')
+)
 export const META = [
   {
     name: 'Alert',
