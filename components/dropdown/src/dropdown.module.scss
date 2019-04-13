@@ -12,19 +12,8 @@
   transition: height 0.3s;
 }
 
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 .content-wrapper {
   background: #fff;
-  animation: 350ms ease-in 0s 1 fade-in;
 }
 
 .content.fixed {
