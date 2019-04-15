@@ -18,6 +18,7 @@ export { default as List } from "@myntra/uikit-component-list";
 export { default as Measure } from "@myntra/uikit-component-measure";
 export { default as NavBar } from "@myntra/uikit-component-nav-bar";
 export { default as Page } from "@myntra/uikit-component-page";
+export { default as Pagination } from "@myntra/uikit-component-pagination";
 export { default as Portal } from "@myntra/uikit-component-portal";
 export { default as Progress } from "@myntra/uikit-component-progress";
 export { default as Table } from "@myntra/uikit-component-table";

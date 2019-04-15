@@ -313,6 +313,11 @@ importers:
       '@types/react': registry.npmjs.org/@types/react/16.8.13
     specifiers:
       '@types/react': ^16.8.13
+  components/pagination:
+    dependencies:
+      '@myntra/uikit-component-icon': 'link:../icon'
+    specifiers:
+      '@myntra/uikit-component-icon': 'link:../icon'
   components/portal:
     dependencies:
       prop-types: registry.npmjs.org/prop-types/15.7.2

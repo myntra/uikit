@@ -1,0 +1,27 @@
+{
+  "name": "@myntra/uikit-component-pagination",
+  "version": "0.7.1",
+  "main": "src/pagination.tsx",
+  "module": "dist/pagination.js",
+  "browser": "src/pagination.tsx",
+  "author": "Akash Suresh <akashzsuresh@gmail.com>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/pagination",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "@myntra/codemod-utils": "link:../../packages/codemod-utils",
+    "@myntra/uikit-component-icon": "link:../icon",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+  }
+}

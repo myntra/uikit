@@ -80,6 +80,9 @@ export const NavBar = asyncComponent(() =>
 export const Page = asyncComponent(() =>
   import(/* webpackChunkName: 'components/page' */ '@myntra/uikit-component-page')
 )
+export const Pagination = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/pagination' */ '@myntra/uikit-component-pagination')
+)
 export const Portal = asyncComponent(() =>
   import(/* webpackChunkName: 'components/portal' */ '@myntra/uikit-component-portal')
 )
@@ -218,6 +221,12 @@ export const META = [
     since: '0.11.0',
     status: 'READY',
     path: '/components/page'
+  },
+  {
+    name: 'Pagination',
+    since: '0.3.0',
+    status: 'REVIEWING',
+    path: '/components/pagination'
   },
   {
     name: 'Portal',

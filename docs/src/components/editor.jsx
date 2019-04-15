@@ -2,10 +2,8 @@ import React, { createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const MonacoEditor = React.lazy(() =>
-  import(
-    /* webpackPrefetch: true */
-    /* webpackChunkName: 'monaco/editor' */ 'react-monaco-editor'
-  )
+  import(/* webpackPrefetch: true */
+  /* webpackChunkName: 'monaco/editor' */ 'react-monaco-editor')
 )
 
 export const EditorContext = createContext({

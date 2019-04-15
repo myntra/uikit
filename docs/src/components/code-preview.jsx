@@ -79,10 +79,8 @@ export default function CodePreview({ className, source }) {
 async function compile(code) {
   if (!code) return null
 
-  const babel = await import(
-    /* webpackPrefetch: true */
-    /* webpackChunkName: 'monaco/babel' */ '@babel/standalone'
-  )
+  const babel = await import(/* webpackPrefetch: true */
+  /* webpackChunkName: 'monaco/babel' */ '@babel/standalone')
 
   code = code.trim()
 

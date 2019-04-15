@@ -592,6 +592,34 @@ interface PageProps extends BaseProps {
 
 declare function Page(props: PageProps): JSX.Element
 
+// -----------[[Pagination]]--------------- //
+
+interface PaginationProps extends BaseProps {
+  /** Current selected page */
+  page: number
+  /** On change handler */
+  onChange(payload: { page: number; size: number }): void
+  /** Sizes per page */
+  size: number
+  /** Total count of result items */
+  total: number
+  /** Allowed page sizes */
+  sizes?: number[]
+  /** Hide size selector */
+  hideSize?: boolean
+  /** @private */
+  className?: string
+}
+/**
+ The Pagination component.
+ @since 0.3.0
+ @status REVIEWING
+ @category basic
+ @see http://uikit.myntra.com/components/pagination
+ */
+
+declare function Pagination(props: PaginationProps): JSX.Element
+
 // -----------[[Portal]]--------------- //
 
 declare function Portal(props: PortalProps): JSX.Element
