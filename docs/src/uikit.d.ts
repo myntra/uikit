@@ -372,6 +372,33 @@ interface InputTextProps extends BaseProps {
 
 declare function InputText(props: InputTextProps): JSX.Element
 
+// -----------[[InputTextArea]]--------------- //
+interface InputTextAreaProps extends BaseProps {
+  /** @private */
+  className?: string
+  /** Current value of the text area input field. */
+  value?: string
+  /** The handler to call when the value changes. */
+  onChange?(value: string): void
+  /** Disable Input */
+  disabled?: boolean
+  /** Rows */
+  rows?: number
+  /** Disable resize and hide resize handle */
+  noResize?: boolean
+  /** Placeholder */
+  placeholder?: string
+}
+/**
+ The textarea component.
+ @since 0.0.0
+ @status REVIEWING
+ @category basic
+ @see http://uikit.myntra.com/components/input-text-area
+ */
+
+declare function InputTextArea(props: InputTextAreaProps): JSX.Element
+
 // -----------[[List]]--------------- //
 
 interface ListProps<T = any> extends BaseProps {

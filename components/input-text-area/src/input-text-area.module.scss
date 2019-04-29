@@ -1,0 +1,13 @@
+@import '@design';
+@import 'input';
+
+.input {
+  @include ui-input-style();
+
+  width: 100%;
+  vertical-align: baseline;
+}
+
+.no-resize {
+  resize: none;
+}

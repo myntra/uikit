@@ -68,6 +68,9 @@ export const InputS3File = asyncComponent(() =>
 export const InputText = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-text' */ '@myntra/uikit-component-input-text')
 )
+export const InputTextArea = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-text-area' */ '@myntra/uikit-component-input-text-area')
+)
 export const List = asyncComponent(() =>
   import(/* webpackChunkName: 'components/list' */ '@myntra/uikit-component-list')
 )
@@ -197,6 +200,12 @@ export const META = [
     since: '0.0.0',
     status: 'READY',
     path: '/components/input-text'
+  },
+  {
+    name: 'InputTextArea',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/input-text-area'
   },
   {
     name: 'List',
