@@ -62,6 +62,9 @@ export const Image = asyncComponent(() =>
 export const InputCheckbox = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-checkbox' */ '@myntra/uikit-component-input-checkbox')
 )
+export const InputNumber = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-number' */ '@myntra/uikit-component-input-number')
+)
 export const InputS3File = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-s3-file')
 )
@@ -191,6 +194,12 @@ export const META = [
     since: '0.0.0',
     status: 'READY',
     path: '/components/input-checkbox'
+  },
+  {
+    name: 'InputNumber',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/input-number'
   },
   {
     name: 'InputS3File',

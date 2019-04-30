@@ -288,6 +288,29 @@ interface InputCheckBoxProps extends BaseProps {
 
 declare function InputCheckbox(props: InputCheckboxProps): JSX.Element
 
+// -----------[[InputNumber]]--------------- //
+interface InputNumberProps extends BaseProps {
+  /** @private */
+  className?: string
+  /** Disable Input */
+  disabled?: boolean
+  /** Value */
+  value?: number
+  /**
+   * Change event handler
+   */
+  onChange?(value: number): void
+}
+/**
+ * The InputNumber component.
+ * @since 0.0.0
+ * @status REVIEWING
+ * @category basic
+ * @see http://uikit.myntra.com/components/input-number
+ */
+
+declare function InputNumber(props: InputNumberProps): JSX.Element
+
 // -----------[[InputS3File]]--------------- //
 
 interface InputS3FileProps extends BaseProps {

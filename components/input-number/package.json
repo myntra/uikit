@@ -1,0 +1,22 @@
+{
+  "name": "@myntra/uikit-component-input-number",
+  "version": "0.7.1",
+  "main": "src/input-number.tsx",
+  "module": "dist/input-number.js",
+  "browser": "src/input-number.tsx",
+  "author": "Akash Suresh <akashzsuresh@gmail.com>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-number",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  }
+}
