@@ -1,7 +1,7 @@
 {
   "name": "@myntra/uikit-utils",
   "version": "0.9.2",
-  "main": "src/index.js",
+  "main": "dist/uikit-utils.js",
   "module": "dist/uikit-utils.js",
   "browser": "src/index.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
@@ -15,9 +15,10 @@
     "dist/",
     "bin/"
   ],
+  "tsMain": "src/index.ts",
   "description": "@myntra/uikit-utils",
   "sideEffects": false,
   "dependencies": {
-    "lodash-es": "^4.17.8"
+    "lodash-es": "^4.17.11"
   }
 }

@@ -1,0 +1,18 @@
+@import '@design';
+
+.container {
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+}
+
+.selector {
+  max-height: 360px;
+  overflow: auto;
+  box-shadow: ui-shadow('raised');
+}

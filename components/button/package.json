@@ -20,10 +20,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@myntra/uikit-component-icon": "link:../icon",
-    "@myntra/uikit-context": "link:../../packages/uikit-context",
-    "@myntra/uikit-design": "link:../../packages/uikit-design"
+    "@myntra/uikit-context": "link:../../packages/uikit-context"
   },
   "devDependencies": {
     "@types/react": "^16.8.13"

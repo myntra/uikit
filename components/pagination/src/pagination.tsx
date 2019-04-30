@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
-import { range } from '@myntra/uikit-utils'
 import Icon from '@myntra/uikit-component-icon'
+import { range } from '@myntra/uikit-utils'
+
 import classnames from './pagination.module.scss'
 
 export interface PaginationProps extends BaseProps {

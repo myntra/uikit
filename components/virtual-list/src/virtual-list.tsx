@@ -158,7 +158,8 @@ export default class VirtualList extends PureComponent<
   // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     if (nextProps.itemCount !== this.props.itemCount) {
-      this.manager.configure({ count: nextProps.itemCount })
+      this.manager.reset()
+      this.sizes = createMeasureCache()
     }
   }
 
@@ -183,7 +184,29 @@ export default class VirtualList extends PureComponent<
   }
 
   /** @public */
-  scrollTo(position) {
+  scrollToIndex(index: number) {
+    if (index >= this.manager.count) return
+
+    const cell = this.manager.getCellAt(index)
+
+    if (
+      this.state.offsetScroll > cell.offset ||
+      this.state.offsetScroll + this.props.viewportSize <
+        cell.offset + cell.size
+    ) {
+      const offset =
+        cell.offset < this.state.offsetScroll
+          ? cell.offset
+          : cell.offset - this.props.viewportSize + cell.size
+
+      this.scrollTo({ scrollLeft: offset, scrollTop: offset })
+
+      return offset
+    }
+  }
+
+  /** @public */
+  scrollTo(position: { scrollLeft: number; scrollTop: number }) {
     if (this.scrollFrameId == null) {
       this.scrollFrameId = window.requestAnimationFrame(() => {
         this.scrollFrameId = null

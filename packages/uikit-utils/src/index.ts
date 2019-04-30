@@ -12,6 +12,7 @@ import {
   find,
   compact,
   get,
+  debounce,
 } from 'lodash-es'
 
 /**
@@ -34,6 +35,7 @@ export {
   compact,
   range,
   get,
+  debounce,
 }
 
 /**
@@ -77,7 +79,7 @@ export function toSet(any) {
  * @returns {ClassNames & Array.<string>}
  */
 export function classnames(...args) {
-  const classes = []
+  const classes: any = []
 
   classes.use = (cssModule) => {
     return unique(
@@ -158,16 +160,14 @@ export function isEqualShallow(prev, next, isEqual = (a, b) => a === b) {
 
 /**
  * Memoize results of a function.
- *
- * @export
- * @template T
- * @param {T} func
- * @param {function(any, any): boolean} [isEqual=(a, b) => a === b]
- * @returns {T}
  */
-export function memoize(func, isEqual = (a, b) => a === b) {
+export function memoize<F extends (...args: any[]) => any>(
+  func: F,
+  isEqual = (a, b) => a === b
+): F {
   let lastArgs = null
   let lastResult = null
+
   return function(...args) {
     if (!isEqualShallow(lastArgs, args, isEqual)) {
       lastResult = func.apply(this, args)
@@ -176,7 +176,7 @@ export function memoize(func, isEqual = (a, b) => a === b) {
     lastArgs = args
 
     return lastResult
-  }
+  } as any
 }
 
 export function looseEquals(a, b) {

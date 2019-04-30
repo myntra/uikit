@@ -1,0 +1,20 @@
+.value {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.value .input {
+  width: 90%;
+  text-overflow: ellipsis;
+  border-bottom: transparent;
+}
+
+.underlay .input {
+  color: var(--typography-color-dark-secondary);
+}

@@ -2,6 +2,7 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import Image, { OBSERVER } from './image'
 
+// TODO: Fix test cases.
 describe.skip('Image', () => {
   it('is a component', () => {
     expect(Image).toBeComponent()
@@ -68,12 +69,12 @@ describe.skip('Image', () => {
       expect(wrapper.state('isIntersecting')).toBe(false)
 
       observer.raw.handler([
-        { target: instance.ref.current, isIntersecting: false }
+        { target: instance.ref.current, isIntersecting: false },
       ])
       expect(wrapper.state('isIntersecting')).toBe(false)
 
       observer.raw.handler([
-        { target: instance.ref.current, isIntersecting: true }
+        { target: instance.ref.current, isIntersecting: true },
       ])
       expect(wrapper.state('isIntersecting')).toBe(true)
     })

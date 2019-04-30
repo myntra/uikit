@@ -65,6 +65,9 @@ export const InputCheckbox = asyncComponent(() =>
 export const InputS3File = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-s3-file')
 )
+export const InputSelect = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-select' */ '@myntra/uikit-component-input-select')
+)
 export const InputText = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-text' */ '@myntra/uikit-component-input-text')
 )
@@ -196,6 +199,12 @@ export const META = [
     path: '/components/input-s3-file'
   },
   {
+    name: 'InputSelect',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/input-select'
+  },
+  {
     name: 'InputText',
     since: '0.0.0',
     status: 'READY',
@@ -209,7 +218,7 @@ export const META = [
   },
   {
     name: 'List',
-    since: '0.10.0',
+    since: '0.11.0',
     status: 'READY',
     path: '/components/list'
   },

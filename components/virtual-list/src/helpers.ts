@@ -19,6 +19,7 @@ export interface PositionManager {
 
   lastMeasuredCell: Cell
   getCellAt(index: number): Cell
+  reset(): void
   resetCellAt(index: number): void
   findVisibleRange(
     offset: number,
@@ -31,7 +32,7 @@ export function createPositionManager({
   estimatedSize,
   sizeGetter,
 }: PositionManagerOptions): PositionManager {
-  const cells: Record<number, Cell> = {}
+  let cells: Record<number, Cell> = {}
   let lastMeasuredCellIndex = -1
   let lastDeferredCellIndex = -1
 
@@ -54,6 +55,10 @@ export function createPositionManager({
     },
     get count() {
       return count
+    },
+    reset() {
+      lastDeferredCellIndex = lastMeasuredCellIndex = -1
+      cells = {}
     },
     configure(options) {
       if (options.count) count = options.count
@@ -176,6 +181,9 @@ export function createScaledPositionManager({
     },
     get count() {
       return manager.count
+    },
+    reset() {
+      manager.reset()
     },
     getCellAt(index) {
       return manager.getCellAt(index)

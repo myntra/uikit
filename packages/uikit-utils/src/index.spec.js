@@ -1,18 +1,40 @@
-import { classnames, unique, objectWithoutProperties, onlyExtraProps, memoize, toArray, toSet, isEqualShallow } from '.'
+import {
+  classnames,
+  unique,
+  objectWithoutProperties,
+  onlyExtraProps,
+  memoize,
+  toArray,
+  toSet,
+  isEqualShallow,
+} from './index'
+
+jest.disableAutomock()
 
 describe('classnames', () => {
   it('should format class names', () => {
-    expect(classnames('foo', 'bar', { baz: true, zen: false }, ['and', undefined, null, 1]).toString()).toBe(
-      'foo bar baz and'
-    )
+    expect(
+      classnames('foo', 'bar', { baz: true, zen: false }, [
+        'and',
+        undefined,
+        null,
+        1,
+      ]).toString()
+    ).toBe('foo bar baz and')
   })
 
   it('should apply css modules', () => {
     expect(
-      classnames('foo', 'bar', { baz: true, zen: false }, ['and', undefined, null, 1], undefined).use({
+      classnames(
+        'foo',
+        'bar',
+        { baz: true, zen: false },
+        ['and', undefined, null, 1],
+        undefined
+      ).use({
         foo: 'foo0',
         bar: 'bar0',
-        and: 'and0'
+        and: 'and0',
       })
     ).toBe('foo0 bar0 baz and0')
   })
@@ -27,7 +49,9 @@ describe('unique', () => {
 
 describe('objectWithoutProperties', () => {
   it('should remove keys', () => {
-    expect(objectWithoutProperties({ foo: 1, bar: 2 }, ['foo'])).toEqual({ bar: 2 })
+    expect(objectWithoutProperties({ foo: 1, bar: 2 }, ['foo'])).toEqual({
+      bar: 2,
+    })
   })
 
   it('should ignore prototype keys', () => {
@@ -41,7 +65,9 @@ describe('objectWithoutProperties', () => {
   })
 
   it('should remove matching keys', () => {
-    expect(objectWithoutProperties({ foo: 1, bar: 2 }, { foo: 3 })).toEqual({ bar: 2 })
+    expect(objectWithoutProperties({ foo: 1, bar: 2 }, { foo: 3 })).toEqual({
+      bar: 2,
+    })
   })
 })
 
@@ -84,12 +110,9 @@ describe('memoize', () => {
   })
 
   it('should use custom equals', () => {
-    const isEqual = jest.fn(() => true)
-    const fn = memoize((foo, bar) => 'foo:' + foo + ',bar:' + bar, isEqual)
+    const fn = memoize((foo, bar) => 'foo:' + foo + ',bar:' + bar, () => true)
     expect(fn(1, 2)).toEqual('foo:1,bar:2')
     expect(fn(2, 3)).toEqual('foo:1,bar:2')
-
-    expect(isEqual).toHaveBeenCalled()
   })
 })
 

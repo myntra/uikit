@@ -1,4 +1,8 @@
 import React, { PureComponent } from 'react'
+import scrollIntoView from 'scroll-into-view-if-needed'
+import VirtualList, {
+  VirtualListProps,
+} from '@myntra/uikit-component-virtual-list'
 import classnames from './list.module.scss'
 
 export interface ListProps<T = any> extends BaseProps {
@@ -36,28 +40,38 @@ export interface ListProps<T = any> extends BaseProps {
    * Sets selection mode to multiple.
    */
   multiple?: boolean
+
+  /**
+   * Use [VirtualList](../virtual-list) component to render the list.
+   */
+  virtualized?: boolean
 }
 
 /**
  * An accessible list of item.
  *
- * @since 0.10.0
+ * @since 0.11.0
  * @status READY
  * @category basic
  * @see http://uikit.myntra.com/components/list
  */
-export default class List extends PureComponent<ListProps, { activeIndex: number }> {
+export default class List extends PureComponent<
+  ListProps,
+  { activeIndex: number }
+> {
   static defaultProps = {
-    idForItem: item => item,
-    isItemDisabled: () => false
+    idForItem: (item) => item,
+    isItemDisabled: () => false,
   }
 
   idPrefix: string
   isMac: boolean
-  ref: React.RefObject<HTMLUListElement>
+  containerRef: React.RefObject<HTMLUListElement>
+  virtualListRef: React.RefObject<VirtualList>
+  scrollerRef: React.RefObject<HTMLDivElement>
 
   state = {
-    activeIndex: -1
+    activeIndex: -1,
   }
 
   constructor(props) {
@@ -65,24 +79,51 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
 
     this.idPrefix = `list-${Date.now()}`
     this.isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
-    this.ref = React.createRef()
+    this.containerRef = React.createRef()
+    this.virtualListRef = React.createRef()
+    this.scrollerRef = React.createRef()
   }
 
-  componentDidUpdate() {
-    if (this.ref.current && this.state.activeIndex >= 0) {
-      // TODO: ScrollIntoView if required.
+  componentDidUpdate(prevProps) {
+    if (this.state.activeIndex >= 0) {
+      if (this.props.virtualized) {
+        if (this.virtualListRef.current) {
+          const offset = this.virtualListRef.current.scrollToIndex(
+            this.state.activeIndex
+          )
+
+          if (this.scrollerRef.current && offset !== undefined)
+            this.scrollerRef.current.scrollTo({ top: offset })
+        }
+      } else {
+        // TODO: Check if scroll is required.
+        this.containerRef.current &&
+          scrollIntoView(
+            this.containerRef.current.children[this.state.activeIndex],
+            {
+              scrollMode: 'if-needed',
+              block: 'nearest',
+              inline: 'nearest',
+            }
+          )
+      }
     }
   }
 
   get activeItemHTMLId() {
-    if (this.state.activeIndex >= 0) return `${this.idPrefix}-option-${this.state.activeIndex}`
+    if (this.state.activeIndex >= 0)
+      return `${this.idPrefix}-option-${this.state.activeIndex}`
 
     return null
   }
 
   computeSelectedIds() {
     return this.props.value != null
-      ? new Set((Array.isArray(this.props.value) ? this.props.value : [this.props.value]).map(this.props.idForItem))
+      ? new Set(
+          Array.isArray(this.props.value)
+            ? this.props.value
+            : [this.props.value]
+        )
       : new Set()
   }
 
@@ -120,7 +161,6 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
 
     for (let index = start; index <= end; ++index) {
       const id = idForItem(items[index])
-      
 
       if (ids.has(id)) {
         if (toggle) value.splice(value.indexOf(id), 1)
@@ -136,7 +176,10 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
     return this.updateValueById(this.props.idForItem(this.props.items[index]))
   }
 
-  handleClick = ({ id }: { id: any; index: number }) => this.updateValueById(id)
+  handleClick = ({ id, index }: { id: any; index: number }) => {
+    this.setState({ activeIndex: index })
+    this.updateValueById(id)
+  }
 
   handleKeyPress = (event: KeyboardEvent) => {
     const N = this.props.items.length
@@ -168,6 +211,7 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
         }
         break
       case ' ':
+      case 'Enter':
       case 'Space':
         if (activeIndex >= 0) {
           event.stopPropagation()
@@ -178,7 +222,7 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
       case 'ArrowDown':
         const nextIndex = (activeIndex + 1) % N
         this.setState({
-          activeIndex: nextIndex
+          activeIndex: nextIndex,
         })
         if (isShift) {
           this.updateValueByIndex(activeIndex)
@@ -187,7 +231,7 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
       case 'ArrowUp':
         const prevIndex = (((activeIndex - 1) % N) + N) % N
         this.setState({
-          activeIndex: prevIndex
+          activeIndex: prevIndex,
         })
         if (isShift) {
           this.updateValueByIndex(activeIndex)
@@ -195,7 +239,7 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
         break
       case 'Home':
         this.setState({
-          activeIndex: 0
+          activeIndex: 0,
         })
 
         if (isShift && multiple) {
@@ -204,7 +248,7 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
         break
       case 'End':
         this.setState({
-          activeIndex: N - 1
+          activeIndex: N - 1,
         })
 
         if (isShift && multiple) {
@@ -229,7 +273,10 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
     }
 
     this.setState({
-      activeIndex: Math.max(0, items.findIndex(item => selectedIDs.has(idForItem(item))))
+      activeIndex: Math.max(
+        0,
+        items.findIndex((item) => selectedIDs.has(idForItem(item)))
+      ),
     })
   }
 
@@ -242,58 +289,117 @@ export default class List extends PureComponent<ListProps, { activeIndex: number
   }
 
   render() {
-    const { items, className, children, idForItem, isItemDisabled, value, onChange, multiple, ...props } = this.props
+    const {
+      items,
+      className,
+      children,
+      idForItem,
+      isItemDisabled,
+      value,
+      onChange,
+      multiple,
+      virtualized,
+      ...props
+    } = this.props
     const { activeIndex } = this.state
     const selectedIDs = this.computeSelectedIds()
-
-    return (
+    const renderScroller: VirtualListProps['renderScroller'] = ({
+      onScroll,
+      style,
+      className,
+      children,
+    }) => (
+      <div
+        style={style}
+        className={className}
+        onScroll={onScroll as any}
+        ref={this.scrollerRef}
+      >
+        {children}
+      </div>
+    )
+    const renderContainer: VirtualListProps['renderContainer'] = ({
+      className,
+      children,
+      style,
+    }) => (
       <ul
+        tabIndex={0}
         {...props}
-        ref={this.ref}
-        className={classnames('list', className, { 'is-single-selectable': !multiple })}
+        ref={this.containerRef}
+        className={classnames('container', className, {
+          'is-single-selectable': !multiple,
+        })}
         role="listbox"
         aria-readonly={!onChange}
         aria-required={props.required}
         aria-multiselectable={multiple}
         aria-activedescendant={this.activeItemHTMLId}
-        tabIndex={0}
+        style={style}
         onBlur={this.handleBlur}
         onFocus={this.handleFocus}
         onKeyDown={this.handleKeyPress as any}
-        onKeyPress={this.handleKeyPress as any}
       >
-        {items.map((item, index) => {
-          const id = idForItem(item)
-          const isSelected = selectedIDs.has(id)
-          const isActive = index === activeIndex
-          const isDisabled = isItemDisabled(item)
-
-          return (
-            <li
-              key={id}
-              role="option"
-              aria-selected={isSelected}
-              id={`${this.idPrefix}-option-${index}`}
-              data-index={index}
-              data-id={id}
-              className={classnames('item', { 'is-selected': isSelected, 'is-active': isActive, 'is-disabled': isDisabled })}
-              onMouseEnter={this.resetActiveIndex}
-              onClick={() => !isDisabled && this.handleClick({ id, index })}
-            >
-              <input
-                className={classnames('checkbox')}
-                type="checkbox"
-                checked={isSelected}
-                tabIndex={-1}
-                readOnly
-                hidden={!multiple}
-                disabled={isDisabled}
-              />
-              {children({ index, id, item })}
-            </li>
-          )
-        })}
+        {children}
       </ul>
     )
+    const renderItem = ({ index, style }) => {
+      const item = items[index]
+      const id = idForItem(item)
+      const isSelected = selectedIDs.has(id)
+      const isActive = index === activeIndex
+      const isDisabled = isItemDisabled(item)
+
+      return (
+        <li
+          key={id}
+          role="option"
+          aria-selected={isSelected}
+          id={`${this.idPrefix}-option-${index}`}
+          data-index={index}
+          data-id={id}
+          style={style}
+          className={classnames('item', {
+            'is-selected': isSelected,
+            'is-active': isActive,
+            'is-disabled': isDisabled,
+          })}
+          onMouseEnter={this.resetActiveIndex}
+          onClick={() => !isDisabled && this.handleClick({ id, index })}
+        >
+          <input
+            className={classnames('checkbox')}
+            type="checkbox"
+            checked={isSelected}
+            value={id}
+            tabIndex={-1}
+            readOnly
+            hidden={!multiple}
+            disabled={isDisabled}
+          />
+          {children({ index, id, item })}
+        </li>
+      )
+    }
+
+    if (virtualized) {
+      return (
+        <VirtualList
+          ref={this.virtualListRef}
+          itemCount={items.length}
+          className={classnames(className, 'scroller')}
+          estimatedItemSize={33}
+          viewportSize={Math.min(360, items.length * 33)}
+          renderContainer={renderContainer}
+          renderScroller={renderScroller}
+        >
+          {renderItem}
+        </VirtualList>
+      )
+    }
+
+    return renderContainer({
+      children: items.map((_, index) => renderItem({ index } as any)),
+    } as any)
   }
 }

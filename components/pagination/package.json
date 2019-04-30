@@ -23,5 +23,8 @@
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.14"
   }
 }

@@ -90,10 +90,18 @@ export default class Documenter extends Component {
                       {prop.required ? (
                         <span className="documenter--prop-required">required</span>
                       ) : 'defaultValue' in prop ? (
-                        JSON.stringify(
-                          prop.defaultValue && prop.defaultValue.value ? prop.defaultValue.value : prop.defaultValue,
-                          null,
-                          2
+                        prop.type && prop.type.name === 'boolean' ? (
+                          prop.defaultValue && prop.defaultValue.value ? (
+                            prop.defaultValue.value
+                          ) : (
+                            prop.defaultValue
+                          )
+                        ) : (
+                          JSON.stringify(
+                            prop.defaultValue && prop.defaultValue.value ? prop.defaultValue.value : prop.defaultValue,
+                            null,
+                            2
+                          )
                         )
                       ) : (
                         'undefined'
@@ -101,7 +109,7 @@ export default class Documenter extends Component {
                     </div>
                   </div>
                   <div className="documenter--prop-description">
-                    {prop.since && <p>Available in v{prop.since}+</p>}
+                    {prop.since && <em>Available in v{prop.since}+</em>}
                     {prop.deprecated && (
                       <Markdown>{`_This prop has been **deprecated**._ ` + prop.deprecated}</Markdown>
                     )}

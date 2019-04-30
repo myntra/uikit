@@ -69,12 +69,16 @@ export default class VirtualListCellMeasure extends Component<
   }
 
   measureFromDOM = () => {
-    const el: HTMLElement = ReactDOM.findDOMNode(this) as any // eslint-disable-line react/no-find-dom-node
+    try {
+      const el: HTMLElement = ReactDOM.findDOMNode(this) as any // eslint-disable-line react/no-find-dom-node
 
-    const height = el.offsetHeight
-    const width = el.offsetWidth
+      const height = el.offsetHeight
+      const width = el.offsetWidth
 
-    return { height, width }
+      return { height, width }
+    } catch (error) {
+      return { height: 0, width: 0 }
+    }
   }
 
   render() {

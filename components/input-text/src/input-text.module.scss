@@ -2,7 +2,7 @@
 @import 'input';
 
 .input {
-  @include ui-input-style();
+  @include mixin-input-component();
 
   width: 100%;
 }

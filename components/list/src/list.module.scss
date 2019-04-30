@@ -1,6 +1,10 @@
 @import '@design';
 
-.list {
+.scroller {
+  // --
+}
+
+.container {
   padding-left: 0;
   overflow: auto;
   list-style: none;
@@ -15,9 +19,12 @@
 
 .item {
   position: relative;
-  padding: 12px;
+  width: 100%;
+  padding: ui-size('xs') ui-size('s');
   cursor: pointer;
   border-bottom: 1px solid ui-color('gray', 'light');
+
+  @include use-text-style('body');
 
   &:last-child {
     border-bottom: none;
@@ -35,7 +42,9 @@
 }
 
 .checkbox {
-  margin-right: 12px;
+  margin: 0;
+  margin-right: ui-size('s');
+  cursor: pointer;
 }
 
 .is-single-selectable {
@@ -44,7 +53,7 @@
     top: 0;
     bottom: 0;
     left: 0;
-    width: 4px;
+    width: ui-size('2xs');
     content: ' ';
     background-color: ui-color('primary');
   }

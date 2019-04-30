@@ -13,6 +13,7 @@ export { default as Icon } from "@myntra/uikit-component-icon";
 export { default as Image } from "@myntra/uikit-component-image";
 export { default as InputCheckbox } from "@myntra/uikit-component-input-checkbox";
 export { default as InputS3File } from "@myntra/uikit-component-input-s3-file";
+export { default as InputSelect } from "@myntra/uikit-component-input-select";
 export { default as InputText } from "@myntra/uikit-component-input-text";
 export { default as InputTextArea } from "@myntra/uikit-component-input-text-area";
 export { default as List } from "@myntra/uikit-component-list";

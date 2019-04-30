@@ -2,7 +2,7 @@
 @import '@myntra/uikit-component-input-text/style.scss';
 
 .input {
-  @include ui-input-style();
+  @include mixin-input-component();
 
   display: inline-block;
   border-bottom-color: transparent;

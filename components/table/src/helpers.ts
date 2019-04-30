@@ -61,7 +61,7 @@ export function processColumn(
     subColumns && typeof subColumns === 'function'
       ? subColumns
       : React.Children.count(subColumns) === 0
-      ? makeRender(accessor || column.key)
+      ? makeRender(accessor || column.key.replace(/^\.\$/, ''))
       : undefined
 
   const children =

@@ -348,6 +348,95 @@ interface InputS3FileState {
 
 declare function InputS3File(props: InputS3FileProps): JSX.Element
 
+// -----------[[InputSelect]]--------------- //
+
+interface InputSelectProps<Value = any, Option = any> extends BaseProps {
+  /**
+   * A list of options for the select element.
+   */
+  options: Option[]
+  /**
+   * Selected option value (array of option values for [multiple](#InputSelect-multiple) select element).
+   */
+  value: Value
+  /**
+   * The handler to call when the value changes.
+   */
+  onChange?(value: Value): void
+  /**
+   * The handler to call when the user types in search field.
+   */
+  onSearch?(text: string): void
+  /**
+   * A render function to display option in options dropdown.
+   * @param option - One of the [options](#InputSelect-options) list.
+   */
+  renderOption?(option: Option): JSX.Element
+  /**
+   * A render function to display empty state when no options are available.
+   * @since 0.11.0
+   */
+  renderEmptyState?(): JSX.Element
+  /**
+   * A placeholder message.
+   */
+  placeholder?: string
+  /**
+   * Allows multiple option selection.
+   */
+  multiple?: boolean
+  /**
+   * Disables all interaction on the select field.
+   */
+  disabled?: boolean
+  /**
+   * Allows only previewing selected options.
+   */
+  readOnly?: boolean
+  /**
+   *  Makes select field required.
+   */
+  required?: boolean
+  /**
+   * Displays a spinner while options are being loaded.
+   */
+  isLoading?: boolean
+  /**
+   * Displays a search box for filtering select options.
+   */
+  searchable?: boolean
+  /**
+   * List of key names in [option](#InputSelect-options) object use to search select options.
+   */
+  searchableKeys?: string[]
+  /**
+   * Name of the property to use as display value (or label) of option.
+   */
+  labelKey?: string
+  /**
+   * Name of the property to use as actual value (or label) of option.
+   */
+  valueKey?: string
+  /**
+   * A function to filter options with custom filtering logic.
+   */
+  filterOptions?(option: Option): boolean
+  /**
+   * @deprecated - Use [renderEmptyState](#InputSelect-renderEmptyState) instead.
+   */
+  noResultsPlaceholder?: string | JSX.Element
+}
+/**
+ * Dropdown selector component.
+ *
+ * @since 0.0.0
+ * @status REVIEWING
+ * @category basic
+ * @see http://uikit.myntra.com/components/input-select
+ */
+
+declare function InputSelect(props: InputSelectProps): JSX.Element
+
 // -----------[[InputText]]--------------- //
 interface InputTextProps extends BaseProps {
   /** Sets the text format for the field. */
@@ -430,11 +519,15 @@ interface ListProps<T = any> extends BaseProps {
    * Sets selection mode to multiple.
    */
   multiple?: boolean
+  /**
+   * Use [VirtualList](../virtual-list) component to render the list.
+   */
+  virtualized?: boolean
 }
 /**
  * An accessible list of item.
  *
- * @since 0.10.0
+ * @since 0.11.0
  * @status READY
  * @category basic
  * @see http://uikit.myntra.com/components/list

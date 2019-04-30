@@ -1,0 +1,23 @@
+@import '@design';
+@import '@myntra/uikit-component-input-text/style.scss';
+
+.control {
+  position: relative;
+  display: flex;
+}
+
+.input {
+  @include mixin-input-component();
+}
+
+.buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+.button {
+  display: inline-block;
+  cursor: pointer;
+}

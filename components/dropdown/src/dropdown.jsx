@@ -53,8 +53,10 @@ function findScrollParents(el) {
  *
  * @since 0.0.0
  * @status READY
+ * @category advanced
+ * @see http://uikit.myntra.com/components/dropdown
  */
-class Dropdown extends Component {
+export default class Dropdown extends Component {
   static propTypes = {
     /** Contents of the dropdown drawer. */
     children: PropTypes.element.isRequired,
@@ -75,10 +77,12 @@ class Dropdown extends Component {
     isOpen: PropTypes.bool.isRequired,
     /**
      * Event fired when dropdown drawer is displayed
+     * @function
      */
     onOpen: PropTypes.func,
     /**
      * Event fired when dropdown drawer is closed
+     * @function
      */
     onClose: PropTypes.func,
     /** Open dropdown drawer above the trigger. */
@@ -131,18 +135,9 @@ class Dropdown extends Component {
       width: props.approxContentWidth,
       position: null,
     }
-    this.wrapperRef =
-      typeof React.createRef === 'function'
-        ? React.createRef()
-        : (ref) => {
-            this.wrapperRef.current = ref
-          }
-    this.triggerRef =
-      typeof React.createRef === 'function'
-        ? React.createRef()
-        : (ref) => {
-            this.triggerRef.current = ref
-          }
+    this.containerRef = React.createRef()
+    this.wrapperRef = React.createRef()
+    this.triggerRef = React.createRef()
   }
 
   /**
@@ -205,6 +200,11 @@ class Dropdown extends Component {
         1
       )
     }
+  }
+
+  handleClickAway = (event) => {
+    if (event && event.path.includes(this.triggerRef.current)) return
+    this.close()
   }
 
   /**
@@ -348,6 +348,26 @@ class Dropdown extends Component {
     )
   }
 
+  handleBlur = () => {
+    // No active element
+    if (!document.activeElement) return
+
+    // In dropdown.
+    if (!this.containerRef.current) return
+    if (this.containerRef.current.contains(document.activeElement)) return
+
+    // In dropdown content (in portal).
+    if (!this.wrapperRef.current) return
+    if (this.wrapperRef.current.contains(document.activeElement)) return
+
+    this.close()
+  }
+
+  handleBlurDelayed = () => {
+    clearTimeout(this.blurTimeout)
+    this.blurTimeout = setTimeout(this.handleBlur, 20)
+  }
+
   render() {
     const { up, left, right, down } = this.props.auto
       ? this.state
@@ -356,9 +376,10 @@ class Dropdown extends Component {
     const { triggerOn } = this.props
     const triggerEventProps = {
       onBlur:
-        typeof this.props.trigger !== 'string'
-          ? this.props.trigger.props.onBlur || this.close
-          : this.close,
+        typeof this.props.trigger !== 'string' &&
+        this.props.trigger.props.onBlur
+          ? null
+          : this.handleBlurDelayed,
       onMouseEnter: triggerOn === 'hover' ? this.open : null,
       onMouseLeave: triggerOn === 'hover' ? this.close : null,
       onClick: triggerOn === 'click' ? this.toggle : null,
@@ -368,6 +389,7 @@ class Dropdown extends Component {
     return (
       <div
         {...this.forwardedProps}
+        ref={this.containerRef}
         className={classnames(this.props.className, 'dropdown', {
           open: this.props.isOpen,
         })}
@@ -383,7 +405,7 @@ class Dropdown extends Component {
               {this.props.trigger}
             </Button>
           ) : (
-            React.cloneElement(this.props.trigger, triggerEventProps)
+            cloneElement(this.props.trigger, triggerEventProps)
           )}
         </div>
         {this.props.isOpen &&
@@ -424,7 +446,7 @@ class Dropdown extends Component {
         {this.props.useClickAway && this.props.isOpen && (
           <ClickAway
             target={this.wrapperRef}
-            onClickAway={this.close}
+            onClickAway={this.handleClickAway}
             data-test-id="click-away"
           />
         )}
@@ -433,4 +455,24 @@ class Dropdown extends Component {
   }
 }
 
-export default Dropdown
+// TODO: Extract to utils.
+function cloneElement(element, props) {
+  const newProps = {}
+  const currentProps = element.props
+
+  for (const key in props) {
+    if (key in currentProps && /^on/.test(key)) {
+      const fn1 = props[key]
+      const fn2 = currentProps[key]
+
+      newProps[key] = function() {
+        if (typeof fn1 === 'function') fn1.call(this, arguments)
+        if (typeof fn2 === 'function') fn2.call(this, arguments)
+      }
+    } else {
+      newProps[key] = props[key]
+    }
+  }
+
+  return React.cloneElement(element, newProps)
+}

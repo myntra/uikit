@@ -47,6 +47,7 @@ $-nav-bar-item: merge(
   }
 
   &.is-active {
+    color: ui-text-color('primary');
     background-color: ui-color('primary', 'lighter');
   }
 

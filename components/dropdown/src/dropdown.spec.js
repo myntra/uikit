@@ -11,7 +11,9 @@ describe('Dropdown', () => {
       </Dropdown>
     )
     expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Open')
-    expect(wrapper.find('[data-test-id="content"]')).not.toHaveText('Some Content')
+    expect(wrapper.find('[data-test-id="content"]')).not.toHaveText(
+      'Some Content'
+    )
   })
 
   it('renders an expanded dropdown', () => {
@@ -52,13 +54,18 @@ describe('Dropdown', () => {
 
   it('renders with a custom trigger element', () => {
     const wrapper = mount(
-      <Dropdown trigger={<span data-test-id="custom-trigger">Trigger</span>} isOpen={true}>
+      <Dropdown
+        trigger={<span data-test-id="custom-trigger">Trigger</span>}
+        isOpen={true}
+      >
         <p>Some Content</p>
       </Dropdown>
     )
 
     expect(wrapper.find('[data-test-id="trigger"]')).toHaveText('Trigger')
-    expect(wrapper.find('[data-test-id="trigger"] [data-test-id="custom-trigger"]')).toHaveText('Trigger')
+    expect(
+      wrapper.find('[data-test-id="trigger"] [data-test-id="custom-trigger"]')
+    ).toHaveText('Trigger')
   })
 
   describe('behaviour', () => {
@@ -75,7 +82,7 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('click')
 
-      expect(onOpen).toBeCalledTimes(1)
+      expect(onOpen).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if trigger is clicked in expanded state', () => {
@@ -91,7 +98,7 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('click')
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if trigger is clicked in expanded state (in portal)', () => {
@@ -107,7 +114,7 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('click')
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if clicked away from dropdown', () => {
@@ -125,7 +132,7 @@ describe('Dropdown', () => {
         .instance()
         .props.onClickAway()
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if clicked away from dropdown (in portal)', () => {
@@ -143,7 +150,7 @@ describe('Dropdown', () => {
         .instance()
         .props.onClickAway()
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
   })
 
@@ -151,7 +158,12 @@ describe('Dropdown', () => {
     it('calls `onOpen` prop if trigger is hovered on collapsed state', () => {
       const onOpen = jest.fn()
       const wrapper = mount(
-        <Dropdown trigger="Open" isOpen={false} onOpen={onOpen} triggerOn={'hover'}>
+        <Dropdown
+          trigger="Open"
+          isOpen={false}
+          onOpen={onOpen}
+          triggerOn={'hover'}
+        >
           <p>Some Content</p>
         </Dropdown>
       )
@@ -161,13 +173,18 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('mouseenter')
 
-      expect(onOpen).toBeCalledTimes(1)
+      expect(onOpen).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if hovered away from dropdown', () => {
       const onClose = jest.fn()
       const wrapper = mount(
-        <Dropdown trigger="Open" isOpen={true} onClose={onClose} triggerOn={'hover'}>
+        <Dropdown
+          trigger="Open"
+          isOpen={true}
+          onClose={onClose}
+          triggerOn={'hover'}
+        >
           <p>Some Content</p>
         </Dropdown>
       )
@@ -177,13 +194,19 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('mouseleave')
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if hovered away from dropdown (in portal)', () => {
       const onClose = jest.fn()
       const wrapper = mount(
-        <Dropdown trigger="Open" isOpen={true} onClose={onClose} container triggerOn={'hover'}>
+        <Dropdown
+          trigger="Open"
+          isOpen={true}
+          onClose={onClose}
+          container
+          triggerOn={'hover'}
+        >
           <p>Some Content</p>
         </Dropdown>
       )
@@ -193,15 +216,30 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('mouseleave')
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
   })
 
   describe('behaviour on focus trigger', () => {
+    let setTimeout
+    beforeEach(() => {
+      setTimeout = jest
+        .spyOn(window, 'setTimeout')
+        .mockImplementation((fn) => fn())
+    })
+    afterEach(() => {
+      setTimeout.mockReset()
+    })
+
     it('calls `onOpen` prop if trigger is focused on collapsed state', () => {
       const onOpen = jest.fn()
       const wrapper = mount(
-        <Dropdown trigger="Open" isOpen={false} onOpen={onOpen} triggerOn={'focus'}>
+        <Dropdown
+          trigger="Open"
+          isOpen={false}
+          onOpen={onOpen}
+          triggerOn={'focus'}
+        >
           <p>Some Content</p>
         </Dropdown>
       )
@@ -211,13 +249,18 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('focus')
 
-      expect(onOpen).toBeCalledTimes(1)
+      expect(onOpen).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if focused away from dropdown', () => {
       const onClose = jest.fn()
       const wrapper = mount(
-        <Dropdown trigger="Open" isOpen={true} onClose={onClose} triggerOn={'focus'}>
+        <Dropdown
+          trigger="Open"
+          isOpen={true}
+          onClose={onClose}
+          triggerOn={'focus'}
+        >
           <p>Some Content</p>
         </Dropdown>
       )
@@ -227,13 +270,19 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('blur')
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
 
     it('calls `onClose` prop if focused away from dropdown (in portal)', () => {
       const onClose = jest.fn()
       const wrapper = mount(
-        <Dropdown trigger="Open" isOpen={true} onClose={onClose} container triggerOn={'focus'}>
+        <Dropdown
+          trigger="Open"
+          isOpen={true}
+          onClose={onClose}
+          container
+          triggerOn={'focus'}
+        >
           <p>Some Content</p>
         </Dropdown>
       )
@@ -243,68 +292,103 @@ describe('Dropdown', () => {
         .childAt(0)
         .simulate('blur')
 
-      expect(onClose).toBeCalledTimes(1)
+      expect(onClose).toHaveBeenCalledTimes(1)
     })
   })
 
   describe('auto align content', () => {
-    const instance = new Dropdown({ auto: true, approxContentWidth: 100, approxContentHeight: 100 })
+    const instance = new Dropdown({
+      auto: true,
+      approxContentWidth: 100,
+      approxContentHeight: 100,
+    })
 
     const node = (top, left, width, height) => ({
       getBoundingClientRect() {
-        return { top, left, right: left + width, bottom: top + height, width, height }
-      }
+        return {
+          top,
+          left,
+          right: left + width,
+          bottom: top + height,
+          width,
+          height,
+        }
+      },
     })
 
     it('auto: default (no element)', () => {
-      expect(instance.calculateAutoPosition(null, node(0, 0, 400, 400))).toEqual({
+      expect(
+        instance.calculateAutoPosition(null, node(0, 0, 400, 400))
+      ).toEqual({
         left: false,
         up: false,
-        right: false
+        right: false,
       })
     })
 
     it('auto: default (no parent)', () => {
-      expect(instance.calculateAutoPosition(node(0, 0, 400, 400), null)).toEqual({
+      expect(
+        instance.calculateAutoPosition(node(0, 0, 400, 400), null)
+      ).toEqual({
         left: false,
         up: false,
-        right: false
+        right: false,
       })
     })
 
     it('auto: bottom left', () => {
-      expect(instance.calculateAutoPosition(node(100, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
+      expect(
+        instance.calculateAutoPosition(
+          node(100, 100, 100, 100),
+          node(0, 0, 400, 400)
+        )
+      ).toEqual({
         down: true,
         left: true,
         up: false,
-        right: false
+        right: false,
       })
     })
 
     it('auto: bottom right', () => {
-      expect(instance.calculateAutoPosition(node(100, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
+      expect(
+        instance.calculateAutoPosition(
+          node(100, 300, 100, 100),
+          node(0, 0, 400, 400)
+        )
+      ).toEqual({
         down: true,
         left: false,
         up: false,
-        right: true
+        right: true,
       })
     })
 
     it('auto: top left', () => {
-      expect(instance.calculateAutoPosition(node(300, 100, 100, 100), node(0, 0, 400, 400))).toEqual({
+      expect(
+        instance.calculateAutoPosition(
+          node(300, 100, 100, 100),
+          node(0, 0, 400, 400)
+        )
+      ).toEqual({
         down: false,
         left: true,
         up: true,
-        right: false
+        right: false,
       })
     })
 
     it('auto: top right', () => {
-      expect(instance.calculateAutoPosition(node(300, 300, 100, 100), node(0, 0, 400, 400))).toEqual({
+      expect(
+        instance.calculateAutoPosition(
+          node(300, 300, 100, 100),
+          node(0, 0, 400, 400)
+        )
+      ).toEqual({
         down: false,
         left: false,
         up: true,
-        right: true
+        right: true,
       })
     })
   })

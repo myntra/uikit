@@ -1,4 +1,5 @@
 {
   "cSpell.words": ["JABONG", "Scroller", "myntra", "uikit"],
-  "eslint.enable": false
+  "eslint.enable": false,
+  "typescript.tsdk": "node_modules/typescript/lib"
 }

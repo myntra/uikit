@@ -24,3 +24,22 @@ const [data] = useState([
 ```
 
 </Documenter>
+
+## Sub-components
+
+### Table.Column
+
+<Documenter component={Table.Column} sub>
+
+```jsx preview
+const [data] = useState([
+  { name: 'Jane Doe' },
+  { name: 'John Doe' }
+]);
+
+<Table data={data}>
+  <Table.Column label="Name" key="name" />
+</Table>
+```
+
+</Documenter>

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { memoize, classnames } from '@myntra/uikit-utils'
+import { classnames, memoize } from '@myntra/uikit-utils'
 import { prepareHead, prepareCellProps } from './helpers'
 import TableColumn from './table-column'
 // import TableColumnFilter from './table-column-filter'
@@ -47,8 +47,11 @@ export default class Table extends PureComponent<TableProps> {
     },
   }
 
-  prepareHead = memoize((children, order) =>
-    prepareHead(children.filter(Boolean), order)
+  prepareHead = memoize((children: any, order) =>
+    prepareHead(
+      React.Children.map(children, (child) => child).filter(Boolean) as any,
+      order
+    )
   )
   prepareSort = memoize((sort) =>
     sort.map((column) =>

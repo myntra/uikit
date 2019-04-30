@@ -10,16 +10,22 @@ const themesDir = path.resolve(__dirname, '../themes')
  * @param {string} dir - target directory
  */
 function findPackages(dir) {
-  return fs.readdirSync(dir).filter(filename => fs.statSync(path.resolve(dir, filename)).isDirectory() && filename !== '@myntra')
+  return fs
+    .readdirSync(dir)
+    .filter(
+      (filename) =>
+        fs.statSync(path.resolve(dir, filename)).isDirectory() &&
+        filename !== '@myntra'
+    )
 }
 
 const packages = findPackages(packagesDir)
 const components = findPackages(componentsDir)
 const themes = findPackages(themesDir)
 const targets = [
-  ...packages.map(package => `@myntra/${package}`),
-  ...components.map(component => `@myntra/uikit-component-${component}`),
-  ...themes.map(theme => `@myntra/uikit-theme-${theme}`)
+  ...packages.map((pkg) => `@myntra/${pkg}`),
+  ...components.map((component) => `@myntra/uikit-component-${component}`),
+  ...themes.map((theme) => `@myntra/uikit-theme-${theme}`),
 ]
 
 /**
@@ -46,7 +52,7 @@ function pascalCase(name) {
  * @param {string} query - fuzzy search query
  */
 function fuzzyMatchTarget(query) {
-  const matched = targets.filter(target => target.match(targets))
+  const matched = targets.filter((target) => target.match(query))
 
   if (matched.length) {
     return matched
@@ -95,7 +101,14 @@ function getPackageDir(name) {
   const packageName = getFullName(name)
   const dir = getShortName(name)
 
-  return path.resolve(isComponent(packageName) ? componentsDir : isTheme(packageName) ? themesDir : packagesDir, dir)
+  return path.resolve(
+    isComponent(packageName)
+      ? componentsDir
+      : isTheme(packageName)
+      ? themesDir
+      : packagesDir,
+    dir
+  )
 }
 
 /**
@@ -105,7 +118,13 @@ function getPackageRepository(name) {
   const packageName = getFullName(name)
   const dir = getShortName(name)
 
-  return `https://bitbucket.org/myntra/uikit/src/master/${isComponent(packageName) ? 'components' : isTheme(packageName) ? 'themes' : 'packages'}/${dir}`
+  return `https://bitbucket.org/myntra/uikit/src/master/${
+    isComponent(packageName)
+      ? 'components'
+      : isTheme(packageName)
+      ? 'themes'
+      : 'packages'
+  }/${dir}`
 }
 
 module.exports = {
@@ -124,5 +143,5 @@ module.exports = {
   getPackageDir,
   getPackageRepository,
   camelCase,
-  pascalCase
+  pascalCase,
 }

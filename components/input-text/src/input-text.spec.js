@@ -1,8 +1,6 @@
 import React from 'react'
 import InputText from './input-text'
 
-testCodeMod(__dirname, '../input-text.codemod.js')
-
 it('renders a placeholder <input> by default', () => {
   expect(
     mountShallow(<InputText placeholder="Type" />)

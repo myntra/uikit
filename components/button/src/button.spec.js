@@ -1,10 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import { testCodeMod } from '@myntra/codemod-utils'
-
 import Button from './button'
-
-testCodeMod(__dirname, '../button.codemod.js')
 
 describe('Button', () => {
   it('renders correct tag according to prop provided (href -> <a> | to -> <RouterLink> | -> <button>)', () => {
@@ -56,7 +52,9 @@ describe('Button', () => {
       const preventDefault = jest.fn()
       const wrapper = shallow(<Button disabled onClick={handleClick} />)
 
-      wrapper.find('[data-test-id="target"]').simulate('click', { preventDefault })
+      wrapper
+        .find('[data-test-id="target"]')
+        .simulate('click', { preventDefault })
 
       expect(handleClick).not.toHaveBeenCalled()
       expect(preventDefault).toHaveBeenCalled()

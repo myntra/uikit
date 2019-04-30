@@ -1,4 +1,11 @@
-const { isComponent, isTheme, getPackageDir, getFullName, getShortName, componentsDir } = require('./scripts/utils')
+/* eslint-disable node/no-unpublished-require */
+const {
+  isComponent,
+  isTheme,
+  getPackageDir,
+  getFullName,
+  componentsDir,
+} = require('./scripts/utils')
 const path = require('path')
 const ts = require('rollup-plugin-typescript2')
 const postcss = require('rollup-plugin-postcss')
@@ -12,7 +19,6 @@ if (!process.env.TARGET) {
 }
 
 const name = getFullName(process.env.TARGET)
-const shortName = getShortName(name)
 const dir = getPackageDir(process.env.TARGET)
 const pkg = require(`${dir}/package.json`)
 
@@ -25,10 +31,10 @@ const configs = (module.exports = [])
 // compile component with given theme.
 if (isComponent(name)) {
   configs.push({
-    input: get(pkg.main),
+    input: get(pkg.tsMain || pkg.main),
     output: {
       file: get(pkg.module),
-      format: 'esm'
+      format: 'esm',
     },
     external(name) {
       return name in pkg.dependencies
@@ -45,15 +51,15 @@ if (isComponent(name)) {
                 (imported, importer, done) => {
                   if (imported === '@myntra/uikit-design') {
                     return {
-                      file: require.resolve('./packages/uikit-design')
+                      file: require.resolve('./packages/uikit-design'),
                     }
                   }
 
                   done()
-                }
-              ]
-            }
-          ]
+                },
+              ],
+            },
+          ],
         ],
         minimize: true,
         plugins: [postcssImport()],
@@ -64,11 +70,26 @@ if (isComponent(name)) {
               .split('/')
               .shift()
 
-            return `_u${hash(`${component}:${name}`, { algorithm: 'md5' }).substr(0, 5)}`
-          }
-        }
+            return `_u${hash(`${component}:${name}`, {
+              algorithm: 'md5',
+            }).substr(0, 5)}`
+          },
+        },
       }),
-      classnames()
-    ]
+      classnames(),
+    ],
+  })
+} else if (isTheme(name)) {
+} else {
+  configs.push({
+    input: get(pkg.tsMain || pkg.main),
+    output: {
+      file: get(pkg.module),
+      format: 'esm',
+    },
+    external(name) {
+      return name in pkg.dependencies
+    },
+    plugins: [nodeResolve(), ts()],
   })
 }

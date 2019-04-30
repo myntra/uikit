@@ -54,6 +54,7 @@
     "@myntra/eslint-config-standard": "link:packages/eslint-config-standard",
     "@myntra/rollup-plugin-classnames": "link:packages/rollup-plugin-classnames",
     "@myntra/stylelint-config-standard": "link:packages/stylelint-config-standard",
+    "@types/enzyme": "^3.9.1",
     "@types/jest": "^24.0.11",
     "any-observable": "^0.3.0",
     "autoprefixer": "^9.5.0",
