@@ -8,7 +8,7 @@ export interface ClickAwayProps {
   /**
    * The handler to call when click-away is triggered.
    */
-  onClickAway: () => void
+  onClickAway: (event: MouseEvent) => void
   /**
    * Browser event which triggers click-away.
    */
@@ -24,7 +24,7 @@ export interface ClickAwayProps {
  */
 export default class ClickAway extends PureComponent<ClickAwayProps> {
   static defaultProps = {
-    domEventName: 'click'
+    domEventName: 'click',
   }
 
   componentDidUpdate(oldProps) {
@@ -43,24 +43,28 @@ export default class ClickAway extends PureComponent<ClickAwayProps> {
   }
 
   register() {
-    document.addEventListener(this.props.domEventName, this.handleClickAway, { passive: true })
+    document.addEventListener(this.props.domEventName, this.handleClickAway, {
+      passive: true,
+    })
   }
 
   unregister(eventName: string = this.props.domEventName) {
     document.removeEventListener(eventName, this.handleClickAway)
   }
 
-  handleClickAway = event => {
+  handleClickAway = (event) => {
     if (!this.props.target) return
 
-    const path = event.path || (event.composedPath ? event.composedPath() : undefined)
+    const path =
+      event.path || (event.composedPath ? event.composedPath() : undefined)
 
     if (
       path
         ? path.indexOf(this.props.target.current) < 0
-        : event.target !== this.props.target.current && !this.props.target.current.contains(event.target)
+        : event.target !== this.props.target.current &&
+          !this.props.target.current.contains(event.target)
     ) {
-      this.props.onClickAway()
+      this.props.onClickAway(event)
     }
   }
 

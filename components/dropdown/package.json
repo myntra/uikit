@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-component-dropdown",
   "version": "0.7.1",
-  "main": "src/dropdown.jsx",
+  "main": "src/dropdown.tsx",
   "module": "dist/dropdown.js",
-  "browser": "src/dropdown.jsx",
+  "browser": "src/dropdown.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/dropdown",
@@ -28,6 +28,6 @@
     "prop-types": "^15.7.2"
   },
   "devDependencies": {
-    "@types/react": "^16.8.13"
+    "@types/react": "^16.8.15"
   }
 }

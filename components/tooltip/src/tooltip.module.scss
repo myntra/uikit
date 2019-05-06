@@ -1,0 +1,87 @@
+@import '@design';
+
+.tooltip {
+  display: flex;
+  justify-content: center;
+}
+
+.tooltip.right,
+.tooltip.left {
+  flex-direction: column;
+}
+
+.tooltip-content {
+  padding: ui-size('r');
+  border-radius: 2px;
+  box-shadow: ui-shadow('raised');
+}
+
+.tooltip-content.light {
+  color: ui-text-color('dark');
+  background-color: white;
+}
+
+.tooltip-content.dark {
+  color: white;
+  background-color: rgb(40, 44, 63);
+}
+
+.tooltip-content.up {
+  margin-bottom: 10px;
+}
+
+.tooltip-content.down {
+  margin-top: 10px;
+}
+
+.tooltip-content.left {
+  margin-right: 10px;
+}
+
+.tooltip-content.right {
+  margin-left: 10px;
+}
+
+.arrow {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid;
+  border-color: transparent;
+}
+
+.arrow.up {
+  bottom: -6px;
+  border-top-color: white;
+}
+
+.arrow.down {
+  top: -6px;
+  border-bottom-color: white;
+}
+
+.arrow.left {
+  right: -6px;
+  border-left-color: white;
+}
+
+.arrow.right {
+  left: -6px;
+  border-right-color: white;
+}
+
+.arrow.up.dark {
+  border-top-color: rgb(40, 44, 63);
+}
+
+.arrow.down.dark {
+  border-bottom-color: rgb(40, 44, 63);
+}
+
+.arrow.left.dark {
+  border-left-color: rgb(40, 44, 63);
+}
+
+.arrow.right.dark {
+  border-right-color: rgb(40, 44, 63);
+}

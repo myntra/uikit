@@ -134,7 +134,7 @@ interface ClickAwayProps {
   /**
    * The handler to call when click-away is triggered.
    */
-  onClickAway: () => void
+  onClickAway: (event: MouseEvent) => void
   /**
    * Browser event which triggers click-away.
    */
@@ -151,6 +151,59 @@ interface ClickAwayProps {
 declare function ClickAway(props: ClickAwayProps): JSX.Element
 
 // -----------[[Dropdown]]--------------- //
+
+interface DropdownProps extends BaseProps {
+  renderTrigger(props: {
+    onMouseEnter?(event: MouseEvent | React.MouseEvent): void
+    onMouseLeave?(event: MouseEvent | React.MouseEvent): void
+    onClick?(event: MouseEvent | React.MouseEvent): void
+    onFocus?(event: FocusEvent | React.FocusEvent): void
+    onBlur?(event: FocusEvent | React.FocusEvent): void
+  }): string | JSX.Element
+  /**
+   * Trigger to open dropdown.
+   *
+   * @deprecated - Use [renderTrigger](#Dropdown-renderTrigger)
+   */
+  trigger?: string | JSX.Element
+  /** Dropdown state */
+  isOpen: boolean
+  /** Attach child to specific component/element */
+  container?: boolean | string | HTMLElement
+  /**
+   * Event fired when dropdown drawer is displayed
+   * @function
+   */
+  onOpen?(): void
+  /**
+   * Event fired when dropdown drawer is closed
+   */
+  onclose?(): void
+  /** Open dropdown drawer above the trigger. */
+  up?: boolean
+  /** Align dropdown drawer with the right edge of the trigger. */
+  right?: boolean
+  /** Align dropdown drawer with the left edge of the trigger. */
+  left?: boolean
+  /** Align dropdown drawer below the trigger. */
+  down?: boolean
+  /**
+   * Position dropdown drawer in best suited place.
+   */
+  auto?: boolean
+  /**
+   * Event to trigger dropdown
+   */
+  triggerOn?: 'hover' | 'click' | 'focus'
+}
+/**
+ * A bare-bones dropdown implementation. It requires a trigger component or text.
+ *
+ * @since 0.0.0
+ * @status READY
+ * @category advanced
+ * @see http://uikit.myntra.com/components/dropdown
+ */
 
 declare function Dropdown(props: DropdownProps): JSX.Element
 
@@ -292,13 +345,11 @@ declare function InputCheckbox(props: InputCheckboxProps): JSX.Element
 interface InputNumberProps extends BaseProps {
   /** @private */
   className?: string
-  /** Disable Input */
+  /** Displays a disabled number field */
   disabled?: boolean
-  /** Value */
+  /** Current value of the number input field. */
   value?: number
-  /**
-   * Change event handler
-   */
+  /** The handler to call when the value changes. */
   onChange?(value: number): void
 }
 /**
@@ -453,7 +504,7 @@ interface InputSelectProps<Value = any, Option = any> extends BaseProps {
  * Dropdown selector component.
  *
  * @since 0.0.0
- * @status REVIEWING
+ * @status READY
  * @category basic
  * @see http://uikit.myntra.com/components/input-select
  */
@@ -492,9 +543,9 @@ interface InputTextAreaProps extends BaseProps {
   value?: string
   /** The handler to call when the value changes. */
   onChange?(value: string): void
-  /** Disable Input */
+  /** Displays a disabled text area field */
   disabled?: boolean
-  /** Rows */
+  /** Number of Rows*/
   rows?: number
   /** Disable resize and hide resize handle */
   noResize?: boolean
@@ -871,6 +922,26 @@ interface TableColumnProps extends BaseProps {
 declare namespace Table {
   declare function Column(props: TableColumnProps): JSX.Element
 }
+
+// -----------[[Tooltip]]--------------- //
+
+interface TooltipProps extends BaseProps {
+  /** Content of the tooltip */
+  renderContent(): JSX.Element
+  /** Position with relative to children */
+  position?: 'up' | 'down' | 'left' | 'right'
+  /** Event to display the tooltip */
+  triggerOn?: 'hover' | 'click' | 'focus'
+  /** Displays a tooltip with dark background */
+  dark?: boolean
+}
+/**
+ * Tooltip component.
+ * @since 0.6.0
+ * @status EXPERIMENTAL
+ */
+
+declare function Tooltip(props: TooltipProps): JSX.Element
 
 // -----------[[TopBar]]--------------- //
 

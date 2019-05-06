@@ -1,5 +1,5 @@
 import React, { ReactElement } from 'react'
-import Dropdown from '@myntra/uikit-component-dropdown'
+import Dropdown from 'components/dropdown/src/dropdown'
 import Icon from '@myntra/uikit-component-icon'
 import classnames from './table-column-filter.module.scss'
 import { TableColumnProps } from './table-column'

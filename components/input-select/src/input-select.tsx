@@ -2,8 +2,8 @@ import React, { Component, RefObject } from 'react'
 import { memoize, toArray } from '@myntra/uikit-utils'
 
 import classnames from './input-select.module.scss'
-import List from '@myntra/uikit-component-list'
 import Dropdown from '@myntra/uikit-component-dropdown'
+import List from '@myntra/uikit-component-list'
 import Icon from '@myntra/uikit-component-icon'
 
 import InputSelectValue from './input-select-value'

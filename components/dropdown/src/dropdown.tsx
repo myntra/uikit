@@ -1,8 +1,4 @@
-// TODO: Migrate to TypeScript
-
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { onlyExtraProps } from '@myntra/uikit-utils'
+import React, { Component, RefObject } from 'react'
 
 import Button from '@myntra/uikit-component-button'
 import ClickAway from '@myntra/uikit-component-click-away'
@@ -11,23 +7,23 @@ import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './dropdown.module.scss'
 
-const scrollParents = new WeakMap()
+const scrollParents = new WeakMap<Element, Element[]>()
 
-function elementHasOverflow(el) {
+function elementHasOverflow(el: Element) {
   return el.scrollHeight > el.clientHeight || el.scrollWidth > el.clientWidth
 }
 
-function elementHasScrollableOverflow(el) {
-  const RE = /auto|scroll/
+const SCROLL_RE = /auto|scroll/
+function elementHasScrollableOverflow(el: Element) {
   const style = window.getComputedStyle(el, null)
 
-  return RE.test(style.overflow + style.overflowX + style.overflowY)
+  return SCROLL_RE.test(style.overflow + style.overflowX + style.overflowY)
 }
 
-function findScrollParents(el) {
+function findScrollParents(el: Element) {
   if (scrollParents.has(el)) return scrollParents.get(el)
 
-  const parents = []
+  const parents: Element[] = []
   let current = el.parentElement
   while (current) {
     if (elementHasOverflow(current) || elementHasScrollableOverflow(current)) {
@@ -41,11 +37,56 @@ function findScrollParents(el) {
     parents.push(document.scrollingElement || document.documentElement)
   }
 
-  parents.push(window)
+  parents.push(window as any) // disguise as an element.
 
   scrollParents.set(el, parents)
 
   return parents
+}
+
+export interface DropdownProps extends BaseProps {
+  renderTrigger(props: {
+    onMouseEnter?(event: MouseEvent | React.MouseEvent): void
+    onMouseLeave?(event: MouseEvent | React.MouseEvent): void
+    onClick?(event: MouseEvent | React.MouseEvent): void
+    onFocus?(event: FocusEvent | React.FocusEvent): void
+    onBlur?(event: FocusEvent | React.FocusEvent): void
+  }): string | JSX.Element
+  /**
+   * Trigger to open dropdown.
+   *
+   * @deprecated - Use [renderTrigger](#Dropdown-renderTrigger)
+   */
+  trigger?: string | JSX.Element
+  /** Dropdown state */
+  isOpen: boolean
+  /** Attach child to specific component/element */
+  container?: boolean | string | HTMLElement
+  /**
+   * Event fired when dropdown drawer is displayed
+   * @function
+   */
+  onOpen?(): void
+  /**
+   * Event fired when dropdown drawer is closed
+   */
+  onclose?(): void
+  /** Open dropdown drawer above the trigger. */
+  up?: boolean
+  /** Align dropdown drawer with the right edge of the trigger. */
+  right?: boolean
+  /** Align dropdown drawer with the left edge of the trigger. */
+  left?: boolean
+  /** Align dropdown drawer below the trigger. */
+  down?: boolean
+  /**
+   * Position dropdown drawer in best suited place.
+   */
+  auto?: boolean
+  /**
+   * Event to trigger dropdown
+   */
+  triggerOn?: 'hover' | 'click' | 'focus'
 }
 
 /**
@@ -56,55 +97,26 @@ function findScrollParents(el) {
  * @category advanced
  * @see http://uikit.myntra.com/components/dropdown
  */
-export default class Dropdown extends Component {
+export default class Dropdown extends Component<
+  DropdownProps,
+  {
+    up: boolean
+    left: boolean
+    right: boolean
+    down: boolean
+    height: number
+    width: number
+    position: null | {
+      top: number
+      left: number
+      right?: number
+      content?: {
+        width: number
+      }
+    }
+  }
+> {
   static propTypes = {
-    /** Contents of the dropdown drawer. */
-    children: PropTypes.element.isRequired,
-    /** @private */
-    className: PropTypes.string,
-    /** Trigger to open dropdown. */
-    trigger: PropTypes.oneOfType([
-      PropTypes.string.isRequired,
-      PropTypes.element.isRequired,
-    ]).isRequired,
-    /** Attach child to specific component/element */
-    container: PropTypes.oneOfType([
-      PropTypes.bool,
-      PropTypes.string,
-      PropTypes.instanceOf(HTMLElement),
-    ]), // eslint-disable-line no-undef
-    /** Dropdown state */
-    isOpen: PropTypes.bool.isRequired,
-    /**
-     * Event fired when dropdown drawer is displayed
-     * @function
-     */
-    onOpen: PropTypes.func,
-    /**
-     * Event fired when dropdown drawer is closed
-     * @function
-     */
-    onClose: PropTypes.func,
-    /** Open dropdown drawer above the trigger. */
-    up: PropTypes.bool,
-    /** Align dropdown drawer with the right edge of the trigger. */
-    right: PropTypes.bool,
-    /** Align dropdown drawer with the left edge of the trigger. */
-    left: PropTypes.bool,
-    /** Align dropdown drawer below the trigger. */
-    down: PropTypes.bool,
-    /** Event to trigger dropdown  */
-    triggerOn: PropTypes.oneOf(['hover', 'click', 'focus']),
-    /**
-     * Position dropdown drawer in best suited place.
-     */
-    auto: PropTypes.bool,
-    /** Used to detect position on first render. In further, renders actual height of DOM element is used. */
-    approxContentHeight: PropTypes.number,
-    /** Used to detect position on first render. In further, renders actual width of DOM element is used. */
-    approxContentWidth: PropTypes.number,
-    /** @private */
-    useClickAway: PropTypes.bool,
     /** @private */
     _combination: (props) => {
       const positions = ['up', 'left', 'right'].filter((it) => it in props)
@@ -118,11 +130,23 @@ export default class Dropdown extends Component {
   }
 
   static defaultProps = {
-    approxContentHeight: 320,
-    approxContentWidth: 240,
     useClickAway: true,
     triggerOn: 'click',
   }
+
+  containerRef: RefObject<HTMLDivElement>
+  wrapperRef: RefObject<HTMLDivElement>
+  triggerRef: RefObject<HTMLDivElement>
+
+  /**
+   * Clean scroll handlers.
+   */
+  _clearScrollHandler?(): void
+
+  /**
+   * Delay blurring to capture clicks in dropdown.
+   */
+  blurTimeout: number
 
   constructor(props) {
     super(props)
@@ -131,60 +155,42 @@ export default class Dropdown extends Component {
       up: false,
       left: false,
       right: false,
-      height: props.approxContentHeight,
-      width: props.approxContentWidth,
+      down: true,
+      height: 320,
+      width: 240,
       position: null,
     }
+
     this.containerRef = React.createRef()
     this.wrapperRef = React.createRef()
     this.triggerRef = React.createRef()
-  }
-
-  /**
-   * Get extra props other than props defined in propsTypes.
-   * @method
-   * @param {Object.<string, any>} props
-   * @returns {Object.<string, any>}
-   */
-  filterForwardedProps = onlyExtraProps(Dropdown.propTypes)
-
-  /**
-   * Extra props that are not defined in propTypes.
-   *
-   * @type {Object.<string, any>}
-   * @readonly
-   */
-  get forwardedProps() {
-    return this.filterForwardedProps(this.props)
   }
 
   componentWillUnmount() {
     this._clearScrollHandler && this._clearScrollHandler() // clean any scroll events.
   }
 
-  /**
-   * Ignore consecutive events.
-   *
-   * @returns {boolean}
-   */
-  shouldCancelEvent() {
-    const shouldCancelEvent = this.coolDownTimer > 0
+  // shouldCancelEvent() {
+  //   const shouldCancelEvent = this.coolDownTimer > 0
 
-    clearTimeout(this.coolDownTimer)
-    this.coolDownTimer = setTimeout(() => {
-      this.coolDownTimer = 0
-    }, 200 /* cool down timeout */)
+  //   clearTimeout(this.coolDownTimer)
 
-    return shouldCancelEvent
-  }
+  //   this.coolDownTimer = setTimeout(() => {
+  //     this.coolDownTimer = 0
+  //   }, 200 /* cool down timeout */)
+
+  //   return shouldCancelEvent
+  // }
 
   /**
    * Open dropdown content drawer.
    *
+   * @public
    * @returns {void}
    */
   open = () => {
-    if (this.shouldCancelEvent()) return
+    // if (this.shouldCancelEvent()) return
+
     this.positionContent()
 
     this.props.onOpen && this.props.onOpen()
@@ -192,28 +198,32 @@ export default class Dropdown extends Component {
 
   positionContent() {
     if (this.props.auto || this.props.container) {
+      // Commit state in next macro task.
       setTimeout(
         () =>
           this.setState(
             this.calculateAutoPosition(this.triggerRef.current, document.body)
           ),
-        1
+        0
       )
     }
   }
 
   handleClickAway = (event) => {
+    // Ignore clicks in trigger.
     if (event && event.path.includes(this.triggerRef.current)) return
+
     this.close()
   }
 
   /**
    * Close dropdown content drawer.
    *
+   * @public
    * @returns {void}
    */
   close = () => {
-    if (this.shouldCancelEvent()) return
+    // if (this.shouldCancelEvent()) return
     this.props.onClose && this.props.onClose()
   }
 
@@ -239,7 +249,7 @@ export default class Dropdown extends Component {
   /**
    * Calculate auto position.
    */
-  calculateAutoPosition(element, parent) {
+  calculateAutoPosition(element: Element, parent: Element): any {
     if (!element || !parent) {
       return { up: false, left: false, right: false }
     }
@@ -276,11 +286,17 @@ export default class Dropdown extends Component {
   }
 
   calculateAbsolutePosition({ up, left, right, down }) {
+    type PositionObject = {
+      top: number
+      left: number
+      right?: number
+      content?: { width: number }
+    }
     const trigger = this.triggerRef.current
     const rect = trigger.getBoundingClientRect()
     const { height, width } = this.state
 
-    const position = { top: rect.top, left: rect.left }
+    const position: PositionObject = { top: rect.top, left: rect.left }
 
     if (up) {
       position.top -= height
@@ -309,7 +325,7 @@ export default class Dropdown extends Component {
       const offsetLeft = position.left - rect.left
       const newRect = trigger.getBoundingClientRect()
 
-      const newPosition = {
+      const newPosition: PositionObject = {
         left: newRect.left + offsetLeft,
         top: newRect.top + offsetTop,
       }
@@ -364,8 +380,31 @@ export default class Dropdown extends Component {
   }
 
   handleBlurDelayed = () => {
-    clearTimeout(this.blurTimeout)
-    this.blurTimeout = setTimeout(this.handleBlur, 20)
+    window.clearTimeout(this.blurTimeout)
+    this.blurTimeout = window.setTimeout(this.handleBlur, 20)
+  }
+
+  extraProps() {
+    const {
+      auto,
+      children,
+      isOpen,
+      className,
+      container,
+      down,
+      left,
+      onOpen,
+      onclose,
+      renderTrigger,
+      right,
+      trigger,
+      triggerOn,
+      up,
+      useClickAway, // Private prop API
+      ...props
+    } = this.props
+
+    return props
   }
 
   render() {
@@ -373,24 +412,36 @@ export default class Dropdown extends Component {
       ? this.state
       : { ...this.props, down: this.down }
     const { position } = this.state
-    const { triggerOn } = this.props
-    const triggerEventProps = {
-      onBlur:
-        typeof this.props.trigger !== 'string' &&
-        this.props.trigger.props.onBlur
-          ? null
-          : this.handleBlurDelayed,
-      onMouseEnter: triggerOn === 'hover' ? this.open : null,
-      onMouseLeave: triggerOn === 'hover' ? this.close : null,
-      onClick: triggerOn === 'click' ? this.toggle : null,
-      onFocus: ['click', 'focus'].includes(triggerOn) ? this.open : null,
+    const {
+      renderTrigger,
+      trigger,
+      triggerOn,
+      isOpen,
+      className,
+      children,
+    } = this.props
+
+    const handlers: Record<string, any> = {
+      onBlur: this.handleBlurDelayed,
+    }
+
+    switch (triggerOn) {
+      case 'hover':
+        handlers.onMouseEnter = this.open
+        handlers.onMouseLeave = this.close
+        break
+      case 'focus':
+        handlers.onFocus = this.open
+      case 'click':
+        handlers.onClick = this.toggle
+        break
     }
 
     return (
       <div
-        {...this.forwardedProps}
+        {...this.extraProps()}
         ref={this.containerRef}
-        className={classnames(this.props.className, 'dropdown', {
+        className={classnames(className, 'dropdown', {
           open: this.props.isOpen,
         })}
       >
@@ -400,20 +451,30 @@ export default class Dropdown extends Component {
           onClick={(event) => event.stopPropagation()}
           data-test-id="trigger"
         >
-          {typeof this.props.trigger === 'string' ? (
-            <Button secondaryIcon="chevron-down" {...triggerEventProps}>
-              {this.props.trigger}
+          {renderTrigger ? (
+            renderTrigger(handlers)
+          ) : typeof trigger === 'string' ? (
+            <Button type="secondary" secondaryIcon="chevron-down" {...handlers}>
+              {trigger}
             </Button>
           ) : (
-            cloneElement(this.props.trigger, triggerEventProps)
+            cloneElement(trigger, handlers)
           )}
         </div>
-        {this.props.isOpen &&
+        {isOpen &&
           (this.props.container ? (
             <Portal container={this.props.container} data-test-id="portal">
               <div
                 className={classnames('content', 'fixed')}
-                style={position}
+                style={
+                  position
+                    ? {
+                        top: position.top,
+                        left: position.left,
+                        right: position.right,
+                      }
+                    : null
+                }
                 ref={this.wrapperRef}
                 hidden={!position}
                 data-test-id="content"
@@ -423,7 +484,7 @@ export default class Dropdown extends Component {
                     className={classnames('content-wrapper')}
                     style={position && position.content}
                   >
-                    {this.props.children}
+                    {children}
                   </div>
                 </Measure>
               </div>
@@ -438,12 +499,12 @@ export default class Dropdown extends Component {
                   className={classnames('content-wrapper')}
                   data-test-id="content"
                 >
-                  {this.props.children}
+                  {children}
                 </div>
               </Measure>
             </div>
           ))}
-        {this.props.useClickAway && this.props.isOpen && (
+        {this.props.useClickAway && isOpen && (
           <ClickAway
             target={this.wrapperRef}
             onClickAway={this.handleClickAway}

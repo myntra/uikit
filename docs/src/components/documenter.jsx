@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Markdown from './markdown'
-import { Button } from '@myntra/uikit'
+import { Button, Tooltip } from '@myntra/uikit'
 
 import './documenter.css'
 
@@ -83,9 +83,12 @@ export default class Documenter extends Component {
                   <a id={`${docs.name}-${prop.name}`} href="#" className="anchor" />
                   <div className="documenter--prop-header">
                     <div className="documenter--prop-name">{prop.name}</div>
-                    <div className="documenter--prop-type" title={prop.type ? prop.type.name : 'any'}>
-                      {prop.type ? prop.type.name : 'any'}
-                    </div>
+                    <Tooltip
+                      className="documenter--prop-type"
+                      renderContent={() => <pre>{prop.type ? prop.type.name : 'any'}</pre>}
+                    >
+                      <div>{prop.type ? prop.type.name : 'any'}</div>
+                    </Tooltip>
                     <div className="documenter--prop-value">
                       {prop.required ? (
                         <span className="documenter--prop-required">required</span>

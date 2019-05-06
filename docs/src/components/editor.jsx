@@ -2,9 +2,48 @@ import React, { createContext } from 'react'
 import PropTypes from 'prop-types'
 
 const MonacoEditor = React.lazy(() =>
-  import(/* webpackPrefetch: true */
-  /* webpackChunkName: 'monaco/editor' */ 'react-monaco-editor')
+  import(
+    /* webpackPrefetch: true */
+    /* webpackChunkName: 'monaco/editor' */ 'react-monaco-editor'
+  ).then(result => {
+    setupMonacoEnvironment()
+
+    return result
+  })
 )
+
+function setupMonacoEnvironment() {
+  function testSameOrigin(url) {
+    const loc = window.location
+    const a = document.createElement('a')
+    a.href = url
+    return a.hostname === loc.hostname && a.port === loc.port && a.protocol === loc.protocol
+  }
+
+  const MonacoEnvironment = window.MonacoEnvironment
+
+  window.MonacoEnvironment = {
+    ...MonacoEnvironment,
+    getWorkerUrl: (moduleId, label) => {
+      const workerUrl = MonacoEnvironment.getWorkerUrl(moduleId, label)
+      if (testSameOrigin(workerUrl)) return workerUrl
+
+      let blob
+
+      try {
+        blob = new Blob([`importScripts('${workerUrl}');`], { type: 'application/javascript' })
+      } catch (e1) {
+        const blobBuilder = new (window.BlobBuilder || window.WebKitBlobBuilder || window.MozBlobBuilder)()
+        blobBuilder.append(`importScripts('${workerUrl}');`)
+        blob = blobBuilder.getBlob('application/javascript')
+      }
+      const url = window.URL || window.webkitURL
+      const blobUrl = url.createObjectURL(blob)
+
+      return blobUrl
+    }
+  }
+}
 
 export const EditorContext = createContext({
   /** @type {string} */

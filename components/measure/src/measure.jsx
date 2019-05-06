@@ -61,19 +61,22 @@ class Measure extends PureComponent {
     }
   }
 
-  handleMeasure = entries => {
+  handleMeasure = (entries) => {
     const content = this.measure(entries[0].target)
 
     content.entry = entries[0].contentRect
 
     this.setState({ content })
-    if (this.props.onMeasure) this.props.onMeasure(content)
+
+    if (this.props.onMeasure) {
+      this.props.onMeasure(content)
+    }
   }
 
   /**
    * @public
    */
-  measure = node => {
+  measure = (node) => {
     node = node || this._node
 
     if (!node) return
@@ -134,10 +137,25 @@ class Measure extends PureComponent {
     return content
   }
 
-  handleRef = node => {
+  handleRef = (node) => {
+    if (!this._observer || this._node === node) return
+
     if (node) {
+      if (!(node instanceof HTMLElement)) {
+        try {
+          node = ReactDOM.findDOMNode(node) // eslint-disable-line react/no-find-dom-node
+        } catch (e) {
+          console.error(e) // TODO: Capture errors in sentry.
+
+          return
+        }
+      }
+
       this._observer.observe(node)
-    } else if (this._node && this._observer) {
+      this.handleMeasure([{ target: node }]) // TODO: Why?
+    }
+
+    if (this._node !== node) {
       this._observer.disconnect(this._node)
     }
 

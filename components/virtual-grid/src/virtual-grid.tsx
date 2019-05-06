@@ -137,9 +137,9 @@ export default class VirtualGrid extends PureComponent<
     scrollDirectionVertical: number
   }
 > {
-  sizes: MeasureCache
+  cellSizeManager: MeasureCache
 
-  rowManager: PositionManager
+  rowPositionManager: PositionManager
   columnManager: PositionManager
 
   renderCache: Record<string, any>
@@ -176,25 +176,52 @@ export default class VirtualGrid extends PureComponent<
       scrollDirectionVertical: 1,
     }
 
-    this.sizes = createMeasureCache(
+    this.cellSizeManager = createMeasureCache(
       props.estimatedCellHeight,
       props.estimatedCellWidth
     )
-    this.rowManager = createPositionManager({
+    this.rowPositionManager = createPositionManager({
       count: props.rows,
       estimatedSize: props.estimatedCellHeight,
       sizeGetter: (index) =>
-        this.sizes.hasMax(index, Infinity) ? this.sizes.rowHeight(index) : null,
+        this.cellSizeManager.hasMax(index, Infinity)
+          ? this.cellSizeManager.rowHeight(index)
+          : null,
     })
     this.columnManager = createPositionManager({
       count: props.columns,
       estimatedSize: props.estimatedCellWidth,
       sizeGetter: (index) =>
-        this.sizes.hasMax(Infinity, index)
-          ? this.sizes.columnWidth(index)
+        this.cellSizeManager.hasMax(Infinity, index)
+          ? this.cellSizeManager.columnWidth(index)
           : null,
     })
     this.renderCache = {}
+  }
+
+  /**
+   * Clear position and size caches on row/column count change.
+   */
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    const result = super.shouldComponentUpdate(
+      nextProps,
+      nextState,
+      nextContext
+    )
+
+    if (this.props.rows !== nextProps.rows) {
+      this.rowPositionManager.configure({ count: nextProps.rows })
+      this.rowPositionManager.reset()
+      this.cellSizeManager.reset()
+    }
+
+    if (this.props.columns !== nextProps.columns) {
+      this.columnManager.configure({ count: nextProps.columns })
+      this.columnManager.reset()
+      this.cellSizeManager.reset()
+    }
+
+    return result
   }
 
   handleScroll = (event) => {
@@ -210,7 +237,8 @@ export default class VirtualGrid extends PureComponent<
     if (!this.state.isScrolling) this.setState({ isScrolling: true })
 
     clearTimeout(this.isScrollingTimerId)
-    this.isScrollingTimerId = setTimeout(
+
+    this.isScrollingTimerId = window.setTimeout(
       () => this.setState({ isScrolling: false }),
       100
     )
@@ -224,8 +252,8 @@ export default class VirtualGrid extends PureComponent<
   }
 
   handleMeasure = ({ row, column, size }) => {
-    this.sizes.set(row, column, size)
-    this.rowManager.resetCellAt(row)
+    this.cellSizeManager.set(row, column, size)
+    this.rowPositionManager.resetCellAt(row)
     this.columnManager.resetCellAt(column)
 
     if (this.props.onMeasure) {
@@ -233,7 +261,7 @@ export default class VirtualGrid extends PureComponent<
     }
 
     if (!this.hasPendingRender) {
-      this.hasPendingRender = setTimeout(() => {
+      this.hasPendingRender = window.setTimeout(() => {
         this.setState((state) => ({ _render: state._render + 1 }))
       }, 16)
     }
@@ -279,7 +307,7 @@ export default class VirtualGrid extends PureComponent<
       this.renderCache = {}
     }
 
-    const visibleVerticalRange = this.rowManager.findVisibleRange(
+    const visibleVerticalRange = this.rowPositionManager.findVisibleRange(
       scrollTop,
       height
     )
@@ -346,7 +374,7 @@ export default class VirtualGrid extends PureComponent<
           key={i + ':' + j}
           row={i}
           column={j}
-          cache={this.sizes}
+          cache={this.cellSizeManager}
           onMeasure={this.handleMeasure}
         >
           {node}
@@ -367,7 +395,7 @@ export default class VirtualGrid extends PureComponent<
       const {
         offset: rowOffsetTop,
         size: cellHeight,
-      } = this.rowManager.getCellAt(i)
+      } = this.rowPositionManager.getCellAt(i)
 
       for (let j = 0; j < fixedColumns && j < horizontalRange.start; ++j) {
         doRenderColumn({ i, j, rowOffsetTop, cellHeight, currentRowChildren })
@@ -398,12 +426,12 @@ export default class VirtualGrid extends PureComponent<
       doRenderRow({ i })
     }
 
-    const offsetHeight = this.rowManager.size
+    const offsetHeight = this.rowPositionManager.size
     const offsetWidth = this.columnManager.size
     const renderedHeight =
-      this.rowManager.getCellAt(verticalRange.end).offset +
-      this.rowManager.getCellAt(verticalRange.end).size -
-      this.rowManager.getCellAt(verticalRange.start).offset
+      this.rowPositionManager.getCellAt(verticalRange.end).offset +
+      this.rowPositionManager.getCellAt(verticalRange.end).size -
+      this.rowPositionManager.getCellAt(verticalRange.start).offset
     const renderedWidth =
       this.columnManager.getCellAt(horizontalRange.end).offset +
       this.columnManager.getCellAt(horizontalRange.end).size -
@@ -424,7 +452,8 @@ export default class VirtualGrid extends PureComponent<
         renderedHeight,
         renderedWidth,
         offsetLeft: this.columnManager.getCellAt(horizontalRange.start).offset,
-        offsetTop: this.rowManager.getCellAt(verticalRange.start).offset,
+        offsetTop: this.rowPositionManager.getCellAt(verticalRange.start)
+          .offset,
         style: {
           overflow: 'hidden',
           position: 'relative',

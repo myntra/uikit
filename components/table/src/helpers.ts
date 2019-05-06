@@ -165,6 +165,10 @@ function renderTableHeader(
   }
 }
 
+export interface TableRowMeta {
+  columns: TableColumnMeta[]
+}
+
 export interface TableHeadMeta {
   columns: Record<string, TableColumnMeta>
   colgroup: TableColumnHeaderMeta[]

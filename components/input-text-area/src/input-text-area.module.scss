@@ -1,10 +1,9 @@
 @import '@design';
-@import 'input';
+@import '@myntra/uikit-component-input-text/style.scss';
 
 .input {
-  @include ui-input-style();
+  @include mixin-input-component();
 
-  width: 100%;
   vertical-align: baseline;
 }
 

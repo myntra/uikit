@@ -101,6 +101,9 @@ export const Progress = asyncComponent(() =>
 export const Table = asyncComponent(() =>
   import(/* webpackChunkName: 'components/table' */ '@myntra/uikit-component-table')
 )
+export const Tooltip = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/tooltip' */ '@myntra/uikit-component-tooltip')
+)
 export const TopBar = asyncComponent(() =>
   import(/* webpackChunkName: 'components/top-bar' */ '@myntra/uikit-component-top-bar')
 )
@@ -210,7 +213,7 @@ export const META = [
   {
     name: 'InputSelect',
     since: '0.0.0',
-    status: 'REVIEWING',
+    status: 'READY',
     path: '/components/input-select'
   },
   {
@@ -272,6 +275,12 @@ export const META = [
     since: '0.3.0',
     status: 'REVIEWING',
     path: '/components/table'
+  },
+  {
+    name: 'Tooltip',
+    since: '0.6.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/tooltip'
   },
   {
     name: 'TopBar',

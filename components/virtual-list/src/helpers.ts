@@ -260,6 +260,7 @@ export function getMaxElementSize() {
 }
 
 export interface MeasureCache {
+  reset(): void
   has(row: number, column?: number): boolean
   get(row: number, column?: number): { height: number; width: number }
   set(
@@ -281,10 +282,15 @@ export function createMeasureCache(
   estimatedWidth = 120,
   key = (row: number, column: number) => `${row}:${column}`
 ): MeasureCache {
-  const store = {}
-  const rowHeights = {}
-  const columnWidths = {}
+  let store = {}
+  let rowHeights = {}
+  let columnWidths = {}
   const cache: MeasureCache = {
+    reset() {
+      store = {}
+      rowHeights = {}
+      columnWidths = {}
+    },
     configure(height, width) {
       estimatedHeight = height
       estimatedWidth = width

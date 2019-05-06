@@ -3,11 +3,11 @@ $-vertical-grid-size: 16px !default;
 $-sizes: () !default;
 $-sizes: merge((
   '2xs': $-vertical-grid-size * 0.25,
-  xs: $-vertical-grid-size * 0.5,
-  s: $-vertical-grid-size * 0.75,
-  r: $-vertical-grid-size,
-  l: $-vertical-grid-size * 1.25,
-  xl: $-vertical-grid-size * 1.5,
+  'xs': $-vertical-grid-size * 0.5,
+  's': $-vertical-grid-size * 0.75,
+  'r': $-vertical-grid-size,
+  'l': $-vertical-grid-size * 1.25,
+  'xl': $-vertical-grid-size * 1.5,
   '2xl': $-vertical-grid-size * 1.75,
 ), $-sizes);
 

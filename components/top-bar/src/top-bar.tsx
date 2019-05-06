@@ -63,8 +63,8 @@ export default class TopBar extends PureComponent<
             isOpen={this.state.isOpen}
             onOpen={this.handleOpen}
             onClose={this.handleClose}
-            trigger={
-              <div className={classnames('user')}>
+            renderTrigger={(props) => (
+              <div className={classnames('user')} {...props}>
                 {user.photo ? (
                   <img
                     className={classnames('user-avatar', 'photo')}
@@ -87,7 +87,7 @@ export default class TopBar extends PureComponent<
                   />
                 ) : null}
               </div>
-            }
+            )}
           >
             <List
               className={classnames('menu')}

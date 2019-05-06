@@ -25,6 +25,7 @@ export { default as Pagination } from "@myntra/uikit-component-pagination";
 export { default as Portal } from "@myntra/uikit-component-portal";
 export { default as Progress } from "@myntra/uikit-component-progress";
 export { default as Table } from "@myntra/uikit-component-table";
+export { default as Tooltip } from "@myntra/uikit-component-tooltip";
 export { default as TopBar } from "@myntra/uikit-component-top-bar";
 export { default as VirtualGrid } from "@myntra/uikit-component-virtual-grid";
 export { default as VirtualList } from "@myntra/uikit-component-virtual-list";

@@ -10,11 +10,13 @@ const { version } = require('react')
 
 const VERSION = parseFloat(version)
 
+/** @type {import('@myntra/spectrum-cli-service').Options} */
 module.exports = {
+  name: 'uikit',
   lintOnSave: false,
   define: {
     PATH_PREFIX: JSON.stringify(process.env.BRANCH === 'master' || !process.env.BRANCH ? '' : '/' + process.env.BRANCH),
-    __DEV__: process.env.NODE_ENV !== 'production',
+    __DEV__: true, // Always include dev code docs.
     CAN_USE_HOOKS: VERSION > 16.7,
     CAN_USE_CONTEXT: VERSION > 16.2,
     CAN_USE_PORTAL: VERSION >= 16,
@@ -36,6 +38,7 @@ module.exports = {
       .set('@component-docs', componentsDir)
       .set('@design', '@myntra/uikit-theme-nuclei/design.scss')
       .set('@theme', '@myntra/uikit-theme-nuclei')
+
     components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name))
     themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name))
