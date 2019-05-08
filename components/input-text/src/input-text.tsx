@@ -15,11 +15,11 @@ interface InputTextProps extends BaseProps {
 }
 
 /**
- * A text input component for text-like data (email, tel, text, password and url).
+ * A component to input text-like data (email, tel, text, password and url).
  *
  * @since 0.0.0
  * @status READY
- * @category basic
+ * @category input
  * @see http://uikit.myntra.com/components/input-text
  */
 export default function InputText({
@@ -45,5 +45,5 @@ export default function InputText({
 }
 
 InputText.defaultProps = {
-  type: 'text'
+  type: 'text',
 }

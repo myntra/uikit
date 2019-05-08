@@ -97,11 +97,11 @@ export interface InputSelectProps<Value = any, Option = any> extends BaseProps {
 let SELECT_COMPONENT_COUNTER = 0
 
 /**
- * Dropdown selector component.
+ * A custom implementation of select input element to support option list customization.
  *
  * @since 0.0.0
  * @status READY
- * @category basic
+ * @category input
  * @see http://uikit.myntra.com/components/input-select
  */
 export default class InputSelect<Value = any, Option = any> extends Component<
@@ -186,8 +186,8 @@ export default class InputSelect<Value = any, Option = any> extends Component<
         onOpen={this.handleOpen}
         onClose={this.handleClose}
         data-test-id="dropdown"
-        trigger={
-          <div className={classnames('trigger')}>
+        renderTrigger={(props) => (
+          <div className={classnames('trigger')} {...props}>
             <InputSelectControl
               ref={this.controlRef}
               value={this.props.value}
@@ -241,7 +241,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
               </div>
             </InputSelectControl>
           </div>
-        }
+        )}
       >
         <div className={classnames('selector')}>
           {this.state.options.length ? (

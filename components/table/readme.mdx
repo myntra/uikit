@@ -25,7 +25,101 @@ const [data] = useState([
 
 </Documenter>
 
+## Examples
+
+- [Basic Table](#basic-table)
+- [Fixed Column Table](#fixed-column-table)
+- [Sortable Column Table](#sortable-column-table)
+- [Filterable Column Table](#filterable-column-table)
+
+### Basic Table
+
+Table is composed of columns defined with [`Table.Column`](#TableColumn) component. A column should have
+a label (header) and an accessor (value getter for cells in the column).
+
+The __label__ can be declared with [`label`](#TableColumn-label) prop for string headers and
+[`renderLabel`](#TableColumn-renderLabel) for custom headers.
+
+The [accessor](#TableColumn-accessor) field can be a property name or a getter function. Also, if accessor property name
+is same as `key`, it can be omitted.
+
+```jsx preview
+const [data] = useState([
+  { id: 1, name: 'Jane Doe', createdAt: 1557208976092 },
+  { id: 2, name: 'John Doe', createdAt: 1557208976092 }
+]);
+
+/* Just specify the columns. */
+<Table data={data}>
+  <Table.Column key="id" label="ID" />
+  <Table.Column key="full-name" label="Name" accessor="name" />
+  <Table.Column key="created-at" label="Created At" accessor={item => new Date(item.createdAt).toLocaleString()} />
+</Table>
+```
+
+### Fixed Column Table
+
+A table can have any number of fixed columns on left, however __only one fixed column is allowed on right__.
+
+```jsx preview
+const [data] = useState([
+  { id: 1, name: 'Jane Doe', },
+  { id: 2, name: 'John Doe', },
+]);
+
+<Table data={data}>
+  <Table.Column key="id" label="ID" fixed />
+  <Table.Column key="name" label="Name" fixed />
+
+  {
+    Array(14) // create empty array of length 14
+      .fill(null) // fill it with null so we map over it
+      .map(
+        (_, index) => (
+          // return a column for every index
+          <Table.Column
+            key={`day-${index}`}
+            label={`Day ${index}`}
+            accessor={() => Math.random() > 0.25 ? '✅' : '❌'}
+          />
+        )
+      )
+  }
+
+  <Table.Column key="actions" fixed="end">
+    {() => (<Button>view</Button>)}
+  </Table.Column>
+</Table>
+```
+
+### Sortable Column Table
+
+Just mark a column [sortable](#TableColumn-sortable) and sorting handles would appear
+on the column header.
+
+```jsx preview
+const [data] = useState([
+  { id: 1, name: 'John Doe' },
+  { id: 2, name: 'Jane Doe' },
+]);
+
+/* Just specify the columns. */
+<Table data={data}>
+  <Table.Column key="id" label="ID" sortable/>
+  <Table.Column key="full-name" label="Name" accessor="name" sortable />
+</Table>
+```
+
+### Filterable Column Table
+
 ## Sub-components
+
+- [Table.Column](#tablecolumn)
+- [Table.Row](#tablerow)
+- [Table.Filter](#tablefilter)
+- [Table.TR](#tabletr)
+- [Table.TH](#tableth)
+- [Table.TD](#tabletd)
 
 ### Table.Column
 
@@ -38,8 +132,102 @@ const [data] = useState([
 ]);
 
 <Table data={data}>
+  {/* Table.Column should be direct child of Table or Table.Column. */}
   <Table.Column label="Name" key="name" />
 </Table>
 ```
 
 </Documenter>
+
+
+## New Table API (RFC)
+
+```jsx
+<Table
+  {/* source of tabular data */}
+  data={[]}
+  {/* customize any row in table body */}
+  renderRow={({ index, data, children ...props }) => (
+    <Table.TR {...props}>
+      {/* cells in the current table */ children}
+    </Table.TR>
+  )}
+  renderHeaderRow={({ index, data, children, ...props }) => (
+    <Table.TR {...props}>
+      {/* header cells */}
+    </Table.TR>
+  )}
+  {/* render a table with virtual scrolling */}
+  virtualized
+  {/* pick a visual style of table (default or striped) */}
+  appearance={'default'}
+  {/* controlled filter value */}
+  filter={[]}
+  {/* custom filter logic. If omitted, local fitering is added */}
+  onFilter={({
+    filters
+  }) => {
+    const {
+      type, // equal or greater_than or lesser_than or between or before or after
+      columnId, // id of column on which filter is applied
+      value, // arguments of the filter
+    } = filters[0]
+    // some remote filter api call. update data
+
+    // return promise to display progress
+  }}
+  {/* controlled sort value */}
+  sort={{ columnId: 'id', order: 'asc' }}
+  {/* custom sort logic. If omitted, local sorting is added */}
+  onSort={({ columnId, order }) => {
+    // some remote sort api call. update data
+
+    // return promise to display progress
+  }}
+>
+  {/* Table Column Definition */ }
+  <Table.Column
+    key="id" // Unique column identifier
+    label="ID" // Text for header
+    renderLabel={() => <span>ID</span>} // Renderer to customize appearance of column header
+    accessor="id" // property name to get value from data row item (equi. `item => item.id`)
+    accessor={item => item.id} // a function to get value from data row item
+    fixed // sticky column on left
+    fixed="start" // sticky column on left
+    fixed="end" // sticky column on right
+    sortable
+    enhancers={[
+      {
+        type: 'equal',
+        render({ columnId, value, onChange }) {
+          return (
+            <Table.Filter title="Equal?">
+              <InputText value={value} onChange={onChange} />
+            </Table.Filter>
+          )
+        },
+        filter(actual, expected) {
+          return expected === actual
+        }
+      }
+    ]}
+  />
+
+  {/* Table Row Customizer */}
+  <Table.Row
+    selector={0} // row index selector
+    selector={index => index % 2 === 0} // even row selector
+    expandable
+    renderBody={
+      ({ index, data }) => /* contents of expanded area */ <div />
+    }
+  >
+    {({ index, data, children, ...props }) => (
+      // Same as renderRow
+      <Table.TR {...props}>
+        {/* cells in the current table */ children}
+      </Table.TR>
+    )}
+  </Table.Row>
+</Table>
+```

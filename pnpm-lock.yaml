@@ -318,9 +318,11 @@ importers:
       resize-observer-polyfill: registry.npmjs.org/resize-observer-polyfill/1.5.1
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.8.14
+      react-dom: registry.npmjs.org/react-dom/16.8.6
     specifiers:
       '@types/react': ^16.8.13
       prop-types: ^15.7.2
+      react-dom: ^16.8.6
       resize-observer-polyfill: ^1.5.1
   components/nav-bar:
     dependencies:

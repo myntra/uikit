@@ -294,7 +294,7 @@ interface ImageProps extends BaseProps {
 declare function Image(props: ImageProps): JSX.Element
 
 // -----------[[InputCheckbox]]--------------- //
-interface InputCheckBoxProps extends BaseProps {
+interface InputCheckboxProps extends BaseProps {
   /**
    * The state of the checkbox.
    *

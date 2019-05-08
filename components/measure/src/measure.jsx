@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react'
+import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
 
@@ -19,26 +20,6 @@ class Measure extends PureComponent {
      * The target element to be measured.
      */
     children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
-    /**
-     * Measure bounding rect.
-     */
-    bounds: PropTypes.bool,
-    /**
-     * Measure client rect.
-     */
-    client: PropTypes.bool,
-    /**
-     * Measure margin rect.
-     */
-    margin: PropTypes.bool,
-    /**
-     * Measure offset rect.
-     */
-    offset: PropTypes.bool,
-    /**
-     * Measure scroll rect.
-     */
-    scroll: PropTypes.bool
   }
 
   constructor(props) {
@@ -50,8 +31,8 @@ class Measure extends PureComponent {
         client: {},
         margin: {},
         offset: {},
-        scroll: {}
-      }
+        scroll: {},
+      },
     }
   }
 
@@ -62,9 +43,9 @@ class Measure extends PureComponent {
   }
 
   handleMeasure = (entries) => {
-    const content = this.measure(entries[0].target)
-
-    content.entry = entries[0].contentRect
+    if (!entries.length) return
+    const el = entries[0]
+    const content = this.measure(el.target)
 
     this.setState({ content })
 
@@ -81,57 +62,53 @@ class Measure extends PureComponent {
 
     if (!node) return
 
-    const content = {}
+    const content = {
+      get bounds() {
+        const rect = node.getBoundingClientRect()
 
-    if (this.props.bounds) {
-      const rect = node.getBoundingClientRect()
+        return {
+          top: rect.top,
+          right: rect.right,
+          bottom: rect.bottom,
+          left: rect.left,
+          width: rect.width,
+          height: rect.height,
+        }
+      },
+      get client() {
+        return {
+          top: node.clientTop,
+          left: node.clientLeft,
+          width: node.clientWidth,
+          height: node.clientHeight,
+        }
+      },
+      get margin() {
+        const styles = window.getComputedStyle(node)
 
-      content.bounds = {
-        top: rect.top,
-        right: rect.right,
-        bottom: rect.bottom,
-        left: rect.left,
-        width: rect.width,
-        height: rect.height
-      }
-    }
-
-    if (this.props.client) {
-      content.client = {
-        top: node.clientTop,
-        left: node.clientLeft,
-        width: node.clientWidth,
-        height: node.clientHeight
-      }
-    }
-
-    if (this.props.margin) {
-      const styles = window.getComputedStyle(node)
-
-      content.margin = {
-        top: parseInt(styles.marginTop),
-        right: parseInt(styles.marginRight),
-        bottom: parseInt(styles.marginBottom),
-        left: parseInt(styles.marginLeft)
-      }
-    }
-
-    if (this.props.offset) {
-      content.offset = {
-        top: node.offsetTop,
-        left: node.offsetLeft,
-        width: node.offsetWidth,
-        height: node.offsetHeight
-      }
-    }
-
-    if (this.props.scroll) {
-      content.scroll = {
-        top: node.scrollTop,
-        left: node.scrollLeft,
-        width: node.scrollWidth,
-        height: node.scrollHeight
-      }
+        return {
+          top: parseInt(styles.marginTop),
+          right: parseInt(styles.marginRight),
+          bottom: parseInt(styles.marginBottom),
+          left: parseInt(styles.marginLeft),
+        }
+      },
+      get offset() {
+        return {
+          top: node.offsetTop,
+          left: node.offsetLeft,
+          width: node.offsetWidth,
+          height: node.offsetHeight,
+        }
+      },
+      get scroll() {
+        return {
+          top: node.scrollTop,
+          left: node.scrollLeft,
+          width: node.scrollWidth,
+          height: node.scrollHeight,
+        }
+      },
     }
 
     return content
@@ -141,7 +118,7 @@ class Measure extends PureComponent {
     if (!this._observer || this._node === node) return
 
     if (node) {
-      if (!(node instanceof HTMLElement)) {
+      if (!(node instanceof window.HTMLElement)) {
         try {
           node = ReactDOM.findDOMNode(node) // eslint-disable-line react/no-find-dom-node
         } catch (e) {
@@ -152,7 +129,19 @@ class Measure extends PureComponent {
       }
 
       this._observer.observe(node)
-      this.handleMeasure([{ target: node }]) // TODO: Why?
+
+      // ResizeObserver does not call on initial render.
+      // Call handleMeasure in next macro task.
+      setTimeout(() =>
+        this.handleMeasure([
+          {
+            target: node,
+            get contentRect() {
+              return node.getBoundingClientRect()
+            },
+          },
+        ])
+      )
     }
 
     if (this._node !== node) {
@@ -164,10 +153,16 @@ class Measure extends PureComponent {
 
   render() {
     if (typeof this.props.children === 'function') {
-      return this.props.children({ ref: this.handleRef, measure: this.measure, content: this.state.content })
+      return this.props.children({
+        ref: this.handleRef,
+        measure: this.measure,
+        content: this.state.content,
+      })
     }
 
-    return React.cloneElement(React.Children.only(this.props.children), { ref: this.handleRef })
+    return React.cloneElement(React.Children.only(this.props.children), {
+      ref: this.handleRef,
+    })
   }
 }
 

@@ -13,10 +13,12 @@ interface InputNumberProps extends BaseProps {
 }
 
 /**
- * The InputNumber component.
+ * An input component to read numbers. It is like `<input type="number">` but
+ * value is a JavaScript number.
+ *
  * @since 0.0.0
  * @status REVIEWING
- * @category basic
+ * @category input
  * @see http://uikit.myntra.com/components/input-number
  */
 export default function InputNumber({

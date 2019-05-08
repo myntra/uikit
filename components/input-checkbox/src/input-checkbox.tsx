@@ -1,14 +1,14 @@
 import React from 'react'
 import classnames from './input-checkbox.module.scss'
 
-interface InputCheckBoxProps extends BaseProps {
+interface InputCheckboxProps extends BaseProps {
   /**
    * The state of the checkbox.
    *
    * > **Why `value` instead of `checked`?**
    * >
-   * > We have a set convention of having `value` as the controlled input value and `onChange` event to
-   * propagate the change to parent component.
+   * > All __InputXxx__ components accept `value` as the controlled input value and `onChange` event to
+   * propagate the change back to parent component. For consistency, we use `value` prop instead `checked`.
    */
   value?: boolean
 
@@ -32,27 +32,31 @@ interface InputCheckBoxProps extends BaseProps {
    *
    * > **Why `htmlValue` instead of `value`?**
    * >
-   * > We use `value` prop to set controlled value to any `<InputXxx>` component for consistency.
+   * > As per [our convention](#input-checkbox-value), we use `value` prop for controlled input value so
+   * an alternate prop (`htmlValue`) is accepted to set native `value` attribute.
    */
   htmlValue: string
 
   /**
-   * Component to render title for the checkbox
+   * A label text for the checkbox.
    */
   title?: string
 
+  /**
+   * Custom label text renderer.
+   */
   renderTitle?(): JSX.Element
 }
 
 /**
- * The input checkbox component
+ * A custom styled checkbox input.
  *
  * @since 0.0.0
  * @status READY
- * @category basic
- * @see http://uikit.myntra.com/components/button
+ * @category input
+ * @see http://uikit.myntra.com/components/input-checkbox
  */
-export default function InputCheckBox({
+export default function InputCheckbox({
   className,
   value,
   htmlValue,
@@ -60,7 +64,7 @@ export default function InputCheckBox({
   title,
   readOnly,
   ...props
-}: InputCheckBoxProps) {
+}: InputCheckboxProps) {
   readOnly = readOnly || !onChange
 
   return (

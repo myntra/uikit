@@ -147,6 +147,7 @@ export default class Dropdown extends Component<
    * Delay blurring to capture clicks in dropdown.
    */
   blurTimeout: number
+  mouseLeaveTimeout: number
 
   constructor(props) {
     super(props)
@@ -167,20 +168,9 @@ export default class Dropdown extends Component<
   }
 
   componentWillUnmount() {
-    this._clearScrollHandler && this._clearScrollHandler() // clean any scroll events.
+    // clean any scroll events.
+    this._clearScrollHandler && this._clearScrollHandler()
   }
-
-  // shouldCancelEvent() {
-  //   const shouldCancelEvent = this.coolDownTimer > 0
-
-  //   clearTimeout(this.coolDownTimer)
-
-  //   this.coolDownTimer = setTimeout(() => {
-  //     this.coolDownTimer = 0
-  //   }, 200 /* cool down timeout */)
-
-  //   return shouldCancelEvent
-  // }
 
   /**
    * Open dropdown content drawer.
@@ -196,13 +186,16 @@ export default class Dropdown extends Component<
     this.props.onOpen && this.props.onOpen()
   }
 
+  /**
+   * Dispatch dropdown direction in next macro task.
+   */
   positionContent() {
     if (this.props.auto || this.props.container) {
-      // Commit state in next macro task.
+      // TODO: Deduplicate dispatches.
       setTimeout(
         () =>
           this.setState(
-            this.calculateAutoPosition(this.triggerRef.current, document.body)
+            this.computeAutoDirection(this.triggerRef.current, document.body)
           ),
         0
       )
@@ -247,9 +240,9 @@ export default class Dropdown extends Component<
   }
 
   /**
-   * Calculate auto position.
+   * Find direction to render the dropdown content so it fits the viewport.
    */
-  calculateAutoPosition(element: Element, parent: Element): any {
+  computeAutoDirection(element: Element, parent: Element): any {
     if (!element || !parent) {
       return { up: false, left: false, right: false }
     }
@@ -279,13 +272,16 @@ export default class Dropdown extends Component<
 
     // Absolute position when using portal.
     if (this.props.container) {
-      return this.calculateAbsolutePosition(layout)
+      return this.computeAutoPosition(layout)
     }
 
     return layout
   }
 
-  calculateAbsolutePosition({ up, left, right, down }) {
+  /**
+   * Find position of dropdown content so it sticks with the trigger.
+   */
+  computeAutoPosition({ up, left, right, down }) {
     type PositionObject = {
       top: number
       left: number
@@ -379,10 +375,33 @@ export default class Dropdown extends Component<
     this.close()
   }
 
+  /**
+   * Delay blur closing for 1 frame to keep dropdown open when trigger blurs
+   * but content focuses.
+   */
   handleBlurDelayed = () => {
     window.clearTimeout(this.blurTimeout)
-    this.blurTimeout = window.setTimeout(this.handleBlur, 20)
+    this.blurTimeout = window.setTimeout(this.handleBlur, 16)
   }
+
+  handleMouseLeaveDelayed = () => {
+    window.clearTimeout(this.mouseLeaveTimeout)
+    this.mouseLeaveTimeout = window.setTimeout(() => {
+      this.close()
+    }, 16)
+  }
+
+  handleMouseEnter = () => {
+    window.clearTimeout(this.mouseLeaveTimeout)
+    if (!this.props.isOpen) this.open()
+  }
+
+  handleContainerMouseEnter = () => this.handleMouseEnter()
+  handleTriggerMouseEnter = () => this.handleMouseEnter()
+  handleContentMouseEnter = () => this.handleMouseEnter()
+  handleContentMouseLeave = () => this.handleMouseLeaveDelayed()
+  handleTriggerMouseLeave = () => this.handleMouseLeaveDelayed()
+  handleContainerMouseLeave = () => this.handleMouseLeaveDelayed()
 
   extraProps() {
     const {
@@ -427,8 +446,8 @@ export default class Dropdown extends Component<
 
     switch (triggerOn) {
       case 'hover':
-        handlers.onMouseEnter = this.open
-        handlers.onMouseLeave = this.close
+        handlers.onMouseEnter = this.handleTriggerMouseEnter
+        handlers.onMouseLeave = this.handleTriggerMouseLeave
         break
       case 'focus':
         handlers.onFocus = this.open
@@ -440,6 +459,8 @@ export default class Dropdown extends Component<
     return (
       <div
         {...this.extraProps()}
+        onMouseEnter={this.handleContainerMouseEnter}
+        onMouseLeave={this.handleContainerMouseLeave}
         ref={this.containerRef}
         className={classnames(className, 'dropdown', {
           open: this.props.isOpen,
@@ -478,6 +499,8 @@ export default class Dropdown extends Component<
                 ref={this.wrapperRef}
                 hidden={!position}
                 data-test-id="content"
+                onMouseEnter={this.handleContentMouseEnter}
+                onMouseLeave={this.handleContentMouseLeave}
               >
                 <Measure bounds onMeasure={this.handleMeasure}>
                   <div

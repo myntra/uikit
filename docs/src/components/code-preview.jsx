@@ -58,7 +58,7 @@ export default function CodePreview({ className, source }) {
   )
 
   return (
-    <div className={className}>
+    <div className={className} style={{ maxWidth: '100%' }}>
       {<Button className="code-preview--refresh" icon="sync" title="Refresh" onClick={() => setKey(key + 1)} />}
       {<Preview key={key} component={component} onError={setError} />}
       {compilerError && (
@@ -79,15 +79,15 @@ export default function CodePreview({ className, source }) {
 async function compile(code) {
   if (!code) return null
 
-  const babel = await import(/* webpackPrefetch: true */
-  /* webpackChunkName: 'monaco/babel' */ '@babel/standalone')
+  const babel = await import(
+    /* webpackPrefetch: true */
+    /* webpackChunkName: 'monaco/babel' */ '@babel/standalone'
+  )
 
   code = code.trim()
 
   if (!code.startsWith('function ') && !code.startsWith('class ')) {
-    code = `function Example(props) {\n  ${
-      /\breturn\b/.test(code) ? code : code.replace(/<(?:[A-Za-z0-9.]+(?: [^>]*)?|>)/, tag => `return ` + tag)
-    }\n}`
+    code = `function Example(props) {\n  ${code.replace(/<(?:[A-Za-z0-9.]+(?: [^>]*)?|>)/, tag => `return ` + tag)}\n}`
   }
 
   const identifiers = []

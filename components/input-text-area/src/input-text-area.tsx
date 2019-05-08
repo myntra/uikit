@@ -19,11 +19,12 @@ interface InputTextAreaProps extends BaseProps {
 }
 
 /**
- The textarea component.
- @since 0.0.0
- @status REVIEWING
- @category basic
- @see http://uikit.myntra.com/components/input-text-area
+ * A large text input component.
+ *
+ * @since 0.0.0
+ * @status READY
+ * @category input
+ * @see http://uikit.myntra.com/components/input-text-area
  */
 export default function InputTextArea({
   className,

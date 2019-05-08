@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react'
 import classnames from './input-s3-file.module.scss'
 import Button from '@myntra/uikit-component-button'
-import Group from '@myntra/uikit-component-group'
 import Input from '@myntra/uikit-component-input-text'
 
 interface InputS3FileProps extends BaseProps {
@@ -54,10 +53,13 @@ interface InputS3FileState {
 }
 
 /**
- * The InputS3File component.
+ * A file input component that handles client side S3 uploads.
+ *
+ * __NOTE:__ This component depends on spectrum server to process uploads.
+ *
  * @since 0.11.0
  * @status READY
- * @category convention
+ * @category input
  * @see http://uikit.myntra.com/components/input-s3-file
  */
 export default class InputS3File extends PureComponent<
@@ -67,7 +69,7 @@ export default class InputS3File extends PureComponent<
   static defaultProps = {
     autoStartUpload: true,
     clearOnSuccess: false,
-    placeholder: 'Choose a file...'
+    placeholder: 'Choose a file...',
   }
 
   refInputFile: React.RefObject<HTMLInputElement>
@@ -76,7 +78,7 @@ export default class InputS3File extends PureComponent<
     isUploading: false,
     uploadProgress: 0,
     filename: null,
-    file: null
+    file: null,
   }
 
   constructor(props) {
@@ -127,7 +129,7 @@ export default class InputS3File extends PureComponent<
       filename: null,
       uploadProgress: 0,
       isUploading: false,
-      ...state
+      ...state,
     })
   }
 
@@ -163,7 +165,7 @@ export default class InputS3File extends PureComponent<
         if (event.lengthComputable)
           this.setState({
             uploadProgress: Math.floor((event.loaded / event.total) * 100),
-            isUploading: true
+            isUploading: true,
           })
       }
       request.upload.onloadend = () => {

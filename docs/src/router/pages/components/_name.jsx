@@ -49,8 +49,11 @@ function useWindowWidth() {
 
 function useEditorAutoSize() {
   const windowWidth = useWindowWidth()
-  const [contentWidth, setContentWidth] = useState(600)
-  const handleContentMeasure = useCallback(({ bounds: { width } }) => setContentWidth(Math.min(width, 600)), [])
+  const [contentWidth, setContentWidth] = useState(800)
+  const handleContentMeasure = useCallback(
+    ({ bounds: { width } }) => setContentWidth(Math.min(windowWidth, Math.max(width, 800))),
+    []
+  )
   const editorWidth = Math.max(320, contentWidth, windowWidth - contentWidth - 32 - 54)
   const editorPosition = windowWidth - editorWidth
   const contentPosition =
@@ -91,7 +94,7 @@ export default function ComponentDocumentationPage({ name }) {
   }, [isActive])
 
   return (
-    <Measure bounds onMeasure={handleContentMeasure}>
+    <Measure onMeasure={handleContentMeasure}>
       <div
         className={`component ${isActive ? 'active' : ''}`}
         style={{
@@ -115,7 +118,7 @@ export default function ComponentDocumentationPage({ name }) {
           <div className={`editor`} ref={ref}>
             <Button className="close" icon="times" onClick={hide} />
             <CodePreview className="preview" source={source} />
-            <Measure bounds>
+            <Measure>
               {({ content: { bounds: editorSize }, ref }) => (
                 <div className="monaco" ref={ref}>
                   <Editor

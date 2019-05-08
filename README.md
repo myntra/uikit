@@ -2,6 +2,6 @@
 
 This library contains components used in SCM applications.
 
-## Usage
+## Usage & Contributing
 
-Usage docs are available at [uikit.myntra.com](http://uikit.myntra.com).
+See docs at [uikit.myntra.com](http://uikit.myntra.com).
