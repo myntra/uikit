@@ -1,0 +1,24 @@
+.text-legibility {
+  width: 254px;
+  height: 96px;
+  border: solid 1px #d4d4d4;
+  border-bottom: none;
+}
+
+.text-legibility:last-child {
+  border-bottom: solid 1px #d4d4d4;
+}
+
+.text-legibility--cards-right {
+  text-align: right;
+}
+
+.text-legibility--cards__light {
+  color: #000;
+  background-color: #fff;
+}
+
+.text-legibility--cards__dark {
+  color: #fff;
+  background-color: #4f46c8;
+}

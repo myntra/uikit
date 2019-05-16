@@ -1,0 +1,54 @@
+---
+layout: docs
+---
+
+import { Grid } from '@myntra/uikit'
+import TextLegibility from '@components/text-legibility'
+
+# Text Legibility
+
+Instead of using grey text and icons on top of colored backgrounds, create better contrast by displaying white or black text with reduced opacity.
+
+## Text on backgrounds
+
+Text on backgrounds applies the following opacity levels:
+
+* High-emphasis text has an opacity of **87%**
+
+* Medium-emphasis text and hint text have opacities of **54%**
+
+* Disabled text has an opacity of **27%**
+
+## Dark text on light backgrounds
+<TextLegibility
+  title={'High-Emphasis'}
+  hex={'#000000'}
+  opacity={0.87}
+  mode={'light'} />
+<TextLegibility
+  title={'Mid-Emphasis'}
+  hex={'#000000'}
+  opacity={0.54}
+  mode={'light'} />
+<TextLegibility
+  title={'Disabled'}
+  hex={'#000000'}
+  opacity={0.27}
+  mode={'light'} />
+
+## Light text on Dark backgrounds
+<TextLegibility
+  title={'High-Emphasis'}
+  hex={'#000000'}
+  opacity={0.87}
+  mode={'dark'} />
+<TextLegibility
+  title={'Mid-Emphasis'}
+  hex={'#000000'}
+  opacity={0.54}
+  mode={'dark'} />
+<TextLegibility
+  title={'Disabled'}
+  hex={'#000000'}
+  opacity={0.27}
+  mode={'dark'} />

@@ -1,0 +1,7 @@
+.typography .all-caps {
+  text-transform: uppercase;
+}
+
+.typography .capitalize {
+  text-transform: capitalize;
+}

@@ -108,6 +108,12 @@ module.exports = {
       fontWeight: 500,
       textTransform: 'uppercase',
     },
+    textLink: {
+      fontFamily: ['Roboto', 'sans-serif'],
+      fontSize: '12px',
+      fontWeight: 500,
+      textTransform: 'uppercase',
+    },
   },
   sizes: {
     '2Xs': '4px',
@@ -276,6 +282,15 @@ module.exports = {
       },
       button: {
         description: 'Button',
+        value: {
+          fontFamily: 'default',
+          fontSize: 12,
+          fontWeight: 500,
+          textTransform: 'uppercase',
+        },
+      },
+      textLink: {
+        name: 'Text Link',
         value: {
           fontFamily: 'default',
           fontSize: 12,

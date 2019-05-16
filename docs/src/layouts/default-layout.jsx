@@ -29,6 +29,8 @@ function DefaultLayout({ router, children, goto }) {
           </NavBar.Item>
           <NavBar.Group title="Guidelines" icon="pencil-paintbrush" to="/guide">
             <NavBar.Item to="/guide/colors">Colors</NavBar.Item>
+            <NavBar.Item to="/guide/typography">Typography</NavBar.Item>
+            <NavBar.Item to="/guide/text-legibility">Text Legibility</NavBar.Item>
           </NavBar.Group>
           <NavBar.Group title="Components" icon="cubes" to="/components">
             <NavBar.Item key="_" to="/components/">

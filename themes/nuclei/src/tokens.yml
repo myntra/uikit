@@ -125,6 +125,13 @@ text-style:
       font-size: 12
       font-weight: 500
       text-transform: uppercase
+  text-link:
+    name: Text Link
+    value:
+      font-family: default
+      font-size: 12
+      font-weight: 500
+      text-transform: uppercase
 
 size:
   2xs: 4
