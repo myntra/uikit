@@ -1,0 +1,37 @@
+@import '@design';
+
+.section {
+  flex: 1 1 100%;
+  padding: ui-size('r');
+  margin-bottom: ui-size('r');
+  background-color: ui-color('white');
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: ui-size('r');
+}
+
+.title {
+  margin: 0;
+
+  @include use-text-style('h3');
+}
+
+.content {
+  // Keep the selector!
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-left: ui-size('r');
+}
+
+.noPadding {
+  padding-right: 0;
+  padding-left: 0;
+}

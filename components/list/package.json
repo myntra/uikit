@@ -19,12 +19,12 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  },
   "dependencies": {
     "@myntra/uikit-component-virtual-list": "link:../virtual-list",
     "react": "16.*",
     "scroll-into-view-if-needed": "^2.2.20"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.13"
   }
 }

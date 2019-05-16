@@ -1,0 +1,14 @@
+@import '@design';
+
+.wrapper {
+  min-width: 300px;
+  padding: ui-size('l');
+  background: ui-color('white');
+}
+
+.actions {
+  padding-top: ui-size('l');
+  margin-top: 2 * ui-size('l');
+  text-align: right;
+  border-top: 1px solid ui-color('gray', 'dark');
+}

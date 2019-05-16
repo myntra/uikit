@@ -1,0 +1,24 @@
+@import '@design';
+
+.year-container {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5em;
+
+  .year {
+    padding: 0.5em;
+    margin: 0.25em 1em;
+    text-align: center;
+    cursor: pointer;
+    border-radius: ui-size('2xs');
+  }
+
+  .selected {
+    color: ui-text-color('light');
+    background: ui-color('primary');
+  }
+
+  .year:not(.selected):hover {
+    color: ui-text-color('primary');
+  }
+}

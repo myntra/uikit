@@ -20,10 +20,10 @@
     "react": ">=15.4",
     "react-dom": ">=15.4"
   },
-  "dependencies": {
-    "prop-types": "^15.7.2"
-  },
   "devDependencies": {
     "@types/react": "^16.8.13"
+  },
+  "dependencies": {
+    "prop-types": "^15.7.2"
   }
 }

@@ -62,6 +62,15 @@ export const Image = asyncComponent(() =>
 export const InputCheckbox = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-checkbox' */ '@myntra/uikit-component-input-checkbox')
 )
+export const InputDate = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-date' */ '@myntra/uikit-component-input-date')
+)
+export const InputMasked = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-masked' */ '@myntra/uikit-component-input-masked')
+)
+export const InputMonth = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-month' */ '@myntra/uikit-component-input-month')
+)
 export const InputNumber = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-number' */ '@myntra/uikit-component-input-number')
 )
@@ -80,8 +89,14 @@ export const InputTextArea = asyncComponent(() =>
 export const List = asyncComponent(() =>
   import(/* webpackChunkName: 'components/list' */ '@myntra/uikit-component-list')
 )
+export const Loader = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/loader' */ '@myntra/uikit-component-loader')
+)
 export const Measure = asyncComponent(() =>
   import(/* webpackChunkName: 'components/measure' */ '@myntra/uikit-component-measure')
+)
+export const Modal = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/modal' */ '@myntra/uikit-component-modal')
 )
 export const NavBar = asyncComponent(() =>
   import(/* webpackChunkName: 'components/nav-bar' */ '@myntra/uikit-component-nav-bar')
@@ -97,6 +112,9 @@ export const Portal = asyncComponent(() =>
 )
 export const Progress = asyncComponent(() =>
   import(/* webpackChunkName: 'components/progress' */ '@myntra/uikit-component-progress')
+)
+export const Section = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/section' */ '@myntra/uikit-component-section')
 )
 export const Table = asyncComponent(() =>
   import(/* webpackChunkName: 'components/table' */ '@myntra/uikit-component-table')
@@ -199,6 +217,22 @@ export const META = [
     path: '/components/input-checkbox'
   },
   {
+    name: 'InputDate',
+    path: '/components/input-date'
+  },
+  {
+    name: 'InputMasked',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/input-masked'
+  },
+  {
+    name: 'InputMonth',
+    since: '0.7.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/input-month'
+  },
+  {
     name: 'InputNumber',
     since: '0.0.0',
     status: 'REVIEWING',
@@ -225,7 +259,7 @@ export const META = [
   {
     name: 'InputTextArea',
     since: '0.0.0',
-    status: 'REVIEWING',
+    status: 'READY',
     path: '/components/input-text-area'
   },
   {
@@ -235,10 +269,22 @@ export const META = [
     path: '/components/list'
   },
   {
+    name: 'Loader',
+    since: '0.5.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/loader'
+  },
+  {
     name: 'Measure',
     since: '0.3.0',
     status: 'EXPERIMENTAL',
     path: '/components/measure'
+  },
+  {
+    name: 'Modal',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/modal'
   },
   {
     name: 'NavBar',
@@ -269,6 +315,12 @@ export const META = [
     since: '0.6.0',
     status: 'READY',
     path: '/components/progress'
+  },
+  {
+    name: 'Section',
+    since: '0.7.0',
+    status: 'REVIEWING',
+    path: '/components/section'
   },
   {
     name: 'Table',

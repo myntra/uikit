@@ -1,12 +1,12 @@
 .code--container {
   position: relative;
-  padding: 16px;
-  margin: 16px 0;
   display: flex;
   align-items: center;
-  border: 0.00625rem solid rgba(0, 0, 0, 0.1);
-  background-color: #f9fbff;
+  padding: 16px;
+  margin: 16px 0;
   overflow: auto;
+  background-color: #f9fbff;
+  border: 0.00625rem solid rgba(0, 0, 0, 0.1);
 }
 
 .code--align-center {
@@ -29,6 +29,10 @@
   transition: opacity 0.5s;
 }
 
+.code--container .code-preview--copy {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
 .code--container .code-preview--refresh {
   right: 42px;
   opacity: 0;
@@ -37,7 +41,9 @@
 
 .code--container:hover .code--edit,
 .code--container:hover .code-preview--refresh,
+.code--container:hover .code-preview--copy,
 .code--container:focus-within .code--edit,
-.code--container:focus-within .code-preview--refresh {
+.code--container:focus-within .code-preview--refresh,
+.code--container:focus-within .code-preview--copy {
   opacity: 1;
 }

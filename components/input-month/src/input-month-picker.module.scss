@@ -1,0 +1,24 @@
+@import '@design';
+
+.picker {
+  display: flex;
+  min-width: 300px;
+  max-width: 360px;
+
+  .left-pane {
+    flex: 2 66.666666%;
+    border: 1px solid ui-color('gray', 'light');
+  }
+
+  .right-pane {
+    flex: 1 33.333333%;
+    border: 1px solid ui-color('gray', 'light');
+    border-left: none;
+  }
+
+  .title {
+    padding: 0.5em 1em;
+    text-align: center;
+    border-bottom: 1px solid ui-color('gray', 'light');
+  }
+}

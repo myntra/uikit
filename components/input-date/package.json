@@ -1,0 +1,31 @@
+{
+  "name": "@myntra/uikit-component-input-date",
+  "version": "0.7.1",
+  "main": "src/input-date.tsx",
+  "module": "dist/input-date.js",
+  "browser": "src/input-date.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-date",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-dropdown": "link:../dropdown",
+    "@myntra/uikit-component-icon": "link:../icon",
+    "date-fns": "^2.0.0-alpha.27",
+    "dayjs": "^1.8.14"
+  }
+}

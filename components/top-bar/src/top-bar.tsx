@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, isValidElement, ReactElement } from 'react'
 import BreadCrumb from '@myntra/uikit-component-bread-crumb'
 import Dropdown from '@myntra/uikit-component-dropdown'
 import List from '@myntra/uikit-component-list'
@@ -9,6 +9,14 @@ import { Icon } from '@myntra/uikit/src'
 export interface TopBarProps extends BaseProps {
   title: string
   user: Partial<{ name: string; photo: string }> & { email: string }
+}
+
+// TODO: Extract it to utils package.
+function isReactNodeType<T = any>(node: any, type: T): node is ReactElement {
+  if (!isValidElement(node)) return false
+  if (node.type === (type as any)) return true
+  if ((node.type as any)._result === type) return true
+  return false
 }
 
 /**
@@ -34,17 +42,17 @@ export default class TopBar extends PureComponent<
 
   render() {
     const { children, className, title, user, ...props } = this.props
-    const crumb = []
-    const slot = []
-    const items = []
+    const breadcrumbs = []
+    const actions = []
+    const others = []
 
     React.Children.forEach(children, (child) => {
-      if (child.type === BreadCrumb) {
-        crumb.push(child)
-      } else if (child.type === Item) {
-        items.push(child)
+      if (isReactNodeType(child, BreadCrumb)) {
+        breadcrumbs.push(child)
+      } else if (isReactNodeType(child, Item)) {
+        actions.push(child)
       } else {
-        slot.push(child)
+        others.push(child)
       }
     })
 
@@ -52,9 +60,9 @@ export default class TopBar extends PureComponent<
       <div {...props} className={classnames('top-bar', className)}>
         <div className={classnames('title')}>
           <h1>{title}</h1>
-          {crumb}
+          {breadcrumbs}
         </div>
-        <div className={classnames('container')}>{slot}</div>
+        <div className={classnames('container')}>{others}</div>
         <nav className={classnames('nav')}>
           <Dropdown
             down
@@ -81,7 +89,7 @@ export default class TopBar extends PureComponent<
                     ? `${user.name} ${user.email ? `(${user.email})` : ''}`
                     : user.email}
                 </div>
-                {items.length ? (
+                {actions.length ? (
                   <Icon
                     name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
                   />
@@ -91,8 +99,8 @@ export default class TopBar extends PureComponent<
           >
             <List
               className={classnames('menu')}
-              items={items}
-              idForItem={(item) => items.indexOf(item)}
+              items={actions}
+              idForItem={(item) => actions.indexOf(item)}
             >
               {({ item }) => item}
             </List>

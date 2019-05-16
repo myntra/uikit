@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import Preview from './preview'
 import { Alert, Button } from '@myntra/uikit'
@@ -48,7 +48,32 @@ export function useCompiler(source, { watch = true, once = true } = {}) {
 export default function CodePreview({ className, source }) {
   const [component, compilerError, clearError] = useCompiler(source)
   const [error, setError] = useState(null)
+  const [copied, setCopied] = useState(false)
   const [key, setKey] = useState(0)
+
+  const handleCopy = useCallback(() => {
+    const activeElement = document.activeElement
+
+    const element = document.createElement('textarea')
+
+    element.style.position = 'fixed'
+    element.style.width = '1px'
+    element.style.height = '1px'
+    element.style.top = '-1000px'
+    element.style.left = '-1000px'
+    element.value = source
+
+    document.body.appendChild(element)
+
+    element.select()
+    document.execCommand('copy')
+    document.body.removeChild(element)
+
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1000)
+
+    if (activeElement) activeElement.focus && activeElement.focus()
+  })
 
   useEffect(
     function onCompilerErrorChange() {
@@ -60,6 +85,7 @@ export default function CodePreview({ className, source }) {
   return (
     <div className={className} style={{ maxWidth: '100%' }}>
       {<Button className="code-preview--refresh" icon="sync" title="Refresh" onClick={() => setKey(key + 1)} />}
+      {<Button className="code-preview--copy" icon={copied ? 'check' : 'copy'} title="Copy" onClick={handleCopy} />}
       {<Preview key={key} component={component} onError={setError} />}
       {compilerError && (
         <Alert type="error" onClose={clearError}>

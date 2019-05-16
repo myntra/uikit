@@ -19,14 +19,14 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@myntra/codemod-utils": "link:../../packages/codemod-utils",
+    "@types/react": "^16.8.13"
+  },
   "components": [
     "src/grid-column.jsx"
   ],
   "dependencies": {
     "prop-types": "^15.7.2"
-  },
-  "devDependencies": {
-    "@myntra/codemod-utils": "link:../../packages/codemod-utils",
-    "@types/react": "^16.8.13"
   }
 }

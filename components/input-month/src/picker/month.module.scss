@@ -1,0 +1,30 @@
+@import '@design';
+
+.month-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5em;
+
+  .month {
+    flex: 1 33.333333%;
+    padding: 1em;
+    margin: 0.5em 0;
+    text-align: center;
+    cursor: pointer;
+    border-radius: ui-size('2xs');
+  }
+
+  .selected {
+    color: ui-text-color('light');
+    background: ui-color('primary');
+  }
+
+  .month:not(.selected):hover {
+    color: ui-color('primary');
+  }
+
+  .month-number {
+    font-size: 1.25em;
+    font-weight: 400;
+  }
+}

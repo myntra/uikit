@@ -59,9 +59,9 @@ export function createObserver(root: Element | null): ImageContainerObserver {
       {
         root: root === document.body ? null : root,
         rootMargin: '0px',
-        threshold: 0
+        threshold: 0,
       }
-    )
+    ),
   }
 
   root[OBSERVER] = wrapper
@@ -91,13 +91,15 @@ interface ImageProps extends BaseProps {
  *
  * @since 0.3.0
  * @status EXPERIMENTAL
+ * @category basic
+ * @see http://uikit.myntra.com/components/image
  */
 export default class Image extends Component<
   ImageProps,
   { status: string; isIntersecting: boolean }
 > {
   static defaultProps = {
-    lazyLoad: true
+    lazyLoad: true,
   }
 
   ref: React.RefObject<HTMLDivElement>
@@ -108,7 +110,7 @@ export default class Image extends Component<
 
     this.state = {
       status: 'loading',
-      isIntersecting: false
+      isIntersecting: false,
     }
 
     this.ref = React.createRef()
@@ -192,7 +194,7 @@ export default class Image extends Component<
       <div
         ref={this.ref}
         className={classnames('image-container', {
-          'bg-error': status === 'failed'
+          'bg-error': status === 'failed',
         })}
       >
         {isIntersecting && status === 'loaded' ? (

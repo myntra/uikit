@@ -19,6 +19,9 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  },
   "dependencies": {
     "@myntra/uikit-component-bread-crumb": "link:../bread-crumb",
     "@myntra/uikit-component-dropdown": "link:../dropdown",
@@ -27,8 +30,5 @@
   },
   "components": [
     "src/top-bar-item.tsx"
-  ],
-  "devDependencies": {
-    "@types/react": "^16.8.13"
-  }
+  ]
 }

@@ -11,7 +11,7 @@ const {
   getPackageRepository,
   getShortName,
   isComponent,
-  pascalCase
+  pascalCase,
 } = require('./utils')
 
 targets.forEach((name) => {
@@ -29,14 +29,18 @@ targets.forEach((name) => {
     license: 'UNLICENSED',
     repository: getPackageRepository(name),
     publishConfig: {
-      registry: 'http://registry.myntra.com:8000'
+      registry: 'http://registry.myntra.com:8000',
     },
-    files: ['src/', 'dist/', 'bin/', '*.codemod.js']
+    files: ['src/', 'dist/', 'bin/', '*.codemod.js'],
   }
 
   if (isComponent(name)) {
     pkg.peerDependencies = {
-      react: '>=15.4'
+      react: '>=15.4',
+    }
+
+    pkg.devDependencies = {
+      '@types/react': 'latest',
     }
   }
 

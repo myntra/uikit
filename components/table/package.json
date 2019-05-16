@@ -19,14 +19,14 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  },
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-component-measure": "link:../measure",
     "@myntra/uikit-utils": "link:../../packages/uikit-utils"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.13"
   },
   "components": [
     "src/table-column.tsx"

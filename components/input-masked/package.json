@@ -1,0 +1,29 @@
+{
+  "name": "@myntra/uikit-component-input-masked",
+  "version": "0.7.1",
+  "main": "src/input-masked.tsx",
+  "module": "dist/input-masked.js",
+  "browser": "src/input-masked.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-masked",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-input-text": "link:../input-text",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+  }
+}

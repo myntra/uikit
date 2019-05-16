@@ -19,12 +19,12 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  },
   "tsMain": "src/input-s3-file.tsx",
   "dependencies": {
     "@myntra/uikit-component-button": "link:../button",
     "@myntra/uikit-component-input-text": "link:../input-text"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.13"
   }
 }

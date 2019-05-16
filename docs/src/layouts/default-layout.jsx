@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Alert, Page, NavBar, BreadCrumb, TopBar, ErrorBoundary } from '@myntra/uikit'
+import { Alert, Page, Button, NavBar, BreadCrumb, TopBar, ErrorBoundary } from '@myntra/uikit'
 import { META } from '../uikit'
 import { withRootState, AppLink } from '@spectrum'
 import { pathToAction } from 'redux-first-router' // TODO: Add this to spectrum. '@spectrum/router:push'
@@ -83,6 +83,17 @@ function DefaultLayout({ router, children, goto }) {
                 ).items
             }
           </BreadCrumb>
+
+          {router.location.pathname.startsWith('/components') && (
+            <Button
+              type="link"
+              inheritTextColor
+              style={{ float: 'right', marginRight: '1rem', fontSize: '0.75em' }}
+              onClick={() => window.openEditor && window.openEditor()}
+            >
+              Open Editor
+            </Button>
+          )}
         </TopBar>
       )}
     >

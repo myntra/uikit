@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-component-loader",
+  "version": "0.7.1",
+  "main": "src/loader.tsx",
+  "module": "dist/loader.js",
+  "browser": "src/loader.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/loader",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.17"
+  }
+}

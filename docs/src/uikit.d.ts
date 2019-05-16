@@ -289,6 +289,8 @@ interface ImageProps extends BaseProps {
  *
  * @since 0.3.0
  * @status EXPERIMENTAL
+ * @category basic
+ * @see http://uikit.myntra.com/components/image
  */
 
 declare function Image(props: ImageProps): JSX.Element
@@ -300,8 +302,8 @@ interface InputCheckboxProps extends BaseProps {
    *
    * > **Why `value` instead of `checked`?**
    * >
-   * > We have a set convention of having `value` as the controlled input value and `onChange` event to
-   * propagate the change to parent component.
+   * > All __InputXxx__ components accept `value` as the controlled input value and `onChange` event to
+   * propagate the change back to parent component. For consistency, we use `value` prop instead `checked`.
    */
   value?: boolean
   /**
@@ -321,25 +323,102 @@ interface InputCheckboxProps extends BaseProps {
    *
    * > **Why `htmlValue` instead of `value`?**
    * >
-   * > We use `value` prop to set controlled value to any `<InputXxx>` component for consistency.
+   * > As per [our convention](#input-checkbox-value), we use `value` prop for controlled input value so
+   * an alternate prop (`htmlValue`) is accepted to set native `value` attribute.
    */
   htmlValue: string
   /**
-   * Component to render title for the checkbox
+   * A label text for the checkbox.
    */
   title?: string
+  /**
+   * Custom label text renderer.
+   */
   renderTitle?(): JSX.Element
 }
 /**
- * The input checkbox component
+ * A custom styled checkbox input.
  *
  * @since 0.0.0
  * @status READY
- * @category basic
- * @see http://uikit.myntra.com/components/button
+ * @category input
+ * @see http://uikit.myntra.com/components/input-checkbox
  */
 
 declare function InputCheckbox(props: InputCheckboxProps): JSX.Element
+
+// -----------[[InputDate]]--------------- //
+
+declare function InputDate(props: InputDateProps): JSX.Element
+
+// -----------[[InputMasked]]--------------- //
+
+interface InputMaskedProps extends BaseProps {
+  /**
+   * The required pattern for the input field.
+   */
+  pattern: string
+  /**
+   * Current value of the masked input field.
+   */
+  value?: string
+  /**
+   * The callback function to call when the value changes.
+   */
+  onChange?(value: string): void
+  /**
+   * The placeholder text for input field.
+   */
+  placeholder?: string
+  /**
+   * Include mask characters in the value.
+   */
+  includeMaskChars?: boolean
+  /**
+   * Define custom masks.
+   */
+  masks?: Record<string, Mask>
+}
+/**
+ * Input component that provides a template for phone, credit card, etc.
+ *
+ * @since 0.0.0
+ * @status REVIEWING
+ */
+
+declare function InputMasked(props: InputMaskedProps): JSX.Element
+
+// -----------[[InputMonth]]--------------- //
+
+interface InputMonthProps extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {}
+/**
+ * Month selection utility.
+ *
+ * @since 0.7.0
+ * @status EXPERIMENTAL
+ */
+
+declare function InputMonth(props: InputMonthProps): JSX.Element
+
+interface InputMonthPickerProps extends BaseProps {
+  value?: {
+    month: number
+    year: number
+  }
+  onChange(value: { month: number | null; year: number | null }): void
+  highlight(value: { month: number; year: number }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
+  renderMonth(props: { month: string; index: number }): ReactNode
+}
+/**
+ * Month selection utility.
+ *
+ * @since 0.7.0
+ * @status EXPERIMENTAL
+ */
+
+declare namespace InputMonth {
+  declare function Picker(props: InputMonthPickerProps): JSX.Element
+}
 
 // -----------[[InputNumber]]--------------- //
 interface InputNumberProps extends BaseProps {
@@ -353,10 +432,12 @@ interface InputNumberProps extends BaseProps {
   onChange?(value: number): void
 }
 /**
- * The InputNumber component.
+ * An input component to read numbers. It is like `<input type="number">` but
+ * value is a JavaScript number.
+ *
  * @since 0.0.0
  * @status REVIEWING
- * @category basic
+ * @category input
  * @see http://uikit.myntra.com/components/input-number
  */
 
@@ -413,10 +494,13 @@ interface InputS3FileState {
   error?: string | null
 }
 /**
- * The InputS3File component.
+ * A file input component that handles client side S3 uploads.
+ *
+ * __NOTE:__ This component depends on spectrum server to process uploads.
+ *
  * @since 0.11.0
  * @status READY
- * @category convention
+ * @category input
  * @see http://uikit.myntra.com/components/input-s3-file
  */
 
@@ -501,11 +585,11 @@ interface InputSelectProps<Value = any, Option = any> extends BaseProps {
   noResultsPlaceholder?: string | JSX.Element
 }
 /**
- * Dropdown selector component.
+ * A custom implementation of select input element to support option list customization.
  *
  * @since 0.0.0
  * @status READY
- * @category basic
+ * @category input
  * @see http://uikit.myntra.com/components/input-select
  */
 
@@ -525,11 +609,11 @@ interface InputTextProps extends BaseProps {
   readOnly?: boolean
 }
 /**
- * A text input component for text-like data (email, tel, text, password and url).
+ * A component to input text-like data (email, tel, text, password and url).
  *
  * @since 0.0.0
  * @status READY
- * @category basic
+ * @category input
  * @see http://uikit.myntra.com/components/input-text
  */
 
@@ -553,11 +637,12 @@ interface InputTextAreaProps extends BaseProps {
   placeholder?: string
 }
 /**
- The textarea component.
- @since 0.0.0
- @status REVIEWING
- @category basic
- @see http://uikit.myntra.com/components/input-text-area
+ * A large text input component.
+ *
+ * @since 0.0.0
+ * @status READY
+ * @category input
+ * @see http://uikit.myntra.com/components/input-text-area
  */
 
 declare function InputTextArea(props: InputTextAreaProps): JSX.Element
@@ -609,9 +694,88 @@ interface ListProps<T = any> extends BaseProps {
 
 declare function List(props: ListProps): JSX.Element
 
+// -----------[[Loader]]--------------- //
+interface LoaderProps extends BaseProps {
+  /**
+   * The variant of the loader.
+   */
+  type: 'inline' | 'small' | 'large'
+  /**
+   * Use current color for loading spinner.
+   */
+  currentColor: boolean
+  children: never
+}
+/**
+ * A component to display infinite loading progress.
+ *
+ * @since 0.5.0
+ * @status EXPERIMENTAL
+ * @category basic
+ * @see http://uikit.myntra.com/components/loader
+ */
+
+declare function Loader(props: LoaderProps): JSX.Element
+
 // -----------[[Measure]]--------------- //
 
 declare function Measure(props: MeasureProps): JSX.Element
+
+// -----------[[Modal]]--------------- //
+
+interface ModalProps extends BaseProps, ModalLayoutProps {
+  /** An element which opens the modal. */
+  trigger: ReactNode
+  /** Controls the state of the modal. */
+  isOpen: boolean
+  /** Hides the close button (small cross icon in top-right corner). */
+  hideClose?: boolean
+  /**
+   * The callback function called on modal is opened.
+   */
+  onOpen?(): void
+  /**
+   * Render modal contents in a custom layout.
+   */
+  render?(props: ModalLayoutProps): JSX.Element
+}
+/**
+ * A component to display popup modal.
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ * @category basic
+ * @see http://uikit.myntra.com/components/modal
+ */
+
+declare function Modal(props: ModalProps): JSX.Element
+
+interface ModalLayoutProps extends BaseProps {
+  /**
+   * The title of the modal.
+   */
+  title?: ReactNode
+  /**
+   * Display action buttons.
+   */
+  actions?: ReactNode | ((close: () => void) => void)
+  /**
+   * The callback function called on modal is closed.
+   */
+  onClose?(): void
+}
+/**
+ * A layout component to display a card (used for Modal component).
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ * @category layout
+ * @see http://uikit.myntra.com/components/modal#modal-layout
+ */
+
+declare namespace Modal {
+  declare function Layout(props: ModalLayoutProps): JSX.Element
+}
 
 // -----------[[NavBar]]--------------- //
 
@@ -873,6 +1037,22 @@ declare namespace Progress {
   declare function Bar(props: ProgressBarProps): JSX.Element
   declare function Circle(props: ProgressCircleProps): JSX.Element
 }
+
+// -----------[[Section]]--------------- //
+interface SectionProps extends BaseProps {
+  title: string
+  noPadding: boolean
+}
+/**
+ * A building block of the page layout.
+ *
+ * @since 0.7.0
+ * @status REVIEWING
+ * @category layout
+ * @see http://uikit.myntra.com/components/section
+ */
+
+declare function Section(props: SectionProps): JSX.Element
 
 // -----------[[Table]]--------------- //
 
@@ -3021,6 +3201,9 @@ declare namespace JSX {
 // -----------[[UIKitGlobal]]----------//
 
 interface BaseProps {
+  /**
+   * CSS class name.
+   */
   className?: string
 
   children?: ReactNode

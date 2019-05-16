@@ -1,5 +1,11 @@
 .code-preview--refresh {
   position: absolute;
-  right: 5px;
   top: 5px;
+  right: 5px;
+}
+
+.code-preview--copy {
+  position: absolute;
+  top: 5px;
+  right: 80px;
 }

@@ -84,7 +84,7 @@ export default class List extends PureComponent<
     this.scrollerRef = React.createRef()
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     if (this.state.activeIndex >= 0) {
       if (this.props.virtualized) {
         if (this.virtualListRef.current) {
@@ -399,6 +399,7 @@ export default class List extends PureComponent<
     }
 
     return renderContainer({
+      className,
       children: items.map((_, index) => renderItem({ index } as any)),
     } as any)
   }

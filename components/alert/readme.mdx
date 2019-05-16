@@ -28,11 +28,13 @@ Alerts are used to convey messages to the user. There are different types of ale
 ## Dismissable Alert
 
 ```jsx preview
-const [isVisible, setVisible] = useState(true);
+function Example() {
+  const [isVisible, setVisible] = useState(true);
 
-return isVisible &&
-  <Alert type="warning" onClose={() => setVisible(false)}>
-    <div>{'CAUTION! The image you are trying to upload has invalid format. It might not render well.'}</div>
-    <Button type="link" inheritTextColor>Proceed Anyway</Button>
-  </Alert>
+  return isVisible &&
+    <Alert type="warning" onClose={() => setVisible(false)}>
+      <div>{'CAUTION! The image you are trying to upload has invalid format. It might not render well.'}</div>
+      <Button type="link" inheritTextColor>Proceed Anyway</Button>
+    </Alert>
+}
 ```

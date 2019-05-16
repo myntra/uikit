@@ -363,6 +363,7 @@ export default class Dropdown extends Component<
   handleBlur = () => {
     // No active element
     if (!document.activeElement) return
+    if (document.activeElement === document.body) return
 
     // In dropdown.
     if (!this.containerRef.current) return
@@ -456,11 +457,13 @@ export default class Dropdown extends Component<
         break
     }
 
+    const isHover = triggerOn === 'hover'
+
     return (
       <div
         {...this.extraProps()}
-        onMouseEnter={this.handleContainerMouseEnter}
-        onMouseLeave={this.handleContainerMouseLeave}
+        onMouseEnter={isHover ? this.handleContainerMouseEnter : null}
+        onMouseLeave={isHover ? this.handleContainerMouseLeave : null}
         ref={this.containerRef}
         className={classnames(className, 'dropdown', {
           open: this.props.isOpen,
@@ -499,8 +502,8 @@ export default class Dropdown extends Component<
                 ref={this.wrapperRef}
                 hidden={!position}
                 data-test-id="content"
-                onMouseEnter={this.handleContentMouseEnter}
-                onMouseLeave={this.handleContentMouseLeave}
+                onMouseEnter={isHover ? this.handleContentMouseEnter : null}
+                onMouseLeave={isHover ? this.handleContentMouseLeave : null}
               >
                 <Measure bounds onMeasure={this.handleMeasure}>
                   <div

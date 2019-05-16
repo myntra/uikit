@@ -19,6 +19,9 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  },
   "components": [
     "src/nav-bar-group.tsx",
     "src/nav-bar-item.tsx"
@@ -28,8 +31,5 @@
     "@myntra/uikit-component-avatar": "link:../avatar",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-context": "link:../../packages/uikit-context"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.13"
   }
 }

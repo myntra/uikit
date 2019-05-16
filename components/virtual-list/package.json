@@ -20,10 +20,10 @@
     "react": ">=16.0",
     "react-dom": ">=16.0"
   },
-  "tsMain": "src/virtual-list.tsx",
   "devDependencies": {
     "@types/react": "^16.8.13",
     "@types/react-dom": "^16.8.3",
     "react-dom": "^16.8.6"
-  }
+  },
+  "tsMain": "src/virtual-list.tsx"
 }

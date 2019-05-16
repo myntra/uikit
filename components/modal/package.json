@@ -1,0 +1,32 @@
+{
+  "name": "@myntra/uikit-component-modal",
+  "version": "0.7.1",
+  "main": "src/modal.tsx",
+  "module": "dist/modal.js",
+  "browser": "src/modal.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/modal",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.17"
+  },
+  "components": [
+    "src/modal-layout.tsx"
+  ],
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-portal": "link:../portal"
+  }
+}

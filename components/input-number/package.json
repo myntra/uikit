@@ -19,6 +19,9 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "@latest"
+  },
   "dependencies": {
     "@myntra/uikit-component-input-text": "link:../input-text"
   }

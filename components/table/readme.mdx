@@ -152,17 +152,14 @@ const [data] = useState([
       {/* cells in the current table */ children}
     </Table.TR>
   )}
-  renderHeaderRow={({ index, data, children, ...props }) => (
-    <Table.TR {...props}>
-      {/* header cells */}
-    </Table.TR>
-  )}
+  {/* show merged column instead */}
+  summarized
   {/* render a table with virtual scrolling */}
   virtualized
   {/* pick a visual style of table (default or striped) */}
   appearance={'default'}
   {/* controlled filter value */}
-  filter={[]}
+  filterBy={[]}
   {/* custom filter logic. If omitted, local fitering is added */}
   onFilter={({
     filters
@@ -177,7 +174,7 @@ const [data] = useState([
     // return promise to display progress
   }}
   {/* controlled sort value */}
-  sort={{ columnId: 'id', order: 'asc' }}
+  sortBy={{ columnId: 'id', order: 'asc' }}
   {/* custom sort logic. If omitted, local sorting is added */}
   onSort={({ columnId, order }) => {
     // some remote sort api call. update data
@@ -187,15 +184,26 @@ const [data] = useState([
 >
   {/* Table Column Definition */ }
   <Table.Column
-    key="id" // Unique column identifier
-    label="ID" // Text for header
-    renderLabel={() => <span>ID</span>} // Renderer to customize appearance of column header
+    key="id" // Unique column identifier.
+
+    label="ID" // Contents of header cell.
+
+    renderEditor={value => (
+      <InputText value={value} onChange={value => {
+        /* update value */
+      }} />
+    )}
+
     accessor="id" // property name to get value from data row item (equi. `item => item.id`)
     accessor={item => item.id} // a function to get value from data row item
+
     fixed // sticky column on left
     fixed="start" // sticky column on left
     fixed="end" // sticky column on right
-    sortable
+
+    sortable={true}
+    editable={true}
+
     enhancers={[
       {
         type: 'equal',
@@ -206,23 +214,30 @@ const [data] = useState([
             </Table.Filter>
           )
         },
-        filter(actual, expected) {
+        filter({ expected, actual, item, index }) {
           return expected === actual
         }
       }
     ]}
   />
 
+  <Table.Column
+    merge={['name', 'email']}
+    accessor={({ name, email }) => `${name} (${email})`}
+  />
+
   {/* Table Row Customizer */}
   <Table.Row
+    // Select a row to customize.
     selector={0} // row index selector
     selector={index => index % 2 === 0} // even row selector
-    expandable
+
+    // Render an expandable row.
     renderBody={
       ({ index, data }) => /* contents of expanded area */ <div />
     }
   >
-    {({ index, data, children, ...props }) => (
+    {({ index, data, children, isCollapsed, isExpanded, ...props }) => (
       // Same as renderRow
       <Table.TR {...props}>
         {/* cells in the current table */ children}

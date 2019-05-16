@@ -19,12 +19,12 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
+  "devDependencies": {
+    "@types/react": "^16.8.13"
+  },
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@myntra/uikit-component-button": "link:../button",
     "@myntra/uikit-component-icon": "link:../icon"
-  },
-  "devDependencies": {
-    "@types/react": "^16.8.13"
   }
 }

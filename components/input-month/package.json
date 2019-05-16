@@ -1,0 +1,33 @@
+{
+  "name": "@myntra/uikit-component-input-month",
+  "version": "0.7.1",
+  "main": "src/input-month.tsx",
+  "module": "dist/input-month.js",
+  "browser": "src/input-month.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-month",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-dropdown": "link:../dropdown",
+    "@myntra/uikit-component-input-date": "link:../input-date",
+    "@myntra/uikit-component-input-masked": "link:../input-masked"
+  },
+  "components": [
+    "src/input-month-picker.tsx"
+  ]
+}

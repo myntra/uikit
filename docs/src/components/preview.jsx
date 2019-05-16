@@ -2,10 +2,16 @@ import React, { PureComponent, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import * as components from '../uikit'
 
+const shouldBeReady = Date.now() + 5000 // In 5 seconds of load.
+
 export default class Preview extends PureComponent {
   static propTypes = {
     onError: PropTypes.func.isRequired,
     component: PropTypes.any
+  }
+
+  state = {
+    fixedProxy: false
   }
 
   componentDidCatch(error) {
@@ -14,6 +20,15 @@ export default class Preview extends PureComponent {
 
   componentDidUpdate() {
     this.props.onError(null)
+  }
+
+  componentDidMount() {
+    // This is a hack to work with async component.
+
+    if (shouldBeReady > Date.now()) {
+      // Refreshing it!
+      setTimeout(() => this.setState(state => ({ fixedProxy: !state.fixedProxy })), shouldBeReady - Date.now())
+    }
   }
 
   render() {
