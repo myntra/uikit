@@ -1,0 +1,33 @@
+@import '@design';
+@import '@myntra/uikit-component-input-text/style.scss';
+
+.date-value {
+  display: inline-flex;
+  width: 100%;
+
+  @include mixin-input-component();
+}
+
+.date-value > * {
+  flex: 1;
+}
+
+.wrapper {
+  position: relative;
+}
+
+.wrapper > .icon {
+  position: absolute;
+  right: ui-size('2xs');
+  bottom: ui-size('xs');
+  cursor: pointer;
+}
+
+.date-value-active input {
+  border-bottom: 1px solid ui-color('primary');
+}
+
+.active,
+.active input {
+  color: ui-color('primary');
+}

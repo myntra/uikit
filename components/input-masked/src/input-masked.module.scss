@@ -2,6 +2,8 @@
 @import '@myntra/uikit-component-input-text/style.scss';
 
 .input {
+  width: 100%;
+
   @include mixin-input-component();
 }
 

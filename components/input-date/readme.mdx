@@ -5,7 +5,44 @@ import InputDate from './src/input-date'
 <Documenter component={InputDate}>
 
 ```jsx preview
-// TODO: Add example.
+const [value, setValue] = useState();
+
+<InputDate value={value} onChange={setValue} />
+```
+
+</Documenter>
+
+## Examples
+
+- [Date input](#date-input)
+- [Date range input](#date-range-input)
+
+### Date input
+
+```jsx preview
+const [value, setValue] = useState();
+
+<InputDate value={value} onChange={setValue} />
+```
+
+### Date range input
+
+```jsx preview
+const [value, setValue] = useState();
+
+<InputDate value={value} onChange={setValue} range />
+```
+
+## Sub-components
+
+### InputDate.Picker
+
+<Documenter component={InputDate.Picker} sub>
+
+```jsx preview
+const [value, setValue] = useState();
+
+<InputDate.Picker value={value} onChange={setValue} />
 ```
 
 </Documenter>

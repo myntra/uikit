@@ -1,0 +1,55 @@
+@import '@design';
+
+.jumper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .select {
+    display: inline-block;
+  }
+
+  .select + .select {
+    margin-left: 0.125rem;
+  }
+
+  .select > select {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    padding: 0;
+    margin: ui-size('s') 0;
+    color: ui-text-color('dark');
+    text-transform: uppercase;
+
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+    outline: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+
+    @include use-text-style('small');
+  }
+
+  .next,
+  .prev {
+    padding: ui-size('xs');
+    cursor: pointer;
+  }
+
+  .placeholder {
+    width: 1em;
+  }
+
+  .prev {
+    margin-right: auto;
+  }
+
+  .next {
+    margin-left: auto;
+  }
+}

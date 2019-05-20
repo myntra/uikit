@@ -7,7 +7,7 @@ describe('Measure', () => {
     expect(Measure).toBeComponent()
   })
 
-  it('should measure', done => {
+  it('should measure', (done) => {
     mount(
       <Measure
         bounds
@@ -15,30 +15,39 @@ describe('Measure', () => {
         margin
         offset
         scroll
-        onMeasure={value => {
-          expect(Object.keys(value.bounds)).toEqual(['top', 'right', 'bottom', 'left', 'width', 'height'])
-          expect(Object.keys(value.client)).toEqual(['top', 'left', 'width', 'height'])
-          expect(Object.keys(value.margin)).toEqual(['top', 'right', 'bottom', 'left'])
-          expect(Object.keys(value.offset)).toEqual(['top', 'left', 'width', 'height'])
-          expect(Object.keys(value.scroll)).toEqual(['top', 'left', 'width', 'height'])
-          done()
-        }}
-      >
-        <textarea className="target" />
-      </Measure>
-    )
-  })
-
-  it('should measure only selected dimensions', done => {
-    mount(
-      <Measure
-        bounds
-        onMeasure={value => {
-          expect(value.bounds).toBeTruthy()
-          expect(value.client).toBeFalsy()
-          expect(value.margin).toBeFalsy()
-          expect(value.offset).toBeFalsy()
-          expect(value.scroll).toBeFalsy()
+        onMeasure={(value) => {
+          expect(Object.keys(value.bounds)).toEqual([
+            'top',
+            'right',
+            'bottom',
+            'left',
+            'width',
+            'height',
+          ])
+          expect(Object.keys(value.client)).toEqual([
+            'top',
+            'left',
+            'width',
+            'height',
+          ])
+          expect(Object.keys(value.margin)).toEqual([
+            'top',
+            'right',
+            'bottom',
+            'left',
+          ])
+          expect(Object.keys(value.offset)).toEqual([
+            'top',
+            'left',
+            'width',
+            'height',
+          ])
+          expect(Object.keys(value.scroll)).toEqual([
+            'top',
+            'left',
+            'width',
+            'height',
+          ])
           done()
         }}
       >
@@ -49,7 +58,7 @@ describe('Measure', () => {
 
   it('should disconnect on unmount', () => {
     const wrapper = mount(
-      <Measure onMeasure={value => {}}>
+      <Measure onMeasure={(value) => {}}>
         <textarea className="target" />
       </Measure>
     )
@@ -64,7 +73,7 @@ describe('Measure', () => {
 
   it('should unmount without error', () => {
     const wrapper = mount(
-      <Measure onMeasure={value => {}}>
+      <Measure onMeasure={(value) => {}}>
         <textarea className="target" />
       </Measure>
     )
@@ -79,7 +88,7 @@ describe('Measure', () => {
 
   it('should unobserve when child changes', () => {
     const wrapper = mount(
-      <Measure onMeasure={value => {}}>
+      <Measure onMeasure={(value) => {}}>
         <textarea className="target" />
       </Measure>
     )
@@ -94,18 +103,24 @@ describe('Measure', () => {
 
   it('should render functional child', () => {
     const wrapper = mount(
-      <Measure bounds onMeasure={value => {}}>
-        {({ content, ref }) => <textarea className="target" width={content.bounds.width} ref={ref} />}
+      <Measure bounds onMeasure={(value) => {}}>
+        {({ content, ref }) => (
+          <textarea className="target" width={content.bounds.width} ref={ref} />
+        )}
       </Measure>
     )
 
-    expect(wrapper.find('.target').html()).toEqual(expect.stringContaining('width'))
+    expect(wrapper.find('.target').html()).toEqual(
+      expect.stringContaining('width')
+    )
   })
 
   it('should support programmatic usage', () => {
     const wrapper = mount(
-      <Measure bounds onMeasure={value => {}}>
-        {({ content, ref }) => <textarea className="target" width={content.bounds.width} ref={ref} />}
+      <Measure bounds onMeasure={(value) => {}}>
+        {({ content, ref }) => (
+          <textarea className="target" width={content.bounds.width} ref={ref} />
+        )}
       </Measure>
     )
 

@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react'
 import Month from './jumper/month'
 import Year from './jumper/year'
 import classnames from './jumper.module.scss'
-import { UTCDate } from '../date-utils'
+import { UTCDate } from '../input-date-utils'
 import Icon from '@myntra/uikit-component-icon'
 
 export interface InputDatePickerJumperProps extends BaseProps {

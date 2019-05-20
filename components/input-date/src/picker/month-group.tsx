@@ -1,11 +1,13 @@
 import React, { Component, ReactNode } from 'react'
+import dayJS from 'dayjs'
+
+import { UTCDate, onlyDate } from '../input-date-utils'
+import { isDateRange, DateRange } from '../input-date-helpers'
+
 import Month from './month'
 import Jumper from './jumper'
 
-import classnames from './group.module.scss'
-
-import { UTCDate, onlyDate } from '../date-utils'
-import dayJS from 'dayjs'
+import classnames from './month-group.module.scss'
 
 /**
  * Create range.
@@ -14,13 +16,13 @@ function range(n: number): number[] {
   return Array.apply(null, { length: n }).map((_, i) => i)
 }
 
-export interface InputDatePickerGroupProps extends BaseProps {
-  value?: Date | { from?: Date; to?: Date }
-  onchange?(value: Date | { from?: Date; to?: Date }): void
+export interface InputDatePickerMonthGroupProps extends BaseProps {
+  value?: Date | DateRange
+  onchange?(value: Date | DateRange): void
 
   renderDate?(props: { date: Date; children: ReactNode }): ReactNode
   monthsToDisplay?: number
-  disabledDates?: { from?: Date; to?: Date }[]
+  disabledDates?: DateRange[]
   disabled?: boolean
   min?: Date
   max?: Date
@@ -37,8 +39,8 @@ export interface InputDatePickerGroupProps extends BaseProps {
  * @since 0.0.0
  * @status REVIEWING
  */
-export default class InputDatePickerGroup extends Component<
-  InputDatePickerGroupProps,
+export default class InputDatePickerMonthGroup extends Component<
+  InputDatePickerMonthGroupProps,
   { focused: null | Date; openToDate: null | Date }
 > {
   static Jumper = Jumper
@@ -69,8 +71,9 @@ export default class InputDatePickerGroup extends Component<
     openToDate: null,
   }
 
-  handleJump = (openToDate) => {
+  handleJump = (openToDate: Date) => {
     this.setState({ openToDate })
+
     if (this.props.onOpenToDateChange) this.props.onOpenToDateChange(openToDate)
   }
 
@@ -82,7 +85,7 @@ export default class InputDatePickerGroup extends Component<
 
   handleDateSelect = (_: number, value: Date) => {
     if (this.props.disabled) return
-    if (!this.props.range) {
+    if (!isDateRange(this.props.value, this.props.range)) {
       // TODO: use isDateRange
       return this.props.onChange && this.props.onChange(value)
     }
@@ -163,14 +166,16 @@ export default class InputDatePickerGroup extends Component<
     )
   }
 
-  findSelectionRange(value, date) {
+  findSelectionRange(value: { from: Date; to: Date }, date: Date) {
     // re-order if required.
     value =
       value.from.getTime() <= value.to.getTime()
         ? value
         : { from: value.to, to: value.from }
 
-    let from, to
+    let from: undefined | number
+    let to: undefined | number
+
     const isFrom = this.isSameMonth(value.from, date)
     const isTo = this.isSameMonth(value.to, date)
     const first = UTCDate(date.getUTCFullYear(), date.getUTCMonth(), 1)
@@ -182,6 +187,7 @@ export default class InputDatePickerGroup extends Component<
     const last = dayJS(first)
       .endOf('month')
       .toDate()
+
     if (isTo) to = value.to.getUTCDate()
     else if (dayJS(value.to).isAfter(last)) to = last.getUTCDate() + 1
     else return null
@@ -189,11 +195,11 @@ export default class InputDatePickerGroup extends Component<
     return { from, to }
   }
 
-  createSelectionData(date) {
+  createSelectionData(date: Date) {
     const value = this.props.value
     const focused = this.state.focused
     const selecting = this.props.active
-    if (!this.props.range) {
+    if (!isDateRange(value, this.props.range)) {
       if (this.isSameMonth(value, date)) {
         return { from: value.getUTCDate(), to: value.getUTCDate() }
       }
@@ -218,7 +224,7 @@ export default class InputDatePickerGroup extends Component<
           : null
 
       if (hasFrom && hasTo) {
-        return this.findSelectionRange(value, date)
+        return this.findSelectionRange(value as any, date)
       } else if (hasFrom && hasFocused) {
         return this.findSelectionRange({ from: value.from, to: focused }, date)
       } else if (hasTo && hasFocused) {
@@ -286,7 +292,7 @@ export default class InputDatePickerGroup extends Component<
     const date = this.referenceDate
 
     return (
-      <div className={classnames(this.props.className, 'picker')}>
+      <div className={classnames(this.props.className, 'group')}>
         {range(this.props.monthsToDisplay)
           .map((index) => this.createMonthData(date, index))
           .map(({ key, ...props }, offset) => (

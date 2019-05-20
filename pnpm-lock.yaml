@@ -260,6 +260,8 @@ importers:
     dependencies:
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-input-masked': 'link:../input-masked'
+      '@myntra/uikit-component-input-text': 'link:../input-text'
       date-fns: registry.npmjs.org/date-fns/2.0.0-alpha.27
       dayjs: registry.npmjs.org/dayjs/1.8.14
     devDependencies:
@@ -267,6 +269,8 @@ importers:
     specifiers:
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-input-masked': 'link:../input-masked'
+      '@myntra/uikit-component-input-text': 'link:../input-text'
       '@types/react': latest
       date-fns: ^2.0.0-alpha.27
       dayjs: ^1.8.14

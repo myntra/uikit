@@ -1,7 +1,7 @@
 import React, { PureComponent, ReactNode } from 'react'
 
 import classnames from './day.module.scss'
-import { UTCDate } from '../date-utils'
+import { UTCDate } from '../input-date-utils'
 
 export interface InputDatePickerDayProps extends BaseProps {
   year: number
@@ -31,6 +31,8 @@ export default class InputDatePickerDay extends PureComponent<
   static propTypes = {
     _isValidDate(props) {
       const names = ['year', 'month', 'day']
+
+      if (props.day === 0) return
 
       if (names.every((name) => typeof props[name] === 'number')) {
         if (
@@ -126,7 +128,7 @@ export default class InputDatePickerDay extends PureComponent<
         onTouchEnd={this.handleTouchEnd}
       >
         {isEmpty
-          ? 0
+          ? null
           : typeof children === 'function'
           ? children({
               date,

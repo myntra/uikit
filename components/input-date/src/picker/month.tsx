@@ -4,7 +4,7 @@ import { memoize } from '@myntra/uikit-utils'
 import Day from './day'
 
 import classnames from './month.module.scss'
-import { UTCDate } from '../date-utils'
+import { UTCDate } from '../input-date-utils'
 import dayJS from 'dayjs'
 
 const DAYS_OF_WEEK = 'Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday'.split(

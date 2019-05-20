@@ -229,7 +229,7 @@ export const META = [
   {
     name: 'InputMonth',
     since: '0.7.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/input-month'
   },
   {

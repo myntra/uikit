@@ -141,6 +141,8 @@ async function compile(code) {
   // eslint-disable-next-line no-new-func
   const fn = new Function('React', `${code}\nreturn Example`)
 
+  console.log(code)
+
   return fn(React)
 }
 
@@ -148,12 +150,16 @@ async function compile(code) {
  * @param {string[]} identifiers
  */
 function unknownIdentifierPlugin(identifiers) {
+  function getName(node) {
+    return node.object ? getName(node.object) : node.name
+  }
+
   return {
     visitor: {
       JSXOpeningElement(path) {
         const { node, scope } = path
 
-        const name = node.name.object ? node.name.object.name : node.name.name
+        const name = getName(node.name)
         const binding = scope.getBinding(name)
 
         if (!binding) {

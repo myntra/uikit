@@ -27,8 +27,15 @@ export default class Preview extends PureComponent {
 
     if (shouldBeReady > Date.now()) {
       // Refreshing it!
-      setTimeout(() => this.setState(state => ({ fixedProxy: !state.fixedProxy })), shouldBeReady - Date.now())
+      this.shouldBeReady = setTimeout(
+        () => this.setState(state => ({ fixedProxy: !state.fixedProxy })),
+        shouldBeReady - Date.now()
+      )
     }
+  }
+
+  componentWillUnmount() {
+    if (this.shouldBeReady) clearTimeout(this.shouldBeReady)
   }
 
   render() {

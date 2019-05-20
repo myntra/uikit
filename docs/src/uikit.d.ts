@@ -349,9 +349,81 @@ declare function InputCheckbox(props: InputCheckboxProps): JSX.Element
 
 // -----------[[InputDate]]--------------- //
 
+interface InputDateProps extends BaseProps, InputDatePickerProps {
+  /**
+   * The date format to format value for displaying.
+   */
+  displayFormat?: string
+}
+/**
+ * A component to read date and date ranges.
+ *
+ * @since 0.0.0
+ * @status REVIEWING
+ * @category input
+ * @see http://uikit.myntra.com/components/input-date
+ */
+
 declare function InputDate(props: InputDateProps): JSX.Element
 
+interface InputDatePickerProps<
+  DateLike = string | Date,
+  DateLikeOrDateRangeLike = string | Date | DateRange | StringDateRange
+> extends BaseProps {
+  /**
+   * Current value of the text input field.
+   */
+  value?: DateLikeOrDateRangeLike
+  /**
+   * The callback function called when the value changes.
+   */
+  onChange?(value: DateLikeOrDateRangeLike): void
+  /**
+   * The date format to parse and format value when using string dates.
+   */
+  format?: string
+  /**
+   * Set the picker in range selection mode. The value would have two dates (`from` and `to`).
+   */
+  range?: boolean
+  /**
+   * Custom renderer to display day in the picker dropdown.
+   */
+  renderDate?(props: { date: Date; children: ReactNode }): ReactNode
+  monthsToDisplay?: number
+  disabledRanges?: Array<DateRange | StringDateRange>
+  min?: DateLike
+  max?: DateLike
+  presets?: Array<
+    | {
+        range: false
+        label: string
+        value(): Date
+      }
+    | {
+        range: true
+        label: string
+        value(): {
+          from: Date
+          to: Date
+        }
+      }
+  >
+}
+/**
+ * @since 0.0.0
+ * @status REVIEWING
+ * @category input
+ * @see http://uikit.myntra.com/components/input-date#inputdatepicker
+ */
+
+declare namespace InputDate {
+  declare function Picker(props: InputDatePickerProps): JSX.Element
+}
+
 // -----------[[InputMasked]]--------------- //
+
+type Mask = _Mask
 
 interface InputMaskedProps extends BaseProps {
   /**
@@ -378,6 +450,18 @@ interface InputMaskedProps extends BaseProps {
    * Define custom masks.
    */
   masks?: Record<string, Mask>
+  /**
+   * Disables all interaction on the select field.
+   */
+  disabled?: boolean
+  /**
+   * Allows only previewing selected options.
+   */
+  readOnly?: boolean
+  /**
+   *  Makes select field required.
+   */
+  required?: boolean
 }
 /**
  * Input component that provides a template for phone, credit card, etc.
@@ -392,28 +476,48 @@ declare function InputMasked(props: InputMaskedProps): JSX.Element
 
 interface InputMonthProps extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {}
 /**
- * Month selection utility.
+ * A component to input month.
  *
  * @since 0.7.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
+ * @category input
+ * @see http://uikit.myntra.com/components/input-month
  */
 
 declare function InputMonth(props: InputMonthProps): JSX.Element
 
 interface InputMonthPickerProps extends BaseProps {
+  /**
+   * Current value of the input field.
+   */
   value?: {
     month: number
     year: number
   }
-  onChange(value: { month: number | null; year: number | null }): void
-  highlight(value: { month: number; year: number }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
-  renderMonth(props: { month: string; index: number }): ReactNode
+  /**
+   * The callback function to call when the value changes.
+   */
+  onChange?(value: { month: number | null; year: number | null }): void
+  /**
+   * Customize appearance of values in picker dropdown.
+   * @param value - Month or Year to highlight.
+   */
+  highlight?(value: {
+    month: number | null
+    year: number | null
+  }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
+  /**
+   * Custom render function to override contents of month values in the picker dropdown.
+   */
+  renderMonth?(props: { month: string; index: number }): ReactNode
 }
 /**
- * Month selection utility.
+ * An embeddable month/year selection component.
  *
  * @since 0.7.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
+ * @category input
+ * @see http://uikit.myntra.com/components/input-month#inputmonthpicker
  */
 
 declare namespace InputMonth {

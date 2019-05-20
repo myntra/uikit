@@ -1,80 +1,28 @@
-export * from './date-utils'
+export * from './input-date-utils'
 
 import React, { PureComponent, ReactNode, RefObject } from 'react'
-
-// import InputDatePicker from './InputDatePicker'
-// import InputDateValue from './InputDateValue'
 import Dropdown from '@myntra/uikit-component-dropdown'
-import { format, parse, isDateEqual } from './date-utils'
+
 import classnames from './input-date.module.scss'
+import { format, parse, isDateEqual } from './input-date-utils'
+import { isDateRange, DateRange } from './input-date-helpers'
+import InputDateValue from './input-date-value'
+import InputDatePicker, { InputDatePickerProps } from './input-date-picker'
 
-export interface InputDateProps<
-  D = string | Date,
-  V = D | { from?: D; to?: D }
-> extends BaseProps {
-  /**
-   * Current value of the text input field.
-   */
-  value?: V
-
-  /**
-   * The callback function called when the value changes.
-   */
-  onChange?(value: V): void
-
-  /**
-   * The date format to parse and format value when using string dates.
-   */
-  format?: string
-
+export interface InputDateProps extends BaseProps, InputDatePickerProps {
   /**
    * The date format to format value for displaying.
    */
   displayFormat?: string
-
-  /**
-   * Set the picker in range selection mode. The value would have two dates (`from` and `to`).
-   */
-  range?: boolean
-
-  /**
-   * Custom renderer to display day in the picker dropdown.
-   */
-  renderDate?(props: { date: Date; children: ReactNode }): ReactNode
-}
-
-function isStringDate(
-  value:
-    | undefined
-    | string
-    | Date
-    | { from?: string | Date; to?: string | Date },
-  format?: string
-): value is undefined | string | { from?: string; to?: string } {
-  return typeof format === 'string'
-}
-function isDate(
-  value:
-    | undefined
-    | string
-    | Date
-    | { from?: string | Date; to?: string | Date },
-  format?: string
-): value is undefined | Date | { from?: Date; to?: Date } {
-  return typeof format !== 'string'
-}
-function isDateRange<D extends string | Date>(
-  value: undefined | D | { from?: D; to?: D },
-  range?: boolean
-): value is undefined | { from?: D; to?: D } {
-  return range === true
 }
 
 /**
- * The InputDate component.
+ * A component to read date and date ranges.
  *
  * @since 0.0.0
  * @status REVIEWING
+ * @category input
+ * @see http://uikit.myntra.com/components/input-date
  */
 export default class InputDate extends PureComponent<
   InputDateProps,
@@ -85,6 +33,8 @@ export default class InputDate extends PureComponent<
     isRangeSelectionActive: boolean
   }
 > {
+  static Picker = InputDatePicker
+
   static defaultProps = {
     disabled: false,
     range: false,
@@ -174,7 +124,7 @@ export default class InputDate extends PureComponent<
 
   handleRangeFocus = (value: 'from' | 'to') =>
     this.setState({ activeRangeEnd: value })
-  handleChange = (newValue: Date | { from?: Date; to?: Date }) => {
+  handleChange = (newValue: Date | DateRange) => {
     if (!this.props.onChange) return
 
     const { value: oldValue, range } = this.props
@@ -222,21 +172,25 @@ export default class InputDate extends PureComponent<
     this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
 
   render() {
+    const { className, displayFormat: _, children, ...props } = this.props
+    const { isOpen, activeRangeEnd } = this.state
+    const { displayValue, displayFormat, displayActiveRangeEnd } = this
+
     return (
       <Dropdown
         auto
         container
-        className={classnames(this.props.className, 'input-date')}
-        isOpen={this.state.isOpen}
-        renderTrigger={(props) => (
+        className={classnames(className, 'input-date')}
+        isOpen={isOpen}
+        renderTrigger={(events) => (
           <InputDateValue
-            {...props}
-            range={this.props.range}
-            value={this.displayValue}
-            format={this.displayFormat}
-            active={this.displayActiveRangeEnd}
-            onRangeFocus={this.handleRangeFocus}
+            {...events}
+            range={props.range}
+            value={displayValue}
+            format={displayFormat}
+            active={displayActiveRangeEnd}
             onChange={this.handleDisplayValueChange}
+            onRangeFocus={this.handleRangeFocus}
           />
         )}
         onOpen={this.handleDropdownOpen}
@@ -244,14 +198,13 @@ export default class InputDate extends PureComponent<
       >
         <div className={classnames('wrapper')}>
           <InputDatePicker
-            presets={this.props.range}
             disabledDates={[]}
             monthsToDisplay={this.props.range ? 2 : 1}
-            {...this.props}
+            {...props}
             openToDate={this.openToDate}
             onOpenToDateChange={this.handleOpenToDateChange}
             onChange={this.handleChange}
-            active={this.state.activeRangeEnd}
+            active={activeRangeEnd}
           />
         </div>
       </Dropdown>

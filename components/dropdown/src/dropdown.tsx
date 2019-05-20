@@ -1,4 +1,4 @@
-import React, { Component, RefObject } from 'react'
+import React, { Component, RefObject, MouseEvent } from 'react'
 
 import Button from '@myntra/uikit-component-button'
 import ClickAway from '@myntra/uikit-component-click-away'
@@ -376,6 +376,20 @@ export default class Dropdown extends Component<
     this.close()
   }
 
+  handleClick = (event: MouseEvent) => {
+    if (this.props.isOpen) {
+      // If target element is an input element, keep dropdown open.
+      if (
+        this.containerRef.current &&
+        /^(input|textarea|select)$/i.test((event.target as any).nodeName)
+      ) {
+        return
+      }
+    }
+
+    this.toggle()
+  }
+
   /**
    * Delay blur closing for 1 frame to keep dropdown open when trigger blurs
    * but content focuses.
@@ -453,7 +467,7 @@ export default class Dropdown extends Component<
       case 'focus':
         handlers.onFocus = this.open
       case 'click':
-        handlers.onClick = this.toggle
+        handlers.onClick = this.handleClick
         break
     }
 
