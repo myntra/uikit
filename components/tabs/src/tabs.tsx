@@ -29,7 +29,7 @@ export { Tab }
  * A layout component to display tabbed interface.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category layout
  * @see http://uikit.myntra.com/components/tabs
  */

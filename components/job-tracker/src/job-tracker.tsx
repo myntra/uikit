@@ -25,7 +25,7 @@ export interface Props extends BaseProps {
 /**
  * The JobTracker component.
  * @since 0.6.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category widget
  * @see http://uikit.myntra.com/components/job-tracker
  */

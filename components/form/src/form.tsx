@@ -82,7 +82,7 @@ export interface FormFieldProps
  * The Form component
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 export default class Form extends Component<Props> {
   static Action = FormAction

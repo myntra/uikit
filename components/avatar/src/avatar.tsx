@@ -14,7 +14,7 @@ interface Props extends BaseProps {
  * Displays user icon.
  *
  * @since 0.3.1
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  */
 export default function Avatar({ name, size, className, ...props }: Props) {

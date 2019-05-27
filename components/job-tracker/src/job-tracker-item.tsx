@@ -34,7 +34,7 @@ export interface Props extends BaseProps {
 
 /**
  * @since 0.6
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 export default class JobTrackerItem extends PureComponent<Props> {
   static defaultProps = {

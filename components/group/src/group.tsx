@@ -7,7 +7,7 @@ export interface Props extends BaseProps {}
  * A group component to combine multiple group-able components.
  *
  * @since 0.11.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category composition
  * @see http://uikit.myntra.com/components/group
  */

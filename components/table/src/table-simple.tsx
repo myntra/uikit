@@ -42,7 +42,7 @@ const withSentinel = ({ children }) => (
  A simple table.
 
  @since 0.3.0
- @status EXPERIMENTAL
+ @status REVIEWING
  */
 class TableSimple extends Component<TableSimpleProps> {
   hasWarned: boolean

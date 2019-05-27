@@ -16,7 +16,7 @@ export interface Props extends BaseProps {
 
 /**
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @see http://uikit.myntra.com/components/accordion#AccordionItem
  */
 export default class AccordionItem extends Component<Props> {

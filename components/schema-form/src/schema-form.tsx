@@ -27,7 +27,7 @@ interface Props extends FormProps {
  * It is meant to automatically generate a form when data structure changes often or has large number of fields.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  *
  */
 export default class SchemaForm extends Component<Props, { ui: UI | null }> {

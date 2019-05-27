@@ -20,7 +20,7 @@ export interface LoaderProps extends BaseProps {
  * A component to display infinite loading progress.
  *
  * @since 0.5.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/loader
  */

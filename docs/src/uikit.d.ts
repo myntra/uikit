@@ -3,7 +3,7 @@
  * A component to render accordion effect.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category functional
  * @see http://uikit.myntra.com/components/accordion
  */
@@ -24,7 +24,7 @@ declare namespace Accordion {
   // -----------[[Item]]--------------- //
   /**
    * @since 0.3.0
-   * @status EXPERIMENTAL
+   * @status REVIEWING
    * @see http://uikit.myntra.com/components/accordion#AccordionItem
    */
   declare function Item(props: Item.Props): JSX.Element
@@ -73,7 +73,7 @@ declare namespace Alert {
  * Displays user icon.
  *
  * @since 0.3.1
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  */
 declare function Avatar(props: Avatar.Props): JSX.Element
@@ -91,7 +91,7 @@ declare namespace Avatar {
  * Displays an information pill/badge.
  *
  * @since 0.8.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  */
 declare function Badge(props: Badge.Props): JSX.Element
@@ -274,7 +274,7 @@ declare namespace ErrorBoundary {
  * A wrapper component to add title, label and description to form fields.
  *
  * @since 0.6.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 declare function Field(props: Field.Props): JSX.Element
 declare namespace Field {
@@ -301,7 +301,7 @@ declare namespace Field {
  * The Form component
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 declare function Form(props: Form.Props): JSX.Element
 declare namespace Form {
@@ -336,7 +336,7 @@ declare namespace Form {
   // -----------[[Action]]--------------- //
   /**
    * @since 0.3.0
-   * @status EXPERIMENTAL
+   * @status REVIEWING
    */
   declare function Action(props: Action.Props): JSX.Element
   declare namespace Action {
@@ -435,7 +435,7 @@ declare namespace Grid {
  * A group component to combine multiple group-able components.
  *
  * @since 0.11.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category composition
  * @see http://uikit.myntra.com/components/group
  */
@@ -470,7 +470,7 @@ declare namespace Icon {
  * A component to lazy load images.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/image
  */
@@ -1024,13 +1024,13 @@ declare namespace InputTextArea {
 /**
  * The JobTracker component.
  * @since 0.6.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category widget
  * @see http://uikit.myntra.com/components/job-tracker
  */
 declare function JobTracker(props: JobTracker.Props): JSX.Element
 declare namespace JobTracker {
-  type Job = Pick<JobTrackerItemProps, Exclude<keyof JobTrackerItemProps, 'className' | 'children'>>
+  type Job = Pick<JobTrackerItemProps, Exclude<keyof JobTrackerItemProps, 'className' | 'children' | 'apiRoot'>>
 
   interface Props extends BaseProps {
     /**
@@ -1096,7 +1096,7 @@ declare namespace List {
  * A component to display infinite loading progress.
  *
  * @since 0.5.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/loader
  */
@@ -1127,7 +1127,7 @@ declare namespace Measure {}
  * A component to display popup modal.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/modal
  */
@@ -1154,7 +1154,7 @@ declare namespace Modal {
    * A layout component to display a card (used for Modal component).
    *
    * @since 0.3.0
-   * @status EXPERIMENTAL
+   * @status REVIEWING
    * @category layout
    * @see http://uikit.myntra.com/components/modal#modal-layout
    */
@@ -1182,7 +1182,7 @@ declare namespace Modal {
  * A sidebar nav list for app navigation.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category opinionated
  * @see http://uikit.myntra.com/components/nav-bar
  */
@@ -1258,7 +1258,7 @@ declare namespace NavBar {
    * This component should be used as a child of [NavBar](#NavBar) or other [NavBar.Group](#NavBarGroup) component.
    *
    * @since 0.3.0
-   * @status EXPERIMENTAL
+   * @status REVIEWING
    * @category sub-component
    * @see http://uikit.myntra.com/components/nav-bar#NavBarGroup
    */
@@ -1293,7 +1293,7 @@ declare namespace NavBar {
    * This component should be used as a child of [NavBar](#NavBar) or [NavBar.Group](#NavBarGroup) component.
    *
    * @since 0.3.0
-   * @status EXPERIMENTAL
+   * @status REVIEWING
    * @category sub-component
    * @see http://uikit.myntra.com/components/nav-bar#NavBarItem
    */
@@ -1410,8 +1410,6 @@ declare namespace Progress {
     | ({
         type: 'circle'
       } & ProgressCircleProps)
-  type ProgressBarProps = Bar.Props
-  type ProgressCircleProps = Circle.Props
   // -----------[[Bar]]--------------- //
   /**
    *
@@ -1463,7 +1461,7 @@ declare namespace Progress {
  * It is meant to automatically generate a form when data structure changes often or has large number of fields.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  *
  */
 declare function SchemaForm(props: SchemaForm.Props): JSX.Element
@@ -1553,7 +1551,7 @@ declare namespace Table {
  * A layout component to display tabbed interface.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category layout
  * @see http://uikit.myntra.com/components/tabs
  */
@@ -1577,7 +1575,7 @@ declare namespace Tabs {
 /**
  * Tooltip component.
  * @since 0.6.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 declare function Tooltip(props: Tooltip.Props): JSX.Element
 declare namespace Tooltip {

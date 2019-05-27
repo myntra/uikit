@@ -21,7 +21,7 @@ export interface ModalLayoutProps extends BaseProps {
  * A layout component to display a card (used for Modal component).
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category layout
  * @see http://uikit.myntra.com/components/modal#modal-layout
  */

@@ -17,7 +17,7 @@ export interface TooltipProps extends BaseProps {
 /**
  * Tooltip component.
  * @since 0.6.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 export default class Tooltip extends PureComponent<
   TooltipProps,

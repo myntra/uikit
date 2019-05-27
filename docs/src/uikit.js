@@ -6,6 +6,8 @@ function asyncComponent(factory) {
   return new Proxy(Component, {
     get(target, name) {
       if (typeof name === 'string' && /^[A-Z]/.test(name)) {
+        // const result = Component._result
+
         return (
           cache[name] ||
           (cache[name] = lazy(async () => {
@@ -157,7 +159,7 @@ export const META = [
   {
     name: 'Accordion',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/accordion'
   },
   {
@@ -169,13 +171,13 @@ export const META = [
   {
     name: 'Avatar',
     since: '0.3.1',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/avatar'
   },
   {
     name: 'Badge',
     since: '0.8.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/badge'
   },
   {
@@ -211,13 +213,13 @@ export const META = [
   {
     name: 'Field',
     since: '0.6.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/field'
   },
   {
     name: 'Form',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/form'
   },
   {
@@ -229,7 +231,7 @@ export const META = [
   {
     name: 'Group',
     since: '0.11.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/group'
   },
   {
@@ -241,7 +243,7 @@ export const META = [
   {
     name: 'Image',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/image'
   },
   {
@@ -307,7 +309,7 @@ export const META = [
   {
     name: 'JobTracker',
     since: '0.6.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/job-tracker'
   },
   {
@@ -319,7 +321,7 @@ export const META = [
   {
     name: 'Loader',
     since: '0.5.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/loader'
   },
   {
@@ -331,13 +333,13 @@ export const META = [
   {
     name: 'Modal',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/modal'
   },
   {
     name: 'NavBar',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/nav-bar'
   },
   {
@@ -367,7 +369,7 @@ export const META = [
   {
     name: 'SchemaForm',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/schema-form'
   },
   {
@@ -385,13 +387,13 @@ export const META = [
   {
     name: 'Tabs',
     since: '0.3.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/tabs'
   },
   {
     name: 'Tooltip',
     since: '0.6.0',
-    status: 'EXPERIMENTAL',
+    status: 'REVIEWING',
     path: '/components/tooltip'
   },
   {

@@ -2,10 +2,6 @@ import React from 'react'
 import { mount } from 'enzyme'
 import Pagination from './pagination'
 
-import { testCodeMod } from '@myntra/codemod-utils'
-
-testCodeMod(__dirname, '../pagination.codemod.js')
-
 describe('Pagination', () => {
   it('displays selected page range', () => {
     const wrapper = mount(

@@ -32,7 +32,7 @@ export interface Props {
 
 /**
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 export default class SchemaFormObject extends Component<Props> {
   static defaultProps = {

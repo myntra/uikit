@@ -19,7 +19,7 @@ export interface Props extends BaseProps {
  * A component to render accordion effect.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category functional
  * @see http://uikit.myntra.com/components/accordion
  */

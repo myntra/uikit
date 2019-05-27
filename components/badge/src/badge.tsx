@@ -13,7 +13,7 @@ interface Props extends BaseProps {
  * Displays an information pill/badge.
  *
  * @since 0.8.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  */
 export default function Badge({

@@ -366,7 +366,7 @@ describe('Dropdown', () => {
 
     it('auto: top left', () => {
       expect(
-        instance.calculateAutoPosition(
+        instance.computeAutoDirection(
           node(300, 100, 100, 100),
           node(0, 0, 400, 400)
         )
@@ -380,7 +380,7 @@ describe('Dropdown', () => {
 
     it('auto: top right', () => {
       expect(
-        instance.calculateAutoPosition(
+        instance.computeAutoDirection(
           node(300, 300, 100, 100),
           node(0, 0, 400, 400)
         )

@@ -1,11 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import { testCodeMod } from '@myntra/codemod-utils'
-
 import Alert from './alert'
-
-testCodeMod(__dirname, '../alert.codemod.js')
 
 describe('Alert', () => {
   it('renders', () => {

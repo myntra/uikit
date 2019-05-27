@@ -24,7 +24,7 @@ export interface Props extends BaseProps {
  * A component to lazy load images.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/image
  */

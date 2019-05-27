@@ -105,7 +105,7 @@ const ROOT_NAV_GROUP_ID = [0]
  * A sidebar nav list for app navigation.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category opinionated
  * @see http://uikit.myntra.com/components/nav-bar
  */

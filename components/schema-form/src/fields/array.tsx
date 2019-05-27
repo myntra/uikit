@@ -33,7 +33,7 @@ export interface Props {
  * Describe component in 150-200 words.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 class SchemaFormArray extends Component<Props> {
   static defaultProps = {

@@ -23,7 +23,7 @@ export interface Props extends BaseProps {
  * A wrapper component to add title, label and description to form fields.
  *
  * @since 0.6.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 export default function Field({
   title,

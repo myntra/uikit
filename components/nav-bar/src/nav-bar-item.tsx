@@ -38,7 +38,7 @@ export interface NavBarItemProps extends BaseProps {
  * This component should be used as a child of [NavBar](#NavBar) or [NavBar.Group](#NavBarGroup) component.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category sub-component
  * @see http://uikit.myntra.com/components/nav-bar#NavBarItem
  */

@@ -29,7 +29,7 @@ export interface TableColumnFilterProps extends BaseProps {
  * Column filter for Table
  *
  *  @since 0.3.0
- *  @status EXPERIMENTAL
+ *  @status REVIEWING
  **/
 
 export default class TableColumnFilter extends React.PureComponent<

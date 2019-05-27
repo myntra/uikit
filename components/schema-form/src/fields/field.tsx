@@ -22,7 +22,7 @@ export interface Props extends BaseProps {
 
 /**
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  */
 export default class SchemaFormField extends PureComponent<Props> {
   static defaultProps = {

@@ -40,7 +40,7 @@ const FragmentWithFallback =
  * A component to display popup modal.
  *
  * @since 0.3.0
- * @status EXPERIMENTAL
+ * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/modal
  */

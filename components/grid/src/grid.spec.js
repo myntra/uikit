@@ -1,10 +1,7 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import { testCodeMod } from '@myntra/codemod-utils'
 
 import Grid from './grid'
-
-testCodeMod(__dirname, '../grid.codemod.js')
 
 it('should render grid wrapper', () => {
   const wrapper = shallow(<Grid />)
@@ -19,7 +16,9 @@ it('should throw error for non Column child', () => {
       <div />
     </Grid>
   )
-  expect(spy).toHaveBeenCalledWith(expect.stringContaining('Only Grid.Column component is allowed in Grid.'))
+  expect(spy).toHaveBeenCalledWith(
+    expect.stringContaining('Only Grid.Column component is allowed in Grid.')
+  )
   spy.mockReset()
 })
 
