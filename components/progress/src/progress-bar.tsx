@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './progress-bar.module.scss'
 
-export interface ProgressBarProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Completion state in percentage.
    */
@@ -33,7 +33,7 @@ export default function ProgressBar({
   children,
   size,
   ...props
-}: ProgressBarProps) {
+}: Props) {
   return (
     <div
       {...props}
@@ -57,5 +57,5 @@ export default function ProgressBar({
 }
 
 ProgressBar.defaultProps = {
-  appearance: 'success'
+  appearance: 'success',
 }

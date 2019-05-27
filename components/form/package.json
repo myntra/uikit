@@ -1,0 +1,40 @@
+{
+  "name": "@myntra/uikit-component-form",
+  "version": "0.7.1",
+  "main": "src/form.tsx",
+  "module": "dist/form.js",
+  "browser": "src/form.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/form",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-field": "link:../field",
+    "@myntra/uikit-component-grid": "link:../grid",
+    "@myntra/uikit-component-input-checkbox": "link:../input-checkbox",
+    "@myntra/uikit-component-input-date": "link:../input-date",
+    "@myntra/uikit-component-input-masked": "link:../input-masked",
+    "@myntra/uikit-component-input-month": "link:../input-month",
+    "@myntra/uikit-component-input-number": "link:../input-number",
+    "@myntra/uikit-component-input-radio": "link:../input-radio",
+    "@myntra/uikit-component-input-s3-file": "link:../input-s3-file",
+    "@myntra/uikit-component-input-select": "link:../input-select",
+    "@myntra/uikit-component-input-text": "link:../input-text",
+    "@myntra/uikit-component-input-text-area": "link:../input-text-area"
+  }
+}

@@ -3,7 +3,7 @@ import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
 import UIKitContext from '@myntra/uikit-context'
 
-interface ButtonProps extends BaseProps {
+export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
   type: 'primary' | 'secondary' | 'link'
   /** The label text of the button. */
@@ -36,7 +36,7 @@ interface ButtonProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/button
  */
-export default class Button extends PureComponent<ButtonProps> {
+export default class Button extends PureComponent<Props> {
   static RouterLink = (props) => {
     if (CAN_USE_HOOKS) {
       const { RouterLink } = useContext(UIKitContext)
@@ -69,18 +69,24 @@ export default class Button extends PureComponent<ButtonProps> {
     __$validation({ to, href }) {
       if (to && href)
         throw new Error(`The props 'to' and 'href' cannot coexist.`)
-    }
+    },
   }
 
   static defaultProps = {
     type: 'secondary',
     disabled: false,
     inheritTextColor: false,
-    loading: false
+    loading: false,
   }
 
   state = {
-    active: false
+    active: false,
+  }
+
+  clickCoolDown: number
+
+  componentWillUnmount() {
+    window.clearTimeout(this.clickCoolDown)
   }
 
   handleClick = (event) => {
@@ -90,7 +96,10 @@ export default class Button extends PureComponent<ButtonProps> {
 
     // show button press animation.
     this.setState({ active: true })
-    setTimeout(() => this.setState({ active: false }), 100)
+    this.clickCoolDown = window.setTimeout(
+      () => this.setState({ active: false }),
+      100
+    )
 
     if (this.props.onClick) {
       return this.props.onClick(event)
@@ -126,7 +135,7 @@ export default class Button extends PureComponent<ButtonProps> {
           loading,
           inherit: inheritTextColor,
           active: this.state.active,
-          'has-icon': isIconButton
+          'has-icon': isIconButton,
         })}
         to={to}
         href={href}

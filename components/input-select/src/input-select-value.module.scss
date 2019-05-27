@@ -1,3 +1,5 @@
+@import '@design';
+
 .value {
   position: absolute;
   bottom: 0;
@@ -9,12 +11,13 @@
   white-space: nowrap;
 }
 
+.input {
+  width: 100%;
+  color: ui-text-color('dark', 'mid-emphasis');
+}
+
 .value .input {
   width: 90%;
   text-overflow: ellipsis;
   border-bottom: transparent;
-}
-
-.underlay .input {
-  color: var(--typography-color-dark-secondary);
 }

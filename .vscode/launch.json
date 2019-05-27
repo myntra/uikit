@@ -23,6 +23,13 @@
       "cwd": "${workspaceFolder}",
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Docgen: Current",
+      "program": "${workspaceFolder}/packages/docgen/cli.js",
+      "args": ["${file}"]
     }
   ]
 }

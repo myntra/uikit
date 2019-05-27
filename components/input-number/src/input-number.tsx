@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './input-number.module.scss'
 
-interface InputNumberProps extends BaseProps {
+export interface Props extends BaseProps {
   /** @private */
   className?: string
   /** Displays a disabled number field */
@@ -26,7 +26,7 @@ export default function InputNumber({
   onChange,
   value,
   ...props
-}: InputNumberProps): JSX.Element {
+}: Props): JSX.Element {
   return (
     <div className={className}>
       <input
@@ -40,8 +40,4 @@ export default function InputNumber({
       />
     </div>
   )
-}
-
-InputNumber.defaultProps = {
-  disabled: false,
 }

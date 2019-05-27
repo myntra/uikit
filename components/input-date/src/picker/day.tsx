@@ -3,7 +3,7 @@ import React, { PureComponent, ReactNode } from 'react'
 import classnames from './day.module.scss'
 import { UTCDate } from '../input-date-utils'
 
-export interface InputDatePickerDayProps extends BaseProps {
+export interface Props extends BaseProps {
   year: number
   month: number
   day: number
@@ -25,9 +25,7 @@ export interface InputDatePickerDayProps extends BaseProps {
  * @since 0.0.0
  * @status REVIEWING
  */
-export default class InputDatePickerDay extends PureComponent<
-  InputDatePickerDayProps
-> {
+export default class Day extends PureComponent<Props> {
   static propTypes = {
     _isValidDate(props) {
       const names = ['year', 'month', 'day']

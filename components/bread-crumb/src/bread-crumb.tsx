@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import classnames from './bread-crumb.module.scss'
 import BreadCrumbItem from './bread-crumb-item'
 
-export interface BreadCrumbProps extends BaseProps {}
+export interface Props extends BaseProps {}
 
 /**
  * The BreadCrumb component.
@@ -12,16 +12,15 @@ export interface BreadCrumbProps extends BaseProps {}
  * @category basic
  * @see http://uikit.myntra.com/components/bread-crumb
  */
-export default function BreadCrumb({
-  className,
-  children,
-  ...props
-}: BreadCrumbProps) {
-  return (
-    <nav {...props} className={classnames(className, 'pages')}>
-      <ol>{children}</ol>
-    </nav>
-  )
-}
+export default class BreadCrumb extends PureComponent<Props> {
+  static Item = BreadCrumbItem
 
-BreadCrumb.Item = BreadCrumbItem
+  render() {
+    const { className, children, ...props } = this.props
+    return (
+      <nav {...props} className={classnames(className, 'pages')}>
+        <ol>{children}</ol>
+      </nav>
+    )
+  }
+}

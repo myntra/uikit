@@ -1,0 +1,31 @@
+@import '@design';
+
+.tab {
+  position: relative;
+  display: inline-block;
+  padding: ui-size('xs') ui-size('l');
+  color: ui-text-color('dark');
+  cursor: pointer;
+
+  @include use-text-style('table');
+
+  &::after {
+    position: absolute;
+    right: 0;
+    bottom: -1px;
+    left: 0;
+    display: block;
+    height: 4px;
+    content: ' ';
+    border-radius: 3px;
+    transition: all 350ms;
+  }
+
+  &.active {
+    color: ui-text-color('primary');
+
+    &::after {
+      background: ui-color('primary');
+    }
+  }
+}

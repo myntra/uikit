@@ -8,11 +8,11 @@ import { IconNameGlobal } from './names'
 
 export type IconName = IconNameGlobal[keyof IconNameGlobal]
 
-interface IconProps extends BaseProps {
+interface Props extends BaseProps {
   /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
-  name: IconName,
+  name: IconName
   /** Accessibility text for screen readers */
-  title?: string,
+  title?: string
   spin?: boolean
 }
 
@@ -23,7 +23,13 @@ interface IconProps extends BaseProps {
  * @status REVIEWING
  * @category basic
  */
-export default function Icon({ name, className, title, spin, ...props } : IconProps) {
+export default function Icon({
+  name,
+  className,
+  title,
+  spin,
+  ...props
+}: Props) {
   return (
     <svg
       {...props}

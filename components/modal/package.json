@@ -22,9 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.8.17"
   },
-  "components": [
-    "src/modal-layout.tsx"
-  ],
   "dependencies": {
     "@myntra/uikit-component-button": "link:../button",
     "@myntra/uikit-component-portal": "link:../portal"

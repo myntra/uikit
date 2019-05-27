@@ -43,6 +43,7 @@
 }
 
 .editor .preview {
+  min-width: 200px;
   height: 35%;
   min-height: 200px;
   padding: 32px 16px 16px;

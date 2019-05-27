@@ -1,4 +1,4 @@
-const ts = require('typescript')
+// const ts = require('typescript')
 const ReactDocGen = require('react-docgen')
 const ReactDocGenTS = require('react-docgen-typescript')
 const doctrine = require('doctrine')
@@ -31,11 +31,16 @@ function prepareProp(prop) {
 function parseTS(file, source) {
   return ReactDocGenTS.withDefaultConfig({
     propFilter: {
-      skipPropsWithName: ['className']
+      skipPropsWithName: ['className'],
     },
     componentNameResolver(exp, src) {
-      return path.basename(file).replace(/\.tsx/, '').replace(/(?:^|-)([a-z])/g, (_, c) => c.toUpperCase())
-    }
+      if (exp.name === 'default') {
+        return path
+          .basename(file)
+          .replace(/\.tsx/, '')
+          .replace(/(?:^|-)([a-z])/g, (_, c) => c.toUpperCase())
+      }
+    },
   }).parse(file)[0]
 }
 
@@ -61,7 +66,7 @@ module.exports = function parse(file, source, root = process.cwd()) {
 
   meta.description = docs.description
 
-  docs.tags.forEach(tag => {
+  docs.tags.forEach((tag) => {
     if (tag.title === 'example') {
       meta[tag.title] = meta[tag.title] || []
       meta[tag.title].push(deIndent(tag.description))
@@ -69,10 +74,10 @@ module.exports = function parse(file, source, root = process.cwd()) {
   })
 
   if (meta.methods) {
-    meta.methods.forEach(method => {
+    meta.methods.forEach((method) => {
       const doc = doctrine.parse(method.docblock || '')
       delete method.docblock
-      method.private = !doc.tags.some(tag => tag.title === 'public')
+      method.private = !doc.tags.some((tag) => tag.title === 'public')
     })
   }
 
@@ -80,7 +85,8 @@ module.exports = function parse(file, source, root = process.cwd()) {
     (acc, [name, prop]) => acc.concat([{ name, ...prepareProp(prop) }]),
     []
   )
-  meta.name = meta.displayName || meta.name || path.basename(file).replace(/\.jsx?$/, '')
+  meta.name =
+    meta.displayName || meta.name || path.basename(file).replace(/\.jsx?$/, '')
   meta.file = path.relative(root, file)
 
   return meta

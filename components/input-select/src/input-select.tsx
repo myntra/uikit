@@ -9,7 +9,7 @@ import Icon from '@myntra/uikit-component-icon'
 import InputSelectValue from './input-select-value'
 import InputSelectControl from './input-select-control'
 
-export interface InputSelectProps<Value = any, Option = any> extends BaseProps {
+export interface Props<Value = any, Option = any> extends BaseProps {
   /**
    * A list of options for the select element.
    */
@@ -19,7 +19,7 @@ export interface InputSelectProps<Value = any, Option = any> extends BaseProps {
    */
   value: Value
   /**
-   * The handler to call when the value changes.
+   * The callback function to call when the value changes.
    */
   onChange?(value: Value): void
   /**
@@ -105,7 +105,7 @@ let SELECT_COMPONENT_COUNTER = 0
  * @see http://uikit.myntra.com/components/input-select
  */
 export default class InputSelect<Value = any, Option = any> extends Component<
-  InputSelectProps<Value, Option>,
+  Props<Value, Option>,
   {
     isOpen: boolean
     prefix: string
@@ -246,6 +246,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
         <div className={classnames('selector')}>
           {this.state.options.length ? (
             <List
+              className={classnames('list')}
               ref={this.listRef}
               value={this.props.value}
               items={this.state.options}
@@ -267,6 +268,3 @@ export default class InputSelect<Value = any, Option = any> extends Component<
     )
   }
 }
-
-// InputSelect.Selector = Selector
-// InputSelect.Search = Control

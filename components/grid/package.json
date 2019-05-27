@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-component-grid",
   "version": "0.7.1",
-  "main": "src/grid.jsx",
+  "main": "src/grid.tsx",
   "module": "dist/grid.js",
-  "browser": "src/grid.jsx",
+  "browser": "src/grid.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/grid",
@@ -23,9 +23,6 @@
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@types/react": "^16.8.13"
   },
-  "components": [
-    "src/grid-column.jsx"
-  ],
   "dependencies": {
     "prop-types": "^15.7.2"
   }

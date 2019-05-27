@@ -6,7 +6,7 @@ import classnames from './input-masked.module.scss'
 
 export type Mask = _Mask
 
-export interface InputMaskedProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * The required pattern for the input field.
    */
@@ -57,7 +57,7 @@ export interface InputMaskedProps extends BaseProps {
  * @since 0.0.0
  * @status REVIEWING
  */
-export default class InputMasked extends PureComponent<InputMaskedProps> {
+export default class InputMasked extends PureComponent<Props> {
   static defaultProps = {
     includeMaskChars: false,
   }

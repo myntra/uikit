@@ -3,7 +3,7 @@ import Icon, { IconName } from '@myntra/uikit-component-icon'
 import Button from '@myntra/uikit-component-button'
 import classnames from './alert.module.scss'
 
-interface AlertProps extends BaseProps {
+interface Props extends BaseProps {
   /**
    * The visual style to convey purpose of the alert.
    */
@@ -26,7 +26,7 @@ const ICONS = {
   error: 'exclamation-triangle',
   warning: 'exclamation-triangle',
   success: 'check-circle',
-  primary: 'info-circle'
+  primary: 'info-circle',
 } as Record<string, IconName>
 
 /**
@@ -43,7 +43,7 @@ export default function Alert({
   onClose,
   children,
   ...props
-}: AlertProps): JSX.Element {
+}: Props): JSX.Element {
   // TODO: Add ARIA support for dismiss action.
   return (
     <div
@@ -68,5 +68,5 @@ export default function Alert({
 }
 
 Alert.defaultProps = {
-  type: 'error'
+  type: 'error',
 }

@@ -1,6 +1,7 @@
 @import '@design';
 
 .container {
+  width: 100%;
   &:disabled {
     cursor: not-allowed;
   }
@@ -15,4 +16,8 @@
   max-height: 360px;
   overflow: auto;
   box-shadow: ui-shadow('raised');
+}
+
+.list {
+  background: ui-color('white');
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './input-text-area.module.scss'
 
-interface InputTextAreaProps extends BaseProps {
+export interface Props extends BaseProps {
   /** @private */
   className?: string
   /** Current value of the text area input field. */
@@ -32,7 +32,7 @@ export default function InputTextArea({
   value,
   onChange,
   ...props
-}: InputTextAreaProps) {
+}: Props) {
   return (
     <div className={classnames(className)}>
       <textarea

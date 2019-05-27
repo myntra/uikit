@@ -1,0 +1,64 @@
+import Form from './src/form'
+
+# Form
+
+<Documenter component={Form}>
+
+```jsx preview
+const [name, setName] = useState();
+const [gender, setGender] = useState();
+const [dob, setDOB] = useState();
+const [genderOptions] = useState([
+  { value: 1, label: 'Female' },
+  { value: 2, label: 'Male' },
+  { value: 3, label: 'Other' },
+]);
+const handleSubmit = useCallback(() => {
+  console.log({ name, gender, email, dob })
+});
+const handleReset = useCallback(() => {
+  setName(null)
+  setGender(null)
+  setDOB(null)
+}, [setName, setGender, setDOB]);
+
+<Form title="Signup to UIKit" onSubmit={handleSubmit}>
+  <Form.Text
+    label="Name"
+    value={name}
+    onChange={setName}
+    description="Your full name"
+  />
+
+  <Form.Select
+    label="Gender"
+    options={genderOptions}
+    value={gender}
+    onChange={setGender}
+    description="Gender"
+  />
+
+  <Form.Date
+    label="Date of Birth"
+    value={dob}
+    onChange={setDOB}
+    description="Your date of birth"
+  />
+
+  <Form.Action type="primary">Signup</Form.Action>
+  <Form.Action onClick={handleReset}>Reset</Form.Action>
+</Form>
+```
+
+</Documenter>
+
+## Available Form Fields
+
+- [`<Form.Action>`](./button)
+- [`<Form.CheckBox>`](./input-checkbox)
+- [`<Form.Date>`](./input-Date)
+- [`<Form.Masked>`](./input-masked)
+- [`<Form.Number>`](./input-number)
+- [`<Form.Select>`](./input-select)
+- [`<Form.Text>`](./input-text)
+- [`<Form.TextArea>`](./input-text-area)

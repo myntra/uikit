@@ -17,7 +17,7 @@ const CLASS = {
   days: classnames('days'),
 }
 
-export interface InputDatePickerMonthProps extends BaseProps {
+export interface Props extends BaseProps {
   year: number
   month: number
 
@@ -33,9 +33,7 @@ export interface InputDatePickerMonthProps extends BaseProps {
  * @since 0.0.0
  * @status REVIEWING
  */
-export default class InputDatePickerMonth extends PureComponent<
-  InputDatePickerMonthProps
-> {
+export default class Month extends PureComponent<Props> {
   static defaultProps = {
     selected: {},
     disabled: [],

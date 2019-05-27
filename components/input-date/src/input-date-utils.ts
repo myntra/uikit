@@ -6,15 +6,6 @@ function padStartWithZeros(value: string | number, digits: number = 2) {
   return `${value}`.padStart(digits, '0')
 }
 
-/**
- * Create date instance.
- *
- * @export
- * @param {number} year
- * @param {number} month
- * @param {number} date
- * @returns {Date}
- */
 export function UTCDate(year: number, month: number, date: number) {
   return new Date(
     `${padStartWithZeros(year, 4)}-${padStartWithZeros(
@@ -23,13 +14,6 @@ export function UTCDate(year: number, month: number, date: number) {
   )
 }
 
-/**
- * Drop time component from Date.
- *
- * @export
- * @param {Date} date
- * @returns {Date}
- */
 export function onlyDate(date: Date | { toDate(): Date }) {
   if (!(date instanceof Date)) {
     date = date.toDate() // dayjs interop.

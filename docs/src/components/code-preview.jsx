@@ -27,7 +27,6 @@ export function useCompiler(source, { watch = true, once = true } = {}) {
               throw new Error(`No component returned by 'compiler'`)
             }
           } catch (error) {
-            console.error(error)
             setError(() => error)
           }
         }
@@ -95,7 +94,7 @@ export default function CodePreview({ className, source }) {
       {error && (
         <Alert type="error" onClose={() => setError(null)}>
           {error.message}
-          <pre>{error.stack}</pre>
+          <pre style={{ overflow: 'auto' }}>{error.stack}</pre>
         </Alert>
       )}
     </div>
@@ -140,8 +139,6 @@ async function compile(code) {
 
   // eslint-disable-next-line no-new-func
   const fn = new Function('React', `${code}\nreturn Example`)
-
-  console.log(code)
 
   return fn(React)
 }

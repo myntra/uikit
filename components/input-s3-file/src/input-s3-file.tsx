@@ -3,7 +3,7 @@ import classnames from './input-s3-file.module.scss'
 import Button from '@myntra/uikit-component-button'
 import Input from '@myntra/uikit-component-input-text'
 
-interface InputS3FileProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Auto start upload on file selection/change.
    * @since v0.11.0
@@ -63,7 +63,7 @@ interface InputS3FileState {
  * @see http://uikit.myntra.com/components/input-s3-file
  */
 export default class InputS3File extends PureComponent<
-  InputS3FileProps,
+  Props,
   InputS3FileState
 > {
   static defaultProps = {

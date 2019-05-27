@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-component-input-radio",
+  "version": "0.7.1",
+  "main": "src/input-radio.tsx",
+  "module": "dist/input-radio.js",
+  "browser": "src/input-radio.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-radio",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  }
+}

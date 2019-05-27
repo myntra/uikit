@@ -1,6 +1,6 @@
 import { PureComponent, RefObject } from 'react'
 
-export interface ClickAwayProps {
+export interface Props {
   /**
    * Reference to the container which requires click away functionality.
    */
@@ -22,7 +22,7 @@ export interface ClickAwayProps {
  * @status REVIEWING
  * @category advanced
  */
-export default class ClickAway extends PureComponent<ClickAwayProps> {
+export default class ClickAway extends PureComponent<Props> {
   static defaultProps = {
     domEventName: 'click',
   }

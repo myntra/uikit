@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './bread-crumb.module.scss'
 
-export interface BreadCrumbItem extends BaseProps {}
+export interface Props extends BaseProps {}
 
 /**
  * A breadcrumb item
@@ -10,7 +10,11 @@ export interface BreadCrumbItem extends BaseProps {}
  * @category basic
  * @see http://uikit.myntra.com/components/bread-crum#BreadCrumbIcon
  */
-export default function BreadCrumbItem({ className, children, ...props }) {
+export default function BreadCrumbItem({
+  className,
+  children,
+  ...props
+}: Props) {
   return (
     <li className={classnames('page')} {...props}>
       {children}

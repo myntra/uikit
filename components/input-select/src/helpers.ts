@@ -1,5 +1,5 @@
 import Sifter from 'sifter'
-import { InputSelectProps } from './input-select'
+import { Props } from './input-select'
 import { toArray } from '@myntra/uikit-utils'
 
 export function moveSelectedOptionsToTop<V, T>(
@@ -28,10 +28,10 @@ export function executeFilterSearch<V, T>(
   sifter: Sifter,
   options: T[],
   keyword: string,
-  config: Pick<
-    InputSelectProps<V, T>,
-    'searchableKeys' | 'sortBy' | 'filterOptions'
-  > & { sortBy: string; sortOrder: string }
+  config: Pick<Props<V, T>, 'searchableKeys' | 'sortBy' | 'filterOptions'> & {
+    sortBy: string
+    sortOrder: string
+  }
 ) {
   const { searchableKeys, sortBy, sortOrder, filterOptions } = config
   const results = sifter.search(keyword, {

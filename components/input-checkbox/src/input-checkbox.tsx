@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './input-checkbox.module.scss'
 
-interface InputCheckboxProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * The state of the checkbox.
    *
@@ -64,7 +64,7 @@ export default function InputCheckbox({
   title,
   readOnly,
   ...props
-}: InputCheckboxProps) {
+}: Props) {
   readOnly = readOnly || !onChange
 
   return (

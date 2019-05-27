@@ -1,22 +1,44 @@
-// -----------[[Alert]]--------------- //
-interface AlertProps extends BaseProps {
+// -----------[[Accordion]]--------------- //
+/**
+ * A component to render accordion effect.
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ * @category functional
+ * @see http://uikit.myntra.com/components/accordion
+ */
+declare function Accordion(props: Accordion.Props): JSX.Element
+declare namespace Accordion {
+  interface Props extends BaseProps {
+    /**
+     * Sets the expanded item for the accordion.
+     */
+    active?: number
+    /**
+     * The callback function called when an item is expanded.
+     *
+     * @param active - Next expanded item.
+     */
+    onChange?(active: number): void
+  }
+  // -----------[[Item]]--------------- //
   /**
-   * The visual style to convey purpose of the alert.
+   * @since 0.3.0
+   * @status EXPERIMENTAL
+   * @see http://uikit.myntra.com/components/accordion#AccordionItem
    */
-  type: 'primary' | 'error' | 'warning' | 'success'
-  /**
-   * The handler to call when the alert box is dismissed.
-   */
-  onClose?: () => void
-  /**
-   * Displays a alert box with filled background.
-   */
-  solid?: boolean
-  /**
-   * The message/body of the alert box.
-   */
-  children: string | JSX.Element
+  declare function Item(props: Item.Props): JSX.Element
+  declare namespace Item {
+    interface Props extends BaseProps {
+      /**
+       * The title or always visible part of the accordion item.
+       */
+      title: ReactElement | string
+    }
+  }
 }
+
+// -----------[[Alert]]--------------- //
 /**
  * Show a message intended to draw the user's attention.
  *
@@ -24,16 +46,29 @@ interface AlertProps extends BaseProps {
  * @status READY
  * @category basic
  */
-
-declare function Alert(props: AlertProps): JSX.Element
+declare function Alert(props: Alert.Props): JSX.Element
+declare namespace Alert {
+  interface Props extends BaseProps {
+    /**
+     * The visual style to convey purpose of the alert.
+     */
+    type: 'primary' | 'error' | 'warning' | 'success'
+    /**
+     * The handler to call when the alert box is dismissed.
+     */
+    onClose?: () => void
+    /**
+     * Displays a alert box with filled background.
+     */
+    solid?: boolean
+    /**
+     * The message/body of the alert box.
+     */
+    children: string | JSX.Element
+  }
+}
 
 // -----------[[Avatar]]--------------- //
-interface AvatarProps extends BaseProps {
-  /** The name of the person/object.  */
-  name: string
-  /** The size of the avatar. */
-  size?: 'small' | 'medium' | 'large'
-}
 /**
  * Displays user icon.
  *
@@ -41,16 +76,17 @@ interface AvatarProps extends BaseProps {
  * @status EXPERIMENTAL
  * @category basic
  */
-
-declare function Avatar(props: AvatarProps): JSX.Element
+declare function Avatar(props: Avatar.Props): JSX.Element
+declare namespace Avatar {
+  interface Props extends BaseProps {
+    /** The name of the person/object.  */
+    name: string
+    /** The size of the avatar. */
+    size?: 'small' | 'medium' | 'large'
+  }
+}
 
 // -----------[[Badge]]--------------- //
-interface BadgeProps extends BaseProps {
-  /** The visual style to convey purpose of the badge. */
-  type?: 'primary' | 'success' | 'warning' | 'error'
-  /** The label text of the badge. */
-  children: string
-}
 /**
  * Displays an information pill/badge.
  *
@@ -58,12 +94,17 @@ interface BadgeProps extends BaseProps {
  * @status EXPERIMENTAL
  * @category basic
  */
-
-declare function Badge(props: BadgeProps): JSX.Element
+declare function Badge(props: Badge.Props): JSX.Element
+declare namespace Badge {
+  interface Props extends BaseProps {
+    /** The visual style to convey purpose of the badge. */
+    type?: 'primary' | 'success' | 'warning' | 'error'
+    /** The label text of the badge. */
+    children: string
+  }
+}
 
 // -----------[[BreadCrumb]]--------------- //
-
-interface BreadCrumbProps extends BaseProps {}
 /**
  * The BreadCrumb component.
  *
@@ -72,47 +113,24 @@ interface BreadCrumbProps extends BaseProps {}
  * @category basic
  * @see http://uikit.myntra.com/components/bread-crumb
  */
-
-declare function BreadCrumb(props: BreadCrumbProps): JSX.Element
-interface BreadCrumbItem extends BaseProps {}
-/**
- * A breadcrumb item
- * @since 0.3.0
- * @status READY
- * @category basic
- * @see http://uikit.myntra.com/components/bread-crum#BreadCrumbIcon
- */
-
+declare function BreadCrumb(props: BreadCrumb.Props): JSX.Element
 declare namespace BreadCrumb {
-  declare function Item(props: BreadCrumbItemProps): JSX.Element
+  interface Props extends BaseProps {}
+  // -----------[[Item]]--------------- //
+  /**
+   * A breadcrumb item
+   * @since 0.3.0
+   * @status READY
+   * @category basic
+   * @see http://uikit.myntra.com/components/bread-crum#BreadCrumbIcon
+   */
+  declare function Item(props: Item.Props): JSX.Element
+  declare namespace Item {
+    interface Props extends BaseProps {}
+  }
 }
 
 // -----------[[Button]]--------------- //
-
-interface ButtonProps extends BaseProps {
-  /** The visual style to convey purpose of the button. */
-  type: 'primary' | 'secondary' | 'link'
-  /** The label text of the button. */
-  children?: string
-  /** The handler to call when the button is clicked. */
-  onClick?(event: MouseEvent): void
-  /** The name of the icon (displayed on left side of content). */
-  icon?: IconName
-  /** The name of the icon (displayed on right side of content). */
-  secondaryIcon?: IconName
-  /** Disables the button (changes visual style and ignores button interactions). */
-  disabled?: boolean
-  /** Changes visual style to show progress. */
-  loading?: boolean
-  /** Uses current text color (useful for link buttons). */
-  inheritTextColor?: boolean
-  /** The 'type' attribute for the button element (as 'type' is used for defining visual type) */
-  htmlType?: 'submit' | 'reset' | 'button'
-  /** The URL to navigate to when the button is clicked (uses client side router). */
-  to?: string | object
-  /** The URL to navigate to when the button is clicked (uses browser anchor tag). */
-  href?: string
-}
 /**
  * Buttons provide click-able actions.
  *
@@ -121,25 +139,36 @@ interface ButtonProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/button
  */
-
-declare function Button(props: ButtonProps): JSX.Element
+declare function Button(props: Button.Props): JSX.Element
+declare namespace Button {
+  interface Props extends BaseProps {
+    /** The visual style to convey purpose of the button. */
+    type: 'primary' | 'secondary' | 'link'
+    /** The label text of the button. */
+    children?: string
+    /** The handler to call when the button is clicked. */
+    onClick?(event: MouseEvent): void
+    /** The name of the icon (displayed on left side of content). */
+    icon?: IconName
+    /** The name of the icon (displayed on right side of content). */
+    secondaryIcon?: IconName
+    /** Disables the button (changes visual style and ignores button interactions). */
+    disabled?: boolean
+    /** Changes visual style to show progress. */
+    loading?: boolean
+    /** Uses current text color (useful for link buttons). */
+    inheritTextColor?: boolean
+    /** The 'type' attribute for the button element (as 'type' is used for defining visual type) */
+    htmlType?: 'submit' | 'reset' | 'button'
+    /** The URL to navigate to when the button is clicked (uses client side router). */
+    to?: string | object
+    /** The URL to navigate to when the button is clicked (uses browser anchor tag). */
+    href?: string
+  }
+  type IconName = Icon.IconName
+}
 
 // -----------[[ClickAway]]--------------- //
-
-interface ClickAwayProps {
-  /**
-   * Reference to the container which requires click away functionality.
-   */
-  target: RefObject<HTMLElement>
-  /**
-   * The handler to call when click-away is triggered.
-   */
-  onClickAway: (event: MouseEvent) => void
-  /**
-   * Browser event which triggers click-away.
-   */
-  domEventName?: 'click' | 'mousedown' | 'mouseup'
-}
 /**
  * Watch for clicks outside the target element.
  *
@@ -147,55 +176,25 @@ interface ClickAwayProps {
  * @status REVIEWING
  * @category advanced
  */
-
-declare function ClickAway(props: ClickAwayProps): JSX.Element
+declare function ClickAway(props: ClickAway.Props): JSX.Element
+declare namespace ClickAway {
+  interface Props {
+    /**
+     * Reference to the container which requires click away functionality.
+     */
+    target: RefObject<HTMLElement>
+    /**
+     * The handler to call when click-away is triggered.
+     */
+    onClickAway: (event: MouseEvent) => void
+    /**
+     * Browser event which triggers click-away.
+     */
+    domEventName?: 'click' | 'mousedown' | 'mouseup'
+  }
+}
 
 // -----------[[Dropdown]]--------------- //
-
-interface DropdownProps extends BaseProps {
-  renderTrigger(props: {
-    onMouseEnter?(event: MouseEvent | React.MouseEvent): void
-    onMouseLeave?(event: MouseEvent | React.MouseEvent): void
-    onClick?(event: MouseEvent | React.MouseEvent): void
-    onFocus?(event: FocusEvent | React.FocusEvent): void
-    onBlur?(event: FocusEvent | React.FocusEvent): void
-  }): string | JSX.Element
-  /**
-   * Trigger to open dropdown.
-   *
-   * @deprecated - Use [renderTrigger](#Dropdown-renderTrigger)
-   */
-  trigger?: string | JSX.Element
-  /** Dropdown state */
-  isOpen: boolean
-  /** Attach child to specific component/element */
-  container?: boolean | string | HTMLElement
-  /**
-   * Event fired when dropdown drawer is displayed
-   * @function
-   */
-  onOpen?(): void
-  /**
-   * Event fired when dropdown drawer is closed
-   */
-  onclose?(): void
-  /** Open dropdown drawer above the trigger. */
-  up?: boolean
-  /** Align dropdown drawer with the right edge of the trigger. */
-  right?: boolean
-  /** Align dropdown drawer with the left edge of the trigger. */
-  left?: boolean
-  /** Align dropdown drawer below the trigger. */
-  down?: boolean
-  /**
-   * Position dropdown drawer in best suited place.
-   */
-  auto?: boolean
-  /**
-   * Event to trigger dropdown
-   */
-  triggerOn?: 'hover' | 'click' | 'focus'
-}
 /**
  * A bare-bones dropdown implementation. It requires a trigger component or text.
  *
@@ -204,27 +203,234 @@ interface DropdownProps extends BaseProps {
  * @category advanced
  * @see http://uikit.myntra.com/components/dropdown
  */
-
-declare function Dropdown(props: DropdownProps): JSX.Element
+declare function Dropdown(props: Dropdown.Props): JSX.Element
+declare namespace Dropdown {
+  interface Props extends BaseProps {
+    renderTrigger(props: {
+      onMouseEnter?(event: MouseEvent | React.MouseEvent): void
+      onMouseLeave?(event: MouseEvent | React.MouseEvent): void
+      onClick?(event: MouseEvent | React.MouseEvent): void
+      onFocus?(event: FocusEvent | React.FocusEvent): void
+      onBlur?(event: FocusEvent | React.FocusEvent): void
+    }): string | JSX.Element
+    /**
+     * Trigger to open dropdown.
+     *
+     * @deprecated - Use [renderTrigger](#Dropdown-renderTrigger)
+     */
+    trigger?: string | JSX.Element
+    /** Dropdown state */
+    isOpen: boolean
+    /** Attach child to specific component/element */
+    container?: boolean | string | HTMLElement
+    /**
+     * Event fired when dropdown drawer is displayed
+     * @function
+     */
+    onOpen?(): void
+    /**
+     * Event fired when dropdown drawer is closed
+     */
+    onclose?(): void
+    /** Open dropdown drawer above the trigger. */
+    up?: boolean
+    /** Align dropdown drawer with the right edge of the trigger. */
+    right?: boolean
+    /** Align dropdown drawer with the left edge of the trigger. */
+    left?: boolean
+    /** Align dropdown drawer below the trigger. */
+    down?: boolean
+    /**
+     * Position dropdown drawer in best suited place.
+     */
+    auto?: boolean
+    /**
+     * Event to trigger dropdown
+     */
+    triggerOn?: 'hover' | 'click' | 'focus'
+  }
+}
 
 // -----------[[ErrorBoundary]]--------------- //
-
-declare function ErrorBoundary(props: ErrorBoundaryProps): JSX.Element
+/**
+ * Contains errors in child components.
+ *
+ * @since 0.0.0
+ * @status REVIEWING
+ * @category basic
+ */
+declare function ErrorBoundary(props: ErrorBoundary.Props): JSX.Element
+declare namespace ErrorBoundary {
+  interface Props extends BaseProps {
+    /**
+     * Render fallback content in case of error.
+     */
+    renderFallback?(props: { hasError: boolean; error: Error; info: string }): any
+  }
+}
 
 // -----------[[Field]]--------------- //
+/**
+ * A wrapper component to add title, label and description to form fields.
+ *
+ * @since 0.6.0
+ * @status EXPERIMENTAL
+ */
+declare function Field(props: Field.Props): JSX.Element
+declare namespace Field {
+  interface Props extends BaseProps {
+    /**
+     * The name of the value.
+     */
+    title: ReactNode
+    /** A small description to set the context of the input field. */
+    description?: ReactNode
+    /**
+     * Display an error message instead of deccription
+     */
+    error?: ReactNode
+    /**
+     * Visually conveys that the field is required.
+     */
+    required?: boolean
+  }
+}
 
-declare function Field(props: FieldProps): JSX.Element
+// -----------[[Form]]--------------- //
+/**
+ * The Form component
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ */
+declare function Form(props: Form.Props): JSX.Element
+declare namespace Form {
+  interface Props extends BaseProps {
+    /**
+     * A heading/label for the form.
+     */
+    title?: ReactNode
+    /**
+     * Default width of a field in the form.
+     */
+    defaultFieldSize?: ColumnSize
+    /**
+     * The callback function called when form is submitted.
+     *
+     * @param event - Form submission event.
+     */
+    onSubmit?(event: FormEvent): void
+  }
+
+  interface FormFieldProps extends Pick<GridColumnProps, Exclude<keyof GridColumnProps, 'className' | 'children'>> {}
+  type ColumnSize = Grid.Column.ColumnSize
+  type GridColumnProps = Grid.Column.Props
+  type InputCheckboxProps = InputCheckbox.Props
+  type InputDateProps = InputDate.Props
+  type InputMaskedProps = InputMasked.Props
+  type InputNumberProps = InputNumber.Props
+  type InputS3FileProps = InputS3File.Props
+  type InputSelectProps = InputSelect.Props
+  type InputTextProps = InputText.Props
+  type InputTextAreaProps = InputTextArea.Props
+  // -----------[[Action]]--------------- //
+  /**
+   * @since 0.3.0
+   * @status EXPERIMENTAL
+   */
+  declare function Action(props: Action.Props): JSX.Element
+  declare namespace Action {
+    interface Props extends ButtonProps {}
+    type ButtonProps = Button.Props
+  }
+}
 
 // -----------[[Grid]]--------------- //
-
-declare function Grid(props: GridProps): JSX.Element
-
+/**
+ * It is a flexbox based layouting component.
+ *
+ * @since 0.0.0
+ * @status REVIEWING
+ */
+declare function Grid(props: Grid.Props): JSX.Element
 declare namespace Grid {
-  declare function Column(props: GridColumnProps): JSX.Element
+  interface Props extends BaseProps {
+    gap?: 'small' | 'base' | 'large' | 'xx-small' | 'x-small' | 'none'
+    gapless?: boolean
+    centered?: boolean
+    hcentered?: boolean
+    vcentered?: boolean
+    multiline?: boolean
+  }
+  // -----------[[Column]]--------------- //
+  /**
+   * Sub component of `<Grid>`.
+   *
+   * @since 0.0.0
+   * @status REVIEWING
+   */
+  declare function Column(props: Column.Props): JSX.Element
+  declare namespace Column {
+    type ColumnSize =
+      | 1
+      | 2
+      | 3
+      | 4
+      | 5
+      | 6
+      | 7
+      | 8
+      | 9
+      | 10
+      | 11
+      | 12
+      | 'full'
+      | 'three-quarters'
+      | 'two-thirds'
+      | 'half'
+      | 'one-third'
+      | 'one-quarter'
+      | 'one-fifth'
+      | 'two-fifth'
+      | 'three-fifth'
+      | 'four-fifth'
+
+    interface Props extends BaseProps {
+      /** Take only required space */
+      narrow?: boolean
+      /** Width */
+      size?: ColumnSize
+      /** Leaves empty space on left */
+      offset?: ColumnSize
+      /** Narrow on mobile screen */
+      narrowOnMobile?: boolean
+      /** Width on mobile screen */
+      sizeOnMobile?: ColumnSize
+      /** Offset on mobiles screen */
+      offsetOnMobile?: ColumnSize
+      /** Narrow on tablet screen */
+      narrowOnTablet?: boolean
+      /** Width on tablet screen */
+      sizeOnTablet?: ColumnSize
+      /** Offset on tablet screen */
+      offsetOnTablet?: ColumnSize
+      /** Narrow on touch enabled devices */
+      narrowOnTouch?: boolean
+      /** Width on touch enabled devices */
+      sizeOnTouch?: ColumnSize
+      /** Offset on touch enabled devices */
+      offsetOnTouch?: ColumnSize
+      /** Narrow on desktop screen */
+      narrowOnDesktop?: boolean
+      /** Width on desktop screen */
+      sizeOnDesktop?: ColumnSize
+      /** Offset on desktop screen */
+      offsetOnDesktop?: ColumnSize
+    }
+  }
 }
 
 // -----------[[Group]]--------------- //
-interface GroupProps extends BaseProps {}
 /**
  * A group component to combine multiple group-able components.
  *
@@ -233,20 +439,12 @@ interface GroupProps extends BaseProps {}
  * @category composition
  * @see http://uikit.myntra.com/components/group
  */
-
-declare function Group(props: GroupProps): JSX.Element
+declare function Group(props: Group.Props): JSX.Element
+declare namespace Group {
+  interface Props extends BaseProps {}
+}
 
 // -----------[[Icon]]--------------- //
-
-type IconName = IconNameGlobal[keyof IconNameGlobal]
-
-interface IconProps extends BaseProps {
-  /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
-  name: IconName
-  /** Accessibility text for screen readers */
-  title?: string
-  spin?: boolean
-}
 /**
  * Displays a glyph using an SVG sprite-sheet.
  *
@@ -254,36 +452,20 @@ interface IconProps extends BaseProps {
  * @status REVIEWING
  * @category basic
  */
+declare function Icon(props: Icon.Props): JSX.Element
+declare namespace Icon {
+  type IconName = IconNameGlobal[keyof IconNameGlobal]
 
-declare function Icon(props: IconProps): JSX.Element
+  interface Props extends BaseProps {
+    /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
+    name: IconName
+    /** Accessibility text for screen readers */
+    title?: string
+    spin?: boolean
+  }
+}
 
 // -----------[[Image]]--------------- //
-
-interface ImageContainerObserver {
-  observe(
-    element: HTMLElement,
-    handler: (entry: IntersectionObserverEntry, observer: IntersectionObserver) => void
-  ): void
-  unobserve(element: HTMLElement): void
-  raw: IntersectionObserver
-}
-
-interface ImageProps extends BaseProps {
-  /** Image source file/link. */
-  src: string
-  /** Image height */
-  height: number | string
-  /** Image width */
-  width: number | string
-  /**
-   * Lazy loading image
-   * @private
-   * @deprecated
-   */
-  lazyLoad: boolean
-  /** Lazy load image */
-  lazy: boolean
-}
 /**
  * A component to lazy load images.
  *
@@ -292,50 +474,27 @@ interface ImageProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/image
  */
-
-declare function Image(props: ImageProps): JSX.Element
+declare function Image(props: Image.Props): JSX.Element
+declare namespace Image {
+  interface Props extends BaseProps {
+    /** Image source file/link. */
+    src: string
+    /** Image height */
+    height: number | string
+    /** Image width */
+    width: number | string
+    /**
+     * Lazy loading image
+     * @private
+     * @deprecated
+     */
+    lazyLoad: boolean
+    /** Lazy load image */
+    lazy: boolean
+  }
+}
 
 // -----------[[InputCheckbox]]--------------- //
-interface InputCheckboxProps extends BaseProps {
-  /**
-   * The state of the checkbox.
-   *
-   * > **Why `value` instead of `checked`?**
-   * >
-   * > All __InputXxx__ components accept `value` as the controlled input value and `onChange` event to
-   * propagate the change back to parent component. For consistency, we use `value` prop instead `checked`.
-   */
-  value?: boolean
-  /**
-   * The handler to call when the value changes.
-   */
-  onChange?(value: boolean): void
-  /**
-   * Displays a disabled checkbox field.
-   */
-  disabled?: boolean
-  /**
-   * Displays a readonly checkbox field.
-   */
-  readOnly?: boolean
-  /**
-   * Checkbox value attribute.
-   *
-   * > **Why `htmlValue` instead of `value`?**
-   * >
-   * > As per [our convention](#input-checkbox-value), we use `value` prop for controlled input value so
-   * an alternate prop (`htmlValue`) is accepted to set native `value` attribute.
-   */
-  htmlValue: string
-  /**
-   * A label text for the checkbox.
-   */
-  title?: string
-  /**
-   * Custom label text renderer.
-   */
-  renderTitle?(): JSX.Element
-}
 /**
  * A custom styled checkbox input.
  *
@@ -344,137 +503,193 @@ interface InputCheckboxProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-checkbox
  */
-
-declare function InputCheckbox(props: InputCheckboxProps): JSX.Element
+declare function InputCheckbox(props: InputCheckbox.Props): JSX.Element
+declare namespace InputCheckbox {
+  interface Props extends BaseProps {
+    /**
+     * The state of the checkbox.
+     *
+     * > **Why `value` instead of `checked`?**
+     * >
+     * > All __InputXxx__ components accept `value` as the controlled input value and `onChange` event to
+     * propagate the change back to parent component. For consistency, we use `value` prop instead `checked`.
+     */
+    value?: boolean
+    /**
+     * The handler to call when the value changes.
+     */
+    onChange?(value: boolean): void
+    /**
+     * Displays a disabled checkbox field.
+     */
+    disabled?: boolean
+    /**
+     * Displays a readonly checkbox field.
+     */
+    readOnly?: boolean
+    /**
+     * Checkbox value attribute.
+     *
+     * > **Why `htmlValue` instead of `value`?**
+     * >
+     * > As per [our convention](#input-checkbox-value), we use `value` prop for controlled input value so
+     * an alternate prop (`htmlValue`) is accepted to set native `value` attribute.
+     */
+    htmlValue: string
+    /**
+     * A label text for the checkbox.
+     */
+    title?: string
+    /**
+     * Custom label text renderer.
+     */
+    renderTitle?(): JSX.Element
+  }
+}
 
 // -----------[[InputDate]]--------------- //
-
-interface InputDateProps extends BaseProps, InputDatePickerProps {
-  /**
-   * The date format to format value for displaying.
-   */
-  displayFormat?: string
-}
 /**
  * A component to read date and date ranges.
  *
  * @since 0.0.0
- * @status REVIEWING
+ * @status READY
  * @category input
  * @see http://uikit.myntra.com/components/input-date
  */
-
-declare function InputDate(props: InputDateProps): JSX.Element
-
-interface InputDatePickerProps<
-  DateLike = string | Date,
-  DateLikeOrDateRangeLike = string | Date | DateRange | StringDateRange
-> extends BaseProps {
-  /**
-   * Current value of the text input field.
-   */
-  value?: DateLikeOrDateRangeLike
-  /**
-   * The callback function called when the value changes.
-   */
-  onChange?(value: DateLikeOrDateRangeLike): void
-  /**
-   * The date format to parse and format value when using string dates.
-   */
-  format?: string
-  /**
-   * Set the picker in range selection mode. The value would have two dates (`from` and `to`).
-   */
-  range?: boolean
-  /**
-   * Custom renderer to display day in the picker dropdown.
-   */
-  renderDate?(props: { date: Date; children: ReactNode }): ReactNode
-  monthsToDisplay?: number
-  disabledRanges?: Array<DateRange | StringDateRange>
-  min?: DateLike
-  max?: DateLike
-  presets?: Array<
-    | {
-        range: false
-        label: string
-        value(): Date
-      }
-    | {
-        range: true
-        label: string
-        value(): {
-          from: Date
-          to: Date
-        }
-      }
-  >
-}
-/**
- * @since 0.0.0
- * @status REVIEWING
- * @category input
- * @see http://uikit.myntra.com/components/input-date#inputdatepicker
- */
-
+declare function InputDate(props: InputDate.Props): JSX.Element
 declare namespace InputDate {
-  declare function Picker(props: InputDatePickerProps): JSX.Element
+  interface Props extends Props {
+    /**
+     * The date format to format value for displaying.
+     */
+    displayFormat?: string
+  }
+  // -----------[[Picker]]--------------- //
+  /**
+   * @since 0.0.0
+   * @status REVIEWING
+   * @category input
+   * @see http://uikit.myntra.com/components/input-date#inputdatepicker
+   */
+  declare function Picker(props: Picker.Props): JSX.Element
+  declare namespace Picker {
+    interface Props<DateLike = string | Date, DateLikeOrDateRangeLike = string | Date | DateRange | StringDateRange>
+      extends BaseProps {
+      /**
+       * Current value of the text input field.
+       */
+      value?: DateLikeOrDateRangeLike
+      /**
+       * The callback function called when the value changes.
+       */
+      onChange?(value: DateLikeOrDateRangeLike): void
+      /**
+       * The date format to parse and format value when using string dates.
+       */
+      format?: string
+      /**
+       * Set the picker in range selection mode. The value would have two dates (`from` and `to`).
+       */
+      range?: boolean
+      /**
+       * Custom renderer to display day in the picker dropdown.
+       */
+      renderDate?(props: { date: Date; children: ReactNode }): ReactNode
+      monthsToDisplay?: number
+      disabledRanges?: Array<DateRange | StringDateRange>
+      min?: DateLike
+      max?: DateLike
+      presets?: Array<
+        | {
+            range: false
+            label: string
+            value(): Date
+          }
+        | {
+            range: true
+            label: string
+            value(): {
+              from: Date
+              to: Date
+            }
+          }
+      >
+    }
+    // -----------[[MonthGroup]]--------------- //
+    /**
+     *
+     */
+    declare function MonthGroup(props: MonthGroup.Props): JSX.Element
+    declare namespace MonthGroup {}
+
+    // -----------[[Month]]--------------- //
+    /**
+     *
+     */
+    declare function Month(props: Month.Props): JSX.Element
+    declare namespace Month {}
+
+    // -----------[[Day]]--------------- //
+    /**
+     *
+     */
+    declare function Day(props: Day.Props): JSX.Element
+    declare namespace Day {}
+  }
 }
 
 // -----------[[InputMasked]]--------------- //
-
-type Mask = _Mask
-
-interface InputMaskedProps extends BaseProps {
-  /**
-   * The required pattern for the input field.
-   */
-  pattern: string
-  /**
-   * Current value of the masked input field.
-   */
-  value?: string
-  /**
-   * The callback function to call when the value changes.
-   */
-  onChange?(value: string): void
-  /**
-   * The placeholder text for input field.
-   */
-  placeholder?: string
-  /**
-   * Include mask characters in the value.
-   */
-  includeMaskChars?: boolean
-  /**
-   * Define custom masks.
-   */
-  masks?: Record<string, Mask>
-  /**
-   * Disables all interaction on the select field.
-   */
-  disabled?: boolean
-  /**
-   * Allows only previewing selected options.
-   */
-  readOnly?: boolean
-  /**
-   *  Makes select field required.
-   */
-  required?: boolean
-}
 /**
  * Input component that provides a template for phone, credit card, etc.
  *
  * @since 0.0.0
  * @status REVIEWING
  */
+declare function InputMasked(props: InputMasked.Props): JSX.Element
+declare namespace InputMasked {
+  type Mask = _Mask
 
-declare function InputMasked(props: InputMaskedProps): JSX.Element
+  interface Props extends BaseProps {
+    /**
+     * The required pattern for the input field.
+     */
+    pattern: string
+    /**
+     * Current value of the masked input field.
+     */
+    value?: string
+    /**
+     * The callback function to call when the value changes.
+     */
+    onChange?(value: string): void
+    /**
+     * The placeholder text for input field.
+     */
+    placeholder?: string
+    /**
+     * Include mask characters in the value.
+     */
+    includeMaskChars?: boolean
+    /**
+     * Define custom masks.
+     */
+    masks?: Record<string, Mask>
+    /**
+     * Disables all interaction on the select field.
+     */
+    disabled?: boolean
+    /**
+     * Allows only previewing selected options.
+     */
+    readOnly?: boolean
+    /**
+     *  Makes select field required.
+     */
+    required?: boolean
+  }
+}
 
 // -----------[[InputMonth]]--------------- //
-
-interface InputMonthProps extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {}
 /**
  * A component to input month.
  *
@@ -483,58 +698,62 @@ interface InputMonthProps extends BaseProps, Pick<InputMonthPickerProps, 'value'
  * @category input
  * @see http://uikit.myntra.com/components/input-month
  */
-
-declare function InputMonth(props: InputMonthProps): JSX.Element
-
-interface InputMonthPickerProps extends BaseProps {
-  /**
-   * Current value of the input field.
-   */
-  value?: {
-    month: number
-    year: number
-  }
-  /**
-   * The callback function to call when the value changes.
-   */
-  onChange?(value: { month: number | null; year: number | null }): void
-  /**
-   * Customize appearance of values in picker dropdown.
-   * @param value - Month or Year to highlight.
-   */
-  highlight?(value: {
-    month: number | null
-    year: number | null
-  }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
-  /**
-   * Custom render function to override contents of month values in the picker dropdown.
-   */
-  renderMonth?(props: { month: string; index: number }): ReactNode
-}
-/**
- * An embeddable month/year selection component.
- *
- * @since 0.7.0
- * @status REVIEWING
- * @category input
- * @see http://uikit.myntra.com/components/input-month#inputmonthpicker
- */
-
+declare function InputMonth(props: InputMonth.Props): JSX.Element
 declare namespace InputMonth {
-  declare function Picker(props: InputMonthPickerProps): JSX.Element
+  interface InputMonthProps extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {}
+  // -----------[[Picker]]--------------- //
+  /**
+   * An embeddable month/year selection component.
+   *
+   * @since 0.7.0
+   * @status REVIEWING
+   * @category input
+   * @see http://uikit.myntra.com/components/input-month#inputmonthpicker
+   */
+  declare function Picker(props: Picker.Props): JSX.Element
+  declare namespace Picker {
+    interface InputMonthPickerProps extends BaseProps {
+      /**
+       * Current value of the input field.
+       */
+      value?: {
+        month: number
+        year: number
+      }
+      /**
+       * The callback function to call when the value changes.
+       */
+      onChange?(value: { month: number | null; year: number | null }): void
+      /**
+       * Customize appearance of values in picker dropdown.
+       * @param value - Month or Year to highlight.
+       */
+      highlight?(value: {
+        month: number | null
+        year: number | null
+      }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
+      /**
+       * Custom render function to override contents of month values in the picker dropdown.
+       */
+      renderMonth?(props: { month: string; index: number }): ReactNode
+    }
+    // -----------[[Month]]--------------- //
+    /**
+     *
+     */
+    declare function Month(props: Month.Props): JSX.Element
+    declare namespace Month {}
+
+    // -----------[[Year]]--------------- //
+    /**
+     *
+     */
+    declare function Year(props: Year.Props): JSX.Element
+    declare namespace Year {}
+  }
 }
 
 // -----------[[InputNumber]]--------------- //
-interface InputNumberProps extends BaseProps {
-  /** @private */
-  className?: string
-  /** Displays a disabled number field */
-  disabled?: boolean
-  /** Current value of the number input field. */
-  value?: number
-  /** The handler to call when the value changes. */
-  onChange?(value: number): void
-}
 /**
  * An input component to read numbers. It is like `<input type="number">` but
  * value is a JavaScript number.
@@ -544,59 +763,58 @@ interface InputNumberProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-number
  */
+declare function InputNumber(props: InputNumber.Props): JSX.Element
+declare namespace InputNumber {
+  interface Props extends BaseProps {
+    /** @private */
+    className?: string
+    /** Displays a disabled number field */
+    disabled?: boolean
+    /** Current value of the number input field. */
+    value?: number
+    /** The handler to call when the value changes. */
+    onChange?(value: number): void
+  }
+}
 
-declare function InputNumber(props: InputNumberProps): JSX.Element
+// -----------[[InputRadio]]--------------- //
+/**
+ * A component to render radio inputs.
+ * @since 0.6.0
+ * @status REVIEWING
+ * @category input
+ * @see http://uikit.myntra.com/components/input-radio
+ */
+declare function InputRadio(props: InputRadio.Props): JSX.Element
+declare namespace InputRadio {
+  interface InputRadioProps extends BaseProps {
+    /**
+     * A list of options for the radio element.
+     */
+    options: Array<{
+      value: string
+      title: string
+    }>
+    /**
+     * Selected option value.
+     */
+    value?: string
+    /**
+     * The callback function to call when the value changes.
+     */
+    onChange?(value: string): void
+    /**
+     * A render function to customize the appearance of each radio item.
+     */
+    renderOption?(option: { value: string; title: string }): ReactNode
+    /**
+     * Disables all interaction on the radio element.
+     */
+    disabled?: boolean
+  }
+}
 
 // -----------[[InputS3File]]--------------- //
-
-interface InputS3FileProps extends BaseProps {
-  /**
-   * Auto start upload on file selection/change.
-   * @since v0.11.0
-   */
-  autoStartUpload?: boolean
-  /**
-   * Clear value on successful upload.
-   * @since v0.11.0
-   */
-  clearOnSuccess?: boolean
-  /**
-   *
-   */
-  placeholder?: string
-  /**
-   *
-   */
-  apiRoot: string
-  /**
-   * The handler called when file is uploaded successfully.
-   */
-  onSuccess?(payload: { name: string; url: string }): void
-  /**
-   * The handler called if any error occurs.
-   */
-  onError?(error: Error): void
-  /**
-   * @deprecated - It is no more required.
-   */
-  inputWidth?: string | number
-  /**
-   * @deprecated - Use [autoStartUpload](#InputS3File-autoStartUpload) instead.
-   */
-  autostart?: boolean
-  /**
-   * @deprecated - Use [clearOnSuccess](#InputS3File-clearOnSuccess) instead.
-   */
-  autoclear?: boolean
-}
-
-interface InputS3FileState {
-  isUploading: boolean
-  uploadProgress: number
-  filename: string | null
-  file: string | null
-  error?: string | null
-}
 /**
  * A file input component that handles client side S3 uploads.
  *
@@ -607,87 +825,59 @@ interface InputS3FileState {
  * @category input
  * @see http://uikit.myntra.com/components/input-s3-file
  */
+declare function InputS3File(props: InputS3File.Props): JSX.Element
+declare namespace InputS3File {
+  interface Props extends BaseProps {
+    /**
+     * Auto start upload on file selection/change.
+     * @since v0.11.0
+     */
+    autoStartUpload?: boolean
+    /**
+     * Clear value on successful upload.
+     * @since v0.11.0
+     */
+    clearOnSuccess?: boolean
+    /**
+     *
+     */
+    placeholder?: string
+    /**
+     *
+     */
+    apiRoot: string
+    /**
+     * The handler called when file is uploaded successfully.
+     */
+    onSuccess?(payload: { name: string; url: string }): void
+    /**
+     * The handler called if any error occurs.
+     */
+    onError?(error: Error): void
+    /**
+     * @deprecated - It is no more required.
+     */
+    inputWidth?: string | number
+    /**
+     * @deprecated - Use [autoStartUpload](#InputS3File-autoStartUpload) instead.
+     */
+    autostart?: boolean
+    /**
+     * @deprecated - Use [clearOnSuccess](#InputS3File-clearOnSuccess) instead.
+     */
+    autoclear?: boolean
+  }
 
-declare function InputS3File(props: InputS3FileProps): JSX.Element
+  interface InputS3FileState {
+    isUploading: boolean
+    uploadProgress: number
+    filename: string | null
+    file: string | null
+    error?: string | null
+  }
+}
 
 // -----------[[InputSelect]]--------------- //
-
-interface InputSelectProps<Value = any, Option = any> extends BaseProps {
-  /**
-   * A list of options for the select element.
-   */
-  options: Option[]
-  /**
-   * Selected option value (array of option values for [multiple](#InputSelect-multiple) select element).
-   */
-  value: Value
-  /**
-   * The handler to call when the value changes.
-   */
-  onChange?(value: Value): void
-  /**
-   * The handler to call when the user types in search field.
-   */
-  onSearch?(text: string): void
-  /**
-   * A render function to display option in options dropdown.
-   * @param option - One of the [options](#InputSelect-options) list.
-   */
-  renderOption?(option: Option): JSX.Element
-  /**
-   * A render function to display empty state when no options are available.
-   * @since 0.11.0
-   */
-  renderEmptyState?(): JSX.Element
-  /**
-   * A placeholder message.
-   */
-  placeholder?: string
-  /**
-   * Allows multiple option selection.
-   */
-  multiple?: boolean
-  /**
-   * Disables all interaction on the select field.
-   */
-  disabled?: boolean
-  /**
-   * Allows only previewing selected options.
-   */
-  readOnly?: boolean
-  /**
-   *  Makes select field required.
-   */
-  required?: boolean
-  /**
-   * Displays a spinner while options are being loaded.
-   */
-  isLoading?: boolean
-  /**
-   * Displays a search box for filtering select options.
-   */
-  searchable?: boolean
-  /**
-   * List of key names in [option](#InputSelect-options) object use to search select options.
-   */
-  searchableKeys?: string[]
-  /**
-   * Name of the property to use as display value (or label) of option.
-   */
-  labelKey?: string
-  /**
-   * Name of the property to use as actual value (or label) of option.
-   */
-  valueKey?: string
-  /**
-   * A function to filter options with custom filtering logic.
-   */
-  filterOptions?(option: Option): boolean
-  /**
-   * @deprecated - Use [renderEmptyState](#InputSelect-renderEmptyState) instead.
-   */
-  noResultsPlaceholder?: string | JSX.Element
-}
 /**
  * A custom implementation of select input element to support option list customization.
  *
@@ -696,22 +886,87 @@ interface InputSelectProps<Value = any, Option = any> extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-select
  */
-
-declare function InputSelect(props: InputSelectProps): JSX.Element
+declare function InputSelect(props: InputSelect.Props): JSX.Element
+declare namespace InputSelect {
+  interface Props<Value = any, Option = any> extends BaseProps {
+    /**
+     * A list of options for the select element.
+     */
+    options: Option[]
+    /**
+     * Selected option value (array of option values for [multiple](#InputSelect-multiple) select element).
+     */
+    value: Value
+    /**
+     * The callback function to call when the value changes.
+     */
+    onChange?(value: Value): void
+    /**
+     * The handler to call when the user types in search field.
+     */
+    onSearch?(text: string): void
+    /**
+     * A render function to display option in options dropdown.
+     * @param option - One of the [options](#InputSelect-options) list.
+     */
+    renderOption?(option: Option): JSX.Element
+    /**
+     * A render function to display empty state when no options are available.
+     * @since 0.11.0
+     */
+    renderEmptyState?(): JSX.Element
+    /**
+     * A placeholder message.
+     */
+    placeholder?: string
+    /**
+     * Allows multiple option selection.
+     */
+    multiple?: boolean
+    /**
+     * Disables all interaction on the select field.
+     */
+    disabled?: boolean
+    /**
+     * Allows only previewing selected options.
+     */
+    readOnly?: boolean
+    /**
+     *  Makes select field required.
+     */
+    required?: boolean
+    /**
+     * Displays a spinner while options are being loaded.
+     */
+    isLoading?: boolean
+    /**
+     * Displays a search box for filtering select options.
+     */
+    searchable?: boolean
+    /**
+     * List of key names in [option](#InputSelect-options) object use to search select options.
+     */
+    searchableKeys?: string[]
+    /**
+     * Name of the property to use as display value (or label) of option.
+     */
+    labelKey?: string
+    /**
+     * Name of the property to use as actual value (or label) of option.
+     */
+    valueKey?: string
+    /**
+     * A function to filter options with custom filtering logic.
+     */
+    filterOptions?(option: Option): boolean
+    /**
+     * @deprecated - Use [renderEmptyState](#InputSelect-renderEmptyState) instead.
+     */
+    noResultsPlaceholder?: string | JSX.Element
+  }
+}
 
 // -----------[[InputText]]--------------- //
-interface InputTextProps extends BaseProps {
-  /** Sets the text format for the field. */
-  type?: 'text' | 'email' | 'password' | 'tel' | 'url'
-  /** Current value of the text input field. */
-  value?: string
-  /** The handler to call when the value changes. */
-  onChange?(value: string): void
-  /** Displays a disabled text field */
-  disabled?: boolean
-  /** Displays a readonly text field */
-  readOnly?: boolean
-}
 /**
  * A component to input text-like data (email, tel, text, password and url).
  *
@@ -720,26 +975,23 @@ interface InputTextProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-text
  */
-
-declare function InputText(props: InputTextProps): JSX.Element
+declare function InputText(props: InputText.Props): JSX.Element
+declare namespace InputText {
+  interface Props extends BaseProps {
+    /** Sets the text format for the field. */
+    type?: 'text' | 'email' | 'password' | 'tel' | 'url'
+    /** Current value of the text input field. */
+    value?: string
+    /** The handler to call when the value changes. */
+    onChange?(value: string): void
+    /** Displays a disabled text field */
+    disabled?: boolean
+    /** Displays a readonly text field */
+    readOnly?: boolean
+  }
+}
 
 // -----------[[InputTextArea]]--------------- //
-interface InputTextAreaProps extends BaseProps {
-  /** @private */
-  className?: string
-  /** Current value of the text area input field. */
-  value?: string
-  /** The handler to call when the value changes. */
-  onChange?(value: string): void
-  /** Displays a disabled text area field */
-  disabled?: boolean
-  /** Number of Rows*/
-  rows?: number
-  /** Disable resize and hide resize handle */
-  noResize?: boolean
-  /** Placeholder */
-  placeholder?: string
-}
 /**
  * A large text input component.
  *
@@ -748,45 +1000,51 @@ interface InputTextAreaProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-text-area
  */
+declare function InputTextArea(props: InputTextArea.Props): JSX.Element
+declare namespace InputTextArea {
+  interface Props extends BaseProps {
+    /** @private */
+    className?: string
+    /** Current value of the text area input field. */
+    value?: string
+    /** The handler to call when the value changes. */
+    onChange?(value: string): void
+    /** Displays a disabled text area field */
+    disabled?: boolean
+    /** Number of Rows*/
+    rows?: number
+    /** Disable resize and hide resize handle */
+    noResize?: boolean
+    /** Placeholder */
+    placeholder?: string
+  }
+}
 
-declare function InputTextArea(props: InputTextAreaProps): JSX.Element
+// -----------[[JobTracker]]--------------- //
+/**
+ * The JobTracker component.
+ * @since 0.6.0
+ * @status EXPERIMENTAL
+ * @category widget
+ * @see http://uikit.myntra.com/components/job-tracker
+ */
+declare function JobTracker(props: JobTracker.Props): JSX.Element
+declare namespace JobTracker {
+  type Job = Pick<JobTrackerItemProps, Exclude<keyof JobTrackerItemProps, 'className' | 'children'>>
+
+  interface Props extends BaseProps {
+    /**
+     * A list of job items.
+     */
+    data?: Job[]
+    /**
+     * API Root for downloading job files.
+     */
+    apiRoot: string
+  }
+}
 
 // -----------[[List]]--------------- //
-
-interface ListProps<T = any> extends BaseProps {
-  /**
-   * An array of items to render in the list.
-   */
-  items: T[]
-  /**
-   * Renders markup for displaying a list item.
-   */
-  children(props: { index: number; id: string | number | T; item: T }): void
-  /**
-   * The selected value in the list.
-   */
-  value?: T | T[]
-  /**
-   * The callback fired when a list item is selected or unselected.
-   */
-  onChange?(value: T | T[]): void
-  /**
-   * A getter function to get unique ID of a list item.
-   */
-  idForItem?(item: T): T | number | string
-  /**
-   * Checks if the item is disabled or not.
-   */
-  isItemDisabled?(item: T): boolean
-  /**
-   * Sets selection mode to multiple.
-   */
-  multiple?: boolean
-  /**
-   * Use [VirtualList](../virtual-list) component to render the list.
-   */
-  virtualized?: boolean
-}
 /**
  * An accessible list of item.
  *
@@ -795,21 +1053,45 @@ interface ListProps<T = any> extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/list
  */
-
-declare function List(props: ListProps): JSX.Element
+declare function List(props: List.Props): JSX.Element
+declare namespace List {
+  interface ListProps<T = any> extends BaseProps {
+    /**
+     * An array of items to render in the list.
+     */
+    items: T[]
+    /**
+     * Renders markup for displaying a list item.
+     */
+    children(props: { index: number; id: string | number | T; item: T }): void
+    /**
+     * The selected value in the list.
+     */
+    value?: T | T[]
+    /**
+     * The callback fired when a list item is selected or unselected.
+     */
+    onChange?(value: T | T[]): void
+    /**
+     * A getter function to get unique ID of a list item.
+     */
+    idForItem?(item: T): T | number | string
+    /**
+     * Checks if the item is disabled or not.
+     */
+    isItemDisabled?(item: T): boolean
+    /**
+     * Sets selection mode to multiple.
+     */
+    multiple?: boolean
+    /**
+     * Use [VirtualList](../virtual-list) component to render the list.
+     */
+    virtualized?: boolean
+  }
+}
 
 // -----------[[Loader]]--------------- //
-interface LoaderProps extends BaseProps {
-  /**
-   * The variant of the loader.
-   */
-  type: 'inline' | 'small' | 'large'
-  /**
-   * Use current color for loading spinner.
-   */
-  currentColor: boolean
-  children: never
-}
 /**
  * A component to display infinite loading progress.
  *
@@ -818,31 +1100,29 @@ interface LoaderProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/loader
  */
-
-declare function Loader(props: LoaderProps): JSX.Element
+declare function Loader(props: Loader.Props): JSX.Element
+declare namespace Loader {
+  interface LoaderProps extends BaseProps {
+    /**
+     * The variant of the loader.
+     */
+    type: 'inline' | 'small' | 'large'
+    /**
+     * Use current color for loading spinner.
+     */
+    currentColor: boolean
+    children: never
+  }
+}
 
 // -----------[[Measure]]--------------- //
-
-declare function Measure(props: MeasureProps): JSX.Element
+/**
+ *
+ */
+declare function Measure(props: Measure.Props): JSX.Element
+declare namespace Measure {}
 
 // -----------[[Modal]]--------------- //
-
-interface ModalProps extends BaseProps, ModalLayoutProps {
-  /** An element which opens the modal. */
-  trigger: ReactNode
-  /** Controls the state of the modal. */
-  isOpen: boolean
-  /** Hides the close button (small cross icon in top-right corner). */
-  hideClose?: boolean
-  /**
-   * The callback function called on modal is opened.
-   */
-  onOpen?(): void
-  /**
-   * Render modal contents in a custom layout.
-   */
-  render?(props: ModalLayoutProps): JSX.Element
-}
 /**
  * A component to display popup modal.
  *
@@ -851,101 +1131,53 @@ interface ModalProps extends BaseProps, ModalLayoutProps {
  * @category basic
  * @see http://uikit.myntra.com/components/modal
  */
-
-declare function Modal(props: ModalProps): JSX.Element
-
-interface ModalLayoutProps extends BaseProps {
-  /**
-   * The title of the modal.
-   */
-  title?: ReactNode
-  /**
-   * Display action buttons.
-   */
-  actions?: ReactNode | ((close: () => void) => void)
-  /**
-   * The callback function called on modal is closed.
-   */
-  onClose?(): void
-}
-/**
- * A layout component to display a card (used for Modal component).
- *
- * @since 0.3.0
- * @status EXPERIMENTAL
- * @category layout
- * @see http://uikit.myntra.com/components/modal#modal-layout
- */
-
+declare function Modal(props: Modal.Props): JSX.Element
 declare namespace Modal {
-  declare function Layout(props: ModalLayoutProps): JSX.Element
+  interface ModalProps extends BaseProps, ModalLayoutProps {
+    /** An element which opens the modal. */
+    trigger: ReactNode
+    /** Controls the state of the modal. */
+    isOpen: boolean
+    /** Hides the close button (small cross icon in top-right corner). */
+    hideClose?: boolean
+    /**
+     * The callback function called on modal is opened.
+     */
+    onOpen?(): void
+    /**
+     * Render modal contents in a custom layout.
+     */
+    render?(props: ModalLayoutProps): JSX.Element
+  }
+  // -----------[[Layout]]--------------- //
+  /**
+   * A layout component to display a card (used for Modal component).
+   *
+   * @since 0.3.0
+   * @status EXPERIMENTAL
+   * @category layout
+   * @see http://uikit.myntra.com/components/modal#modal-layout
+   */
+  declare function Layout(props: Layout.Props): JSX.Element
+  declare namespace Layout {
+    interface ModalLayoutProps extends BaseProps {
+      /**
+       * The title of the modal.
+       */
+      title?: ReactNode
+      /**
+       * Display action buttons.
+       */
+      actions?: ReactNode | ((close: () => void) => void)
+      /**
+       * The callback function called on modal is closed.
+       */
+      onClose?(): void
+    }
+  }
 }
 
 // -----------[[NavBar]]--------------- //
-
-interface NavBarProps extends BaseProps {
-  /**
-   * The title of the nav bar. Generally, it is the name of the application/product/company.
-   */
-  title: string
-  /**
-   * URL of the current page. NavBar uses `currentPath` for highlighting active nav links.
-   */
-  currentPath: string | any
-  /**
-   * Check if current path is active.
-   *
-   * @since 0.10.0
-   */
-  isActivePath?(
-    navLinkPath: any,
-    currentPath: any,
-    options?: {
-      isGroup: boolean
-    }
-  ): boolean
-  /**
-   * Control NavBar state.
-   */
-  isOpen?: boolean
-  /**
-   * The [NavBar.Item](#NavBarItem) component renders an anchor tag (`<a>`).
-   * This prop allows to override this behavior.
-   *
-   * @since 0.10.0
-   */
-  renderLink?(props: LinkProps): any
-  /**
-   * The callback fired when NavBar.Item is clicked.
-   */
-  onNavLinkClick?(link: { to: any }): void
-  /**
-   * The callback called when user clicks on the NavBar.
-   */
-  onClick?(event: MouseEvent): void
-  /**
-   * List of nav links and groups. Only [NavBar.Group](#NavBarGroup) and [NavBar.Item](#NavBarItem) should be used here.
-   */
-  children: React.ReactNode
-  /**
-   * @deprecated - Ambiguous prop name.
-   */
-  expand?: 'auto' | 'open' | 'close'
-  /**
-   * Match nav link with `currentPath`.
-   *
-   * @deprecated - Use [isActivePath](#NavBar-isActivePath) prop.
-   */
-  match?(args: { href: string; currentPath: string }): boolean
-  /**
-   * @deprecated - As NavBar does not control navigation, it should be handled by browser or any client-side router.
-   */
-  onChange?(href: string): void
-  /**
-   * @deprecated - Use [renderLink](#NavBar-renderLink) prop.
-   */
-  linkComponent?(props: { href: string; children: JSX.Element }): JSX.Element
-}
 /**
  * A sidebar nav list for app navigation.
  *
@@ -954,95 +1186,148 @@ interface NavBarProps extends BaseProps {
  * @category opinionated
  * @see http://uikit.myntra.com/components/nav-bar
  */
-
-declare function NavBar(props: NavBarProps): JSX.Element
-
-interface NavBarGroupProps extends BaseProps, NavBarItemProps {
-  /**
-   * The title of the nav group.
-   */
-  title: string
-  /**
-   * List of nav links and groups. Only [NavBar.Group](#NavBarGroup) and [NavBar.Item](#NavBarItem) should be used here.
-   */
-  children: React.ReactNode
-  /**
-   * Internal nav item ID. Auto injected.
-   *
-   * @private
-   */
-  __$navId: number[]
-}
-
-interface NavBarGroupContext {
-  depth: number
-}
-/**
- * A group of [links](#NavGroupItem) in the nav bar.
- *
- * This component should be used as a child of [NavBar](#NavBar) or other [NavBar.Group](#NavBarGroup) component.
- *
- * @since 0.3.0
- * @status EXPERIMENTAL
- * @category sub-component
- * @see http://uikit.myntra.com/components/nav-bar#NavBarGroup
- */
-
-interface NavBarItemProps extends BaseProps {
-  /**
-   * The title of the link.
-   */
-  children: any
-  /**
-   * The location of the linked page.
-   */
-  to?: string | any
-  /**
-   * The name of the icon (displayed on left side of title).
-   */
-  icon?: IconName
-  /**
-   * Render a custom [Icon](/components/icon) or an [Avatar](/components/avatar).
-   */
-  renderIcon?(): any
-  /**
-   * The callback fired on item click or press.
-   *
-   * @private
-   */
-  onActivation?: (event: Event | any) => void
-}
-/**
- * A component to display links in the nav.
- *
- * This component should be used as a child of [NavBar](#NavBar) or [NavBar.Group](#NavBarGroup) component.
- *
- * @since 0.3.0
- * @status EXPERIMENTAL
- * @category sub-component
- * @see http://uikit.myntra.com/components/nav-bar#NavBarItem
- */
-
+declare function NavBar(props: NavBar.Props): JSX.Element
 declare namespace NavBar {
-  declare function Group(props: NavBarGroupProps): JSX.Element
-  declare function Item(props: NavBarItemProps): JSX.Element
+  interface NavBarProps extends BaseProps {
+    /**
+     * The title of the nav bar. Generally, it is the name of the application/product/company.
+     */
+    title: string
+    /**
+     * URL of the current page. NavBar uses `currentPath` for highlighting active nav links.
+     */
+    currentPath: string | any
+    /**
+     * Check if current path is active.
+     *
+     * @since 0.10.0
+     */
+    isActivePath?(
+      navLinkPath: any,
+      currentPath: any,
+      options?: {
+        isGroup: boolean
+      }
+    ): boolean
+    /**
+     * Control NavBar state.
+     */
+    isOpen?: boolean
+    /**
+     * The [NavBar.Item](#NavBarItem) component renders an anchor tag (`<a>`).
+     * This prop allows to override this behavior.
+     *
+     * @since 0.10.0
+     */
+    renderLink?(props: LinkProps): any
+    /**
+     * The callback fired when NavBar.Item is clicked.
+     */
+    onNavLinkClick?(link: { to: any }): void
+    /**
+     * The callback called when user clicks on the NavBar.
+     */
+    onClick?(event: MouseEvent): void
+    /**
+     * List of nav links and groups. Only [NavBar.Group](#NavBarGroup) and [NavBar.Item](#NavBarItem) should be used here.
+     */
+    children: React.ReactNode
+    /**
+     * @deprecated - Ambiguous prop name.
+     */
+    expand?: 'auto' | 'open' | 'close'
+    /**
+     * Match nav link with `currentPath`.
+     *
+     * @deprecated - Use [isActivePath](#NavBar-isActivePath) prop.
+     */
+    match?(args: { href: string; currentPath: string }): boolean
+    /**
+     * @deprecated - As NavBar does not control navigation, it should be handled by browser or any client-side router.
+     */
+    onChange?(href: string): void
+    /**
+     * @deprecated - Use [renderLink](#NavBar-renderLink) prop.
+     */
+    linkComponent?(props: { href: string; children: JSX.Element }): JSX.Element
+  }
+  // -----------[[Group]]--------------- //
+  /**
+   * A group of [links](#NavGroupItem) in the nav bar.
+   *
+   * This component should be used as a child of [NavBar](#NavBar) or other [NavBar.Group](#NavBarGroup) component.
+   *
+   * @since 0.3.0
+   * @status EXPERIMENTAL
+   * @category sub-component
+   * @see http://uikit.myntra.com/components/nav-bar#NavBarGroup
+   */
+  declare function Group(props: Group.Props): JSX.Element
+  declare namespace Group {
+    interface NavBarGroupProps extends BaseProps, NavBarItemProps {
+      /**
+       * The title of the nav group.
+       */
+      title: string
+      /**
+       * List of nav links and groups. Only [NavBar.Group](#NavBarGroup) and [NavBar.Item](#NavBarItem) should be used here.
+       */
+      children: React.ReactNode
+      /**
+       * Internal nav item ID. Auto injected.
+       *
+       * @private
+       */
+      __$navId: number[]
+    }
+
+    interface NavBarGroupContext {
+      depth: number
+    }
+  }
+
+  // -----------[[Item]]--------------- //
+  /**
+   * A component to display links in the nav.
+   *
+   * This component should be used as a child of [NavBar](#NavBar) or [NavBar.Group](#NavBarGroup) component.
+   *
+   * @since 0.3.0
+   * @status EXPERIMENTAL
+   * @category sub-component
+   * @see http://uikit.myntra.com/components/nav-bar#NavBarItem
+   */
+  declare function Item(props: Item.Props): JSX.Element
+  declare namespace Item {
+    interface NavBarItemProps extends BaseProps {
+      /**
+       * The title of the link.
+       */
+      children: any
+      /**
+       * The location of the linked page.
+       */
+      to?: string | any
+      /**
+       * The name of the icon (displayed on left side of title).
+       */
+      icon?: IconName
+      /**
+       * Render a custom [Icon](/components/icon) or an [Avatar](/components/avatar).
+       */
+      renderIcon?(): any
+      /**
+       * The callback fired on item click or press.
+       *
+       * @private
+       */
+      onActivation?: (event: Event | any) => void
+    }
+    type IconName = Icon.IconName
+  }
 }
 
 // -----------[[Page]]--------------- //
-interface PageProps extends BaseProps {
-  /**
-   * Renders a nav using [NavBar](../components/nav-bar).
-   */
-  renderNavBar(): JSX.Element
-  /**
-   * Renders a header using [TopBar](../components/top-bar).
-   */
-  renderTopBar(): JSX.Element
-  /**
-   * Contents of the page.
-   */
-  children: JSX.Element
-}
 /**
  * A basic layout component with side nav and header.
  *
@@ -1051,27 +1336,25 @@ interface PageProps extends BaseProps {
  * @category layout
  * @see http://uikit.myntra.com/components/page
  */
-
-declare function Page(props: PageProps): JSX.Element
+declare function Page(props: Page.Props): JSX.Element
+declare namespace Page {
+  interface PageProps extends BaseProps {
+    /**
+     * Renders a nav using [NavBar](../components/nav-bar).
+     */
+    renderNavBar(): JSX.Element
+    /**
+     * Renders a header using [TopBar](../components/top-bar).
+     */
+    renderTopBar(): JSX.Element
+    /**
+     * Contents of the page.
+     */
+    children: JSX.Element
+  }
+}
 
 // -----------[[Pagination]]--------------- //
-
-interface PaginationProps extends BaseProps {
-  /** Current selected page */
-  page: number
-  /** On change handler */
-  onChange(payload: { page: number; size: number }): void
-  /** Sizes per page */
-  size: number
-  /** Total count of result items */
-  total: number
-  /** Allowed page sizes */
-  sizes?: number[]
-  /** Hide size selector */
-  hideSize?: boolean
-  /** @private */
-  className?: string
-}
 /**
  The Pagination component.
  @since 0.3.0
@@ -1079,25 +1362,34 @@ interface PaginationProps extends BaseProps {
  @category basic
  @see http://uikit.myntra.com/components/pagination
  */
-
-declare function Pagination(props: PaginationProps): JSX.Element
+declare function Pagination(props: Pagination.Props): JSX.Element
+declare namespace Pagination {
+  interface PaginationProps extends BaseProps {
+    /** Current selected page */
+    page: number
+    /** On change handler */
+    onChange(payload: { page: number; size: number }): void
+    /** Sizes per page */
+    size: number
+    /** Total count of result items */
+    total: number
+    /** Allowed page sizes */
+    sizes?: number[]
+    /** Hide size selector */
+    hideSize?: boolean
+    /** @private */
+    className?: string
+  }
+}
 
 // -----------[[Portal]]--------------- //
-
-declare function Portal(props: PortalProps): JSX.Element
+/**
+ *
+ */
+declare function Portal(props: Portal.Props): JSX.Element
+declare namespace Portal {}
 
 // -----------[[Progress]]--------------- //
-
-type ProgressProps =
-  | ({
-      /**
-       * Type of progress view (bar or circular).
-       */
-      type: 'bar'
-    } & ProgressBarProps)
-  | ({
-      type: 'circle'
-    } & ProgressCircleProps)
 /**
  * A component to display loading progress.
  *
@@ -1106,47 +1398,89 @@ type ProgressProps =
  * @category basic
  * @see http://uikit.myntra.com/components/progress
  */
-
-declare function Progress(props: ProgressProps): JSX.Element
-interface ProgressBarProps extends BaseProps {
-  /**
-   * Completion state in percentage.
-   */
-  value: number
-  /**
-   * Visual style of progress bar.
-   *
-   * @since 0.11.0
-   */
-  appearance?: 'success' | 'info' | 'warning' | 'danger'
-  /**
-   * @deprecated - Use children prop.
-   */
-  title?: string
-  /**
-   * Height of progress bar.
-   *
-   * @since 0.11.0
-   */
-  size?: 'small' | 'medium' | 'large'
-}
-
-interface ProgressCircleProps extends BaseProps {
-  value: number
-  appearance?: 'success' | 'info' | 'warning' | 'danger'
-  size?: 'small' | 'medium' | 'large'
-}
-
+declare function Progress(props: Progress.Props): JSX.Element
 declare namespace Progress {
-  declare function Bar(props: ProgressBarProps): JSX.Element
-  declare function Circle(props: ProgressCircleProps): JSX.Element
+  type Props =
+    | ({
+        /**
+         * Type of progress view (bar or circular).
+         */
+        type: 'bar'
+      } & ProgressBarProps)
+    | ({
+        type: 'circle'
+      } & ProgressCircleProps)
+  type ProgressBarProps = Bar.Props
+  type ProgressCircleProps = Circle.Props
+  // -----------[[Bar]]--------------- //
+  /**
+   *
+   */
+  declare function Bar(props: Bar.Props): JSX.Element
+  declare namespace Bar {
+    interface Props extends BaseProps {
+      /**
+       * Completion state in percentage.
+       */
+      value: number
+      /**
+       * Visual style of progress bar.
+       *
+       * @since 0.11.0
+       */
+      appearance?: 'success' | 'info' | 'warning' | 'danger'
+      /**
+       * @deprecated - Use children prop.
+       */
+      title?: string
+      /**
+       * Height of progress bar.
+       *
+       * @since 0.11.0
+       */
+      size?: 'small' | 'medium' | 'large'
+    }
+  }
+
+  // -----------[[Circle]]--------------- //
+  /**
+   *
+   */
+  declare function Circle(props: Circle.Props): JSX.Element
+  declare namespace Circle {
+    interface Props extends BaseProps {
+      value: number
+      appearance?: 'success' | 'info' | 'warning' | 'danger'
+      size?: 'small' | 'medium' | 'large'
+    }
+  }
+}
+
+// -----------[[SchemaForm]]--------------- //
+/**
+ * A component for building Web forms from JSON Schema.
+ *
+ * It is meant to automatically generate a form when data structure changes often or has large number of fields.
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ *
+ */
+declare function SchemaForm(props: SchemaForm.Props): JSX.Element
+declare namespace SchemaForm {
+  interface Props extends FormProps {
+    schema: Record<string, any>
+    value?: Record<string, any>
+    onChange(value: Record<string, any>): void
+    optionsProvider?(format: string): Array<Record<string, any>> | null | Promise<Array<Record<string, any>>>
+    componentProvider?(name: string): ComponentType
+    error?: Record<string, string | string[]>
+    onError?(error: Record<string, string | string[]>): void
+  }
+  type FormProps = Form.Props
 }
 
 // -----------[[Section]]--------------- //
-interface SectionProps extends BaseProps {
-  title: string
-  noPadding: boolean
-}
 /**
  * A building block of the page layout.
  *
@@ -1155,89 +1489,111 @@ interface SectionProps extends BaseProps {
  * @category layout
  * @see http://uikit.myntra.com/components/section
  */
-
-declare function Section(props: SectionProps): JSX.Element
+declare function Section(props: Section.Props): JSX.Element
+declare namespace Section {
+  interface SectionProps extends BaseProps {
+    title: string
+    noPadding: boolean
+  }
+}
 
 // -----------[[Table]]--------------- //
-
-interface TableProps extends BaseProps {
-  data: any[]
-  virtualized?: boolean
-  sort?:
-    | string[]
-    | {
-        column: string
-        order: 'ASC' | 'DESC'
-      }[]
-  layout?: 'auto' | 'fixed'
-  columnOrder?: string[]
-  useDiv?: boolean
-  rowKey?(rowData: any, index: number): string
-}
 /**
  * A simple table.
  *
  * @since 0.3.0
  * @status REVIEWING
  */
-
-declare function Table(props: TableProps): JSX.Element
-
-interface TableColumnProps extends BaseProps {
-  /** Table column header */
-  label: string | JSX.Element
-  /** Fixed column. */
-  fixed: boolean
-  /** Number of table columns to use */
-  colSpan: number
-  /** Accessor to get value. Either a string key or a getter function. */
-  accessor: string | ((data: any) => string | JSX.Element)
-  /** Either a function to render the cell value or list of sub columns */
-  children: ReactElement<TableColumnProps> | ReactElement<TableColumnProps>[] | ((props: { data: any }) => JSX.Element)
+declare function Table(props: Table.Props): JSX.Element
+declare namespace Table {
+  interface TableProps extends BaseProps {
+    data: any[]
+    virtualized?: boolean
+    sort?:
+      | string[]
+      | {
+          column: string
+          order: 'ASC' | 'DESC'
+        }[]
+    layout?: 'auto' | 'fixed'
+    columnOrder?: string[]
+    useDiv?: boolean
+    rowKey?(rowData: any, index: number): string
+  }
+  // -----------[[Column]]--------------- //
+  /**
+   * Declarative way of defining table column configuration. It is a render-less component
+   * use to declare rendering behavior of the table.
+   *
+   * @since 0.3.0
+   * @status READY
+   */
+  declare function Column(props: Column.Props): JSX.Element
+  declare namespace Column {
+    interface TableColumnProps extends BaseProps {
+      /** Table column header */
+      label: string | JSX.Element
+      /** Fixed column. */
+      fixed: boolean
+      /** Number of table columns to use */
+      colSpan: number
+      /** Accessor to get value. Either a string key or a getter function. */
+      accessor: string | ((data: any) => string | JSX.Element)
+      /** Either a function to render the cell value or list of sub columns */
+      children:
+        | ReactElement<TableColumnProps>
+        | ReactElement<TableColumnProps>[]
+        | ((props: { data: any }) => JSX.Element)
+    }
+  }
 }
+
+// -----------[[Tabs]]--------------- //
 /**
- * Declarative way of defining table column configuration. It is a render-less component
- * use to declare rendering behavior of the table.
+ * A layout component to display tabbed interface.
  *
  * @since 0.3.0
- * @status READY
+ * @status EXPERIMENTAL
+ * @category layout
+ * @see http://uikit.myntra.com/components/tabs
  */
-
-declare namespace Table {
-  declare function Column(props: TableColumnProps): JSX.Element
+declare function Tabs(props: Tabs.Props): JSX.Element
+declare namespace Tabs {
+  interface Props extends BaseProps {
+    /**
+     * Current active tab.
+     */
+    activeIndex?: number
+    /**
+     * The callback function called when active tab changes.
+     *
+     * @param activeIndex - New active tab.
+     */
+    onChange?(activeIndex: number): void
+  }
 }
 
 // -----------[[Tooltip]]--------------- //
-
-interface TooltipProps extends BaseProps {
-  /** Content of the tooltip */
-  renderContent(): JSX.Element
-  /** Position with relative to children */
-  position?: 'up' | 'down' | 'left' | 'right'
-  /** Event to display the tooltip */
-  triggerOn?: 'hover' | 'click' | 'focus'
-  /** Displays a tooltip with dark background */
-  dark?: boolean
-}
 /**
  * Tooltip component.
  * @since 0.6.0
  * @status EXPERIMENTAL
  */
-
-declare function Tooltip(props: TooltipProps): JSX.Element
-
-// -----------[[TopBar]]--------------- //
-
-interface TopBarProps extends BaseProps {
-  title: string
-  user: Partial<{
-    name: string
-    photo: string
-  }> & {
-    email: string
+declare function Tooltip(props: Tooltip.Props): JSX.Element
+declare namespace Tooltip {
+  interface TooltipProps extends BaseProps {
+    /** Content of the tooltip */
+    renderContent(): JSX.Element
+    /** Position with relative to children */
+    position?: 'up' | 'down' | 'left' | 'right'
+    /** Event to display the tooltip */
+    triggerOn?: 'hover' | 'click' | 'focus'
+    /** Displays a tooltip with dark background */
+    dark?: boolean
   }
 }
+
+// -----------[[TopBar]]--------------- //
 /**
  * A component for page header
  *
@@ -1246,150 +1602,47 @@ interface TopBarProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/top-bar
  */
-
-declare function TopBar(props: TopBarProps): JSX.Element
-
-interface TopBarItemProps extends BaseProps {
-  /**
-   * Adds icon.
-   */
-  icon?: IconName
-  /**
-   * Description of icon.
-   */
-  altText?: string
-  /**
-   * Breadcrumb text or link.
-   */
-  children: JSX.Element
-}
-/**
- * A component for page header
- *
- * @since 0.3.0
- * @status READY
- * @category basic
- * @see http://uikit.myntra.com/components/top-bar#TopBarItem
- */
-
+declare function TopBar(props: TopBar.Props): JSX.Element
 declare namespace TopBar {
-  declare function Item(props: TopBarItemProps): JSX.Element
+  interface TopBarProps extends BaseProps {
+    title: string
+    user: Partial<{
+      name: string
+      photo: string
+    }> & {
+      email: string
+    }
+  }
+  // -----------[[Item]]--------------- //
+  /**
+   * A component for page header
+   *
+   * @since 0.3.0
+   * @status READY
+   * @category basic
+   * @see http://uikit.myntra.com/components/top-bar#TopBarItem
+   */
+  declare function Item(props: Item.Props): JSX.Element
+  declare namespace Item {
+    interface TopBarItemProps extends BaseProps {
+      /**
+       * Adds icon.
+       */
+      icon?: IconName
+      /**
+       * Description of icon.
+       */
+      altText?: string
+      /**
+       * Breadcrumb text or link.
+       */
+      children: JSX.Element
+    }
+    type IconName = Icon.IconName
+  }
 }
 
 // -----------[[VirtualGrid]]--------------- //
-
-interface VirtualGridProps extends BaseProps {
-  /**
-   * Number of rows in the grid.
-   */
-  rows: number
-  /**
-   * Number of columns in the grid.
-   */
-  columns: number
-  /**
-   * Height of the grid container.
-   */
-  height: number
-  /**
-   * Width of the grid container.
-   */
-  width: number
-  /**
-   * A callback to render grid item at given cell.
-   */
-  children(props: {
-    rowIndex: number
-    columnIndex: number
-    offsetTop: number
-    offsetLeft: number
-    rowHeight: number
-    columnWidth: number
-    isScrolling: boolean
-    style: Record<string, string | number>
-  }): JSX.Element
-  /**
-   * Number of columns (from start) always rendered.
-   */
-  fixedColumns?: number
-  /**
-   * Number of rows to render outside of viewport.
-   */
-  overScanRows?: number
-  /**
-   * Number of columns to render outside of viewport.
-   */
-  overScanColumns?: number
-  /**
-   * Estimated item height to estimate content height.
-   */
-  estimatedCellHeight?: number
-  /**
-   * Estimated item width to estimate content width.
-   */
-  estimatedCellWidth: number
-  renderScroller?(props: {
-    onScroll(event: {
-      target: {
-        scrollTop: number
-        scrollLeft: number
-      }
-    }): void
-    width: number
-    height: number
-    style: Record<string, string | number>
-    children: any
-  }): JSX.Element
-  renderContainer?(props: {
-    /**
-     * Height of grid content.
-     */
-    offsetHeight: number
-    /**
-     * Width of grid content.
-     */
-    offsetWidth: number
-    /**
-     * Height of rendered content.
-     */
-    renderedHeight: number
-    /**
-     * Width of rendered content.
-     */
-    renderedWidth: number
-    /**
-     * Scroll position from left.
-     */
-    offsetLeft: number
-    /**
-     * Scroll position from top.
-     */
-    offsetTop: number
-    /**
-     * Styles to position and configure scroll behaviour.
-     */
-    style: Record<string, string | number>
-    className?: string
-    children: any
-  }): JSX.Element
-  renderRow?(props: {
-    grid: VirtualGrid
-    offsetTop: number
-    height: number
-    rowIndex: number
-    isScrolling: boolean
-    scrollLeft: number
-    children: any
-  }): JSX.Element
-  onMeasure?(event: {
-    row: number
-    column: number
-    size: {
-      width: number
-      height: number
-    }
-  }): void
-}
 /**
  * A grid using windowing technique to render only visible area.
  *
@@ -1398,95 +1651,125 @@ interface VirtualGridProps extends BaseProps {
  * @category advanced
  * @see http://uikit.myntra.com/components/virtual-grid
  */
-
-declare function VirtualGrid(props: VirtualGridProps): JSX.Element
-
-// -----------[[VirtualList]]--------------- //
-
-interface VirtualListProps extends BaseProps {
-  /**
-   * Number of items in the list.
-   */
-  itemCount: number
-  /**
-   * Height (or width for horizontal list) of the list container.
-   */
-  viewportSize: number
-  /**
-   * A callback to render list item at given position.
-   */
-  children(props: {
-    list: VirtualList
-    index: number
-    offset: number
-    size: number
-    style: Record<string, string | number>
-  }): JSX.Element
-  /**
-   * Estimated item height (or width) to estimate content height (or width).
-   */
-  estimatedItemSize?: number
-  /**
-   * Number of items to render outside of viewport.
-   */
-  overScanItemCount?: number
-  /**
-   * Number of items (from start) always rendered.
-   */
-  fixedItemCount?: number
-  /**
-   * List scroll direction.
-   */
-  direction?: 'horizontal' | 'vertical'
-  /**
-   * Render a wrapper element which would have scrollbars.
-   */
-  renderScroller?(props: {
+declare function VirtualGrid(props: VirtualGrid.Props): JSX.Element
+declare namespace VirtualGrid {
+  interface VirtualGridProps extends BaseProps {
     /**
-     * A callback function to recompute visible area on scroll.
+     * Number of rows in the grid.
      */
-    onScroll(event: {
-      target: {
-        scrollLeft: number
-        screenTop: number
+    rows: number
+    /**
+     * Number of columns in the grid.
+     */
+    columns: number
+    /**
+     * Height of the grid container.
+     */
+    height: number
+    /**
+     * Width of the grid container.
+     */
+    width: number
+    /**
+     * A callback to render grid item at given cell.
+     */
+    children(props: {
+      rowIndex: number
+      columnIndex: number
+      offsetTop: number
+      offsetLeft: number
+      rowHeight: number
+      columnWidth: number
+      isScrolling: boolean
+      style: Record<string, string | number>
+    }): JSX.Element
+    /**
+     * Number of columns (from start) always rendered.
+     */
+    fixedColumns?: number
+    /**
+     * Number of rows to render outside of viewport.
+     */
+    overScanRows?: number
+    /**
+     * Number of columns to render outside of viewport.
+     */
+    overScanColumns?: number
+    /**
+     * Estimated item height to estimate content height.
+     */
+    estimatedCellHeight?: number
+    /**
+     * Estimated item width to estimate content width.
+     */
+    estimatedCellWidth: number
+    renderScroller?(props: {
+      onScroll(event: {
+        target: {
+          scrollTop: number
+          scrollLeft: number
+        }
+      }): void
+      width: number
+      height: number
+      style: Record<string, string | number>
+      children: any
+    }): JSX.Element
+    renderContainer?(props: {
+      /**
+       * Height of grid content.
+       */
+      offsetHeight: number
+      /**
+       * Width of grid content.
+       */
+      offsetWidth: number
+      /**
+       * Height of rendered content.
+       */
+      renderedHeight: number
+      /**
+       * Width of rendered content.
+       */
+      renderedWidth: number
+      /**
+       * Scroll position from left.
+       */
+      offsetLeft: number
+      /**
+       * Scroll position from top.
+       */
+      offsetTop: number
+      /**
+       * Styles to position and configure scroll behaviour.
+       */
+      style: Record<string, string | number>
+      className?: string
+      children: any
+    }): JSX.Element
+    renderRow?(props: {
+      grid: VirtualGrid
+      offsetTop: number
+      height: number
+      rowIndex: number
+      isScrolling: boolean
+      scrollLeft: number
+      children: any
+    }): JSX.Element
+    onMeasure?(event: {
+      row: number
+      column: number
+      size: {
+        width: number
+        height: number
       }
     }): void
-    /**
-     * Height or width of the content.
-     */
-    size: number
-    /**
-     * Styles to position and configure scroll behaviour.
-     */
-    style: Record<string, string | number>
-    className?: string
-    children: any
-  }): JSX.Element
-  /**
-   * Render inner container of scroller container. This sets the scroll height and
-   * positions rendered content in visible window.
-   */
-  renderContainer?(props: {
-    /**
-     * Offset of rendered content from top (or left in horizontal scroller).
-     */
-    offsetStart: number
-    /**
-     * Scroll position from top (or left in horizontal scroller).
-     */
-    offsetScroll: number
-    /**
-     * Height or width of the content.
-     */
-    size: number
-    /**
-     * Styles to position and configure scroll behaviour.
-     */
-    style: Record<string, string | number>
-    className?: string
-    children: any
-  }): JSX.Element
+  }
+  type MeasureCache = VirtualList.MeasureCache
+  type PositionManager = VirtualList.PositionManager
 }
+
+// -----------[[VirtualList]]--------------- //
 /**
  * A list using windowing technique to render only visible area.
  *
@@ -1495,10 +1778,123 @@ interface VirtualListProps extends BaseProps {
  * @category advanced
  * @see http://uikit.myntra.com/components/virtual-list
  */
-
-declare function VirtualList(props: VirtualListProps): JSX.Element
+declare function VirtualList(props: VirtualList.Props): JSX.Element
+declare namespace VirtualList {
+  interface VirtualListProps extends BaseProps {
+    /**
+     * Number of items in the list.
+     */
+    itemCount: number
+    /**
+     * Height (or width for horizontal list) of the list container.
+     */
+    viewportSize: number
+    /**
+     * A callback to render list item at given position.
+     */
+    children(props: {
+      list: VirtualList
+      index: number
+      offset: number
+      size: number
+      style: Record<string, string | number>
+    }): JSX.Element
+    /**
+     * Estimated item height (or width) to estimate content height (or width).
+     */
+    estimatedItemSize?: number
+    /**
+     * Number of items to render outside of viewport.
+     */
+    overScanItemCount?: number
+    /**
+     * Number of items (from start) always rendered.
+     */
+    fixedItemCount?: number
+    /**
+     * List scroll direction.
+     */
+    direction?: 'horizontal' | 'vertical'
+    /**
+     * Render a wrapper element which would have scrollbars.
+     */
+    renderScroller?(props: {
+      /**
+       * A callback function to recompute visible area on scroll.
+       */
+      onScroll(event: {
+        target: {
+          scrollLeft: number
+          screenTop: number
+        }
+      }): void
+      /**
+       * Height or width of the content.
+       */
+      size: number
+      /**
+       * Styles to position and configure scroll behaviour.
+       */
+      style: Record<string, string | number>
+      className?: string
+      children: any
+    }): JSX.Element
+    /**
+     * Render inner container of scroller container. This sets the scroll height and
+     * positions rendered content in visible window.
+     */
+    renderContainer?(props: {
+      /**
+       * Offset of rendered content from top (or left in horizontal scroller).
+       */
+      offsetStart: number
+      /**
+       * Scroll position from top (or left in horizontal scroller).
+       */
+      offsetScroll: number
+      /**
+       * Height or width of the content.
+       */
+      size: number
+      /**
+       * Styles to position and configure scroll behaviour.
+       */
+      style: Record<string, string | number>
+      className?: string
+      children: any
+    }): JSX.Element
+  }
+}
 
 // ----------[[DeclaredTypes]]---------- //
+
+// -----------[[Form]]----------//
+declare namespace Form {
+  declare function Text(props: Field.Props & Form.FormFieldProps & InputText.Props): JSX.Element
+  declare function Select(props: Field.Props & Form.FormFieldProps & InputSelect.Props): JSX.Element
+  declare function Checkbox(props: Field.Props & Form.FormFieldProps & InputCheckbox.Props): JSX.Element
+  declare function CheckBox(props: Field.Props & Form.FormFieldProps & InputCheckbox.Props): JSX.Element
+  declare function Date(props: Field.Props & Form.FormFieldProps & InputDate.Props): JSX.Element
+  declare function S3File(props: Field.Props & Form.FormFieldProps & InputS3File.Props): JSX.Element
+  declare function Masked(props: Field.Props & Form.FormFieldProps & InputMasked.Props): JSX.Element
+  declare function Number(props: Field.Props & Form.FormFieldProps & InputNumber.Props): JSX.Element
+  declare function TextArea(props: Field.Props & Form.FormFieldProps & InputTextArea.Props): JSX.Element
+}
+
+/**
+ *
+ *
+ * @since 0.3.0
+ * @status EXPERIMENTAL
+ * @category layout
+ * @see http://uikit.myntra.com/components/tabs#tab
+ */
+declare function Tab(props: Tab.Props): JSX.Element
+declare namespace Tab {
+  interface Props extends BaseProps {
+    title?: number
+  }
+}
 
 // -----------[[React]]----------//
 type Key = string | number

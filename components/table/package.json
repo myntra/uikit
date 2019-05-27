@@ -27,8 +27,5 @@
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-component-measure": "link:../measure",
     "@myntra/uikit-utils": "link:../../packages/uikit-utils"
-  },
-  "components": [
-    "src/table-column.tsx"
-  ]
+  }
 }

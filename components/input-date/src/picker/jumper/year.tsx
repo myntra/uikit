@@ -1,15 +1,15 @@
 import React from 'react'
 
-export interface InputMonthPickerJumperYearProps extends BaseProps {
+export interface Props extends BaseProps {
   value: number
   onChange(year: number): void
 }
 
-export default function InputMonthPickerJumperYear({
+export default function Year({
   value: year,
   onChange: onYearSelect,
   ...props
-}: InputMonthPickerJumperYearProps) {
+}: Props) {
   let startYearValue = year - 10
   let endYearValue = year + 10
   const yearArray = []

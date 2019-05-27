@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './input-text.module.scss'
 
-interface InputTextProps extends BaseProps {
+export interface Props extends BaseProps {
   /** Sets the text format for the field. */
   type?: 'text' | 'email' | 'password' | 'tel' | 'url'
   /** Current value of the text input field. */
@@ -28,7 +28,7 @@ export default function InputText({
   value,
   readOnly,
   ...props
-}: InputTextProps) {
+}: Props) {
   readOnly = readOnly || !onChange
 
   return (

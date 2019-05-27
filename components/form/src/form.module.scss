@@ -1,0 +1,15 @@
+@import '@design';
+
+.form {
+  .title {
+    @include use-text-style('h4');
+
+    padding-bottom: ui-size('r');
+  }
+
+  .actions {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: flex-end;
+  }
+}

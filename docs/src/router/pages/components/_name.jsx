@@ -135,19 +135,19 @@ function useWindowWidth() {
 
 function useEditorAutoSize() {
   const windowWidth = useWindowWidth()
-  const [contentWidth, setContentWidth] = useState(800)
-  const handleContentMeasure = useCallback(
-    ({ bounds: { width } }) => setContentWidth(Math.min(windowWidth, Math.max(width, 800))),
-    []
-  )
-  const editorWidth = Math.max(320, contentWidth, windowWidth - contentWidth - 32 - 54)
-  const editorPosition = windowWidth - editorWidth
-  const contentPosition = windowWidth < 1200 ? -contentWidth - 16 : (contentWidth - windowWidth) / 2 + 54
+  // const [contentWidth, setContentWidth] = useState(800)
+  // const handleContentMeasure = useCallback(
+  //   ({ bounds: { width } }) => setContentWidth(Math.min(windowWidth, Math.max(width, 800))),
+  //   []
+  // )
+  // const editorWidth = Math.max(320, contentWidth, windowWidth - contentWidth - 32 - 54)
+  // const editorPosition = windowWidth - editorWidth
+  // const contentPosition = windowWidth < 1200 ? -contentWidth - 16 : (contentWidth - windowWidth) / 2 + 54
 
   return {
-    handleContentMeasure,
-    editorWidth,
-    editorPosition,
-    contentPosition
+    handleContentMeasure() {},
+    editorWidth: windowWidth - 880,
+    editorPosition: 880,
+    contentPosition: -400
   }
 }

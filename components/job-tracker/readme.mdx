@@ -1,0 +1,25 @@
+import JobTracker from './src/job-tracker'
+
+# JobTracker
+
+<Documenter component={JobTracker}>
+
+```jsx preview
+const [data] = useState([
+  {
+    id: 123,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1542623683000,
+    successFileName: "success.xslx",
+    errorFileName: "error.xslx",
+    status: "IN_PROGRESS",
+    totalStepCount: 100,
+    completedStepCount: 30
+  },
+]);
+
+<JobTracker data={data}/>
+```
+
+</Documenter>

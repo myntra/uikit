@@ -1,0 +1,16 @@
+@import '@design';
+
+.job:not(:last-child) {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.jobs {
+  border-radius: 4px;
+  box-shadow: ui-shadow('raised');
+}
+
+.date {
+  margin: 24px 8px 8px;
+  font-weight: bolder;
+  color: ui-text-color('dark');
+}

@@ -6,7 +6,7 @@ import classnames from './jumper.module.scss'
 import { UTCDate } from '../input-date-utils'
 import Icon from '@myntra/uikit-component-icon'
 
-export interface InputDatePickerJumperProps extends BaseProps {
+export interface Props extends BaseProps {
   year: number
   month: number
   offset: number
@@ -21,9 +21,7 @@ export interface InputDatePickerJumperProps extends BaseProps {
  * @since 0.0.0
  * @status REVIEWING
  */
-export default class InputDatePickerJumper extends PureComponent<
-  InputDatePickerJumperProps
-> {
+export default class Jumper extends PureComponent<Props> {
   static Month = Month
   static Year = Year
 

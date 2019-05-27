@@ -1,0 +1,32 @@
+{
+  "name": "@myntra/uikit-component-schema-form",
+  "version": "0.7.1",
+  "main": "src/schema-form.tsx",
+  "module": "dist/schema-form.js",
+  "browser": "src/schema-form.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/schema-form",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-field": "link:../field",
+    "@myntra/uikit-component-form": "link:../form",
+    "@myntra/uikit-component-grid": "link:../grid",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+  }
+}

@@ -1,0 +1,14 @@
+@import '@design';
+
+.group {
+  margin: ui-size('s') 0;
+}
+
+.pane {
+  margin-bottom: ui-size('s');
+  border-bottom: solid 1px ui-color('gray', 'dark');
+}
+
+.content {
+  margin-top: ui-size('s');
+}

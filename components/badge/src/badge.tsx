@@ -2,9 +2,9 @@ import React from 'react'
 
 import classnames from './badge.module.scss'
 
-interface BadgeProps extends BaseProps {
+interface Props extends BaseProps {
   /** The visual style to convey purpose of the badge. */
-  type?: 'primary' | 'success' | 'warning' | 'error',
+  type?: 'primary' | 'success' | 'warning' | 'error'
   /** The label text of the badge. */
   children: string
 }
@@ -16,14 +16,23 @@ interface BadgeProps extends BaseProps {
  * @status EXPERIMENTAL
  * @category basic
  */
-export default function Badge({ type, children, className, ...props }: BadgeProps): JSX.Element {
+export default function Badge({
+  type,
+  children,
+  className,
+  ...props
+}: Props): JSX.Element {
   return (
     <div {...props} className={classnames('badge', type, className)}>
-      {typeof children === 'string' ? <span className={classnames('content')}>{children}</span> : children}
+      {typeof children === 'string' ? (
+        <span className={classnames('content')}>{children}</span>
+      ) : (
+        children
+      )}
     </div>
   )
 }
 
 Badge.defaultProps = {
-  type: 'primary'
+  type: 'primary',
 }

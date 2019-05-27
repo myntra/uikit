@@ -139,6 +139,7 @@ $-button--secondary-icon: merge(
   box-sizing: border-box;
   display: inline-block;
   line-height: 1;
+  text-decoration: none;
   cursor: pointer;
 
   // Firefox <35 for Android sets a default background-image gradient on all buttons. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes

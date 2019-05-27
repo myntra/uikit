@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './progress-circle.module.scss'
 
-export interface ProgressCircleProps extends BaseProps {
+export interface Props extends BaseProps {
   value: number
   appearance?: 'success' | 'info' | 'warning' | 'danger'
   size?: 'small' | 'medium' | 'large'
@@ -14,7 +14,7 @@ export default function ProgressCircle({
   className,
   children,
   ...props
-}: ProgressCircleProps) {
+}: Props) {
   const value = rawValue / 100
   const height = 24
   const stroke = 3
@@ -73,5 +73,5 @@ export default function ProgressCircle({
 }
 
 ProgressCircle.defaultProps = {
-  appearance: 'success'
+  appearance: 'success',
 }

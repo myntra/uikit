@@ -3,9 +3,9 @@ import makeInitials from 'name-initials'
 
 import classnames from './avatar.module.scss'
 
-interface AvatarProps extends BaseProps {
+interface Props extends BaseProps {
   /** The name of the person/object.  */
-  name: string,
+  name: string
   /** The size of the avatar. */
   size?: 'small' | 'medium' | 'large'
 }
@@ -17,7 +17,7 @@ interface AvatarProps extends BaseProps {
  * @status EXPERIMENTAL
  * @category basic
  */
-export default function Avatar({ name, size, className, ...props }: AvatarProps) {
+export default function Avatar({ name, size, className, ...props }: Props) {
   return (
     <svg
       {...props}
@@ -28,8 +28,18 @@ export default function Avatar({ name, size, className, ...props }: AvatarProps)
       xmlns="http://www.w3.org/2000/svg"
     >
       <title>{name}</title>
-      <text fontSize="18px" x="50%" y="55%" alignmentBaseline="middle" textAnchor="middle" aria-hidden="true" data-test-id="initials">
-        {makeInitials(name.replace(/([^ ])([A-Z])/g, (_, a, b) => a + ' ' + b).trim())}
+      <text
+        fontSize="18px"
+        x="50%"
+        y="55%"
+        alignmentBaseline="middle"
+        textAnchor="middle"
+        aria-hidden="true"
+        data-test-id="initials"
+      >
+        {makeInitials(
+          name.replace(/([^ ])([A-Z])/g, (_, a, b) => a + ' ' + b).trim()
+        )}
       </text>
     </svg>
   )

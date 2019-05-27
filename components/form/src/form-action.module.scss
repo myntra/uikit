@@ -1,0 +1,6 @@
+@import '@design';
+
+.action:global(._u_button_primary) {
+  order: 100;
+  margin-left: ui-size('xs');
+}

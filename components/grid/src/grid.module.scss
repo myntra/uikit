@@ -24,6 +24,10 @@
   }
 }
 
+.columns.gapless .column {
+  --column-gap: 0;
+}
+
 .columns.variable-gap {
   --column-gap: #{ui-size(r)};
 
@@ -33,7 +37,7 @@
     'x-small': ui-size('xs'),
     'small': ui-size('s'),
     'base': ui-size('r'),
-    'large': ui-size('l')
+    'large': ui-size('l'),
   );
 
   @each $size, $value in $sizes {

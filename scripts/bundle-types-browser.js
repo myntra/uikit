@@ -1,5 +1,5 @@
 const path = require('path')
-const { componentsDir, components } = require('./utils')
+const { componentsDir, components, getShortName } = require('./utils')
 const typescript = require('typescript')
 const docgen = require('@myntra/docgen')
 const fs = require('fs')
@@ -7,7 +7,7 @@ const camelCase = require('lodash.camelcase')
 const glob = require('glob')
 const prettier = require('prettier')
 
-writeUIKitAsyncImports(components.map(getMainFile))
+writeUIKitAsyncImports(components)
 writeUIKitTypesForDocsEditor(components)
 
 // Helpers.
@@ -30,6 +30,7 @@ function getComponents(component) {
   const re = new RegExp(`^${name}`)
 
   return {
+    pkg: pkg.name,
     name,
     file: path.resolve(componentsDir, component, pkg.tsMain || pkg.main),
     namespaced: (pkg.components || []).map((filename) => {
@@ -45,6 +46,8 @@ function getComponents(component) {
 
 function getDeclaredTypes() {
   return (
+    `\n// -----------[[Form]]----------//\n` +
+    fs.readFileSync(path.resolve(__dirname, './types/form.d.ts')).toString() +
     `\n// -----------[[React]]----------//\n` +
     fs
       .readFileSync(path.resolve(__dirname, './types/react-browser.d.ts'))
@@ -69,6 +72,26 @@ function getDeclaredTypes() {
   )
 }
 
+function getComponentTypes(name, file, extractTypes) {
+  const source = extractTypes(file)
+  const { types, comment } = normalizeComponent(source, (relative) =>
+    extractTypes(
+      relative.startsWith('.')
+        ? path.resolve(path.dirname(file), relative)
+        : relative
+    )
+  )
+
+  return `
+    // -----------[[${name}]]--------------- //
+    ${comment}
+    declare function ${name}(props: ${name}.Props): JSX.Element;
+    declare namespace ${name} {
+      ${types}
+    }
+    `
+}
+
 function writeUIKitTypesForDocsEditor(components) {
   const files = components
     .map((component) => glob.sync(`${getSourceDir(component)}/**/*.{ts,tsx}`))
@@ -83,27 +106,9 @@ function writeUIKitTypesForDocsEditor(components) {
   let code = ''
 
   for (const component of components) {
-    const { name, file, namespaced } = getComponents(component)
+    const { name, file } = getComponents(component)
     // console.log(`${name} - ${path.relative(process.cwd(), file)}`)
-
-    code += `\n\n// -----------[[${name}]]--------------- //\n`
-    code +=
-      extractTypes(file) +
-      `\ndeclare function ${name}(props: ${name}Props): JSX.Element;\n`
-
-    if (namespaced.length) {
-      let namespaceCode = `declare namespace ${name} {\n`
-      const namespace = name
-
-      namespaced.forEach(({ name, file }) => {
-        code += extractTypes(file) + '\n'
-        namespaceCode += `declare function ${name}(props: ${namespace}${name}Props): JSX.Element;\n`
-      })
-
-      namespaceCode += `\n}\n`
-
-      code += namespaceCode
-    }
+    code += getComponentTypes(name, file, extractTypes)
   }
 
   code +=
@@ -139,15 +144,16 @@ function writeUIKitTypesForDocsEditor(components) {
       true
     )
 
-    return normalize(types)
+    return types
   }
 }
 
-function writeUIKitAsyncImports(files) {
+function writeUIKitAsyncImports(components) {
   const META = []
 
-  files.forEach((file, index) => {
+  components.forEach((component, index) => {
     try {
+      const file = getMainFile(component)
       const docs = docgen(file)
 
       META.push({
@@ -157,7 +163,7 @@ function writeUIKitAsyncImports(files) {
         path: '/components/' + components[index],
       })
     } catch (error) {
-      console.error(`In ${file}:`)
+      console.error(`In ${component}:`)
       console.error(error)
     }
   })
@@ -165,13 +171,14 @@ function writeUIKitAsyncImports(files) {
   fs.writeFileSync(
     path.resolve(__dirname, '../packages/uikit/src/index.ts'),
     prettier.format(
-      files
-        .map(
-          (file, index) =>
-            `export { default as  ${componentName(
-              file
-            )} } from '@myntra/uikit-component-${components[index]}'`
-        )
+      components
+        .map((component, index) => {
+          const pkg = getPackageJSON(component)
+
+          return `export { default as  ${componentName(component)} ${
+            pkg.exports ? ', ' + pkg.exports.join(', ') : ''
+          } } from '@myntra/uikit-component-${component}'`
+        })
         .join('\n'),
       {
         parser: 'babel',
@@ -189,36 +196,51 @@ function writeUIKitAsyncImports(files) {
       import { lazy } from 'react'
       function asyncComponent(factory) {
         const Component = lazy(factory)
+        const cache = {}
 
         return new Proxy(Component, {
           get(target, name) {
             if (typeof name === 'string' && /^[A-Z]/.test(name)) {
-              const result = Component._result
+              // const result = Component._result
 
-              return Component._status === 1
-                ? result[name]
-                : lazy(async () => {
-                    const { default: Component } = await factory()
+              return (
+                cache[name] ||
+                (cache[name] = lazy(async () => {
+                  const { default: Component } = await factory()
 
-                    return { __esModule: true, default: Component[name] }
-                  })
+                  return { __esModule: true, default: Component[name] }
+                }))
+              )
             }
 
             return target[name]
           }
         })
       }
-    ` +
-        files
+      ` +
+        components
           .map(
-            (file, index) =>
+            (component) =>
               `export const ${componentName(
-                file
-              )} = asyncComponent(() => import(/* webpackChunkName: 'components/${
-                components[index]
-              }' */ '@myntra/uikit-component-${components[index]}'))`
+                component
+              )} = asyncComponent(() => import(/* webpackChunkName: 'components/${component}' */ '@myntra/uikit-component-${component}'))`
           )
           .join('\n') +
+        '\n' +
+        components
+          .map((component) => [component, getPackageJSON(component).exports])
+          .filter(([, namedExports]) => !!namedExports)
+          .map(([component, namedExports]) =>
+            namedExports
+              .filter((name) => /^[A-Z]/.test(name))
+              .map(
+                (name) =>
+                  `export const ${name} = asyncComponent(() => import('@myntra/uikit-component-${component}').then(m => ({ default: m.${name}, __esModule: true })))`
+              )
+              .join('\n')
+          )
+          .join('\n') +
+        '\n' +
         `\nexport const META = ${JSON.stringify(META, null, 2)}`,
       {
         parser: 'babel',
@@ -232,6 +254,10 @@ function writeUIKitAsyncImports(files) {
 }
 
 function normalize(code) {
+  return normalizeComponent(code).types
+}
+
+function normalizeComponent(code, extractTypes) {
   /** @type {import('typescript').CompilerHost} */
   const compilerHost = {
     fileExists: () => true,
@@ -272,21 +298,110 @@ function normalize(code) {
     (statement) =>
       (typescript.isFunctionDeclaration(statement) ||
         typescript.isClassDeclaration(statement)) &&
-      (statement.jsDoc && statement.jsDoc.length)
+      (statement.modifiers.length === 2 &&
+        statement.modifiers[0].kind === typescript.SyntaxKind.ExportKeyword &&
+        statement.modifiers[1].kind === typescript.SyntaxKind.DefaultKeyword)
   )
 
-  if (component) {
-    const comment = component.jsDoc[0]
+  if (extractTypes) {
+    const subComponents = {}
 
-    types += '\n' + comment.getFullText()
+    if (component && typescript.isClassDeclaration(component)) {
+      component.members
+        .filter(
+          (member) =>
+            typescript.isPropertyDeclaration(member) &&
+            member.modifiers &&
+            member.modifiers.some(
+              (modifier) =>
+                modifier.kind === typescript.SyntaxKind.StaticKeyword
+            )
+        )
+        .forEach((property) => {
+          const name = property.name.getText().trim()
+
+          if (/^[A-Z]/.test(name) && property.type)
+            subComponents[
+              property.type
+                .getText()
+                .replace(/typeof\s/, '')
+                .trim()
+            ] = name
+        })
+    }
+
+    ast.statements.forEach((statement) => {
+      if (typescript.isImportDeclaration(statement)) {
+        const source = statement.moduleSpecifier
+          .getText()
+          .replace(/^['"`]|["'`]$/g, '')
+
+        if (source.startsWith('.')) {
+          // Using default import?
+          if (statement.importClause && statement.importClause.name) {
+            const name = statement.importClause.name.getText().trim()
+
+            if (name in subComponents) {
+              types += getComponentTypes(
+                subComponents[name],
+                source + '.tsx',
+                extractTypes
+              )
+            }
+          }
+        }
+        if (source.startsWith('@myntra/uikit-component-')) {
+          if (statement.importClause && statement.importClause.namedBindings) {
+            let [pkg, file] = source.split('/src/')
+            const shortName = getShortName(pkg)
+            let component = componentName(shortName)
+
+            if (file) {
+              if (file.startsWith(shortName))
+                file = file.substr(shortName.length + 1)
+
+              component +=
+                '.' +
+                file
+                  .split('/')
+                  .map((name) => componentName(name))
+                  .join('.')
+            }
+
+            if (
+              typescript.isNamedImports(statement.importClause.namedBindings)
+            ) {
+              statement.importClause.namedBindings.elements.forEach(
+                (element) => {
+                  const name = element.propertyName
+                    ? element.propertyName.getText()
+                    : element.name.getText()
+                  const localName = element.name.getText()
+
+                  types += `\ntype ${localName} = ${component}.${name}`
+                }
+              )
+            }
+          }
+        }
+      }
+    })
   }
 
-  return (
-    types
-      .replace(/\/\/\/[^\n]*/g, '')
-      .replace(/\bexport /g, '')
-      .replace(/\bdeclare type /g, 'type ') + '\n'
-  )
+  let comment = '/**\n *\n */'
+
+  if (component && component.jsDoc) {
+    comment = component.jsDoc[0].getFullText()
+  }
+
+  return {
+    types:
+      types
+        .replace(/\/\/\/[^\n]*/g, '')
+        .replace(/\bexport /g, '')
+        .replace(/\bdeclare type /g, 'type ') + '\n',
+    comment,
+  }
 }
 
 function componentName(file) {

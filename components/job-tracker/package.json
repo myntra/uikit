@@ -1,0 +1,32 @@
+{
+  "name": "@myntra/uikit-component-job-tracker",
+  "version": "0.7.1",
+  "main": "src/job-tracker.tsx",
+  "module": "dist/job-tracker.js",
+  "browser": "src/job-tracker.tsx",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/job-tracker",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.18"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-grid": "link:../grid",
+    "@myntra/uikit-component-icon": "link:../icon",
+    "@myntra/uikit-component-progress": "link:../progress",
+    "dayjs": "^1.8.14"
+  }
+}

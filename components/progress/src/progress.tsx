@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 
-import ProgressBar, { ProgressBarProps } from './progress-bar'
-import ProgressCircle, { ProgressCircleProps } from './progress-circle'
+import ProgressBar, { Props as ProgressBarProps } from './progress-bar'
+import ProgressCircle, { Props as ProgressCircleProps } from './progress-circle'
 
-export type ProgressProps =
+export type Props =
   | ({
       /**
        * Type of progress view (bar or circular).
@@ -20,13 +20,16 @@ export type ProgressProps =
  * @category basic
  * @see http://uikit.myntra.com/components/progress
  */
-export default function Progress({ type, ...props }: ProgressProps) {
-  return type === 'bar' ? (
-    <ProgressBar {...props} />
-  ) : type === 'circle' ? (
-    <ProgressCircle {...props} />
-  ) : null
-}
+export default class Progress extends PureComponent<Props> {
+  static Bar = ProgressBar
+  static Circle = ProgressCircle
 
-Progress.Bar = ProgressBar
-Progress.Circle = ProgressCircle
+  render() {
+    const { type, ...props } = this.props
+    return type === 'bar' ? (
+      <ProgressBar {...props} />
+    ) : type === 'circle' ? (
+      <ProgressCircle {...props} />
+    ) : null
+  }
+}

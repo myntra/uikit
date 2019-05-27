@@ -1,14 +1,12 @@
 import React, { PureComponent, MouseEvent } from 'react'
 import Icon from '@myntra/uikit-component-icon'
-import InputMasked, {
-  InputMaskedProps,
-} from '@myntra/uikit-component-input-masked'
+import InputMasked, { Props } from '@myntra/uikit-component-input-masked'
 
 import classnames from './input-date-value.module.scss'
 import { parse, format } from './input-date-utils'
 import { DateRange, StringDateRange, isDateRange } from './input-date-helpers'
 
-const MASKS: InputMaskedProps['masks'] = {
+const MASKS: Props['masks'] = {
   Y: {
     validate(token) {
       return /\d/.test(token)

@@ -29,8 +29,5 @@
     "@myntra/uikit-component-input-text": "link:../input-text",
     "date-fns": "^2.0.0-alpha.27",
     "dayjs": "^1.8.14"
-  },
-  "components": [
-    "src/input-date-picker.tsx"
-  ]
+  }
 }

@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-component-error-boundary",
   "version": "0.7.1",
-  "main": "src/error-boundary.jsx",
+  "main": "src/error-boundary.tsx",
   "module": "dist/error-boundary.js",
-  "browser": "src/error-boundary.jsx",
+  "browser": "src/error-boundary.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/error-boundary",

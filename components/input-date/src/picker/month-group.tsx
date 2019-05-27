@@ -16,7 +16,7 @@ function range(n: number): number[] {
   return Array.apply(null, { length: n }).map((_, i) => i)
 }
 
-export interface InputDatePickerMonthGroupProps extends BaseProps {
+export interface Props extends BaseProps {
   value?: Date | DateRange
   onchange?(value: Date | DateRange): void
 
@@ -39,8 +39,8 @@ export interface InputDatePickerMonthGroupProps extends BaseProps {
  * @since 0.0.0
  * @status REVIEWING
  */
-export default class InputDatePickerMonthGroup extends Component<
-  InputDatePickerMonthGroupProps,
+export default class MonthGroup extends Component<
+  Props,
   { focused: null | Date; openToDate: null | Date }
 > {
   static Jumper = Jumper

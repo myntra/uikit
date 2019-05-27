@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-component-field",
   "version": "0.7.1",
-  "main": "src/field.jsx",
+  "main": "src/field.tsx",
   "module": "dist/field.js",
-  "browser": "src/field.jsx",
+  "browser": "src/field.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/field",

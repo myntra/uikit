@@ -11,7 +11,7 @@ import { DateRange, StringDateRange, is } from './input-date-helpers'
 
 // const DEFAULT_PRESETS = Object.values(PRESETS)
 
-export interface InputDatePickerProps<
+export interface Props<
   DateLike = string | Date,
   DateLikeOrDateRangeLike = string | Date | DateRange | StringDateRange
 > extends BaseProps {
@@ -68,9 +68,7 @@ export interface InputDatePickerProps<
  * @category input
  * @see http://uikit.myntra.com/components/input-date#inputdatepicker
  */
-export default class InputDatePicker extends PureComponent<
-  InputDatePickerProps
-> {
+export default class InputDatePicker extends PureComponent<Props> {
   static MonthGroup = MonthGroup
   static Month = Month
   static Day = Day

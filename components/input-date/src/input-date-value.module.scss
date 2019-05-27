@@ -1,11 +1,8 @@
 @import '@design';
-@import '@myntra/uikit-component-input-text/style.scss';
 
 .date-value {
   display: inline-flex;
   width: 100%;
-
-  @include mixin-input-component();
 }
 
 .date-value > * {

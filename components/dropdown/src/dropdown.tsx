@@ -44,7 +44,7 @@ function findScrollParents(el: Element) {
   return parents
 }
 
-export interface DropdownProps extends BaseProps {
+export interface Props extends BaseProps {
   renderTrigger(props: {
     onMouseEnter?(event: MouseEvent | React.MouseEvent): void
     onMouseLeave?(event: MouseEvent | React.MouseEvent): void
@@ -98,7 +98,7 @@ export interface DropdownProps extends BaseProps {
  * @see http://uikit.myntra.com/components/dropdown
  */
 export default class Dropdown extends Component<
-  DropdownProps,
+  Props,
   {
     up: boolean
     left: boolean

@@ -1,25 +1,28 @@
 import { lazy } from 'react'
 function asyncComponent(factory) {
   const Component = lazy(factory)
+  const cache = {}
 
   return new Proxy(Component, {
     get(target, name) {
       if (typeof name === 'string' && /^[A-Z]/.test(name)) {
-        const result = Component._result
+        return (
+          cache[name] ||
+          (cache[name] = lazy(async () => {
+            const { default: Component } = await factory()
 
-        return Component._status === 1
-          ? result[name]
-          : lazy(async () => {
-              const { default: Component } = await factory()
-
-              return { __esModule: true, default: Component[name] }
-            })
+            return { __esModule: true, default: Component[name] }
+          }))
+        )
       }
 
       return target[name]
     }
   })
 }
+export const Accordion = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/accordion' */ '@myntra/uikit-component-accordion')
+)
 export const Alert = asyncComponent(() =>
   import(/* webpackChunkName: 'components/alert' */ '@myntra/uikit-component-alert')
 )
@@ -46,6 +49,9 @@ export const ErrorBoundary = asyncComponent(() =>
 )
 export const Field = asyncComponent(() =>
   import(/* webpackChunkName: 'components/field' */ '@myntra/uikit-component-field')
+)
+export const Form = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/form' */ '@myntra/uikit-component-form')
 )
 export const Grid = asyncComponent(() =>
   import(/* webpackChunkName: 'components/grid' */ '@myntra/uikit-component-grid')
@@ -74,6 +80,9 @@ export const InputMonth = asyncComponent(() =>
 export const InputNumber = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-number' */ '@myntra/uikit-component-input-number')
 )
+export const InputRadio = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-radio' */ '@myntra/uikit-component-input-radio')
+)
 export const InputS3File = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-s3-file')
 )
@@ -85,6 +94,9 @@ export const InputText = asyncComponent(() =>
 )
 export const InputTextArea = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-text-area' */ '@myntra/uikit-component-input-text-area')
+)
+export const JobTracker = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/job-tracker' */ '@myntra/uikit-component-job-tracker')
 )
 export const List = asyncComponent(() =>
   import(/* webpackChunkName: 'components/list' */ '@myntra/uikit-component-list')
@@ -113,11 +125,17 @@ export const Portal = asyncComponent(() =>
 export const Progress = asyncComponent(() =>
   import(/* webpackChunkName: 'components/progress' */ '@myntra/uikit-component-progress')
 )
+export const SchemaForm = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/schema-form' */ '@myntra/uikit-component-schema-form')
+)
 export const Section = asyncComponent(() =>
   import(/* webpackChunkName: 'components/section' */ '@myntra/uikit-component-section')
 )
 export const Table = asyncComponent(() =>
   import(/* webpackChunkName: 'components/table' */ '@myntra/uikit-component-table')
+)
+export const Tabs = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/tabs' */ '@myntra/uikit-component-tabs')
 )
 export const Tooltip = asyncComponent(() =>
   import(/* webpackChunkName: 'components/tooltip' */ '@myntra/uikit-component-tooltip')
@@ -131,7 +149,17 @@ export const VirtualGrid = asyncComponent(() =>
 export const VirtualList = asyncComponent(() =>
   import(/* webpackChunkName: 'components/virtual-list' */ '@myntra/uikit-component-virtual-list')
 )
+export const Tab = asyncComponent(() =>
+  import('@myntra/uikit-component-tabs').then(m => ({ default: m.Tab, __esModule: true }))
+)
+
 export const META = [
+  {
+    name: 'Accordion',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/accordion'
+  },
   {
     name: 'Alert',
     since: '0.3.0',
@@ -187,6 +215,12 @@ export const META = [
     path: '/components/field'
   },
   {
+    name: 'Form',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/form'
+  },
+  {
     name: 'Grid',
     since: '0.0.0',
     status: 'REVIEWING',
@@ -218,6 +252,8 @@ export const META = [
   },
   {
     name: 'InputDate',
+    since: '0.0.0',
+    status: 'READY',
     path: '/components/input-date'
   },
   {
@@ -237,6 +273,12 @@ export const META = [
     since: '0.0.0',
     status: 'REVIEWING',
     path: '/components/input-number'
+  },
+  {
+    name: 'InputRadio',
+    since: '0.6.0',
+    status: 'REVIEWING',
+    path: '/components/input-radio'
   },
   {
     name: 'InputS3File',
@@ -261,6 +303,12 @@ export const META = [
     since: '0.0.0',
     status: 'READY',
     path: '/components/input-text-area'
+  },
+  {
+    name: 'JobTracker',
+    since: '0.6.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/job-tracker'
   },
   {
     name: 'List',
@@ -317,6 +365,12 @@ export const META = [
     path: '/components/progress'
   },
   {
+    name: 'SchemaForm',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/schema-form'
+  },
+  {
     name: 'Section',
     since: '0.7.0',
     status: 'REVIEWING',
@@ -327,6 +381,12 @@ export const META = [
     since: '0.3.0',
     status: 'REVIEWING',
     path: '/components/table'
+  },
+  {
+    name: 'Tabs',
+    since: '0.3.0',
+    status: 'EXPERIMENTAL',
+    path: '/components/tabs'
   },
   {
     name: 'Tooltip',

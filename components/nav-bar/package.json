@@ -22,10 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.8.13"
   },
-  "components": [
-    "src/nav-bar-group.tsx",
-    "src/nav-bar-item.tsx"
-  ],
   "dependencies": {
     "@myntra/uikit-can-i-use": "link:../../packages/uikit-can-i-use",
     "@myntra/uikit-component-avatar": "link:../avatar",

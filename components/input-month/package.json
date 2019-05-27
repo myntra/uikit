@@ -26,8 +26,5 @@
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-input-date": "link:../input-date",
     "@myntra/uikit-component-input-masked": "link:../input-masked"
-  },
-  "components": [
-    "src/input-month-picker.tsx"
-  ]
+  }
 }

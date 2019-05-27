@@ -1,5 +1,3 @@
-const path = require('path')
-const camelCase = require('lodash.camelcase')
 const { getOptions } = require('loader-utils')
 
 const docgen = require('./index')
@@ -12,20 +10,22 @@ module.exports = async function DocGenLoader(source) {
   const options = {
     test: /./,
     root: process.cwd(),
-    ...getOptions(this)
+    ...getOptions(this),
   }
 
   if (/\.(jsx|tsx)$/.test(resourcePath) && options.test.test(resourcePath)) {
     try {
-
       const meta = docgen(resourcePath, source, options.root)
-      const docs = `\nconst __docs__ = ${JSON.stringify(meta, null, 2)}`.replace(
+      const docs = `\nconst __docs__ = ${JSON.stringify(
+        meta,
+        null,
+        2
+      )}`.replace(
         /"--\{computed\}-->(.*)<--\{computed\}--"/g,
         (_, code) => code
       )
 
       const matches = EXPORT.exec(source)
-
 
       if (matches) {
         source = source + docs + `\n${matches[1]}.__docs = __docs__\n`

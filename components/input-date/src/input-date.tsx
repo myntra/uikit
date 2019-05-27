@@ -7,9 +7,11 @@ import classnames from './input-date.module.scss'
 import { format, parse, isDateEqual } from './input-date-utils'
 import { isDateRange, DateRange } from './input-date-helpers'
 import InputDateValue from './input-date-value'
-import InputDatePicker, { InputDatePickerProps } from './input-date-picker'
+import InputDatePicker, {
+  InputDatePickerProps as Props,
+} from './input-date-picker'
 
-export interface InputDateProps extends BaseProps, InputDatePickerProps {
+export interface Props extends Props {
   /**
    * The date format to format value for displaying.
    */
@@ -20,12 +22,12 @@ export interface InputDateProps extends BaseProps, InputDatePickerProps {
  * A component to read date and date ranges.
  *
  * @since 0.0.0
- * @status REVIEWING
+ * @status READY
  * @category input
  * @see http://uikit.myntra.com/components/input-date
  */
 export default class InputDate extends PureComponent<
-  InputDateProps,
+  Props,
   {
     isOpen: boolean
     openToDate: Date | null

@@ -2,16 +2,16 @@ import React from 'react'
 
 const MONTHS = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec'.split(',')
 
-export interface InputDatePickerJumperMonthProps extends BaseProps {
+export interface Props extends BaseProps {
   value: number
   onChange(month: number): void
 }
 
-export default function InputDatePickerJumperMonth({
+export default function Month({
   value: month,
   onChange: onMonthSelect,
   ...props
-}: InputDatePickerJumperMonthProps) {
+}: Props) {
   return (
     <div {...props}>
       <select
