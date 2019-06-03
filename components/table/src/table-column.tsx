@@ -1,19 +1,27 @@
-import React, { ReactElement } from 'react'
+import React, { ReactElement, isValidElement, ReactNode } from 'react'
+import { EditableCellRendererProps, CellRendererProps } from './table-interface'
 
-export interface TableColumnProps extends BaseProps {
-  /** Table column header */
-  label: string | JSX.Element
-  /** Fixed column. */
-  fixed: boolean
-  /** Number of table columns to use */
-  colSpan: number
-  /** Accessor to get value. Either a string key or a getter function. */
-  accessor: string | ((data: any) => string | JSX.Element)
-  /** Either a function to render the cell value or list of sub columns */
-  children:
-    | ReactElement<TableColumnProps>
-    | ReactElement<TableColumnProps>[]
-    | ((props: { data: any }) => JSX.Element)
+export interface Props<T = any> extends BaseProps {
+  /**
+   * Unique column identifier for the column.
+   */
+  key: string
+
+  /**
+   * Header text for the column.
+   */
+  label?: ReactNode
+
+  renderEditor?(props: EditableCellRendererProps): ReactNode
+
+  fixed?: boolean | 'start' | 'end'
+
+  sortable?: boolean | ((a: any, b: any) => number)
+
+  /**
+   * Accessor to get value of column from the row object.
+   */
+  accessor?: string | ((item: T, index: number) => any)
 }
 
 /**
@@ -22,22 +30,14 @@ export interface TableColumnProps extends BaseProps {
  *
  * @since 0.3.0
  * @status READY
+ * @category renderless
+ * @see http://uikit.myntra.com/components/table#tablecolumn
  */
-export default function Column(props: TableColumnProps) {
-  // This component is used to collect column configuration. It won't render anything.
-
+export default function TableColumn(props: Props) {
+  // This component is used to configure table. It won't render anything.
   return <span hidden />
 }
 
-Column.propTypes = {
-  /** @private */
-  _validate(props) {
-    React.Children.forEach(props.children, (child) => {
-      if (child.type !== Column) {
-        throw new Error(
-          `Only <Table.Column> component can be used as child of <Table.Column>.`
-        )
-      }
-    })
-  },
+export function isTableColumn(element: any): element is ReactElement<Props> {
+  return isValidElement(element) && element.type === TableColumn
 }

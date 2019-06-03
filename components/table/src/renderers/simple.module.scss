@@ -1,0 +1,27 @@
+@import '@design';
+
+.simple {
+  overflow: hidden;
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+  }
+
+  .table {
+    border-spacing: 0;
+    border-collapse: separate;
+
+    th {
+      position: -webkit-sticky;
+      position: sticky;
+      top: var(--sticky-top-offset, 0);
+    }
+  }
+
+  .fixed {
+    position: sticky;
+  }
+}

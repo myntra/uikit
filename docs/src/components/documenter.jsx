@@ -26,7 +26,7 @@ export default class Documenter extends Component {
 
   render() {
     const { component, hideName = true, children } = this.props
-    const docs = component.__docs
+    const docs = component && component.__docs
 
     if (!docs) return <div>No docs found</div>
 

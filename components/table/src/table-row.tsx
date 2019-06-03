@@ -1,27 +1,45 @@
-import React from 'react'
-import classnames from './table-simple.module.scss'
+import React, { ReactElement, isValidElement } from 'react'
+import { TableCellProps } from './table-normalizer'
 
-export interface TableRowProps extends BaseProps {
-  useDiv: boolean
+export interface Props<T = any> extends BaseProps {
+  /**
+   * Unique column identifier for the column.
+   */
+  key: string
+
+  /**
+   * Find a row to customize.
+   */
+  selector?: number | ((props: TableCellProps<T>) => boolean)
+
+  /**
+   * Render contents of expanded row. Also, presence of this prop
+   * makes the table row expandable.
+   */
+  renderBody?(props: TableCellProps<T>): JSX.Element
+
+  /**
+   * Customize row rendering behavior.
+   *
+   * __NOTE:__ Make sure to render `children` and use `Table.TR` as root element.
+   */
+  children(props: TableCellProps<T>): JSX.Element
 }
 
 /**
- * Render a table row
+ * Declarative way of defining table row customizers. It is a render-less component,
+ * use to declare rendering behavior of the table.
  *
  * @since 0.3.0
  * @status READY
+ * @category renderless
+ * @see http://uikit.myntra.com/components/table#tablerow
  */
-export default function TableRow({
-  children,
-  useDiv,
-  className,
-  ...props
-}: TableRowProps) {
-  const Tr = useDiv ? 'div' : 'tr'
+export default function TableRow(props: Props) {
+  // This component is used to configure table. It won't render anything.
+  return <span hidden />
+}
 
-  return (
-    <Tr className={classnames('row', className)} {...props}>
-      {children}
-    </Tr>
-  )
+export function isTableRow(element: any): element is ReactElement<Props> {
+  return isValidElement(element) && element.type === TableRow
 }

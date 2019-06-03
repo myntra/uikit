@@ -1,150 +1,107 @@
-import React, { PureComponent } from 'react'
-import { classnames, memoize } from '@myntra/uikit-utils'
-import { prepareHead, prepareCellProps } from './helpers'
-import TableColumn from './table-column'
-// import TableColumnFilter from './table-column-filter'
-import TableSimple from './table-simple'
-// import TableVirtual from './TableVirtual'
+import React, { PureComponent, Children, isValidElement } from 'react'
+import { RowRendererProps } from './table-interface'
+import normalize from './table-normalizer'
 
-export interface TableProps extends BaseProps {
-  data: any[]
+import SimpleRenderer from './renderers/simple'
+import TableColumn from './table-column'
+
+export interface TableProps<T = any> extends BaseProps {
+  data: T[]
+
+  displayColumns?: string[]
+
+  renderRow?(props: RowRendererProps): JSX.Element
+
+  appearance?: 'default' | 'striped'
+
   virtualized?: boolean
-  sort?: string[] | { column: string; order: 'ASC' | 'DESC' }[]
-  layout?: 'auto' | 'fixed'
-  columnOrder?: string[]
-  useDiv?: boolean
-  rowKey?(rowData: any, index: number): string
+}
+
+interface TableState {
+  /**
+   * @example js
+   *  {
+   *    foo: {
+   *      [symbol('sort')]: 'asc'
+   *    }
+   *  }
+   */
+  enhancers: Record<string, Record<symbol, any>>
 }
 
 /**
- * A simple table.
+ * A table.
  *
  * @since 0.3.0
  * @status REVIEWING
  */
-export default class Table extends PureComponent<TableProps> {
+export default class Table extends PureComponent<TableProps, TableState> {
   static Column = TableColumn
 
-  static defaultProps = {
-    /**
-     * @func
-     * @param {object} row
-     * @param {number} index
-     */
-    rowKey: (row, index) => index,
-    layout: 'fixed',
-    renderRow: ({ children, ...props }) => {
-      const el = React.Children.only(children)
-
-      if (!el) return el
-
-      const oldProps = el.props || {}
-
-      return React.cloneElement(el, {
-        className: classnames(oldProps.className, props.className).use({}),
-        style: { ...oldProps.style, ...props.style },
-      })
-    },
+  state = {
+    enhancers: {},
   }
 
-  prepareHead = memoize((children: any, order) =>
-    prepareHead(
-      React.Children.map(children, (child) => child).filter(Boolean) as any,
-      order
-    )
-  )
-  prepareSort = memoize((sort) =>
-    sort.map((column) =>
-      typeof column === 'string' ? { column, order: 'ASC' } : column
-    )
-  )
+  enhancerSetters: Record<string, (value: any) => void>
 
-  get head() {
-    return this.prepareHead(this.props.children, this.props.columnOrder)
+  getEnhancerStateForColumn(enhancer: string) {
+    return {
+      value: this.state.enhancers[enhancer],
+      onChange: this.getEnhancerChangeHandler(enhancer),
+    }
   }
 
-  get sort() {
-    return this.prepareSort(this.props.sort)
-  }
-
-  compare = (a, b) => (a < b ? -1 : a > b ? 1 : 0)
-
-  prepareRow = (data, index) => {
-    let columns
-    const ctx = this
-
-    const row = {
-      id: this.props.rowKey(data, index),
-      index,
-      data,
-      getColumn(index) {
-        const column = ctx.head.order[index]
-
-        return {
-          ...prepareCellProps(column.props as any),
-          key: column.key,
-          children: column.render({ data, column, meta: column.props }),
-        }
-      },
-      get columns() {
-        if (!columns) {
-          columns = ctx.head.order.map((column) => ({
-            ...prepareCellProps(column.props as any),
-            key: column.key,
-            children: column.render({ data, column, meta: column.props }),
-          }))
-        }
-        return columns
-      },
+  getEnhancerChangeHandler(enhancer: string) {
+    if (!(enhancer in this.enhancerSetters)) {
+      this.enhancerSetters[enhancer] = (value) =>
+        this.setState((state) => ({
+          enhancers: {
+            ...state.enhancers,
+            [enhancer]: value,
+          },
+        }))
     }
 
-    return row
+    return this.enhancerSetters[enhancer]
   }
 
   render() {
-    const {
-      children,
-      className,
-      columnOrder,
-      data,
-      layout,
-      rowKey,
-      sort,
-      useDiv,
-      virtualized,
-      renderRow,
-      ...props
-    } = this.props
-    const InternalTable = virtualized ? null : TableSimple
+    const { children, renderRow, virtualized, ...props } = this.props
+    const nodes = Children.toArray(children)
 
-    const doRender = (data) => (
-      <InternalTable
-        {...props}
-        data={data}
-        layout={layout}
-        head={this.head}
-        prepareRow={this.prepareRow}
-        renderRow={renderRow}
-        useDiv={useDiv}
-      />
+    if (!nodes.length) return null
+
+    const node: any = nodes.find(
+      (node) =>
+        isValidElement(node) &&
+        node.type &&
+        typeof (node.type as any)._ctor === 'function' &&
+        (node.type as any)._status !== 1
     )
 
-    // return Array.isArray(this.props.sort) && this.props.sort.length ? (
-    //   <Sortable
-    //     data={this.props.data}
-    //     compareFn={(a, b) => {
-    //       for (const { column, order } of this.sort) {
-    //         const val = this.compare(a[column], b[column])
+    if (node && typeof node.type._ctor === 'function') {
+      node.type._ctor().then(() => this.forceUpdate())
 
-    //         if (val !== 0) return order === 'DESC' ? -val : val
-    //       }
-    //       return 0
-    //     }}
-    //   >
-    //     {render}
-    //   </Sortable>
-    // ) : (
-    //   )
-    return doRender(this.props.data)
+      return (
+        <div style={{ display: 'none' }} data-note="waiting for children">
+          {children}
+        </div>
+      )
+    }
+
+    const table = normalize(children)
+
+    if (!table.columnsByLevel.length) return null
+
+    if (renderRow) {
+      table.rows.push({
+        selector() {
+          return true
+        },
+        render: renderRow,
+      })
+    }
+
+    return <SimpleRenderer {...props} config={table} />
   }
 }

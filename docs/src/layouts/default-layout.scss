@@ -131,7 +131,12 @@ table tr {
   padding: 0;
 }
 
-table tr:nth-child(2n) {
+table thead tr {
+  background-color: #ddd;
+}
+
+table > tbody > tr:nth-child(2n),
+table > tr:nth-child(2n) {
   background-color: #f8f8f8;
 }
 

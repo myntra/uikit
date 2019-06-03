@@ -26,6 +26,7 @@
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-component-measure": "link:../measure",
+    "@myntra/uikit-context": "link:../../packages/uikit-context",
     "@myntra/uikit-utils": "link:../../packages/uikit-utils"
   }
 }

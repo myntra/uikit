@@ -62,14 +62,13 @@ const [data] = useState([
 A table can have any number of fixed columns on left, however __only one fixed column is allowed on right__.
 
 ```jsx preview
-const [data] = useState([
-  { id: 1, name: 'Jane Doe', },
-  { id: 2, name: 'John Doe', },
-]);
+const [data] = useState(Array(20).fill({ id: 1, name: 'Jane Doe', }));
 
-<Table data={data}>
-  <Table.Column key="id" label="ID" fixed />
-  <Table.Column key="name" label="Name" fixed />
+<Table data={data} style={{ height: 320 }}>
+  <Table.Column key="info">
+    <Table.Column key="id" label="ID" fixed />
+    <Table.Column key="name" label="Name" fixed />
+  </Table.Column>
 
   {
     Array(14) // create empty array of length 14
