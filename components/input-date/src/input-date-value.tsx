@@ -1,10 +1,14 @@
-import React, { PureComponent, MouseEvent } from 'react'
+import React, { PureComponent } from 'react'
 import Icon from '@myntra/uikit-component-icon'
 import InputMasked, { Props } from '@myntra/uikit-component-input-masked'
 
 import classnames from './input-date-value.module.scss'
 import { parse, format } from './input-date-utils'
-import { DateRange, StringDateRange, isDateRange } from './input-date-helpers'
+import {
+  DateRange,
+  StringDateRange,
+  isStringDateRange,
+} from './input-date-helpers'
 
 const MASKS: Props['masks'] = {
   Y: {
@@ -27,8 +31,8 @@ const MASKS: Props['masks'] = {
 export interface InputDateValueProps extends BaseProps {
   format: string
 
-  value?: string | Date | DateRange | StringDateRange
-  onchange?(value: string | Date | DateRange | StringDateRange): void
+  value?: string | StringDateRange
+  onchange?(value: string | StringDateRange): void
 
   active?: 'from' | 'to'
 
@@ -42,7 +46,7 @@ export interface InputDateValueProps extends BaseProps {
  */
 export default class InputDateValue extends PureComponent<
   InputDateValueProps,
-  { value: string | Date | DateRange | StringDateRange }
+  { value: string | StringDateRange }
 > {
   state = { value: null }
 
@@ -121,7 +125,7 @@ export default class InputDateValue extends PureComponent<
         })}
         {...props}
       >
-        {isDateRange(value, range) ? (
+        {isStringDateRange(value, range) ? (
           [
             <div
               key="from"

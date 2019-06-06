@@ -19,6 +19,13 @@ export function isDateRange(
   return range === true
 }
 
+export function isStringDateRange(
+  value: undefined | string | Date | DateRange | StringDateRange,
+  range?: boolean
+): value is undefined | StringDateRange {
+  return range === true
+}
+
 export interface DateRange {
   from?: Date
   to?: Date

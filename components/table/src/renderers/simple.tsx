@@ -1,6 +1,7 @@
 import React, { PureComponent, ReactNode, isValidElement } from 'react'
 import { TableMeta, FixedPosition } from '../table-interface'
 import classnames from './simple.module.scss'
+import Measure from '@myntra/uikit-component-measure'
 
 export interface Props extends BaseProps {
   config: TableMeta
@@ -8,6 +9,12 @@ export interface Props extends BaseProps {
 }
 
 export default class SimpleTable extends PureComponent<Props> {
+  state = {
+    headers: {
+      // TODO: Measure and keep column sizes.
+    },
+  }
+
   defaultRowRenderer = {
     selector() {
       return true
@@ -17,14 +24,18 @@ export default class SimpleTable extends PureComponent<Props> {
     },
   }
 
-  warpIfNeeded(node: ReactNode, key: string) {
+  warpIfNeeded(node: ReactNode, key: string, props: Record<string, any>) {
     if (isValidElement(node)) {
       if (node.type === 'td') {
         return node
       }
     }
 
-    return <td key={key}>{node}</td>
+    return (
+      <td key={key} {...props}>
+        {node}
+      </td>
+    )
   }
 
   getRowRenderer(rowId: number) {
@@ -34,6 +45,8 @@ export default class SimpleTable extends PureComponent<Props> {
 
     return row
   }
+
+  getColumnTop() {}
 
   render() {
     const { config, data, className, children, style, ...props } = this.props
@@ -46,15 +59,24 @@ export default class SimpleTable extends PureComponent<Props> {
             <thead>
               {config.columnsByLevel.map((columns, headLevel) => (
                 <tr key={headLevel}>
-                  {columns.map((column) => (
-                    <th
-                      key={column.id}
-                      rowSpan={maxDepth - column.level - column.depth}
-                      colSpan={column.colSpan}
-                      style={{ '--sticky-top-offset': headLevel * 35 + 'px' }}
-                    >
-                      {column.renderHead()}
-                    </th>
+                  {columns.map((column, columnIndex) => (
+                    // TODO: Measure headers widths.
+                    <Measure>
+                      <th
+                        key={column.id}
+                        rowSpan={maxDepth - column.level - column.depth}
+                        colSpan={column.colSpan}
+                        style={{
+                          '--sticky-top-offset': headLevel * 35 + 'px',
+                          '--sticky-left-offset':
+                            typeof column.fixed !== 'undefined'
+                              ? columnIndex * 120 + 'px'
+                              : 'unset',
+                        }}
+                      >
+                        {column.renderHead()}
+                      </th>
+                    </Measure>
                   ))}
                 </tr>
               ))}
@@ -65,21 +87,34 @@ export default class SimpleTable extends PureComponent<Props> {
                 this.getRowRenderer(rowId).render({
                   rowId,
                   item,
-                  children: config.cells.map((column) =>
-                    this.warpIfNeeded(
+                  children: config.cells.map((column, columnIndex) => {
+                    const cellProps = {
+                      className: classnames({
+                        fixed: typeof column.fixed !== 'undefined',
+                      }),
+                      style: {
+                        '--sticky-left-offset':
+                          column.fixed === FixedPosition.START
+                            ? columnIndex * 120 + 'px'
+                            : column.fixed === FixedPosition.END
+                            ? '-100%'
+                            : 'unset',
+                      },
+                    }
+
+                    return this.warpIfNeeded(
                       column.renderCell({
+                        ...cellProps,
                         rowId,
                         columnId: column.id,
                         item,
                         data: item,
                         value: column.accessor(item, rowId),
-                        className: classnames({
-                          fixed: column.fixed === FixedPosition.START,
-                        }),
                       }),
-                      column.id
+                      column.id,
+                      cellProps
                     )
-                  ),
+                  }),
                 })
               )}
             </tbody>

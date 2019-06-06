@@ -1,7 +1,62 @@
 import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 import ResizeObserver from 'resize-observer-polyfill'
+
+export interface MeasureData {}
+
+export interface Props {
+  /**
+   * The callback fired when a DOM element is measured.
+   */
+  onMeasure?(data: MeasureData): void
+}
+
+const createObserver = function() {
+  const observer = new ResizeObserver(function(entries) {
+    entries.forEach((entry) => {
+      const handler = handlers.get(entry.target)
+
+      if (!handler) observer.unobserve(entry.target)
+      else handler(entry)
+    })
+  })
+
+  const handlers = new WeakMap()
+  const elements = new WeakMap()
+
+  return {
+    connect(handler) {
+      const currentElements = new Set()
+      elements.set(handler, currentElements)
+
+      return {
+        observe(element) {
+          observer.observe(element)
+          handlers.set(element, handler)
+          currentElements.add(element)
+        },
+        unobserve(element) {
+          observer.unobserve(element)
+          handlers.delete(element)
+          currentElements.delete(element)
+        },
+        disconnect() {
+          currentElements.forEach((element) => {
+            observer.unobserve(element)
+          })
+        },
+      }
+    },
+  }
+}
+
+interface Observer {
+  observe(element: HTMLElement): void
+  unobserve(element: HTMLElement): void
+  disconnect(): void
+}
+
+const observer = createObserver()
 
 /**
  * A component to declaratively measure element size.
@@ -10,21 +65,16 @@ import ResizeObserver from 'resize-observer-polyfill'
  * @status EXPERIMENTAL
  * @category advanced
  */
-class Measure extends PureComponent {
-  static propTypes = {
-    /**
-     * The callback fired when a DOM element is measured.
-     */
-    onMeasure: PropTypes.func,
-    /**
-     * The target element to be measured.
-     */
-    children: PropTypes.oneOfType([PropTypes.node, PropTypes.func]).isRequired,
-  }
+export default class Measure extends PureComponent<
+  Props,
+  { content: MeasureData }
+> {
+  _observer: Observer
+  _node: HTMLElement
 
   constructor(props) {
     super(props)
-    this._observer = new ResizeObserver(this.handleMeasure)
+    this._observer = observer.connect(this.handleMeasure)
     this.state = {
       content: {
         bounds: {},
@@ -38,7 +88,7 @@ class Measure extends PureComponent {
 
   componentWillUnmount() {
     if (this._observer && this._node) {
-      this._observer.disconnect(this._node)
+      this._observer.disconnect()
     }
   }
 
@@ -118,7 +168,7 @@ class Measure extends PureComponent {
     if (!this._observer || this._node === node) return
 
     if (node) {
-      if (!(node instanceof window.HTMLElement)) {
+      if (!(node instanceof HTMLElement)) {
         try {
           node = ReactDOM.findDOMNode(node) // eslint-disable-line react/no-find-dom-node
         } catch (e) {
@@ -144,8 +194,8 @@ class Measure extends PureComponent {
       )
     }
 
-    if (this._node !== node) {
-      this._observer.disconnect(this._node)
+    if (this._node && this._node !== node) {
+      this._observer.unobserve(this._node)
     }
 
     this._node = node
@@ -160,10 +210,12 @@ class Measure extends PureComponent {
       })
     }
 
+    if (!React.isValidElement(this.props.children)) {
+      return null
+    }
+
     return React.cloneElement(React.Children.only(this.props.children), {
       ref: this.handleRef,
-    })
+    } as any)
   }
 }
-
-export default Measure

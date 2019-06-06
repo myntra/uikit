@@ -1,9 +1,15 @@
 /* eslint react/no-find-dom-node: 0 */
 import { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
 
 let counter = 0
+
+export interface Props {
+  /** Attach child to specific component/element */
+  container?: boolean | string | HTMLElement
+  /** Wrapper <div> */
+  wrapper?: HTMLElement
+}
 
 /**
  * Declarative way of rendering content outside of react root node.
@@ -12,24 +18,14 @@ let counter = 0
  * @status REVIEWING
  * @category advanced
  */
-class Portal extends PureComponent {
+class Portal extends PureComponent<Props> {
   static isReact15 =
     typeof ReactDOM.createPortal !== 'function' &&
     /* istanbul ignore next: Tests are running with React 16 */
     typeof ReactDOM.unstable_renderSubtreeIntoContainer === 'function'
   static isReact16 = typeof ReactDOM.createPortal === 'function'
-  static propTypes = {
-    /** Attach child to specific component/element */
-    container: PropTypes.oneOfType([PropTypes.bool, PropTypes.string, PropTypes.instanceOf(HTMLElement)]).isRequired, // eslint-disable-line no-undef
-    /** React child component */
-    children: PropTypes.element.isRequired,
-    /** Wrapper <div> */
-    wrapper: PropTypes.instanceOf(HTMLElement) // eslint-disable-line no-undef
-  }
 
-  static contextTypes = {
-    theme: PropTypes.string
-  }
+  fallback: HTMLDivElement
 
   constructor(props) {
     super(props)
@@ -42,11 +38,11 @@ class Portal extends PureComponent {
   }
 
   get container() {
-    return this.props.container === true
+    return typeof this.props.container === 'boolean'
       ? document.body
       : typeof this.props.container === 'string'
-        ? document.querySelector(this.props.container)
-        : this.props.container
+      ? document.querySelector(this.props.container)
+      : this.props.container || document.body
   }
 
   componentDidMount() {
@@ -70,7 +66,11 @@ class Portal extends PureComponent {
   }
 
   fallbackRenderInPortal() {
-    ReactDOM.unstable_renderSubtreeIntoContainer(this, this.props.children, this.el)
+    ReactDOM.unstable_renderSubtreeIntoContainer(
+      this,
+      this.props.children,
+      this.el
+    )
   }
 
   render() {

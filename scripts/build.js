@@ -20,7 +20,7 @@ const path = require('path')
 const zlib = require('zlib')
 const chalk = require('chalk')
 const execa = require('execa')
-const { targets, fuzzyMatchTarget } = require('./utils')
+const { targets, fuzzyMatchTarget, getPackageDir, isTheme } = require('./utils')
 
 const args = require('minimist')(process.argv.slice(2))
 const target = args._[0]
@@ -42,13 +42,24 @@ async function buildAll(targets) {
 }
 
 async function build(target) {
-  const pkgDir = path.resolve(`packages/@myntra/${target}`)
+  if (isTheme(target)) return
+
+  const pkgDir = getPackageDir(target)
+  const pkg = require(`${pkgDir}/package.json`)
+
+  if (!/\.tsx?$/.test(pkg.main)) return
 
   await fs.remove(`${pkgDir}/dist`)
 
   await execa(
     'rollup',
-    ['-c', '--environment', `NODE_ENV:production,` + `TARGET:${target}` + (formats ? `,FORMATS:${formats}` : ``)],
+    [
+      '-c',
+      '--environment',
+      `NODE_ENV:production,` +
+        `TARGET:${target}` +
+        (formats ? `,FORMATS:${formats}` : ``),
+    ],
     { stdio: 'inherit' }
   )
 }
@@ -69,6 +80,10 @@ function checkSize(target) {
     const minSize = (file.length / 1024).toFixed(2) + 'kb'
     const gzipped = zlib.gzipSync(file)
     const gzipSize = (gzipped.length / 1024).toFixed(2) + 'kb'
-    console.log(`${chalk.gray(chalk.bold(`@myntra/${target}`))} min:${minSize} / gzip:${gzipSize}`)
+    console.log(
+      `${chalk.gray(
+        chalk.bold(`@myntra/${target}`)
+      )} min:${minSize} / gzip:${gzipSize}`
+    )
   }
 }

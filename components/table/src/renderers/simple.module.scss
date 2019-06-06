@@ -18,10 +18,12 @@
       position: -webkit-sticky;
       position: sticky;
       top: var(--sticky-top-offset, 0);
+      left: var(--sticky-left-offset, unset);
     }
   }
 
   .fixed {
     position: sticky;
+    left: var(--sticky-left-offset, 0);
   }
 }

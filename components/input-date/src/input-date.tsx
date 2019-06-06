@@ -8,10 +8,10 @@ import { format, parse, isDateEqual } from './input-date-utils'
 import { isDateRange, DateRange } from './input-date-helpers'
 import InputDateValue from './input-date-value'
 import InputDatePicker, {
-  InputDatePickerProps as Props,
+  Props as InputDatePickerProps,
 } from './input-date-picker'
 
-export interface Props extends Props {
+export interface Props extends InputDatePickerProps {
   /**
    * The date format to format value for displaying.
    */

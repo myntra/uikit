@@ -1,9 +1,7 @@
 {
   "name": "@myntra/uikit-component-measure",
   "version": "0.7.1",
-  "main": "src/measure.jsx",
-  "module": "dist/measure.js",
-  "browser": "src/measure.jsx",
+  "main": "src/measure.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/measure",

@@ -37,49 +37,15 @@ if (isComponent(name)) {
       format: 'esm',
     },
     external(name) {
-      return name in pkg.dependencies
+      return (
+        (pkg.dependencies && name in pkg.dependencies) ||
+        (pkg.peerDependencies && name in pkg.peerDependencies)
+      )
     },
-    plugins: [
-      nodeResolve(),
-      ts(),
-      postcss({
-        use: [
-          [
-            'sass',
-            {
-              importer: [
-                (imported, importer, done) => {
-                  if (imported === '@myntra/uikit-design') {
-                    return {
-                      file: require.resolve('./packages/uikit-design'),
-                    }
-                  }
-
-                  done()
-                },
-              ],
-            },
-          ],
-        ],
-        minimize: true,
-        plugins: [postcssImport()],
-        modules: {
-          generateScopedName(name, filename, css) {
-            const component = filename
-              .replace(componentsDir + '/', '')
-              .split('/')
-              .shift()
-
-            return `_u${hash(`${component}:${name}`, {
-              algorithm: 'md5',
-            }).substr(0, 5)}`
-          },
-        },
-      }),
-      classnames(),
-    ],
+    plugins: [nodeResolve(), css(), classnames(), ts()],
   })
 } else if (isTheme(name)) {
+  console.log('Building theme: ', name)
 } else {
   configs.push({
     input: get(pkg.tsMain || pkg.main),
@@ -87,9 +53,76 @@ if (isComponent(name)) {
       file: get(pkg.module),
       format: 'esm',
     },
-    external(name) {
-      return name in pkg.dependencies
+    external(dependency) {
+      if (/\.(png|sprite\.svg)$/.test(dependency)) {
+        return true
+      }
+
+      if (name === '@myntra/uikit') {
+        if (/^(react|react-dom)$/.test(dependency)) {
+          return true
+        }
+
+        return false
+      }
+
+      return (
+        (pkg.dependencies && dependency in pkg.dependencies) ||
+        (pkg.peerDependencies && dependency in pkg.peerDependencies)
+      )
     },
-    plugins: [nodeResolve(), ts()],
+    plugins: [aliases(), nodeResolve(), css(), classnames(), ts()],
+  })
+}
+
+function aliases() {
+  return {
+    name: 'aliases',
+    resolveId(id, importer) {
+      if (id === 'dayjs') {
+        console.log({
+          importer,
+        })
+        return require.resolve('dayjs/esm/index.js')
+      }
+    },
+  }
+}
+
+function css() {
+  return postcss({
+    use: [
+      [
+        'sass',
+        {
+          importer: (url, prev, done) => {
+            if (url === '@design') {
+              return {
+                file: path.resolve(__dirname, './themes/nuclei/design.scss'),
+              }
+            } else {
+              return {
+                file: require.resolve(url, { paths: [path.dirname(prev)] }),
+              }
+            }
+            // done()
+          },
+        },
+      ],
+    ],
+    minimize: true,
+    plugins: [postcssImport()],
+    modules: {
+      generateScopedName(name, filename, css) {
+        const component = filename
+          .replace(componentsDir + '/', '')
+          .split('/')
+          .shift()
+
+        return `_u${hash(`${component}:${name}`, {
+          algorithm: 'md5',
+        }).substr(0, 5)}`
+      },
+    },
   })
 }

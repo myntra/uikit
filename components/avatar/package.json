@@ -2,8 +2,6 @@
   "name": "@myntra/uikit-component-avatar",
   "version": "0.7.1",
   "main": "src/avatar.tsx",
-  "module": "dist/avatar.js",
-  "browser": "src/avatar.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/avatar",

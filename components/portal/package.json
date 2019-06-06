@@ -1,9 +1,7 @@
 {
   "name": "@myntra/uikit-component-portal",
   "version": "0.7.1",
-  "main": "src/portal.jsx",
-  "module": "dist/portal.js",
-  "browser": "src/portal.jsx",
+  "main": "src/portal.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/portal",

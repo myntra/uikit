@@ -1,5 +1,5 @@
 import React from 'react'
-import makeInitials from 'name-initials'
+import makeInitials from './initials'
 
 import classnames from './avatar.module.scss'
 

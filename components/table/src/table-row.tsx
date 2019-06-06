@@ -1,5 +1,5 @@
 import React, { ReactElement, isValidElement } from 'react'
-import { TableCellProps } from './table-normalizer'
+import { RowRendererProps } from './table-interface'
 
 export interface Props<T = any> extends BaseProps {
   /**
@@ -10,20 +10,20 @@ export interface Props<T = any> extends BaseProps {
   /**
    * Find a row to customize.
    */
-  selector?: number | ((props: TableCellProps<T>) => boolean)
+  selector?: number | ((rowId: number) => boolean)
 
   /**
    * Render contents of expanded row. Also, presence of this prop
    * makes the table row expandable.
    */
-  renderBody?(props: TableCellProps<T>): JSX.Element
+  renderBody?(props: RowRendererProps): JSX.Element
 
   /**
    * Customize row rendering behavior.
    *
    * __NOTE:__ Make sure to render `children` and use `Table.TR` as root element.
    */
-  children(props: TableCellProps<T>): JSX.Element
+  children(props: RowRendererProps): JSX.Element
 }
 
 /**
