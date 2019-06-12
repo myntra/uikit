@@ -1,15 +1,6 @@
 {
-  "include": [
-    "components/",
-    "packages/",
-    "themes/",
-    "@types/"
-  ],
-  "exclude": [
-    "dist",
-    "node_modules",
-    "old-packages"
-  ],
+  "include": ["components/", "packages/", "themes/", "@types/"],
+  "exclude": ["dist", "node_modules", "old-packages"],
   "compilerOptions": {
     "rootDir": ".",
     "baseUrl": ".",
@@ -21,7 +12,11 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
-      "@myntra/*": ["packages/*", "components/uikit-component-*", "components/uikit-theme-*"],
+      "@myntra/*": [
+        "packages/*",
+        "components/uikit-component-*",
+        "components/uikit-theme-*"
+      ]
     }
   }
 }
