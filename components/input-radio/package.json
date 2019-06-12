@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-radio",
   "version": "0.7.1",
-  "main": "src/input-radio.tsx",
-  "module": "dist/input-radio.js",
-  "browser": "src/input-radio.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-radio",
@@ -20,6 +17,9 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "latest"
-  }
+    "@types/react": "^16.8"
+  },
+  "main": "dist/input-radio.cjs.js",
+  "module": "dist/input-radio.esm.js",
+  "browser": "src/input-radio.tsx"
 }

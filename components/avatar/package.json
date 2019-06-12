@@ -1,7 +1,6 @@
 {
   "name": "@myntra/uikit-component-avatar",
   "version": "0.7.1",
-  "main": "src/avatar.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/avatar",
@@ -18,9 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.13"
+    "@types/react": "^16.8"
   },
+  "main": "dist/avatar.cjs.js",
   "dependencies": {
     "name-initials": "^0.1.3"
-  }
+  },
+  "module": "dist/avatar.esm.js"
 }

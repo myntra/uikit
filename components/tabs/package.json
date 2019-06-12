@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-tabs",
   "version": "0.7.1",
-  "main": "src/tabs.tsx",
-  "module": "dist/tabs.js",
-  "browser": "src/tabs.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/tabs",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "latest"
+    "@types/react": "^16.8"
   },
+  "main": "dist/tabs.cjs.js",
+  "module": "dist/tabs.esm.js",
+  "browser": "src/tabs.tsx",
   "exports": [
     "Tab"
   ]

@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-month",
   "version": "0.7.1",
-  "main": "src/input-month.tsx",
-  "module": "dist/input-month.js",
-  "browser": "src/input-month.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-month",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "latest"
+    "@types/react": "^16.8"
   },
+  "main": "dist/input-month.cjs.js",
+  "module": "dist/input-month.esm.js",
+  "browser": "src/input-month.tsx",
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-input-date": "link:../input-date",

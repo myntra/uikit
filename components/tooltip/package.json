@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-tooltip",
   "version": "0.7.1",
-  "main": "src/tooltip.tsx",
-  "module": "dist/tooltip.js",
-  "browser": "src/tooltip.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/tooltip",
@@ -20,9 +17,12 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.15",
+    "@types/react": "^16.8",
     "react": "^16.8.6"
   },
+  "main": "dist/tooltip.cjs.js",
+  "module": "dist/tooltip.esm.js",
+  "browser": "src/tooltip.tsx",
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown"
   }

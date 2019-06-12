@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-image",
   "version": "0.7.1",
-  "main": "src/image.tsx",
-  "module": "dist/image.js",
-  "browser": "src/image.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/image",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.13"
+    "@types/react": "^16.8"
   },
+  "main": "dist/image.cjs.js",
+  "module": "dist/image.esm.js",
+  "browser": "src/image.tsx",
   "dependencies": {
     "intersection-observer-polyfill": "^0.1.0",
     "prop-types": "^15.7.2"

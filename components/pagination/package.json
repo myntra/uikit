@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-pagination",
   "version": "0.7.1",
-  "main": "src/pagination.tsx",
-  "module": "dist/pagination.js",
-  "browser": "src/pagination.tsx",
   "author": "Akash Suresh <akashzsuresh@gmail.com>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/pagination",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.14"
+    "@types/react": "^16.8"
   },
+  "main": "dist/pagination.cjs.js",
+  "module": "dist/pagination.esm.js",
+  "browser": "src/pagination.tsx",
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@myntra/uikit-component-icon": "link:../icon",

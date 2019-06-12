@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-table",
   "version": "0.7.1",
-  "main": "src/table.tsx",
-  "module": "dist/table.js",
-  "browser": "src/table.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/table",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.13"
+    "@types/react": "^16.8"
   },
+  "main": "dist/table.cjs.js",
+  "module": "dist/table.esm.js",
+  "browser": "src/table.tsx",
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",

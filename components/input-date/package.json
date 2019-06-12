@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-date",
   "version": "0.7.1",
-  "main": "src/input-date.tsx",
-  "module": "dist/input-date.js",
-  "browser": "src/input-date.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-date",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "latest"
+    "@types/react": "^16.8"
   },
+  "main": "dist/input-date.cjs.js",
+  "module": "dist/input-date.esm.js",
+  "browser": "src/input-date.tsx",
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",

@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-section",
   "version": "0.7.1",
-  "main": "src/section.tsx",
-  "module": "dist/section.js",
-  "browser": "src/section.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/section",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.17"
+    "@types/react": "^16.8"
   },
+  "main": "dist/section.cjs.js",
+  "module": "dist/section.esm.js",
+  "browser": "src/section.tsx",
   "dependencies": {
     "@myntra/uikit-component-button": "link:../button"
   }

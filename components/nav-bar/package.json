@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-nav-bar",
   "version": "0.7.1",
-  "main": "src/nav-bar.tsx",
-  "module": "dist/nav-bar.js",
-  "browser": "src/nav-bar.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/nav-bar",
@@ -20,8 +17,11 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.13"
+    "@types/react": "^16.8"
   },
+  "main": "dist/nav-bar.cjs.js",
+  "module": "dist/nav-bar.esm.js",
+  "browser": "src/nav-bar.tsx",
   "dependencies": {
     "@myntra/uikit-can-i-use": "link:../../packages/uikit-can-i-use",
     "@myntra/uikit-component-avatar": "link:../avatar",

@@ -1,9 +1,6 @@
 {
   "name": "@myntra/uikit-component-accordion",
   "version": "0.7.1",
-  "main": "src/accordion.tsx",
-  "module": "dist/accordion.js",
-  "browser": "src/accordion.tsx",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/accordion",
@@ -20,8 +17,10 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@types/react": "latest"
+    "@types/react": "^16.8"
   },
+  "main": "dist/accordion.cjs.js",
+  "module": "dist/accordion.esm.js",
   "dependencies": {
     "@myntra/uikit-context": "link:../../packages/uikit-context"
   }
