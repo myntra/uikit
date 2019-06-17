@@ -12,6 +12,9 @@ const postcss = require('rollup-plugin-postcss')
 const nodeResolve = require('rollup-plugin-node-resolve')
 const classnames = require('@myntra/rollup-plugin-classnames')
 const postcssImport = require('postcss-import')
+const url = require('rollup-plugin-url')
+const del = require('rollup-plugin-delete')
+const size = require('rollup-plugin-bundle-size')
 const hash = require('hasha')
 
 if (!process.env.TARGET) {
@@ -29,50 +32,58 @@ function get(file) {
 const configs = (module.exports = [])
 
 // compile component with given theme.
-if (isComponent(name)) {
-  configs.push({
-    input: get(pkg.tsMain || pkg.main),
-    output: {
-      file: get(pkg.module),
-      format: 'esm',
-    },
+if (isComponent(name) || !isTheme(name)) {
+  const config = {
+    input: get('src/index.ts'),
     external(name) {
       return (
         (pkg.dependencies && name in pkg.dependencies) ||
         (pkg.peerDependencies && name in pkg.peerDependencies)
       )
     },
-    plugins: [nodeResolve(), css(), classnames(), ts()],
-  })
+    plugins: [
+      del(get('dist/**/*')),
+      aliases(),
+      sprite(),
+      url({ exclude: ['**/*.sprite.svg'], include: ['**/*.png'] }),
+      nodeResolve(),
+      css(),
+      size(),
+      classnames(),
+      ts({
+        tsconfig: 'tsconfig.build.json',
+        tsconfigOverride: {
+          include: [get('src'), path.resolve(__dirname, '@types')],
+          compilerOptions: {
+            declaration: true,
+            rootDir: get('src'),
+            baseUrl: get('src'),
+          },
+        },
+      }),
+    ],
+  }
+
+  if (pkg.module)
+    configs.push({
+      ...config,
+      output: {
+        file: get(pkg.module),
+        format: 'esm',
+      },
+    })
+
+  if (pkg.main)
+    configs.push({
+      ...config,
+      output: {
+        file: get(pkg.main),
+        format: 'cjs',
+        exports: 'named',
+      },
+    })
 } else if (isTheme(name)) {
   console.log('Building theme: ', name)
-} else {
-  configs.push({
-    input: get(pkg.tsMain || pkg.main),
-    output: {
-      file: get(pkg.module),
-      format: 'esm',
-    },
-    external(dependency) {
-      if (/\.(png|sprite\.svg)$/.test(dependency)) {
-        return true
-      }
-
-      if (name === '@myntra/uikit') {
-        if (/^(react|react-dom)$/.test(dependency)) {
-          return true
-        }
-
-        return false
-      }
-
-      return (
-        (pkg.dependencies && dependency in pkg.dependencies) ||
-        (pkg.peerDependencies && dependency in pkg.peerDependencies)
-      )
-    },
-    plugins: [aliases(), nodeResolve(), css(), classnames(), ts()],
-  })
 }
 
 function aliases() {
@@ -84,6 +95,21 @@ function aliases() {
           importer,
         })
         return require.resolve('dayjs/esm/index.js')
+      }
+    },
+  }
+}
+
+function sprite() {
+  return {
+    name: 'sprite.svg',
+    transform(source, id) {
+      if (!/\.sprite\.svg$/i.test(id)) return
+
+      return {
+        code: `const content = ${JSON.stringify(
+          source
+        )}; \nconst el = document.createElement('div'); el.setAttribute('hidden', ''); el.setAttribute('style', 'display: none'); el.innerHTML = content; document.body.appendChild(el); export default null;`,
       }
     },
   }

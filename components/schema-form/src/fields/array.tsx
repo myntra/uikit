@@ -5,7 +5,6 @@ import Grid from '@myntra/uikit-component-grid'
 import Field from '@myntra/uikit-component-field'
 import Button from '@myntra/uikit-component-button'
 
-import fields from './index'
 import classnames from './array.module.scss'
 import { UI } from '../json-schema-renderer'
 
@@ -112,7 +111,7 @@ class SchemaFormArray extends Component<Props> {
 
   render() {
     const Wrapper: any = this.props.component || Field
-    const { props, layout, value } = this.props
+    const { _fields, props, layout, value } = this.props as any // Hidden _fields prop.
     const { defaultValue = undefined, ...newProps } = {
       ...props,
       ...this.props.getDerivedPropsFromValue(value),
@@ -129,12 +128,13 @@ class SchemaFormArray extends Component<Props> {
           <Grid multiline gapless className={classnames('items')}>
             {this.value.map((value, index) => {
               const { type, ...ui } = this.props.factory(index)
-              const Input = fields[type] as ComponentType<any>
+              const Input = _fields[type] as ComponentType<any>
 
               return (
                 <Grid.Column size={12} key={index}>
                   <Grid multiline allowAnyChild>
                     <Input
+                      _fields={_fields}
                       {...ui}
                       path={`${this.props.path}/${index}`}
                       type={type}

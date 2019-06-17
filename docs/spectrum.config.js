@@ -39,8 +39,10 @@ module.exports = {
       .set('@design', '@myntra/uikit-theme-nuclei/design.scss')
       .set('@theme', '@myntra/uikit-theme-nuclei')
 
-    components.forEach(name => config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name))
-    packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name))
+    components.forEach(name =>
+      config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name + '/src/index.ts')
+    )
+    packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name + '/src/index.ts'))
     themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name))
     config.resolve.extensions
       .add('.ts')

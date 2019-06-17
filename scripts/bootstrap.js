@@ -22,16 +22,16 @@ targets.forEach((name) => {
   const pkg = {
     name,
     version,
-    main: isComponent(name) ? `src/${shortName}.tsx` : `src/index.ts`,
-    module: `dist/${shortName}.js`,
-    browser: isComponent(name) ? `src/${shortName}.tsx` : `src/index.ts`,
+    main: `dist/${shortName}.cjs.js`,
+    module: `dist/${shortName}.esm.js`,
+    types: 'dist/index.d.ts',
     author: 'Rahul Kadyan <hi@znck.me>',
     license: 'UNLICENSED',
     repository: getPackageRepository(name),
     publishConfig: {
       registry: 'http://registry.myntra.com:8000',
     },
-    files: ['src/', 'dist/', 'bin/', '*.codemod.js'],
+    files: ['src/', 'dist/', 'bin/'],
   }
 
   if (isComponent(name)) {

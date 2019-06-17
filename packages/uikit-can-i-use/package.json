@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-can-i-use",
   "version": "0.7.1",
-  "main": "src/index.ts",
-  "module": "dist/uikit-can-i-use.js",
-  "browser": "src/index.ts",
+  "main": "dist/uikit-can-i-use.cjs.js",
+  "module": "dist/uikit-can-i-use.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-can-i-use",
@@ -16,6 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
+  "browser": "src/index.ts",
   "peerDependencies": {
     "react": "*",
     "react-dom": "*"

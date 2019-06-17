@@ -1,10 +1,8 @@
 import React, {
   PureComponent,
   Children,
-  JSXElementConstructor,
   isValidElement,
   cloneElement,
-  MouseEvent,
 } from 'react'
 import Tab from './tab'
 
@@ -50,7 +48,7 @@ export default class Tabs extends PureComponent<
     activeIndex: 0,
   }
 
-  handleClick = (event: MouseEvent<HTMLDivElement>) => {
+  handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
     const activeIndex = Number(event.currentTarget.dataset.index)
 
     if (!Number.isInteger(activeIndex)) return

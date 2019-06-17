@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-dropdown",
   "version": "0.7.1",
+  "main": "dist/dropdown.cjs.js",
+  "module": "dist/dropdown.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/dropdown",
@@ -10,8 +13,7 @@
   "files": [
     "src/",
     "dist/",
-    "bin/",
-    "*.codemod.js"
+    "bin/"
   ],
   "peerDependencies": {
     "react": ">=15.4"
@@ -19,9 +21,6 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/dropdown.cjs.js",
-  "module": "dist/dropdown.esm.js",
-  "browser": "src/dropdown.tsx",
   "dependencies": {
     "@myntra/uikit-component-button": "link:../button",
     "@myntra/uikit-component-click-away": "link:../click-away",

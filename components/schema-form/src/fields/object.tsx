@@ -2,7 +2,6 @@ import React, { Component, ComponentType } from 'react'
 import { looseEquals } from '@myntra/uikit-utils'
 import Grid from '@myntra/uikit-component-grid'
 
-import fields from './index'
 import { UI } from '../json-schema-renderer'
 
 const FallbackWrapper = function Wrapper({ children }) {
@@ -91,7 +90,7 @@ export default class SchemaFormObject extends Component<Props> {
 
   render() {
     const Wrapper = this.props.component || FallbackWrapper
-    const { props, layout } = this.props
+    const { _fields, props, layout } = this.props as any // Hidden _field prop
     const { properties: derivedProps = {} } =
       this.props.getDerivedPropsFromValue(this.props.value) || {}
 
@@ -104,10 +103,11 @@ export default class SchemaFormObject extends Component<Props> {
         <Wrapper {...props}>
           <Grid multiline gapless>
             {this.props.properties.map(({ type, name, ...ui }) => {
-              const Input = fields[type] as ComponentType<any>
+              const Input = _fields[type] as ComponentType<any>
 
               return (
                 <Input
+                  _fields={_fields}
                   {...ui}
                   {...props[name]}
                   {...derivedProps[name]}

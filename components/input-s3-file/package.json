@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-input-s3-file",
   "version": "0.7.1",
+  "main": "dist/input-s3-file.cjs.js",
+  "module": "dist/input-s3-file.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/s3-upload",
@@ -19,8 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/input-s3-file.cjs.js",
-  "module": "dist/input-s3-file.esm.js",
   "browser": "src/input-s3-file.tsx",
   "tsMain": "src/input-s3-file.tsx",
   "dependencies": {

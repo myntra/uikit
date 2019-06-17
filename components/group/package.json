@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-group",
   "version": "0.7.1",
+  "main": "dist/group.cjs.js",
+  "module": "dist/group.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/group",
@@ -19,7 +22,5 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/group.cjs.js",
-  "module": "dist/group.esm.js",
   "browser": "src/group.tsx"
 }

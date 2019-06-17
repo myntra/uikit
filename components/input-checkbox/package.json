@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-input-checkbox",
   "version": "0.7.1",
+  "main": "dist/input-checkbox.cjs.js",
+  "module": "dist/input-checkbox.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-checkbox",
@@ -19,8 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/input-checkbox.cjs.js",
-  "module": "dist/input-checkbox.esm.js",
   "browser": "src/input-checkbox.tsx",
   "dependencies": {
     "@myntra/uikit-component-input-text": "link:../input-text"

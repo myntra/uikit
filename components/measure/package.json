@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-measure",
   "version": "0.7.1",
+  "main": "dist/measure.cjs.js",
+  "module": "dist/measure.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/measure",
@@ -21,10 +24,8 @@
     "@types/react": "^16.8",
     "react-dom": "^16.8.6"
   },
-  "main": "dist/measure.cjs.js",
   "dependencies": {
     "prop-types": "^15.7.2",
     "resize-observer-polyfill": "^1.5.1"
-  },
-  "module": "dist/measure.esm.js"
+  }
 }

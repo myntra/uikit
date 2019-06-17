@@ -1,4 +1,4 @@
-import React, { Component, RefObject, MouseEvent } from 'react'
+import React, { Component, RefObject } from 'react'
 
 import Button from '@myntra/uikit-component-button'
 import ClickAway from '@myntra/uikit-component-click-away'
@@ -46,8 +46,8 @@ function findScrollParents(el: Element) {
 
 export interface Props extends BaseProps {
   renderTrigger(props: {
-    onMouseEnter?(event: MouseEvent | React.MouseEvent): void
     onMouseLeave?(event: MouseEvent | React.MouseEvent): void
+    onMouseEnter?(event: MouseEvent | React.MouseEvent): void
     onClick?(event: MouseEvent | React.MouseEvent): void
     onFocus?(event: FocusEvent | React.FocusEvent): void
     onBlur?(event: FocusEvent | React.FocusEvent): void
@@ -519,7 +519,7 @@ export default class Dropdown extends Component<
                 onMouseEnter={isHover ? this.handleContentMouseEnter : null}
                 onMouseLeave={isHover ? this.handleContentMouseLeave : null}
               >
-                <Measure bounds onMeasure={this.handleMeasure}>
+                <Measure onMeasure={this.handleMeasure}>
                   <div
                     className={classnames('content-wrapper')}
                     style={position && position.content}
@@ -534,7 +534,7 @@ export default class Dropdown extends Component<
               className={classnames('content', { up, left, right, down })}
               ref={this.wrapperRef}
             >
-              <Measure bounds onMeasure={this.handleMeasure}>
+              <Measure onMeasure={this.handleMeasure}>
                 <div
                   className={classnames('content-wrapper')}
                   data-test-id="content"

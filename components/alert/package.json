@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-alert",
   "version": "0.7.1",
+  "main": "dist/alert.cjs.js",
+  "module": "dist/alert.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/alert",
@@ -19,8 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/alert.cjs.js",
-  "module": "dist/alert.esm.js",
   "browser": "src/alert.tsx",
   "dependencies": {
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",

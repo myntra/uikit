@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-table",
   "version": "0.7.1",
+  "main": "dist/table.cjs.js",
+  "module": "dist/table.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/table",
@@ -19,8 +22,6 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/table.cjs.js",
-  "module": "dist/table.esm.js",
   "browser": "src/table.tsx",
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown",

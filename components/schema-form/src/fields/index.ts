@@ -1,8 +1,6 @@
-import React from 'react'
-
-const Field = React.lazy(() => import('./field'))
-const FieldArray = React.lazy(() => import('./array'))
-const FieldObject = React.lazy(() => import('./object'))
+import Field from './field'
+import FieldArray from './array'
+import FieldObject from './object'
 
 export default {
   field: Field,

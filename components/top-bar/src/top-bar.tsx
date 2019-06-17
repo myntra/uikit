@@ -4,7 +4,7 @@ import Dropdown from '@myntra/uikit-component-dropdown'
 import List from '@myntra/uikit-component-list'
 import classnames from './top-bar.module.scss'
 import Item from './top-bar-item'
-import { Icon } from '@myntra/uikit/src'
+import Icon from '@myntra/uikit-component-icon'
 
 export interface TopBarProps extends BaseProps {
   title: string

@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-virtual-list",
   "version": "0.7.1",
+  "main": "dist/virtual-list.cjs.js",
+  "module": "dist/virtual-list.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/virtual-list",
@@ -22,8 +25,6 @@
     "@types/react-dom": "^16.8.3",
     "react-dom": "^16.8.6"
   },
-  "main": "dist/virtual-list.cjs.js",
-  "module": "dist/virtual-list.esm.js",
   "browser": "src/index.ts",
   "tsMain": "src/virtual-list.tsx"
 }

@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-grid",
   "version": "0.7.1",
+  "main": "dist/grid.cjs.js",
+  "module": "dist/grid.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/grid",
@@ -20,8 +23,6 @@
     "@myntra/codemod-utils": "link:../../packages/codemod-utils",
     "@types/react": "^16.8"
   },
-  "main": "dist/grid.cjs.js",
-  "module": "dist/grid.esm.js",
   "browser": "src/grid.tsx",
   "dependencies": {
     "prop-types": "^15.7.2"

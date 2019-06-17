@@ -115,6 +115,7 @@ export default class SchemaForm extends Component<Props, { ui: UI | null }> {
     return (
       <Form {...props} className={className} key="form">
         <Field
+          _fields={fields}
           {...ui}
           key="#"
           path="#"

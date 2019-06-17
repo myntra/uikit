@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-icon",
   "version": "0.7.1",
+  "main": "dist/icon.cjs.js",
+  "module": "dist/icon.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/Icon",
@@ -23,8 +26,6 @@
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.16.4"
   },
-  "main": "dist/icon.cjs.js",
-  "module": "dist/icon.esm.js",
   "browser": "src/icon.tsx",
   "dependencies": {
     "react": "16.*"

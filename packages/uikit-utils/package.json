@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-utils",
   "version": "0.9.2",
-  "main": "src/index.ts",
-  "module": "dist/uikit-utils.js",
-  "browser": "src/index.ts",
+  "main": "dist/uikit-utils.cjs.js",
+  "module": "dist/uikit-utils.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/uikit-utils",
@@ -15,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "browser": "src/index.ts",
   "tsMain": "src/index.ts",
   "description": "@myntra/uikit-utils",
   "sideEffects": false,

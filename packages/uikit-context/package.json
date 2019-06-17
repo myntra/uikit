@@ -1,9 +1,9 @@
 {
   "name": "@myntra/uikit-context",
   "version": "0.7.1",
-  "main": "src/index.tsx",
-  "module": "dist/uikit-context.js",
-  "browser": "src/index.ts",
+  "main": "dist/uikit-context.cjs.js",
+  "module": "dist/uikit-context.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-context",
@@ -16,6 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
+  "browser": "src/index.ts",
   "dependencies": {
     "@myntra/uikit-can-i-use": "link:../uikit-can-i-use",
     "react": "^16.8.4"

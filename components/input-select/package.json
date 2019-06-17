@@ -1,6 +1,9 @@
 {
   "name": "@myntra/uikit-component-input-select",
   "version": "0.7.1",
+  "main": "dist/input-select.cjs.js",
+  "module": "dist/input-select.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-select",
@@ -19,14 +22,13 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "main": "dist/input-select.cjs.js",
-  "module": "dist/input-select.esm.js",
   "browser": "src/input-select.tsx",
   "dependencies": {
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-component-input-text": "link:../input-text",
     "@myntra/uikit-component-list": "link:../list",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils",
     "sifter": "^0.5.3"
   }
 }

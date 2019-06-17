@@ -6,7 +6,7 @@ import React, {
   Children,
   FunctionComponent,
   Component,
-  Context
+  Context,
 } from 'react'
 
 export interface LinkProps {
@@ -38,7 +38,7 @@ export const DEFAULT_CONTEXT: UIKitContext = {
         {children}
       </a>
     )
-  }
+  },
 }
 
 // Fallback Context.
@@ -52,7 +52,7 @@ export function createContext<T>(defaultValue: T): Context<T> {
 
   class Provider extends PureComponent<ProviderProps<T>> {
     static childContextTypes = {
-      [id]() {}
+      [id]() {},
     }
 
     static get $$typeof() {
@@ -70,7 +70,7 @@ export function createContext<T>(defaultValue: T): Context<T> {
 
   class Consumer extends Component<ConsumerProps<T>> {
     static contextTypes = {
-      [id]() {}
+      [id]() {},
     }
 
     static get $$typeof() {
@@ -86,5 +86,3 @@ export function createContext<T>(defaultValue: T): Context<T> {
 
   return { Provider, Consumer } as any
 }
-
-export default createContext(DEFAULT_CONTEXT)
