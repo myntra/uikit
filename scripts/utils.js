@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const { TopologicalSort } = require('topological-sort')
 
 const packagesDir = path.resolve(__dirname, '../packages')
 const componentsDir = path.resolve(__dirname, '../components')
@@ -22,11 +23,39 @@ function findPackages(dir) {
 const packages = findPackages(packagesDir)
 const components = findPackages(componentsDir)
 const themes = findPackages(themesDir)
-const targets = [
+const targets = sortedPackages([
   ...packages.map((pkg) => `@myntra/${pkg}`),
   ...components.map((component) => `@myntra/uikit-component-${component}`),
   ...themes.map((theme) => `@myntra/uikit-theme-${theme}`),
-]
+])
+
+function readPackage(name) {
+  const pkgDir = getPackageDir(name)
+
+  try {
+    return require(`${pkgDir}/package.json`)
+  } catch (error) {
+    return {}
+  }
+}
+
+/// sort targets
+function sortedPackages(targets) {
+  const nodes = new Map(targets.map((name) => [name, name]))
+  const op = new TopologicalSort(nodes)
+
+  targets.forEach((target) => {
+    const pkg = readPackage(target)
+
+    Object.keys(pkg.dependencies || {})
+      .filter((name) => name.startsWith('@myntra/'))
+      .forEach((name) => op.addEdge(name, target))
+  })
+
+  const sorted = op.sort()
+
+  return [...sorted.keys()]
+}
 
 /**
  * Convert to camelCase

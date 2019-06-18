@@ -22,6 +22,7 @@ const { targets, fuzzyMatchTarget, getPackageDir, isTheme } = require('./utils')
 
 const args = require('minimist')(process.argv.slice(2))
 const target = args._[0]
+
 ;(async () => {
   if (!target) {
     await buildAll(targets)
@@ -30,10 +31,8 @@ const target = args._[0]
   }
 })()
 
-async function buildAll(targets) {
-  if (process.env.CI) return Promise.all(targets.map((target) => build(target)))
-
-  for (const target of targets) {
+async function buildAll(names) {
+  for (const target of names) {
     await build(target)
   }
 }

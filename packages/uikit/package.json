@@ -53,7 +53,6 @@
     "@myntra/uikit-component-pagination": "link:../../components/pagination",
     "@myntra/uikit-component-portal": "link:../../components/portal",
     "@myntra/uikit-component-progress": "link:../../components/progress",
-    "@myntra/uikit-component-s3-upload": "link:../../components/input-s3-file",
     "@myntra/uikit-component-schema-form": "link:../../components/schema-form",
     "@myntra/uikit-component-section": "link:../../components/section",
     "@myntra/uikit-component-table": "link:../../components/table",

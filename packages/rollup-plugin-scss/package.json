@@ -1,0 +1,24 @@
+{
+  "name": "@myntra/rollup-plugin-scss",
+  "version": "0.7.1",
+  "main": "src/index.js",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/rollup-plugin-scss",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ],
+  "dependencies": {
+    "@znck/promised": "^1.0.4",
+    "autoprefixer": "^9.6.0",
+    "postcss": "^7.0.17",
+    "postcss-modules": "^1.4.1",
+    "rollup-pluginutils": "^2.8.1",
+    "sass": "^1.21.0"
+  }
+}

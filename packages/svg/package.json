@@ -2,6 +2,8 @@
   "name": "@myntra/svg",
   "version": "0.7.1",
   "main": "src/index.js",
+  "module": "dist/svg.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/svg",

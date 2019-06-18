@@ -8,10 +8,9 @@ const {
 } = require('./scripts/utils')
 const path = require('path')
 const ts = require('rollup-plugin-typescript2')
-const postcss = require('rollup-plugin-postcss')
 const nodeResolve = require('rollup-plugin-node-resolve')
+const css = require('@myntra/rollup-plugin-scss')
 const classnames = require('@myntra/rollup-plugin-classnames')
-const postcssImport = require('postcss-import')
 const url = require('rollup-plugin-url')
 const del = require('rollup-plugin-delete')
 const size = require('rollup-plugin-bundle-size')
@@ -47,10 +46,24 @@ if (isComponent(name) || !isTheme(name)) {
       sprite(),
       url({ exclude: ['**/*.sprite.svg'], include: ['**/*.png'] }),
       nodeResolve(),
-      css(),
+      css({
+        modules: {
+          generateScopedName(name, filename, css) {
+            const component = filename
+              .replace(componentsDir + '/', '')
+              .split('/')
+              .shift()
+
+            return `_u${hash(`${component}:${name}`, {
+              algorithm: 'md5',
+            }).substr(0, 5)}`
+          },
+        },
+      }),
       size(),
       classnames(),
       ts({
+        objectHashIgnoreUnknownHack: true,
         tsconfig: 'tsconfig.build.json',
         tsconfigOverride: {
           include: [get('src'), path.resolve(__dirname, '@types')],
@@ -91,10 +104,11 @@ function aliases() {
     name: 'aliases',
     resolveId(id, importer) {
       if (id === 'dayjs') {
-        console.log({
-          importer,
-        })
         return require.resolve('dayjs/esm/index.js')
+      }
+
+      if (id === '@design') {
+        return require.resolve('./themes/nuclei/design.scss')
       }
     },
   }
@@ -113,42 +127,4 @@ function sprite() {
       }
     },
   }
-}
-
-function css() {
-  return postcss({
-    use: [
-      [
-        'sass',
-        {
-          importer: (url, prev, done) => {
-            if (url === '@design') {
-              return {
-                file: path.resolve(__dirname, './themes/nuclei/design.scss'),
-              }
-            } else {
-              return {
-                file: require.resolve(url, { paths: [path.dirname(prev)] }),
-              }
-            }
-            // done()
-          },
-        },
-      ],
-    ],
-    minimize: true,
-    plugins: [postcssImport()],
-    modules: {
-      generateScopedName(name, filename, css) {
-        const component = filename
-          .replace(componentsDir + '/', '')
-          .split('/')
-          .shift()
-
-        return `_u${hash(`${component}:${name}`, {
-          algorithm: 'md5',
-        }).substr(0, 5)}`
-      },
-    },
-  })
 }

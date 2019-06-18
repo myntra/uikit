@@ -53,6 +53,7 @@
     "@myntra/docgen": "link:packages/docgen",
     "@myntra/eslint-config-standard": "link:packages/eslint-config-standard",
     "@myntra/rollup-plugin-classnames": "link:packages/rollup-plugin-classnames",
+    "@myntra/rollup-plugin-scss": "link:packages/rollup-plugin-scss",
     "@myntra/stylelint-config-standard": "link:packages/stylelint-config-standard",
     "@types/enzyme": "^3.9.1",
     "@types/jest": "^24.0.11",
@@ -105,6 +106,7 @@
     "serve": "^11.0.0",
     "standard-version": "^4.4.0",
     "stylelint": "^9.10.1",
+    "topological-sort": "^0.3.0",
     "ts-jest": "^24.0.0",
     "typescript": "^3.3.3333"
   },
