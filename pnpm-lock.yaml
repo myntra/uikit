@@ -55,6 +55,7 @@ importers:
       react-dom: registry.npmjs.org/react-dom/16.8.6
       rollup: registry.npmjs.org/rollup/1.10.0
       rollup-plugin-bundle-size: registry.npmjs.org/rollup-plugin-bundle-size/1.0.3
+      rollup-plugin-copy: registry.npmjs.org/rollup-plugin-copy/3.0.0
       rollup-plugin-delete: registry.npmjs.org/rollup-plugin-delete/1.0.0
       rollup-plugin-node-resolve: registry.npmjs.org/rollup-plugin-node-resolve/4.2.3
       rollup-plugin-postcss: registry.npmjs.org/rollup-plugin-postcss/2.0.3
@@ -123,6 +124,7 @@ importers:
       react-dom: ^16.8.4
       rollup: ^1.7.0
       rollup-plugin-bundle-size: ^1.0.3
+      rollup-plugin-copy: ^3.0.0
       rollup-plugin-delete: ^1.0.0
       rollup-plugin-node-resolve: ^4.0.1
       rollup-plugin-postcss: ^2.0.3
@@ -533,6 +535,8 @@ importers:
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-component-measure': 'link:../measure'
+      '@myntra/uikit-component-virtual-grid': 'link:../virtual-grid'
+      '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
@@ -541,6 +545,8 @@ importers:
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-component-measure': 'link:../measure'
+      '@myntra/uikit-component-virtual-grid': 'link:../virtual-grid'
+      '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
       '@types/react': ^16.8
@@ -582,11 +588,14 @@ importers:
       '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
       '@types/react': ^16.8
   components/virtual-list:
+    dependencies:
+      '@myntra/uikit-component-measure': 'link:../measure'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.8.20
       '@types/react-dom': registry.npmjs.org/@types/react-dom/16.8.4
-      react-dom: registry.npmjs.org/react-dom/16.8.6_react@16.8.6
+      react-dom: registry.npmjs.org/react-dom/16.8.6
     specifiers:
+      '@myntra/uikit-component-measure': 'link:../measure'
       '@types/react': ^16.8
       '@types/react-dom': ^16.8.3
       react-dom: ^16.8.6
@@ -3814,6 +3823,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@types/events/-/events-3.0.0.tgz'
     version: 3.0.0
+  registry.npmjs.org/@types/fs-extra/7.0.0:
+    dependencies:
+      '@types/node': registry.npmjs.org/@types/node/12.0.10
+    dev: true
+    name: '@types/fs-extra'
+    resolution:
+      integrity: sha512-ndoMMbGyuToTy4qB6Lex/inR98nPiNHacsgMPvy+zqMLgSxbt8VtWpDArpGp69h1fEDQHn1KB+9DWD++wgbwYA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/fs-extra/-/fs-extra-7.0.0.tgz'
+    version: 7.0.0
   registry.npmjs.org/@types/glob/5.0.30:
     dependencies:
       '@types/minimatch': registry.npmjs.org/@types/minimatch/3.0.3
@@ -3829,7 +3848,7 @@ packages:
     dependencies:
       '@types/events': registry.npmjs.org/@types/events/3.0.0
       '@types/minimatch': registry.npmjs.org/@types/minimatch/3.0.3
-      '@types/node': registry.npmjs.org/@types/node/12.0.8
+      '@types/node': registry.npmjs.org/@types/node/12.0.10
     name: '@types/glob'
     resolution:
       integrity: sha512-1Bh06cbWJUHMC97acuD6UMG29nMt0Aqz1vF3guLfG+kHHJhy3AyohZFFxYk2f7Q1SQIrNwvncxAE0N/9s70F2w==
@@ -3893,6 +3912,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@types/node/-/node-11.13.8.tgz'
     version: 11.13.8
+  registry.npmjs.org/@types/node/12.0.10:
+    name: '@types/node'
+    resolution:
+      integrity: sha512-LcsGbPomWsad6wmMNv7nBLw7YYYyfdYcz6xryKYQhx89c3XXan+8Q6AJ43G5XDIaklaVkK3mE4fCb0SBvMiPSQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/node/-/node-12.0.10.tgz'
+    version: 12.0.10
   registry.npmjs.org/@types/node/12.0.8:
     name: '@types/node'
     resolution:
@@ -7781,6 +7807,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/color/-/color-3.1.2.tgz'
     version: 3.1.2
+  registry.npmjs.org/colorette/1.0.8:
+    dev: true
+    name: colorette
+    resolution:
+      integrity: sha512-X6Ck90ReaF+EfKdVGB7vdIQ3dr651BbIrBwY5YBKg13fjH+940sTtp7/Pkx33C6ntYfQcRumOs/aUQhaRPpbTQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/colorette/-/colorette-1.0.8.tgz'
+    version: 1.0.8
   registry.npmjs.org/colors/1.3.3:
     dev: false
     engines:
@@ -12152,7 +12186,7 @@ packages:
     dependencies:
       fs.realpath: registry.npmjs.org/fs.realpath/1.0.0
       inflight: registry.npmjs.org/inflight/1.0.6
-      inherits: registry.npmjs.org/inherits/2.0.3
+      inherits: registry.npmjs.org/inherits/2.0.4
       minimatch: registry.npmjs.org/minimatch/3.0.4
       once: registry.npmjs.org/once/1.4.0
       path-is-absolute: registry.npmjs.org/path-is-absolute/1.0.1
@@ -13168,6 +13202,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/inherits/-/inherits-2.0.3.tgz'
     version: 2.0.3
+  registry.npmjs.org/inherits/2.0.4:
+    name: inherits
+    resolution:
+      integrity: sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz'
+    version: 2.0.4
   registry.npmjs.org/ini/1.3.5:
     name: ini
     resolution:
@@ -13796,6 +13837,18 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/is-plain-object/-/is-plain-object-2.0.4.tgz'
     version: 2.0.4
+  registry.npmjs.org/is-plain-object/3.0.0:
+    dependencies:
+      isobject: registry.npmjs.org/isobject/4.0.0
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    name: is-plain-object
+    resolution:
+      integrity: sha512-tZIpofR+P05k8Aocp7UI/2UTa9lTJSebCXpFFoR9aibpokDj/uXBsJ8luUu0tTVYKkMU6URDUuOfJZ7koewXvg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/is-plain-object/-/is-plain-object-3.0.0.tgz'
+    version: 3.0.0
   registry.npmjs.org/is-posix-bracket/0.1.1:
     dev: false
     engines:
@@ -14034,6 +14087,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/isobject/-/isobject-3.0.1.tgz'
     version: 3.0.1
+  registry.npmjs.org/isobject/4.0.0:
+    dev: true
+    engines:
+      node: '>=0.10.0'
+    name: isobject
+    resolution:
+      integrity: sha512-S/2fF5wH8SJA/kmwr6HYhK/RI/OkhD84k8ntalo0iJjZikgq1XFvR5M8NPT1x5F7fBwCG3qHfnzeP/Vh/ZxCUA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/isobject/-/isobject-4.0.0.tgz'
+    version: 4.0.0
   registry.npmjs.org/isstream/0.1.2:
     dev: true
     name: isstream
@@ -16449,6 +16512,7 @@ packages:
     dependencies:
       for-in: registry.npmjs.org/for-in/1.0.2
       is-extendable: registry.npmjs.org/is-extendable/1.0.1
+    deprecated: 'Critical bug fixed in v2.0.1, please upgrade to the latest version.'
     engines:
       node: '>=0.10.0'
     name: mixin-deep
@@ -19463,7 +19527,6 @@ packages:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
       prop-types: registry.npmjs.org/prop-types/15.7.2
-      react: registry.npmjs.org/react/16.8.6
       scheduler: registry.npmjs.org/scheduler/0.13.6
     dev: true
     id: registry.npmjs.org/react-dom/16.8.6
@@ -20628,6 +20691,22 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/rollup-plugin-bundle-size/-/rollup-plugin-bundle-size-1.0.3.tgz'
     version: 1.0.3
+  registry.npmjs.org/rollup-plugin-copy/3.0.0:
+    dependencies:
+      '@types/fs-extra': registry.npmjs.org/@types/fs-extra/7.0.0
+      colorette: registry.npmjs.org/colorette/1.0.8
+      fs-extra: registry.npmjs.org/fs-extra/7.0.1
+      globby: registry.npmjs.org/globby/9.2.0
+      is-plain-object: registry.npmjs.org/is-plain-object/3.0.0
+    dev: true
+    engines:
+      node: '>=8.3'
+    name: rollup-plugin-copy
+    resolution:
+      integrity: sha512-KLXcjur3O5DbCX5NNSFPAGjcncYcEV/sAy4Q6cZvCjW0/hh5TrUeTvrWECVF18EggK64AOAWCeb2kCpwp+1Q+A==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/rollup-plugin-copy/-/rollup-plugin-copy-3.0.0.tgz'
+    version: 3.0.0
   registry.npmjs.org/rollup-plugin-delete/1.0.0:
     dependencies:
       del: registry.npmjs.org/del/4.1.1
@@ -21227,6 +21306,7 @@ packages:
       is-extendable: registry.npmjs.org/is-extendable/0.1.1
       is-plain-object: registry.npmjs.org/is-plain-object/2.0.4
       to-object-path: registry.npmjs.org/to-object-path/0.3.0
+    deprecated: 'Critical bug fixed in v3.0.1, please upgrade to the latest version.'
     engines:
       node: '>=0.10.0'
     name: set-value
@@ -21241,6 +21321,7 @@ packages:
       is-extendable: registry.npmjs.org/is-extendable/0.1.1
       is-plain-object: registry.npmjs.org/is-plain-object/2.0.4
       split-string: registry.npmjs.org/split-string/3.1.0
+    deprecated: 'Critical bug fixed in v3.0.1, please upgrade to the latest version.'
     engines:
       node: '>=0.10.0'
     name: set-value

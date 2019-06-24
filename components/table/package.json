@@ -27,6 +27,8 @@
     "@myntra/uikit-component-dropdown": "link:../dropdown",
     "@myntra/uikit-component-icon": "link:../icon",
     "@myntra/uikit-component-measure": "link:../measure",
+    "@myntra/uikit-component-virtual-grid": "link:../virtual-grid",
+    "@myntra/uikit-component-virtual-list": "link:../virtual-list",
     "@myntra/uikit-context": "link:../../packages/uikit-context",
     "@myntra/uikit-utils": "link:../../packages/uikit-utils"
   }

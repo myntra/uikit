@@ -53,9 +53,31 @@ export default function normalizer(children: ReactNode) {
       console.error(`Unexpected component in Table.`, child)
   })
 
+  // TODO: Do column sorting or filtering.
+
   context.columns.forEach((column) => append(context, column))
 
+  let index = 0
+
+  context.columnsByLevel[0].forEach((column) => {
+    column.indexRange = [index, index + column.colSpan - 1]
+    index += column.colSpan
+
+    setIndexRange(column)
+  })
+
   return context
+}
+
+function setIndexRange(column: I.Column) {
+  let index = column.indexRange![0]
+
+  column.columns.forEach((column) => {
+    column.indexRange = [index, index + column.colSpan - 1]
+    index += column.colSpan
+
+    setIndexRange(column)
+  })
 }
 
 function append(context: I.TableMeta, column: I.Column) {
@@ -97,13 +119,23 @@ function processColumn(
 ): I.Column {
   const { props, key } = node
   const id = `${key}`.replace(/^\.\$/, '')
-  const { accessor, fixed, label, renderEditor, sortable, children } = props
+  const {
+    accessor,
+    fixed,
+    label,
+    renderEditor,
+    sortable,
+    children,
+    editing,
+  } = props
 
   const column: I.Column = {
     id: id,
     level: level,
     depth: 0,
     colSpan: 1,
+    editing,
+    indexRange: undefined,
     accessor:
       typeof accessor === 'string'
         ? createAccessor(accessor)
@@ -169,9 +201,10 @@ function processColumn(
 
 function processRow(node: ReactElement<RowType>): I.Row {
   const { props } = node
-  const { selector, children, renderBody } = props
+  const { selector, children, renderBody, editing } = props
 
   return {
+    editing,
     selector:
       typeof selector === 'number'
         ? (rowId) => rowId === selector

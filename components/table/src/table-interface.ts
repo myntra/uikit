@@ -59,16 +59,19 @@ export interface Column<T = any, V = any> {
   level: number
   depth: number
   colSpan: number
+  indexRange: undefined | [number, number]
   accessor(item: T, index: number): V
   renderHead(): ReactNode
   renderCell(props: CellRendererProps): ReactNode
   renderEditor?(props: EditableCellRendererProps): ReactNode
-  fixed?: FixedPosition
+  editing: boolean | undefined
+  fixed: FixedPosition | undefined
   enhancers: EnhancerInstance[]
   columns: Column<T, V>[]
 }
 
 export interface Row<T = any> {
+  editing: boolean | undefined
   selector(rowId: number): boolean
   render(props: RowRendererProps): ReactNode
   renderBody?(props: RowRendererProps): ReactNode

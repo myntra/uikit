@@ -65,9 +65,9 @@ A table can have any number of fixed columns on left, however __only one fixed c
 const [data] = useState(Array(20).fill({ id: 1, name: 'Jane Doe', }));
 
 <Table data={data} style={{ height: 320 }}>
-  <Table.Column key="info">
-    <Table.Column key="id" label="ID" fixed />
-    <Table.Column key="name" label="Name" fixed />
+  <Table.Column key="info" fixed>
+    <Table.Column key="id" label="ID" />
+    <Table.Column key="name" label="Name" />
   </Table.Column>
 
   {
@@ -109,7 +109,40 @@ const [data] = useState([
 </Table>
 ```
 
-### Filterable Column Table
+### Very Large Table
+
+Use `<Table virtualized>`.
+
+```jsx preview
+
+const [data] = useState(
+  Array(1000).fill(0).map((_, id) => ({ id: id + 1, firstName: "Jane", lastName: "Doe" }))
+)
+
+<div style={{ height: 300, minWidth: 600, maxWidth: '90vw' }}>
+ <Table virtualized data={data}>
+   <Table.Column key="id" label="ID" fixed>
+     {({ data }) => <div>{data.id}</div>}
+   </Table.Column>
+   <Table.Column key="name" label="Name" fixed>
+    <Table.Column key="firstName" label="First Name">
+      <Table.Column key="realFirstName" label="First Name">
+       {({ data }) => <div>{data.firstName}</div>}
+      </Table.Column>
+    </Table.Column>
+    <Table.Column key="lastName" label="Last Name">
+     {({ data }) => <div>{data.lastName}</div>}
+    </Table.Column>
+   </Table.Column>
+
+   {Array(997).fill(0).map((_, index) => (
+     <Table.Column key={'lastName' + index} label={`Last Name (${index})`}>
+       {({ data }) => <div>{data.lastName}</div>}
+     </Table.Column>
+   ))}
+ </Table>
+</div>
+```
 
 ## Sub-components
 

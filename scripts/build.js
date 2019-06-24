@@ -45,9 +45,9 @@ async function build(target) {
   const pkg = require(`${pkgDir}/package.json`)
 
   if (!/^dist\//.test(pkg.main)) return // DOES NOT NEED BUILDING
+  const force = process.env.FORCE || process.env.CI
 
-  if (!process.env.FORCE && (await fs.exists(path.resolve(pkgDir, 'dist'))))
-    return // BAIL
+  if (!force && (await fs.exists(path.resolve(pkgDir, 'dist')))) return // BAIL
 
   await fs.remove(`${pkgDir}/dist`)
 

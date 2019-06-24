@@ -2,7 +2,9 @@ import React, { PureComponent } from 'react'
 import ReactDOM from 'react-dom'
 import ResizeObserver from 'resize-observer-polyfill'
 
-export interface MeasureData {}
+export interface MeasureData {
+  bounds: { width: number; height: number }
+}
 
 export interface Props {
   /**
@@ -11,7 +13,7 @@ export interface Props {
   onMeasure?(data: MeasureData): void
 }
 
-const createObserver = function() {
+export const createObserver = function() {
   const observer = new ResizeObserver(function(entries) {
     entries.forEach((entry) => {
       const handler = handlers.get(entry.target)
@@ -25,17 +27,17 @@ const createObserver = function() {
   const elements = new WeakMap()
 
   return {
-    connect(handler) {
+    connect(handler: (entry: ResizeObserverEntry) => void) {
       const currentElements = new Set()
       elements.set(handler, currentElements)
 
       return {
-        observe(element) {
+        observe(element: Element) {
           observer.observe(element)
           handlers.set(element, handler)
           currentElements.add(element)
         },
-        unobserve(element) {
+        unobserve(element: Element) {
           observer.unobserve(element)
           handlers.delete(element)
           currentElements.delete(element)
@@ -50,7 +52,7 @@ const createObserver = function() {
   }
 }
 
-interface Observer {
+export interface Observer {
   observe(element: HTMLElement): void
   unobserve(element: HTMLElement): void
   disconnect(): void
@@ -76,13 +78,7 @@ export default class Measure extends PureComponent<
     super(props)
     this._observer = observer.connect(this.handleMeasure)
     this.state = {
-      content: {
-        bounds: {},
-        client: {},
-        margin: {},
-        offset: {},
-        scroll: {},
-      },
+      content: null,
     }
   }
 

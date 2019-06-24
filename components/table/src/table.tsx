@@ -3,6 +3,7 @@ import { RowRendererProps } from './table-interface'
 import normalize from './table-normalizer'
 
 import SimpleRenderer from './renderers/simple'
+import VirtualRenderer from './renderers/virtual'
 import TableColumn from './table-column'
 
 export interface TableProps<T = any> extends BaseProps {
@@ -95,13 +96,13 @@ export default class Table extends PureComponent<TableProps, TableState> {
 
     if (renderRow) {
       table.rows.push({
-        selector() {
-          return true
-        },
+        editing: undefined,
+        selector: () => true,
         render: renderRow,
       })
     }
+    const Renderer = virtualized ? VirtualRenderer : SimpleRenderer
 
-    return <SimpleRenderer {...props} config={table} />
+    return <Renderer {...props} config={table} />
   }
 }

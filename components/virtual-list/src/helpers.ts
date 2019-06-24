@@ -266,7 +266,8 @@ export interface MeasureCache {
   set(
     row: number,
     column: number | null,
-    value: { height: number; width: number }
+    value: { height: number; width: number },
+    options?: { ignoreRowHeight: boolean; ignoreColumnWidth: boolean }
   ): void
   remove(row: number, column?: number): void
 
@@ -317,16 +318,28 @@ export function createMeasureCache(
         }
       )
     },
-    set(row, column = 0, value) {
+    set(
+      row,
+      column = 0,
+      value,
+      { ignoreRowHeight, ignoreColumnWidth } = {
+        ignoreRowHeight: false,
+        ignoreColumnWidth: false,
+      }
+    ) {
       store[key(row, column)] = value
 
-      rowHeights[row] = {
-        valid: true,
-        value: Math.max(value.height, cache.rowHeight(row)),
+      if (ignoreRowHeight !== true) {
+        rowHeights[row] = {
+          valid: true,
+          value: Math.max(value.height, cache.rowHeight(row)),
+        }
       }
-      columnWidths[column] = {
-        valid: true,
-        value: Math.max(value.width, cache.columnWidth(column)),
+      if (ignoreColumnWidth !== true) {
+        columnWidths[column] = {
+          valid: true,
+          value: Math.max(value.width, cache.columnWidth(column)),
+        }
       }
     },
     rowHeight(row) {

@@ -1,89 +1,75 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
 import { MeasureCache } from './helpers'
+import { createObserver, Observer } from '@myntra/uikit-component-measure'
 
 export interface VirtualListCellMeasureProps extends BaseProps {
   cache: MeasureCache
   row: number
   column: number
-  onMeasure?(payload: {
-    row: number
-    column: number
-    size: {
-      height: number
-      width: number
-    }
-  }): void
+  onMeasure?(
+    payload: {
+      row: number
+      column: number
+      size: {
+        height: number
+        width: number
+      }
+    },
+    data?: DOMStringMap
+  ): void
 }
+
+const observer = createObserver()
 
 export default class VirtualListCellMeasure extends Component<
   VirtualListCellMeasureProps
 > {
-  _defer_count: number
+  connection: Observer
 
   componentDidMount() {
-    this.mayBeMeasure()
-  }
+    this.connection = observer.connect(this.measure)
 
-  componentDidUpdate() {
-    this.mayBeMeasure()
-  }
+    const node = ReactDOM.findDOMNode(this)
 
-  mayBeMeasure = () => {
-    const { cache, row, column } = this.props
-
-    if (!cache.has(row, column)) {
-      this.measure()
+    if (node) {
+      this.connection.observe(node as any)
     }
   }
 
-  measure = () => {
+  componentWillUnmount() {
+    this.connection.disconnect()
+  }
+
+  measure = (entry: ResizeObserverEntry) => {
     const { cache, row, column } = this.props
     const currentValue = cache.get(row, column)
-    const newValue = this.measureFromDOM()
-
-    if (newValue.height === 0 || newValue.width === 0) {
-      this._defer_count = (this._defer_count || 1) + 1
-
-      if (this._defer_count < 5) {
-        setTimeout(this.measure, 16)
-      }
-
-      return
+    const newValue = {
+      height:
+        (entry.target as HTMLElement).offsetHeight || entry.contentRect.height,
+      width:
+        (entry.target as HTMLElement).offsetWidth || entry.contentRect.width,
     }
 
-    this._defer_count = 0
     if (
       !currentValue ||
       (currentValue.width !== newValue.width ||
         currentValue.height !== newValue.height)
     ) {
-      this.props.onMeasure({
-        row: this.props.row,
-        column: this.props.column,
-        size: newValue,
-      })
+      this.props.onMeasure(
+        {
+          row: this.props.row,
+          column: this.props.column,
+          size: newValue,
+        },
+        (entry.target as HTMLElement).dataset
+      )
     }
 
     cache.set(row, column, newValue)
   }
 
-  measureFromDOM = () => {
-    try {
-      const el: HTMLElement = ReactDOM.findDOMNode(this) as any // eslint-disable-line react/no-find-dom-node
-
-      const height = el.offsetHeight
-      const width = el.offsetWidth
-
-      return { height, width }
-    } catch (error) {
-      return { height: 0, width: 0 }
-    }
-  }
-
   render() {
-    return typeof this.props.children === 'function'
-      ? this.props.children({ measure: this.measure })
-      : React.Children.only(this.props.children)
+    return React.Children.only(this.props.children)
   }
 }

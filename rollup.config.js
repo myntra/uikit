@@ -13,6 +13,7 @@ const css = require('@myntra/rollup-plugin-scss')
 const classnames = require('@myntra/rollup-plugin-classnames')
 const url = require('rollup-plugin-url')
 const del = require('rollup-plugin-delete')
+const copy = require('rollup-plugin-copy')
 const size = require('rollup-plugin-bundle-size')
 const hash = require('hasha')
 
@@ -42,6 +43,14 @@ if (isComponent(name) || !isTheme(name)) {
     },
     plugins: [
       del(get('dist/**/*')),
+      copy({
+        targets: [
+          {
+            src: get('src/**/*.d.ts'),
+            dest: get('dist/'),
+          },
+        ],
+      }),
       aliases(),
       sprite(),
       url({ exclude: ['**/*.sprite.svg'], include: ['**/*.png'] }),

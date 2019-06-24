@@ -10,6 +10,9 @@
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
+  "scripts": {
+    "build": "node build.js"
+  },
   "files": [
     "src/",
     "dist/",

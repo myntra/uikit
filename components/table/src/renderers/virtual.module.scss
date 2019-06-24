@@ -1,0 +1,130 @@
+@import '@design';
+
+$-border: 1px solid #ccc;
+
+.virtual {
+  width: 100%;
+  height: 100%;
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .table {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    flex: 1;
+    overflow: auto;
+    border: $-border;
+
+    .h-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 100%;
+      height: 100%;
+      border-right: $-border;
+    }
+
+    .h-col-head {
+      flex: 0 0 30px;
+      padding: 0 8px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      &.center {
+        text-align: center;
+      }
+    }
+
+    .h-col-children {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      height: 100%;
+      border-top: $-border;
+
+      .h-col:last-child {
+        border-right: none;
+      }
+    }
+
+    .thead {
+      z-index: -1;
+      display: flex;
+      border-bottom: $-border;
+
+      // This keeps fixed columns stuck to edges when scrolling.
+      clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .tbody {
+      z-index: -2;
+    }
+
+    .th {
+      height: 100%;
+      font-weight: bold;
+      background-color: #ddd;
+    }
+
+    .thead > .th:last-child > .h-col {
+      border-right: none;
+    }
+
+    .td {
+      position: absolute;
+      padding: 6px 13px;
+      border-right: 1px solid #ccc;
+    }
+
+    .tr {
+      position: absolute;
+      right: 0;
+      left: 0;
+      overflow: hidden;
+      border-bottom: $-border;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .td {
+        background-color: #fff;
+      }
+
+      &:nth-child(2n) .td {
+        background-color: #f8f8f8;
+      }
+
+      .fixed {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        z-index: 1;
+
+        > .td,
+        > .th {
+          position: initial;
+          display: inline-flex;
+        }
+      }
+    }
+
+    .tr > .td:last-child {
+      border-right: none;
+    }
+  }
+}

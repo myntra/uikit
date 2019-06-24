@@ -12,6 +12,7 @@
   "scripts": {
     "start": "npm run docs:dev",
     "build": "npm run :build",
+    "pre:build": "pnpm recursive --filter ./components --filter ./packages --filter ./themes run build",
     ":build": "node scripts/build.js",
     "clean": "rm -rf docs/{dist,node_modules} {components,packages,themes}/*/{dist,node_modules} node_modules",
     "refresh": "run-p refresh:*",
@@ -96,6 +97,7 @@
     "react-dom": "^16.8.4",
     "rollup": "^1.7.0",
     "rollup-plugin-bundle-size": "^1.0.3",
+    "rollup-plugin-copy": "^3.0.0",
     "rollup-plugin-delete": "^1.0.0",
     "rollup-plugin-node-resolve": "^4.0.1",
     "rollup-plugin-postcss": "^2.0.3",

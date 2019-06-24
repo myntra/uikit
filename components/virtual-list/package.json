@@ -26,5 +26,8 @@
     "react-dom": "^16.8.6"
   },
   "browser": "src/index.ts",
-  "tsMain": "src/virtual-list.tsx"
+  "tsMain": "src/virtual-list.tsx",
+  "dependencies": {
+    "@myntra/uikit-component-measure": "link:../measure"
+  }
 }

@@ -1,7 +1,6 @@
 import React, { PureComponent, ReactNode, isValidElement } from 'react'
 import { TableMeta, FixedPosition } from '../table-interface'
 import classnames from './simple.module.scss'
-import Measure from '@myntra/uikit-component-measure'
 
 export interface Props extends BaseProps {
   config: TableMeta
@@ -60,23 +59,21 @@ export default class SimpleTable extends PureComponent<Props> {
               {config.columnsByLevel.map((columns, headLevel) => (
                 <tr key={headLevel}>
                   {columns.map((column, columnIndex) => (
-                    // TODO: Measure headers widths.
-                    <Measure>
-                      <th
-                        key={column.id}
-                        rowSpan={maxDepth - column.level - column.depth}
-                        colSpan={column.colSpan}
-                        style={{
-                          '--sticky-top-offset': headLevel * 35 + 'px',
-                          '--sticky-left-offset':
-                            typeof column.fixed !== 'undefined'
-                              ? columnIndex * 120 + 'px'
-                              : 'unset',
-                        }}
-                      >
-                        {column.renderHead()}
-                      </th>
-                    </Measure>
+                    <th
+                      key={column.id}
+                      rowSpan={maxDepth - column.level - column.depth}
+                      colSpan={column.colSpan}
+                      style={{
+                        // @ts-ignore
+                        '--sticky-top-offset': headLevel * 35 + 'px',
+                        '--sticky-left-offset':
+                          typeof column.fixed !== 'undefined'
+                            ? columnIndex * 120 + 'px'
+                            : 'unset',
+                      }}
+                    >
+                      {column.renderHead()}
+                    </th>
                   ))}
                 </tr>
               ))}

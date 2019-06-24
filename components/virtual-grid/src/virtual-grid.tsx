@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, ReactNode } from 'react'
 import {
   createMeasureCache,
   findOverScanRange,
@@ -7,6 +7,11 @@ import {
   MeasureCache,
   PositionManager,
 } from '@myntra/uikit-component-virtual-list'
+
+export interface ScrollPosition {
+  scrollTop: number
+  scrollLeft: number
+}
 
 export interface VirtualGridProps extends BaseProps {
   /**
@@ -40,8 +45,17 @@ export interface VirtualGridProps extends BaseProps {
   }): JSX.Element
   /**
    * Number of columns (from start) always rendered.
+   * @deprecated Use [fixedColumnsFromStart](#table.fixedColumnsFromStart)
    */
   fixedColumns?: number
+  /**
+   * Number of columns (from start) always rendered.
+   */
+  fixedColumnsFromStart?: number
+  /**
+   * Number of columns (from end) always rendered.
+   */
+  fixedColumnsFromEnd?: number
   /**
    * Number of rows to render outside of viewport.
    */
@@ -101,7 +115,7 @@ export interface VirtualGridProps extends BaseProps {
     style: Record<string, string | number>
     className?: string
     children: any
-  }): JSX.Element
+  }): ReactNode
   renderRow?(props: {
     grid: VirtualGrid
     offsetTop: number
@@ -109,8 +123,8 @@ export interface VirtualGridProps extends BaseProps {
     rowIndex: number
     isScrolling: boolean
     scrollLeft: number
-    children: any
-  }): JSX.Element
+    children: Array<any>
+  }): ReactNode
   onMeasure?(event: {
     row: number
     column: number
@@ -153,7 +167,8 @@ export default class VirtualGrid extends PureComponent<
     estimatedCellWidth: 120,
     overScanRows: 3,
     overScanColumns: 3,
-    fixedColumns: 0,
+    fixedColumnsFromStart: 0,
+    fixedColumnsFromEnd: 0,
     renderScroller: ({ onScroll, style, children }) => (
       <div style={style} onScroll={onScroll}>
         {children}
@@ -202,13 +217,8 @@ export default class VirtualGrid extends PureComponent<
   /**
    * Clear position and size caches on row/column count change.
    */
-  shouldComponentUpdate(nextProps, nextState, nextContext) {
-    const result = super.shouldComponentUpdate(
-      nextProps,
-      nextState,
-      nextContext
-    )
-
+  UNSAFE_componentWillUpdate(nextProps) {
+    // TODO: Maybe move to get derivedStateFromProps.
     if (this.props.rows !== nextProps.rows) {
       this.rowPositionManager.configure({ count: nextProps.rows })
       this.rowPositionManager.reset()
@@ -220,8 +230,11 @@ export default class VirtualGrid extends PureComponent<
       this.columnManager.reset()
       this.cellSizeManager.reset()
     }
+  }
 
-    return result
+  componentWillUnmount() {
+    window.cancelAnimationFrame(this.scrollFrameId)
+    window.cancelAnimationFrame(this.hasPendingRender)
   }
 
   handleScroll = (event) => {
@@ -233,26 +246,29 @@ export default class VirtualGrid extends PureComponent<
   }
 
   /** @public */
-  scrollTo(position) {
+  scrollTo(position: ScrollPosition) {
     if (!this.state.isScrolling) this.setState({ isScrolling: true })
 
     clearTimeout(this.isScrollingTimerId)
 
     this.isScrollingTimerId = window.setTimeout(
       () => this.setState({ isScrolling: false }),
-      100
+      300
     )
 
-    if (this.scrollFrameId == null) {
-      this.scrollFrameId = window.requestAnimationFrame(() => {
-        this.scrollFrameId = null
-        this.computeScrollOffsets(position)
-      })
-    }
+    window.cancelAnimationFrame(this.scrollFrameId)
+    this.scrollFrameId = window.requestAnimationFrame(() => {
+      this.scrollFrameId = null
+      this.computeScrollOffsets(position)
+    })
   }
 
-  handleMeasure = ({ row, column, size }) => {
-    this.cellSizeManager.set(row, column, size)
+  handleMeasure = ({ row, column, size }, data) => {
+    this.cellSizeManager.set(row, column, size, {
+      ignoreColumnWidth: Number(data.colSpan) > 1,
+      ignoreRowHeight: Number(data.rowSpan) > 1,
+    })
+
     this.rowPositionManager.resetCellAt(row)
     this.columnManager.resetCellAt(column)
 
@@ -267,7 +283,7 @@ export default class VirtualGrid extends PureComponent<
     }
   }
 
-  computeScrollOffsets({ scrollTop, scrollLeft }) {
+  computeScrollOffsets({ scrollTop, scrollLeft }: ScrollPosition) {
     scrollTop = Math.max(0, scrollTop)
     scrollLeft = Math.max(0, scrollLeft)
     if (
@@ -291,7 +307,7 @@ export default class VirtualGrid extends PureComponent<
       height,
       rows,
       columns,
-      fixedColumns,
+      fixedColumnsFromEnd,
       overScanRows,
       overScanColumns,
     } = this.props
@@ -302,6 +318,11 @@ export default class VirtualGrid extends PureComponent<
       scrollDirectionHorizontal,
       isScrolling,
     } = this.state
+
+    const fixedColumnsFromStart =
+      typeof this.props.fixedColumns === 'number'
+        ? this.props.fixedColumns
+        : this.props.fixedColumnsFromStart
 
     if (isScrolling) {
       this.renderCache = {}
@@ -397,11 +418,23 @@ export default class VirtualGrid extends PureComponent<
         size: cellHeight,
       } = this.rowPositionManager.getCellAt(i)
 
-      for (let j = 0; j < fixedColumns && j < horizontalRange.start; ++j) {
+      for (let j = 0; j < fixedColumnsFromStart; ++j) {
         doRenderColumn({ i, j, rowOffsetTop, cellHeight, currentRowChildren })
       }
 
-      for (let j = horizontalRange.start; j <= horizontalRange.end; ++j) {
+      for (
+        let j = Math.max(fixedColumnsFromStart, horizontalRange.start);
+        j <= horizontalRange.end;
+        ++j
+      ) {
+        doRenderColumn({ i, j, rowOffsetTop, cellHeight, currentRowChildren })
+      }
+
+      for (
+        let j = Math.max(horizontalRange.end, columns - fixedColumnsFromEnd);
+        j < columns;
+        ++j
+      ) {
         doRenderColumn({ i, j, rowOffsetTop, cellHeight, currentRowChildren })
       }
 

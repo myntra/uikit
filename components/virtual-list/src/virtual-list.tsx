@@ -38,6 +38,16 @@ export interface VirtualListProps extends BaseProps {
   /**
    * Number of items (from start) always rendered.
    */
+  fixedItemCountFromStart?: number
+
+  /**
+   * Number of items (from start) always rendered.
+   */
+  fixedItemCountFromEnd?: number
+
+  /**
+   * @deprecated use [fixedItemCountFromStart](#virtual-list.fixedItemCountFromStart)
+   */
   fixedItemCount?: number
   /**
    * List scroll direction.
@@ -84,7 +94,7 @@ export interface VirtualListProps extends BaseProps {
      */
     style: Record<string, string | number>
     className?: string
-    children: any
+    children: Array<any>
   }): JSX.Element
 }
 
@@ -107,7 +117,8 @@ export default class VirtualList extends PureComponent<
   static defaultProps = {
     estimatedItemSize: 30,
     overScanItemCount: 3,
-    fixedItemCount: 0,
+    fixedItemCountFromStart: 0,
+    fixedItemCountFromEnd: 0,
     direction: 'vertical',
     renderScroller: ({ onScroll, style, className, children }) => (
       <div style={style} className={className} onScroll={onScroll}>
@@ -163,6 +174,10 @@ export default class VirtualList extends PureComponent<
     }
   }
 
+  componentWillUnmount() {
+    window.cancelAnimationFrame(this.hasPendingRender)
+  }
+
   handleMeasure = ({ row, column, size }) => {
     this.sizes.set(row, column, size)
     this.manager.resetCellAt(row)
@@ -207,15 +222,14 @@ export default class VirtualList extends PureComponent<
 
   /** @public */
   scrollTo(position: { scrollLeft: number; scrollTop: number }) {
-    if (this.scrollFrameId == null) {
-      this.scrollFrameId = window.requestAnimationFrame(() => {
-        this.scrollFrameId = null
+    window.cancelAnimationFrame(this.scrollFrameId)
+    this.scrollFrameId = window.requestAnimationFrame(() => {
+      this.scrollFrameId = null
 
-        this.computeScrollOffsets(
-          this.isHorizontal ? position.scrollLeft : position.scrollTop
-        )
-      })
-    }
+      this.computeScrollOffsets(
+        this.isHorizontal ? position.scrollLeft : position.scrollTop
+      )
+    })
   }
 
   computeScrollOffsets(offsetScroll) {
@@ -236,6 +250,8 @@ export default class VirtualList extends PureComponent<
       itemCount,
       overScanItemCount,
       fixedItemCount,
+      fixedItemCountFromStart,
+      fixedItemCountFromEnd,
       className,
       children: renderItem,
       direction,
@@ -288,15 +304,28 @@ export default class VirtualList extends PureComponent<
       )
     }
 
+    const fixedFromStart =
+      typeof fixedItemCount === 'number'
+        ? fixedItemCount
+        : fixedItemCountFromStart
     for (
       let index = 0;
-      index < fixedItemCount && index < range.start;
+      index < fixedFromStart && index < range.start;
       ++index
     ) {
       renderChild(index)
     }
 
     for (let index = range.start; index <= range.end; ++index) {
+      renderChild(index)
+    }
+
+    const fixedFromEnd = Math.max(0, itemCount - fixedItemCountFromEnd)
+    for (
+      let index = Math.max(fixedFromEnd, range.end + 1);
+      index < itemCount;
+      ++index
+    ) {
       renderChild(index)
     }
 
