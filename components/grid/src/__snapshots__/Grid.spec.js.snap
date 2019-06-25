@@ -1,12 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`custom gap 1`] = `"<div class=\\"columns variable-gap gap-none\\"></div>"`;
-
-exports[`mixing props 1`] = `"<div class=\\"columns multiline centered vcentered variable-gap gap-none\\"></div>"`;
+exports[`mixing props 1`] = `"<div class=\\"columns multiline centered vcentered gapless\\"></div>"`;
 
 exports[`should render columns centered 1`] = `"<div class=\\"columns centered\\"></div>"`;
-
-exports[`should render columns gapless 1`] = `"<div class=\\"columns variable-gap gap-none\\"></div>"`;
 
 exports[`should render columns vertically centered 1`] = `"<div class=\\"columns vcentered\\"></div>"`;
 

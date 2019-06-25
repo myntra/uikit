@@ -9,19 +9,6 @@ it('should render grid wrapper', () => {
   expect(wrapper.html()).toMatchSnapshot()
 })
 
-it('should throw error for non Column child', () => {
-  const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
-  mount(
-    <Grid>
-      <div />
-    </Grid>
-  )
-  expect(spy).toHaveBeenCalledWith(
-    expect.stringContaining('Only Grid.Column component is allowed in Grid.')
-  )
-  spy.mockReset()
-})
-
 it('should allow null/undefined child', () => {
   const spy = jest.spyOn(console, 'error').mockImplementation(() => {})
   mount(
@@ -51,15 +38,6 @@ it('should render columns vertically centered', () => {
   expect(wrapper.html()).toMatchSnapshot()
 })
 
-it('should render columns gapless', () => {
-  const wrapper = shallow(<Grid gapless />)
-
-  expect(wrapper.hasClass('columns')).toBe(true)
-  expect(wrapper.hasClass('variable-gap')).toBe(true)
-  expect(wrapper.hasClass('gap-none')).toBe(true)
-  expect(wrapper.html()).toMatchSnapshot()
-})
-
 it('should wrap columns', () => {
   const wrapper = shallow(<Grid multiline />)
 
@@ -73,17 +51,7 @@ it('mixing props', () => {
 
   expect(wrapper.hasClass('columns')).toBe(true)
   expect(wrapper.hasClass('multiline')).toBe(true)
-  expect(wrapper.hasClass('variable-gap')).toBe(true)
   expect(wrapper.hasClass('centered')).toBe(true)
   expect(wrapper.hasClass('vcentered')).toBe(true)
-  expect(wrapper.html()).toMatchSnapshot()
-})
-
-it('custom gap', () => {
-  const wrapper = shallow(<Grid gap="none" />)
-
-  expect(wrapper.hasClass('columns')).toBe(true)
-  expect(wrapper.hasClass('variable-gap')).toBe(true)
-  expect(wrapper.hasClass('gap-none')).toBe(true)
   expect(wrapper.html()).toMatchSnapshot()
 })

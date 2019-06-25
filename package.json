@@ -30,7 +30,7 @@
     "coverage:open": "run-s coverage 'open coverage/lcov-report/index.html'",
     "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
     "update:develop": "git checkout develop && git rebase master && git push origin develop",
-    "pre:publish": "npm run build",
+    "pre:publish": "CI=true npm run build",
     ":publish": "./scripts/publish.sh",
     "pre:release": "npm run update:master",
     ":release": "standard-version -a",

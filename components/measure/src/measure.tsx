@@ -3,7 +3,11 @@ import ReactDOM from 'react-dom'
 import ResizeObserver from 'resize-observer-polyfill'
 
 export interface MeasureData {
-  bounds: { width: number; height: number }
+  bounds: { top: number; left: number; width: number; height: number } | {}
+  client: { top: number; left: number; width: number; height: number } | {}
+  margin: { top: number; left: number; width: number; height: number } | {}
+  offset: { top: number; left: number; width: number; height: number } | {}
+  scroll: { top: number; left: number; width: number; height: number } | {}
 }
 
 export interface Props {
@@ -46,6 +50,7 @@ export const createObserver = function() {
           currentElements.forEach((element) => {
             observer.unobserve(element)
           })
+          currentElements.clear()
         },
       }
     },
@@ -73,12 +78,19 @@ export default class Measure extends PureComponent<
 > {
   _observer: Observer
   _node: HTMLElement
+  _unMounted = false
 
   constructor(props) {
     super(props)
     this._observer = observer.connect(this.handleMeasure)
     this.state = {
-      content: null,
+      content: {
+        bounds: {},
+        client: {},
+        margin: {},
+        offset: {},
+        scroll: {},
+      },
     }
   }
 
@@ -86,12 +98,13 @@ export default class Measure extends PureComponent<
     if (this._observer && this._node) {
       this._observer.disconnect()
     }
+
+    this._unMounted = true
   }
 
-  handleMeasure = (entries) => {
-    if (!entries.length) return
-    const el = entries[0]
-    const content = this.measure(el.target)
+  handleMeasure = (entry) => {
+    if (!entry || this._unMounted) return
+    const content = this.measure(entry.target)
 
     this.setState({ content })
 
@@ -176,21 +189,23 @@ export default class Measure extends PureComponent<
 
       this._observer.observe(node)
 
+      if (this._node === node) return
+
       // ResizeObserver does not call on initial render.
       // Call handleMeasure in next macro task.
-      setTimeout(() =>
-        this.handleMeasure([
-          {
+      setTimeout(
+        () =>
+          this.handleMeasure({
             target: node,
             get contentRect() {
               return node.getBoundingClientRect()
             },
-          },
-        ])
+          }),
+        0
       )
     }
 
-    if (this._node && this._node !== node) {
+    if (this._node) {
       this._observer.unobserve(this._node)
     }
 

@@ -10,7 +10,6 @@ const path = require('path')
 const ts = require('rollup-plugin-typescript2')
 const nodeResolve = require('rollup-plugin-node-resolve')
 const css = require('@myntra/rollup-plugin-scss')
-const classnames = require('@myntra/rollup-plugin-classnames')
 const url = require('rollup-plugin-url')
 const del = require('rollup-plugin-delete')
 const copy = require('rollup-plugin-copy')
@@ -70,7 +69,6 @@ if (isComponent(name) || !isTheme(name)) {
         },
       }),
       size(),
-      classnames(),
       ts({
         objectHashIgnoreUnknownHack: true,
         tsconfig: 'tsconfig.build.json',

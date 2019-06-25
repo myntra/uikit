@@ -1,8 +1,9 @@
 export default function MockResizeObserverPolyfill(fn) {
   return {
-    observe: target => {
+    observe: (target) => {
       fn([{ target }])
     },
-    disconnect: () => {}
+    disconnect: () => {},
+    unobserve() {},
   }
 }

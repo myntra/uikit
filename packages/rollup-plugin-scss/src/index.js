@@ -101,7 +101,13 @@ function styleInject(css) {
 
 styleInject(${JSON.stringify(result.css)})
 
-export default ${JSON.stringify(names)}
+import { classnames as raw } from '@myntra/uikit-utils'
+
+const locals = ${JSON.stringify(names)}
+
+export default function classnames() {
+  return raw.apply(null, arguments).use(locals)
+}
       `,
       }
     },

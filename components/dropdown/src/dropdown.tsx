@@ -258,7 +258,7 @@ export default class Dropdown extends Component<
 
     // Choose:
     const up = auto
-      ? target.bottom + height >= maxHeight && target.top - height > 0
+      ? target.bottom + height > maxHeight && target.top - height >= 0
       : this.props.up
     const left = auto ? target.left + width < maxWidth : this.props.left
     const right = auto

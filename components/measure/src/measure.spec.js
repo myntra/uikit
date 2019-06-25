@@ -64,11 +64,10 @@ describe('Measure', () => {
     )
 
     const spy = jest.spyOn(wrapper.instance()._observer, 'disconnect')
-    const node = wrapper.instance()._node
 
     wrapper.unmount()
 
-    expect(spy).toHaveBeenCalledWith(node)
+    expect(spy).toHaveBeenCalled()
   })
 
   it('should unmount without error', () => {
@@ -86,33 +85,38 @@ describe('Measure', () => {
     expect(spy).not.toHaveBeenCalled()
   })
 
-  it('should unobserve when child changes', () => {
+  it('should unobserve when child changes', (done) => {
     const wrapper = mount(
-      <Measure onMeasure={(value) => {}}>
+      <Measure>
         <textarea className="target" />
       </Measure>
     )
 
-    const spy = jest.spyOn(wrapper.instance()._observer, 'disconnect')
-    const node = wrapper.instance()._node
+    const spy = jest.spyOn(wrapper.instance()._observer, 'unobserve')
 
     wrapper.setProps({ children: <div /> })
 
-    expect(spy).toHaveBeenCalledWith(node)
+    setTimeout(() => {
+      expect(spy).toHaveBeenCalled()
+      done()
+    }, 100)
   })
 
-  it('should render functional child', () => {
+  it('should render functional child', (done) => {
     const wrapper = mount(
-      <Measure bounds onMeasure={(value) => {}}>
+      <Measure>
         {({ content, ref }) => (
           <textarea className="target" width={content.bounds.width} ref={ref} />
         )}
       </Measure>
     )
 
-    expect(wrapper.find('.target').html()).toEqual(
-      expect.stringContaining('width')
-    )
+    setTimeout(() => {
+      expect(wrapper.find('.target').html()).toEqual(
+        expect.stringContaining('width')
+      )
+      done()
+    }, 100)
   })
 
   it('should support programmatic usage', () => {
