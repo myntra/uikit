@@ -41,7 +41,10 @@ export default class VirtualListCellMeasure extends Component<
     this.connection.disconnect()
   }
 
-  measure = (entry: ResizeObserverEntry) => {
+  /**
+   * @param {ResizeObserverEntry} entry
+   */
+  measure = (entry) => {
     const { cache, row, column } = this.props
     const currentValue = cache.get(row, column)
     const newValue = {

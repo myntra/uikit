@@ -39,7 +39,10 @@ function readPackage(name) {
   }
 }
 
-/// sort targets
+/**
+ * @param {string[]} targets
+ * @returns {string[]}
+ */
 function sortedPackages(targets) {
   const nodes = new Map(targets.map((name) => [name, name]))
   const op = new TopologicalSort(nodes)
