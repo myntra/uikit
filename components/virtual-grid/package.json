@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-virtual-grid",
-  "version": "0.7.1",
+  "version": "1.0.0-beta.0",
   "main": "dist/virtual-grid.cjs.js",
   "module": "dist/virtual-grid.esm.js",
   "types": "dist/index.d.ts",
@@ -24,6 +24,6 @@
   },
   "browser": "src/virtual-grid.tsx",
   "dependencies": {
-    "@myntra/uikit-component-virtual-list": "link:../virtual-list"
+    "@myntra/uikit-component-virtual-list": "1.0.0-beta.0"
   }
 }

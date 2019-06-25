@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-virtual-list",
-  "version": "0.7.1",
+  "version": "1.0.0-beta.0",
   "main": "dist/virtual-list.cjs.js",
   "module": "dist/virtual-list.esm.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,6 @@
   "browser": "src/index.ts",
   "tsMain": "src/virtual-list.tsx",
   "dependencies": {
-    "@myntra/uikit-component-measure": "link:../measure"
+    "@myntra/uikit-component-measure": "1.0.0-beta.0"
   }
 }

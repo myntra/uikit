@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-pagination",
-  "version": "0.7.1",
+  "version": "1.0.0-beta.0",
   "main": "dist/pagination.cjs.js",
   "module": "dist/pagination.esm.js",
   "types": "dist/index.d.ts",
@@ -24,8 +24,8 @@
   },
   "browser": "src/pagination.tsx",
   "dependencies": {
-    "@myntra/codemod-utils": "link:../../packages/codemod-utils",
-    "@myntra/uikit-component-icon": "link:../icon",
-    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+    "@myntra/codemod-utils": "1.0.0-beta.0",
+    "@myntra/uikit-component-icon": "1.0.0-beta.0",
+    "@myntra/uikit-utils": "1.0.0-beta.0"
   }
 }

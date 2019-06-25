@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom'
 import ResizeObserver from 'resize-observer-polyfill'
 
 export interface MeasureData {
-  bounds: { top: number; left: number; width: number; height: number } | {}
-  client: { top: number; left: number; width: number; height: number } | {}
-  margin: { top: number; left: number; width: number; height: number } | {}
-  offset: { top: number; left: number; width: number; height: number } | {}
-  scroll: { top: number; left: number; width: number; height: number } | {}
+  readonly bounds: { top: number; left: number; width: number; height: number }
+  readonly client: { top: number; left: number; width: number; height: number }
+  readonly margin: { top: number; left: number; bottom: number; right: number }
+  readonly offset: { top: number; left: number; width: number; height: number }
+  readonly scroll: { top: number; left: number; width: number; height: number }
 }
 
 export interface Props {
@@ -90,7 +90,7 @@ export default class Measure extends PureComponent<
         margin: {},
         offset: {},
         scroll: {},
-      },
+      } as any,
     }
   }
 
@@ -121,7 +121,7 @@ export default class Measure extends PureComponent<
 
     if (!node) return
 
-    const content = {
+    const content: MeasureData = {
       get bounds() {
         const rect = node.getBoundingClientRect()
 

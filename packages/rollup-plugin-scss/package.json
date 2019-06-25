@@ -1,6 +1,6 @@
 {
   "name": "@myntra/rollup-plugin-scss",
-  "version": "0.7.1",
+  "version": "1.0.0-beta.0",
   "main": "src/index.js",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",

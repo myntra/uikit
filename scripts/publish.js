@@ -1,19 +1,29 @@
+const { default: chalk } = require('chalk')
 const { resolve } = require('path')
 const { execSync } = require('child_process')
-const { version } = require(resolve(process.cwd(), 'package.json'))
+const { targets, getPackageDir } = require('./utils')
 
-try {
-  const isAlpha = /alpha/.test(version)
-  const isBeta = /beta/.test(version)
-  const tag = isAlpha ? 'alpha' : isBeta ? 'beta' : 'latest'
-  execSync(`npm publish --tag ${tag}`, { stdio: 'pipe' }, true)
-  console.log('Done.')
-} catch (ex) {
-  const output = ex.stderr.toString()
+targets.forEach((target) => {
+  try {
+    const packageDir = getPackageDir(target)
+    const { version } = require(resolve(packageDir, 'package.json'))
+    const isAlpha = /alpha/.test(version)
+    const isBeta = /beta/.test(version)
+    const tag = isAlpha ? 'alpha' : isBeta ? 'beta' : 'latest'
+    console.log(chalk.bold(`> Publishing ${chalk.green(target)}`))
+    execSync(
+      `npm publish --tag ${tag}`,
+      { cwd: packageDir, stdio: 'pipe' },
+      true
+    )
+    console.log('  ' + chalk.green('Done.'))
+  } catch (ex) {
+    const output = ex.message
 
-  if (output.includes('forbidden cannot modify pre-existing version')) {
-    console.log('Already Published.')
-  } else {
-    console.error('Unknown Error.')
+    if (output.includes('code E403')) {
+      console.log(chalk.gray('  Already Published.'))
+    } else {
+      console.log(chalk.red('  Unknown Error: ') + output)
+    }
   }
-}
+})

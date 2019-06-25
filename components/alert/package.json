@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-alert",
-  "version": "0.7.1",
+  "version": "1.0.0-beta.0",
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.esm.js",
   "types": "dist/index.d.ts",
@@ -24,8 +24,8 @@
   },
   "browser": "src/alert.tsx",
   "dependencies": {
-    "@myntra/codemod-utils": "link:../../packages/codemod-utils",
-    "@myntra/uikit-component-button": "link:../button",
-    "@myntra/uikit-component-icon": "link:../icon"
+    "@myntra/codemod-utils": "1.0.0-beta.0",
+    "@myntra/uikit-component-button": "1.0.0-beta.0",
+    "@myntra/uikit-component-icon": "1.0.0-beta.0"
   }
 }

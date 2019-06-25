@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-select",
-  "version": "0.7.1",
+  "version": "1.0.0-beta.0",
   "main": "dist/input-select.cjs.js",
   "module": "dist/input-select.esm.js",
   "types": "dist/index.d.ts",
@@ -24,11 +24,11 @@
   },
   "browser": "src/input-select.tsx",
   "dependencies": {
-    "@myntra/uikit-component-dropdown": "link:../dropdown",
-    "@myntra/uikit-component-icon": "link:../icon",
-    "@myntra/uikit-component-input-text": "link:../input-text",
-    "@myntra/uikit-component-list": "link:../list",
-    "@myntra/uikit-utils": "link:../../packages/uikit-utils",
+    "@myntra/uikit-component-dropdown": "1.0.0-beta.0",
+    "@myntra/uikit-component-icon": "1.0.0-beta.0",
+    "@myntra/uikit-component-input-text": "1.0.0-beta.0",
+    "@myntra/uikit-component-list": "1.0.0-beta.0",
+    "@myntra/uikit-utils": "1.0.0-beta.0",
     "sifter": "^0.5.3"
   }
 }

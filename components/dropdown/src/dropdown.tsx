@@ -2,7 +2,7 @@ import React, { Component, RefObject } from 'react'
 
 import Button from '@myntra/uikit-component-button'
 import ClickAway from '@myntra/uikit-component-click-away'
-import Measure from '@myntra/uikit-component-measure'
+import Measure, { MeasureData } from '@myntra/uikit-component-measure'
 import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './dropdown.module.scss'
@@ -229,7 +229,7 @@ export default class Dropdown extends Component<
     this.props.isOpen ? this.close() : this.open()
   }
 
-  handleMeasure = ({ bounds: { width, height } }) => {
+  handleMeasure = ({ bounds: { width, height } }: MeasureData) => {
     if (
       (width && height && this.state.width !== width) ||
       this.state.height !== height

@@ -31,7 +31,7 @@
     "update:master": "git checkout develop && git pull origin develop && git checkout master && git rebase develop",
     "update:develop": "git checkout develop && git rebase master && git push origin develop",
     "pre:publish": "CI=true npm run build",
-    ":publish": "./scripts/publish.sh",
+    ":publish": "node ./scripts/publish.js",
     "pre:release": "npm run update:master",
     ":release": "standard-version -a",
     "post:release": "npm run :publish && git push --follow-tags && npm run update:develop",
@@ -122,7 +122,7 @@
     "scripts": {
       "prechangelog": "npm run test",
       "changelog": "npm run changelog",
-      "precommit": "npm run :update:versions"
+      "postbump": "npm run :update:versions"
     }
   }
 }
