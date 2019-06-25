@@ -122,7 +122,7 @@
     "scripts": {
       "prechangelog": "npm run test",
       "changelog": "npm run changelog",
-      "postbump": "npm run :update:versions"
+      "postbump": "npm run :update:versions && npm add -A"
     }
   }
 }
