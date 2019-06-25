@@ -13,7 +13,7 @@ const config = JSON.parse(readFileSync(resolve(__dirname, '../.prettierrc')))
  * @param {string} source
  */
 function format(source) {
-  return prettier.format(source, config)
+  return prettier.format(source, { ...config, parser: 'json' })
 }
 
 const _targets = new Set(targets)
