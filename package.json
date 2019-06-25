@@ -37,8 +37,7 @@
     "post:release": "npm run :publish && git push --follow-tags && npm run update:develop",
     "release": "npm run release",
     "changelog": "package.json CHANGELOG.md",
-    ":update:versions": "node scripts/set-versions.js",
-    "post:update:versions": "git add '{packages,components,themes}/*/package.json' && git commit --amend --no-edit",
+    ":update:versions": "node ./scripts/set-version.js",
     ":beta": "standard-version -a -p beta -a",
     "post:beta": "npm run :publish",
     "beta": "npm run :beta"
@@ -123,7 +122,7 @@
     "scripts": {
       "prechangelog": "npm run test",
       "changelog": "npm run changelog",
-      "postcommit": "npm run :update:versions"
+      "precommit": "npm run :update:versions"
     }
   }
 }
