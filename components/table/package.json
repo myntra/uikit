@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-table",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "dist/table.cjs.js",
   "module": "dist/table.esm.js",
   "types": "dist/index.d.ts",
@@ -24,12 +24,12 @@
   },
   "browser": "src/table.tsx",
   "dependencies": {
-    "@myntra/uikit-component-dropdown": "1.0.0-beta.0",
-    "@myntra/uikit-component-icon": "1.0.0-beta.0",
-    "@myntra/uikit-component-measure": "1.0.0-beta.0",
-    "@myntra/uikit-component-virtual-grid": "1.0.0-beta.0",
-    "@myntra/uikit-component-virtual-list": "1.0.0-beta.0",
-    "@myntra/uikit-context": "1.0.0-beta.0",
-    "@myntra/uikit-utils": "1.0.0-beta.0"
+    "@myntra/uikit-component-dropdown": "1.0.0-beta.1",
+    "@myntra/uikit-component-icon": "1.0.0-beta.1",
+    "@myntra/uikit-component-measure": "1.0.0-beta.1",
+    "@myntra/uikit-component-virtual-grid": "1.0.0-beta.1",
+    "@myntra/uikit-component-virtual-list": "1.0.0-beta.1",
+    "@myntra/uikit-context": "1.0.0-beta.1",
+    "@myntra/uikit-utils": "1.0.0-beta.1"
   }
 }

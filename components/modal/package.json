@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-modal",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.esm.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
   },
   "browser": "src/modal.tsx",
   "dependencies": {
-    "@myntra/uikit-component-button": "1.0.0-beta.0",
-    "@myntra/uikit-component-portal": "1.0.0-beta.0"
+    "@myntra/uikit-component-button": "1.0.0-beta.1",
+    "@myntra/uikit-component-portal": "1.0.0-beta.1"
   }
 }

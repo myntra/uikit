@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-month",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "dist/input-month.cjs.js",
   "module": "dist/input-month.esm.js",
   "types": "dist/index.d.ts",
@@ -24,8 +24,8 @@
   },
   "browser": "src/input-month.tsx",
   "dependencies": {
-    "@myntra/uikit-component-dropdown": "1.0.0-beta.0",
-    "@myntra/uikit-component-input-date": "1.0.0-beta.0",
-    "@myntra/uikit-component-input-masked": "1.0.0-beta.0"
+    "@myntra/uikit-component-dropdown": "1.0.0-beta.1",
+    "@myntra/uikit-component-input-date": "1.0.0-beta.1",
+    "@myntra/uikit-component-input-masked": "1.0.0-beta.1"
   }
 }

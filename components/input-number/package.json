@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-number",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "dist/input-number.cjs.js",
   "module": "dist/input-number.esm.js",
   "types": "dist/index.d.ts",
@@ -24,6 +24,6 @@
   },
   "browser": "src/input-number.tsx",
   "dependencies": {
-    "@myntra/uikit-component-input-text": "1.0.0-beta.0"
+    "@myntra/uikit-component-input-text": "1.0.0-beta.1"
   }
 }

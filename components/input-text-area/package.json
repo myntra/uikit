@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-text-area",
-  "version": "1.0.0-beta.0",
+  "version": "1.0.0-beta.1",
   "main": "dist/input-text-area.cjs.js",
   "module": "dist/input-text-area.esm.js",
   "types": "dist/index.d.ts",
@@ -24,6 +24,6 @@
   },
   "browser": "src/input-text-area.tsx",
   "dependencies": {
-    "@myntra/uikit-component-input-text": "1.0.0-beta.0"
+    "@myntra/uikit-component-input-text": "1.0.0-beta.1"
   }
 }
