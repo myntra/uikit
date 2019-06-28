@@ -3,7 +3,7 @@ import classnames from './input-text.module.scss'
 
 export interface Props extends BaseProps {
   /** Sets the text format for the field. */
-  type?: 'text' | 'email' | 'password' | 'tel' | 'url'
+  type?: 'text' | 'email' | 'password' | 'tel' | 'url' | 'search'
   /** Current value of the text input field. */
   value?: string
   /** The handler to call when the value changes. */

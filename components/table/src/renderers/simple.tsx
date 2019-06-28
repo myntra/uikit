@@ -1,18 +1,30 @@
 import React, { PureComponent, ReactNode, isValidElement } from 'react'
-import { TableMeta, FixedPosition } from '../table-interface'
+import { TableMeta, FixedPosition, Column } from '../table-interface'
 import classnames from './simple.module.scss'
+import { Provider } from '../table-context'
+import Measure, { MeasureData } from '@myntra/uikit-component-measure'
 
 export interface Props extends BaseProps {
   config: TableMeta
   data: any[]
+  getEnhancerState<T = any>(
+    name: string
+  ): { value: T; onChange(value: T): void }
 }
 
-export default class SimpleTable extends PureComponent<Props> {
+const TR = (props: BaseProps) => <tr {...props} />
+const TD = (props: BaseProps) => <td {...props} />
+
+export default class SimpleTable extends PureComponent<
+  Props,
+  { offsets: Record<number, number> }
+> {
+  nextAnimationFrame: number
   state = {
-    headers: {
-      // TODO: Measure and keep column sizes.
-    },
+    offsets: {},
   }
+
+  tableContext = { TR, TD }
 
   defaultRowRenderer = {
     selector() {
@@ -26,7 +38,7 @@ export default class SimpleTable extends PureComponent<Props> {
   warpIfNeeded(node: ReactNode, key: string, props: Record<string, any>) {
     if (isValidElement(node)) {
       if (node.type === 'td') {
-        return node
+        return React.cloneElement(node, { key })
       }
     }
 
@@ -45,79 +57,128 @@ export default class SimpleTable extends PureComponent<Props> {
     return row
   }
 
-  getColumnTop() {}
+  handleColumnMeasure = (column: Column, offset: MeasureData['offset']) => {
+    const index = this.props.config.cells.indexOf(column)
+
+    if (index >= 0) {
+      this.setState(({ offsets }) => ({
+        offsets: { ...offsets, [index]: offset.left },
+      }))
+    }
+  }
+
+  getEnhancerState(enhancer: string) {
+    return this.props.getEnhancerState(enhancer)
+  }
 
   render() {
-    const { config, data, className, children, style, ...props } = this.props
+    const {
+      config,
+      data,
+      className,
+      children,
+      style,
+      getEnhancerState: getEnhancerStateForColumn,
+      ...props
+    } = this.props
     const maxDepth = config.columnsByLevel.length
 
     return (
-      <div className={classnames('simple', className)} style={style}>
-        <div className={classnames('container')}>
-          <table {...props} className={classnames('table')}>
-            <thead>
-              {config.columnsByLevel.map((columns, headLevel) => (
-                <tr key={headLevel}>
-                  {columns.map((column, columnIndex) => (
-                    <th
-                      key={column.id}
-                      rowSpan={maxDepth - column.level - column.depth}
-                      colSpan={column.colSpan}
-                      style={{
-                        // @ts-ignore
-                        '--sticky-top-offset': headLevel * 35 + 'px',
-                        '--sticky-left-offset':
-                          typeof column.fixed !== 'undefined'
-                            ? columnIndex * 120 + 'px'
-                            : 'unset',
-                      }}
-                    >
-                      {column.renderHead()}
-                    </th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
+      <Provider value={this.tableContext}>
+        <div className={classnames('simple', className)} style={style}>
+          <div className={classnames('container')}>
+            <table {...props} className={classnames('table')}>
+              <thead>
+                {config.columnsByLevel.map((columns, headLevel) => (
+                  <tr key={headLevel}>
+                    {columns.map((column) => (
+                      <Measure
+                        key={column.id}
+                        onMeasure={({ offset }) =>
+                          this.handleColumnMeasure(column, offset)
+                        }
+                      >
+                        {({ ref, content }) => (
+                          <th
+                            ref={ref}
+                            key={column.id}
+                            rowSpan={maxDepth - column.level - column.depth}
+                            colSpan={column.colSpan}
+                            className={classnames({
+                              fixed: typeof column.fixed !== 'undefined',
+                              end: column.fixed === FixedPosition.END,
+                            })}
+                            style={{
+                              // @ts-ignore
+                              '--sticky-top-offset': headLevel * 35 + 'px',
+                              '--sticky-left-offset':
+                                typeof column.fixed !== 'undefined'
+                                  ? content.offset.left + 'px'
+                                  : 'unset',
+                            }}
+                          >
+                            {column.renderHead()}
+                            {column.enhancers.map(([enhancer, props]) =>
+                              enhancer.renderHead(
+                                {
+                                  columnId: column.id,
+                                  ...this.getEnhancerState(enhancer.name),
+                                  getter: column.accessor,
+                                },
+                                props,
+                                this.props.data
+                              )
+                            )}
+                          </th>
+                        )}
+                      </Measure>
+                    ))}
+                  </tr>
+                ))}
+              </thead>
 
-            <tbody>
-              {data.map((item, rowId) =>
-                this.getRowRenderer(rowId).render({
-                  rowId,
-                  item,
-                  children: config.cells.map((column, columnIndex) => {
-                    const cellProps = {
-                      className: classnames({
-                        fixed: typeof column.fixed !== 'undefined',
-                      }),
-                      style: {
-                        '--sticky-left-offset':
-                          column.fixed === FixedPosition.START
-                            ? columnIndex * 120 + 'px'
-                            : column.fixed === FixedPosition.END
-                            ? '-100%'
-                            : 'unset',
-                      },
-                    }
+              <tbody>
+                {data.map((item, rowId) =>
+                  React.cloneElement(
+                    this.getRowRenderer(rowId).render({
+                      rowId,
+                      item,
+                      children: config.cells.map((column, columnIndex) => {
+                        const cellProps = {
+                          className: classnames({
+                            fixed: typeof column.fixed !== 'undefined',
+                            end: column.fixed === FixedPosition.END,
+                          }),
+                          style: {
+                            '--sticky-left-offset':
+                              typeof column.fixed !== 'undefined'
+                                ? this.state.offsets[columnIndex] + 'px'
+                                : 'unset',
+                          },
+                        }
 
-                    return this.warpIfNeeded(
-                      column.renderCell({
-                        ...cellProps,
-                        rowId,
-                        columnId: column.id,
-                        item,
-                        data: item,
-                        value: column.accessor(item, rowId),
+                        return this.warpIfNeeded(
+                          column.renderCell({
+                            ...cellProps,
+                            rowId,
+                            columnId: column.id,
+                            item,
+                            data: item,
+                            value: column.accessor(item, rowId),
+                          }),
+                          column.id,
+                          cellProps
+                        )
                       }),
-                      column.id,
-                      cellProps
-                    )
-                  }),
-                })
-              )}
-            </tbody>
-          </table>
+                    }) as any,
+                    { key: rowId }
+                  )
+                )}
+              </tbody>
+            </table>
+          </div>
         </div>
-      </div>
+      </Provider>
     )
   }
 }

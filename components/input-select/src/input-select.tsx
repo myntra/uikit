@@ -127,7 +127,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
     valueKey: 'value',
     searchableKeys: [],
     renderEmptyState() {
-      return <div className={classnames('no-results')}>No results found</div>
+      return <div className={classnames('empty')}>No results found</div>
     },
   }
 

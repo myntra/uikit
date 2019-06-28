@@ -28,11 +28,14 @@ function isReactNodeType<T extends JSXElementConstructor<P> = any, P = any>(
 
 function isEnhancer<P = any>(node: any): node is EnhancerElement<P> {
   if (!isValidElement(node) || !node.type) return false
-  if (!(node.type as any).enhancer) return false
+
+  const type = (node.type as any)._result || node.type
+  if (!type.enhancer) return false
+
   return true
 }
 
-export default function normalizer(children: ReactNode) {
+export default function normalizer(children: ReactNode, order?: string[]) {
   const context: I.TableMeta = {
     columnsByLevel: [],
     columnsByKey: {},
@@ -65,6 +68,15 @@ export default function normalizer(children: ReactNode) {
 
     setIndexRange(column)
   })
+
+  if (order && order.length) {
+    const cellsById: Record<string, I.Column> = {}
+    context.cells.forEach((cell) => {
+      cellsById[cell.id] = cell
+    })
+
+    context.cells = order.map((id) => cellsById[id]).filter(Boolean)
+  }
 
   return context
 }
@@ -105,7 +117,9 @@ function processWrappedColumn(
   if (isReactNodeType(child, Column)) {
     const column = processColumn(child, level)
 
-    column.enhancers.push([node.type.enhance, node.props])
+    const type: I.EnhancerFactory = (node.type as any)._result || node.type
+
+    column.enhancers.push([type.enhancer, node.props])
 
     return column
   }
@@ -127,12 +141,14 @@ function processColumn(
     sortable,
     children,
     editing,
+    minWidth,
   } = props
 
   const column: I.Column = {
     id: id,
     level: level,
     depth: 0,
+    minWidth: minWidth || 0,
     colSpan: 1,
     editing,
     indexRange: undefined,
@@ -159,7 +175,7 @@ function processColumn(
 
   if (sortable) {
     column.enhancers.push([
-      TableSort.enhance,
+      TableSort.enhancer,
       typeof sortable === 'function' ? { compare: sortable } : {},
     ])
   }
@@ -170,6 +186,7 @@ function processColumn(
     function addSubColumn(sub?: I.Column) {
       if (sub) {
         column.columns.push(sub)
+        sub.fixed = column.fixed
       }
     }
 

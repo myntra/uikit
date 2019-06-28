@@ -2,6 +2,7 @@ const { createFilter } = require('rollup-pluginutils')
 const sass = require('sass')
 const postcss = require('postcss')
 const modules = require('postcss-modules')
+const cssnano = require('cssnano')
 
 /**
  * @returns {import('rollup').Plugin}
@@ -22,6 +23,7 @@ module.exports = function ScssPlugin(options = {}) {
         }
       },
     }),
+    cssnano({ preset: 'default' }),
     ...(postcssOptions.plugins || []),
   ])
 

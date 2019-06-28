@@ -18,6 +18,8 @@ export interface Props<T = any> extends BaseProps {
 
   sortable?: boolean | ((a: any, b: any) => number)
 
+  minWidth?: number
+
   /**
    * Accessor to get value of column from the row object.
    */

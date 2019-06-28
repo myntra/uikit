@@ -11,19 +11,32 @@
   }
 
   .table {
+    z-index: 0;
     border-spacing: 0;
     border-collapse: separate;
 
     th {
-      position: -webkit-sticky;
       position: sticky;
       top: var(--sticky-top-offset, 0);
-      left: var(--sticky-left-offset, unset);
+      background-color: #ddd;
+    }
+
+    td {
+      background-color: #fff;
+    }
+
+    tr:nth-child(2n) td {
+      background-color: #f8f8f8;
     }
   }
 
   .fixed {
     position: sticky;
     left: var(--sticky-left-offset, 0);
+    z-index: 1;
+  }
+
+  th.fixed {
+    z-index: 2;
   }
 }

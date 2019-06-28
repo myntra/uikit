@@ -46,19 +46,21 @@ export default function Field({
         {required && <span className={classnames('required')}>*</span>}
       </label>
       {children}
-      <div className={classnames('meta')}>
-        {error ? (
-          <div id={htmlFor ? htmlFor + '__error' : null} role="alert">
-            {Array.isArray(error) ? error.join(' ') : error}
-          </div>
-        ) : (
-          description && (
-            <div id={htmlFor ? htmlFor + '__description' : null}>
-              {description}
+      {error || description ? (
+        <div className={classnames('meta')}>
+          {error ? (
+            <div id={htmlFor ? htmlFor + '__error' : null} role="alert">
+              {Array.isArray(error) ? error.join(' ') : error}
             </div>
-          )
-        )}
-      </div>
+          ) : (
+            description && (
+              <div id={htmlFor ? htmlFor + '__description' : null}>
+                {description}
+              </div>
+            )
+          )}
+        </div>
+      ) : null}
     </div>
   )
 }

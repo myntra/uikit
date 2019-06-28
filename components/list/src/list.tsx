@@ -5,7 +5,7 @@ import VirtualList, {
 } from '@myntra/uikit-component-virtual-list'
 import classnames from './list.module.scss'
 
-export interface ListProps<T = any> extends BaseProps {
+export interface Props<T = any> extends BaseProps {
   /**
    * An array of items to render in the list.
    */
@@ -56,7 +56,7 @@ export interface ListProps<T = any> extends BaseProps {
  * @see http://uikit.myntra.com/components/list
  */
 export default class List extends PureComponent<
-  ListProps,
+  Props,
   { activeIndex: number }
 > {
   static defaultProps = {

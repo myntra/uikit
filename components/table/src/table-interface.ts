@@ -1,10 +1,10 @@
 import { ReactNode } from 'react'
 
 export interface EnhancerFactory {
-  enhance: Enhancer
+  enhancer: Enhancer
 }
 
-export interface Enhancer<P = any, V = any> {
+export interface Enhancer<P = any, V = any, R = any> {
   name: string
 
   renderHead?(
@@ -12,11 +12,13 @@ export interface Enhancer<P = any, V = any> {
       columnId: string
       value: V
       onChange(value: V): void
+      getter(item: R): any
     },
-    props: P
+    props: P,
+    data: R[]
   ): JSX.Element
 
-  prepareData?<R = any>(
+  prepareData?(
     context: {
       getter(item: R): any
       query: V
@@ -59,8 +61,9 @@ export interface Column<T = any, V = any> {
   level: number
   depth: number
   colSpan: number
+  minWidth: number
   indexRange: undefined | [number, number]
-  accessor(item: T, index: number): V
+  accessor(item: T, index?: number): V
   renderHead(): ReactNode
   renderCell(props: CellRendererProps): ReactNode
   renderEditor?(props: EditableCellRendererProps): ReactNode

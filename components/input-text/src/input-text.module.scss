@@ -4,5 +4,9 @@
 .input {
   @include mixin-input-component();
 
+  &[type='search'] {
+    padding-right: 0.125em;
+  }
+
   width: 100%;
 }

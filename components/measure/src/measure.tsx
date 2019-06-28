@@ -15,6 +15,14 @@ export interface Props {
    * The callback fired when a DOM element is measured.
    */
   onMeasure?(data: MeasureData): void
+
+  children:
+    | React.ReactNode
+    | ((props: {
+        ref: React.RefObject<any>
+        content: MeasureData
+        measure(): MeasureData
+      }) => React.ReactNode)
 }
 
 export const createObserver = function() {
@@ -213,19 +221,20 @@ export default class Measure extends PureComponent<
   }
 
   render() {
-    if (typeof this.props.children === 'function') {
-      return this.props.children({
+    const { children } = this.props
+    if (typeof children === 'function') {
+      return (children as any)({
         ref: this.handleRef,
         measure: this.measure,
         content: this.state.content,
       })
     }
 
-    if (!React.isValidElement(this.props.children)) {
+    if (!React.isValidElement(children)) {
       return null
     }
 
-    return React.cloneElement(React.Children.only(this.props.children), {
+    return React.cloneElement(React.Children.only(children), {
       ref: this.handleRef,
     } as any)
   }

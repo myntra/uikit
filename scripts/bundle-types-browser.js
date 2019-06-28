@@ -11,9 +11,8 @@ writeUIKitAsyncImports(components)
 writeUIKitTypesForDocsEditor(components)
 
 // Helpers.
-function getMainFile(component) {
-  const pkg = getPackageJSON(component)
-  return path.resolve(componentsDir, component, pkg.tsMain || pkg.main)
+function getComponentFile(component) {
+  return path.resolve(componentsDir, component, 'src', component + '.tsx')
 }
 
 function getSourceDir(component) {
@@ -27,20 +26,10 @@ function getPackageJSON(component) {
 function getComponents(component) {
   const pkg = getPackageJSON(component)
   const name = componentName(component)
-  const re = new RegExp(`^${name}`)
-
   return {
     pkg: pkg.name,
     name,
-    file: path.resolve(componentsDir, component, pkg.tsMain || pkg.main),
-    namespaced: (pkg.components || []).map((filename) => {
-      const file = path.resolve(componentsDir, component, filename)
-
-      return {
-        name: componentName(file).replace(re, ''),
-        file,
-      }
-    }),
+    file: path.resolve(componentsDir, component, 'src/' + component + '.tsx'),
   }
 }
 
@@ -107,7 +96,7 @@ function writeUIKitTypesForDocsEditor(components) {
 
   for (const component of components) {
     const { name, file } = getComponents(component)
-    // console.log(`${name} - ${path.relative(process.cwd(), file)}`)
+    // console.log(`${name} - ./${path.relative(process.cwd(), file)}`)
     code += getComponentTypes(name, file, extractTypes)
   }
 
@@ -152,8 +141,8 @@ function writeUIKitAsyncImports(components) {
   const META = []
 
   components.forEach((component, index) => {
+    const file = getComponentFile(component)
     try {
-      const file = getMainFile(component)
       const docs = docgen(file)
 
       META.push({
@@ -163,7 +152,7 @@ function writeUIKitAsyncImports(components) {
         path: '/components/' + components[index],
       })
     } catch (error) {
-      console.error(`In ${component}:`)
+      console.error(`In ${component}: ${file}`)
       console.error(error)
     }
   })

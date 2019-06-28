@@ -5,6 +5,9 @@ import normalize from './table-normalizer'
 import SimpleRenderer from './renderers/simple'
 import VirtualRenderer from './renderers/virtual'
 import TableColumn from './table-column'
+import TableRow from './table-row'
+import { Consumer as TableContext } from './table-context'
+import TableFilter from './enhancers/table-filter'
 
 export interface TableProps<T = any> extends BaseProps {
   data: T[]
@@ -16,6 +19,8 @@ export interface TableProps<T = any> extends BaseProps {
   appearance?: 'default' | 'striped'
 
   virtualized?: boolean
+
+  columnOrder?: string[]
 }
 
 interface TableState {
@@ -38,18 +43,26 @@ interface TableState {
  */
 export default class Table extends PureComponent<TableProps, TableState> {
   static Column = TableColumn
+  static Row = TableRow
+  static Filter = TableFilter
+  static TR = (props: BaseProps) => (
+    <TableContext>{({ TR }) => <TR {...props} />}</TableContext>
+  )
+  static TD = (props: BaseProps) => (
+    <TableContext>{({ TD }) => <TD {...props} />}</TableContext>
+  )
 
   state = {
     enhancers: {},
   }
 
-  enhancerSetters: Record<string, (value: any) => void>
+  enhancerSetters: Record<string, (value: any) => void> = {}
 
-  getEnhancerStateForColumn(enhancer: string) {
+  getEnhancerState = (enhancer: string) => {
     return {
       value: this.state.enhancers[enhancer],
       onChange: this.getEnhancerChangeHandler(enhancer),
-    }
+    } as any
   }
 
   getEnhancerChangeHandler(enhancer: string) {
@@ -66,8 +79,19 @@ export default class Table extends PureComponent<TableProps, TableState> {
     return this.enhancerSetters[enhancer]
   }
 
+  componentWillUnmount() {
+    delete this.enhancerSetters
+  }
+
   render() {
-    const { children, renderRow, virtualized, ...props } = this.props
+    const {
+      children,
+      renderRow,
+      virtualized,
+      columnOrder,
+      data,
+      ...props
+    } = this.props
     const nodes = Children.toArray(children)
 
     if (!nodes.length) return null
@@ -90,7 +114,7 @@ export default class Table extends PureComponent<TableProps, TableState> {
       )
     }
 
-    const table = normalize(children)
+    const table = normalize(children, columnOrder)
 
     if (!table.columnsByLevel.length) return null
 
@@ -101,8 +125,38 @@ export default class Table extends PureComponent<TableProps, TableState> {
         render: renderRow,
       })
     }
+
+    const preparedData = table.columns
+      .filter((column) => column.enhancers.length)
+      .reduce(
+        (data, column) =>
+          column.enhancers.reduce(
+            (data, [enhancer, props]) =>
+              enhancer.prepareData
+                ? enhancer.prepareData(
+                    {
+                      getter: column.accessor,
+                      columnId: column.id,
+                      query: this.state.enhancers[enhancer.name],
+                    },
+                    data,
+                    props
+                  )
+                : data,
+            data
+          ),
+        data
+      )
+
     const Renderer = virtualized ? VirtualRenderer : SimpleRenderer
 
-    return <Renderer {...props} config={table} />
+    return (
+      <Renderer
+        {...props}
+        data={preparedData}
+        getEnhancerState={this.getEnhancerState}
+        config={table}
+      />
+    )
   }
 }

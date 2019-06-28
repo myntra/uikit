@@ -75,6 +75,7 @@ $-border: 1px solid #ccc;
     }
 
     .th {
+      position: absolute;
       height: 100%;
       font-weight: bold;
       background-color: #ddd;
@@ -97,10 +98,6 @@ $-border: 1px solid #ccc;
       overflow: hidden;
       border-bottom: $-border;
 
-      &:last-child {
-        border-bottom: none;
-      }
-
       .td {
         background-color: #fff;
       }
@@ -108,12 +105,22 @@ $-border: 1px solid #ccc;
       &:nth-child(2n) .td {
         background-color: #f8f8f8;
       }
+    }
 
+    .tr,
+    .thead {
       .fixed {
         position: absolute;
         top: 0;
         bottom: 0;
         z-index: 1;
+        display: flex;
+
+        &.end {
+          margin-left: calc(0 - var(--scroll-bar-width, 0));
+          border-left: $-border;
+          transform: translateX(-100%);
+        }
 
         > .td,
         > .th {
@@ -121,6 +128,10 @@ $-border: 1px solid #ccc;
           display: inline-flex;
         }
       }
+    }
+
+    .tr:last-child {
+      border-bottom: none;
     }
 
     .tr > .td:last-child {

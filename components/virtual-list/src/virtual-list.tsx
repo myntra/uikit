@@ -154,15 +154,17 @@ export default class VirtualList extends PureComponent<
       : (offset) => ({ position: 'absolute', top: offset + 'px' })
 
     this.sizes = createMeasureCache()
-    this.manager = createPositionManager({
-      count: props.itemCount,
-      estimatedSize: props.estimatedItemSize,
-      sizeGetter: this.isHorizontal
-        ? (index) =>
-            this.sizes.has(index) ? this.sizes.get(index).width : null
-        : (index) =>
-            this.sizes.has(index) ? this.sizes.get(index).height : null,
-    })
+    this.manager =
+      props._manager ||
+      createPositionManager({
+        count: props.itemCount,
+        estimatedSize: props.estimatedItemSize,
+        sizeGetter: this.isHorizontal
+          ? (index) =>
+              this.sizes.has(index) ? this.sizes.get(index).width : null
+          : (index) =>
+              this.sizes.has(index) ? this.sizes.get(index).height : null,
+      })
   }
 
   // TODO: Replace when min version is >= 16.0.0
@@ -288,7 +290,7 @@ export default class VirtualList extends PureComponent<
       })
 
       children.push(
-        node ? (
+        node && this.props._skipMeasure !== true ? (
           <CellMeasure
             key={index}
             row={index}

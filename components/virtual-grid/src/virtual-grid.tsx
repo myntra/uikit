@@ -440,15 +440,18 @@ export default class VirtualGrid extends PureComponent<
 
       if (this.props.renderRow) {
         children.push(
-          this.props.renderRow({
-            offsetTop: rowOffsetTop,
-            height: cellHeight,
-            rowIndex: i,
-            children: currentRowChildren,
-            grid: this,
-            isScrolling,
-            scrollLeft,
-          })
+          React.cloneElement(
+            this.props.renderRow({
+              offsetTop: rowOffsetTop,
+              height: cellHeight,
+              rowIndex: i,
+              children: currentRowChildren,
+              grid: this,
+              isScrolling,
+              scrollLeft,
+            }) as any,
+            { key: `${i}` }
+          )
         )
       } else {
         children.push(...currentRowChildren)

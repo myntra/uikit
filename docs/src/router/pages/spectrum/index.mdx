@@ -7,4 +7,29 @@ noEdit: true
 
 A webpack based development environment with zero-config build system heavily inspired from [Vue CLI](https://cli.vuejs.org/). It uses plugins to enhance build-time and runtime experience.
 
-> This document is **WORK IN PROGRESS**. See [https://bitbucket.com/myntra/spectrum-cli-next](https://bitbucket.com/myntra/spectrum-cli-next).
+## Installation
+
+```bash
+npm install --global @myntra/spectrum-cli@alpha
+```
+
+You might need to setup Myntra private npm registry. Skip this if above command finished without any error.
+
+```bash
+npm config --global set @myntra:registry http://registry.myntra.com:8000/
+```
+
+To test the spectrum setup, run following command.
+
+```bash
+spectrum --version
+
+# Output
+# 2.0.0-alpha.62
+```
+
+## Guide
+
+### Create a new project
+
+To create a new project, run `spectrum create <project-name>`:
