@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-list",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "main": "dist/list.cjs.js",
   "module": "dist/list.esm.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
   },
   "browser": "src/list.tsx",
   "dependencies": {
-    "@myntra/uikit-component-virtual-list": "1.0.0-beta.1",
+    "@myntra/uikit-component-virtual-list": "1.0.0-beta.2",
     "react": "16.*",
     "scroll-into-view-if-needed": "^2.2.20"
   }

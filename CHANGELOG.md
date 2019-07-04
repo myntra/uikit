@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.2"></a>
+## 1.0.0-beta.2 (2019-07-04)
+
+* wip: table is working ([c5eb901](https://bitbucket.org/myntra/uikit/commits/c5eb901))
+* chore: fix release script ([067ade5](https://bitbucket.org/myntra/uikit/commits/067ade5))
+* chore: update script ([261e2f8](https://bitbucket.org/myntra/uikit/commits/261e2f8))
+* chore(release): 1.0.0-beta.1 ([f8b2e28](https://bitbucket.org/myntra/uikit/commits/f8b2e28))
+
+
+
 <a name="1.0.0-beta.1"></a>
 ## 1.0.0-beta.1 (2019-06-25)
 

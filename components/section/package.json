@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-section",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "main": "dist/section.cjs.js",
   "module": "dist/section.esm.js",
   "types": "dist/index.d.ts",
@@ -24,6 +24,6 @@
   },
   "browser": "src/section.tsx",
   "dependencies": {
-    "@myntra/uikit-component-button": "1.0.0-beta.1"
+    "@myntra/uikit-component-button": "1.0.0-beta.2"
   }
 }
