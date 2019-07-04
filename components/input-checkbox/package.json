@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-checkbox",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "main": "dist/input-checkbox.cjs.js",
   "module": "dist/input-checkbox.esm.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
   },
   "browser": "src/input-checkbox.tsx",
   "dependencies": {
-    "@myntra/uikit-component-input-text": "1.0.0-beta.2",
-    "@myntra/uikit-utils": "^0.10.22"
+    "@myntra/uikit-component-input-text": "1.0.0-beta.3",
+    "@myntra/uikit-utils": "1.0.0-beta.3"
   }
 }

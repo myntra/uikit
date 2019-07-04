@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-portal",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "main": "dist/portal.cjs.js",
   "module": "dist/portal.esm.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-utils": "^0.10.22",
+    "@myntra/uikit-utils": "1.0.0-beta.3",
     "prop-types": "^15.7.2"
   }
 }

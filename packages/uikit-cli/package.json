@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-cli",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "main": "src/index.js",
   "module": "dist/uikit-cli.esm.js",
   "types": "dist/index.d.ts",
@@ -20,7 +20,7 @@
     "uikit": "./bin/uikit.js"
   },
   "dependencies": {
-    "@myntra/eslint-config-standard": "1.0.0-beta.2",
+    "@myntra/eslint-config-standard": "1.0.0-beta.3",
     "@znck/promised": "^1.0.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",

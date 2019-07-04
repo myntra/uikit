@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-image",
-  "version": "1.0.0-beta.2",
+  "version": "1.0.0-beta.3",
   "main": "dist/image.cjs.js",
   "module": "dist/image.esm.js",
   "types": "dist/index.d.ts",
@@ -24,7 +24,7 @@
   },
   "browser": "src/image.tsx",
   "dependencies": {
-    "@myntra/uikit-utils": "^0.10.22",
+    "@myntra/uikit-utils": "1.0.0-beta.3",
     "intersection-observer-polyfill": "^0.1.0",
     "prop-types": "^15.7.2"
   }
