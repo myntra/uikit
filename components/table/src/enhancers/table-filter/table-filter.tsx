@@ -3,10 +3,24 @@ import { Enhancer } from '../../table-interface'
 import Filter from './table-filter-dropdown'
 
 export interface Props<T = any> extends BaseProps {
+  /**
+   * List of options for filtering a table column.
+   */
   options?: Array<T>
+  /**
+   * Customize rendering behaviour of an option in the options list.
+   */
   renderOption?<Option extends T>(option: Option): JSX.Element
 }
 
+/**
+ * Declarative way of defining table column filtering logic.
+ *
+ * @since 1.0.0
+ * @status READY
+ * @category renderless
+ * @see http://uikit.myntra.com/components/table#tablefilter
+ */
 export default class TableFilter extends PureComponent<Props> {
   static enhancer: Enhancer<Props, Record<string, any[]>> = {
     name: 'filter',

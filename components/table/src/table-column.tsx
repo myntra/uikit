@@ -27,8 +27,7 @@ export interface Props<T = any> extends BaseProps {
 }
 
 /**
- * Declarative way of defining table column configuration. It is a render-less component
- * use to declare rendering behavior of the table.
+ * Declarative way of defining table column configuration.
  *
  * @since 0.3.0
  * @status READY
