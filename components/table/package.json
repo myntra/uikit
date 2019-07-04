@@ -33,6 +33,6 @@
     "@myntra/uikit-component-virtual-grid": "1.0.0-beta.2",
     "@myntra/uikit-component-virtual-list": "1.0.0-beta.2",
     "@myntra/uikit-context": "1.0.0-beta.2",
-    "@myntra/uikit-utils": "1.0.0-beta.2"
+    "@myntra/uikit-utils": "^1.0.0-beta.2"
   }
 }

@@ -24,6 +24,7 @@
   },
   "browser": "src/field.tsx",
   "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22",
     "prop-types": "^15.7.2"
   }
 }

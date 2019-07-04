@@ -25,6 +25,7 @@
   },
   "browser": "src/input-text.tsx",
   "dependencies": {
-    "@myntra/codemod-utils": "1.0.0-beta.2"
+    "@myntra/codemod-utils": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22"
   }
 }

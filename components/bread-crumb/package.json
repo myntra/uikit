@@ -22,5 +22,8 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "browser": "src/bread-crumb.tsx"
+  "browser": "src/bread-crumb.tsx",
+  "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22"
+  }
 }

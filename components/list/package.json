@@ -25,6 +25,7 @@
   "browser": "src/list.tsx",
   "dependencies": {
     "@myntra/uikit-component-virtual-list": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22",
     "react": "16.*",
     "scroll-into-view-if-needed": "^2.2.20"
   }

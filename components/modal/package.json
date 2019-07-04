@@ -25,6 +25,7 @@
   "browser": "src/modal.tsx",
   "dependencies": {
     "@myntra/uikit-component-button": "1.0.0-beta.2",
-    "@myntra/uikit-component-portal": "1.0.0-beta.2"
+    "@myntra/uikit-component-portal": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22"
   }
 }

@@ -26,6 +26,6 @@
   "dependencies": {
     "@myntra/codemod-utils": "1.0.0-beta.2",
     "@myntra/uikit-component-icon": "1.0.0-beta.2",
-    "@myntra/uikit-utils": "1.0.0-beta.2"
+    "@myntra/uikit-utils": "^1.0.0-beta.2"
   }
 }

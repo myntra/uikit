@@ -24,6 +24,7 @@
   },
   "browser": "src/image.tsx",
   "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22",
     "intersection-observer-polyfill": "^0.1.0",
     "prop-types": "^15.7.2"
   }

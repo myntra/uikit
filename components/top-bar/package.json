@@ -27,6 +27,7 @@
     "@myntra/uikit-component-bread-crumb": "1.0.0-beta.2",
     "@myntra/uikit-component-dropdown": "1.0.0-beta.2",
     "@myntra/uikit-component-icon": "1.0.0-beta.2",
-    "@myntra/uikit-component-list": "1.0.0-beta.2"
+    "@myntra/uikit-component-list": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22"
   }
 }

@@ -24,6 +24,7 @@
   },
   "browser": "src/input-number.tsx",
   "dependencies": {
-    "@myntra/uikit-component-input-text": "1.0.0-beta.2"
+    "@myntra/uikit-component-input-text": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22"
   }
 }

@@ -36,6 +36,7 @@
     "@myntra/uikit-component-input-s3-file": "1.0.0-beta.2",
     "@myntra/uikit-component-input-select": "1.0.0-beta.2",
     "@myntra/uikit-component-input-text": "1.0.0-beta.2",
-    "@myntra/uikit-component-input-text-area": "1.0.0-beta.2"
+    "@myntra/uikit-component-input-text-area": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22"
   }
 }

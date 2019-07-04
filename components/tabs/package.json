@@ -25,5 +25,8 @@
   "browser": "src/tabs.tsx",
   "exports": [
     "Tab"
-  ]
+  ],
+  "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22"
+  }
 }

@@ -25,6 +25,6 @@
   "browser": "src/input-masked.tsx",
   "dependencies": {
     "@myntra/uikit-component-input-text": "1.0.0-beta.2",
-    "@myntra/uikit-utils": "1.0.0-beta.2"
+    "@myntra/uikit-utils": "^1.0.0-beta.2"
   }
 }

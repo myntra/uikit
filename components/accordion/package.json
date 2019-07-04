@@ -23,6 +23,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-context": "1.0.0-beta.2"
+    "@myntra/uikit-context": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22"
   }
 }

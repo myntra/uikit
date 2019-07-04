@@ -22,5 +22,8 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "browser": "src/click-away.tsx"
+  "browser": "src/click-away.tsx",
+  "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22"
+  }
 }

@@ -22,5 +22,8 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "browser": "src/group.tsx"
+  "browser": "src/group.tsx",
+  "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22"
+  }
 }

@@ -28,6 +28,7 @@
     "@myntra/uikit-component-grid": "1.0.0-beta.2",
     "@myntra/uikit-component-icon": "1.0.0-beta.2",
     "@myntra/uikit-component-progress": "1.0.0-beta.2",
+    "@myntra/uikit-utils": "^0.10.22",
     "dayjs": "^1.8.14"
   }
 }

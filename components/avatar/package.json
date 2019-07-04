@@ -23,6 +23,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
+    "@myntra/uikit-utils": "^0.10.22",
     "name-initials": "^0.1.3"
   }
 }

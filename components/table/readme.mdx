@@ -248,3 +248,24 @@ const [data] = useState([
 ```
 
 </Documenter>
+
+
+### Table.Filter
+
+<Documenter component={Table.Filter} sub>
+
+```jsx preview
+const [data] = useState([
+  { name: 'Alice' },
+  { name: 'Bob' },
+  { name: 'Charlie' },
+]);
+
+<Table data={data}>
+  <Table.Filter>
+    <Table.Column key="name" label="Name" />
+  </Table.Filter>
+</Table>
+```
+
+</Documenter>
