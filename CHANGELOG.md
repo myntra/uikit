@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.7"></a>
+## 1.0.0-beta.7 (2019-07-05)
+
+* fix: Use can-i-use module ([2938b99](https://bitbucket.org/myntra/uikit/commits/2938b99))
+
+
+
 <a name="1.0.0-beta.6"></a>
 ## 1.0.0-beta.6 (2019-07-05)
 

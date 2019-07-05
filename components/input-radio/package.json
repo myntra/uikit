@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-radio",
-  "version": "1.0.0-beta.6",
+  "version": "1.0.0-beta.7",
   "main": "dist/input-radio.cjs.js",
   "module": "dist/input-radio.esm.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "^1.0.0-beta.0",
-    "@myntra/uikit-utils": "1.0.0-beta.6"
+    "@myntra/uikit-can-i-use": "1.0.0-beta.7",
+    "@myntra/uikit-utils": "1.0.0-beta.7"
   }
 }
