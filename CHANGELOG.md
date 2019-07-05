@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.4"></a>
+## 1.0.0-beta.4 (2019-07-05)
+
+* fix: Remove peerDependencies & browser entry ([fd4c782](https://bitbucket.org/myntra/uikit/commits/fd4c782))
+* chore: Add table-filter documentation ([7d20cd7](https://bitbucket.org/myntra/uikit/commits/7d20cd7))
+
+
+
 <a name="1.0.0-beta.3"></a>
 ## 1.0.0-beta.3 (2019-07-04)
 

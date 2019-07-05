@@ -1,6 +1,6 @@
 {
   "name": "@myntra/svg",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0-beta.4",
   "main": "src/index.js",
   "module": "dist/svg.esm.js",
   "types": "dist/index.d.ts",
