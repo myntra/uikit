@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-group",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "main": "dist/group.cjs.js",
   "module": "dist/group.esm.js",
   "types": "dist/index.d.ts",
@@ -23,6 +23,6 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-utils": "1.0.0-beta.4"
+    "@myntra/uikit-utils": "1.0.0-beta.5"
   }
 }

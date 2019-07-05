@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-job-tracker",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "main": "dist/job-tracker.cjs.js",
   "module": "dist/job-tracker.esm.js",
   "types": "dist/index.d.ts",
@@ -23,11 +23,11 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-component-button": "1.0.0-beta.4",
-    "@myntra/uikit-component-grid": "1.0.0-beta.4",
-    "@myntra/uikit-component-icon": "1.0.0-beta.4",
-    "@myntra/uikit-component-progress": "1.0.0-beta.4",
-    "@myntra/uikit-utils": "1.0.0-beta.4",
+    "@myntra/uikit-component-button": "1.0.0-beta.5",
+    "@myntra/uikit-component-grid": "1.0.0-beta.5",
+    "@myntra/uikit-component-icon": "1.0.0-beta.5",
+    "@myntra/uikit-component-progress": "1.0.0-beta.5",
+    "@myntra/uikit-utils": "1.0.0-beta.5",
     "dayjs": "^1.8.14"
   }
 }

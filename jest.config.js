@@ -1,21 +1,35 @@
+const {
+  targets,
+  isComponent,
+  isTheme,
+  getShortName,
+  getPackageDir,
+} = require('./scripts/utils')
+
 const aliases = {
   '\\.css$': '<rootDir>/test/unit/style.js',
   '\\.scss$': '<rootDir>/test/unit/style.js',
   '\\.png$': '<rootDir>/test/unit/image.js',
   '\\.sprite\\.svg$': '<rootDir>/test/unit/svg.js',
-  '@myntra/uikit-utils': '<rootDir>/packages/uikit-utils'
 }
+
+targets.forEach((target) => {
+  const pkg = require(`${getPackageDir(target)}/package.json`)
+  aliases[`${target}$`] = `<rootDir>/${
+    isComponent(target) ? 'components' : isTheme(target) ? 'themes' : 'packages'
+  }/${getShortName(target)}/${/src/.test(pkg.main) ? pkg.main : 'src/index.ts'}`
+})
 
 module.exports = {
   moduleNameMapper: aliases,
   setupFilesAfterEnv: ['<rootDir>/test/unit/setup-jest.js'],
   setupFiles: [
     '<rootDir>/test/unit/setup-enzyme.js',
-    '<rootDir>/test/unit/setup-window.js'
+    '<rootDir>/test/unit/setup-window.js',
   ],
   transform: {
     '^.+\\.tsx?$': 'ts-jest',
-    '^.+\\.jsx?$': 'babel-jest'
+    '^.+\\.jsx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testPathIgnorePatterns: ['/node_modules/', '/old-packages/'],
@@ -29,14 +43,14 @@ module.exports = {
           branches: 50,
           functions: 80,
           lines: 50,
-          statements: -20
-        }
+          statements: -20,
+        },
       }
     : {},
   globals: {
     'ts-jest': {
       tsConfig: '<rootDir>/tsconfig.test.json',
-      packageJson: '<rootDir>/package.json'
-    }
-  }
+      packageJson: '<rootDir>/package.json',
+    },
+  },
 }

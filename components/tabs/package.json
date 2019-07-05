@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-tabs",
-  "version": "1.0.0-beta.4",
+  "version": "1.0.0-beta.5",
   "main": "dist/tabs.cjs.js",
   "module": "dist/tabs.esm.js",
   "types": "dist/index.d.ts",
@@ -26,6 +26,6 @@
     "Tab"
   ],
   "dependencies": {
-    "@myntra/uikit-utils": "1.0.0-beta.4"
+    "@myntra/uikit-utils": "1.0.0-beta.5"
   }
 }
