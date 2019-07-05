@@ -3,25 +3,13 @@ const { componentsDir, packagesDir, packages, components, themes, themesDir } = 
 
 const path = require('path')
 
-// ¯\_(ツ)_/¯ React based Design System.
-// It is defined in root directory.
-// eslint-disable-next-line node/no-extraneous-require
-const { version } = require('react')
-
-const VERSION = parseFloat(version)
-
 /** @type {import('@myntra/spectrum-cli-service').Options} */
 module.exports = {
   name: 'uikit',
   lintOnSave: false,
   define: {
     PATH_PREFIX: JSON.stringify(process.env.BRANCH === 'master' || !process.env.BRANCH ? '' : '/' + process.env.BRANCH),
-    __DEV__: true, // Always include dev code docs.
-    CAN_USE_HOOKS: VERSION > 16.7,
-    CAN_USE_CONTEXT: VERSION > 16.2,
-    CAN_USE_PORTAL: VERSION >= 16,
-    CAN_USE_FRAGMENT: VERSION >= 16,
-    CAN_USE_SUSPENSE: VERSION > 16.5
+    __DEV__: true // Always include dev code docs.
   },
   css: {
     extract: false

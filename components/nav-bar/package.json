@@ -23,7 +23,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.6",
+    "@myntra/uikit-can-i-use": "^1.0.0-beta.6",
     "@myntra/uikit-component-avatar": "1.0.0-beta.6",
     "@myntra/uikit-component-icon": "1.0.0-beta.6",
     "@myntra/uikit-context": "1.0.0-beta.6",

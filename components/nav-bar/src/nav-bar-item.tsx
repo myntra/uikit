@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './nav-bar-item.module.scss'
 import Context, { NavBarContext } from './context'
+import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 export interface NavBarItemProps extends BaseProps {
   /**

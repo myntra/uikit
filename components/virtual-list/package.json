@@ -26,6 +26,7 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
+    "@myntra/uikit-can-i-use": "^1.0.0-beta.0",
     "@myntra/uikit-component-measure": "1.0.0-beta.6",
     "@myntra/uikit-utils": "1.0.0-beta.6"
   }

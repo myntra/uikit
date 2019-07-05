@@ -2,6 +2,7 @@ import React, { PureComponent, useContext } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
 import UIKitContext from '@myntra/uikit-context'
+import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */

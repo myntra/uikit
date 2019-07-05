@@ -4,6 +4,7 @@ import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
+import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 import LogoMyntraJabong from './logos/myntra-jabong.png'
 

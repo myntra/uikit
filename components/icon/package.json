@@ -30,6 +30,7 @@
     "prettier": "^1.16.4"
   },
   "dependencies": {
+    "@myntra/uikit-can-i-use": "^1.0.0-beta.0",
     "@myntra/uikit-utils": "1.0.0-beta.6",
     "react": "16.*"
   }

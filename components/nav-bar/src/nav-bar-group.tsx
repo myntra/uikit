@@ -4,6 +4,7 @@ import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { NavBarItemProps } from './nav-bar-item'
+import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 interface NavBarGroupProps extends BaseProps, NavBarItemProps {
   /**

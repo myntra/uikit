@@ -24,6 +24,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
+    "@myntra/uikit-can-i-use": "^1.0.0-beta.0",
     "@myntra/uikit-utils": "1.0.0-beta.6",
     "prop-types": "^15.7.2"
   }
