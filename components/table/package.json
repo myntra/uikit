@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-table",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "main": "dist/table.cjs.js",
   "module": "dist/table.esm.js",
   "types": "dist/index.d.ts",
@@ -23,15 +23,15 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-component-dropdown": "1.0.0-beta.5",
-    "@myntra/uikit-component-field": "1.0.0-beta.5",
-    "@myntra/uikit-component-icon": "1.0.0-beta.5",
-    "@myntra/uikit-component-input-text": "1.0.0-beta.5",
-    "@myntra/uikit-component-list": "1.0.0-beta.5",
-    "@myntra/uikit-component-measure": "1.0.0-beta.5",
-    "@myntra/uikit-component-virtual-grid": "1.0.0-beta.5",
-    "@myntra/uikit-component-virtual-list": "1.0.0-beta.5",
-    "@myntra/uikit-context": "1.0.0-beta.5",
-    "@myntra/uikit-utils": "1.0.0-beta.5"
+    "@myntra/uikit-component-dropdown": "1.0.0-beta.6",
+    "@myntra/uikit-component-field": "1.0.0-beta.6",
+    "@myntra/uikit-component-icon": "1.0.0-beta.6",
+    "@myntra/uikit-component-input-text": "1.0.0-beta.6",
+    "@myntra/uikit-component-list": "1.0.0-beta.6",
+    "@myntra/uikit-component-measure": "1.0.0-beta.6",
+    "@myntra/uikit-component-virtual-grid": "1.0.0-beta.6",
+    "@myntra/uikit-component-virtual-list": "1.0.0-beta.6",
+    "@myntra/uikit-context": "1.0.0-beta.6",
+    "@myntra/uikit-utils": "1.0.0-beta.6"
   }
 }

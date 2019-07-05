@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-nav-bar",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "main": "dist/nav-bar.cjs.js",
   "module": "dist/nav-bar.esm.js",
   "types": "dist/index.d.ts",
@@ -23,10 +23,10 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.5",
-    "@myntra/uikit-component-avatar": "1.0.0-beta.5",
-    "@myntra/uikit-component-icon": "1.0.0-beta.5",
-    "@myntra/uikit-context": "1.0.0-beta.5",
-    "@myntra/uikit-utils": "1.0.0-beta.5"
+    "@myntra/uikit-can-i-use": "1.0.0-beta.6",
+    "@myntra/uikit-component-avatar": "1.0.0-beta.6",
+    "@myntra/uikit-component-icon": "1.0.0-beta.6",
+    "@myntra/uikit-context": "1.0.0-beta.6",
+    "@myntra/uikit-utils": "1.0.0-beta.6"
   }
 }

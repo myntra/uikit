@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-accordion",
-  "version": "1.0.0-beta.5",
+  "version": "1.0.0-beta.6",
   "main": "dist/accordion.cjs.js",
   "module": "dist/accordion.esm.js",
   "types": "dist/index.d.ts",
@@ -23,7 +23,7 @@
     "@types/react": "^16.8"
   },
   "dependencies": {
-    "@myntra/uikit-context": "1.0.0-beta.5",
-    "@myntra/uikit-utils": "1.0.0-beta.5"
+    "@myntra/uikit-context": "1.0.0-beta.6",
+    "@myntra/uikit-utils": "1.0.0-beta.6"
   }
 }

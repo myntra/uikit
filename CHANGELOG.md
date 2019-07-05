@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.6"></a>
+## 1.0.0-beta.6 (2019-07-05)
+
+* fix: Build script ([b485575](https://bitbucket.org/myntra/uikit/commits/b485575))
+* fix: jest config ([32c40c9](https://bitbucket.org/myntra/uikit/commits/32c40c9))
+
+
+
 <a name="1.0.0-beta.4"></a>
 ## 1.0.0-beta.4 (2019-07-05)
 
