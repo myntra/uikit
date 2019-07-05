@@ -37,7 +37,8 @@ if (isComponent(name) || !isTheme(name)) {
     external(name) {
       return (
         (pkg.dependencies && name in pkg.dependencies) ||
-        (pkg.peerDependencies && name in pkg.peerDependencies)
+        (pkg.peerDependencies && name in pkg.peerDependencies) ||
+        (pkg.optionalDependencies && name in pkg.optionalDependencies)
       )
     },
     plugins: [
@@ -75,6 +76,13 @@ if (isComponent(name) || !isTheme(name)) {
         tsconfigOverride: {
           include: [get('src'), path.resolve(__dirname, '@types')],
           compilerOptions: {
+            moduleResolution: 'node',
+            target: 'esnext',
+            module: 'esnext',
+            jsx: 'react',
+            lib: ['dom', 'esnext'],
+            esModuleInterop: true,
+            allowSyntheticDefaultImports: true,
             declaration: true,
             rootDir: get('src'),
             baseUrl: get('src'),
