@@ -16,8 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
-  "browser": "src/index.ts",
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": "*",
     "react-dom": "*"
   },

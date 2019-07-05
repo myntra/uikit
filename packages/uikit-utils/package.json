@@ -15,7 +15,6 @@
     "dist/",
     "bin/"
   ],
-  "browser": "src/index.ts",
   "tsMain": "src/index.ts",
   "description": "@myntra/uikit-utils",
   "sideEffects": false,

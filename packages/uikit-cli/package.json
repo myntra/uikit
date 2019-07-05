@@ -14,7 +14,6 @@
     "src/",
     "bin/"
   ],
-  "browser": "src/index.ts",
   "description": "A command line utility for @myntra/uikit",
   "bin": {
     "uikit": "./bin/uikit.js"

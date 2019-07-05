@@ -23,7 +23,7 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-scss": "^3.5.4"
   },
-  "peerDependencies": {
+  "optionalDependencies": {
     "stylelint": "^9.2.0"
   },
   "devDependencies": {

@@ -16,7 +16,6 @@
     "bin/",
     "*.codemod.js"
   ],
-  "browser": "src/index.ts",
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.0.0-beta.3",
     "react": "^16.8.4"

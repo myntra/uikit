@@ -16,13 +16,12 @@
     "bin/",
     "*.codemod.js"
   ],
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "browser": "src/modal.tsx",
   "dependencies": {
     "@myntra/uikit-component-button": "1.0.0-beta.3",
     "@myntra/uikit-component-portal": "1.0.0-beta.3",
