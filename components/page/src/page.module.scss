@@ -3,12 +3,12 @@
 .page {
   display: flex;
   flex-direction: row;
+  height: 100%;
   overflow: hidden;
 
   .nav {
     z-index: 2;
     width: 56px;
-    height: 100%;
     overflow: visible;
   }
 

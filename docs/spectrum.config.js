@@ -24,14 +24,16 @@ module.exports = {
     /* eslint-disable prettier/prettier */
     config.resolve.alias
       .set('@component-docs', componentsDir)
-      .set('@design', '@myntra/uikit-theme-nuclei/design.scss')
-      .set('@theme', '@myntra/uikit-theme-nuclei')
+      .set('@design$', themesDir + '/nuclei/design.scss')
+      .set('@theme$', themesDir + '/nuclei/src/index.ts')
 
     components.forEach(name =>
       config.resolve.alias.set(`@myntra/uikit-component-${name}$`, componentsDir + '/' + name + '/src/index.ts')
     )
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}$`, packagesDir + '/' + name + '/src/index.ts'))
-    themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name))
+    themes.forEach(name =>
+      config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name + '/src/index.ts')
+    )
     config.resolve.alias.set('@myntra/uikit-design/design.scss', packagesDir + '/uikit-design/design.scss')
     config.resolve.extensions
       .add('.ts')

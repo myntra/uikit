@@ -29,10 +29,11 @@ export default function Page({
   renderTopBar,
   children,
   className,
+  style,
   ...props
 }: PageProps) {
   return (
-    <div className={classnames('page', className)}>
+    <div className={classnames('page', className)} style={style}>
       <div className={classnames('nav')} key="nav">
         {renderNavBar()}
       </div>
