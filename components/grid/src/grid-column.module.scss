@@ -10,7 +10,7 @@ $named-sizes: (
   one-fifth: 20%,
   two-fifth: 40%,
   three-fifth: 60%,
-  four-fifth: 80%
+  four-fifth: 80%,
 );
 // -- Column --
 .column {
@@ -20,9 +20,6 @@ $named-sizes: (
   padding-right: var(--column-inset);
   padding-bottom: var(--column-gap);
   padding-left: var(--column-inset);
-  overflow: paged-x;
-  overflow: -webkit-paged-x;
-  overflow-x: hidden;
 
   &.narrow {
     flex: none;

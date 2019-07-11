@@ -8,6 +8,8 @@ import { setCurrentSource, getters } from '@state/editor'
 
 import './_name.css'
 
+export const layout = React.lazy(() => import('@layouts/default'))
+
 export default withAppState(state => ({ source: getters.current(state.editor) }), { setSource: setCurrentSource })(
   ComponentDocumentationPage
 )
@@ -17,7 +19,20 @@ function ComponentDocumentationPage({ name, source, setSource }) {
   const [isActive, setActive] = useState(false)
   const ref = useRef(null)
   const { handleContentMeasure, editorWidth, editorPosition, contentPosition } = useEditorAutoSize()
-  const hide = useCallback(() => setActive(false), [])
+  const hide = useCallback(() => {
+    if (document.fullscreenEnabled && document.fullscreenElement === ref.current) {
+      document.exitFullscreen()
+    }
+
+    setActive(false)
+  }, [])
+  const fullscreen = useCallback(() => {
+    if (document.fullscreenEnabled && document.fullscreenElement === ref.current) {
+      document.exitFullscreen()
+    } else {
+      ref.current.requestFullscreen()
+    }
+  }, [])
   const content = useMemo(
     () =>
       Component ? (
@@ -64,7 +79,8 @@ function ComponentDocumentationPage({ name, source, setSource }) {
         </EditorContext.Provider>
         {
           <div className={`editor`} ref={ref}>
-            <Button className="close" icon="times" onClick={hide} />
+            <Button className="close" icon="times" title="Close" onClick={hide} />
+            <Button className="fullscreen" icon="arrows" title="Toggle Fullscreen" onClick={fullscreen} />
             <CodePreview className="preview" source={source} />
             <Measure>
               {({ content: { bounds: editorSize }, ref }) => (

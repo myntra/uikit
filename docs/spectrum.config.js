@@ -11,30 +11,27 @@ module.exports = {
     PATH_PREFIX: JSON.stringify(process.env.BRANCH === 'master' || !process.env.BRANCH ? '' : '/' + process.env.BRANCH),
     __DEV__: true // Always include dev code docs.
   },
-  css: {
-    extract: false
-  },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
     const styleLoader = 'style-loader' // process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader'
     config.watchOptions({
-      ignored: ['**/*.spec.js', '__codemod__']
+      aggregateTimeout: 2000,
+      ignored: ['**/*.spec.js', '__codemod__', /node_modules/]
     })
 
     /* eslint-disable prettier/prettier */
     config.resolve.alias
       .set('@component-docs', componentsDir)
+      .set('@myntra/uikit-design/design.scss$', packagesDir + '/uikit-design/design.scss')
+      .set('@myntra/uikit-component-input-text/style.scss$', componentsDir + '/input-text/style.scss')
       .set('@design$', themesDir + '/nuclei/design.scss')
       .set('@theme$', themesDir + '/nuclei/src/index.ts')
 
     components.forEach(name =>
-      config.resolve.alias.set(`@myntra/uikit-component-${name}$`, componentsDir + '/' + name + '/src/index.ts')
+      config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name + '/src/')
     )
-    packages.forEach(name => config.resolve.alias.set(`@myntra/${name}$`, packagesDir + '/' + name + '/src/index.ts'))
-    themes.forEach(name =>
-      config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name + '/src/index.ts')
-    )
-    config.resolve.alias.set('@myntra/uikit-design/design.scss', packagesDir + '/uikit-design/design.scss')
+    packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name + '/src/'))
+    themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name + '/src/'))
     config.resolve.extensions
       .add('.ts')
       .add('.tsx')
@@ -132,14 +129,17 @@ module.exports = {
       .use('css-loader')
       .tap(options => ({
         ...options,
-        getLocalIdent(context, _, name) {
-          const filename = context.resourcePath
-          const component = filename
-            .replace(componentsDir + '/', '')
-            .split('/')
-            .shift()
+        modules: {
+          ...options.modules,
+          getLocalIdent(context, _, name) {
+            const filename = context.resourcePath
+            const component = filename
+              .replace(componentsDir + '/', '')
+              .split('/')
+              .shift()
 
-          return `_u-${component}-${name}`
+            return `_u-${component}-${name}`
+          }
         }
       }))
 

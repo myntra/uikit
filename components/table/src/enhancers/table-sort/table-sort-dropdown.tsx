@@ -8,7 +8,7 @@ import classnames from './table-sort-dropdown.module.scss'
 export interface Props<V = { columnId: string; order: 'asc' | 'desc' }> {
   columnId: string
   value: V
-  onChange(value: V): void
+  onChange(value: V, emit?: boolean): void
 }
 
 export default class TableSortDropdown extends Component<

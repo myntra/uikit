@@ -33,30 +33,31 @@ export interface Props extends BaseProps {
   size?: ColumnSize
   /** Leaves empty space on left */
   offset?: ColumnSize
-  /** Narrow on mobile screen */
-  narrowOnMobile?: boolean
-  /** Width on mobile screen */
-  sizeOnMobile?: ColumnSize
-  /** Offset on mobiles screen */
-  offsetOnMobile?: ColumnSize
-  /** Narrow on tablet screen */
-  narrowOnTablet?: boolean
-  /** Width on tablet screen */
-  sizeOnTablet?: ColumnSize
-  /** Offset on tablet screen */
-  offsetOnTablet?: ColumnSize
-  /** Narrow on touch enabled devices */
-  narrowOnTouch?: boolean
-  /** Width on touch enabled devices */
-  sizeOnTouch?: ColumnSize
-  /** Offset on touch enabled devices */
-  offsetOnTouch?: ColumnSize
-  /** Narrow on desktop screen */
-  narrowOnDesktop?: boolean
-  /** Width on desktop screen */
-  sizeOnDesktop?: ColumnSize
-  /** Offset on desktop screen */
-  offsetOnDesktop?: ColumnSize
+  // TODO: Add responsive grid.
+  // /** Narrow on mobile screen */
+  // narrowOnMobile?: boolean
+  // /** Width on mobile screen */
+  // sizeOnMobile?: ColumnSize
+  // /** Offset on mobiles screen */
+  // offsetOnMobile?: ColumnSize
+  // /** Narrow on tablet screen */
+  // narrowOnTablet?: boolean
+  // /** Width on tablet screen */
+  // sizeOnTablet?: ColumnSize
+  // /** Offset on tablet screen */
+  // offsetOnTablet?: ColumnSize
+  // /** Narrow on touch enabled devices */
+  // narrowOnTouch?: boolean
+  // /** Width on touch enabled devices */
+  // sizeOnTouch?: ColumnSize
+  // /** Offset on touch enabled devices */
+  // offsetOnTouch?: ColumnSize
+  // /** Narrow on desktop screen */
+  // narrowOnDesktop?: boolean
+  // /** Width on desktop screen */
+  // sizeOnDesktop?: ColumnSize
+  // /** Offset on desktop screen */
+  // offsetOnDesktop?: ColumnSize
 }
 
 /**

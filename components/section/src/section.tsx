@@ -48,14 +48,14 @@ export default function Section({
       className={classnames('section', className, { noPadding })}
       {...props}
     >
-      {(title || actions.length) && (
+      {title || actions.length ? (
         <header className={classnames('header')}>
           {title && <h3 className={classnames('title')}>{title}</h3>}
           {actions.length ? (
             <div className={classnames('actions')}>{actions}</div>
           ) : null}
         </header>
-      )}
+      ) : null}
 
       {others.length ? (
         <div className={classnames('content')}>{others}</div>

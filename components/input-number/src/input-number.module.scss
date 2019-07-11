@@ -3,6 +3,8 @@
 
 .input {
   @include mixin-input-component();
+
+  width: 100%;
 }
 
 /* Hide number spinner box on Firefox & Edge. */

@@ -4,7 +4,7 @@ export interface EnhancerFactory {
   enhancer: Enhancer
 }
 
-export interface Enhancer<P = any, V = any, R = any> {
+export interface Enhancer<P = any, V = any, R = any, HP = any> {
   name: string
 
   renderHead?(
@@ -25,7 +25,8 @@ export interface Enhancer<P = any, V = any, R = any> {
       columnId: string
     },
     data: R[],
-    props: P
+    props: P,
+    hoistedProps: HP
   ): R[]
 }
 

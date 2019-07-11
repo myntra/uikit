@@ -16,12 +16,15 @@
     "bin/",
     "*.codemod.js"
   ],
-  "optionalDependencies": {
-    "react": ">=15.4",
-    "react-dom": "^16.8.6"
+  "peerDependencies": {
+    "react": ">=15.4"
   },
   "devDependencies": {
     "@types/react": "^16.8",
+    "react-dom": "^16.8.6"
+  },
+  "optionalDependencies": {
+    "react": ">=15.4",
     "react-dom": "^16.8.6"
   },
   "dependencies": {

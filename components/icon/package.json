@@ -10,15 +10,12 @@
   "publishConfig": {
     "registry": "http://registry.myntra.com:8000"
   },
-  "scripts": {
-    "build": "node build.js"
-  },
   "files": [
     "src/",
     "dist/",
     "bin/"
   ],
-  "optionalDependencies": {
+  "peerDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
@@ -28,6 +25,12 @@
     "glob": "^7.1.3",
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.16.4"
+  },
+  "scripts": {
+    "build": "node build.js"
+  },
+  "optionalDependencies": {
+    "react": ">=15.4"
   },
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.0.0-beta.8",

@@ -1,0 +1,166 @@
+@import '@design';
+
+html {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+pre {
+  overflow: auto;
+}
+
+blockquote {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+
+  padding-left: 1rem;
+
+  border-left: 4px solid #ccc;
+}
+
+#app,
+.layout-container {
+  height: 100%;
+}
+
+.layout-main {
+  padding: 1rem;
+  overflow: auto;
+  position: relative;
+  height: 100%;
+
+  h1[id]::before,
+  h2[id]::before,
+  h3[id]::before,
+  h4[id]::before,
+  h5[id]::before {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    width: 0px;
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+}
+
+.anchor-link {
+  margin-right: 4px;
+  margin-left: -20px;
+  transition: opacity 0.35s fade-in;
+  opacity: 0;
+}
+
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link,
+.anchor-link:hover {
+  opacity: 1;
+}
+
+a {
+  color: ui-text-color('primary');
+}
+
+a[href^='#'] {
+  height: 28px;
+  display: inline-block;
+}
+
+h1 {
+  @include use-text-style('h1');
+}
+h2 {
+  @include use-text-style('h2');
+}
+h3 {
+  @include use-text-style('h3');
+}
+h4 {
+  @include use-text-style('h4');
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0.5em 0;
+}
+
+p,
+article,
+section {
+  @include use-text-style('body');
+}
+
+hr {
+  border: none;
+  border-top: 1px solid ui-color('gray', 'light');
+}
+
+details > summary {
+  cursor: pointer;
+}
+
+/* CC: https://gist.github.com/tuzz/3331384 */
+table {
+  padding: 0;
+  border-collapse: collapse;
+}
+table tr {
+  border-top: 1px solid #cccccc;
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
+
+table thead tr {
+  background-color: #ddd;
+}
+
+table > tbody > tr:nth-child(2n),
+table > tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+table tr th {
+  font-weight: bold;
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr td {
+  border: 1px solid #cccccc;
+  text-align: left;
+  margin: 0;
+  padding: 6px 13px;
+}
+
+table tr th :first-child,
+table tr td :first-child {
+  margin-top: 0;
+}
+
+table tr th :last-child,
+table tr td :last-child {
+  margin-bottom: 0;
+}

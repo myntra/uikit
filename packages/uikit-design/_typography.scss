@@ -3,8 +3,15 @@ $-base-font-size: 12px;
 $-font-faces: () !default;
 $-font-faces: merge(
   (
-    default: (Roboto, Helvetica, sans-serif),
-    alternate: ('Roboto Condensed', sans-serif),
+    default: (
+      Roboto,
+      Helvetica,
+      sans-serif,
+    ),
+    alternate: (
+      'Roboto Condensed',
+      sans-serif,
+    ),
   ),
   $-font-faces
 );
@@ -12,14 +19,14 @@ $-font-faces: merge(
 $-font-sizes: () !default;
 $-font-sizes: merge(
   (
-    small:    $-base-font-size * 0.83333333,
-    base:     $-base-font-size,
-    large:    $-base-font-size * 1.16666667,
-    x-large:  $-base-font-size * 1.33333333,
-    xx-large:  $-base-font-size * 1.66666667,
-    '1x':  $-base-font-size,
-    '2x':  $-base-font-size * 2,
-    '3x':  $-base-font-size * 3,
+    small: $-base-font-size * 0.83333333,
+    base: $-base-font-size,
+    large: $-base-font-size * 1.16666667,
+    x-large: $-base-font-size * 1.33333333,
+    xx-large: $-base-font-size * 1.66666667,
+    '1x': $-base-font-size,
+    '2x': $-base-font-size * 2,
+    '3x': $-base-font-size * 3,
   ),
   $-font-sizes
 );
@@ -29,18 +36,16 @@ $-font-sizes: merge(
     map-get-or-throw(
       $-font-sizes,
       $name,
-      "UIKit(font-size): Unknown font size: #{$name}"
+      'UIKit(font-size): Unknown font size: #{$name}'
     )
   );
 }
 
 @function ui-font-face($name: default) {
-  @return to-rem(
-    map-get-or-throw(
-      $-font-faces,
-      $name,
-      "UIKit(font-face): Unknown font size: #{$name}"
-    )
+  @return map-get-or-throw(
+    $-font-faces,
+    $name,
+    'UIKit(font-face): Unknown font size: #{$name}'
   );
 }
 
@@ -88,7 +93,11 @@ $-text-styles: merge(
 );
 
 @mixin use-text-style($name: p) {
-  $style: map-get-or-throw($-text-styles, $name, 'UIKit(text-style): Unknown text style #{$name}');
+  $style: map-get-or-throw(
+    $-text-styles,
+    $name,
+    'UIKit(text-style): Unknown text style #{$name}'
+  );
 
   @include extract-font($style);
 }

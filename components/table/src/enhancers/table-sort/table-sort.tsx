@@ -15,7 +15,9 @@ function compareFallback(a: any, b: any): number {
 export default class TableSort extends PureComponent<Props> {
   static enhancer: Enhancer<
     Props,
-    { columnId: string; order: 'asc' | 'desc' }
+    { columnId: string; order: 'asc' | 'desc' },
+    any,
+    { onSort?(): void }
   > = {
     name: 'sort',
 
@@ -30,7 +32,8 @@ export default class TableSort extends PureComponent<Props> {
       )
     },
 
-    prepareData({ getter, query, columnId }, data, { compare }) {
+    prepareData({ getter, query, columnId }, data, { compare }, { onSort }) {
+      if (onSort) return data // Bail. Using external sorting logic.
       if (!query) return data
       if (query.columnId !== columnId) return data
       compare = compare || compareFallback

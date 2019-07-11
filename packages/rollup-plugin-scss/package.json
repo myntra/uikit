@@ -2,6 +2,8 @@
   "name": "@myntra/rollup-plugin-scss",
   "version": "1.0.0-beta.8",
   "main": "src/index.js",
+  "module": "dist/rollup-plugin-scss.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/rollup-plugin-scss",

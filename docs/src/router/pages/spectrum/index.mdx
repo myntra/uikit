@@ -32,4 +32,81 @@ spectrum --version
 
 ### Create a new project
 
-To create a new project, run `spectrum create <project-name>`:
+To create a new project, run:
+
+```bash
+spectrum create hello-world
+```
+
+You will be prompted to pick a preset. You can either choose the default preset which comes with a basic Babel + ESLint setup, or select "Manually select features" to pick the features you need.
+
+![CLI Screenshot of spectrum create command](@/assets/spectrum/create.png)
+
+The default setup is great for quickly prototyping a new project.
+
+![CLI Screenshot of output from spectrum create command](@/assets/spectrum/create.png)
+
+Start development server:
+
+```bash
+yarn serve
+```
+
+### Application architecture
+
+A freshly created spectrum project would have following files and folders:
+
+```
+- @types/
+- README.md
+- babel.config.js
+- jsconfig.json
+- node_modules/
+- package.json
+- public/
+- spectrum.config.js
+- src/
+- yarn.lock
+```
+
+`package.json`, `yarn.lock` and `node_modules/` are used by NPM (the node package manager).
+
+`jsconfig.json` and `@types` are create when you run spectrum dev server. These files help VS Code to provide autocompletion and intellisense.
+
+`.editorconfig` configures your editor (e.g. use two spaces for indentation).
+
+`.gitignore` lists files and folders which should not be checked in the repository.
+
+`README.md` is a quick getting started guide to run and build the project.
+
+`babel.config.js` configures babel to transpile the porject to a version of JavaScript supported by the target browser.
+
+`public/` contains static files like `index.html` and `favicon.ico` etc.
+
+`src/` contains the source of the application.
+
+
+The `src/` directory has following files:
+
+```
+- components
+- router
+  - pages
+- store
+  - containers
+  - middlewares
+  - reducers
+```
+
+#### Routing
+
+Spectrum application support directory based routing e.g. `src/router/pages/index.jsx` is registered to route `/`.
+
+Examples:
+
+- `/home` - `src/router/pages/home.jsx`
+- `/products` - `src/router/products.jsx`
+- `/products/` - `src/router/products/index.jsx`
+- `/products/:id` - `src/router/products/_id.jsx`
+
+> Spectrum application scaffolds in project docs. Read all the `README.md` files.

@@ -116,6 +116,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
   listRef: RefObject<List>
 
   static defaultProps = {
+    options: [],
     multiple: false,
     disabled: false,
     required: false,

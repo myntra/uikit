@@ -52,6 +52,9 @@ export const ErrorBoundary = asyncComponent(() =>
 export const Field = asyncComponent(() =>
   import(/* webpackChunkName: 'components/field' */ '@myntra/uikit-component-field')
 )
+export const Flex = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/flex' */ '@myntra/uikit-component-flex')
+)
 export const Form = asyncComponent(() =>
   import(/* webpackChunkName: 'components/form' */ '@myntra/uikit-component-form')
 )
@@ -139,6 +142,9 @@ export const Table = asyncComponent(() =>
 export const Tabs = asyncComponent(() =>
   import(/* webpackChunkName: 'components/tabs' */ '@myntra/uikit-component-tabs')
 )
+export const Text = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/text' */ '@myntra/uikit-component-text')
+)
 export const Tooltip = asyncComponent(() =>
   import(/* webpackChunkName: 'components/tooltip' */ '@myntra/uikit-component-tooltip')
 )
@@ -215,6 +221,12 @@ export const META = [
     since: '0.6.0',
     status: 'REVIEWING',
     path: '/components/field'
+  },
+  {
+    name: 'Flex',
+    since: '0.3.0',
+    status: 'DEPRECATED',
+    path: '/components/flex'
   },
   {
     name: 'Form',
@@ -389,6 +401,12 @@ export const META = [
     since: '0.3.0',
     status: 'REVIEWING',
     path: '/components/tabs'
+  },
+  {
+    name: 'Text',
+    since: '0.3.0',
+    status: 'REVIEWING',
+    path: '/components/text'
   },
   {
     name: 'Tooltip',

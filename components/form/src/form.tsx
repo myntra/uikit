@@ -148,6 +148,7 @@ export default class Form extends Component<Props> {
             <Grid.Column
               key={field.key || index}
               size={(field.props && field.props.fieldSize) || defaultFieldSize}
+              {...field.props && field.props.field}
             >
               {field}
             </Grid.Column>

@@ -2,24 +2,35 @@ export { default as Accordion } from "@myntra/uikit-component-accordion";
 export { default as Alert } from "@myntra/uikit-component-alert";
 export { default as Avatar } from "@myntra/uikit-component-avatar";
 export { default as Badge } from "@myntra/uikit-component-badge";
+// TODO: create a codemod for renaming Tag to Badge
+export { default as Tag } from "@myntra/uikit-component-badge";
 export { default as BreadCrumb } from "@myntra/uikit-component-bread-crumb";
 export { default as Button } from "@myntra/uikit-component-button";
 export { default as ClickAway } from "@myntra/uikit-component-click-away";
 export { default as Dropdown } from "@myntra/uikit-component-dropdown";
+// TODO: create a codemod for renaming DropDown to Dropdown
+export { default as DropDown } from "@myntra/uikit-component-dropdown";
 export { default as ErrorBoundary } from "@myntra/uikit-component-error-boundary";
 export { default as Field } from "@myntra/uikit-component-field";
+export { default as Flex } from "@myntra/uikit-component-flex";
 export { default as Form } from "@myntra/uikit-component-form";
 export { default as Grid } from "@myntra/uikit-component-grid";
 export { default as Group } from "@myntra/uikit-component-group";
 export { default as Icon } from "@myntra/uikit-component-icon";
 export { default as Image } from "@myntra/uikit-component-image";
 export { default as InputCheckbox } from "@myntra/uikit-component-input-checkbox";
+// TODO: create a codemod for renaming InputCheckBox to InputCheckbox
+export { default as InputCheckBox } from "@myntra/uikit-component-input-checkbox";
+// TODO: Implement or deprecate InputSwitch
+export { default as InputSwitch } from "@myntra/uikit-component-input-checkbox";
 export { default as InputDate } from "@myntra/uikit-component-input-date";
 export { default as InputMasked } from "@myntra/uikit-component-input-masked";
 export { default as InputMonth } from "@myntra/uikit-component-input-month";
 export { default as InputNumber } from "@myntra/uikit-component-input-number";
 export { default as InputRadio } from "@myntra/uikit-component-input-radio";
 export { default as InputS3File } from "@myntra/uikit-component-input-s3-file";
+// TODO: create a codemod for renaming S3Upload to InputS3File
+export { default as S3Upload } from "@myntra/uikit-component-input-s3-file";
 export { default as InputSelect } from "@myntra/uikit-component-input-select";
 export { default as InputText } from "@myntra/uikit-component-input-text";
 export { default as InputTextArea } from "@myntra/uikit-component-input-text-area";
@@ -37,6 +48,7 @@ export { default as SchemaForm } from "@myntra/uikit-component-schema-form";
 export { default as Section } from "@myntra/uikit-component-section";
 export { default as Table } from "@myntra/uikit-component-table";
 export { default as Tabs, Tab } from "@myntra/uikit-component-tabs";
+export { default as Text } from "@myntra/uikit-component-text";
 export { default as Tooltip } from "@myntra/uikit-component-tooltip";
 export { default as TopBar } from "@myntra/uikit-component-top-bar";
 export { default as VirtualGrid } from "@myntra/uikit-component-virtual-grid";

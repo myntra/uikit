@@ -21,6 +21,10 @@ export interface TableProps<T = any> extends BaseProps {
   virtualized?: boolean
 
   columnOrder?: string[]
+
+  onSort?(props: { columnId: string; order: 'asc' | 'desc' }): void
+
+  onFilter?(props: Record<string, any[]>): void
 }
 
 interface TableState {
@@ -56,7 +60,7 @@ export default class Table extends PureComponent<TableProps, TableState> {
     enhancers: {},
   }
 
-  enhancerSetters: Record<string, (value: any) => void> = {}
+  enhancerSetters: Record<string, (value: any, emit: boolean) => void> = {}
 
   getEnhancerState = (enhancer: string) => {
     return {
@@ -67,13 +71,23 @@ export default class Table extends PureComponent<TableProps, TableState> {
 
   getEnhancerChangeHandler(enhancer: string) {
     if (!(enhancer in this.enhancerSetters)) {
-      this.enhancerSetters[enhancer] = (value) =>
-        this.setState((state) => ({
-          enhancers: {
-            ...state.enhancers,
-            [enhancer]: value,
-          },
-        }))
+      const event = `on${enhancer[0].toUpperCase()}${enhancer.substr(1)}`
+      this.enhancerSetters[enhancer] = (value, emit = true) => {
+        this.setState(
+          (state) => ({
+            enhancers: {
+              ...state.enhancers,
+              [enhancer]: value,
+            },
+          }),
+          () => {
+            if (emit && typeof this.props[event] === 'function') {
+              const fn = this.props[event]
+              fn(this.state.enhancers[enhancer])
+            }
+          }
+        )
+      }
     }
 
     return this.enhancerSetters[enhancer]
@@ -90,6 +104,8 @@ export default class Table extends PureComponent<TableProps, TableState> {
       virtualized,
       columnOrder,
       data,
+      onFilter,
+      onSort,
       ...props
     } = this.props
     const nodes = Children.toArray(children)
@@ -126,6 +142,8 @@ export default class Table extends PureComponent<TableProps, TableState> {
       })
     }
 
+    const hoistedProps = { onFilter, onSort }
+
     const preparedData = table.columns
       .filter((column) => column.enhancers.length)
       .reduce(
@@ -140,7 +158,8 @@ export default class Table extends PureComponent<TableProps, TableState> {
                       query: this.state.enhancers[enhancer.name],
                     },
                     data,
-                    props
+                    props,
+                    hoistedProps
                   )
                 : data,
             data

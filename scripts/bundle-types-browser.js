@@ -84,7 +84,11 @@ function getComponentTypes(name, file, extractTypes) {
 function writeUIKitTypesForDocsEditor(components) {
   const files = components
     .map((component) => glob.sync(`${getSourceDir(component)}/**/*.{ts,tsx}`))
-    .flat()
+    .reduce(
+      (acc, item) =>
+        Array.isArray(item) ? acc.concat(item) : (acc.push(item), acc),
+      []
+    )
   const program = typescript.createProgram(files, {
     jsx: typescript.JsxEmit.React,
     module: typescript.ModuleKind.CommonJS,
@@ -157,26 +161,26 @@ function writeUIKitAsyncImports(components) {
     }
   })
 
-  fs.writeFileSync(
-    path.resolve(__dirname, '../packages/uikit/src/index.ts'),
-    prettier.format(
-      components
-        .map((component, index) => {
-          const pkg = getPackageJSON(component)
+  // fs.writeFileSync(
+  //   path.resolve(__dirname, '../packages/uikit/src/index.ts'),
+  //   prettier.format(
+  //     components
+  //       .map((component, index) => {
+  //         const pkg = getPackageJSON(component)
 
-          return `export { default as  ${componentName(component)} ${
-            pkg.exports ? ', ' + pkg.exports.join(', ') : ''
-          } } from '@myntra/uikit-component-${component}'`
-        })
-        .join('\n'),
-      {
-        parser: 'babel',
-        singleQuote: true,
-        semi: false,
-        trailingComma: 'es5',
-      }
-    )
-  )
+  //         return `export { default as  ${componentName(component)} ${
+  //           pkg.exports ? ', ' + pkg.exports.join(', ') : ''
+  //         } } from '@myntra/uikit-component-${component}'`
+  //       })
+  //       .join('\n'),
+  //     {
+  //       parser: 'babel',
+  //       singleQuote: true,
+  //       semi: false,
+  //       trailingComma: 'es5',
+  //     }
+  //   )
+  // )
 
   fs.writeFileSync(
     path.resolve(__dirname, '../docs/src/uikit.js'),

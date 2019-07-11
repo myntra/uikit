@@ -10,19 +10,20 @@
     display: inline-block;
     cursor: pointer;
   }
+}
 
-  .selector {
-    max-height: 360px;
-    overflow: auto;
-    background-color: #fff;
-    box-shadow: ui-shadow('raised');
-  }
+// Renders in Portal
+.selector {
+  max-height: 360px;
+  overflow: auto;
+  background-color: #fff;
+  box-shadow: ui-shadow('raised');
+}
 
-  .list {
-    background: ui-color('white');
-  }
+.list {
+  background: ui-color('white');
+}
 
-  .empty {
-    padding: 0.5rem 1rem;
-  }
+.empty {
+  padding: 0.5rem 1rem;
 }

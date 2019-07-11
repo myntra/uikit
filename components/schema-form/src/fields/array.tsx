@@ -119,6 +119,8 @@ class SchemaFormArray extends Component<Props> {
 
     return (
       <Grid.Column
+        size={4}
+        sizeOnMobile={12}
         {...layout}
         className={classnames('container')}
         key={this.props.path}

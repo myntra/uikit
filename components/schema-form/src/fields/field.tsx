@@ -89,6 +89,8 @@ export default class SchemaFormField extends PureComponent<Props> {
 
     return (
       <Grid.Column
+        size={4}
+        sizeOnMobile={12}
         {...layout}
         key={this.props.path}
         data-path={this.props.path}

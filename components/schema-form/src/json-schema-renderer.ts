@@ -25,7 +25,7 @@ export type UI = UIField | UIArrayField | UIObjectField
 
 export interface SchemaRendererOptions {
   resolveComponent(name: string): ComponentType
-  resolveOptions(format: string): Array<any> | void // TODO: Accept promise.
+  resolveOptions(format: string, schema: any): Array<any> | void // TODO: Accept promise.
 }
 
 interface PropPostProcessor {
@@ -35,7 +35,7 @@ interface PropPostProcessor {
 interface GeneratorContext {
   compile: typeof compile
   resolveComponent(...name: string[]): ComponentType | null
-  resolveOptions(format: string): Array<any> | void // TODO: Accept promise.
+  resolveOptions(format: string, schema: any): Array<any> | void // TODO: Accept promise.
   generate(schema: Schema, options?: Record<string, any>): UI
   resolveProps(
     schema: Schema,
@@ -76,8 +76,8 @@ export function createRenderFactory(
     return null
   }
 
-  function resolveOptions(format: string) {
-    if (options.resolveOptions) return options.resolveOptions(format)
+  function resolveOptions(format: string, schema: any) {
+    if (options.resolveOptions) return options.resolveOptions(format, schema)
   }
 
   const ui = generate(schema, { name })
@@ -163,6 +163,18 @@ function generateObjectField(
     generate(subSchema, { name })
   )
 
+  if (
+    Array.isArray(schema.required) &&
+    schema.required.length > 0 &&
+    typeof schema.required[0] === 'string'
+  ) {
+    children.forEach((child) => {
+      if (schema.required.includes(child.name)) {
+        child.props.required = true
+      }
+    })
+  }
+
   const component = resolveComponent(schema.component)
 
   return {
@@ -196,22 +208,26 @@ function generateArrayField(
   const getDerivedProps = compile(schema)
   const isSelect =
     schema.items.type === 'string' &&
-    !!schema.items.format &&
-    !!resolveOptions(schema.items.format)
+    typeof schema.items.format === 'string' &&
+    !!schema.items.format.trim() &&
+    !/^(email|url|file|tel|password|search|text)$/.test(
+      schema.items.format.trim()
+    )
 
   if (isSelect) props.multiple = true
+  else props.type = schema.items && schema.items.format
 
   const getDerivedPropsFromValue = isSelect
     ? (value) => ({
         ...getDerivedProps(value),
-        options: resolveOptions(schema.items.format),
+        options: resolveOptions(schema.items.format, schema.items),
       })
     : getDerivedProps
 
   const items = generate(schema.items, { name })
   const component = isSelect
-    ? resolveComponent(schema.items.component, 'Form.Select')
-    : resolveComponent(schema.component)
+    ? resolveComponent(schema.items.component, props.component, 'Form.Select')
+    : resolveComponent(schema.component, props.component)
 
   function factory(index: number) {
     return items
@@ -241,16 +257,24 @@ function generateStringField(
   const { props, layout } = resolveProps(schema, {})
   const getDerivedProps = compile(schema)
   const format = schema.format
-  const isSelect = !!format && !!resolveOptions(format)
+  const isSelect =
+    typeof format === 'string' &&
+    !!format &&
+    !/^(email|tel|url|file|text|search|password)$/.test(format)
   const component = resolveComponent(
     schema.component,
+    props.component,
     formatComponents[format],
     isSelect ? 'Form.Select' : 'Form.Text'
   )
+
+  if (!isSelect) {
+    props.type = format
+  }
   const getDerivedPropsFromValue = isSelect
     ? (value) => ({
         ...getDerivedProps(value),
-        options: resolveOptions(format),
+        options: resolveOptions(format, schema),
       })
     : getDerivedProps
 

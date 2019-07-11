@@ -24,7 +24,11 @@
 }
 
 .editor .code-preview--refresh {
-  right: 42px;
+  right: 80px;
+}
+
+.editor .code-preview--copy {
+  right: 120px;
 }
 
 .active .editor {
@@ -39,6 +43,13 @@
   position: absolute;
   top: 5px;
   right: 5px;
+  z-index: 10001;
+}
+
+.editor .fullscreen {
+  position: absolute;
+  top: 5px;
+  right: 2.6rem;
   z-index: 10001;
 }
 

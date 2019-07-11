@@ -22,7 +22,12 @@ export interface Props<T = any> extends BaseProps {
  * @see http://uikit.myntra.com/components/table#tablefilter
  */
 export default class TableFilter extends PureComponent<Props> {
-  static enhancer: Enhancer<Props, Record<string, any[]>> = {
+  static enhancer: Enhancer<
+    Props,
+    Record<string, any[]>,
+    any,
+    { onFilter?(): void }
+  > = {
     name: 'filter',
 
     renderHead({ columnId, value, onChange, getter }, props, data) {
@@ -39,7 +44,8 @@ export default class TableFilter extends PureComponent<Props> {
       )
     },
 
-    prepareData({ getter, query, columnId }, data) {
+    prepareData({ getter, query, columnId }, data, { onFilter }) {
+      if (onFilter) return data // Bail. Using external filtering logic.
       if (!query) return data
       if (!query[columnId]) return data
       if (!query[columnId].length) return data
