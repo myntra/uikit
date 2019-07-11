@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-virtual-grid",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "main": "dist/virtual-grid.cjs.js",
   "module": "dist/virtual-grid.esm.js",
   "types": "dist/index.d.ts",
@@ -26,8 +26,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.8",
-    "@myntra/uikit-component-virtual-list": "1.0.0-beta.8",
-    "@myntra/uikit-utils": "1.0.0-beta.8"
+    "@myntra/uikit-can-i-use": "1.0.0-beta.9",
+    "@myntra/uikit-component-virtual-list": "1.0.0-beta.9",
+    "@myntra/uikit-utils": "1.0.0-beta.9"
   }
 }

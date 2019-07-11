@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-dropdown",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "main": "dist/dropdown.cjs.js",
   "module": "dist/dropdown.esm.js",
   "types": "dist/index.d.ts",
@@ -25,12 +25,12 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.8",
-    "@myntra/uikit-component-button": "1.0.0-beta.8",
-    "@myntra/uikit-component-click-away": "1.0.0-beta.8",
-    "@myntra/uikit-component-measure": "1.0.0-beta.8",
-    "@myntra/uikit-component-portal": "1.0.0-beta.8",
-    "@myntra/uikit-utils": "1.0.0-beta.8",
+    "@myntra/uikit-can-i-use": "1.0.0-beta.9",
+    "@myntra/uikit-component-button": "1.0.0-beta.9",
+    "@myntra/uikit-component-click-away": "1.0.0-beta.9",
+    "@myntra/uikit-component-measure": "1.0.0-beta.9",
+    "@myntra/uikit-component-portal": "1.0.0-beta.9",
+    "@myntra/uikit-utils": "1.0.0-beta.9",
     "prop-types": "^15.7.2"
   }
 }

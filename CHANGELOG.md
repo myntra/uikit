@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.9"></a>
+## 1.0.0-beta.9 (2019-07-11)
+
+* fix: usability fixes ([8515101](https://bitbucket.org/myntra/uikit/commits/8515101))
+
+
+
 <a name="1.0.0-beta.8"></a>
 ## 1.0.0-beta.8 (2019-07-05)
 

@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-field",
-  "version": "1.0.0-beta.8",
+  "version": "1.0.0-beta.9",
   "main": "dist/field.cjs.js",
   "module": "dist/field.esm.js",
   "types": "dist/index.d.ts",
@@ -26,8 +26,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.8",
-    "@myntra/uikit-utils": "1.0.0-beta.8",
+    "@myntra/uikit-can-i-use": "1.0.0-beta.9",
+    "@myntra/uikit-utils": "1.0.0-beta.9",
     "prop-types": "^15.7.2"
   }
 }
