@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.12"></a>
+## 1.0.0-beta.12 (2019-07-12)
+
+* fix: conditional arrow function in virtual-list ([ae80f14](https://bitbucket.org/myntra/uikit/commits/ae80f14))
+
+
+
 <a name="1.0.0-beta.10"></a>
 ## 1.0.0-beta.10 (2019-07-12)
 
