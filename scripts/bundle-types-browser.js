@@ -161,26 +161,26 @@ function writeUIKitAsyncImports(components) {
     }
   })
 
-  // fs.writeFileSync(
-  //   path.resolve(__dirname, '../packages/uikit/src/index.ts'),
-  //   prettier.format(
-  //     components
-  //       .map((component, index) => {
-  //         const pkg = getPackageJSON(component)
+  fs.writeFileSync(
+    path.resolve(__dirname, '../packages/uikit/src/components.ts'),
+    prettier.format(
+      components
+        .map((component, index) => {
+          const pkg = getPackageJSON(component)
 
-  //         return `export { default as  ${componentName(component)} ${
-  //           pkg.exports ? ', ' + pkg.exports.join(', ') : ''
-  //         } } from '@myntra/uikit-component-${component}'`
-  //       })
-  //       .join('\n'),
-  //     {
-  //       parser: 'babel',
-  //       singleQuote: true,
-  //       semi: false,
-  //       trailingComma: 'es5',
-  //     }
-  //   )
-  // )
+          return `export { default as  ${componentName(component)} ${
+            pkg.exports ? ', ' + pkg.exports.join(', ') : ''
+          } } from '@myntra/uikit-component-${component}'`
+        })
+        .join('\n'),
+      {
+        parser: 'babel',
+        singleQuote: true,
+        semi: false,
+        trailingComma: 'es5',
+      }
+    )
+  )
 
   fs.writeFileSync(
     path.resolve(__dirname, '../docs/src/uikit.js'),

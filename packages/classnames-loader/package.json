@@ -1,6 +1,6 @@
 {
   "name": "@myntra/classnames-loader",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.12",
   "main": "src/index.js",
   "module": "dist/classnames-loader.esm.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
   ],
   "description": "@myntra/classnames-loader",
   "dependencies": {
-    "@myntra/uikit-utils": "1.0.0-beta.10",
+    "@myntra/uikit-utils": "1.0.0-beta.12",
     "loader-utils": "^1.1.0"
   }
 }

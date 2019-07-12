@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-top-bar",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.12",
   "main": "dist/top-bar.cjs.js",
   "module": "dist/top-bar.esm.js",
   "types": "dist/index.d.ts",
@@ -26,11 +26,11 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.10",
-    "@myntra/uikit-component-bread-crumb": "1.0.0-beta.10",
-    "@myntra/uikit-component-dropdown": "1.0.0-beta.10",
-    "@myntra/uikit-component-icon": "1.0.0-beta.10",
-    "@myntra/uikit-component-list": "1.0.0-beta.10",
-    "@myntra/uikit-utils": "1.0.0-beta.10"
+    "@myntra/uikit-can-i-use": "1.0.0-beta.12",
+    "@myntra/uikit-component-bread-crumb": "1.0.0-beta.12",
+    "@myntra/uikit-component-dropdown": "1.0.0-beta.12",
+    "@myntra/uikit-component-icon": "1.0.0-beta.12",
+    "@myntra/uikit-component-list": "1.0.0-beta.12",
+    "@myntra/uikit-utils": "1.0.0-beta.12"
   }
 }

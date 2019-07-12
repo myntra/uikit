@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-list",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.12",
   "main": "dist/list.cjs.js",
   "module": "dist/list.esm.js",
   "types": "dist/index.d.ts",
@@ -26,9 +26,9 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.10",
-    "@myntra/uikit-component-virtual-list": "1.0.0-beta.10",
-    "@myntra/uikit-utils": "1.0.0-beta.10",
+    "@myntra/uikit-can-i-use": "1.0.0-beta.12",
+    "@myntra/uikit-component-virtual-list": "1.0.0-beta.12",
+    "@myntra/uikit-utils": "1.0.0-beta.12",
     "react": "16.*",
     "scroll-into-view-if-needed": "^2.2.20"
   }

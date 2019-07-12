@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-click-away",
-  "version": "1.0.0-beta.10",
+  "version": "1.0.0-beta.12",
   "main": "dist/click-away.cjs.js",
   "module": "dist/click-away.esm.js",
   "types": "dist/index.d.ts",
@@ -26,7 +26,7 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.10",
-    "@myntra/uikit-utils": "1.0.0-beta.10"
+    "@myntra/uikit-can-i-use": "1.0.0-beta.12",
+    "@myntra/uikit-utils": "1.0.0-beta.12"
   }
 }

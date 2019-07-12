@@ -135,7 +135,6 @@ export default class VirtualList extends PureComponent<
   isHorizontal: boolean
   hasPendingRender: number
   scrollFrameId: number
-  genStyle: (offset: number, size: number) => Record<string, string>
   sizes: MeasureCache
   manager: PositionManager
 
@@ -149,9 +148,6 @@ export default class VirtualList extends PureComponent<
     }
 
     this.isHorizontal = props.direction === 'horizontal'
-    this.genStyle = this.isHorizontal
-      ? (offset) => ({ position: 'absolute', left: offset + 'px' })
-      : (offset) => ({ position: 'absolute', top: offset + 'px' })
 
     this.sizes = createMeasureCache()
     this.manager =
@@ -178,6 +174,12 @@ export default class VirtualList extends PureComponent<
 
   componentWillUnmount() {
     window.cancelAnimationFrame(this.hasPendingRender)
+  }
+
+  genStyle(offset: number) {
+    return this.isHorizontal
+      ? { position: 'absolute', left: offset + 'px' }
+      : { position: 'absolute', top: offset + 'px' }
   }
 
   handleMeasure = ({ row, column, size }) => {
@@ -279,7 +281,7 @@ export default class VirtualList extends PureComponent<
 
     const renderChild = (index) => {
       const { offset, size } = this.manager.getCellAt(index)
-      const style = this.genStyle(offset, size)
+      const style = this.genStyle(offset)
 
       const node = renderItem({
         list: this,
