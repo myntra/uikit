@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0-beta.10"></a>
+## 1.0.0-beta.10 (2019-07-12)
+
+* feat: add text & flex ([60bd5c9](https://bitbucket.org/myntra/uikit/commits/60bd5c9))
+
+
+
 <a name="1.0.0-beta.9"></a>
 ## 1.0.0-beta.9 (2019-07-11)
 

@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-schema-form",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "main": "dist/schema-form.cjs.js",
   "module": "dist/schema-form.esm.js",
   "types": "dist/index.d.ts",
@@ -26,11 +26,11 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.9",
-    "@myntra/uikit-component-button": "1.0.0-beta.9",
-    "@myntra/uikit-component-field": "1.0.0-beta.9",
-    "@myntra/uikit-component-form": "1.0.0-beta.9",
-    "@myntra/uikit-component-grid": "1.0.0-beta.9",
-    "@myntra/uikit-utils": "^1.0.0-beta.9"
+    "@myntra/uikit-can-i-use": "1.0.0-beta.10",
+    "@myntra/uikit-component-button": "1.0.0-beta.10",
+    "@myntra/uikit-component-field": "1.0.0-beta.10",
+    "@myntra/uikit-component-form": "1.0.0-beta.10",
+    "@myntra/uikit-component-grid": "1.0.0-beta.10",
+    "@myntra/uikit-utils": "1.0.0-beta.10"
   }
 }

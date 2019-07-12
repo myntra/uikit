@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-flex",
-  "version": "1.0.0-beta.9",
+  "version": "1.0.0-beta.10",
   "main": "dist/flex.cjs.js",
   "module": "dist/flex.esm.js",
   "types": "dist/index.d.ts",
@@ -22,6 +22,6 @@
     "@types/react": "latest"
   },
   "dependencies": {
-    "@myntra/uikit-utils": "^1.0.0-beta.9"
+    "@myntra/uikit-utils": "1.0.0-beta.10"
   }
 }
