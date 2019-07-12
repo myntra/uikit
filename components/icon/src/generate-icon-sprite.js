@@ -43,6 +43,8 @@ module.exports = async function generateSprite(inputs, output, outputNames) {
     )
   const sprite = new Sprite({ prefix: 'uikit-i-' })
 
+  icons.sort()
+
   await Promise.all(
     icons
       .filter((filename) => /\.svg$/.test(filename))
@@ -54,6 +56,9 @@ module.exports = async function generateSprite(inputs, output, outputNames) {
   )
 
   const names = sprite.names
+
+  names.sort()
+
   const code = {
     names: `export default ${JSON.stringify(Array.from(names))}`,
     types: `
@@ -72,6 +77,7 @@ module.exports = async function generateSprite(inputs, output, outputNames) {
       parser: 'babel',
       singleQuote: true,
       semi: false,
+      trailingComma: 'es5',
     })
   )
   await fs.writeFile(
@@ -80,6 +86,7 @@ module.exports = async function generateSprite(inputs, output, outputNames) {
       parser: 'typescript',
       singleQuote: true,
       semi: false,
+      trailingComma: 'es5',
     })
   )
 }

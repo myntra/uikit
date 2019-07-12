@@ -68,9 +68,13 @@ module.exports = class Sprite {
   }
 
   compile() {
+    const names = Object.keys(this.symbols)
+    names.sort()
+    const icons = names.map((name) => this.symbols[name])
+
     return `<svg ${Object.entries(this.options.attributes)
       .map(({ 0: name, 1: value }) => `${name}=${JSON.stringify(value)}`)
-      .join(' ')}>${Object.values(this.symbols).join('')}</svg>`
+      .join(' ')}>${icons.join('')}</svg>`
   }
 
   toString() {
