@@ -20,5 +20,8 @@
   },
   "devDependencies": {
     "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-utils": "^1.0.0-beta.9"
   }
 }

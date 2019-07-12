@@ -31,6 +31,6 @@
     "@myntra/uikit-component-field": "1.0.0-beta.9",
     "@myntra/uikit-component-form": "1.0.0-beta.9",
     "@myntra/uikit-component-grid": "1.0.0-beta.9",
-    "@myntra/uikit-utils": "1.0.0-beta.9"
+    "@myntra/uikit-utils": "^1.0.0-beta.9"
   }
 }

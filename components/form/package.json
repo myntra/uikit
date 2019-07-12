@@ -40,6 +40,6 @@
     "@myntra/uikit-component-input-select": "1.0.0-beta.9",
     "@myntra/uikit-component-input-text": "1.0.0-beta.9",
     "@myntra/uikit-component-input-text-area": "1.0.0-beta.9",
-    "@myntra/uikit-utils": "1.0.0-beta.9"
+    "@myntra/uikit-utils": "^1.0.0-beta.9"
   }
 }

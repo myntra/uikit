@@ -29,6 +29,6 @@
     "@myntra/codemod-utils": "1.0.0-beta.9",
     "@myntra/uikit-can-i-use": "1.0.0-beta.9",
     "@myntra/uikit-component-icon": "1.0.0-beta.9",
-    "@myntra/uikit-utils": "1.0.0-beta.9"
+    "@myntra/uikit-utils": "^1.0.0-beta.9"
   }
 }

@@ -29,7 +29,7 @@ const target = args._[0]
   } else {
     await buildAll(fuzzyMatchTarget(target))
   }
-})()
+})().catch(console.error)
 
 async function buildAll(names) {
   for (const target of names) {
@@ -51,7 +51,11 @@ async function build(target) {
 
   await fs.remove(`${pkgDir}/dist`)
 
-  await execa('rollup', ['-c', '--environment', `TARGET:${target}`], {
-    stdio: 'inherit',
-  })
+  await execa(
+    path.resolve(__dirname, '../node_modules/.bin/rollup'),
+    ['-c', '--environment', `TARGET:${target}`],
+    {
+      stdio: 'inherit',
+    }
+  )
 }

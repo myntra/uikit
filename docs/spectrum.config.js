@@ -19,19 +19,21 @@ module.exports = {
       ignored: ['**/*.spec.js', '__codemod__', /node_modules/]
     })
 
+    const entry = process.env.NODE_ENV === 'production' ? '' : '/src'
+
     /* eslint-disable prettier/prettier */
     config.resolve.alias
       .set('@component-docs', componentsDir)
       .set('@myntra/uikit-design/design.scss$', packagesDir + '/uikit-design/design.scss')
       .set('@myntra/uikit-component-input-text/style.scss$', componentsDir + '/input-text/style.scss')
       .set('@design$', themesDir + '/nuclei/design.scss')
-      .set('@theme$', themesDir + '/nuclei/src/index.ts')
+      .set('@theme$', themesDir + '/nuclei' + entry)
 
     components.forEach(name =>
-      config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name + '/src/')
+      config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name + entry)
     )
-    packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name + '/src/'))
-    themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name + '/src/'))
+    packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name + entry))
+    themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name + entry))
     config.resolve.extensions
       .add('.ts')
       .add('.tsx')

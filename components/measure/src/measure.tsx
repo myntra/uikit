@@ -35,12 +35,14 @@ export const createObserver = function() {
     })
   })
 
-  const handlers = new WeakMap()
-  const elements = new WeakMap()
+  type Handler = (entry: ResizeObserverEntry) => void
+
+  const handlers = new WeakMap<Element, Handler>()
+  const elements = new WeakMap<Handler, Set<Element>>()
 
   return {
-    connect(handler: (entry: ResizeObserverEntry) => void) {
-      const currentElements = new Set()
+    connect(handler: Handler) {
+      const currentElements = new Set<Element>()
       elements.set(handler, currentElements)
 
       return {

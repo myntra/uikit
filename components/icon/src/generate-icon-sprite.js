@@ -1,5 +1,6 @@
 #! /usr/bin/env node
 
+/* eslint-disable node/no-unpublished-require */
 const path = require('path')
 const promised = require('@znck/promised')
 const Sprite = require('@myntra/svg')
@@ -31,13 +32,21 @@ function scopeIds(source) {
 }
 
 module.exports = async function generateSprite(inputs, output, outputNames) {
-  const icons = inputs.map(input => glob.sync('**/*.svg', { cwd: input }).map(name => path.resolve(input, name))).flat()
+  const icons = inputs
+    .map((input) =>
+      glob
+        .sync('**/*.svg', { cwd: input })
+        .map((name) => path.resolve(input, name))
+    )
+    .reduce((acc, item) =>
+      Array.isArray(item) ? acc.concat(item) : (acc.push(item), item)
+    )
   const sprite = new Sprite({ prefix: 'uikit-i-' })
 
   await Promise.all(
     icons
-      .filter(filename => /\.svg$/.test(filename))
-      .map(async filename => {
+      .filter((filename) => /\.svg$/.test(filename))
+      .map(async (filename) => {
         const name = path.basename(filename).replace('.svg', '')
         const contents = await fs.readFile(filename)
         sprite.add(name, scopeIds(contents.toString()))
@@ -50,7 +59,7 @@ module.exports = async function generateSprite(inputs, output, outputNames) {
     types: `
     export interface IconNameGlobal {
       ${Array.from(names)
-        .map(name => `${pascal(name)}: '${name}'`)
+        .map((name) => `${pascal(name)}: '${name}'`)
         .join('\n')}
     }
     `,

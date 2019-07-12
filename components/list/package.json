@@ -28,7 +28,7 @@
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.0.0-beta.9",
     "@myntra/uikit-component-virtual-list": "1.0.0-beta.9",
-    "@myntra/uikit-utils": "1.0.0-beta.9",
+    "@myntra/uikit-utils": "^1.0.0-beta.9",
     "react": "16.*",
     "scroll-into-view-if-needed": "^2.2.20"
   }

@@ -31,7 +31,7 @@
     "@myntra/uikit-component-icon": "1.0.0-beta.9",
     "@myntra/uikit-component-input-text": "1.0.0-beta.9",
     "@myntra/uikit-component-list": "1.0.0-beta.9",
-    "@myntra/uikit-utils": "1.0.0-beta.9",
+    "@myntra/uikit-utils": "^1.0.0-beta.9",
     "sifter": "^0.5.3"
   }
 }
