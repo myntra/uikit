@@ -47,6 +47,9 @@ function DefaultLayout({ router, children, goto }) {
               Getting Started
             </NavBar.Item>
           </NavBar.Group>
+          <NavBar.Item to="/changelog" icon="history">
+            Changelog
+          </NavBar.Item>
           <NavBar.Item to="/contributing" icon="people-carry">
             Contributing
           </NavBar.Item>
