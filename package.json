@@ -35,7 +35,7 @@
     "pre:release": "npm run update:master",
     ":release": "standard-version -a",
     "post:release": "npm run :publish && git push --follow-tags && npm run update:develop",
-    "release": "npm run release",
+    "release": "npm run :release",
     "changelog": "package.json CHANGELOG.md",
     ":update:versions": "node ./scripts/set-version.js",
     ":beta": "standard-version -a -p beta -a",

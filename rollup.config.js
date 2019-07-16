@@ -1,11 +1,5 @@
 /* eslint-disable node/no-unpublished-require */
-const {
-  isComponent,
-  isTheme,
-  getPackageDir,
-  getFullName,
-  componentsDir,
-} = require('./scripts/utils')
+const { getPackageDir, componentsDir } = require('./scripts/utils')
 const path = require('path')
 const ts = require('rollup-plugin-typescript2')
 const nodeResolve = require('rollup-plugin-node-resolve')
@@ -20,7 +14,6 @@ if (!process.env.TARGET) {
   throw new Error(`No target found`)
 }
 
-const name = getFullName(process.env.TARGET)
 const dir = getPackageDir(process.env.TARGET)
 const pkg = require(`${dir}/package.json`)
 
@@ -31,88 +24,84 @@ function get(file) {
 const configs = (module.exports = [])
 
 // compile component with given theme.
-if (isComponent(name) || !isTheme(name)) {
-  const config = {
-    input: get('src/index.ts'),
-    external(name) {
-      return (
-        (pkg.dependencies && name in pkg.dependencies) ||
-        (pkg.peerDependencies && name in pkg.peerDependencies) ||
-        (pkg.optionalDependencies && name in pkg.optionalDependencies)
-      )
-    },
-    plugins: [
-      del(get('dist/**/*')),
-      copy({
-        targets: [
-          {
-            src: get('src/**/*.d.ts'),
-            dest: get('dist/'),
-          },
-        ],
-      }),
-      aliases(),
-      sprite(),
-      url({ exclude: ['**/*.sprite.svg'], include: ['**/*.png'] }),
-      nodeResolve(),
-      css({
-        modules: {
-          generateScopedName(name, filename, css) {
-            const component = filename
-              .replace(componentsDir + '/', '')
-              .split('/')
-              .shift()
-
-            return `_u${hash(`${component}:${name}`, {
-              algorithm: 'md5',
-            }).substr(0, 5)}`
-          },
+const config = {
+  input: get('src/index.ts'),
+  external(name) {
+    return (
+      (pkg.dependencies && name in pkg.dependencies) ||
+      (pkg.peerDependencies && name in pkg.peerDependencies) ||
+      (pkg.optionalDependencies && name in pkg.optionalDependencies)
+    )
+  },
+  plugins: [
+    del(get('dist/**/*')),
+    copy({
+      targets: [
+        {
+          src: get('src/**/*.d.ts'),
+          dest: get('dist/'),
         },
-      }),
-      size(),
-      ts({
-        objectHashIgnoreUnknownHack: true,
-        tsconfig: 'tsconfig.build.json',
-        tsconfigOverride: {
-          include: [get('src'), path.resolve(__dirname, '@types')],
-          compilerOptions: {
-            moduleResolution: 'node',
-            target: 'esnext',
-            module: 'esnext',
-            jsx: 'react',
-            lib: ['dom', 'esnext'],
-            esModuleInterop: true,
-            allowSyntheticDefaultImports: true,
-            declaration: true,
-            rootDir: get('src'),
-            baseUrl: get('src'),
-          },
+      ],
+    }),
+    aliases(),
+    sprite(),
+    url({ exclude: ['**/*.sprite.svg'], include: ['**/*.png'] }),
+    nodeResolve(),
+    css({
+      modules: {
+        generateScopedName(name, filename, css) {
+          const component = filename
+            .replace(componentsDir + '/', '')
+            .split('/')
+            .shift()
+
+          return `_u${hash(`${component}:${name}`, {
+            algorithm: 'md5',
+          }).substr(0, 5)}`
         },
-      }),
-    ],
-  }
-
-  if (pkg.module)
-    configs.push({
-      ...config,
-      output: {
-        file: get(pkg.module),
-        format: 'esm',
       },
-    })
-
-  if (pkg.main)
-    configs.push({
-      ...config,
-      output: {
-        file: get(pkg.main),
-        format: 'cjs',
-        exports: 'named',
+    }),
+    size(),
+    ts({
+      objectHashIgnoreUnknownHack: true,
+      tsconfig: 'tsconfig.build.json',
+      tsconfigOverride: {
+        include: [get('src'), path.resolve(__dirname, '@types')],
+        compilerOptions: {
+          moduleResolution: 'node',
+          target: 'esnext',
+          module: 'esnext',
+          jsx: 'react',
+          lib: ['dom', 'esnext'],
+          esModuleInterop: true,
+          allowSyntheticDefaultImports: true,
+          declaration: true,
+          rootDir: get('src'),
+          baseUrl: get('src'),
+        },
       },
-    })
-} else if (isTheme(name)) {
-  console.log('Building theme: ', name)
+    }),
+  ],
 }
+
+if (pkg.module)
+  configs.push({
+    ...config,
+    output: {
+      file: get(pkg.module),
+      format: 'esm',
+    },
+  })
+
+if (pkg.main)
+  configs.push({
+    ...config,
+    output: {
+      file: get(pkg.main),
+      format: 'cjs',
+      exports: 'named',
+    },
+  })
 
 function aliases() {
   return {

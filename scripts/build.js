@@ -18,7 +18,7 @@ yarn build core --formats cjs
 const fs = require('fs-extra')
 const path = require('path')
 const execa = require('execa')
-const { targets, fuzzyMatchTarget, getPackageDir, isTheme } = require('./utils')
+const { targets, fuzzyMatchTarget, getPackageDir } = require('./utils')
 
 const args = require('minimist')(process.argv.slice(2))
 const target = args._[0]
@@ -38,9 +38,6 @@ async function buildAll(names) {
 }
 
 async function build(target) {
-  // if (!isComponent(target)) return
-  if (isTheme(target)) return
-
   const pkgDir = getPackageDir(target)
   const pkg = require(`${pkgDir}/package.json`)
 

@@ -1,17 +1,19 @@
-const utils = require('loader-utils')
-
-module.exports = function ClassNamesLoader(source, map) {
-  this.callback(null, source, map)
+function ClassNamesLoader(source) {
+  return source
 }
 
-module.exports.pitch = function(remainingRequest) {
-  const file = utils.stringifyRequest(this, '!!' + remainingRequest)
+ClassNamesLoader.pitch = function(remainingRequest) {
+  if (this.cacheable) this.cacheable()
 
-  const code =
-    `import { classnames } from '@myntra/uikit-utils';\n` +
-    `import locals from '${file}';\n` +
-    `function css() { return utils.classnames.apply(null, arguments).use(locals); }\n` +
-    `export default css`
+  return `
+const { classnames } = require('@myntra/uikit-utils');
+const locals = require(${JSON.stringify('-!' + remainingRequest)});
 
-  return code
+function css() { return classnames.apply(null, arguments).use(locals); }
+
+module.exports = { default: css }
+module.exports.__esModule = true
+`.trimLeft()
 }
+
+module.exports = ClassNamesLoader

@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   colors: {
     primary: {
       dark: 'hsl(244, 47, 32)',
