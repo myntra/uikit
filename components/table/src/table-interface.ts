@@ -24,8 +24,8 @@ export interface Enhancer<P = any, V = any, R = any, HP = any> {
       query: V
       columnId: string
     },
-    data: R[],
     props: P,
+    data: R[],
     hoistedProps: HP
   ): R[]
 }

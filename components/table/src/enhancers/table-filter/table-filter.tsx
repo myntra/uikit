@@ -44,7 +44,7 @@ export default class TableFilter extends PureComponent<Props> {
       )
     },
 
-    prepareData({ getter, query, columnId }, data, { onFilter }) {
+    prepareData({ getter, query, columnId }, props, data, { onFilter }) {
       if (onFilter) return data // Bail. Using external filtering logic.
       if (!query) return data
       if (!query[columnId]) return data

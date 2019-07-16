@@ -9,7 +9,7 @@ import TableRow from './table-row'
 import { Consumer as TableContext } from './table-context'
 import TableFilter from './enhancers/table-filter'
 
-export interface TableProps<T = any> extends BaseProps {
+export interface Props<T = any> extends BaseProps {
   data: T[]
 
   displayColumns?: string[]
@@ -27,7 +27,7 @@ export interface TableProps<T = any> extends BaseProps {
   onFilter?(props: Record<string, any[]>): void
 }
 
-interface TableState {
+interface State {
   /**
    * @example js
    *  {
@@ -45,7 +45,7 @@ interface TableState {
  * @since 0.3.0
  * @status REVIEWING
  */
-export default class Table extends PureComponent<TableProps, TableState> {
+export default class Table extends PureComponent<Props, State> {
   static Column = TableColumn
   static Row = TableRow
   static Filter = TableFilter
@@ -157,8 +157,8 @@ export default class Table extends PureComponent<TableProps, TableState> {
                       columnId: column.id,
                       query: this.state.enhancers[enhancer.name],
                     },
-                    data,
                     props,
+                    data,
                     hoistedProps
                   )
                 : data,

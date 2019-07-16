@@ -32,7 +32,7 @@ export default class TableSort extends PureComponent<Props> {
       )
     },
 
-    prepareData({ getter, query, columnId }, data, { compare }, { onSort }) {
+    prepareData({ getter, query, columnId }, { compare }, data, { onSort }) {
       if (onSort) return data // Bail. Using external sorting logic.
       if (!query) return data
       if (query.columnId !== columnId) return data
