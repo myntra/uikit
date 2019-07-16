@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-text",
-  "version": "1.0.0-beta.12",
+  "version": "1.0.0",
   "main": "dist/text.cjs.js",
   "module": "dist/text.esm.js",
   "types": "dist/index.d.ts",
@@ -22,6 +22,6 @@
     "@types/react": "^16.8.23"
   },
   "dependencies": {
-    "@myntra/uikit-utils": "1.0.0-beta.12"
+    "@myntra/uikit-utils": "1.0.*"
   }
 }

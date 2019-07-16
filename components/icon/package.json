@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-icon",
-  "version": "1.0.0-beta.12",
+  "version": "1.0.0",
   "main": "dist/icon.cjs.js",
   "module": "dist/icon.esm.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@myntra/svg": "1.0.0-beta.12",
+    "@myntra/svg": "1.0.*",
     "@types/react": "^16.8",
     "@znck/promised": "^1.0.4",
     "glob": "^7.1.3",
@@ -33,8 +33,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.0-beta.12",
-    "@myntra/uikit-utils": "1.0.0-beta.12",
+    "@myntra/uikit-can-i-use": "1.0.*",
+    "@myntra/uikit-utils": "1.0.*",
     "react": "16.*"
   }
 }

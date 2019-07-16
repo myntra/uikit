@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.0"></a>
+## 1.0.0 (2019-07-16)
+
+* chore: Remove automatic branch sync ([2bdfc34](https://bitbucket.org/myntra/uikit/commits/2bdfc34))
+* fix: classnames loader ([71bd243](https://bitbucket.org/myntra/uikit/commits/71bd243))
+* fix: sort icons ([4811125](https://bitbucket.org/myntra/uikit/commits/4811125))
+* fix(Table): Bail sort and filter when external handler is provided ([77e9c37](https://bitbucket.org/myntra/uikit/commits/77e9c37))
+
+
+
 <a name="1.0.0-beta.12"></a>
 ## 1.0.0-beta.12 (2019-07-12)
 
