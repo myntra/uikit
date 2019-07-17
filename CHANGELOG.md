@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.1"></a>
+## <small>1.0.1 (2019-07-17)</small>
+
+* fix: Mark all packages side effects free ([547c87f](https://bitbucket.org/myntra/uikit/commits/547c87f))
+* chore: Add changelog to docs ([0584a94](https://bitbucket.org/myntra/uikit/commits/0584a94))
+
+
+
 <a name="1.0.0"></a>
 ## 1.0.0 (2019-07-16)
 
