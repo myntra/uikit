@@ -15,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "sideEffects": false,
   "description": "@myntra/eslint-config-standard",
   "dependencies": {
     "babel-eslint": "^8.2.2",

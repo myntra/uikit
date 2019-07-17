@@ -15,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "sideEffects": false,
   "peerDependencies": {
     "react": ">=15.4"
   },

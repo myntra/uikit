@@ -17,6 +17,7 @@
     "*.codemod.js",
     "*.scss"
   ],
+  "sideEffects": false,
   "dependencies": {
     "@myntra/uikit-component-accordion": "1.0.*",
     "@myntra/uikit-component-alert": "1.0.*",

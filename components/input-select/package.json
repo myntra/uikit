@@ -16,6 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
+  "sideEffects": false,
   "peerDependencies": {
     "react": ">=15.4"
   },

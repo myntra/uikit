@@ -2,6 +2,8 @@
   "name": "@myntra/classnames-loader",
   "version": "1.0.0",
   "main": "src/index.js",
+  "module": "dist/classnames-loader.esm.js",
+  "types": "dist/index.d.ts",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/@myntra/classnames-loader",
@@ -13,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "sideEffects": false,
   "dependencies": {
     "@myntra/uikit-utils": "1.0.*",
     "loader-utils": "^1.1.0"

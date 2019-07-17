@@ -32,6 +32,7 @@ targets.forEach((name) => {
       registry: 'http://registry.myntra.com:8000',
     },
     files: ['src/', 'dist/', 'bin/'],
+    sideEffects: false,
   }
 
   if (isComponent(name)) {

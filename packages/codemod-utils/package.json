@@ -15,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "sideEffects": false,
   "description": "@myntra/codemod-utils",
   "dependencies": {
     "@myntra/eslint-config-standard": "1.0.*",

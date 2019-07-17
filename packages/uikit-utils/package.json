@@ -15,8 +15,8 @@
     "dist/",
     "bin/"
   ],
-  "description": "@myntra/uikit-utils",
   "sideEffects": false,
+  "description": "@myntra/uikit-utils",
   "dependencies": {
     "lodash-es": "^4.17.11"
   }

@@ -16,6 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
+  "sideEffects": false,
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.0.*",
     "react": "^16.8.4"

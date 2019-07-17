@@ -8,7 +8,6 @@ module.exports = {
   name: 'uikit',
   lintOnSave: false,
   define: {
-    PATH_PREFIX: JSON.stringify(process.env.BRANCH === 'master' || !process.env.BRANCH ? '' : '/' + process.env.BRANCH),
     __DEV__: true // Always include dev code docs.
   },
   /** @param {import('webpack-chain')} config */

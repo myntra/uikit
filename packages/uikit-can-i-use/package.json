@@ -16,6 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
+  "sideEffects": false,
   "optionalDependencies": {
     "react": "*",
     "react-dom": "*"

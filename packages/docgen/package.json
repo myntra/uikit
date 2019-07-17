@@ -16,6 +16,7 @@
     "bin/",
     "loader.js"
   ],
+  "sideEffects": false,
   "description": "@myntra/docgen",
   "dependencies": {
     "de-indent": "^1.0.2",

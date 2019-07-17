@@ -15,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "sideEffects": false,
   "dependencies": {
     "@znck/promised": "^1.0.4",
     "autoprefixer": "^9.6.0",

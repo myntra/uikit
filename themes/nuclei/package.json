@@ -17,6 +17,7 @@
     "*.codemod.js",
     "*.scss"
   ],
+  "sideEffects": false,
   "scripts": {
     "build:tokens": "tokenize src/tokens.yml"
   },

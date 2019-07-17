@@ -16,6 +16,7 @@
     "bin/",
     "*.codemod.js"
   ],
+  "sideEffects": false,
   "dependencies": {
     "svg-parser": "^1.0.5"
   }

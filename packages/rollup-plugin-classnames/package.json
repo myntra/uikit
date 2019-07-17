@@ -15,6 +15,7 @@
     "dist/",
     "bin/"
   ],
+  "sideEffects": false,
   "description": "@myntra/rollup-plugin-classnames",
   "dependencies": {
     "rollup-pluginutils": "^2.3.3"

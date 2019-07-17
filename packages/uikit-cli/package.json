@@ -14,6 +14,7 @@
     "src/",
     "bin/"
   ],
+  "sideEffects": false,
   "description": "A command line utility for @myntra/uikit",
   "bin": {
     "uikit": "./bin/uikit.js"
