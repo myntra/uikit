@@ -30,6 +30,7 @@
   "dependencies": {
     "@myntra/codemod-utils": "1.0.*",
     "@myntra/uikit-can-i-use": "1.0.*",
+    "@myntra/uikit-component-icon": "1.0.*",
     "@myntra/uikit-utils": "1.0.*"
   }
 }

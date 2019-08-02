@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from './input-text.module.scss'
+import Icon, { IconName } from '@myntra/uikit-component-icon'
 
 export interface Props extends BaseProps {
   /** Sets the text format for the field. */
@@ -12,6 +13,8 @@ export interface Props extends BaseProps {
   disabled?: boolean
   /** Displays a readonly text field */
   readOnly?: boolean
+  /** Displays the icon as prefix */
+  icon?: IconName
 }
 
 /**
@@ -27,18 +30,20 @@ export default function InputText({
   onChange,
   value,
   readOnly,
+  icon,
   ...props
 }: Props) {
   readOnly = readOnly || !onChange
 
   return (
-    <div className={className}>
+    <div className={classnames('input-text-container')}>
+      {icon && <Icon className={classnames('icon')} name={icon} />}
       <input
         {...props}
         readOnly={readOnly}
         value={typeof value !== 'string' ? '' : value}
         onChange={readOnly ? null : (event) => onChange(event.target.value)}
-        className={classnames('input')}
+        className={classnames('input', { 'with-icon': !!icon })}
       />
     </div>
   )

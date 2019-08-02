@@ -3,10 +3,22 @@
 
 .input {
   @include mixin-input-component();
-
   &[type='search'] {
     padding-right: 0.125em;
   }
 
   width: 100%;
+
+  &.with-icon {
+    padding: ui-context-size('2xs') ui-context-size('l') ui-context-size('2xs')
+      1.2em;
+  }
+}
+
+.input-text-container {
+  position: relative;
+  .icon {
+    position: absolute;
+    top: 0.4em;
+  }
 }
