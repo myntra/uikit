@@ -19,11 +19,11 @@
   "peerDependencies": {
     "react": ">=15.4"
   },
-  "optionalDependencies": {
-    "react": ">=15.4"
-  },
   "devDependencies": {
     "@types/react": "latest"
+  },
+  "optionalDependencies": {
+    "react": ">=15.4"
   },
   "dependencies": {
     "@myntra/uikit-utils": "1.0.*"

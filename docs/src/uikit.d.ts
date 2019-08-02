@@ -241,7 +241,6 @@ declare namespace Dropdown {
      */
     triggerOn?: 'hover' | 'click' | 'focus'
   }
-  type MeasureData = Measure.MeasureData
 }
 
 // -----------[[ErrorBoundary]]--------------- //
@@ -369,14 +368,6 @@ declare namespace Form {
   interface FormFieldProps extends Pick<GridColumnProps, Exclude<keyof GridColumnProps, 'className' | 'children'>> {}
   type ColumnSize = Grid.Column.ColumnSize
   type GridColumnProps = Grid.Column.Props
-  type InputCheckboxProps = InputCheckbox.Props
-  type InputDateProps = InputDate.Props
-  type InputMaskedProps = InputMasked.Props
-  type InputNumberProps = InputNumber.Props
-  type InputS3FileProps = InputS3File.Props
-  type InputSelectProps = InputSelect.Props
-  type InputTextProps = InputText.Props
-  type InputTextAreaProps = InputTextArea.Props
   // -----------[[Action]]--------------- //
   /**
    * @since 0.3.0
@@ -1337,10 +1328,6 @@ declare namespace NavBar {
        * @private
        */
       __$navId: number[]
-    }
-
-    interface NavBarGroupContext {
-      depth: number
     }
   }
 
