@@ -36,7 +36,7 @@ export default function InputText({
   readOnly = readOnly || !onChange
 
   return (
-    <div className={classnames('input-text-container')}>
+    <div className={classnames('container', className)}>
       {icon && <Icon className={classnames('icon')} name={icon} />}
       <input
         {...props}
