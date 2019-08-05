@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+## 1.1.0 (2019-08-05)
+
+* fix: Make React dependency optional to prevent unnecessary warning in npm install ([2432ccd](https://bitbucket.org/myntra/uikit/commits/2432ccd))
+* fix: pass className transparently ([893cef2](https://bitbucket.org/myntra/uikit/commits/893cef2))
+* fix(shared-utils): Check node.type for nullity in isReactNodeType ([a23ec8c](https://bitbucket.org/myntra/uikit/commits/a23ec8c))
+* chore: Update spectrum CLI ([72779d1](https://bitbucket.org/myntra/uikit/commits/72779d1))
+* chore: Use pnpm shared workspace shrinkwrap ([3e36e00](https://bitbucket.org/myntra/uikit/commits/3e36e00))
+* feat(InputText): Add prefix icon support ([8fbb21c](https://bitbucket.org/myntra/uikit/commits/8fbb21c)), closes [#160](https://bitbucket.org/myntra/uikit/issue/160)
+
+
+
 <a name="1.0.1"></a>
 ## <small>1.0.1 (2019-07-17)</small>
 

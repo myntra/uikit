@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-grid",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "main": "dist/grid.cjs.js",
   "module": "dist/grid.esm.js",
   "types": "dist/index.d.ts",
@@ -21,15 +21,15 @@
     "react": ">=15.4"
   },
   "devDependencies": {
-    "@myntra/codemod-utils": "1.0.*",
+    "@myntra/codemod-utils": "1.1.*",
     "@types/react": "^16.8"
   },
   "optionalDependencies": {
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.0.*",
-    "@myntra/uikit-utils": "1.0.*",
+    "@myntra/uikit-can-i-use": "1.1.*",
+    "@myntra/uikit-utils": "1.1.*",
     "prop-types": "^15.7.2"
   }
 }
