@@ -5,6 +5,7 @@ import {
   isValidElement,
   JSXElementConstructor,
 } from 'react'
+import { isReactNodeType } from '@myntra/uikit-utils'
 
 import Column, { Props as ColumnType } from './table-column'
 import Row, { Props as RowType } from './table-row'
@@ -15,16 +16,6 @@ type EnhancerElement<P = any> = ReactElement<
   P,
   JSXElementConstructor<P> & I.EnhancerFactory
 >
-
-function isReactNodeType<T extends JSXElementConstructor<P> = any, P = any>(
-  node: any,
-  type: T
-): node is ReactElement<P, T> {
-  if (!isValidElement(node)) return false
-  if (node.type === (type as any)) return true
-  if ((node.type as any)._result === type) return true
-  return false
-}
 
 function isEnhancer<P = any>(node: any): node is EnhancerElement<P> {
   if (!isValidElement(node) || !node.type) return false

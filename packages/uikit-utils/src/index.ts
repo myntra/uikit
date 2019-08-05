@@ -201,3 +201,16 @@ export function looseEquals(a, b) {
 
   return false
 }
+
+import { isValidElement, ReactElement, JSXElementConstructor } from 'react'
+// --
+export function isReactNodeType<
+  T extends JSXElementConstructor<P> = any,
+  P = any
+>(node: any, type: T): node is ReactElement<P, T> {
+  if (!isValidElement(node)) return false
+  if (!node.type) return false
+  if (node.type === (type as any)) return true
+  if ((node.type as any)._result === type) return true
+  return false
+}

@@ -5,18 +5,11 @@ import List from '@myntra/uikit-component-list'
 import classnames from './top-bar.module.scss'
 import Item from './top-bar-item'
 import Icon from '@myntra/uikit-component-icon'
+import { isReactNodeType } from '@myntra/uikit-utils'
 
 export interface TopBarProps extends BaseProps {
   title: string
   user: Partial<{ name: string; photo: string }> & { email: string }
-}
-
-// TODO: Extract it to utils package.
-function isReactNodeType<T = any>(node: any, type: T): node is ReactElement {
-  if (!isValidElement(node)) return false
-  if (node.type === (type as any)) return true
-  if ((node.type as any)._result === type) return true
-  return false
 }
 
 /**

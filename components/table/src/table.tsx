@@ -49,6 +49,11 @@ export default class Table extends PureComponent<Props, State> {
   static Column = TableColumn
   static Row = TableRow
   static Filter = TableFilter
+
+  /**
+   * @deprecated Use [Table.Filter] instead.
+   */
+  static ColumnFilter = TableFilter
   static TR = (props: BaseProps) => (
     <TableContext>{({ TR }) => <TR {...props} />}</TableContext>
   )

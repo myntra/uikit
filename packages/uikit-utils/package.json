@@ -19,5 +19,12 @@
   "description": "@myntra/uikit-utils",
   "dependencies": {
     "lodash-es": "^4.17.11"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8.24",
+    "react": "^16.8.6"
+  },
+  "optionalDependencies": {
+    "react": "^16.0.0"
   }
 }
