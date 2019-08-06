@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.1"></a>
+## <small>1.1.1 (2019-08-06)</small>
+
+* fix(Table): add missing props to render props for backward compatibility ([8f338fe](https://bitbucket.org/myntra/uikit/commits/8f338fe))
+
+
+
 <a name="1.1.0"></a>
 ## 1.1.0 (2019-08-05)
 
