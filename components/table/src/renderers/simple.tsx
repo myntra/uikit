@@ -141,6 +141,7 @@ export default class SimpleTable extends PureComponent<
                 {data.map((item, rowId) =>
                   React.cloneElement(
                     this.getRowRenderer(rowId).render({
+                      rowIndex: rowId,
                       rowId,
                       item,
                       children: config.cells.map((column, columnIndex) => {
@@ -160,6 +161,7 @@ export default class SimpleTable extends PureComponent<
                         return this.warpIfNeeded(
                           column.renderCell({
                             ...cellProps,
+                            index: rowId,
                             rowId,
                             columnId: column.id,
                             item,

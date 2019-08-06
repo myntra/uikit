@@ -297,6 +297,7 @@ export default class VirtualTable extends PureComponent<
                       const row = this.getRowRenderer(rowIndex)
 
                       return row.render({
+                        rowIndex,
                         rowId: rowIndex,
                         item: data[rowIndex],
                         style: {
@@ -334,6 +335,7 @@ export default class VirtualTable extends PureComponent<
                       const cell = body[columnIndex]
                       const row = this.getRowRenderer(rowIndex)
                       const props = {
+                        index: rowIndex,
                         rowId: rowIndex,
                         columnId: cell.id,
                         item: data[rowIndex],

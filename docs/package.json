@@ -14,17 +14,18 @@
     "@babel/standalone": "^7.3.4",
     "lodash.debounce": "^4.0.8",
     "marked": "^0.6.1",
+    "monaco-editor": "^0.17.1",
     "prismjs": "^1.15.0",
-    "react-monaco-editor": "^0.24.0"
+    "react-monaco-editor": "^0.28.0"
   },
   "devDependencies": {
     "@mdx-js/loader": "^0.17.5",
-    "@myntra/spectrum-cli-plugin-babel": "^2.4.8",
-    "@myntra/spectrum-cli-plugin-eslint": "^2.4.8",
-    "@myntra/spectrum-cli-plugin-redux": "^2.4.8",
-    "@myntra/spectrum-cli-plugin-router": "^2.4.8",
-    "@myntra/spectrum-cli-plugin-typescript": "^2.4.8",
-    "@myntra/spectrum-cli-service": "^2.4.8",
+    "@myntra/spectrum-cli-plugin-babel": "^2.4.10",
+    "@myntra/spectrum-cli-plugin-eslint": "^2.4.10",
+    "@myntra/spectrum-cli-plugin-redux": "^2.4.10",
+    "@myntra/spectrum-cli-plugin-router": "^2.4.10",
+    "@myntra/spectrum-cli-plugin-typescript": "^2.4.10",
+    "@myntra/spectrum-cli-service": "^2.4.10",
     "autoprefixer": "^9.4.9",
     "front-matter": "^3.0.1",
     "lazy-compile-webpack-plugin": "^0.1.5",
@@ -40,6 +41,7 @@
     "remark-toc": "^5.1.1",
     "sass": "^1.17.3",
     "sass-loader": "^7.1.0",
+    "webpack": "^4.39.1",
     "webpack-filter-warnings-plugin": "^1.2.1"
   },
   "prettier": {
