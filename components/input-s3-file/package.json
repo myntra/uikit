@@ -27,9 +27,9 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.1.*",
-    "@myntra/uikit-component-button": "1.1.*",
-    "@myntra/uikit-component-input-text": "1.1.*",
-    "@myntra/uikit-utils": "1.1.*"
+    "@myntra/uikit-can-i-use": "1.0.*",
+    "@myntra/uikit-component-button": "1.0.*",
+    "@myntra/uikit-component-input-file": "1.0.*",
+    "@myntra/uikit-utils": "1.0.*"
   }
 }

@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react'
 import classnames from './input-s3-file.module.scss'
 import Button from '@myntra/uikit-component-button'
-import Input from '@myntra/uikit-component-input-text'
+import InputFile from '@myntra/uikit-component-input-file'
+import Progress from '@myntra/uikit-component-progress'
 
 export interface Props extends BaseProps {
   /**
@@ -49,6 +50,7 @@ interface InputS3FileState {
   uploadProgress: number
   filename: string | null
   file: string | null
+  files: FileList | null
   error?: string | null
 }
 
@@ -79,6 +81,7 @@ export default class InputS3File extends PureComponent<
     uploadProgress: 0,
     filename: null,
     file: null,
+    files: null,
   }
 
   constructor(props) {
@@ -87,26 +90,18 @@ export default class InputS3File extends PureComponent<
     this.refInputFile = React.createRef()
   }
 
-  handleInputChange = (event) => {
-    const files = event.target.files
-
+  handleInputChange = (files) => {
     if (files.length > 0) {
       // NOTE: Using first file here.
       const file = files[0]
 
-      this.setState({ file, filename: file.name, error: null }, () => {
+      this.setState({ file, filename: file.name, error: null, files }, () => {
         if (this.props.autoStartUpload || this.props.autostart) {
           this.triggerUpload()
         }
       })
     } else {
       this.resetState()
-    }
-  }
-
-  private handleBrowseClick = () => {
-    if (this.refInputFile.current && !this.state.isUploading) {
-      this.refInputFile.current.click()
     }
   }
 
@@ -126,6 +121,7 @@ export default class InputS3File extends PureComponent<
     this.setState({
       error: null,
       file: null,
+      files: null,
       filename: null,
       uploadProgress: 0,
       isUploading: false,
@@ -213,42 +209,42 @@ export default class InputS3File extends PureComponent<
     } = this.props
 
     return (
-      <div className={classnames(className, 'container')}>
-        <Input
-          readOnly
-          className={classnames('preview')}
-          placeholder={placeholder}
-          value={this.state.filename}
-          onClick={this.handleBrowseClick}
-        />
-        <input
-          className={classnames('file')}
-          type="file"
-          hidden
-          onChange={this.handleInputChange}
-          ref={this.refInputFile}
-        />
-
-        <Button
-          className={classnames('button')}
-          type="secondary"
-          loading={autoStartUpload ? this.state.isUploading : false}
-          disabled={autoStartUpload ? false : this.state.isUploading}
-          onClick={this.handleBrowseClick}
-        >
-          Browse
-        </Button>
-        {!(autoStartUpload || autostart) && (
-          <Button
-            className={classnames('button')}
-            type="secondary"
-            loading={this.state.isUploading}
-            onClick={this.handleUploadClick}
-          >
-            Upload
-          </Button>
+      <InputFile
+        value={this.state.files}
+        onChange={this.handleInputChange}
+        actions={(browse) => (
+          <div className={classnames('container')}>
+            {this.state.isUploading ? (
+              <Progress
+                className={classnames('progress')}
+                type="bar"
+                style={{ width: '100px' }}
+                value={this.state.uploadProgress}
+              />
+            ) : (
+              <Button
+                className={classnames('button')}
+                type="secondary"
+                loading={autoStartUpload ? this.state.isUploading : false}
+                disabled={autoStartUpload ? false : this.state.isUploading}
+                onClick={browse}
+              >
+                Browse
+              </Button>
+            )}
+            {!(autoStartUpload || autostart) && (
+              <Button
+                className={classnames('button')}
+                type="secondary"
+                disabled={this.state.isUploading}
+                onClick={this.handleUploadClick}
+              >
+                Upload
+              </Button>
+            )}
+          </div>
         )}
-      </div>
+      />
     )
   }
 }

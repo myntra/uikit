@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-component-input-file",
+  "version": "1.0.1",
+  "main": "dist/input-file.cjs.js",
+  "module": "dist/input-file.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-file",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  }
+}

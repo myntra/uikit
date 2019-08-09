@@ -16,6 +16,7 @@ export { default as Icon } from "@myntra/uikit-component-icon";
 export { default as Image } from "@myntra/uikit-component-image";
 export { default as InputCheckbox } from "@myntra/uikit-component-input-checkbox";
 export { default as InputDate } from "@myntra/uikit-component-input-date";
+export { default as InputFile } from "@myntra/uikit-component-input-file";
 export { default as InputMasked } from "@myntra/uikit-component-input-masked";
 export { default as InputMonth } from "@myntra/uikit-component-input-month";
 export { default as InputNumber } from "@myntra/uikit-component-input-number";

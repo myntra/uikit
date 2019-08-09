@@ -19,7 +19,7 @@ function asyncComponent(factory) {
       }
 
       return target[name]
-    }
+    },
   })
 }
 export const Accordion = asyncComponent(() =>
@@ -75,6 +75,9 @@ export const InputCheckbox = asyncComponent(() =>
 )
 export const InputDate = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-date' */ '@myntra/uikit-component-input-date')
+)
+export const InputFile = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-file' */ '@myntra/uikit-component-input-file')
 )
 export const InputMasked = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-masked' */ '@myntra/uikit-component-input-masked')
@@ -166,270 +169,274 @@ export const META = [
     name: 'Accordion',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/accordion'
+    path: '/components/accordion',
   },
   {
     name: 'Alert',
     since: '0.3.0',
     status: 'READY',
-    path: '/components/alert'
+    path: '/components/alert',
   },
   {
     name: 'Avatar',
     since: '0.3.1',
     status: 'REVIEWING',
-    path: '/components/avatar'
+    path: '/components/avatar',
   },
   {
     name: 'Badge',
     since: '0.8.0',
     status: 'REVIEWING',
-    path: '/components/badge'
+    path: '/components/badge',
   },
   {
     name: 'BreadCrumb',
     since: '0.3.0',
     status: 'READY',
-    path: '/components/bread-crumb'
+    path: '/components/bread-crumb',
   },
   {
     name: 'Button',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/button'
+    path: '/components/button',
   },
   {
     name: 'ClickAway',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/click-away'
+    path: '/components/click-away',
   },
   {
     name: 'Dropdown',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/dropdown'
+    path: '/components/dropdown',
   },
   {
     name: 'ErrorBoundary',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/error-boundary'
+    path: '/components/error-boundary',
   },
   {
     name: 'Field',
     since: '0.6.0',
     status: 'REVIEWING',
-    path: '/components/field'
+    path: '/components/field',
   },
   {
     name: 'Flex',
     since: '0.3.0',
     status: 'DEPRECATED',
-    path: '/components/flex'
+    path: '/components/flex',
   },
   {
     name: 'Form',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/form'
+    path: '/components/form',
   },
   {
     name: 'Grid',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/grid'
+    path: '/components/grid',
   },
   {
     name: 'Group',
     since: '0.11.0',
     status: 'REVIEWING',
-    path: '/components/group'
+    path: '/components/group',
   },
   {
     name: 'Icon',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/icon'
+    path: '/components/icon',
   },
   {
     name: 'Image',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/image'
+    path: '/components/image',
   },
   {
     name: 'InputCheckbox',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/input-checkbox'
+    path: '/components/input-checkbox',
   },
   {
     name: 'InputDate',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/input-date'
+    path: '/components/input-date',
+  },
+  {
+    name: 'InputFile',
+    path: '/components/input-file',
   },
   {
     name: 'InputMasked',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/input-masked'
+    path: '/components/input-masked',
   },
   {
     name: 'InputMonth',
     since: '0.7.0',
     status: 'REVIEWING',
-    path: '/components/input-month'
+    path: '/components/input-month',
   },
   {
     name: 'InputNumber',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/input-number'
+    path: '/components/input-number',
   },
   {
     name: 'InputRadio',
     since: '0.6.0',
     status: 'REVIEWING',
-    path: '/components/input-radio'
+    path: '/components/input-radio',
   },
   {
     name: 'InputS3File',
     since: '0.11.0',
     status: 'READY',
-    path: '/components/input-s3-file'
+    path: '/components/input-s3-file',
   },
   {
     name: 'InputSelect',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/input-select'
+    path: '/components/input-select',
   },
   {
     name: 'InputText',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/input-text'
+    path: '/components/input-text',
   },
   {
     name: 'InputTextArea',
     since: '0.0.0',
     status: 'READY',
-    path: '/components/input-text-area'
+    path: '/components/input-text-area',
   },
   {
     name: 'JobTracker',
     since: '0.6.0',
     status: 'REVIEWING',
-    path: '/components/job-tracker'
+    path: '/components/job-tracker',
   },
   {
     name: 'List',
     since: '0.11.0',
     status: 'READY',
-    path: '/components/list'
+    path: '/components/list',
   },
   {
     name: 'Loader',
     since: '0.5.0',
     status: 'REVIEWING',
-    path: '/components/loader'
+    path: '/components/loader',
   },
   {
     name: 'Measure',
     since: '0.3.0',
     status: 'EXPERIMENTAL',
-    path: '/components/measure'
+    path: '/components/measure',
   },
   {
     name: 'Modal',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/modal'
+    path: '/components/modal',
   },
   {
     name: 'NavBar',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/nav-bar'
+    path: '/components/nav-bar',
   },
   {
     name: 'Page',
     since: '0.11.0',
     status: 'READY',
-    path: '/components/page'
+    path: '/components/page',
   },
   {
     name: 'Pagination',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/pagination'
+    path: '/components/pagination',
   },
   {
     name: 'Portal',
     since: '0.0.0',
     status: 'REVIEWING',
-    path: '/components/portal'
+    path: '/components/portal',
   },
   {
     name: 'Progress',
     since: '0.6.0',
     status: 'READY',
-    path: '/components/progress'
+    path: '/components/progress',
   },
   {
     name: 'SchemaForm',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/schema-form'
+    path: '/components/schema-form',
   },
   {
     name: 'Section',
     since: '0.7.0',
     status: 'REVIEWING',
-    path: '/components/section'
+    path: '/components/section',
   },
   {
     name: 'Table',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/table'
+    path: '/components/table',
   },
   {
     name: 'Tabs',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/tabs'
+    path: '/components/tabs',
   },
   {
     name: 'Text',
     since: '0.3.0',
     status: 'REVIEWING',
-    path: '/components/text'
+    path: '/components/text',
   },
   {
     name: 'Tooltip',
     since: '0.6.0',
     status: 'REVIEWING',
-    path: '/components/tooltip'
+    path: '/components/tooltip',
   },
   {
     name: 'TopBar',
     since: '0.3.0',
     status: 'READY',
-    path: '/components/top-bar'
+    path: '/components/top-bar',
   },
   {
     name: 'VirtualGrid',
     since: '0.8.0',
     status: 'READY',
-    path: '/components/virtual-grid'
+    path: '/components/virtual-grid',
   },
   {
     name: 'VirtualList',
     since: '0.7.0',
     status: 'READY',
-    path: '/components/virtual-list'
-  }
+    path: '/components/virtual-list',
+  },
 ]

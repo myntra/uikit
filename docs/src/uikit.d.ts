@@ -649,6 +649,20 @@ declare namespace InputDate {
   }
 }
 
+// -----------[[InputFile]]--------------- //
+/**
+ *
+ */
+declare function InputFile(props: InputFile.Props): JSX.Element
+declare namespace InputFile {
+  interface Props extends BaseProps {
+    /** Handler for file select */
+    onChange(files: Array<File>): void
+    /** Placeholder */
+    placeholder?: string
+  }
+}
+
 // -----------[[InputMasked]]--------------- //
 /**
  * Input component that provides a template for phone, credit card, etc.
@@ -994,7 +1008,10 @@ declare namespace InputText {
     disabled?: boolean
     /** Displays a readonly text field */
     readOnly?: boolean
+    /** Displays the icon as prefix */
+    icon?: IconName
   }
+  type IconName = Icon.IconName
 }
 
 // -----------[[InputTextArea]]--------------- //
@@ -1328,6 +1345,10 @@ declare namespace NavBar {
        * @private
        */
       __$navId: number[]
+    }
+
+    interface NavBarGroupContext {
+      depth: number
     }
   }
 
