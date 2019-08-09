@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-form",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "main": "dist/form.cjs.js",
   "module": "dist/form.esm.js",
   "types": "dist/index.d.ts",
@@ -27,20 +27,20 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.2.*",
-    "@myntra/uikit-component-button": "1.2.*",
-    "@myntra/uikit-component-field": "1.2.*",
-    "@myntra/uikit-component-grid": "1.2.*",
-    "@myntra/uikit-component-input-checkbox": "1.2.*",
-    "@myntra/uikit-component-input-date": "1.2.*",
-    "@myntra/uikit-component-input-masked": "1.2.*",
-    "@myntra/uikit-component-input-month": "1.2.*",
-    "@myntra/uikit-component-input-number": "1.2.*",
-    "@myntra/uikit-component-input-radio": "1.2.*",
-    "@myntra/uikit-component-input-s3-file": "1.2.*",
-    "@myntra/uikit-component-input-select": "1.2.*",
-    "@myntra/uikit-component-input-text": "1.2.*",
-    "@myntra/uikit-component-input-text-area": "1.2.*",
-    "@myntra/uikit-utils": "1.2.*"
+    "@myntra/uikit-can-i-use": "1.3.*",
+    "@myntra/uikit-component-button": "1.3.*",
+    "@myntra/uikit-component-field": "1.3.*",
+    "@myntra/uikit-component-grid": "1.3.*",
+    "@myntra/uikit-component-input-checkbox": "1.3.*",
+    "@myntra/uikit-component-input-date": "1.3.*",
+    "@myntra/uikit-component-input-masked": "1.3.*",
+    "@myntra/uikit-component-input-month": "1.3.*",
+    "@myntra/uikit-component-input-number": "1.3.*",
+    "@myntra/uikit-component-input-radio": "1.3.*",
+    "@myntra/uikit-component-input-s3-file": "1.3.*",
+    "@myntra/uikit-component-input-select": "1.3.*",
+    "@myntra/uikit-component-input-text": "1.3.*",
+    "@myntra/uikit-component-input-text-area": "1.3.*",
+    "@myntra/uikit-utils": "1.3.*"
   }
 }

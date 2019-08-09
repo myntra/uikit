@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.0"></a>
+## 1.3.0 (2019-08-09)
+
+* chore: revert all test ([c2a4866](https://bitbucket.org/myntra/uikit/commits/c2a4866))
+* chore: update deps ([bf3770a](https://bitbucket.org/myntra/uikit/commits/bf3770a))
+* chore: Update deps ([6d93de4](https://bitbucket.org/myntra/uikit/commits/6d93de4))
+* feat(InputFile): New component InputFile for native file uploads. InputS3File uses InputFile interna ([ce7fc3f](https://bitbucket.org/myntra/uikit/commits/ce7fc3f)), closes [#161](https://bitbucket.org/myntra/uikit/issue/161)
+
+
+
 <a name="1.1.1"></a>
 ## <small>1.1.1 (2019-08-06)</small>
 

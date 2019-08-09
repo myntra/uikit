@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-s3-file",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "main": "dist/input-s3-file.cjs.js",
   "module": "dist/input-s3-file.esm.js",
   "types": "dist/index.d.ts",
@@ -27,9 +27,9 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.2.*",
-    "@myntra/uikit-component-button": "1.2.*",
-    "@myntra/uikit-component-input-file": "1.2.*",
-    "@myntra/uikit-utils": "1.2.*"
+    "@myntra/uikit-can-i-use": "1.3.*",
+    "@myntra/uikit-component-button": "1.3.*",
+    "@myntra/uikit-component-input-file": "1.3.*",
+    "@myntra/uikit-utils": "1.3.*"
   }
 }
