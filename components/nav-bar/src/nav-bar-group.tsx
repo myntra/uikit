@@ -123,24 +123,24 @@ export default function NavBarGroup({
     )
   }
 
-  if (CAN_USE_HOOKS) {
-    const { setActiveGroup, isActiveGroup, isOpen, isActivePath } = useContext(
-      NavBarContext
-    )
-    const { depth } = useContext(Context)
+  // if (CAN_USE_HOOKS) {
+  //   const { setActiveGroup, isActiveGroup, isOpen, isActivePath } = useContext(
+  //     NavBarContext
+  //   )
+  //   const { depth } = useContext(Context)
 
-    return render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
-  } else {
-    return (
-      <NavBarContext.Consumer>
-        {({ setActiveGroup, isActiveGroup, isOpen, isActivePath }) => (
-          <Context.Consumer>
-            {({ depth }) =>
-              render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
-            }
-          </Context.Consumer>
-        )}
-      </NavBarContext.Consumer>
-    )
-  }
+  //   return render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
+  // } else {
+  return (
+    <NavBarContext.Consumer>
+      {({ setActiveGroup, isActiveGroup, isOpen, isActivePath }) => (
+        <Context.Consumer>
+          {({ depth }) =>
+            render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
+          }
+        </Context.Consumer>
+      )}
+    </NavBarContext.Consumer>
+  )
+  // }
 }

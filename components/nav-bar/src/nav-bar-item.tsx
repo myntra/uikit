@@ -91,11 +91,5 @@ export default function NavBarItem({
     </li>
   )
 
-  if (CAN_USE_HOOKS) {
-    const context = useContext(Context)
-
-    return render(context)
-  } else {
-    return <Context.Consumer>{(context) => render(context)}</Context.Consumer>
-  }
+  return <Context.Consumer>{(context) => render(context)}</Context.Consumer>
 }
