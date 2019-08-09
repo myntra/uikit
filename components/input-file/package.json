@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-file",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "main": "dist/input-file.cjs.js",
   "module": "dist/input-file.esm.js",
   "types": "dist/index.d.ts",
@@ -23,8 +23,8 @@
     "@types/react": "latest"
   },
   "dependencies": {
-    "@myntra/uikit-component-button": "link:../button",
-    "@myntra/uikit-component-input-text": "link:../input-text",
-    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+    "@myntra/uikit-component-button": "1.3.*",
+    "@myntra/uikit-component-input-text": "1.3.*",
+    "@myntra/uikit-utils": "1.3.*"
   }
 }

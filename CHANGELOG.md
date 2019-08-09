@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.1"></a>
+## <small>1.3.1 (2019-08-09)</small>
+
+* fix: add missing dependencies ([ac6a1a3](https://bitbucket.org/myntra/uikit/commits/ac6a1a3))
+
+
+
 <a name="1.3.0"></a>
 ## 1.3.0 (2019-08-09)
 
