@@ -300,6 +300,7 @@ export default class VirtualTable extends PureComponent<
                         rowIndex,
                         rowId: rowIndex,
                         item: data[rowIndex],
+                        className: classnames('tr'),
                         style: {
                           top: offsetTop + 'px',
                           height: height + 'px',

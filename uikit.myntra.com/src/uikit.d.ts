@@ -651,15 +651,20 @@ declare namespace InputDate {
 
 // -----------[[InputFile]]--------------- //
 /**
+ * A file input component that handles client side S3 uploads.
  *
+ * @since 1.1.0
+ * @status READY
+ * @category input
+ * @see http://uikit.myntra.com/components/input-file
  */
 declare function InputFile(props: InputFile.Props): JSX.Element
 declare namespace InputFile {
   interface Props extends BaseProps {
-    /** Handler for file select */
-    onChange(files: Array<File>): void
-    /** Placeholder */
     placeholder?: string
+    actions?(browse: () => void): React.ReactNode
+    onChange?(files: FileList): void
+    value?: FileList
   }
 }
 
@@ -898,6 +903,7 @@ declare namespace InputS3File {
     uploadProgress: number
     filename: string | null
     file: string | null
+    files: FileList | null
     error?: string | null
   }
 }
@@ -1346,10 +1352,6 @@ declare namespace NavBar {
        */
       __$navId: number[]
     }
-
-    interface NavBarGroupContext {
-      depth: number
-    }
   }
 
   // -----------[[Item]]--------------- //
@@ -1660,12 +1662,12 @@ declare namespace Table {
     }
   }
 
-  // -----------[[Filter]]--------------- //
+  // -----------[[ColumnFilter]]--------------- //
   /**
    *
    */
-  declare function Filter(props: Filter.Props): JSX.Element
-  declare namespace Filter {}
+  declare function ColumnFilter(props: ColumnFilter.Props): JSX.Element
+  declare namespace ColumnFilter {}
 }
 
 // -----------[[Tabs]]--------------- //

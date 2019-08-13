@@ -1,5 +1,5 @@
 packages:
-  - docs
+  - uikit.myntra.com/
   - packages/*
   - components/*
   - themes/*
