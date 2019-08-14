@@ -10,6 +10,10 @@ module.exports = {
   define: {
     __DEV__: true // Always include dev code docs.
   },
+  deploy: {
+    target: 'spectrum',
+    baseUrl: ''
+  },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
     config.watchOptions({
