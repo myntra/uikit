@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["JABONG", "Scroller", "myntra", "uikit"],
+  "cSpell.words": ["JABONG", "Scroller", "lockfile", "myntra", "uikit"],
   "eslint.enable": false,
   "eslint.validate": [
     "typescript",
@@ -7,5 +7,16 @@
     "javascript",
     "javascriptreact"
   ],
-  "typescript.tsdk": "node_modules/typescript/lib"
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "markdownlint.config": {
+    "no-inline-html": {
+      "allowed_elements": ["summary", "details", "code"]
+    },
+    "list-marker-space": {
+      "ul_multi": 2,
+      "ol_multi": 2,
+      "ol_single": 1,
+      "ul_single": 1
+    }
+  }
 }

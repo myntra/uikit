@@ -1,5 +1,5 @@
 packages:
-  - uikit.myntra.com/
   - packages/*
   - components/*
   - themes/*
+  - '!./uikit.myntra.com'

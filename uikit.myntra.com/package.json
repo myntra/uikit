@@ -1,5 +1,6 @@
 {
   "name": "@myntra/spectrum-cli-app-uikit",
+  "displayName": "UIKit: Design Language System",
   "version": "0.1.0",
   "private": true,
   "scripts": {
