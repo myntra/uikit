@@ -4,6 +4,7 @@ import Icon from '@myntra/uikit-component-icon'
 import List from '@myntra/uikit-component-list'
 import InputText from '@myntra/uikit-component-input-text'
 import Field from '@myntra/uikit-component-field'
+import Button from '@myntra/uikit-component-button'
 
 import classnames from './table-filter-dropdown.module.scss'
 
@@ -13,7 +14,7 @@ export interface Props<V = any, O = { value: any; label: string }> {
   options?: O[]
   data: any[]
 
-  onChange(value: Record<string, V[]>): void
+  onChange(value: Record<string, V[]>, shouldEmit: boolean): void
   getter(item: O): V
   renderOption?(item: O): JSX.Element
 }
@@ -31,6 +32,14 @@ export default class TableFilterDropdown extends Component<
     renderOption(item) {
       return item.label
     },
+  }
+
+  static getDerivedStateFromProps({ options }) {
+    if (options) {
+      return { options, rawOptions: options }
+    }
+
+    return {}
   }
 
   constructor(props) {
@@ -54,13 +63,36 @@ export default class TableFilterDropdown extends Component<
     return this.props.value ? this.props.value[this.props.columnId] : null
   }
 
-  // TODO: Refresh options if options change.
   handleChange = (value: any[]) => {
-    this.props.onChange({
-      ...this.props.value,
-      [this.props.columnId]: value,
-    })
+    this.props.onChange(
+      {
+        ...this.props.value,
+        [this.props.columnId]: value,
+      },
+      false
+    )
   }
+
+  handleApply = () => {
+    this.props.onChange(this.props.value, true)
+    this.handleClose()
+  }
+  handleClearAll = () =>
+    this.props.onChange(
+      {
+        ...this.props.value,
+        [this.props.columnId]: [],
+      },
+      false
+    )
+  handleSelectAll = () =>
+    this.props.onChange(
+      {
+        ...this.props.value,
+        [this.props.columnId]: this.state.options.map((option) => option.value),
+      },
+      false
+    )
 
   idForItem = (item: any) => item.value
   handleOpen = () => this.setState({ isOpen: true })
@@ -103,6 +135,14 @@ export default class TableFilterDropdown extends Component<
         container
       >
         <div className={classnames('filter-container')}>
+          <div className={classnames('header')}>
+            <Button type="link" onClick={this.handleSelectAll}>
+              <span className={classnames('tiny')}>Select All</span>
+            </Button>
+            <Button type="link" onClick={this.handleClearAll}>
+              <span className={classnames('tiny')}>Clear All</span>
+            </Button>
+          </div>
           <Field className={classnames('search')} title="Filter column">
             <InputText
               value={this.state.searchText}
@@ -121,6 +161,11 @@ export default class TableFilterDropdown extends Component<
           >
             {({ item }) => this.props.renderOption(item)}
           </List>
+          <div className={classnames('footer')}>
+            <Button type="link" onClick={this.handleApply}>
+              Apply
+            </Button>
+          </div>
         </div>
       </Dropdown>
     )

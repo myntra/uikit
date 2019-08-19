@@ -5,6 +5,25 @@
   max-height: 240px;
   background: #fff;
 
+  .header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 0.5rem;
+    border-bottom: 1px solid ui-color('gray');
+  }
+
+  .footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .tiny {
+    font-size: 0.75em;
+  }
+
   .search {
     padding: 0.5rem 0.5rem 0;
     margin-bottom: -1px;
