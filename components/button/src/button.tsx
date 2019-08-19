@@ -1,4 +1,4 @@
-import React, { PureComponent, useContext } from 'react'
+import React, { PureComponent, useContext, ReactNode } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
 import UIKitContext from '@myntra/uikit-context'
@@ -8,7 +8,7 @@ export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
   type: 'primary' | 'secondary' | 'link'
   /** The label text of the button. */
-  children?: string | React.ReactNode
+  children?: string | ReactNode
   /** The handler to call when the button is clicked. */
   onClick?(event: MouseEvent): void
   /** The name of the icon (displayed on left side of content). */
