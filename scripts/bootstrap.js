@@ -12,6 +12,7 @@ const {
   getShortName,
   isComponent,
   pascalCase,
+  initSrc,
 } = require('./utils')
 
 targets.forEach((name) => {
@@ -34,6 +35,8 @@ targets.forEach((name) => {
     files: ['src/', 'dist/', 'bin/'],
     sideEffects: false,
   }
+
+  const srcFiles = initSrc(shortName)
 
   if (isComponent(name)) {
     pkg.peerDependencies = {
@@ -84,8 +87,14 @@ import ${component} from './src/${shortName}'
   const srcDir = path.dirname(mainFile)
   if (!fs.existsSync(mainFile)) {
     if (!fs.existsSync(srcDir)) {
-      fs.mkdirSync(srcDir)
+      const newDir = path.join(rootDir, 'src')
+      fs.mkdirSync(newDir)
+      srcFiles.forEach((fileObj) =>
+        fs.writeFileSync(
+          path.join(newDir, fileObj.name),
+          fileObj.initialContent
+        )
+      )
     }
-    fs.writeFileSync(mainFile, ``)
   }
 })

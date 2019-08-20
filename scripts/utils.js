@@ -159,6 +159,28 @@ function getPackageRepository(name) {
   }/${dir}`
 }
 
+function initSrc(name) {
+  const shortName = getShortName(name)
+  return [
+    {
+      name: `${shortName}.tsx`,
+      initialContent: '',
+    },
+    {
+      name: `${shortName}.spec.js`,
+      initialContent: '',
+    },
+    {
+      name: `${shortName}.module.scss`,
+      initialContent: '',
+    },
+    {
+      name: `index.ts`,
+      initialContent: '',
+    },
+  ]
+}
+
 module.exports = {
   componentsDir,
   packagesDir,
@@ -176,4 +198,5 @@ module.exports = {
   getPackageRepository,
   camelCase,
   pascalCase,
+  initSrc,
 }
