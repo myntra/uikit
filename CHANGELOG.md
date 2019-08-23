@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.1"></a>
+## <small>1.4.1 (2019-08-23)</small>
+
+* fix(Icon): Skip svg sprite injection in SSR mode ([0b4efda](https://bitbucket.org/myntra/uikit/commits/0b4efda))
+* chore: Copy CHANGELOG.md after release ([25c48a1](https://bitbucket.org/myntra/uikit/commits/25c48a1))
+
+
+
 <a name="1.4.0"></a>
 ## 1.4.0 (2019-08-23)
 

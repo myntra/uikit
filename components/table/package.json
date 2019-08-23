@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-table",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "main": "dist/table.cjs.js",
   "module": "dist/table.esm.js",
   "types": "dist/index.d.ts",
