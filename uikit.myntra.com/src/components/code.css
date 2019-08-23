@@ -34,7 +34,7 @@
   transition: opacity 0.5s;
 }
 .code--container .code-preview--refresh {
-  right: 42px;
+  right: 70px;
   opacity: 0;
   transition: opacity 0.5s;
 }
