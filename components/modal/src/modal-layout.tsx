@@ -12,6 +12,10 @@ export interface ModalLayoutProps extends BaseProps {
    */
   actions?: ReactNode | ((close: () => void) => void)
   /**
+   *  Enable/Disable the modal close behaviour on clicking outside content.
+   */
+  closeOnClickAway?: boolean
+  /**
    * The callback function called on modal is closed.
    */
   onClose?(): void

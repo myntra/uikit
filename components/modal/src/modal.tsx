@@ -77,12 +77,16 @@ export default class Modal extends PureComponent<ModalProps> {
       title,
       actions,
       hideClose,
+      closeOnClickAway,
       ...props
     } = this.props
 
     const renderContent = () => (
       <div className={classnames('modal', className)} {...props}>
-        <div className={classnames('backdrop')} onClick={this.handleClose} />
+        <div
+          className={classnames('backdrop')}
+          onClick={closeOnClickAway == false ? null : this.handleClose}
+        />
         <div className={classnames('body')}>
           <div className={classnames('content')}>
             {render({ title, actions, children, close: this.handleClose })}
