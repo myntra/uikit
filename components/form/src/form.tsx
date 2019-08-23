@@ -11,7 +11,7 @@ import Grid from '@myntra/uikit-component-grid'
 import {
   ColumnSize,
   Props as GridColumnProps,
-} from '@myntra/uikit-component-grid/src/grid-column' // TODO: Handle this kind of type extraction.
+} from '@myntra/uikit-component-grid'
 
 import InputCheckbox, {
   Props as InputCheckboxProps,
@@ -148,7 +148,7 @@ export default class Form extends Component<Props> {
             <Grid.Column
               key={field.key || index}
               size={(field.props && field.props.fieldSize) || defaultFieldSize}
-              {...field.props && field.props.field}
+              {...(field.props && field.props.field)}
             >
               {field}
             </Grid.Column>
