@@ -7,24 +7,26 @@ export function fetchIfRequired(urlOrContent) {
   if (/<svg/.test(urlOrContent)) return urlOrContent
 
   return fetch(urlOrContent)
-    .then(response => {
+    .then((response) => {
       if (response.ok) {
         return response.text()
       }
 
       console.error('Failed to download icons: ', urlOrContent)
     })
-    .catch(error => console.error(error))
+    .catch((error) => console.error(error))
 }
 
 export function injectSVG(id, code) {
+  if (typeof document === 'undefined') return
   if (!code) return
-  if (code instanceof Promise) return code.then(content => injectSVG(id, content))
+  if (code instanceof Promise)
+    return code.then((content) => injectSVG(id, content))
   const root = getSpriteNode()
 
   id = GLOBAL_ID + id.replace(/[^a-z]/, '')
 
-  const existing = Array.from(root.children).find(node => node.id === id)
+  const existing = Array.from(root.children).find((node) => node.id === id)
 
   if (existing) {
     existing.innerHTML = code
