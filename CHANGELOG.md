@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.4.0"></a>
+## 1.4.0 (2019-08-23)
+
+* fix: Inline lodash-es package for SSR compatibility ([3ace72d](https://bitbucket.org/myntra/uikit/commits/3ace72d)), closes [#168](https://bitbucket.org/myntra/uikit/issue/168)
+* fix(Button): Allow element or string as children prop ([2eb11f1](https://bitbucket.org/myntra/uikit/commits/2eb11f1))
+* fix(docs): Remove Documentor from InputDate component as it's breaking the page ([973a8a8](https://bitbucket.org/myntra/uikit/commits/973a8a8)), closes [#166](https://bitbucket.org/myntra/uikit/issue/166)
+* fix(docs): Use master branch for source link ([8c1f948](https://bitbucket.org/myntra/uikit/commits/8c1f948))
+* fix(Grid): Remove src import of GridColumn prop types ([2517bcc](https://bitbucket.org/myntra/uikit/commits/2517bcc)), closes [#167](https://bitbucket.org/myntra/uikit/issue/167)
+* feat(Modal): Modal behaviour clicking outside can be controlled with `closeOnClickAway` prop ([be18a35](https://bitbucket.org/myntra/uikit/commits/be18a35)), closes [#164](https://bitbucket.org/myntra/uikit/issue/164)
+* feat(Table): Two step column filter ([abaef50](https://bitbucket.org/myntra/uikit/commits/abaef50))
+* refact(Button): code cleanup ([ce5b4d8](https://bitbucket.org/myntra/uikit/commits/ce5b4d8))
+* chore: add contributor docs ([1ab2985](https://bitbucket.org/myntra/uikit/commits/1ab2985))
+* chore: Add deployment config ([11b901f](https://bitbucket.org/myntra/uikit/commits/11b901f))
+* chore: Generate entry files for newly created components ([0a277a2](https://bitbucket.org/myntra/uikit/commits/0a277a2)), closes [#163](https://bitbucket.org/myntra/uikit/issue/163)
+* chore: move user documentation to uikit.myntra.com ([a7d9733](https://bitbucket.org/myntra/uikit/commits/a7d9733))
+
+
+
 <a name="1.3.1"></a>
 ## <small>1.3.1 (2019-08-09)</small>
 

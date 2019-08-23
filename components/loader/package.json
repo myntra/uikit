@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-loader",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "main": "dist/loader.cjs.js",
   "module": "dist/loader.esm.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.3.*",
-    "@myntra/uikit-utils": "1.3.*"
+    "@myntra/uikit-can-i-use": "1.4.*",
+    "@myntra/uikit-utils": "1.4.*"
   }
 }

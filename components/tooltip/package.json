@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-tooltip",
-  "version": "1.3.1",
+  "version": "1.4.0",
   "main": "dist/tooltip.cjs.js",
   "module": "dist/tooltip.esm.js",
   "types": "dist/index.d.ts",
@@ -28,8 +28,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.3.*",
-    "@myntra/uikit-component-dropdown": "1.3.*",
-    "@myntra/uikit-utils": "1.3.*"
+    "@myntra/uikit-can-i-use": "1.4.*",
+    "@myntra/uikit-component-dropdown": "1.4.*",
+    "@myntra/uikit-utils": "1.4.*"
   }
 }
