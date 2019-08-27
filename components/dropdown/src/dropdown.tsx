@@ -45,7 +45,7 @@ function findScrollParents(el: Element) {
 }
 
 export interface Props extends BaseProps {
-  renderTrigger(props: {
+  renderTrigger?(props: {
     onMouseLeave?(event: MouseEvent | React.MouseEvent): void
     onMouseEnter?(event: MouseEvent | React.MouseEvent): void
     onClick?(event: MouseEvent | React.MouseEvent): void

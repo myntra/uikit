@@ -40,6 +40,9 @@ export const BreadCrumb = asyncComponent(() =>
 export const Button = asyncComponent(() =>
   import(/* webpackChunkName: 'components/button' */ '@myntra/uikit-component-button')
 )
+export const ButtonGroup = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/button-group' */ '@myntra/uikit-component-button-group')
+)
 export const ClickAway = asyncComponent(() =>
   import(/* webpackChunkName: 'components/click-away' */ '@myntra/uikit-component-click-away')
 )
@@ -200,6 +203,12 @@ export const META = [
     since: '0.0.0',
     status: 'READY',
     path: '/components/button'
+  },
+  {
+    name: 'Button Group',
+    since: '0.0.0',
+    status: 'REVIEWING',
+    path: '/components/button-group'
   },
   {
     name: 'ClickAway',

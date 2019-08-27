@@ -1,0 +1,25 @@
+{
+  "name": "@myntra/uikit-component-button-group",
+  "version": "1.3.1",
+  "main": "dist/button-group.cjs.js",
+  "module": "dist/button-group.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/button-group",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  }
+}

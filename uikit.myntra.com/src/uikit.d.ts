@@ -160,6 +160,29 @@ declare namespace Button {
   type IconName = Icon.IconName
 }
 
+// -----------[[Button Group]]--------------- //
+/**
+ * Button groups are used to bunch together buttons with similar actions in a horizontal row to help with arrangement and spacing.
+ *
+ * @since 1.0.0
+ * @status EXPERIMENTAL
+ * @category basic
+ * @see http://uikit.myntra.com/components/button-group
+ */
+declare function ButtonGroup(props: ButtonGroup.Props): JSX.Element
+declare namespace ButtonGroup {
+  interface Props extends BaseProps {
+    /** Property to handle visual style of button group   */
+    alignment?: 'vertical' | 'horizontal'
+
+    /** Property to disable all the button */
+    disabled?: boolean
+
+    /** Property to be used in case only single type of button is required and all others under more drop down */
+    structure?: string
+  }
+}
+
 // -----------[[ClickAway]]--------------- //
 /**
  * Watch for clicks outside the target element.

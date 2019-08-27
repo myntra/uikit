@@ -6,7 +6,7 @@ import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
-  type: 'primary' | 'secondary' | 'link'
+  type?: 'primary' | 'secondary' | 'link'
   /** The label text of the button. */
   children?: string | ReactNode
   /** The handler to call when the button is clicked. */
