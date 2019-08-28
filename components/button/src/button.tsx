@@ -120,10 +120,11 @@ export default class Button extends PureComponent<Props> {
       inheritTextColor,
       loading,
       children,
+      label,
       ...props
     } = this.props
     const Tag = (to ? Button.RouterLink : href ? Button.Link : 'button') as any
-    const isIconButton = !children
+    const isIconButton = !(children || label)
     const needLeftSlot = !!icon || isIconButton
     const needRightSlot = !!secondaryIcon && !isIconButton
 
@@ -153,7 +154,7 @@ export default class Button extends PureComponent<Props> {
             <Icon name={icon || 'question'} aria-hidden="true" />
           </div>
         )}
-        <span>{children}</span>
+        <span>{children || label}</span>
         {needRightSlot && (
           <div
             className={classnames('secondary-icon')}
