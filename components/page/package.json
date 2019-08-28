@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-page",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "main": "dist/page.cjs.js",
   "module": "dist/page.esm.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.4.*",
-    "@myntra/uikit-utils": "1.4.*"
+    "@myntra/uikit-can-i-use": "1.5.*",
+    "@myntra/uikit-utils": "1.5.*"
   }
 }

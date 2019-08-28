@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.0"></a>
+## 1.5.0 (2019-08-28)
+
+* chore: sync branches post release ([8465e0d](https://bitbucket.org/myntra/uikit/commits/8465e0d))
+* feat(ButtonGroup): New ButtonGroup component to contain the UX logic of button composition ([cf7202a](https://bitbucket.org/myntra/uikit/commits/cf7202a)), closes [#165](https://bitbucket.org/myntra/uikit/issue/165)
+
+
+
 <a name="1.4.1"></a>
 ## <small>1.4.1 (2019-08-23)</small>
 

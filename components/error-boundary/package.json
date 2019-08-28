@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-error-boundary",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "main": "dist/error-boundary.cjs.js",
   "module": "dist/error-boundary.esm.js",
   "types": "dist/index.d.ts",
@@ -27,8 +27,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.4.*",
-    "@myntra/uikit-utils": "1.4.*",
+    "@myntra/uikit-can-i-use": "1.5.*",
+    "@myntra/uikit-utils": "1.5.*",
     "prop-types": "^15.7.2"
   }
 }

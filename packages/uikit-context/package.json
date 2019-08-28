@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-context",
-  "version": "1.4.1",
+  "version": "1.5.0",
   "main": "dist/uikit-context.cjs.js",
   "module": "dist/uikit-context.esm.js",
   "types": "dist/index.d.ts",
@@ -18,7 +18,7 @@
   ],
   "sideEffects": false,
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.4.*",
+    "@myntra/uikit-can-i-use": "1.5.*",
     "react": "^16.8.4"
   },
   "devDependencies": {
