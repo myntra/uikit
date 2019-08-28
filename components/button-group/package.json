@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-button-group",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "main": "dist/button-group.cjs.js",
   "module": "dist/button-group.esm.js",
   "types": "dist/index.d.ts",
@@ -23,9 +23,9 @@
     "@types/react": "latest"
   },
   "dependencies": {
-    "@myntra/uikit-component-button": "link:../button",
-    "@myntra/uikit-component-dropdown": "link:../dropdown",
-    "@myntra/uikit-component-list": "link:../list",
-    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+    "@myntra/uikit-component-button": "1.5.*",
+    "@myntra/uikit-component-dropdown": "1.5.*",
+    "@myntra/uikit-component-list": "1.5.*",
+    "@myntra/uikit-utils": "1.5.*"
   }
 }

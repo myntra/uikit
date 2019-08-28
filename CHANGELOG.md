@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.2"></a>
+## <small>1.5.2 (2019-08-28)</small>
+
+* fix(ButtonGroup): Add missing component dependencies ([c39e061](https://bitbucket.org/myntra/uikit/commits/c39e061))
+
+
+
 <a name="1.5.1"></a>
 ## <small>1.5.1 (2019-08-28)</small>
 
