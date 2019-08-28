@@ -21,5 +21,11 @@
   },
   "devDependencies": {
     "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-button": "link:../button",
+    "@myntra/uikit-component-dropdown": "link:../dropdown",
+    "@myntra/uikit-component-list": "link:../list",
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
   }
 }

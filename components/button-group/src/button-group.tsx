@@ -1,4 +1,4 @@
-import React, { PureComponent, Children, isValidElement } from 'react'
+import React, { PureComponent, Children } from 'react'
 import classnames from './button-group.module.scss'
 import Button, { KIND } from '@myntra/uikit-component-button'
 import List from '@myntra/uikit-component-list'
