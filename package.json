@@ -37,7 +37,7 @@
     ":release": "standard-version -a",
     "post:release": "npm run :publish && git push --follow-tags",
     "release": "npm run :release",
-    "changelog": "echo '---\nlayout: docs\n---\n' > ./src/router/pages/changelog.mdx && cat ../CHANGELOG.md >> ./src/router/pages/changelog.mdx",
+    "changelog": "standard-version -a --dry-run",
     ":update:versions": "node ./scripts/set-version.js",
     ":beta": "standard-version -a -p beta -a",
     "post:beta": "npm run :publish",
