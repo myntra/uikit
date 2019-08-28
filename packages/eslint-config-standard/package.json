@@ -1,6 +1,6 @@
 {
   "name": "@myntra/eslint-config-standard",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "src/index.js",
   "module": "dist/eslint-config-standard.esm.js",
   "types": "dist/index.d.ts",

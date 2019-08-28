@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-field",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "main": "dist/field.cjs.js",
   "module": "dist/field.esm.js",
   "types": "dist/index.d.ts",

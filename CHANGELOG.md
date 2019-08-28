@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.1"></a>
+## <small>1.5.1 (2019-08-28)</small>
+
+* fix(Button): Use label prop as children for backward compatibility ([f498037](https://bitbucket.org/myntra/uikit/commits/f498037))
+
+
+
 <a name="1.5.0"></a>
 ## 1.5.0 (2019-08-28)
 
