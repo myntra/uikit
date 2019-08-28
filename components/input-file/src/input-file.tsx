@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import classnames from './input-file.module.scss'
 import Input from '@myntra/uikit-component-input-text'
 import Button from '@myntra/uikit-component-button'
+import { createRef } from '@myntra/uikit-utils'
 
 export interface Props extends BaseProps {
   placeholder?: string
@@ -33,7 +34,7 @@ export default class InputFile extends PureComponent<Props> {
   constructor(props) {
     super(props)
 
-    this.refInputFile = React.createRef()
+    this.refInputFile = createRef()
   }
 
   handleOnChange = (e) => {

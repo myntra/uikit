@@ -6,6 +6,7 @@ import Measure, { MeasureData } from '@myntra/uikit-component-measure'
 import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './dropdown.module.scss'
+import { createRef } from '@myntra/uikit-utils'
 
 const scrollParents = new WeakMap<Element, Element[]>()
 
@@ -162,9 +163,9 @@ export default class Dropdown extends Component<
       position: null,
     }
 
-    this.containerRef = React.createRef()
-    this.wrapperRef = React.createRef()
-    this.triggerRef = React.createRef()
+    this.containerRef = createRef()
+    this.wrapperRef = createRef()
+    this.triggerRef = createRef()
   }
 
   componentWillUnmount() {

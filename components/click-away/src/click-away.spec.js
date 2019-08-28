@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-
+import { createRef } from '@myntra/uikit-utils'
 import ClickAway from './click-away'
 
 describe('ClickAway', () => {
@@ -12,7 +12,7 @@ describe('ClickAway', () => {
 
   document.removeEventListener = jest.fn()
 
-  const ref = React.createRef()
+  const ref = createRef()
   const fn = jest.fn()
   const TestComponent = (
     { eventName, target } // eslint-disable-line react/prop-types
@@ -43,18 +43,18 @@ describe('ClickAway', () => {
   describe('behaviour', () => {
     it('calls `onClickAway` prop if any outside element is clicked', () => {
       handlers.click({
-        target: wrapper.find('#outer').getDOMNode()
+        target: wrapper.find('#outer').getDOMNode(),
       })
 
-      expect(fn).toBeCalled()
+      expect(fn).toHaveBeenCalled()
     })
 
     it('does not call `onClickAway` prop if any element inside target is clicked', () => {
       handlers.click({
-        target: wrapper.find('#child').getDOMNode()
+        target: wrapper.find('#child').getDOMNode(),
       })
 
-      expect(fn).not.toBeCalled()
+      expect(fn).not.toHaveBeenCalled()
     })
   })
 })

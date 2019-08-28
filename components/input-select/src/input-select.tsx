@@ -1,5 +1,5 @@
 import React, { Component, RefObject } from 'react'
-import { memoize, toArray } from '@myntra/uikit-utils'
+import { createRef, memoize, toArray } from '@myntra/uikit-utils'
 
 import classnames from './input-select.module.scss'
 import Dropdown from '@myntra/uikit-component-dropdown'
@@ -141,8 +141,8 @@ export default class InputSelect<Value = any, Option = any> extends Component<
       options: props.options,
     }
 
-    this.controlRef = React.createRef()
-    this.listRef = React.createRef()
+    this.controlRef = createRef()
+    this.listRef = createRef()
   }
 
   getOptionsForValue = memoize(({ value, options, valueKey }) => {

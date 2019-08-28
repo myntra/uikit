@@ -1,3 +1,5 @@
+import { createRef } from '@myntra/uikit-utils'
+
 export * from './input-date-utils'
 
 import React, { PureComponent, ReactNode, RefObject } from 'react'
@@ -54,7 +56,7 @@ export default class InputDate extends PureComponent<
       isRangeSelectionActive: false,
     }
 
-    this.wrapperRef = React.createRef()
+    this.wrapperRef = createRef()
   }
 
   get displayFormat() {

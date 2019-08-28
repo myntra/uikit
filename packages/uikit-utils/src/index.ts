@@ -202,7 +202,12 @@ export function looseEquals(a, b) {
   return false
 }
 
-import { isValidElement, ReactElement, JSXElementConstructor } from 'react'
+import React, {
+  isValidElement,
+  ReactElement,
+  JSXElementConstructor,
+  RefObject,
+} from 'react'
 // --
 export function isReactNodeType<
   T extends JSXElementConstructor<P> = any,
@@ -213,4 +218,16 @@ export function isReactNodeType<
   if (node.type === (type as any)) return true
   if ((node.type as any)._result === type) return true
   return false
+}
+
+export function createRef<T = unknown>(): RefObject<T> {
+  const CAN_USE_CREATEREF = !!React.createRef
+  if (CAN_USE_CREATEREF) {
+    return React.createRef()
+  } else {
+    const fn: any = (elem) => {
+      fn.current = elem
+    }
+    return fn
+  }
 }

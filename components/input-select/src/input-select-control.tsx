@@ -4,7 +4,7 @@ import {
   executeFilterSearch,
   moveSelectedOptionsToTop,
 } from './helpers'
-import { memoize, debounce } from '@myntra/uikit-utils'
+import { memoize, debounce, createRef } from '@myntra/uikit-utils'
 import Icon from '@myntra/uikit-component-icon'
 import classnames from './input-select-control.module.scss'
 
@@ -101,7 +101,7 @@ export default class InputSelectControl<V = any, T = any> extends PureComponent<
   constructor(props) {
     super(props)
 
-    this.inputRef = React.createRef()
+    this.inputRef = createRef()
   }
 
   componentDidMount() {

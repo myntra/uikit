@@ -4,6 +4,7 @@ import VirtualList, {
   VirtualListProps,
 } from '@myntra/uikit-component-virtual-list'
 import classnames from './list.module.scss'
+import { createRef } from '@myntra/uikit-utils'
 
 export interface Props<T = any> extends BaseProps {
   /**
@@ -79,9 +80,9 @@ export default class List extends PureComponent<
 
     this.idPrefix = `list-${Date.now()}`
     this.isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0
-    this.containerRef = React.createRef()
-    this.virtualListRef = React.createRef()
-    this.scrollerRef = React.createRef()
+    this.containerRef = createRef()
+    this.virtualListRef = createRef()
+    this.scrollerRef = createRef()
   }
 
   componentDidUpdate() {

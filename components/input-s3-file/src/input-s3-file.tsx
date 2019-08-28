@@ -3,6 +3,7 @@ import classnames from './input-s3-file.module.scss'
 import Button from '@myntra/uikit-component-button'
 import InputFile from '@myntra/uikit-component-input-file'
 import Progress from '@myntra/uikit-component-progress'
+import { createRef } from '@myntra/uikit-utils'
 
 export interface Props extends BaseProps {
   /**
@@ -87,7 +88,7 @@ export default class InputS3File extends PureComponent<
   constructor(props) {
     super(props)
 
-    this.refInputFile = React.createRef()
+    this.refInputFile = createRef()
   }
 
   handleInputChange = (files) => {

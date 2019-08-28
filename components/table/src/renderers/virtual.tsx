@@ -6,6 +6,7 @@ import VirtualList from '@myntra/uikit-component-virtual-list'
 import VirtualGrid from '@myntra/uikit-component-virtual-grid'
 import ScrollObserver from '../scroll-observer'
 import { Provider } from '../table-context'
+import { createRef } from '@myntra/uikit-utils'
 
 export interface Props extends BaseProps {
   config: TableMeta
@@ -35,8 +36,8 @@ export default class VirtualTable extends PureComponent<
     height: 0,
   }
 
-  headRef = React.createRef<VirtualList>()
-  bodyRef = React.createRef<VirtualGrid>()
+  headRef = createRef<VirtualList>()
+  bodyRef = createRef<VirtualGrid>()
   renderContext = { TD, TR }
 
   getEnhancerState(enhancer: string) {

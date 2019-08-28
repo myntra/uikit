@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import classnames from './image.module.scss'
 import { ImageContainerObserver, createObserver } from './image-helpers'
+import { createRef } from '@myntra/uikit-utils'
 
 export interface Props extends BaseProps {
   /** Image source file/link. */
@@ -47,7 +48,7 @@ export default class Image extends Component<
       isIntersecting: false,
     }
 
-    this.ref = React.createRef()
+    this.ref = createRef()
   }
 
   componentDidMount() {
