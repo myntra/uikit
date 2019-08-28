@@ -148,9 +148,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-context': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-context': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/alert:
@@ -164,10 +164,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/avatar:
@@ -180,8 +180,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       name-initials: ^0.1.3
       react: '>=15.4'
@@ -194,8 +194,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/bread-crumb:
@@ -207,8 +207,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/button:
@@ -222,12 +222,17 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-context': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-context': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
+  components/button-group:
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.9.2
+    specifiers:
+      '@types/react': latest
   components/click-away:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -237,8 +242,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/dropdown:
@@ -255,12 +260,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-click-away': 1.3.*
-      '@myntra/uikit-component-measure': 1.3.*
-      '@myntra/uikit-component-portal': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-click-away': 1.4.*
+      '@myntra/uikit-component-measure': 1.4.*
+      '@myntra/uikit-component-portal': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -274,8 +279,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -289,8 +294,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -302,7 +307,7 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': latest
       react: '>=15.4'
   components/form:
@@ -327,21 +332,21 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-field': 1.3.*
-      '@myntra/uikit-component-grid': 1.3.*
-      '@myntra/uikit-component-input-checkbox': 1.3.*
-      '@myntra/uikit-component-input-date': 1.3.*
-      '@myntra/uikit-component-input-masked': 1.3.*
-      '@myntra/uikit-component-input-month': 1.3.*
-      '@myntra/uikit-component-input-number': 1.3.*
-      '@myntra/uikit-component-input-radio': 1.3.*
-      '@myntra/uikit-component-input-s3-file': 1.3.*
-      '@myntra/uikit-component-input-select': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-component-input-text-area': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-field': 1.4.*
+      '@myntra/uikit-component-grid': 1.4.*
+      '@myntra/uikit-component-input-checkbox': 1.4.*
+      '@myntra/uikit-component-input-date': 1.4.*
+      '@myntra/uikit-component-input-masked': 1.4.*
+      '@myntra/uikit-component-input-month': 1.4.*
+      '@myntra/uikit-component-input-number': 1.4.*
+      '@myntra/uikit-component-input-radio': 1.4.*
+      '@myntra/uikit-component-input-s3-file': 1.4.*
+      '@myntra/uikit-component-input-select': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-component-input-text-area': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/grid:
@@ -355,9 +360,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.3.*
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/codemod-utils': 1.4.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -370,8 +375,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/icon:
@@ -388,9 +393,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/svg': 1.3.*
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/svg': 1.4.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       '@znck/promised': ^1.0.4
       glob: ^7.1.3
@@ -408,8 +413,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       intersection-observer-polyfill: ^0.1.0
       prop-types: ^15.7.2
@@ -424,9 +429,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-date:
@@ -444,12 +449,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-component-input-masked': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-component-input-masked': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       date-fns: ^2.0.0-alpha.27
       dayjs: ^1.8.14
@@ -462,9 +467,9 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     specifiers:
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': latest
   components/input-masked:
     dependencies:
@@ -476,9 +481,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-month:
@@ -493,11 +498,11 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-component-input-date': 1.3.*
-      '@myntra/uikit-component-input-masked': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-component-input-date': 1.4.*
+      '@myntra/uikit-component-input-masked': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-number:
@@ -510,9 +515,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-radio:
@@ -524,8 +529,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-s3-file:
@@ -540,11 +545,11 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-input-file': 1.3.*
-      '@myntra/uikit-component-progress': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-input-file': 1.4.*
+      '@myntra/uikit-component-progress': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-select:
@@ -561,12 +566,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-component-list': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-component-list': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
       sifter: ^0.5.3
@@ -581,10 +586,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.3.*
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/codemod-utils': 1.4.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-text-area:
@@ -597,9 +602,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/job-tracker:
@@ -616,12 +621,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-grid': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-component-progress': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-grid': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-component-progress': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       dayjs: ^1.8.14
       react: '>=15.4'
@@ -636,9 +641,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-virtual-list': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-virtual-list': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: 16.*
       scroll-into-view-if-needed: ^2.2.20
@@ -651,8 +656,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/measure:
@@ -667,8 +672,8 @@ importers:
       react: registry.npmjs.org/react/16.9.0
       react-dom: registry.npmjs.org/react-dom/16.9.0_react@16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -685,10 +690,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-portal': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-portal': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/nav-bar:
@@ -703,11 +708,11 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-avatar': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-context': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-avatar': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-context': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/page:
@@ -719,8 +724,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/pagination:
@@ -734,10 +739,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.3.*
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/codemod-utils': 1.4.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/portal:
@@ -751,8 +756,8 @@ importers:
       react: registry.npmjs.org/react/16.9.0
       react-dom: registry.npmjs.org/react-dom/16.9.0_react@16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -766,8 +771,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/schema-form:
@@ -783,12 +788,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-field': 1.3.*
-      '@myntra/uikit-component-form': 1.3.*
-      '@myntra/uikit-component-grid': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-field': 1.4.*
+      '@myntra/uikit-component-form': 1.4.*
+      '@myntra/uikit-component-grid': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/section:
@@ -801,14 +806,15 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/table:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
+      '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-dropdown': 'link:../dropdown'
       '@myntra/uikit-component-field': 'link:../field'
       '@myntra/uikit-component-icon': 'link:../icon'
@@ -824,17 +830,18 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-component-field': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-component-list': 1.3.*
-      '@myntra/uikit-component-measure': 1.3.*
-      '@myntra/uikit-component-virtual-grid': 1.3.*
-      '@myntra/uikit-component-virtual-list': 1.3.*
-      '@myntra/uikit-context': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-component-field': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-component-list': 1.4.*
+      '@myntra/uikit-component-measure': 1.4.*
+      '@myntra/uikit-component-virtual-grid': 1.4.*
+      '@myntra/uikit-component-virtual-list': 1.4.*
+      '@myntra/uikit-context': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/tabs:
@@ -846,8 +853,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/text:
@@ -858,7 +865,7 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8.23
       react: '>=15.4'
   components/tooltip:
@@ -871,9 +878,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: ^16.8.6
   components/top-bar:
@@ -889,12 +896,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-bread-crumb': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-component-list': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-bread-crumb': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-component-list': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/virtual-grid:
@@ -907,9 +914,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-virtual-list': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-virtual-list': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/virtual-list:
@@ -924,9 +931,9 @@ importers:
       react: registry.npmjs.org/react/16.9.0
       react-dom: registry.npmjs.org/react-dom/16.9.0_react@16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
-      '@myntra/uikit-component-measure': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
+      '@myntra/uikit-component-measure': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
       '@types/react': ^16.8
       '@types/react-dom': ^16.8.3
       react: '>=15.4'
@@ -1000,7 +1007,7 @@ importers:
       '@myntra/uikit-utils': 'link:../uikit-utils'
       loader-utils: registry.npmjs.org/loader-utils/1.2.3
     specifiers:
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-utils': 1.4.*
       loader-utils: ^1.1.0
   packages/codemod-utils:
     dependencies:
@@ -1013,7 +1020,7 @@ importers:
       jsdoc-api: registry.npmjs.org/jsdoc-api/4.0.3
       prettier: registry.npmjs.org/prettier/1.18.2
     specifiers:
-      '@myntra/eslint-config-standard': 1.3.*
+      '@myntra/eslint-config-standard': 1.4.*
       debug: ^3.1.0
       eslint: ^4.19.1
       execa: ^0.10.0
@@ -1042,21 +1049,21 @@ importers:
     dependencies:
       babel-eslint: registry.npmjs.org/babel-eslint/8.2.6
       babel-plugin-syntax-jsx: registry.npmjs.org/babel-plugin-syntax-jsx/6.18.0
-      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.1.0
-      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_3343c66a62c67de6a8b98f27c142079e
-      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.1.0
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.1.0
-      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.1.0
+      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.2.2
+      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_ed40066162c2597482bd3c02e3a17842
+      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.2.2
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.2.2
+      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.2.2
       eslint-plugin-json: registry.npmjs.org/eslint-plugin-json/1.4.0
-      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.1.0
-      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.1.0
+      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.2.2
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.2.2
       eslint-plugin-prettier: registry.npmjs.org/eslint-plugin-prettier/2.7.0_prettier@1.18.2
       eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
-      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.1.0
-      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.1.0
+      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.2.2
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.2.2
       prettier: registry.npmjs.org/prettier/1.18.2
     optionalDependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
+      eslint: registry.npmjs.org/eslint/6.2.2
     specifiers:
       babel-eslint: ^8.2.2
       babel-plugin-syntax-jsx: ^6.18.0
@@ -1182,53 +1189,53 @@ importers:
       '@myntra/uikit-component-virtual-list': 'link:../../components/virtual-list'
       '@myntra/uikit-utils': 'link:../uikit-utils'
     specifiers:
-      '@myntra/uikit-component-accordion': 1.3.*
-      '@myntra/uikit-component-alert': 1.3.*
-      '@myntra/uikit-component-avatar': 1.3.*
-      '@myntra/uikit-component-badge': 1.3.*
-      '@myntra/uikit-component-bread-crumb': 1.3.*
-      '@myntra/uikit-component-button': 1.3.*
-      '@myntra/uikit-component-click-away': 1.3.*
-      '@myntra/uikit-component-dropdown': 1.3.*
-      '@myntra/uikit-component-error-boundary': 1.3.*
-      '@myntra/uikit-component-field': 1.3.*
-      '@myntra/uikit-component-flex': 1.3.*
-      '@myntra/uikit-component-form': 1.3.*
-      '@myntra/uikit-component-grid': 1.3.*
-      '@myntra/uikit-component-group': 1.3.*
-      '@myntra/uikit-component-icon': 1.3.*
-      '@myntra/uikit-component-image': 1.3.*
-      '@myntra/uikit-component-input-checkbox': 1.3.*
-      '@myntra/uikit-component-input-date': 1.3.*
-      '@myntra/uikit-component-input-file': 1.3.*
-      '@myntra/uikit-component-input-masked': 1.3.*
-      '@myntra/uikit-component-input-month': 1.3.*
-      '@myntra/uikit-component-input-number': 1.3.*
-      '@myntra/uikit-component-input-radio': 1.3.*
-      '@myntra/uikit-component-input-s3-file': 1.3.*
-      '@myntra/uikit-component-input-select': 1.3.*
-      '@myntra/uikit-component-input-text': 1.3.*
-      '@myntra/uikit-component-input-text-area': 1.3.*
-      '@myntra/uikit-component-job-tracker': 1.3.*
-      '@myntra/uikit-component-list': 1.3.*
-      '@myntra/uikit-component-loader': 1.3.*
-      '@myntra/uikit-component-measure': 1.3.*
-      '@myntra/uikit-component-modal': 1.3.*
-      '@myntra/uikit-component-nav-bar': 1.3.*
-      '@myntra/uikit-component-page': 1.3.*
-      '@myntra/uikit-component-pagination': 1.3.*
-      '@myntra/uikit-component-portal': 1.3.*
-      '@myntra/uikit-component-progress': 1.3.*
-      '@myntra/uikit-component-schema-form': 1.3.*
-      '@myntra/uikit-component-section': 1.3.*
-      '@myntra/uikit-component-table': 1.3.*
-      '@myntra/uikit-component-tabs': 1.3.*
-      '@myntra/uikit-component-text': 1.3.*
-      '@myntra/uikit-component-tooltip': 1.3.*
-      '@myntra/uikit-component-top-bar': 1.3.*
-      '@myntra/uikit-component-virtual-grid': 1.3.*
-      '@myntra/uikit-component-virtual-list': 1.3.*
-      '@myntra/uikit-utils': 1.3.*
+      '@myntra/uikit-component-accordion': 1.4.*
+      '@myntra/uikit-component-alert': 1.4.*
+      '@myntra/uikit-component-avatar': 1.4.*
+      '@myntra/uikit-component-badge': 1.4.*
+      '@myntra/uikit-component-bread-crumb': 1.4.*
+      '@myntra/uikit-component-button': 1.4.*
+      '@myntra/uikit-component-click-away': 1.4.*
+      '@myntra/uikit-component-dropdown': 1.4.*
+      '@myntra/uikit-component-error-boundary': 1.4.*
+      '@myntra/uikit-component-field': 1.4.*
+      '@myntra/uikit-component-flex': 1.4.*
+      '@myntra/uikit-component-form': 1.4.*
+      '@myntra/uikit-component-grid': 1.4.*
+      '@myntra/uikit-component-group': 1.4.*
+      '@myntra/uikit-component-icon': 1.4.*
+      '@myntra/uikit-component-image': 1.4.*
+      '@myntra/uikit-component-input-checkbox': 1.4.*
+      '@myntra/uikit-component-input-date': 1.4.*
+      '@myntra/uikit-component-input-file': 1.4.*
+      '@myntra/uikit-component-input-masked': 1.4.*
+      '@myntra/uikit-component-input-month': 1.4.*
+      '@myntra/uikit-component-input-number': 1.4.*
+      '@myntra/uikit-component-input-radio': 1.4.*
+      '@myntra/uikit-component-input-s3-file': 1.4.*
+      '@myntra/uikit-component-input-select': 1.4.*
+      '@myntra/uikit-component-input-text': 1.4.*
+      '@myntra/uikit-component-input-text-area': 1.4.*
+      '@myntra/uikit-component-job-tracker': 1.4.*
+      '@myntra/uikit-component-list': 1.4.*
+      '@myntra/uikit-component-loader': 1.4.*
+      '@myntra/uikit-component-measure': 1.4.*
+      '@myntra/uikit-component-modal': 1.4.*
+      '@myntra/uikit-component-nav-bar': 1.4.*
+      '@myntra/uikit-component-page': 1.4.*
+      '@myntra/uikit-component-pagination': 1.4.*
+      '@myntra/uikit-component-portal': 1.4.*
+      '@myntra/uikit-component-progress': 1.4.*
+      '@myntra/uikit-component-schema-form': 1.4.*
+      '@myntra/uikit-component-section': 1.4.*
+      '@myntra/uikit-component-table': 1.4.*
+      '@myntra/uikit-component-tabs': 1.4.*
+      '@myntra/uikit-component-text': 1.4.*
+      '@myntra/uikit-component-tooltip': 1.4.*
+      '@myntra/uikit-component-top-bar': 1.4.*
+      '@myntra/uikit-component-virtual-grid': 1.4.*
+      '@myntra/uikit-component-virtual-list': 1.4.*
+      '@myntra/uikit-utils': 1.4.*
   packages/uikit-can-i-use:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
@@ -1261,7 +1268,7 @@ importers:
       jsdoc-api: registry.npmjs.org/jsdoc-api/4.0.3
       progress: registry.npmjs.org/progress/2.0.3
     specifiers:
-      '@myntra/eslint-config-standard': 1.3.*
+      '@myntra/eslint-config-standard': 1.4.*
       '@znck/promised': ^1.0.0
       babel-preset-es2015: ^6.24.1
       babel-preset-stage-0: ^6.24.1
@@ -1285,16 +1292,15 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     specifiers:
-      '@myntra/uikit-can-i-use': 1.3.*
+      '@myntra/uikit-can-i-use': 1.4.*
       '@types/react': ^16.8.10
       react: ^16.8.4
   packages/uikit-design:
     specifiers: {}
   packages/uikit-utils:
-    dependencies:
-      lodash-es: registry.npmjs.org/lodash-es/4.17.15
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
+      lodash-es: registry.npmjs.org/lodash-es/4.17.15
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
@@ -1307,8 +1313,8 @@ importers:
     devDependencies:
       '@myntra/tokenizer': 'link:../../packages/tokenizer'
     specifiers:
-      '@myntra/tokenizer': 1.3.*
-      '@myntra/uikit-design': 1.3.*
+      '@myntra/tokenizer': 1.4.*
+      '@myntra/uikit-design': 1.4.*
   uikit.myntra.com:
     dependencies:
       '@babel/standalone': registry.npmjs.org/@babel/standalone/7.5.5
@@ -3796,6 +3802,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.1.tgz'
     version: 16.9.1
+  registry.npmjs.org/@types/react/16.9.2:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.1
+      csstype: registry.npmjs.org/csstype/2.6.6
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-jYP2LWwlh+FTqGd9v7ynUKZzjj98T8x7Yclz479QdRhHfuW9yQ+0jjnD31eXSXutmBpppj5PYNLYLRfnZJvcfg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.2.tgz'
+    version: 16.9.2
   registry.npmjs.org/@types/resolve/0.0.8:
     dependencies:
       '@types/node': registry.npmjs.org/@types/node/12.6.9
@@ -4235,6 +4252,7 @@ packages:
   registry.npmjs.org/acorn-jsx/5.0.1_acorn@6.3.0:
     dependencies:
       acorn: registry.npmjs.org/acorn/6.3.0
+    dev: true
     id: registry.npmjs.org/acorn-jsx/5.0.1
     name: acorn-jsx
     peerDependencies:
@@ -4244,6 +4262,19 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.0.1.tgz'
     version: 5.0.1
+  registry.npmjs.org/acorn-jsx/5.0.2_acorn@7.0.0:
+    dependencies:
+      acorn: registry.npmjs.org/acorn/7.0.0
+    dev: false
+    id: registry.npmjs.org/acorn-jsx/5.0.2
+    name: acorn-jsx
+    peerDependencies:
+      acorn: ^6.0.0 || ^7.0.0
+    resolution:
+      integrity: sha512-tiNTrP1MP0QrChmD2DdupCr6HWSFeKVw5d/dHTu4Y7rkAkRhU/Dt7dphAfIUyxtHpl/eBVip5uTNSpQJHylpAw==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-5.0.2.tgz'
+    version: 5.0.2
   registry.npmjs.org/acorn-walk/6.2.0:
     dev: true
     engines:
@@ -4286,6 +4317,7 @@ packages:
       tarball: 'https://registry.npmjs.org/acorn/-/acorn-6.2.1.tgz'
     version: 6.2.1
   registry.npmjs.org/acorn/6.3.0:
+    dev: true
     engines:
       node: '>=0.4.0'
     hasBin: true
@@ -4295,6 +4327,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/acorn/-/acorn-6.3.0.tgz'
     version: 6.3.0
+  registry.npmjs.org/acorn/7.0.0:
+    dev: false
+    engines:
+      node: '>=0.4.0'
+    hasBin: true
+    name: acorn
+    resolution:
+      integrity: sha512-PaF/MduxijYYt7unVGRuds1vBC9bFxbNf+VWqhOClfdgy7RlVkQqt610ig1/yxTgsDIfW1cWDel5EBbOy3jdtQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/acorn/-/acorn-7.0.0.tgz'
+    version: 7.0.0
   registry.npmjs.org/address/1.1.0:
     dev: true
     engines:
@@ -4442,6 +4485,7 @@ packages:
   registry.npmjs.org/ansi-escapes/4.2.1:
     dependencies:
       type-fest: registry.npmjs.org/type-fest/0.5.2
+    dev: true
     engines:
       node: '>=8'
     name: ansi-escapes
@@ -7326,6 +7370,7 @@ packages:
   registry.npmjs.org/cli-cursor/3.1.0:
     dependencies:
       restore-cursor: registry.npmjs.org/restore-cursor/3.1.0
+    dev: true
     engines:
       node: '>=8'
     name: cli-cursor
@@ -9482,6 +9527,7 @@ packages:
       tarball: 'https://registry.npmjs.org/emoji-regex/-/emoji-regex-7.0.3.tgz'
     version: 7.0.3
   registry.npmjs.org/emoji-regex/8.0.0:
+    dev: true
     name: emoji-regex
     resolution:
       integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
@@ -9747,9 +9793,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/escodegen/-/escodegen-1.11.1.tgz'
     version: 1.11.1
-  registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.1.0:
+  registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.2.2:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
+      eslint: registry.npmjs.org/eslint/6.2.2
       get-stdin: registry.npmjs.org/get-stdin/5.0.1
     dev: false
     hasBin: true
@@ -9792,13 +9838,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-6.0.0.tgz'
     version: 6.0.0
-  registry.npmjs.org/eslint-config-standard/11.0.0_3343c66a62c67de6a8b98f27c142079e:
+  registry.npmjs.org/eslint-config-standard/11.0.0_ed40066162c2597482bd3c02e3a17842:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.1.0
-      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.1.0
+      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.2.2
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.2.2
       eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
-      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.1.0
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.2.2
     dev: false
     id: registry.npmjs.org/eslint-config-standard/11.0.0
     name: eslint-config-standard
@@ -9915,8 +9961,24 @@ packages:
     version: 5.3.0
   registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.1.0:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
       eslint-rule-composer: registry.npmjs.org/eslint-rule-composer/0.3.0
+    dev: true
+    engines:
+      node: '>=4'
+    id: registry.npmjs.org/eslint-plugin-babel/5.3.0
+    name: eslint-plugin-babel
+    peerDependencies:
+      eslint: '>=4.0.0'
+    resolution:
+      integrity: sha512-HPuNzSPE75O+SnxHIafbW5QB45r2w78fxqwK3HmjqIUoPfPzVrq6rD+CINU3yzoDSzEhUkX07VUphbF73Lth/w==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/eslint-plugin-babel/-/eslint-plugin-babel-5.3.0.tgz'
+    version: 5.3.0
+  registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.2.2:
+    dependencies:
+      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint-rule-composer: registry.npmjs.org/eslint-rule-composer/0.3.0
+    dev: false
     engines:
       node: '>=4'
     id: registry.npmjs.org/eslint-plugin-babel/5.3.0
@@ -9994,7 +10056,6 @@ packages:
       contains-path: registry.npmjs.org/contains-path/0.1.0
       debug: registry.npmjs.org/debug/2.6.9
       doctrine: registry.npmjs.org/doctrine/1.5.0
-      eslint: registry.npmjs.org/eslint/6.1.0
       eslint-import-resolver-node: registry.npmjs.org/eslint-import-resolver-node/0.3.2
       eslint-module-utils: registry.npmjs.org/eslint-module-utils/2.4.1
       has: registry.npmjs.org/has/1.0.3
@@ -10002,6 +10063,7 @@ packages:
       object.values: registry.npmjs.org/object.values/1.1.0
       read-pkg-up: registry.npmjs.org/read-pkg-up/2.0.0
       resolve: registry.npmjs.org/resolve/1.12.0
+    dev: true
     engines:
       node: '>=4'
     id: registry.npmjs.org/eslint-plugin-import/2.18.2
@@ -10013,9 +10075,35 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz'
     version: 2.18.2
-  registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.1.0:
+  registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.2.2:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
+      array-includes: registry.npmjs.org/array-includes/3.0.3
+      contains-path: registry.npmjs.org/contains-path/0.1.0
+      debug: registry.npmjs.org/debug/2.6.9
+      doctrine: registry.npmjs.org/doctrine/1.5.0
+      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint-import-resolver-node: registry.npmjs.org/eslint-import-resolver-node/0.3.2
+      eslint-module-utils: registry.npmjs.org/eslint-module-utils/2.4.1
+      has: registry.npmjs.org/has/1.0.3
+      minimatch: registry.npmjs.org/minimatch/3.0.4
+      object.values: registry.npmjs.org/object.values/1.1.0
+      read-pkg-up: registry.npmjs.org/read-pkg-up/2.0.0
+      resolve: registry.npmjs.org/resolve/1.12.0
+    dev: false
+    engines:
+      node: '>=4'
+    id: registry.npmjs.org/eslint-plugin-import/2.18.2
+    name: eslint-plugin-import
+    peerDependencies:
+      eslint: 2.x - 6.x
+    resolution:
+      integrity: sha512-5ohpsHAiUBRNaBWAF08izwUGlbrJoJJ+W9/TBwsGoR1MnlgfwMIKrFeSjWbt6moabiXW9xNvtFz+97KHRfI4HQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz'
+    version: 2.18.2
+  registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.2.2:
+    dependencies:
+      eslint: registry.npmjs.org/eslint/6.2.2
     dev: false
     engines:
       node: '>= 4'
@@ -10071,7 +10159,7 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-json/-/eslint-plugin-json-1.4.0.tgz'
     version: 1.4.0
-  registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.1.0:
+  registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.2.2:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.5.5
       aria-query: registry.npmjs.org/aria-query/3.0.0
@@ -10080,7 +10168,7 @@ packages:
       axobject-query: registry.npmjs.org/axobject-query/2.0.2
       damerau-levenshtein: registry.npmjs.org/damerau-levenshtein/1.0.5
       emoji-regex: registry.npmjs.org/emoji-regex/7.0.3
-      eslint: registry.npmjs.org/eslint/6.1.0
+      eslint: registry.npmjs.org/eslint/6.2.2
       has: registry.npmjs.org/has/1.0.3
       jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
     dev: false
@@ -10107,9 +10195,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-jsx/-/eslint-plugin-jsx-0.0.2.tgz'
     version: 0.0.2
-  registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.1.0:
+  registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.2.2:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
+      eslint: registry.npmjs.org/eslint/6.2.2
       ignore: registry.npmjs.org/ignore/3.3.10
       minimatch: registry.npmjs.org/minimatch/3.0.4
       resolve: registry.npmjs.org/resolve/1.12.0
@@ -10277,7 +10365,6 @@ packages:
     dependencies:
       array-includes: registry.npmjs.org/array-includes/3.0.3
       doctrine: registry.npmjs.org/doctrine/2.1.0
-      eslint: registry.npmjs.org/eslint/6.1.0
       has: registry.npmjs.org/has/1.0.3
       jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
       object.entries: registry.npmjs.org/object.entries/1.1.0
@@ -10285,6 +10372,7 @@ packages:
       object.values: registry.npmjs.org/object.values/1.1.0
       prop-types: registry.npmjs.org/prop-types/15.7.2
       resolve: registry.npmjs.org/resolve/1.12.0
+    dev: true
     engines:
       node: '>=4'
     id: registry.npmjs.org/eslint-plugin-react/7.14.3
@@ -10296,9 +10384,33 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz'
     version: 7.14.3
-  registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.1.0:
+  registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.2.2:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.1.0
+      array-includes: registry.npmjs.org/array-includes/3.0.3
+      doctrine: registry.npmjs.org/doctrine/2.1.0
+      eslint: registry.npmjs.org/eslint/6.2.2
+      has: registry.npmjs.org/has/1.0.3
+      jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
+      object.entries: registry.npmjs.org/object.entries/1.1.0
+      object.fromentries: registry.npmjs.org/object.fromentries/2.0.0
+      object.values: registry.npmjs.org/object.values/1.1.0
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      resolve: registry.npmjs.org/resolve/1.12.0
+    dev: false
+    engines:
+      node: '>=4'
+    id: registry.npmjs.org/eslint-plugin-react/7.14.3
+    name: eslint-plugin-react
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+    resolution:
+      integrity: sha512-EzdyyBWC4Uz2hPYBiEJrKCUi2Fn+BJ9B/pJQcjw5X+x/H2Nm59S4MJIvL4O5NEE0+WbnQwEBxWY03oUk+Bc3FA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz'
+    version: 7.14.3
+  registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.2.2:
+    dependencies:
+      eslint: registry.npmjs.org/eslint/6.2.2
     dev: false
     id: registry.npmjs.org/eslint-plugin-standard/3.1.0
     name: eslint-plugin-standard
@@ -10384,7 +10496,7 @@ packages:
   registry.npmjs.org/eslint-scope/5.0.0:
     dependencies:
       esrecurse: registry.npmjs.org/esrecurse/4.2.1
-      estraverse: registry.npmjs.org/estraverse/4.2.0
+      estraverse: registry.npmjs.org/estraverse/4.3.0
     engines:
       node: '>=8.0.0'
     name: eslint-scope
@@ -10396,6 +10508,7 @@ packages:
   registry.npmjs.org/eslint-utils/1.4.0:
     dependencies:
       eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.0.0
+    dev: true
     engines:
       node: '>=6'
     name: eslint-utils
@@ -10404,6 +10517,18 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-utils/-/eslint-utils-1.4.0.tgz'
     version: 1.4.0
+  registry.npmjs.org/eslint-utils/1.4.2:
+    dependencies:
+      eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
+    dev: false
+    engines:
+      node: '>=6'
+    name: eslint-utils
+    resolution:
+      integrity: sha512-eAZS2sEUMlIeCjBeubdj45dmBHQwPHWyBcT1VSYB7o9x9WRRqKxyUoiXlRjyAwzN7YEzHJlYg0NmzDRWx6GP4Q==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/eslint-utils/-/eslint-utils-1.4.2.tgz'
+    version: 1.4.2
   registry.npmjs.org/eslint-visitor-keys/1.0.0:
     engines:
       node: '>=4'
@@ -10413,6 +10538,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.0.0.tgz'
     version: 1.0.0
+  registry.npmjs.org/eslint-visitor-keys/1.1.0:
+    dev: false
+    engines:
+      node: '>=4'
+    name: eslint-visitor-keys
+    resolution:
+      integrity: sha512-8y9YjtM1JBJU/A9Kc+SbaOV4y29sSWckBwMHa+FGtVj5gN/sbnKDf6xJUl+8g7FAij9LVaP8C24DUiH/f/2Z9A==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/eslint-visitor-keys/-/eslint-visitor-keys-1.1.0.tgz'
+    version: 1.1.0
   registry.npmjs.org/eslint/4.19.1:
     dependencies:
       ajv: registry.npmjs.org/ajv/5.5.2
@@ -10501,6 +10636,7 @@ packages:
       table: registry.npmjs.org/table/5.4.5
       text-table: registry.npmjs.org/text-table/0.2.0
       v8-compile-cache: registry.npmjs.org/v8-compile-cache/2.1.0
+    dev: true
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     hasBin: true
@@ -10510,6 +10646,55 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint/-/eslint-6.1.0.tgz'
     version: 6.1.0
+  registry.npmjs.org/eslint/6.2.2:
+    dependencies:
+      '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.5.5
+      ajv: registry.npmjs.org/ajv/6.10.2
+      chalk: registry.npmjs.org/chalk/2.4.2
+      cross-spawn: registry.npmjs.org/cross-spawn/6.0.5
+      debug: registry.npmjs.org/debug/4.1.1
+      doctrine: registry.npmjs.org/doctrine/3.0.0
+      eslint-scope: registry.npmjs.org/eslint-scope/5.0.0
+      eslint-utils: registry.npmjs.org/eslint-utils/1.4.2
+      eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
+      espree: registry.npmjs.org/espree/6.1.1
+      esquery: registry.npmjs.org/esquery/1.0.1
+      esutils: registry.npmjs.org/esutils/2.0.3
+      file-entry-cache: registry.npmjs.org/file-entry-cache/5.0.1
+      functional-red-black-tree: registry.npmjs.org/functional-red-black-tree/1.0.1
+      glob-parent: registry.npmjs.org/glob-parent/5.0.0
+      globals: registry.npmjs.org/globals/11.12.0
+      ignore: registry.npmjs.org/ignore/4.0.6
+      import-fresh: registry.npmjs.org/import-fresh/3.1.0
+      imurmurhash: registry.npmjs.org/imurmurhash/0.1.4
+      inquirer: registry.npmjs.org/inquirer/6.5.2
+      is-glob: registry.npmjs.org/is-glob/4.0.1
+      js-yaml: registry.npmjs.org/js-yaml/3.13.1
+      json-stable-stringify-without-jsonify: registry.npmjs.org/json-stable-stringify-without-jsonify/1.0.1
+      levn: registry.npmjs.org/levn/0.3.0
+      lodash: registry.npmjs.org/lodash/4.17.15
+      minimatch: registry.npmjs.org/minimatch/3.0.4
+      mkdirp: registry.npmjs.org/mkdirp/0.5.1
+      natural-compare: registry.npmjs.org/natural-compare/1.4.0
+      optionator: registry.npmjs.org/optionator/0.8.2
+      progress: registry.npmjs.org/progress/2.0.3
+      regexpp: registry.npmjs.org/regexpp/2.0.1
+      semver: registry.npmjs.org/semver/6.3.0
+      strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
+      strip-json-comments: registry.npmjs.org/strip-json-comments/3.0.1
+      table: registry.npmjs.org/table/5.4.6
+      text-table: registry.npmjs.org/text-table/0.2.0
+      v8-compile-cache: registry.npmjs.org/v8-compile-cache/2.1.0
+    dev: false
+    engines:
+      node: ^8.10.0 || ^10.13.0 || >=11.10.1
+    hasBin: true
+    name: eslint
+    resolution:
+      integrity: sha512-mf0elOkxHbdyGX1IJEUsNBzCDdyoUgljF3rRlgfyYh0pwGnreLc0jjD6ZuleOibjmnUWZLY2eXwSooeOgGJ2jw==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/eslint/-/eslint-6.2.2.tgz'
+    version: 6.2.2
   registry.npmjs.org/espree/3.5.4:
     dependencies:
       acorn: registry.npmjs.org/acorn/5.7.3
@@ -10527,6 +10712,7 @@ packages:
       acorn: registry.npmjs.org/acorn/6.3.0
       acorn-jsx: registry.npmjs.org/acorn-jsx/5.0.1_acorn@6.3.0
       eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.0.0
+    dev: true
     engines:
       node: '>=6.0.0'
     name: espree
@@ -10535,6 +10721,20 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/espree/-/espree-6.0.0.tgz'
     version: 6.0.0
+  registry.npmjs.org/espree/6.1.1:
+    dependencies:
+      acorn: registry.npmjs.org/acorn/7.0.0
+      acorn-jsx: registry.npmjs.org/acorn-jsx/5.0.2_acorn@7.0.0
+      eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    name: espree
+    resolution:
+      integrity: sha512-EYbr8XZUhWbYCqQRW0duU5LxzL5bETN6AjKBGy1302qqzPaCH10QbRg3Wvco79Z8x9WbiE8HYB4e75xl6qUYvQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/espree/-/espree-6.1.1.tgz'
+    version: 6.1.1
   registry.npmjs.org/esprima/3.0.0:
     dev: false
     engines:
@@ -10598,6 +10798,15 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/estraverse/-/estraverse-4.2.0.tgz'
     version: 4.2.0
+  registry.npmjs.org/estraverse/4.3.0:
+    engines:
+      node: '>=4.0'
+    name: estraverse
+    resolution:
+      integrity: sha512-39nnKffWz8xN1BU/2c79n9nB9HDzo0niYUqx6xyqUnyoAnQyyWpOTdZEeiCch8BBu515t4wp9ZmgVfVhn9EBpw==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/estraverse/-/estraverse-4.3.0.tgz'
+    version: 4.3.0
   registry.npmjs.org/estree-walker/0.6.1:
     name: estree-walker
     resolution:
@@ -11183,6 +11392,7 @@ packages:
   registry.npmjs.org/figures/3.0.0:
     dependencies:
       escape-string-regexp: registry.npmjs.org/escape-string-regexp/1.0.5
+    dev: true
     engines:
       node: '>=8'
     name: figures
@@ -13125,6 +13335,7 @@ packages:
       string-width: registry.npmjs.org/string-width/4.1.0
       strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
       through: registry.npmjs.org/through/2.3.8
+    dev: true
     engines:
       node: '>=6.0.0'
     name: inquirer
@@ -13133,6 +13344,30 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/inquirer/-/inquirer-6.5.1.tgz'
     version: 6.5.1
+  registry.npmjs.org/inquirer/6.5.2:
+    dependencies:
+      ansi-escapes: registry.npmjs.org/ansi-escapes/3.2.0
+      chalk: registry.npmjs.org/chalk/2.4.2
+      cli-cursor: registry.npmjs.org/cli-cursor/2.1.0
+      cli-width: registry.npmjs.org/cli-width/2.2.0
+      external-editor: registry.npmjs.org/external-editor/3.1.0
+      figures: registry.npmjs.org/figures/2.0.0
+      lodash: registry.npmjs.org/lodash/4.17.15
+      mute-stream: registry.npmjs.org/mute-stream/0.0.7
+      run-async: registry.npmjs.org/run-async/2.3.0
+      rxjs: registry.npmjs.org/rxjs/6.5.2
+      string-width: registry.npmjs.org/string-width/2.1.1
+      strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
+      through: registry.npmjs.org/through/2.3.8
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    name: inquirer
+    resolution:
+      integrity: sha512-cntlB5ghuB0iuO65Ovoi8ogLHiWGs/5yNrtUcKjFhSSiVeAIVpD7koaSU9RM8mpXw5YDi9RdYXGQMaOURB7ycQ==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/inquirer/-/inquirer-6.5.2.tgz'
+    version: 6.5.2
   registry.npmjs.org/internal-ip/4.3.0:
     dependencies:
       default-gateway: registry.npmjs.org/default-gateway/4.2.0
@@ -13551,6 +13786,7 @@ packages:
       tarball: 'https://registry.npmjs.org/is-fullwidth-code-point/-/is-fullwidth-code-point-2.0.0.tgz'
     version: 2.0.0
   registry.npmjs.org/is-fullwidth-code-point/3.0.0:
+    dev: true
     engines:
       node: '>=8'
     name: is-fullwidth-code-point
@@ -15446,7 +15682,7 @@ packages:
       tarball: 'https://registry.npmjs.org/locate-path/-/locate-path-5.0.0.tgz'
     version: 5.0.0
   registry.npmjs.org/lodash-es/4.17.15:
-    dev: false
+    dev: true
     name: lodash-es
     resolution:
       integrity: sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
@@ -16277,6 +16513,7 @@ packages:
       tarball: 'https://registry.npmjs.org/mimic-fn/-/mimic-fn-1.2.0.tgz'
     version: 1.2.0
   registry.npmjs.org/mimic-fn/2.1.0:
+    dev: true
     engines:
       node: '>=6'
     name: mimic-fn
@@ -16565,6 +16802,7 @@ packages:
       tarball: 'https://registry.npmjs.org/mute-stream/-/mute-stream-0.0.7.tgz'
     version: 0.0.7
   registry.npmjs.org/mute-stream/0.0.8:
+    dev: true
     name: mute-stream
     resolution:
       integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
@@ -17279,6 +17517,7 @@ packages:
   registry.npmjs.org/onetime/5.1.0:
     dependencies:
       mimic-fn: registry.npmjs.org/mimic-fn/2.1.0
+    dev: true
     engines:
       node: '>=6'
     name: onetime
@@ -20636,6 +20875,7 @@ packages:
     dependencies:
       onetime: registry.npmjs.org/onetime/5.1.0
       signal-exit: registry.npmjs.org/signal-exit/3.0.2
+    dev: true
     engines:
       node: '>=8'
     name: restore-cursor
@@ -22133,6 +22373,7 @@ packages:
       emoji-regex: registry.npmjs.org/emoji-regex/8.0.0
       is-fullwidth-code-point: registry.npmjs.org/is-fullwidth-code-point/3.0.0
       strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
+    dev: true
     engines:
       node: '>=8'
     name: string-width
@@ -22728,6 +22969,21 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/table/-/table-5.4.5.tgz'
     version: 5.4.5
+  registry.npmjs.org/table/5.4.6:
+    dependencies:
+      ajv: registry.npmjs.org/ajv/6.10.2
+      lodash: registry.npmjs.org/lodash/4.17.15
+      slice-ansi: registry.npmjs.org/slice-ansi/2.1.0
+      string-width: registry.npmjs.org/string-width/3.1.0
+    dev: false
+    engines:
+      node: '>=6.0.0'
+    name: table
+    resolution:
+      integrity: sha512-wmEc8m4fjnob4gt5riFRtTu/6+4rSe12TpAELNSqHMfF3IqnA+CH37USM6/YR3qRZv7e56kAEAtd6nKZaxe0Ug==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/table/-/table-5.4.6.tgz'
+    version: 5.4.6
   registry.npmjs.org/taffydb/2.6.2:
     dev: false
     name: taffydb
@@ -23339,6 +23595,7 @@ packages:
       tarball: 'https://registry.npmjs.org/type-check/-/type-check-0.3.2.tgz'
     version: 0.3.2
   registry.npmjs.org/type-fest/0.5.2:
+    dev: true
     engines:
       node: '>=6'
     name: type-fest
