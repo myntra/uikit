@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-alert",
-  "version": "1.5.3",
+  "version": "1.5.4",
   "main": "dist/alert.cjs.js",
   "module": "dist/alert.esm.js",
   "types": "dist/index.d.ts",

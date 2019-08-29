@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.4"></a>
+## <small>1.5.4 (2019-08-29)</small>
+
+* fix(utils): Remove lodash dependency ([b555e26](https://bitbucket.org/myntra/uikit/commits/b555e26))
+* chore: Update spectrum plugins ([dd8ef1d](https://bitbucket.org/myntra/uikit/commits/dd8ef1d))
+
+
+
 <a name="1.5.3"></a>
 ## <small>1.5.3 (2019-08-29)</small>
 
