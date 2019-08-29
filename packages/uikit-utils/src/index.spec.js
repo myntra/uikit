@@ -7,9 +7,46 @@ import {
   toArray,
   toSet,
   isEqualShallow,
+  debounce,
+  findLastIndex,
 } from './index'
 
 jest.disableAutomock()
+
+describe('findLastIndex', () => {
+  it('last index', () => {
+    const items = [0, 1, 2, 3, 4, 5, 6, 7]
+
+    expect(findLastIndex(items, (item) => item === 5)).toBe(5)
+    expect(findLastIndex(items, (item) => item === 3)).toBe(3)
+    expect(findLastIndex(items, (item) => item === 8)).toBe(-1)
+  })
+})
+describe('debounce', () => {
+  it('debounce consecutive calls', () => {
+    const fn = jest.fn()
+    const debounceFn = debounce(fn)
+
+    debounceFn()
+    debounceFn()
+    debounceFn()
+
+    expect(fn).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('findLast', () => {
+  it('debounce consecutive calls', () => {
+    const fn = jest.fn()
+    const debounceFn = debounce(fn)
+
+    debounceFn()
+    debounceFn()
+    debounceFn()
+
+    expect(fn).toHaveBeenCalledTimes(1)
+  })
+})
 
 describe('classnames', () => {
   it('should format class names', () => {

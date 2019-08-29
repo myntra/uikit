@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { Mask as _Mask, MASKS } from './default-masks'
-import { findIndex, findLastIndex, memoize } from '@myntra/uikit-utils'
+import { findLastIndex, memoize } from '@myntra/uikit-utils'
 
 import classnames from './input-masked.module.scss'
 
@@ -280,7 +280,7 @@ export default class InputMasked extends PureComponent<Props> {
       return ''
     }
     const subMask = maskMetadata.slice(start)
-    const end = findIndex(subMask, (mask) => !mask.getToken)
+    const end = subMask.findIndex((mask) => !mask.getToken)
 
     return subMask
       .slice(0, end < 0 ? subMask.length : end)

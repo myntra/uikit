@@ -1,41 +1,48 @@
-import {
-  each,
-  isString,
-  isPlainObject,
-  isArray,
-  uniq as unique,
-  map,
-  findIndex,
-  findLastIndex,
-  isEqual,
-  range,
-  find,
-  compact,
-  get,
-  debounce,
-} from 'lodash-es'
+export function isString(value: any): value is string {
+  return typeof value === 'string'
+}
+
+export function isArray<T = unknown>(value: any): value is T[] {
+  return Array.isArray(value)
+}
+
+export function isPlainObject<T = unknown>(
+  value: any
+): value is Record<string, T> {
+  return value !== null && typeof value === 'object'
+}
+
+export function unique<T = unknown>(items: T[]): T[] {
+  return Array.from(new Set(items))
+}
+
+export function get(target: any, keys: (string | number)[]) {
+  let currentTarget = target
+
+  keys.every((key) => {
+    if (currentTarget == null) return false
+    if (typeof currentTarget !== 'object') {
+      currentTarget = undefined
+      return false
+    }
+
+    currentTarget = currentTarget[key]
+
+    return true
+  })
+
+  return currentTarget
+}
 
 /**
- * Unique values from array.
- *
- * @export
- * @template T
- * @param {Array.<T>} any
- * @return {Array.<T>}
+ * Create an iterator of given range.
  */
-export {
-  unique,
-  map,
-  each,
-  findIndex,
-  findLastIndex,
-  isEqual,
-  isString,
-  find,
-  compact,
-  range,
-  get,
-  debounce,
+export function range(start: number, end: number) {
+  const result: number[] = []
+
+  for (let i = start; i <= end; ++i) result.push(i)
+
+  return result
 }
 
 /**
@@ -95,7 +102,7 @@ export function classnames(...args) {
     if (isString(arg)) classes.push(arg)
     else if (isArray(arg)) classes.push(...arg)
     else if (isPlainObject(arg)) {
-      each(arg, (value, key) => {
+      Object.entries(arg).forEach(([key, value]) => {
         if (value) classes.push(key)
       })
     }
@@ -158,8 +165,47 @@ export function isEqualShallow(prev, next, isEqual = (a, b) => a === b) {
   return true
 }
 
+export function findLastIndex<T = unknown>(
+  items: T[],
+  check: (item: T, index: number, items: T[]) => boolean
+): number {
+  const index = items
+    .slice()
+    .reverse()
+    .findIndex(check)
+
+  if (index < 0) return -1
+
+  return items.length - index - 1
+}
+
+/**
+ * Debounce a frequently called function.
+ */
+export function debounce<T = unknown>(
+  fn: (...args: T[]) => void,
+  wait: number = 300,
+  immediate: boolean = true
+): (...args: T[]) => void {
+  let timeout: any = null
+
+  return function(...args: T[]) {
+    const context = this
+    const later = () => {
+      timeout = null
+      if (immediate) fn.apply(context, args)
+    }
+
+    const callNow = immediate && !timeout
+    clearTimeout(timeout)
+    timeout = setTimeout(later, wait)
+    if (callNow) fn.apply(context, args)
+  }
+}
+
 /**
  * Memoize results of a function.
+ * @deprecated Use React.memo
  */
 export function memoize<F extends (...args: any[]) => any>(
   func: F,
