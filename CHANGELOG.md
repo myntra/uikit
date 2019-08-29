@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.5.3"></a>
+## <small>1.5.3 (2019-08-29)</small>
+
+* reactor: Drop cli package ([fce6c54](https://bitbucket.org/myntra/uikit/commits/fce6c54))
+* fix: Ponyfill React.createRef in react v15.x ([b7d7295](https://bitbucket.org/myntra/uikit/commits/b7d7295)), closes [#171](https://bitbucket.org/myntra/uikit/issue/171)
+* chore: Add semantic-version plugin ([3427d6c](https://bitbucket.org/myntra/uikit/commits/3427d6c))
+
+
+
 <a name="1.5.2"></a>
 ## <small>1.5.2 (2019-08-28)</small>
 
