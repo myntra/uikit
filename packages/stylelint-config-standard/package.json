@@ -25,9 +25,9 @@
     "stylelint-scss": "^3.5.4"
   },
   "optionalDependencies": {
-    "stylelint": "^9.2.0"
+    "stylelint": "^10.1.0"
   },
   "devDependencies": {
-    "stylelint": "^9.2.0"
+    "stylelint": "^10.1.0"
   }
 }
