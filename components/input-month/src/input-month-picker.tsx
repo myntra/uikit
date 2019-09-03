@@ -3,7 +3,7 @@ import MonthPane from './picker/month'
 import YearPane from './picker/year'
 import classnames from './input-month-picker.module.scss'
 
-export interface InputMonthPickerProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Current value of the input field.
    */
@@ -37,7 +37,7 @@ export interface InputMonthPickerProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-month#inputmonthpicker
  */
-export default class InputMonthPicker extends Component<InputMonthPickerProps> {
+export default class InputMonthPicker extends Component<Props> {
   static Month = MonthPane
   static Year = YearPane
 

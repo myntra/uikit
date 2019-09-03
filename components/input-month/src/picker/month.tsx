@@ -6,7 +6,7 @@ const months = 'January,February,March,April,May,June,July,August,September,Octo
 )
 const shortMonths = months.map((month) => month.substr(0, 3))
 
-export interface InputMonthPickerMonthProps extends BaseProps {
+export interface Props extends BaseProps {
   value?: number
   onChange?(value: number): void
   highlight?(
@@ -23,9 +23,7 @@ export interface InputMonthPickerMonthProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-month#inputmonthpickermonth
  */
-export default class InputMonthPickerMonth extends PureComponent<
-  InputMonthPickerMonthProps
-> {
+export default class InputMonthPickerMonth extends PureComponent<Props> {
   static propTypes = {
     _validate({ value }) {
       if (typeof value === 'number' && (value < 1 || value > 12)) {

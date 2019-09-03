@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 
 import classnames from './modal-layout.module.scss'
 
-export interface ModalLayoutProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * The title of the modal.
    */
@@ -34,7 +34,7 @@ export default function ModalLayout({
   actions,
   children,
   onClose,
-}: ModalLayoutProps) {
+}: Props) {
   return (
     <div className={classnames('wrapper')}>
       {title && <h1>{title}</h1>}

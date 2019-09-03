@@ -2,6 +2,7 @@
 node_modules
 /dist
 jsconfig.json
+tsconfig.json
 
 
 # local env files

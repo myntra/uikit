@@ -22,7 +22,7 @@ const MASKS: Record<string, Mask> = {
   },
 }
 
-export interface InputMonthProps
+export interface Props
   extends BaseProps,
     Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {
   // -
@@ -37,7 +37,7 @@ export interface InputMonthProps
  * @see http://uikit.myntra.com/components/input-month
  */
 export default class InputMonth extends Component<
-  InputMonthProps,
+  Props,
   { isOpen: boolean; valueAsString: string }
 > {
   static Picker = InputMonthPicker

@@ -8,9 +8,9 @@ import Button from '@myntra/uikit-component-button'
 import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './modal.module.scss'
-import ModalLayout, { ModalLayoutProps } from './modal-layout'
+import ModalLayout, { Props as ModalLayoutProps } from './modal-layout'
 
-export interface ModalProps extends BaseProps, ModalLayoutProps {
+export interface Props extends BaseProps, ModalLayoutProps {
   /** An element which opens the modal. */
   trigger: ReactNode
 
@@ -44,7 +44,7 @@ const FragmentWithFallback =
  * @category basic
  * @see http://uikit.myntra.com/components/modal
  */
-export default class Modal extends PureComponent<ModalProps> {
+export default class Modal extends PureComponent<Props> {
   static Layout = ModalLayout
 
   static defaultProps = {

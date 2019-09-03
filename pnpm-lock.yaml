@@ -22,6 +22,7 @@ importers:
       babel-jest: registry.npmjs.org/babel-jest/24.8.0_@babel+core@7.5.5
       babel-plugin-dynamic-import-node: registry.npmjs.org/babel-plugin-dynamic-import-node/2.3.0
       chalk: registry.npmjs.org/chalk/2.4.2
+      debug: registry.npmjs.org/debug/4.1.1
       enzyme: registry.npmjs.org/enzyme/3.10.0
       enzyme-adapter-react-16: registry.npmjs.org/enzyme-adapter-react-16/1.14.0_50388ec39d1f87daf268823c988ea94c
       enzyme-to-json: registry.npmjs.org/enzyme-to-json/3.3.5_enzyme@3.10.0
@@ -91,6 +92,7 @@ importers:
       babel-jest: ^24.5.0
       babel-plugin-dynamic-import-node: ^2.2.0
       chalk: ^2.4.1
+      debug: ^4.1.1
       enzyme: ^3.9.0
       enzyme-adapter-react-16: ^1.11.2
       enzyme-to-json: ^3.3.5
@@ -1058,21 +1060,21 @@ importers:
     dependencies:
       babel-eslint: registry.npmjs.org/babel-eslint/8.2.6
       babel-plugin-syntax-jsx: registry.npmjs.org/babel-plugin-syntax-jsx/6.18.0
-      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.2.2
-      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_ed40066162c2597482bd3c02e3a17842
-      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.2.2
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.2.2
-      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.2.2
+      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.3.0
+      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_dc0c182200755b9b43fdbb5835f01ca5
+      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.3.0
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.3.0
+      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.3.0
       eslint-plugin-json: registry.npmjs.org/eslint-plugin-json/1.4.0
-      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.2.2
-      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.2.2
+      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.3.0
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.3.0
       eslint-plugin-prettier: registry.npmjs.org/eslint-plugin-prettier/2.7.0_prettier@1.18.2
       eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
-      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.2.2
-      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.2.2
+      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.3.0
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.3.0
       prettier: registry.npmjs.org/prettier/1.18.2
     optionalDependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
     specifiers:
       babel-eslint: ^8.2.2
       babel-plugin-syntax-jsx: ^6.18.0
@@ -1309,12 +1311,10 @@ importers:
   packages/uikit-utils:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
-      lodash-es: registry.npmjs.org/lodash-es/4.17.15
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
       '@types/react': ^16.8.24
-      lodash-es: ^4.17.11
       react: ^16.8.6
   themes/nuclei:
     dependencies:
@@ -9822,9 +9822,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/escodegen/-/escodegen-1.11.1.tgz'
     version: 1.11.1
-  registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.2.2:
+  registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.3.0:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
       get-stdin: registry.npmjs.org/get-stdin/5.0.1
     dev: false
     hasBin: true
@@ -9867,13 +9867,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-6.0.0.tgz'
     version: 6.0.0
-  registry.npmjs.org/eslint-config-standard/11.0.0_ed40066162c2597482bd3c02e3a17842:
+  registry.npmjs.org/eslint-config-standard/11.0.0_dc0c182200755b9b43fdbb5835f01ca5:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.2.2
-      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.3.0
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.3.0
       eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
-      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.2.2
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.3.0
     dev: false
     id: registry.npmjs.org/eslint-config-standard/11.0.0
     name: eslint-config-standard
@@ -10003,9 +10003,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-babel/-/eslint-plugin-babel-5.3.0.tgz'
     version: 5.3.0
-  registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.3.0:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
       eslint-rule-composer: registry.npmjs.org/eslint-rule-composer/0.3.0
     dev: false
     engines:
@@ -10104,13 +10104,13 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz'
     version: 2.18.2
-  registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.3.0:
     dependencies:
       array-includes: registry.npmjs.org/array-includes/3.0.3
       contains-path: registry.npmjs.org/contains-path/0.1.0
       debug: registry.npmjs.org/debug/2.6.9
       doctrine: registry.npmjs.org/doctrine/1.5.0
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
       eslint-import-resolver-node: registry.npmjs.org/eslint-import-resolver-node/0.3.2
       eslint-module-utils: registry.npmjs.org/eslint-module-utils/2.4.1
       has: registry.npmjs.org/has/1.0.3
@@ -10130,9 +10130,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz'
     version: 2.18.2
-  registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.3.0:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
     dev: false
     engines:
       node: '>= 4'
@@ -10188,7 +10188,7 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-json/-/eslint-plugin-json-1.4.0.tgz'
     version: 1.4.0
-  registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.3.0:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.5.5
       aria-query: registry.npmjs.org/aria-query/3.0.0
@@ -10197,7 +10197,7 @@ packages:
       axobject-query: registry.npmjs.org/axobject-query/2.0.2
       damerau-levenshtein: registry.npmjs.org/damerau-levenshtein/1.0.5
       emoji-regex: registry.npmjs.org/emoji-regex/7.0.3
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
       has: registry.npmjs.org/has/1.0.3
       jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
     dev: false
@@ -10224,9 +10224,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-jsx/-/eslint-plugin-jsx-0.0.2.tgz'
     version: 0.0.2
-  registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.3.0:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
       ignore: registry.npmjs.org/ignore/3.3.10
       minimatch: registry.npmjs.org/minimatch/3.0.4
       resolve: registry.npmjs.org/resolve/1.12.0
@@ -10413,11 +10413,11 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz'
     version: 7.14.3
-  registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.3.0:
     dependencies:
       array-includes: registry.npmjs.org/array-includes/3.0.3
       doctrine: registry.npmjs.org/doctrine/2.1.0
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
       has: registry.npmjs.org/has/1.0.3
       jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
       object.entries: registry.npmjs.org/object.entries/1.1.0
@@ -10437,9 +10437,9 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz'
     version: 7.14.3
-  registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.2.2:
+  registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.3.0:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.2.2
+      eslint: registry.npmjs.org/eslint/6.3.0
     dev: false
     id: registry.npmjs.org/eslint-plugin-standard/3.1.0
     name: eslint-plugin-standard
@@ -10675,7 +10675,7 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/eslint/-/eslint-6.1.0.tgz'
     version: 6.1.0
-  registry.npmjs.org/eslint/6.2.2:
+  registry.npmjs.org/eslint/6.3.0:
     dependencies:
       '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.5.5
       ajv: registry.npmjs.org/ajv/6.10.2
@@ -10720,10 +10720,10 @@ packages:
     hasBin: true
     name: eslint
     resolution:
-      integrity: sha512-mf0elOkxHbdyGX1IJEUsNBzCDdyoUgljF3rRlgfyYh0pwGnreLc0jjD6ZuleOibjmnUWZLY2eXwSooeOgGJ2jw==
+      integrity: sha512-ZvZTKaqDue+N8Y9g0kp6UPZtS4FSY3qARxBs7p4f0H0iof381XHduqVerFWtK8DPtKmemqbqCFENWSQgPR/Gow==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/eslint/-/eslint-6.2.2.tgz'
-    version: 6.2.2
+      tarball: 'https://registry.npmjs.org/eslint/-/eslint-6.3.0.tgz'
+    version: 6.3.0
   registry.npmjs.org/espree/3.5.4:
     dependencies:
       acorn: registry.npmjs.org/acorn/5.7.3
@@ -15806,14 +15806,6 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/locate-path/-/locate-path-5.0.0.tgz'
     version: 5.0.0
-  registry.npmjs.org/lodash-es/4.17.15:
-    dev: true
-    name: lodash-es
-    resolution:
-      integrity: sha512-rlrc3yU3+JNOpZ9zj5pQtxnx2THmvRykwL4Xlxoa8I9lHBlVbbyPhgyPMioxVZ4NqyxaVVtaJnzsyOidQIhyyQ==
-      registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/lodash-es/-/lodash-es-4.17.15.tgz'
-    version: 4.17.15
   registry.npmjs.org/lodash._reinterpolate/3.0.0:
     dev: true
     name: lodash._reinterpolate

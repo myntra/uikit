@@ -12,7 +12,7 @@ module.exports = {
   },
   deploy: {
     target: 'spectrum',
-    baseUrl: ''
+    baseUrl: '/'
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {

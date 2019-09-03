@@ -3,7 +3,7 @@ import Button from '@myntra/uikit-component-button'
 
 import classnames from './section.module.scss'
 
-export interface SectionProps extends BaseProps {
+export interface Props extends BaseProps {
   title: string
 
   noPadding: boolean
@@ -31,7 +31,7 @@ export default function Section({
   noPadding,
   children,
   ...props
-}: SectionProps) {
+}: Props) {
   const actions = []
   const others = []
 

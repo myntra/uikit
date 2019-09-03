@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import scrollIntoView from 'scroll-into-view-if-needed'
 import VirtualList, {
-  VirtualListProps,
+  Props as VirtualListProps,
 } from '@myntra/uikit-component-virtual-list'
 import classnames from './list.module.scss'
 import { createRef } from '@myntra/uikit-utils'

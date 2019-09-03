@@ -1,7 +1,7 @@
 import React, { ReactNode, PureComponent, ChangeEvent } from 'react'
 import classnames from './input-radio.module.scss'
 
-export interface InputRadioProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * A list of options for the radio element.
    */
@@ -31,7 +31,7 @@ export interface InputRadioProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-radio
  */
-export default class InputRadio extends PureComponent<InputRadioProps> {
+export default class InputRadio extends PureComponent<Props> {
   name = `uikit-radio-${Date.now()}`
 
   handleChange = (event: ChangeEvent<HTMLInputElement>) => {

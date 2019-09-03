@@ -2,7 +2,7 @@ import React from 'react'
 
 import classnames from './loader.module.scss'
 
-export interface LoaderProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * The variant of the loader.
    */
@@ -24,7 +24,7 @@ export interface LoaderProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/loader
  */
-export default function Loader({ className, type }: LoaderProps) {
+export default function Loader({ className, type }: Props) {
   return (
     <div className={classnames(className, 'loader', type)}>
       <div className={classnames('spinner')}>

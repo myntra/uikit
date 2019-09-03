@@ -3,7 +3,7 @@ import Dropdown from '@myntra/uikit-component-dropdown'
 
 import classnames from './tooltip.module.scss'
 
-export interface TooltipProps extends BaseProps {
+export interface Props extends BaseProps {
   /** Content of the tooltip */
   renderContent(): JSX.Element
   /** Position with relative to children */
@@ -19,10 +19,7 @@ export interface TooltipProps extends BaseProps {
  * @since 0.6.0
  * @status REVIEWING
  */
-export default class Tooltip extends PureComponent<
-  TooltipProps,
-  { open: boolean }
-> {
+export default class Tooltip extends PureComponent<Props, { open: boolean }> {
   static defaultProps = {
     triggerOn: 'hover',
     position: 'up',

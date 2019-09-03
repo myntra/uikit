@@ -4,7 +4,7 @@ import { range } from '@myntra/uikit-utils'
 
 import classnames from './pagination.module.scss'
 
-export interface PaginationProps extends BaseProps {
+export interface Props extends BaseProps {
   /** Current selected page */
   page: number
   /** On change handler */
@@ -28,7 +28,7 @@ export interface PaginationProps extends BaseProps {
  @category basic
  @see http://uikit.myntra.com/components/pagination
  */
-export default class Pagination extends PureComponent<PaginationProps> {
+export default class Pagination extends PureComponent<Props> {
   static defaultProps = {
     page: 1,
     size: 15,

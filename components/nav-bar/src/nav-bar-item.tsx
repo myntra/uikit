@@ -4,7 +4,7 @@ import classnames from './nav-bar-item.module.scss'
 import Context, { NavBarContext } from './context'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
-export interface NavBarItemProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * The title of the link.
    */
@@ -51,7 +51,7 @@ export default function NavBarItem({
   className,
   onActivation,
   ...props
-}: NavBarItemProps) {
+}: Props) {
   // TODO: add aria-current="page".
   // TODO: use renderLink prop from context.
   // TODO: Upgrade to use callback.

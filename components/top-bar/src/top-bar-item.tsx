@@ -2,7 +2,7 @@ import React from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './top-bar-item.module.scss'
 
-export interface TopBarItemProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Adds icon.
    */
@@ -31,7 +31,7 @@ export default function TopBarItem({
   className,
   children,
   ...props
-}: TopBarItemProps) {
+}: Props) {
   return (
     <div {...props} className={classnames('item', className)}>
       {icon ? (

@@ -9,7 +9,7 @@ function range(min: number, max: number, inc: number = 1) {
   return arr
 }
 
-export interface InputMonthPickerYearProps extends BaseProps {
+export interface Props extends BaseProps {
   value?: number
   onChange(value: number): void
   highlight({
@@ -25,7 +25,7 @@ export interface InputMonthPickerYearProps extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-month#inputmonthpickeryear
  */
-export default function InputMonthPickerYear(props: InputMonthPickerYearProps) {
+export default function InputMonthPickerYear(props: Props) {
   const value = new Date().getFullYear()
   const minYear = value - 3
   const maxYear = value + 3

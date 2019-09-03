@@ -28,7 +28,7 @@ const MASKS: Props['masks'] = {
   },
 }
 
-export interface InputDateValueProps extends BaseProps {
+export interface Props extends BaseProps {
   format: string
 
   value?: string | StringDateRange
@@ -45,7 +45,7 @@ export interface InputDateValueProps extends BaseProps {
  *
  */
 export default class InputDateValue extends PureComponent<
-  InputDateValueProps,
+  Props,
   { value: string | StringDateRange }
 > {
   state = { value: null }

@@ -3,10 +3,10 @@ import { createContext } from '@myntra/uikit-context'
 import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import classnames from './nav-bar-group.module.scss'
-import NavBarItem, { NavBarItemProps } from './nav-bar-item'
+import NavBarItem, { Props as NavBarItemProps } from './nav-bar-item'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
-interface NavBarGroupProps extends BaseProps, NavBarItemProps {
+interface Props extends BaseProps, NavBarItemProps {
   /**
    * The title of the nav group.
    */
@@ -58,7 +58,7 @@ export default function NavBarGroup({
   __$navId: id,
   to,
   ...props
-}: NavBarGroupProps) {
+}: Props) {
   function render(
     depth: number,
     setActiveGroup: any,

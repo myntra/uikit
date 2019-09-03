@@ -205,9 +205,9 @@ export const META = [
     path: '/components/button'
   },
   {
-    name: 'Button Group',
-    since: '0.0.0',
-    status: 'REVIEWING',
+    name: 'ButtonGroup',
+    since: '1.0.0',
+    status: 'EXPERIMENTAL',
     path: '/components/button-group'
   },
   {

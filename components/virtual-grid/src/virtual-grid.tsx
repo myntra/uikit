@@ -13,7 +13,7 @@ export interface ScrollPosition {
   scrollLeft: number
 }
 
-export interface VirtualGridProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Number of rows in the grid.
    */
@@ -141,7 +141,7 @@ export interface VirtualGridProps extends BaseProps {
  * @see http://uikit.myntra.com/components/virtual-grid
  */
 export default class VirtualGrid extends PureComponent<
-  VirtualGridProps,
+  Props,
   {
     _render: number
     isScrolling: boolean

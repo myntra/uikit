@@ -6,10 +6,8 @@
   "scripts": {
     "serve": "NODE_OPTIONS=--max_old_space_size=4096 spectrum-cli-service serve",
     "build": "spectrum-cli-service build",
-    "lint": "spectrum-cli-service lint",
     "deploy": "spectrum-cli-service deploy",
-    "setup:ide": "spectrum-cli-service ide",
-    "setup:inspect": "spectrum-cli-service inspect"
+    "promote": "spectrum-cli-service promote"
   },
   "dependencies": {
     "@babel/standalone": "^7.3.4",
@@ -21,12 +19,12 @@
   },
   "devDependencies": {
     "@mdx-js/loader": "^0.17.5",
-    "@myntra/spectrum-cli-plugin-babel": "^2.8.0",
-    "@myntra/spectrum-cli-plugin-eslint": "^2.8.0",
-    "@myntra/spectrum-cli-plugin-redux": "^2.8.0",
-    "@myntra/spectrum-cli-plugin-router": "^2.8.0",
-    "@myntra/spectrum-cli-plugin-typescript": "^2.8.0",
-    "@myntra/spectrum-cli-service": "^2.8.0",
+    "@myntra/spectrum-cli-plugin-babel": "^2.8.2",
+    "@myntra/spectrum-cli-plugin-eslint": "^2.8.2",
+    "@myntra/spectrum-cli-plugin-redux": "^2.8.2",
+    "@myntra/spectrum-cli-plugin-router": "^2.8.2",
+    "@myntra/spectrum-cli-plugin-typescript": "^2.8.2",
+    "@myntra/spectrum-cli-service": "^2.8.2",
     "autoprefixer": "^9.4.9",
     "front-matter": "^3.0.1",
     "lazy-compile-webpack-plugin": "^0.1.5",

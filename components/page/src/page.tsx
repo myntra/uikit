@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from './page.module.scss'
 
-export interface PageProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Renders a nav using [NavBar](../components/nav-bar).
    */
@@ -31,7 +31,7 @@ export default function Page({
   className,
   style,
   ...props
-}: PageProps) {
+}: Props) {
   return (
     <div className={classnames('page', className)} style={style}>
       <div className={classnames('nav')} key="nav">

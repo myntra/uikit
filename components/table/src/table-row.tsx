@@ -30,7 +30,7 @@ export interface Props<T = any> extends BaseProps {
  * Declarative way of defining table row customizers. It is a render-less component,
  * use to declare rendering behavior of the table.
  *
- * @since 0.3.0
+ * @since 1.3.0
  * @status READY
  * @category renderless
  * @see http://uikit.myntra.com/components/table#tablerow

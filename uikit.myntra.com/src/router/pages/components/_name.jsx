@@ -44,7 +44,7 @@ function ComponentDocumentationPage({ name, source, setSource }) {
 
   useEffect(() => {
     findDocumentation(name, setComponent)
-  }, [name])
+  }, [name, setComponent])
 
   useEffect(() => {
     window.openEditor = () => setActive(true)
@@ -129,7 +129,7 @@ async function findDocumentation(name, setComponent) {
 
   // Not a real component. Displays error message for missing component.
   // eslint-disable-next-line react/display-name
-  setComponent(() => () => <div>Cannot find component named: {name}</div>)
+  setComponent(() => () => <div>Cannot find documentation for {name}</div>)
 }
 
 function useWindowWidth() {
@@ -151,14 +151,6 @@ function useWindowWidth() {
 
 function useEditorAutoSize() {
   const windowWidth = useWindowWidth()
-  // const [contentWidth, setContentWidth] = useState(800)
-  // const handleContentMeasure = useCallback(
-  //   ({ bounds: { width } }) => setContentWidth(Math.min(windowWidth, Math.max(width, 800))),
-  //   []
-  // )
-  // const editorWidth = Math.max(320, contentWidth, windowWidth - contentWidth - 32 - 54)
-  // const editorPosition = windowWidth - editorWidth
-  // const contentPosition = windowWidth < 1200 ? -contentWidth - 16 : (contentWidth - windowWidth) / 2 + 54
 
   return {
     handleContentMeasure() {},

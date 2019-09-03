@@ -7,7 +7,7 @@ import Item from './top-bar-item'
 import Icon from '@myntra/uikit-component-icon'
 import { isReactNodeType } from '@myntra/uikit-utils'
 
-export interface TopBarProps extends BaseProps {
+export interface Props extends BaseProps {
   title: string
   user: Partial<{ name: string; photo: string }> & { email: string }
 }
@@ -20,10 +20,7 @@ export interface TopBarProps extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/top-bar
  */
-export default class TopBar extends PureComponent<
-  TopBarProps,
-  { isOpen: boolean }
-> {
+export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
   static Item = Item
 
   state = {

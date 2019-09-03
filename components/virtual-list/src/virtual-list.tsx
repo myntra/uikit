@@ -8,7 +8,7 @@ import {
 } from './helpers'
 import CellMeasure from './virtual-list-cell-measure'
 
-export interface VirtualListProps extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Number of items in the list.
    */
@@ -107,7 +107,7 @@ export interface VirtualListProps extends BaseProps {
  * @see http://uikit.myntra.com/components/virtual-list
  */
 export default class VirtualList extends PureComponent<
-  VirtualListProps,
+  Props,
   {
     offsetScroll: number
     scrollDirection: number

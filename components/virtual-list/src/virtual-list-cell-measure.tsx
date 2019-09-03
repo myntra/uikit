@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { MeasureCache } from './helpers'
 import { createObserver, Observer } from '@myntra/uikit-component-measure'
 
-export interface VirtualListCellMeasureProps extends BaseProps {
+export interface Props extends BaseProps {
   cache: MeasureCache
   row: number
   column: number
@@ -22,9 +22,7 @@ export interface VirtualListCellMeasureProps extends BaseProps {
 
 const observer = createObserver()
 
-export default class VirtualListCellMeasure extends Component<
-  VirtualListCellMeasureProps
-> {
+export default class VirtualListCellMeasure extends Component<Props> {
   connection: Observer
 
   componentDidMount() {

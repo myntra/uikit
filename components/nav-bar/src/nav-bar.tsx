@@ -26,7 +26,7 @@ const LinkFromUIKitContext = ({ href, children }: LinkProps) => {
   )
 }
 
-interface NavBarProps extends BaseProps {
+interface Props extends BaseProps {
   /**
    * The title of the nav bar. Generally, it is the name of the application/product/company.
    */
@@ -111,7 +111,7 @@ const ROOT_NAV_GROUP_ID = [0]
  * @see http://uikit.myntra.com/components/nav-bar
  */
 export default class NavBar extends PureComponent<
-  NavBarProps,
+  Props,
   { isOpen: boolean; activeGroup: number[] }
 > {
   // Sub-components
