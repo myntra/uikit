@@ -70,7 +70,7 @@ function startWebpackDevServer(component) {
       Path.resolve(__dirname, '../../packages/accoutrement/node_modules/accoutrement/sass/index.scss')
     )
     .set('@accoutrement', Path.resolve(__dirname, '../../packages/accoutrement/src/index.scss'))
-    .set('@design', Path.resolve(__dirname, '../../packages/uikit-design/design.scss'))
+    .set('@design', Path.resolve(__dirname, '../../themes/nuclei/design.scss'))
     .set('@documenter', Path.resolve(__dirname, './app/documenter.tsx'))
     .set('@component', Path.resolve(getPackageDir(component), 'readme.mdx'))
     .set('@mdx-js/tag$', require.resolve('@mdx-js/tag'))

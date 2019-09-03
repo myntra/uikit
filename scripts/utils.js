@@ -69,6 +69,16 @@ function camelCase(name) {
 }
 
 /**
+ * Convert to kebab-case
+ * @param {string} name
+ */
+function kebabCase(name) {
+  return camelCase(name)
+    .replace(/[A-Z]/g, (ch) => '-' + ch.toLowerCase())
+    .replace(/^-|-$/g, '')
+}
+
+/**
  * Convert to PascalCase
  * @param {string} name
  */
@@ -197,6 +207,7 @@ module.exports = {
   getPackageDir,
   getPackageRepository,
   camelCase,
+  kebabCase,
   pascalCase,
   initSrc,
 }
