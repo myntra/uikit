@@ -19,6 +19,7 @@
     "refresh:packages": "node scripts/bootstrap.js",
     "refresh:types": "node scripts/bundle-types-browser.js",
     "preinstall": "node scripts/ensure-pnpm.js",
+    "postinstall": "cd uikit.myntra.com && pnpm install",
     ":eslint": "eslint",
     ":prettier": "prettier",
     ":stylelint": "stylelint",

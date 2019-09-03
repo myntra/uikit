@@ -200,6 +200,23 @@ importers:
       '@myntra/uikit-utils': 1.5.*
       '@types/react': ^16.8
       react: '>=15.4'
+  components/banner:
+    dependencies:
+      '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.9.2
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.9.0
+    specifiers:
+      '@myntra/uikit-can-i-use': 1.5.*
+      '@myntra/uikit-component-button': 1.5.*
+      '@myntra/uikit-component-icon': 1.5.*
+      '@myntra/uikit-utils': 1.5.*
+      '@types/react': ^16.8
+      react: '>=15.4'
   components/bread-crumb:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -1013,6 +1030,11 @@ importers:
       sass-loader: ^7.1.0
       webpack: ^4.39.1
       webpack-filter-warnings-plugin: ^1.2.1
+  packages/accoutrement:
+    dependencies:
+      accoutrement: registry.npmjs.org/accoutrement/2.1.2
+    specifiers:
+      accoutrement: ^2.1.2
   packages/classnames-loader:
     dependencies:
       '@myntra/uikit-utils': 'link:../uikit-utils'
@@ -1105,7 +1127,7 @@ importers:
       postcss: registry.npmjs.org/postcss/7.0.17
       postcss-modules: registry.npmjs.org/postcss-modules/1.4.1
       rollup-pluginutils: registry.npmjs.org/rollup-pluginutils/2.8.1
-      sass: registry.npmjs.org/sass/1.22.9
+      sass: registry.npmjs.org/sass/1.22.10
     specifiers:
       '@znck/promised': ^1.0.4
       autoprefixer: ^9.6.0
@@ -1113,7 +1135,7 @@ importers:
       postcss: ^7.0.17
       postcss-modules: ^1.4.1
       rollup-pluginutils: ^2.8.1
-      sass: ^1.21.0
+      sass: ^1.22.9
   packages/stylelint-config-standard:
     dependencies:
       stylelint-config-css-modules: registry.npmjs.org/stylelint-config-css-modules/1.4.0_stylelint@10.1.0
@@ -1153,9 +1175,9 @@ importers:
   packages/uikit:
     dependencies:
       '@myntra/uikit-component-accordion': 'link:../../components/accordion'
-      '@myntra/uikit-component-alert': 'link:../../components/alert'
       '@myntra/uikit-component-avatar': 'link:../../components/avatar'
       '@myntra/uikit-component-badge': 'link:../../components/badge'
+      '@myntra/uikit-component-banner': 'link:../../components/banner'
       '@myntra/uikit-component-bread-crumb': 'link:../../components/bread-crumb'
       '@myntra/uikit-component-button': 'link:../../components/button'
       '@myntra/uikit-component-click-away': 'link:../../components/click-away'
@@ -1201,9 +1223,9 @@ importers:
       '@myntra/uikit-utils': 'link:../uikit-utils'
     specifiers:
       '@myntra/uikit-component-accordion': 1.5.*
-      '@myntra/uikit-component-alert': 1.5.*
       '@myntra/uikit-component-avatar': 1.5.*
       '@myntra/uikit-component-badge': 1.5.*
+      '@myntra/uikit-component-banner': 1.5.*
       '@myntra/uikit-component-bread-crumb': 1.5.*
       '@myntra/uikit-component-button': 1.5.*
       '@myntra/uikit-component-click-away': 1.5.*
@@ -1318,10 +1340,12 @@ importers:
       react: ^16.8.6
   themes/nuclei:
     dependencies:
+      '@myntra/accoutrement': 'link:../../packages/accoutrement'
       '@myntra/uikit-design': 'link:../../packages/uikit-design'
     devDependencies:
       '@myntra/tokenizer': 'link:../../packages/tokenizer'
     specifiers:
+      '@myntra/accoutrement': 1.5.*
       '@myntra/tokenizer': 1.5.*
       '@myntra/uikit-design': 1.5.*
   uikit.myntra.com:
@@ -4246,6 +4270,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/accepts/-/accepts-1.3.7.tgz'
     version: 1.3.7
+  registry.npmjs.org/accoutrement/2.1.2:
+    dev: false
+    name: accoutrement
+    resolution:
+      integrity: sha512-se0jj7gShxxWEX1cjPVH2jSzWnC0GCoNERZ055S9YIHydzZxXxjOu2NxgGTBqt+mKhapcI5GDClNcfWl4DCPyA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/accoutrement/-/accoutrement-2.1.2.tgz'
+    version: 2.1.2
   registry.npmjs.org/acorn-globals/4.3.2:
     dependencies:
       acorn: registry.npmjs.org/acorn/6.2.1
@@ -4627,16 +4659,18 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/anymatch/-/anymatch-2.0.0.tgz'
     version: 2.0.0
-  registry.npmjs.org/anymatch/3.0.3:
+  registry.npmjs.org/anymatch/3.1.0:
     dependencies:
       normalize-path: registry.npmjs.org/normalize-path/3.0.0
       picomatch: registry.npmjs.org/picomatch/2.0.7
+    engines:
+      node: '>= 8'
     name: anymatch
     resolution:
-      integrity: sha512-c6IvoeBECQlMVuYUjSwimnhmztImpErfxJzWZhIQinIvQWoGOnB0dLIgifbPHQt5heS6mNlaZG16f06H3C8t1g==
+      integrity: sha512-Ozz7l4ixzI7Oxj2+cw+p0tVUt27BpaJ+1+q1TCeANWxHpvyn2+Un+YamBdfKu0uh8xLodGhoa1v7595NhKDAuA==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/anymatch/-/anymatch-3.0.3.tgz'
-    version: 3.0.3
+      tarball: 'https://registry.npmjs.org/anymatch/-/anymatch-3.1.0.tgz'
+    version: 3.1.0
   registry.npmjs.org/aproba/1.2.0:
     dev: true
     name: aproba
@@ -7265,13 +7299,13 @@ packages:
     version: 2.1.6
   registry.npmjs.org/chokidar/3.0.2:
     dependencies:
-      anymatch: registry.npmjs.org/anymatch/3.0.3
+      anymatch: registry.npmjs.org/anymatch/3.1.0
       braces: registry.npmjs.org/braces/3.0.2
       glob-parent: registry.npmjs.org/glob-parent/5.0.0
       is-binary-path: registry.npmjs.org/is-binary-path/2.1.0
       is-glob: registry.npmjs.org/is-glob/4.0.1
       normalize-path: registry.npmjs.org/normalize-path/3.0.0
-      readdirp: registry.npmjs.org/readdirp/3.1.1
+      readdirp: registry.npmjs.org/readdirp/3.1.2
     engines:
       node: '>= 8'
     name: chokidar
@@ -20165,17 +20199,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/readdirp/-/readdirp-2.2.1.tgz'
     version: 2.2.1
-  registry.npmjs.org/readdirp/3.1.1:
+  registry.npmjs.org/readdirp/3.1.2:
     dependencies:
       picomatch: registry.npmjs.org/picomatch/2.0.7
     engines:
       node: '>= 8'
     name: readdirp
     resolution:
-      integrity: sha512-XXdSXZrQuvqoETj50+JAitxz1UPdt5dupjT6T5nVB+WvjMv2XKYj+s7hPeAVCXvmJrL36O4YYyWlIC3an2ePiQ==
+      integrity: sha512-8rhl0xs2cxfVsqzreYCvs8EwBfn/DhVdqtoLmw19uI3SC5avYX9teCurlErfpPXGmYtMHReGaP2RsLnFvz/lnw==
       registry: 'http://registry.myntra.com:8000/'
-      tarball: 'https://registry.npmjs.org/readdirp/-/readdirp-3.1.1.tgz'
-    version: 3.1.1
+      tarball: 'https://registry.npmjs.org/readdirp/-/readdirp-3.1.2.tgz'
+    version: 3.1.2
   registry.npmjs.org/realpath-native/1.1.0:
     dependencies:
       util.promisify: registry.npmjs.org/util.promisify/1.0.0
@@ -21438,9 +21472,23 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/sass-loader/-/sass-loader-7.2.0.tgz'
     version: 7.2.0
+  registry.npmjs.org/sass/1.22.10:
+    dependencies:
+      chokidar: registry.npmjs.org/chokidar/3.0.2
+    dev: false
+    engines:
+      node: '>=8.9.0'
+    hasBin: true
+    name: sass
+    resolution:
+      integrity: sha512-DUpS1tVMGCH6gr/N9cXCoemrjoNdOLhAHfQ37fJw2A5ZM4gSI9ej/8Xi95Xwus03RqZ2zdSnKZGULL7oS+jfMA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/sass/-/sass-1.22.10.tgz'
+    version: 1.22.10
   registry.npmjs.org/sass/1.22.9:
     dependencies:
       chokidar: registry.npmjs.org/chokidar/3.0.2
+    dev: true
     engines:
       node: '>=8.9.0'
     hasBin: true

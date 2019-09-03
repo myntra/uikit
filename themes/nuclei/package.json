@@ -22,7 +22,7 @@
     "build:tokens": "tokenize src/tokens.yml"
   },
   "dependencies": {
-    "@myntra/accoutrement": "link:../../packages/accoutrement",
+    "@myntra/accoutrement": "1.5.*",
     "@myntra/uikit-design": "1.5.*"
   },
   "devDependencies": {
