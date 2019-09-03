@@ -1,0 +1,15 @@
+$paddings: (
+  'none': 0,
+  'default': '#4x',
+  // Alert
+    'alert': '#padding-default',
+  // Button
+    'button': '#3x' '#10x',
+  'icon-button': '#3x',
+);
+
+$-tokens-paddings: () !default;
+
+$paddings: map-merge($paddings, $-tokens-paddings);
+
+@include add-sizes(map-prefix($paddings, 'padding-'));

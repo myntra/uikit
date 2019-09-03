@@ -10,17 +10,73 @@ import Button from './src/button'
 
 </Documenter>
 
-## Appearances
+### Writing Labels
 
-The appearance of button conveys meaning about type of action.
+Buttons are clickable items used to perform an action. Use buttons to trigger actions and links. Buttons can contain a combination of a clear label and an icon while links are always text.
+
+### What to do
+
+* Prioritize the most important actions, based on the hierarchy. Too many calls to action can cause confusion and make users unsure of what to do next.
+* Be positioned in consistent locations in the interface. for example, most Primary call to action are placed on the extreme right side of the screen on babylon.
+
+## Types of Buttons
+
+### Primary Button
+
+To call attention to an action on a form, or highlight the strongest call to action on a page. Primary buttons should only appear once per screen
+(application header or modal dialog aren’t included).
 
 ```jsx preview
 <>
-  <Button type="primary">Primary Button</Button>
-  <Button type="secondary">Secondary Button</Button>
-  <Button type="link">Link Button</Button>
+  <Button type="primary">Default</Button>
+  <Button type="primary" state="hover">Hover</Button>
+  <Button type="primary" state="pressed">Pressed</Button>
+  <Button type="primary" disabled>Disabled</Button>
 </>
 ```
+
+### Secondary Button
+
+Use against shaded or colorful backgrounds. An Secondary button will maintain the appropriate visual weight and won’t clash with the
+background color and maintain the visual hierarchy.
+
+```jsx preview
+<>
+  <Button type="secondary">Default</Button>
+  <Button type="secondary" state="hover">Hover</Button>
+  <Button type="secondary" state="pressed">Pressed</Button>
+  <Button type="secondary" disabled>Disabled</Button>
+</>
+```
+
+### Text Button
+
+Use for less important or less commonly used actions since they’re less prominent. The drop menu shows a list of related actions.
+
+```jsx preview
+<>
+  <Button type="text">Default</Button>
+  <Button type="text" state="hover">Hover</Button>
+  <Button type="text" state="pressed">Pressed</Button>
+  <Button type="text" disabled>Disabled</Button>
+</>
+```
+
+
+## Icon Button
+
+Trigger menus with a set of related actions. usually opens a dropdown after clicking on it.
+
+```jsx preview
+<>
+  <Button icon="ellipsis-v" />
+  <Button icon="ellipsis-v" state="hover" />
+  <Button icon="ellipsis-v" state="pressed" />
+  <Button icon="ellipsis-v" disabled />
+</>
+```
+
+## Composition
 
 A button can have an icon.
 
@@ -29,22 +85,6 @@ A button can have an icon.
   <Button type="primary" icon="chevron-left">prev</Button>
   <Button type="primary" disabled>current</Button>
   <Button type="primary" secondaryIcon="chevron-right">next</Button>
-</>
-```
-
-## Icon Button
-
-```jsx preview
-<Button icon="box" />
-```
-
-## Disabled Button
-
-```jsx preview
-<>
-  <Button type="primary" disabled>Primary Button</Button>
-  <Button type="secondary" disabled>Secondary Button</Button>
-  <Button type="link" disabled>Link Button</Button>
 </>
 ```
 

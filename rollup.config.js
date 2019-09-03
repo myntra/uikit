@@ -8,7 +8,6 @@ const url = require('rollup-plugin-url')
 const del = require('rollup-plugin-delete')
 const copy = require('rollup-plugin-copy')
 const size = require('rollup-plugin-bundle-size')
-const hash = require('hasha')
 
 if (!process.env.TARGET) {
   throw new Error(`No target found`)
@@ -55,9 +54,7 @@ const config = {
             .split('/')
             .shift()
 
-          return `_u${hash(`${component}:${name}`, {
-            algorithm: 'md5',
-          }).substr(0, 5)}`
+          return `u-${component}-${name}`
         },
       },
     }),
@@ -113,6 +110,10 @@ function aliases() {
 
       if (id === '@design') {
         return require.resolve('./themes/nuclei/design.scss')
+      }
+
+      if (id === '@accoutrement') {
+        return require.resolve('./themes/nuclei/design.next.scss')
       }
     },
   }

@@ -1,0 +1,47 @@
+import Banner from './src/banner'
+
+# Banner
+
+<Documenter component={Banner}>
+
+```jsx preview
+<Banner>
+  {'An alert message.'}
+</Banner>
+```
+
+</Documenter>
+
+* Put banners close in context to the problem they’re referring to.
+* Give banners with a lot of information a clear title(if needed) that summarizes their content.
+* Be concise and scannable—users shouldn’t need to spend a lot of time figuring out what they need to know and do.
+* Use the default icon for success, info, warning and critical statuses.
+
+## Default Banner
+
+Banners relevant to an entire page should be placed at the top of that page, below the page header. They should occupy the full width of the content area.
+
+Banners related to a section of a page should be placed inside that section, below any section heading. These banners have less spacing and a pared-back design to fit within a content context.
+
+```jsx preview
+<>
+  <Banner type="error">An example of error alert.</Banner>
+  <Banner type="warning">An example of warning alert.</Banner>
+  <Banner type="success">An example of success alert.</Banner>
+  <Banner type="primary">An example of primary alert.</Banner>
+  <Banner title="ERRR!">An example of primary alert.</Banner>
+</>
+```
+
+## Dismissable Banner
+
+```jsx preview
+function Example() {
+  const [isVisible, setVisible] = useState(true);
+
+  return isVisible &&
+    <Banner type="warning" title={'CAUTION!'} onClose={() => setVisible(false)}>
+      The image you are trying to upload has invalid format. It might not render well.
+    </Banner>
+}
+```

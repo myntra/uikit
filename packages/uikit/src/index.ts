@@ -1,5 +1,7 @@
 export * from "./components";
 
+export { default as Alert } from "@myntra/uikit-component-banner";
+
 // TODO: create a codemod for renaming Tag to Badge
 export { default as Tag } from "@myntra/uikit-component-badge";
 // TODO: create a codemod for renaming DropDown to Dropdown

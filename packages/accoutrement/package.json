@@ -1,0 +1,19 @@
+{
+  "name": "@myntra/accoutrement",
+  "version": "1.5.2",
+  "style": "src/index.scss",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/accoutrement",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/"
+  ],
+  "sideEffects": false,
+  "dependencies": {
+    "accoutrement": "^2.1.2"
+  }
+}

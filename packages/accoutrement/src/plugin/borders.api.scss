@@ -1,0 +1,15 @@
+@function border($token, $source: $borders) {
+  @return get-token($borders, $token);
+}
+
+@function var-border($token, $source: $borders) {
+  @return var-token($source, $token);
+}
+
+@mixin border($token) {
+  border: border($token);
+}
+
+@mixin var-border($token) {
+  border: var-border($token);
+}

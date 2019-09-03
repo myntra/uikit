@@ -20,7 +20,7 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/uikit-component-accordion": "1.5.*",
-    "@myntra/uikit-component-alert": "1.5.*",
+    "@myntra/uikit-component-banner": "1.5.*",
     "@myntra/uikit-component-avatar": "1.5.*",
     "@myntra/uikit-component-badge": "1.5.*",
     "@myntra/uikit-component-bread-crumb": "1.5.*",

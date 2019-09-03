@@ -1,0 +1,12 @@
+$radius: (
+  'default': 0,
+  // Components
+    'alert': '#default',
+  'button': '#5x',
+);
+
+$-tokens-radius: () !default;
+
+$radius: map-merge($radius, $-tokens-radius);
+
+@include add-sizes(map-prefix($radius, 'radius-'));

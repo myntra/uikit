@@ -1,0 +1,71 @@
+$-tokens-root-font-size: 16px !default;
+
+$ratios: ();
+
+$sizes: (
+  'root': $-tokens-root-font-size,
+  '_unit': '#root'
+    (
+      'times': 0.25,
+    ),
+  '1x': '#_unit'
+    (
+      'times': 1,
+    ),
+  '2x': '#_unit'
+    (
+      'times': 2,
+    ),
+  '3x': '#_unit'
+    (
+      'times': 3,
+    ),
+  '4x': '#_unit'
+    (
+      'times': 4,
+    ),
+  '5x': '#_unit'
+    (
+      'times': 5,
+    ),
+  '6x': '#_unit'
+    (
+      'times': 6,
+    ),
+  '8x': '#_unit'
+    (
+      'times': 8,
+    ),
+  '10x': '#_unit'
+    (
+      'times': 10,
+    ),
+  '12x': '#_unit'
+    (
+      'times': 12,
+    ),
+  '14x': '#_unit'
+    (
+      'times': 14,
+    ),
+  '16x': '#_unit'
+    (
+      'times': 16,
+    ),
+  '24x': '#_unit'
+    (
+      'times': 24,
+    ),
+  // Legacy Naming '2xs': '#1x',
+  'xs': '#2x',
+  's': '#3x',
+  'r': '#4x',
+  'm': '#5x',
+  'l': '#6x',
+  'xl': '#8x',
+  '2xl': '#10x',
+  '3xl': '#12x',
+  '4xl': '#14x',
+  '5xl': '#16x',
+  '6xl': '#24x',
+);

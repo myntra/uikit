@@ -1,5 +1,12 @@
 {
-  "cSpell.words": ["JABONG", "Scroller", "lockfile", "myntra", "uikit"],
+  "cSpell.words": [
+    "JABONG",
+    "Scroller",
+    "clickable",
+    "lockfile",
+    "myntra",
+    "uikit"
+  ],
   "eslint.enable": false,
   "eslint.validate": [
     "typescript",

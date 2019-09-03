@@ -1,7 +1,7 @@
 export { default as Accordion } from "@myntra/uikit-component-accordion";
-export { default as Alert } from "@myntra/uikit-component-alert";
 export { default as Avatar } from "@myntra/uikit-component-avatar";
 export { default as Badge } from "@myntra/uikit-component-badge";
+export { default as Banner } from "@myntra/uikit-component-banner";
 export { default as BreadCrumb } from "@myntra/uikit-component-bread-crumb";
 export { default as Button } from "@myntra/uikit-component-button";
 export { default as ButtonGroup } from "@myntra/uikit-component-button-group";

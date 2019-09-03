@@ -1,0 +1,150 @@
+$-tokens-fonts: () !default;
+$-default-fonts: (
+  'body': '#system',
+  'heading': '#body',
+  'anchor': '#body',
+  'button': '#body',
+  'caption': '#body',
+  'title': '#body',
+  'subtitle': '#body',
+);
+
+$fonts: map-merge($-default-fonts, $-tokens-fonts);
+
+@include add-font(
+  'system',
+  (
+    'name': -apple-system,
+    'stack': (
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif,
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol',
+    ),
+  )
+);
+
+$-tokens-root-font-size: 16px !default;
+
+$text-sizes: (
+  'root': $-tokens-root-font-size,
+  'h1': '#root'
+    (
+      'times': 6,
+    ),
+  'h2': '#root'
+    (
+      'times': 3.75,
+    ),
+  'h3': '#root'
+    (
+      'times': 3,
+    ),
+  'h4': '#root'
+    (
+      'times': 2.125,
+    ),
+  'h5': '#root'
+    (
+      'times': 1.5,
+    ),
+  'h6': '#root'
+    (
+      'times': 1.25,
+    ),
+  'title': '#root'
+    (
+      'times': 1.5,
+    ),
+  'subtitle': '#root'
+    (
+      'times': 1,
+    ),
+  'body': '#root'
+    (
+      'times': 0.875,
+    ),
+  'content': '#root'
+    (
+      'times': 0.75,
+    ),
+  'caption': '#root'
+    (
+      'times': 0.625,
+    ),
+  'interface': '#body',
+  'button': '#interface',
+);
+
+$-tokens-font-sizes: () !default;
+
+@include add-sizes($text-sizes);
+@include add-sizes($-tokens-font-sizes);
+
+$-default-typography: (
+  'title': (
+    'size': 'title',
+    'family': 'title',
+    'weight': 700,
+  ),
+  'subtitle': (
+    'size': 'subtitle',
+    'family': 'subtitle',
+    'weight': 700,
+  ),
+  'h1': (
+    'size': 'h1',
+    'family': 'heading',
+    'weight': 400,
+  ),
+  'h2': (
+    'size': 'h2',
+    'family': 'heading',
+    'weight': 500,
+  ),
+  'h3': (
+    'size': 'h3',
+    'family': 'heading',
+    'weight': 400,
+  ),
+  'h4': (
+    'size': 'h4',
+    'family': 'heading',
+    'weight': 700,
+  ),
+  'body': (
+    'size': 'body',
+    'family': 'body',
+    'weight': 400,
+  ),
+  'paragraph': (
+    'size': 'content',
+    'family': 'body',
+    'weight': 400,
+  ),
+  'caption': (
+    'size': 'caption',
+    'family': 'body',
+    'weight': 400,
+  ),
+  'button': (
+    'size': 'interface',
+    'family': 'body',
+    'weight': 500,
+    'text-transform': uppercase,
+    'letter-spacing': 0.125ch,
+  ),
+  'anchor': (
+    'size': 'interface',
+    'family': 'body',
+    'weight': 500,
+  ),
+);
+$-tokens-typography: () !default;
+$typography: map-merge($-default-typography, $-tokens-typography);

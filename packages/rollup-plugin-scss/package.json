@@ -23,6 +23,6 @@
     "postcss": "^7.0.17",
     "postcss-modules": "^1.4.1",
     "rollup-pluginutils": "^2.8.1",
-    "sass": "^1.21.0"
+    "sass": "^1.22.9"
   }
 }

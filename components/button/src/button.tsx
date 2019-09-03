@@ -1,12 +1,16 @@
 import React, { PureComponent, useContext, ReactNode } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
-import UIKitContext from '@myntra/uikit-context'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
+
+import Link from './link'
+import HookLink from './link-hook'
+import RouterLink from './router-link'
+import HookRouterLink from './router-link-hook'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
-  type?: 'primary' | 'secondary' | 'link'
+  type: 'primary' | 'secondary' | 'link' | 'text'
   /** The label text of the button. */
   children?: string | ReactNode
   /** The handler to call when the button is clicked. */
@@ -30,7 +34,7 @@ export interface Props extends BaseProps {
 }
 
 /**
- * Buttons provide click-able actions.
+ * Buttons are clickable items used to perform an action. Use buttons to trigger actions and links. Buttons can contain a combination of a clear label and an icon while links are always text.
  *
  * @since 0.0.0
  * @status READY
@@ -38,38 +42,16 @@ export interface Props extends BaseProps {
  * @see http://uikit.myntra.com/components/button
  */
 export default class Button extends PureComponent<Props> {
-  static RouterLink = (props) => {
-    if (CAN_USE_HOOKS) {
-      const { RouterLink } = useContext(UIKitContext)
-
-      return <RouterLink {...props} />
-    }
-
-    return (
-      <UIKitContext.Consumer>
-        {({ RouterLink }) => <RouterLink {...props} />}
-      </UIKitContext.Consumer>
-    )
-  }
-
-  static Link = (props) => {
-    if (CAN_USE_HOOKS) {
-      const { Link } = useContext(UIKitContext)
-
-      return <Link {...props} />
-    }
-
-    return (
-      <UIKitContext.Consumer>
-        {({ Link }) => <Link {...props} />}
-      </UIKitContext.Consumer>
-    )
-  }
+  static RouterLink = CAN_USE_HOOKS ? HookRouterLink : RouterLink
+  static Link = CAN_USE_HOOKS ? HookLink : Link
 
   static propsTypes = {
     __$validation({ to, href }) {
       if (to && href)
         throw new Error(`The props 'to' and 'href' cannot coexist.`)
+    },
+    label() {
+      throw new Error(`The 'label' prop is deprecated. Use 'children' instead.`)
     },
   }
 
@@ -91,7 +73,7 @@ export default class Button extends PureComponent<Props> {
   }
 
   handleClick = (event) => {
-    if (this.props.disabled) {
+    if (this.props.disabled || this.state.active) {
       return event.preventDefault()
     }
 
@@ -111,10 +93,11 @@ export default class Button extends PureComponent<Props> {
     const {
       icon,
       secondaryIcon,
-      htmlType,
+      htmlType = 'button',
       className,
       type,
       to,
+      state,
       href,
       disabled,
       inheritTextColor,
@@ -127,17 +110,17 @@ export default class Button extends PureComponent<Props> {
     const isIconButton = !(children || label)
     const needLeftSlot = !!icon || isIconButton
     const needRightSlot = !!secondaryIcon && !isIconButton
+    const typeName = type === 'link' ? 'text' : type
 
     return (
       <Tag
         tabIndex={0} // enable tab navigation.
         {...props}
         type={htmlType}
-        className={classnames('button', className, type, {
+        className={classnames('container', className, typeName, state, {
           loading,
           inherit: inheritTextColor,
-          active: this.state.active,
-          'has-icon': isIconButton,
+          icon: isIconButton,
         })}
         to={to}
         href={href}
@@ -147,25 +130,25 @@ export default class Button extends PureComponent<Props> {
         data-test-id="target"
       >
         {needLeftSlot && (
-          <div
-            className={classnames(isIconButton ? 'icon' : 'primary-icon')}
+          <span
+            className={classnames('icon', { leading: !isIconButton })}
             data-test-id="primary-icon"
           >
             <Icon name={icon || 'question'} aria-hidden="true" />
-          </div>
+          </span>
         )}
-        <span>{children || label}</span>
+        {isIconButton ? null : <span>{children || label}</span>}
         {needRightSlot && (
-          <div
-            className={classnames('secondary-icon')}
+          <span
+            className={classnames('icon', 'trailing')}
             data-test-id="secondary-icon"
           >
             <Icon name={secondaryIcon} aria-hidden="true" />
-          </div>
+          </span>
         )}
 
         {loading && (
-          <div className={classnames('loading-icon')}>
+          <div className={classnames('icon', 'loading')}>
             <Icon name="circle-notch" spin />
           </div>
         )}

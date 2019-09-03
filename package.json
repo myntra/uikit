@@ -10,7 +10,7 @@
     "node": ">=8.0"
   },
   "scripts": {
-    "start": "npm run docs:dev",
+    "start": "node uikit.myntra.com/tools/start-dev-server",
     "build": "npm run :build",
     "pre:build": "pnpm recursive --filter ./components --filter ./packages --filter ./themes run build",
     ":build": "node scripts/build.js",

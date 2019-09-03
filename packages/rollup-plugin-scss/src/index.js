@@ -3,6 +3,7 @@ const sass = require('sass')
 const postcss = require('postcss')
 const modules = require('postcss-modules')
 const cssnano = require('cssnano')
+const path = require('path')
 
 /**
  * @returns {import('rollup').Plugin}
@@ -35,6 +36,29 @@ module.exports = function ScssPlugin(options = {}) {
 
   return {
     name: '@myntra/scss',
+    resolveId(id, importer) {
+      if (/\.s[ac]ss$/.test(importer)) {
+        const ids = [
+          id,
+          `${id}.scss`,
+          `${id}.sass`,
+          path.join(id, `index.scss`),
+          path.join(id, `index.sass`),
+          path.join(id, `_index.scss`),
+          path.join(id, `_index.sass`),
+        ]
+
+        for (const id of ids) {
+          try {
+            const ID = require.resolve(id, { paths: [importer] })
+
+            console.log(ID)
+
+            return ID
+          } catch (e) {}
+        }
+      }
+    },
     async transform(code, id) {
       if (!/\.scss$/i.test(id) || !isMatched(id)) return
 

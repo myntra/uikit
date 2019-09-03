@@ -1,0 +1,9 @@
+$outlines: (
+  'none': none,
+  'thin': 1px dashed,
+  'button': '#thin',
+);
+
+$-tokens-outlines: () !default;
+
+$outlines: map-merge($outlines, $-tokens-outlines);

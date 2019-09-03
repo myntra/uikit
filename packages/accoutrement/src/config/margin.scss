@@ -1,0 +1,10 @@
+$margins: (
+  'none': 0,
+  'small': '#1x',
+);
+
+$-tokens-margins: () !default;
+
+$margins: map-merge($margins, $-tokens-margins);
+
+@include add-sizes(map-prefix($margins, 'margin-'));

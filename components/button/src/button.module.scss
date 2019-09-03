@@ -1,258 +1,154 @@
-@import '@design';
+@import '@accoutrement';
 
-$-button: () !default;
-$-button: merge(
-  (
-    text: (
-      font-size: ui-font-size(base),
-      text-transform: uppercase,
-      white-space: nowrap,
-    ),
-    shape: (
-      padding: ui-context-size(s) ui-context-size('2xl'),
-    ),
-    surface: (
-      border-radius: 2rem,
-    ),
-  ),
-  $-button,
-  2
-);
+/* stylelint-disable no-descending-specificity */
 
-$-button__states: () !default;
-$-button__states: merge(
-  (
-    disabled: (
-      text: (
-        color: ui-text-color(dark, disabled),
-      ),
-      surface: (
-        background-color: ui-color('gray', lighter),
-        border-color: ui-color('gray', 'dark'),
-      ),
-    ),
-    hover: (),
-    active: (
-      surface: (
-        box-shadow: ui-shadow(flat),
-      ),
-    ),
-  ),
-  $-button__states,
-  2
-);
+.container {
+  @include border('button');
+  @include border-radius('button');
+  @include padding('button');
+  @include typography('button');
+  @include transition('button');
 
-$-button__variants: () !default;
-$-button__variants: merge(
-  (
-    primary: (
-      text: (
-        color: ui-text-color('light'),
-      ),
-      surface: (
-        background-color: ui-color('primary'),
-        border: solid 1px ui-color('primary'),
-      ),
-    ),
-    secondary: (
-      text: (
-        color: ui-text-color('primary'),
-      ),
-      surface: (
-        background-color: transparent,
-        border: solid 1px ui-color('primary'),
-      ),
-      hover: (
-        surface: (
-          background-color: ui-color('primary', 'lighter'),
-        ),
-      ),
-    ),
-    link: (
-      text: (
-        color: ui-text-color('primary'),
-      ),
-      surface: (
-        background-color: transparent,
-        border: none,
-      ),
-      shape: (
-        padding-left: 0,
-        padding-right: 0,
-      ),
-      disabled: (
-        text: (
-          color: ui-text-color(dark, disabled),
-        ),
-        surface: (
-          background-color: transparent,
-        ),
-      ),
-      active: (
-        text: (
-          color: ui-color('primary', 'dark'),
-        ),
-      ),
-    ),
-  ),
-  $-button__variants,
-  2
-);
-
-// Composition: Icon
-$-button--icon: () !default;
-$-button--icon: merge(
-  (
-    shape: (
-      padding: ui-context-size(s),
-    ),
-  ),
-  $-button--icon
-);
-
-// Composition: Leading Icon
-$-button--primary-icon: () !default;
-$-button--primary-icon: merge(
-  (
-    shape: (
-      margin-right: ui-context-size(xs),
-    ),
-  ),
-  $-button--primary-icon
-);
-
-// Composition: Trailing Icon
-$-button--secondary-icon: () !default;
-$-button--secondary-icon: merge(
-  (
-    shape: (
-      margin-left: ui-context-size(xs),
-    ),
-  ),
-  $-button--secondary-icon
-);
-
-.button {
-  $states: (focus-visible, hover, active, disabled);
-
-  position: relative;
-  box-sizing: border-box;
   display: inline-block;
   line-height: 1;
   text-decoration: none;
   cursor: pointer;
 
-  // Firefox <35 for Android sets a default background-image gradient on all buttons. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Notes
-  background-image: none;
-  transition: all 0.15s;
-
-  @include extract($-button);
-
-  // Firefox will add a small dotted border on a focused button. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#Firefox
   &::-moz-focus-inner {
     border: 0;
   }
 
-  &:disabled {
-    pointer-events: none;
-    user-select: none;
-  }
-
   &:focus {
-    outline: none;
+    outline: outline('none');
   }
 
   &:focus-visible {
-    outline: 1px dashed ui-color('primary', 'light');
+    outline: border('keyboard-focus');
   }
 
-  @each $state in $states {
-    &:#{$state} {
-      @if map-has-key($-button__states, $state) {
-        @include extract(map-get($-button__states, $state));
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.primary {
+    color: contrast-text-color('primary');
+    background-color: color('primary');
+    border-color: color('primary');
+
+    &:disabled {
+      color: contrast-text-color('button.disabled', 'disabled');
+      background-color: color('button.disabled');
+      border-color: color('button.disabled');
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        background-color: color('primary-light-1');
+        border-color: color('primary-light-1');
+      }
+
+      &:active:hover {
+        background-color: color('primary-dark-2');
+        border-color: color('primary-dark-2');
       }
     }
   }
 
-  @each $variant, $config in $-button__variants {
-    &.#{$variant} {
-      @include extract($config);
+  &.secondary {
+    color: text-color('primary');
+    background-color: color('white');
+    border-color: color('primary');
 
-      @each $state in $states {
-        &:#{$state},
-        &.#{$state} {
-          content: null;
+    &:disabled {
+      color: contrast-text-color('gray-light-3', 'disabled');
+      background-color: color('gray-light-3');
+      border-color: color('button.disabled');
+    }
 
-          @if map-has-key($config, $state) {
-            @include extract(map-get($config, $state));
-          } @else if map-has-key($-button__states, $state) {
-            @include extract(map-get($-button__states, $state));
-          }
-        }
+    &:not(:disabled) {
+      &:hover {
+        background-color: color('primary-light-3');
+      }
+
+      &:active,
+      &:active:hover {
+        background-color: color('primary-light-2');
       }
     }
+  }
+
+  &.text {
+    @include padding('icon-button');
+
+    color: text-color('primary');
+    background-color: transparent;
+    border-color: transparent;
+
+    &:disabled {
+      color: text-color('primary', 'disabled');
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        color: text-color('primary', 'medium');
+      }
+
+      &:active,
+      &:active:hover {
+        color: text-color('primary');
+      }
+    }
+  }
+
+  + .button {
+    @include margin-left('small');
   }
 
   &.inherit {
     color: currentColor;
-  }
 
-  &.has-icon {
-    @include extract($-button--icon);
+    @include transition('all');
 
-    > .icon {
-      width: 1em;
-      height: 1em;
+    &:disabled {
+      color: currentColor;
+    }
+
+    &:not(:disabled) {
+      &:hover {
+        color: currentColor;
+      }
+
+      &:active,
+      &:active:hover {
+        color: currentColor;
+        transform: translateY(2px);
+      }
     }
   }
 
-  .loading-icon {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: ui-context-size(s) ui-context-size('2xl');
+  &.icon {
+    @include padding('icon-button');
+
+    box-sizing: content-box;
+    width: 1em;
+    height: 1em;
+    svg {
+      transform: scale(1.5);
+      transform-origin: center center;
+    }
   }
 
-  > .primary-icon {
+  > .icon {
+    // TODO: Remove this hack for aligning icon with text.
     display: inline-block;
+    transform: translateY(1px);
 
-    @include extract($-button--primary-icon);
+    &.leading {
+      padding-inline-end: 1ch;
+    }
+
+    &.trailing {
+      padding-inline-start: 1ch;
+    }
   }
-  > .secondary-icon {
-    display: inline-block;
-
-    @include extract($-button--secondary-icon);
-  }
-
-  + .button {
-    margin-left: 1.25rem;
-  }
-}
-
-:global(._u-group-container) {
-  .button {
-    margin-left: 0;
-  }
-
-  > .button:not(:first-child):not(:last-child) {
-    border-left: none;
-    border-radius: 0;
-  }
-
-  > .button:first-child:not(:last-child) {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  > .button:not(:first-child):last-child {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-}
-
-.button.loading > :not(.loading-icon) {
-  color: transparent;
 }

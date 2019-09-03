@@ -1,0 +1,44 @@
+// - Solid Colors
+// https://zpl.io/a8w1k0d
+$-tokens-colors-primary: #4f47c8 !default;
+$-tokens-colors-success: #60b87a !default;
+$-tokens-colors-warning: #f0ba54 !default;
+$-tokens-colors-danger: #d46a68 !default;
+$-tokens-colors-gray: #aaa !default;
+
+$brand-colors: (
+  'primary': $-tokens-colors-primary,
+  'success': $-tokens-colors-success,
+  'warning': $-tokens-colors-warning,
+  'danger': $-tokens-colors-danger,
+  'gray': $-tokens-colors-gray,
+);
+
+$base-colors: (
+  'black': #000,
+  'white': #fff,
+);
+
+$colors: (
+  'disabled': '#gray-light-1',
+  'button.disabled': '#disabled',
+);
+$-tokens-colors: () !default;
+
+@include add-colors($base-colors);
+@include add-colors($brand-colors);
+@include add-colors(uikit-shades-of($brand-colors));
+@include add-colors($-tokens-colors);
+
+// - Text Colors
+
+$-tokens-text-colors-dark: #000 !default;
+$-tokens-text-colors-light: #fff !default;
+
+$text-colors: (
+  'dark': $-tokens-text-colors-dark,
+  'light': $-tokens-text-colors-light,
+);
+
+@include add-colors(uikit-text-variants-of($text-colors));
+@include add-colors(uikit-text-variants-of($brand-colors));

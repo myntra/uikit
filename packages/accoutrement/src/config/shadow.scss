@@ -1,0 +1,9 @@
+$shadows: (
+  'none': none,
+  'small': 0 3px 11px 0 rgba(0, 0, 0, 0.21),
+  'raised': '#small',
+);
+
+$-tokens-shadows: () !default;
+
+$shadows: map-merge($shadows, $-tokens-shadows);
