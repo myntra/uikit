@@ -10,7 +10,7 @@ import HookRouterLink from './router-link-hook'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
-  type: 'primary' | 'secondary' | 'link' | 'text'
+  type?: 'primary' | 'secondary' | 'link' | 'text'
   /** The label text of the button. */
   children?: string | ReactNode
   /** The handler to call when the button is clicked. */

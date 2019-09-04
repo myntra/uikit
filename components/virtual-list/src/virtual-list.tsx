@@ -23,7 +23,14 @@ export interface Props extends BaseProps {
   children(props: {
     list: VirtualList
     index: number
+    /**
+     * Position of children element from top (or left in horizontal scroller).
+     */
     offset: number
+    /**
+     * Scroll position from top (or left in horizontal scroller).
+     */
+    offsetScroll: number
     size: number
     style: Record<string, string | number>
   }): JSX.Element
@@ -287,6 +294,7 @@ export default class VirtualList extends PureComponent<
         list: this,
         index,
         offset,
+        offsetScroll,
         size,
         style,
       })

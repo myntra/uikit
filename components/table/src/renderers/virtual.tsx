@@ -108,7 +108,7 @@ export default class VirtualTable extends PureComponent<
     return Number.isNaN(width) ? null : width
   }
 
-  renderColumn(column: Column) {
+  renderColumn(column: Column, offsetScroll: number, offset: number) {
     return (
       <div
         key={column.id}
@@ -117,6 +117,15 @@ export default class VirtualTable extends PureComponent<
       >
         <div
           className={classnames('h-col-head', { center: column.colSpan > 1 })}
+          style={
+            column.fixed === undefined && column.columns.length
+              ? {
+                  width: this.state.width - (offset + ESTIMATED_CELL_WIDTH),
+                  left: offsetScroll,
+                  position: 'relative',
+                }
+              : {}
+          }
         >
           {column.renderHead()}
           {column.enhancers.map(([enhancer, props]) =>
@@ -242,7 +251,7 @@ export default class VirtualTable extends PureComponent<
                       )
                     }}
                   >
-                    {({ index, style }) => {
+                    {({ index, style, offsetScroll, offset }) => {
                       const column = header[index]
 
                       return (
@@ -256,7 +265,7 @@ export default class VirtualTable extends PureComponent<
                           }}
                           className={classnames('th')}
                         >
-                          {this.renderColumn(column)}
+                          {this.renderColumn(column, offsetScroll, offset)}
                         </div>
                       )
                     }}
@@ -296,7 +305,6 @@ export default class VirtualTable extends PureComponent<
                       )
 
                       const row = this.getRowRenderer(rowIndex)
-
                       return row.render({
                         rowIndex,
                         rowId: rowIndex,
