@@ -1,6 +1,8 @@
 import React, { PureComponent } from 'react'
 import Icon from '@myntra/uikit-component-icon'
-import InputMasked, { Props } from '@myntra/uikit-component-input-masked'
+import InputMasked, {
+  Props as InputMaskedProps,
+} from '@myntra/uikit-component-input-masked'
 
 import classnames from './input-date-value.module.scss'
 import { parse, format } from './input-date-utils'
@@ -10,7 +12,7 @@ import {
   isStringDateRange,
 } from './input-date-helpers'
 
-const MASKS: Props['masks'] = {
+const MASKS: InputMaskedProps['masks'] = {
   Y: {
     validate(token) {
       return /\d/.test(token)
@@ -32,7 +34,7 @@ export interface Props extends BaseProps {
   format: string
 
   value?: string | StringDateRange
-  onchange?(value: string | StringDateRange): void
+  onchange?(value: Date | DateRange): void
 
   active?: 'from' | 'to'
 

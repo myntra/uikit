@@ -11,8 +11,7 @@ module.exports = {
     __DEV__: true // Always include dev code docs.
   },
   deploy: {
-    target: 'spectrum',
-    baseUrl: '/'
+    target: 'spectrum'
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
@@ -29,6 +28,7 @@ module.exports = {
       .set('@myntra/uikit-design/design.scss$', packagesDir + '/uikit-design/design.scss')
       .set('@myntra/uikit-component-input-text/style.scss$', componentsDir + '/input-text/style.scss')
       .set('@design$', themesDir + '/nuclei/design.scss')
+      .set('@accoutrement$', themesDir + '/nuclei/design.next.scss')
       .set('@theme$', themesDir + '/nuclei' + entry)
 
     components.forEach(name =>

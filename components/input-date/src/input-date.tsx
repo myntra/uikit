@@ -7,7 +7,7 @@ import Dropdown from '@myntra/uikit-component-dropdown'
 
 import classnames from './input-date.module.scss'
 import { format, parse, isDateEqual } from './input-date-utils'
-import { isDateRange, DateRange } from './input-date-helpers'
+import { isDateRange, DateRange, StringDateRange } from './input-date-helpers'
 import InputDateValue from './input-date-value'
 import InputDatePicker, {
   Props as InputDatePickerProps,
@@ -102,8 +102,7 @@ export default class InputDate extends PureComponent<
 
   handleOpenToDateChange = (openToDate: Date) => this.setState({ openToDate })
 
-  // TODO: Check again.
-  handleDisplayValueChange = (newValue: Date | { from?: Date; to?: Date }) => {
+  handleDisplayValueChange = (newValue: Date | DateRange) => {
     const { value: oldValue, onChange, range } = this.props
     if (!onChange) return
 

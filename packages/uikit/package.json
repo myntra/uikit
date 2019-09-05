@@ -20,11 +20,12 @@
   "sideEffects": false,
   "dependencies": {
     "@myntra/uikit-component-accordion": "1.5.*",
-    "@myntra/uikit-component-banner": "1.5.*",
     "@myntra/uikit-component-avatar": "1.5.*",
     "@myntra/uikit-component-badge": "1.5.*",
+    "@myntra/uikit-component-banner": "1.5.*",
     "@myntra/uikit-component-bread-crumb": "1.5.*",
     "@myntra/uikit-component-button": "1.5.*",
+    "@myntra/uikit-component-button-group": "link:../../components/button-group",
     "@myntra/uikit-component-click-away": "1.5.*",
     "@myntra/uikit-component-dropdown": "1.5.*",
     "@myntra/uikit-component-error-boundary": "1.5.*",

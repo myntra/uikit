@@ -1180,6 +1180,7 @@ importers:
       '@myntra/uikit-component-banner': 'link:../../components/banner'
       '@myntra/uikit-component-bread-crumb': 'link:../../components/bread-crumb'
       '@myntra/uikit-component-button': 'link:../../components/button'
+      '@myntra/uikit-component-button-group': 'link:../../components/button-group'
       '@myntra/uikit-component-click-away': 'link:../../components/click-away'
       '@myntra/uikit-component-dropdown': 'link:../../components/dropdown'
       '@myntra/uikit-component-error-boundary': 'link:../../components/error-boundary'
@@ -1228,6 +1229,7 @@ importers:
       '@myntra/uikit-component-banner': 1.5.*
       '@myntra/uikit-component-bread-crumb': 1.5.*
       '@myntra/uikit-component-button': 1.5.*
+      '@myntra/uikit-component-button-group': 'link:../../components/button-group'
       '@myntra/uikit-component-click-away': 1.5.*
       '@myntra/uikit-component-dropdown': 1.5.*
       '@myntra/uikit-component-error-boundary': 1.5.*
@@ -13483,7 +13485,7 @@ packages:
       lodash: registry.npmjs.org/lodash/4.17.15
       mute-stream: registry.npmjs.org/mute-stream/0.0.7
       run-async: registry.npmjs.org/run-async/2.3.0
-      rxjs: registry.npmjs.org/rxjs/6.5.2
+      rxjs: registry.npmjs.org/rxjs/6.5.3
       string-width: registry.npmjs.org/string-width/2.1.1
       strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
       through: registry.npmjs.org/through/2.3.8
@@ -21383,6 +21385,7 @@ packages:
   registry.npmjs.org/rxjs/6.5.2:
     dependencies:
       tslib: registry.npmjs.org/tslib/1.10.0
+    dev: true
     engines:
       npm: '>=2.0.0'
     name: rxjs
@@ -21391,6 +21394,18 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/rxjs/-/rxjs-6.5.2.tgz'
     version: 6.5.2
+  registry.npmjs.org/rxjs/6.5.3:
+    dependencies:
+      tslib: registry.npmjs.org/tslib/1.10.0
+    dev: false
+    engines:
+      npm: '>=2.0.0'
+    name: rxjs
+    resolution:
+      integrity: sha512-wuYsAYYFdWTAnAaPoKGNhfpWwKZbJW+HgAJ+mImp+Epl7BG8oNWBCTyRM8gba9k4lk8BgWdoYm21Mo/RYhhbgA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/rxjs/-/rxjs-6.5.3.tgz'
+    version: 6.5.3
   registry.npmjs.org/safe-buffer/5.1.2:
     name: safe-buffer
     resolution:

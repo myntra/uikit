@@ -9,7 +9,7 @@ export default function DocsPageLayout({ children }) {
   return (
     <DefaultLayout>
       <div className="docs-page-layout">
-        <Alert type="warning">
+        <Alert type="warning" title="NOTICE">
           This is documentation corresponds to UIKit v1.0. Go to{' '}
           <a href="//v0-uikit.myntra.com" target="_blank" rel="noopener noreferrer">
             v0-uikit.myntra.com

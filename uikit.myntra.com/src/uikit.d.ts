@@ -40,34 +40,6 @@ declare namespace Accordion {
   }
 }
 
-declare namespace Alert {}
-
-// -----------[[Alert]]--------------- //
-/**
- *
- */
-declare function Alert(props: Alert.Props): JSX.Element
-declare namespace Alert {
-  interface Props extends BaseProps {
-    /**
-     * The visual style to convey purpose of the alert.
-     */
-    type: 'primary' | 'error' | 'warning' | 'success'
-    /**
-     * The handler to call when the alert box is dismissed.
-     */
-    onClose?: () => void
-    /**
-     * Displays a alert box with filled background.
-     */
-    solid?: boolean
-    /**
-     * The message/body of the alert box.
-     */
-    children: string | JSX.Element
-  }
-}
-
 declare namespace Avatar {}
 
 // -----------[[Avatar]]--------------- //
@@ -104,6 +76,34 @@ declare namespace Badge {
   }
 }
 
+declare namespace Banner {}
+
+// -----------[[Banner]]--------------- //
+/**
+ *
+ */
+declare function Banner(props: Banner.Props): JSX.Element
+declare namespace Banner {
+  interface Props extends BaseProps {
+    /**
+     * The visual style to convey purpose of the alert.
+     */
+    type?: 'error' | 'warning' | 'success'
+    /**
+     *
+     */
+    title?: string
+    /**
+     * The handler to call when the alert box is dismissed.
+     */
+    onClose?: () => void
+    /**
+     * The message/body of the alert box.
+     */
+    children: string | JSX.Element
+  }
+}
+
 declare namespace BreadCrumb {}
 
 // -----------[[BreadCrumb]]--------------- //
@@ -136,7 +136,7 @@ declare namespace Button {}
 
 // -----------[[Button]]--------------- //
 /**
- * Buttons provide click-able actions.
+ * Buttons are clickable items used to perform an action. Use buttons to trigger actions and links. Buttons can contain a combination of a clear label and an icon while links are always text.
  *
  * @since 0.0.0
  * @status READY
@@ -148,7 +148,7 @@ declare namespace Button {
   type IconName = Icon.IconName
   interface Props extends BaseProps {
     /** The visual style to convey purpose of the button. */
-    type?: 'primary' | 'secondary' | 'link'
+    type?: 'primary' | 'secondary' | 'link' | 'text'
     /** The label text of the button. */
     children?: string | ReactNode
     /** The handler to call when the button is clicked. */
@@ -170,6 +170,19 @@ declare namespace Button {
     /** The URL to navigate to when the button is clicked (uses browser anchor tag). */
     href?: string
   }
+  // -----------[[Link]]--------------- //
+  /**
+   *
+   */
+  function Link(props: Link.Props): JSX.Element
+  namespace Link {}
+
+  // -----------[[RouterLink]]--------------- //
+  /**
+   *
+   */
+  function RouterLink(props: RouterLink.Props): JSX.Element
+  namespace RouterLink {}
 }
 
 declare namespace ButtonGroup {}
@@ -943,7 +956,7 @@ declare namespace InputMonth {}
  */
 declare function InputMonth(props: InputMonth.Props): JSX.Element
 declare namespace InputMonth {
-  type InputMonthPickerProps = InputMonthPicker$$5.InputMonthPickerProps
+  type InputMonthPickerProps = InputMonthPicker$$5.Props
 
   interface Props extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {}
   // -----------[[Picker]]--------------- //
@@ -2271,7 +2284,15 @@ declare namespace VirtualGrid {
   }
 }
 
-declare namespace VirtualList {}
+declare namespace VirtualList {
+  type VLCProps = VirtualListCellMeasure$$11.Props
+
+  type VLProps = VirtualList$$13.Props
+
+  type Props = VLProps
+
+  type CellMeasureProps = VLCProps
+}
 
 // -----------[[VirtualList]]--------------- //
 /**
@@ -2284,9 +2305,9 @@ declare namespace VirtualList {}
  */
 declare function VirtualList(props: VirtualList.Props): JSX.Element
 declare namespace VirtualList {
-  type MeasureCache = Helpers$$11.MeasureCache
+  type MeasureCache = Helpers$$12.MeasureCache
 
-  type PositionManager = Helpers$$11.PositionManager
+  type PositionManager = Helpers$$12.PositionManager
 
   interface Props extends BaseProps {
     /**
@@ -2303,7 +2324,14 @@ declare namespace VirtualList {
     children(props: {
       list: VirtualList
       index: number
+      /**
+       * Position of children element from top (or left in horizontal scroller).
+       */
       offset: number
+      /**
+       * Scroll position from top (or left in horizontal scroller).
+       */
+      offsetScroll: number
       size: number
       style: Record<string, string | number>
     }): JSX.Element
@@ -2674,7 +2702,7 @@ declare namespace TableInterface$$10 {
   }
 }
 
-declare namespace Helpers$$11 {
+declare namespace Helpers$$12 {
   interface Cell {
     offset: number
     size: number
@@ -2733,6 +2761,134 @@ declare namespace Helpers$$11 {
     hasMax(row: number, column?: number): boolean
     rowHeight(row: number): number
     columnWidth(column: number): number
+  }
+}
+
+declare namespace VirtualListCellMeasure$$11 {
+  type MeasureCache = Helpers$$12.MeasureCache
+
+  type Observer = Measure.Observer
+  interface Props extends BaseProps {
+    cache: MeasureCache
+    row: number
+    column: number
+    onMeasure?(
+      payload: {
+        row: number
+        column: number
+        size: {
+          height: number
+          width: number
+        }
+      },
+      data?: DOMStringMap
+    ): void
+  }
+}
+
+declare namespace VirtualList$$13 {
+  type MeasureCache = Helpers$$12.MeasureCache
+
+  type PositionManager = Helpers$$12.PositionManager
+
+  interface Props extends BaseProps {
+    /**
+     * Number of items in the list.
+     */
+    itemCount: number
+    /**
+     * Height (or width for horizontal list) of the list container.
+     */
+    viewportSize: number
+    /**
+     * A callback to render list item at given position.
+     */
+    children(props: {
+      list: VirtualList
+      index: number
+      /**
+       * Position of children element from top (or left in horizontal scroller).
+       */
+      offset: number
+      /**
+       * Scroll position from top (or left in horizontal scroller).
+       */
+      offsetScroll: number
+      size: number
+      style: Record<string, string | number>
+    }): JSX.Element
+    /**
+     * Estimated item height (or width) to estimate content height (or width).
+     */
+    estimatedItemSize?: number
+    /**
+     * Number of items to render outside of viewport.
+     */
+    overScanItemCount?: number
+    /**
+     * Number of items (from start) always rendered.
+     */
+    fixedItemCountFromStart?: number
+    /**
+     * Number of items (from start) always rendered.
+     */
+    fixedItemCountFromEnd?: number
+    /**
+     * @deprecated use [fixedItemCountFromStart](#virtual-list.fixedItemCountFromStart)
+     */
+    fixedItemCount?: number
+    /**
+     * List scroll direction.
+     */
+    direction?: 'horizontal' | 'vertical'
+    /**
+     * Render a wrapper element which would have scrollbars.
+     */
+    renderScroller?(props: {
+      /**
+       * A callback function to recompute visible area on scroll.
+       */
+      onScroll(event: {
+        target: {
+          scrollLeft: number
+          screenTop: number
+        }
+      }): void
+      /**
+       * Height or width of the content.
+       */
+      size: number
+      /**
+       * Styles to position and configure scroll behaviour.
+       */
+      style: Record<string, string | number>
+      className?: string
+      children: any
+    }): JSX.Element
+    /**
+     * Render inner container of scroller container. This sets the scroll height and
+     * positions rendered content in visible window.
+     */
+    renderContainer?(props: {
+      /**
+       * Offset of rendered content from top (or left in horizontal scroller).
+       */
+      offsetStart: number
+      /**
+       * Scroll position from top (or left in horizontal scroller).
+       */
+      offsetScroll: number
+      /**
+       * Height or width of the content.
+       */
+      size: number
+      /**
+       * Styles to position and configure scroll behaviour.
+       */
+      style: Record<string, string | number>
+      className?: string
+      children: Array<any>
+    }): JSX.Element
   }
 }
 

@@ -25,14 +25,14 @@ function asyncComponent(factory) {
 export const Accordion = asyncComponent(() =>
   import(/* webpackChunkName: 'components/accordion' */ '@myntra/uikit-component-accordion')
 )
-export const Alert = asyncComponent(() =>
-  import(/* webpackChunkName: 'components/alert' */ '@myntra/uikit-component-alert')
-)
 export const Avatar = asyncComponent(() =>
   import(/* webpackChunkName: 'components/avatar' */ '@myntra/uikit-component-avatar')
 )
 export const Badge = asyncComponent(() =>
   import(/* webpackChunkName: 'components/badge' */ '@myntra/uikit-component-badge')
+)
+export const Banner = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/banner' */ '@myntra/uikit-component-banner')
 )
 export const BreadCrumb = asyncComponent(() =>
   import(/* webpackChunkName: 'components/bread-crumb' */ '@myntra/uikit-component-bread-crumb')
@@ -175,12 +175,6 @@ export const META = [
     path: '/components/accordion'
   },
   {
-    name: 'Alert',
-    since: '0.3.0',
-    status: 'READY',
-    path: '/components/alert'
-  },
-  {
     name: 'Avatar',
     since: '0.3.1',
     status: 'REVIEWING',
@@ -191,6 +185,12 @@ export const META = [
     since: '0.8.0',
     status: 'REVIEWING',
     path: '/components/badge'
+  },
+  {
+    name: 'Banner',
+    since: '0.3.0',
+    status: 'READY',
+    path: '/components/banner'
   },
   {
     name: 'BreadCrumb',

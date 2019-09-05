@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { format, parse } from '@myntra/uikit-component-input-date'
 import Dropdown from '@myntra/uikit-component-dropdown'
 import InputMasked, { Mask } from '@myntra/uikit-component-input-masked'
-import { InputMonthPickerProps } from './input-month-picker'
+import { Props as InputMonthPickerProps } from './input-month-picker'
 import InputMonthPicker from './input-month-picker'
 import classnames from './input-month.module.scss'
 

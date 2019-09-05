@@ -142,7 +142,9 @@ export default class VirtualTable extends PureComponent<
         </div>
         {column.columns.length ? (
           <div className={classnames('h-col-children')}>
-            {column.columns.map((column) => this.renderColumn(column))}
+            {column.columns.map((column) =>
+              this.renderColumn(column, offsetScroll, offset)
+            )}
           </div>
         ) : null}
       </div>
