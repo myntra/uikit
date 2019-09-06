@@ -25,10 +25,12 @@ function setupMonacoEnvironment() {
   window.MonacoEnvironment = {
     ...MonacoEnvironment,
     getWorkerUrl: (moduleId, label) => {
-      const workerUrl = MonacoEnvironment.getWorkerUrl(moduleId, label)
-      if (testSameOrigin(workerUrl)) return workerUrl
+      let workerUrl = MonacoEnvironment.getWorkerUrl(moduleId, label)
 
-      let blob
+      if (testSameOrigin(workerUrl)) {
+        return workerUrl
+      }
+      let blob = null
 
       try {
         blob = new Blob([`importScripts('${workerUrl}');`], { type: 'application/javascript' })
@@ -54,6 +56,25 @@ export const EditorContext = createContext({
   }
 })
 
+let disposeTypes = null
+let retries = 0
+
+async function configureMonaco(monaco) {
+  monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ lib: true, allowNonTsExtensions: true })
+  try {
+    if (disposeTypes) disposeTypes()
+
+    const { default: DTS } = await import(
+      /* webpackPrefetch: true */ /* webpackChunkName: 'monaco/types' */ '!!raw-loader!../uikit.d.ts'
+    )
+    disposeTypes = monaco.languages.typescript.javascriptDefaults.addExtraLib(DTS)
+  } catch (e) {
+    console.error(e)
+    ++retries
+    if (retries < 15) setTimeout(configureMonaco, 1000, monaco)
+  }
+}
+
 export default function Editor({ value: source, onChange, ...props }) {
   return (
     <MonacoEditor
@@ -66,14 +87,7 @@ export default function Editor({ value: source, onChange, ...props }) {
           tabSize: 2
         })
 
-        monaco.languages.typescript.javascriptDefaults.setCompilerOptions({ lib: true, allowNonTsExtensions: true })
-        try {
-          import(/* webpackPrefetch: true */ /* webpackChunkName: 'monaco/types' */ '!!raw-loader!../uikit.d.ts').then(
-            ({ default: DTS }) => monaco.languages.typescript.javascriptDefaults.addExtraLib(DTS, 'file:///global.d.ts')
-          )
-        } catch (e) {
-          // duplicate lib error.
-        }
+        configureMonaco(monaco)
       }}
       editorWillMount={monaco => {
         const uri = monaco.Uri.parse(`file:///example.jsx`)

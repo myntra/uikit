@@ -35,6 +35,7 @@ module.exports = {
       config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name + entry)
     )
     packages.forEach(name => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name + entry))
+    config.resolve.alias.set('@myntra/accoutrement', packagesDir + '/accoutrement')
     themes.forEach(name => config.resolve.alias.set(`@myntra/uikit-theme-${name}`, themesDir + '/' + name + entry))
     config.resolve.extensions
       .add('.ts')
