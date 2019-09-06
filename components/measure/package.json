@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-measure",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "main": "dist/measure.cjs.js",
   "module": "dist/measure.esm.js",
   "types": "dist/index.d.ts",
@@ -29,8 +29,8 @@
     "react-dom": "^16.8.6"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.5.*",
-    "@myntra/uikit-utils": "1.5.*",
+    "@myntra/uikit-can-i-use": "1.6.*",
+    "@myntra/uikit-utils": "1.6.*",
     "prop-types": "^15.7.2",
     "resize-observer-polyfill": "^1.5.1"
   }

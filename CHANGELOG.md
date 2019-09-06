@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.6.0"></a>
+## 1.6.0 (2019-09-06)
+
+* chore: Always run pnpm install in docs directory ([df1a43c](https://bitbucket.org/myntra/uikit/commits/df1a43c))
+* chore: Copy CHANGELOG.md to docs website ([3bb7b4a](https://bitbucket.org/myntra/uikit/commits/3bb7b4a))
+* chore(dev): Setup aliases so older and newer style system work togather ([a9a826e](https://bitbucket.org/myntra/uikit/commits/a9a826e))
+* chore(docs): Update docs ([3a3af7f](https://bitbucket.org/myntra/uikit/commits/3a3af7f))
+* fix(docs): Generate enhanced types for embedded editor ([fc4137d](https://bitbucket.org/myntra/uikit/commits/fc4137d))
+* fix(NavBar): Detect NavBarGroup in lazy wrapper for injecting id prop ([6f5f0bb](https://bitbucket.org/myntra/uikit/commits/6f5f0bb))
+* fix(NavBar): Use a polyfill for React.Fragment ([99d8d47](https://bitbucket.org/myntra/uikit/commits/99d8d47))
+* fix(Table): Larger than viewport columns should stay in viewport while scrolling ([189aa53](https://bitbucket.org/myntra/uikit/commits/189aa53)), closes [#174](https://bitbucket.org/myntra/uikit/issue/174)
+* refactor(style): Use accoutrement to structure tokens ([3587d06](https://bitbucket.org/myntra/uikit/commits/3587d06)), closes [#170](https://bitbucket.org/myntra/uikit/issue/170)
+* feat(docs): Extract internal type information for richer DX in docs editor ([86649ba](https://bitbucket.org/myntra/uikit/commits/86649ba)), closes [#172](https://bitbucket.org/myntra/uikit/issue/172)
+
+
+
 <a name="1.5.4"></a>
 ## <small>1.5.4 (2019-08-29)</small>
 

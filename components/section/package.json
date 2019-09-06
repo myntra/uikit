@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-section",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "main": "dist/section.cjs.js",
   "module": "dist/section.esm.js",
   "types": "dist/index.d.ts",
@@ -27,8 +27,8 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.5.*",
-    "@myntra/uikit-component-button": "1.5.*",
-    "@myntra/uikit-utils": "1.5.*"
+    "@myntra/uikit-can-i-use": "1.6.*",
+    "@myntra/uikit-component-button": "1.6.*",
+    "@myntra/uikit-utils": "1.6.*"
   }
 }

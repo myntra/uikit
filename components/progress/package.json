@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-progress",
-  "version": "1.5.4",
+  "version": "1.6.0",
   "main": "dist/progress.cjs.js",
   "module": "dist/progress.esm.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.5.*",
-    "@myntra/uikit-utils": "1.5.*"
+    "@myntra/uikit-can-i-use": "1.6.*",
+    "@myntra/uikit-utils": "1.6.*"
   }
 }
