@@ -130,7 +130,7 @@ function startWebpackDevServer(component) {
             .split('/')
             .shift()
 
-          return `_u-${component}-${name}`
+          return `u-${component}-${name}`
         }
       }
     })
