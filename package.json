@@ -36,7 +36,7 @@
     ":publish": "node ./scripts/publish.js",
     "pre:release": "git checkout develop && git pull origin develop",
     ":release": "standard-version -a",
-    "post:release": "npm run :publish && git push --follow-tags && npm update:master",
+    "post:release": "npm run :publish && git push --follow-tags && npm run update:master",
     "release": "npm run :release",
     "changelog": "standard-version -a --dry-run",
     ":update:versions": "node ./scripts/set-version.js",
