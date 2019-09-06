@@ -4,7 +4,7 @@ import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { Props as NavBarItemProps } from './nav-bar-item'
-import { isReactNodeType } from '@myntra/uikit-utils'
+import { isReactNodeType, Fragment } from '@myntra/uikit-utils'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 interface Props extends BaseProps, NavBarItemProps {
@@ -70,7 +70,7 @@ export default function NavBarGroup({
     if (!id) return null
 
     return depth > 0 ? (
-      <>
+      <Fragment>
         <NavBarItem
           {...props}
           className={classnames(className, {
@@ -114,7 +114,7 @@ export default function NavBarGroup({
             </ul>
           </Context.Provider>
         )}
-      </>
+      </Fragment>
     ) : (
       <Context.Provider value={{ depth: depth + 1 }}>
         <ul className={classnames('group', className)} key={id.join('.')}>

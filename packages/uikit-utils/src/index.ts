@@ -253,8 +253,15 @@ import React, {
   ReactElement,
   JSXElementConstructor,
   RefObject,
+  Fragment as ReactFragment,
 } from 'react'
 // --
+
+export const Fragment =
+  ReactFragment ||
+  (({ children }) =>
+    React.createElement('div', { style: { display: 'contents' } }, children))
+
 export function isReactNodeType<
   T extends JSXElementConstructor<P> = any,
   P = any
