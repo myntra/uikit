@@ -4,6 +4,7 @@ import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { Props as NavBarItemProps } from './nav-bar-item'
+import { isReactNodeType } from '@myntra/uikit-utils'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 interface Props extends BaseProps, NavBarItemProps {
@@ -35,7 +36,7 @@ export const Context = createContext<NavBarGroupContext>({
 
 function injectNavId(children: any, id: number[]) {
   return React.Children.map(children, (child: any, index) =>
-    child && child.type === NavBarGroup
+    isReactNodeType(child, NavBarGroup)
       ? React.cloneElement(child, { __$navId: [...id, index] })
       : child
   )

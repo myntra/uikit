@@ -10,4 +10,4 @@ export interface NavBarContext {
   renderLink(props: LinkProps): any
 }
 
-export default createContext(<NavBarContext>{})
+export default createContext<NavBarContext>(null)
