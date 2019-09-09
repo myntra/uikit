@@ -13,3 +13,11 @@
 @mixin var-border($token) {
   border: var-border($token);
 }
+
+@function border-bottom($token, $source: $borders) {
+  @return get-token($borders, $token);
+}
+
+@mixin border-bottom($token) {
+  border-bottom: border-bottom($token);
+}

@@ -17,7 +17,7 @@ export interface Props extends BaseProps {
 }
 
 const ESTIMATED_CELL_HEIGHT = 38
-const ESTIMATED_CELL_WIDTH = 54
+const ESTIMATED_CELL_WIDTH = 16
 const ESTIMATED_HEADER_HEIGHT = 30
 
 const TR = ({ className, ...props }: BaseProps) => (

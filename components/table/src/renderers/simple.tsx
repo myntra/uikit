@@ -105,12 +105,13 @@ export default class SimpleTable extends PureComponent<
                             rowSpan={maxDepth - column.level - column.depth}
                             colSpan={column.colSpan}
                             className={classnames({
+                              'has-sub-columns': column.columns.length > 0,
                               fixed: typeof column.fixed !== 'undefined',
                               end: column.fixed === FixedPosition.END,
                             })}
                             style={{
                               // @ts-ignore
-                              '--sticky-top-offset': headLevel * 35 + 'px',
+                              '--sticky-top-offset': `calc(${headLevel} * var(--table-head-height))`,
                               '--sticky-left-offset':
                                 typeof column.fixed !== 'undefined'
                                   ? content.offset.left + 'px'

@@ -1,11 +1,11 @@
 $paddings: (
   'none': 0,
   'default': '#4x',
-  // Alert
-    'alert': '#padding-default',
-  // Button
-    'button': '#3x' '#10x',
+  'alert': '#padding-default',
+  'button': '#3x' '#10x',
   'icon-button': '#3x',
+  'table.th': '#2x',
+  'table.td': '#2x',
 );
 
 $-tokens-paddings: () !default;

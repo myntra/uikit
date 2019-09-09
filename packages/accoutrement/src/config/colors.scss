@@ -22,6 +22,9 @@ $base-colors: (
 $colors: (
   'disabled': '#gray-light-1',
   'button.disabled': '#disabled',
+  'table.head': '#gray-light-2',
+  'table.body': '#white',
+  'table.border': '#gray-light-1',
 );
 $-tokens-colors: () !default;
 

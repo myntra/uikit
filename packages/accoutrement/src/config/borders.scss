@@ -1,8 +1,9 @@
 $borders: (
   'default': 1px solid,
   'keyboard-focus': 1px dashed color('primary'),
-  // Components 'alert': '#default',
+  'banner': '#default',
   'button': '#default',
+  'table.tr': '#default',
 );
 
 $-tokens-borders: () !default;

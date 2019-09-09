@@ -255,15 +255,11 @@ const [data] = useState([
 <Documenter component={Table.Filter} sub>
 
 ```jsx preview
-const [data] = useState([
-  { name: 'Alice' },
-  { name: 'Bob' },
-  { name: 'Charlie' },
-]);
+const [data] = useState(Array(40).fill(null).map((_, value) => ({ value })));
 
 <Table data={data}>
   <Table.Filter>
-    <Table.Column key="name" label="Name" />
+    <Table.Column key="value" label="Value" minWidth={200} />
   </Table.Filter>
 </Table>
 ```

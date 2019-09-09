@@ -1,7 +1,10 @@
-@import '@design';
+@import '@accoutrement';
 
 .simple {
   overflow: hidden;
+
+  /* TODO: 17px is hard coded here. Remove when proper typography is applied. */
+  --table-head-height: calc(17px + 2 * #{padding-top('table.th')});
 
   .container {
     position: relative;
@@ -14,20 +17,33 @@
     z-index: 0;
     width: 100%;
     border-spacing: 0;
-    border-collapse: separate;
+    border-collapse: collapse;
 
     th {
+      @include padding('table.th');
+
       position: sticky;
       top: var(--sticky-top-offset, 0);
-      background-color: #ddd;
+      text-align: left;
+      background-color: color('table.head');
+
+      &.has-sub-columns {
+        text-align: center;
+      }
+    }
+
+    thead {
+      @include border-bottom('table.tr');
+
+      border-color: color('table.border');
     }
 
     td {
-      background-color: #fff;
-    }
+      @include padding('table.td');
+      @include border-bottom('table.tr');
 
-    tr:nth-child(2n) td {
-      background-color: #f8f8f8;
+      background-color: color('table.body');
+      border-color: color('table.border');
     }
   }
 
