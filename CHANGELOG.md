@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.2"></a>
+## <small>1.7.2 (2019-09-09)</small>
+
+* fix(Grid): Rename .columns to .container due to some bug in CSS modules ([c3d1a04](https://bitbucket.org/myntra/uikit/commits/c3d1a04)), closes [#180](https://bitbucket.org/myntra/uikit/issue/180)
+* docs: Fix CodePreview buttons ([277d4b8](https://bitbucket.org/myntra/uikit/commits/277d4b8)), closes [#179](https://bitbucket.org/myntra/uikit/issue/179)
+
+
+
 <a name="1.7.1"></a>
 ## <small>1.7.1 (2019-09-09)</small>
 
