@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.3"></a>
+## <small>1.7.3 (2019-09-09)</small>
+
+* fix(Dropdown): Use `Event.composedPath` when `path` is not available ([fa7e7fc](https://bitbucket.org/myntra/uikit/commits/fa7e7fc)), closes [#181](https://bitbucket.org/myntra/uikit/issue/181)
+* fix(Table): Style inconsistencies in static table ([5d24419](https://bitbucket.org/myntra/uikit/commits/5d24419)), closes [#182](https://bitbucket.org/myntra/uikit/issue/182)
+
+
+
 <a name="1.7.2"></a>
 ## <small>1.7.2 (2019-09-09)</small>
 
