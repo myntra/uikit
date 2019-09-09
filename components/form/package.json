@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-form",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "main": "dist/form.cjs.js",
   "module": "dist/form.esm.js",
   "types": "dist/index.d.ts",
@@ -42,7 +42,7 @@
     "@myntra/uikit-component-input-select": "1.7.*",
     "@myntra/uikit-component-input-text": "1.7.*",
     "@myntra/uikit-component-input-text-area": "1.7.*",
-    "@myntra/uikit-context": "link:../../packages/uikit-context",
+    "@myntra/uikit-context": "1.7.*",
     "@myntra/uikit-utils": "1.7.*"
   }
 }
