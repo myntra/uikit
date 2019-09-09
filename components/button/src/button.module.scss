@@ -9,6 +9,10 @@
   @include typography('button');
   @include transition('button');
 
+  + .container {
+    @include margin-left('small');
+  }
+
   display: inline-block;
   line-height: 1;
   text-decoration: none;
@@ -129,7 +133,7 @@
     width: 1em;
     height: 1em;
     svg {
-      transform: scale(1.5);
+      transform: scale(1.25);
       transform-origin: center center;
     }
   }
