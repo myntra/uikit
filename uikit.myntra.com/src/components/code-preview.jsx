@@ -44,7 +44,7 @@ export function useCompiler(source, { watch = true, once = true } = {}) {
   return error ? [fallback, error, clearError] : [component, error, clearError]
 }
 
-export default function CodePreview({ className, source }) {
+export default function CodePreview({ className, source, children }) {
   const [component, compilerError, clearError] = useCompiler(source)
   const [error, setError] = useState(null)
   const [copied, setCopied] = useState(false)
@@ -83,8 +83,12 @@ export default function CodePreview({ className, source }) {
 
   return (
     <div className={className} style={{ maxWidth: '100%' }}>
-      {<Button className="code-preview--refresh" icon="sync" title="Refresh" onClick={() => setKey(key + 1)} />}
-      {<Button className="code-preview--copy" icon={copied ? 'check' : 'copy'} title="Copy" onClick={handleCopy} />}
+      <div className="code-preview-button-container">
+        {<Button icon="sync" title="Refresh" onClick={() => setKey(key + 1)} />}
+        {<Button icon={copied ? 'check' : 'copy'} title="Copy" onClick={handleCopy} />}
+        {children}
+      </div>
+
       {<Preview key={key} component={component} onError={setError} />}
       {compilerError && (
         <Alert type="error" onClose={clearError}>
@@ -187,5 +191,6 @@ function unknownIdentifierPlugin(identifiers) {
 
 CodePreview.propTypes = {
   className: PropTypes.string,
-  source: PropTypes.string
+  source: PropTypes.string,
+  children: PropTypes.any
 }

@@ -1,11 +1,11 @@
-.code-preview--refresh {
+.code-preview-button-container {
   position: absolute;
-  top: 5px;
-  right: 5px;
+  top: 4px;
+  right: 0;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 
-.code-preview--copy {
-  position: absolute;
-  top: 5px;
-  right: 80px;
+.code-preview-button-container button {
+  margin-right: 4px;
 }

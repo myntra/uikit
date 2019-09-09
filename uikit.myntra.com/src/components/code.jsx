@@ -18,11 +18,10 @@ export default function Code({ preview = false, align = 'center', children: sour
 
   return (
     <div className={`code--container ${preview ? `code--align-${align}` : ''}`}>
-      {preview && (
-        <Button className="code--edit" icon="code" title="Open in editor" onClick={() => context.setSource(source)} />
-      )}
       {preview ? (
-        <CodePreview source={source} />
+        <CodePreview source={source}>
+          <Button icon="code" title="Open in editor" onClick={() => context.setSource(source)} />
+        </CodePreview>
       ) : (
         <pre style={{ overflow: 'unset' }}>
           <code dangerouslySetInnerHTML={{ __html: Prism.highlight(source, Prism.languages[language], language) }} />

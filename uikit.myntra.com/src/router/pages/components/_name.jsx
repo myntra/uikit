@@ -79,9 +79,10 @@ function ComponentDocumentationPage({ name, source, setSource }) {
         </EditorContext.Provider>
         {
           <div className={`editor`} ref={ref}>
-            <Button className="close" icon="times" title="Close" onClick={hide} />
-            <Button className="fullscreen" icon="arrows" title="Toggle Fullscreen" onClick={fullscreen} />
-            <CodePreview className="preview" source={source} />
+            <CodePreview className="preview" source={source}>
+              <Button icon="arrows" title="Toggle Fullscreen" onClick={fullscreen} />
+              <Button icon="times" title="Close" onClick={hide} />
+            </CodePreview>
             <Measure>
               {({ content: { bounds: editorSize }, ref }) => (
                 <div className="monaco" ref={ref}>

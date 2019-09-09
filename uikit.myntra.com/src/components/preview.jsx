@@ -57,7 +57,9 @@ export default class Preview extends PureComponent {
           </div>
         }
       >
-        <div style={{ padding: '24px' }}>{Component ? <Component context={{ ...React, ...components }} /> : null}</div>
+        <div style={{ padding: '24px', marginTop: '24px' }}>
+          {Component ? <Component context={{ ...React, ...components }} /> : null}
+        </div>
       </Suspense>
     )
   }

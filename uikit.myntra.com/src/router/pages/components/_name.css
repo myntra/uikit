@@ -23,34 +23,12 @@
   transition: all 0.35s;
 }
 
-.editor .code-preview--refresh {
-  right: 80px;
-}
-
-.editor .code-preview--copy {
-  right: 120px;
-}
-
 .active .editor {
   left: var(--editor-position);
 }
 
 .active .content {
   transform: var(--content-position);
-}
-
-.editor .close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 10001;
-}
-
-.editor .fullscreen {
-  position: absolute;
-  top: 5px;
-  right: 2.6rem;
-  z-index: 10001;
 }
 
 .editor .preview {
@@ -78,4 +56,8 @@
   text-align: center;
   background: #efefef;
   border: 1px solid #ccc;
+}
+
+.preview .code-preview-button-container {
+  opacity: 1;
 }
