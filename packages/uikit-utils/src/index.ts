@@ -17,10 +17,14 @@ export function unique<T = unknown>(items: T[]): T[] {
 }
 
 export function get(target: any, keys: (string | number)[]) {
+  if (!keys.length) return undefined
   let currentTarget = target
 
   keys.every((key) => {
-    if (currentTarget == null) return false
+    if (currentTarget == null) {
+      currentTarget = undefined
+      return false
+    }
     if (typeof currentTarget !== 'object') {
       currentTarget = undefined
       return false
@@ -32,6 +36,28 @@ export function get(target: any, keys: (string | number)[]) {
   })
 
   return currentTarget
+}
+
+export function set(target: any, keys: (string | number)[], value: unknown) {
+  if (!keys.length) return target
+
+  let currentTarget = target == null ? (target = {}) : target
+  const lastKey = keys.pop()
+
+  keys.every((key) => {
+    if (currentTarget == null) return false
+    if (typeof currentTarget[key] !== 'object') {
+      currentTarget[key] = {}
+    }
+
+    currentTarget = currentTarget[key]
+
+    return true
+  })
+
+  currentTarget[lastKey] = value
+
+  return target
 }
 
 /**
@@ -267,7 +293,7 @@ export function isReactNodeType<
   P = any
 >(node: any, type: T): node is ReactElement<P, T> {
   if (!isValidElement(node)) return false
-  if (!node.type) return false
+  if (node.type == null) return false
   if (node.type === (type as any)) return true
   if ((node.type as any)._result === type) return true
   return false

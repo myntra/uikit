@@ -29,6 +29,7 @@
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.6.*",
     "@myntra/uikit-component-button": "1.6.*",
+    "@myntra/uikit-component-button-group": "link:../button-group",
     "@myntra/uikit-component-field": "1.6.*",
     "@myntra/uikit-component-grid": "1.6.*",
     "@myntra/uikit-component-input-checkbox": "1.6.*",
@@ -36,7 +37,7 @@
     "@myntra/uikit-component-input-masked": "1.6.*",
     "@myntra/uikit-component-input-month": "1.6.*",
     "@myntra/uikit-component-input-number": "1.6.*",
-    "@myntra/uikit-component-input-radio": "1.6.*",
+    "@myntra/uikit-component-input-radio": "link:../input-radio",
     "@myntra/uikit-component-input-s3-file": "1.6.*",
     "@myntra/uikit-component-input-select": "1.6.*",
     "@myntra/uikit-component-input-text": "1.6.*",

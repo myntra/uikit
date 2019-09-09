@@ -1,4 +1,6 @@
 import {
+  get,
+  set,
   classnames,
   unique,
   objectWithoutProperties,
@@ -180,4 +182,22 @@ describe('isEqualShallow', () => {
   expect(isEqualShallow([], null)).toBe(false)
   expect(isEqualShallow([1, 2], [1])).toBe(false)
   expect(isEqualShallow([1, 2], [1, 2])).toBe(true)
+})
+
+describe('get', () => {
+  expect(get(null, [])).toBe(undefined)
+  expect(get({ foo: 'foo' }, ['foo'])).toBe('foo')
+  expect(get({ foo: { bar: 'bar' } }, ['foo', 'bar'])).toBe('bar')
+  expect(get({ foo: { bar: 'bar' } }, ['foo', 'baz'])).toBe(undefined)
+  expect(get({ foo: { bar: 'bar' } }, ['foo', 'baz', 'bam'])).toBe(undefined)
+})
+
+describe('set', () => {
+  expect(set(null, [], 'foo')).toBe(null)
+  expect(set(null, ['foo'], 'foo')).toStrictEqual({ foo: 'foo' })
+  expect(set({ bar: 'bar' }, ['foo'], 'foo')).toStrictEqual({
+    foo: 'foo',
+    bar: 'bar',
+  })
+  expect(set({}, ['foo', 'bar'], 'bar')).toStrictEqual({ foo: { bar: 'bar' } })
 })

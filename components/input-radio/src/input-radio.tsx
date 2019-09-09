@@ -5,7 +5,7 @@ export interface Props extends BaseProps {
   /**
    * A list of options for the radio element.
    */
-  options: Array<{ value: string; title: string }>
+  options: Array<{ value: string; label: string }>
   /**
    * Selected option value.
    */
@@ -17,7 +17,7 @@ export interface Props extends BaseProps {
   /**
    * A render function to customize the appearance of each radio item.
    */
-  renderOption?(option: { value: string; title: string }): ReactNode
+  renderOption?(option: { value: string; label: string }): ReactNode
   /**
    * Disables all interaction on the radio element.
    */
@@ -67,7 +67,11 @@ export default class InputRadio extends PureComponent<Props> {
               onChange={this.handleChange}
               data-test-id={option.value}
             />
-            {renderOption ? renderOption(option) : <span> {option.title}</span>}
+            {renderOption ? (
+              renderOption({ ...option, title: option.label } as any)
+            ) : (
+              <span> {option.label || (option as any).title}</span>
+            )}
           </label>
         ))}
       </div>

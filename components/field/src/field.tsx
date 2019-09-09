@@ -1,4 +1,4 @@
-import React, { PureComponent, ReactNode, ComponentType } from 'react'
+import React, { PureComponent, ReactNode } from 'react'
 
 import classnames from './field.module.scss'
 
@@ -9,6 +9,7 @@ export interface Props extends BaseProps {
   title: ReactNode
   /** A small description to set the context of the input field. */
   description?: ReactNode
+
   /**
    * Display an error message instead of deccription
    */

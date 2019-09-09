@@ -1,5 +1,5 @@
 import React, {
-  Component,
+  PureComponent,
   ReactNode,
   FormEvent,
   Children,
@@ -34,26 +34,35 @@ import InputSelect, {
 import InputText, {
   Props as InputTextProps,
 } from '@myntra/uikit-component-input-text'
+import InputRadio, {
+  Props as InputRadioProps,
+} from '@myntra/uikit-component-input-radio'
 import InputTextArea, {
   Props as InputTextAreaProps,
 } from '@myntra/uikit-component-input-text-area'
 import Button from '@myntra/uikit-component-button'
-import { withField } from '@myntra/uikit-component-field'
+import ButtonGroup from '@myntra/uikit-component-button-group'
+import Field, { Props as FieldProps } from '@myntra/uikit-component-field'
+import { createContext } from '@myntra/uikit-context'
+import { get, set, isReactNodeType } from '@myntra/uikit-utils'
 
-import FormAction from './form-action'
 import classnames from './form.module.scss'
 
-function isReactNodeType<T extends string | JSXElementConstructor<any>>(
-  node: any,
-  type: T
-): node is ReactElement<any, T> {
-  if (!isValidElement(node)) return false
-  if (node.type === (type as any)) return true
-  if ((node.type as any)._result === type) return true
-  return false
+export interface FormContext {
+  value: unknown
+  onChange(value: any): void
+  createFieldProps(
+    name: string
+  ): {
+    value: unknown
+    onChange(value: unknown): void
+  }
 }
 
-export interface Props extends BaseProps {
+const FormContext = createContext<FormContext>(null)
+
+export interface Props<T extends Record<string, unknown> = {}>
+  extends BaseProps {
   /**
    * A heading/label for the form.
    */
@@ -70,6 +79,18 @@ export interface Props extends BaseProps {
    * @param event - Form submission event.
    */
   onSubmit?(event: FormEvent): void
+
+  /**
+   * Value of all form elements.
+   */
+  value?: T
+
+  /**
+   * The callback function called when form is submitted.
+   *
+   * @param event - Form submission event.
+   */
+  onChange?(value: T): void
 }
 
 export interface FormFieldProps
@@ -84,8 +105,8 @@ export interface FormFieldProps
  * @since 0.3.0
  * @status REVIEWING
  */
-export default class Form extends Component<Props> {
-  static Action = FormAction
+export default class Form extends PureComponent<Props> {
+  static Action = Button
 
   static Text = withField<InputTextProps & FormFieldProps>(InputText)
   static Select = withField<InputSelectProps & FormFieldProps>(InputSelect)
@@ -99,9 +120,12 @@ export default class Form extends Component<Props> {
   static S3File = withField<InputS3FileProps & FormFieldProps>(InputS3File)
   static Masked = withField<InputMaskedProps & FormFieldProps>(InputMasked)
   static Number = withField<InputNumberProps & FormFieldProps>(InputNumber)
+  static Radio = withField<InputRadioProps & FormFieldProps>(InputRadio)
   static TextArea = withField<InputTextAreaProps & FormFieldProps>(
     InputTextArea
   )
+
+  cache: Record<string, (value: unknown) => void> = {}
 
   handleSubmit = (event: FormEvent) => {
     event.preventDefault()
@@ -111,6 +135,26 @@ export default class Form extends Component<Props> {
     }
   }
 
+  createFieldProps = (name: string) => {
+    if (!name) return
+    if (!this.props.onChange) return
+
+    const result = {
+      value: get(this.props.value, name.split('.')),
+      onChange:
+        this.cache[name] ||
+        (this.cache[name] = (value) => {
+          if (this.props.onChange) {
+            this.props.onChange(
+              set({ ...this.props.value }, name.split('.'), value)
+            )
+          }
+        }),
+    }
+
+    return result
+  }
+
   render() {
     const {
       children,
@@ -118,44 +162,118 @@ export default class Form extends Component<Props> {
       defaultFieldSize,
       onSubmit,
       className,
+      value,
+      onChange,
       ...props
     } = this.props
 
     const fields = []
     const actions = []
+    let group = null
 
-    Children.map(children, (child) => {
-      // TODO: Identify button if it's lazy button.
+    Children.forEach(children, (child) => {
       if (
-        isReactNodeType(child, FormAction) ||
+        isReactNodeType(child, Form.Action) ||
         isReactNodeType(child, Button)
       ) {
         actions.push(child)
+      } else if (isReactNodeType(child, ButtonGroup)) {
+        group = child
       } else if (isValidElement(child) || child) {
         fields.push(child)
       }
     })
 
+    if (!group) {
+      group = <ButtonGroup></ButtonGroup>
+    }
+
+    if (actions.length) {
+      group = React.cloneElement(group, {
+        children: React.Children.toArray(group.props.children).concat(actions),
+      })
+    }
+
     return (
-      <form
-        {...props}
-        className={classnames('form', className)}
-        onSubmit={this.handleSubmit}
+      <FormContext.Provider
+        value={{
+          value,
+          onChange,
+          createFieldProps: this.createFieldProps,
+        }}
       >
-        {title && <div className={classnames('title')}>{title}</div>}
-        <Grid multiline gapless key="body">
-          {fields.map((field, index) => (
-            <Grid.Column
-              key={field.key || index}
-              size={(field.props && field.props.fieldSize) || defaultFieldSize}
-              {...(field.props && field.props.field)}
-            >
-              {field}
-            </Grid.Column>
-          ))}
-        </Grid>
-        <div className={classnames('actions')}>{actions}</div>
-      </form>
+        <form
+          {...props}
+          className={classnames('form', className)}
+          onSubmit={this.handleSubmit}
+        >
+          {title && <div className={classnames('title')}>{title}</div>}
+          <Grid multiline gapless key="body">
+            {fields.map((field, index) => (
+              <Grid.Column
+                key={field.key || index}
+                size={
+                  (field.props && field.props.fieldSize) || defaultFieldSize
+                }
+                {...(field.props && field.props.field)}
+              >
+                {field}
+              </Grid.Column>
+            ))}
+          </Grid>
+          <div className={classnames('actions')}>{group}</div>
+        </form>
+      </FormContext.Provider>
     )
+  }
+}
+
+function createFieldName(name: string) {
+  if (!name) return name
+
+  const field = name.replace(/[^a-z0-9]+/gi, '')
+
+  return field[0].toLowerCase() + field.substr(1)
+}
+
+function withField<P extends object>(BaseComponent: any) {
+  let counter = 0
+  const componentName = `FormField(${BaseComponent.name})`
+
+  return class extends PureComponent<P & FieldProps & { name?: string }> {
+    // @ts-ignore
+    static get name() {
+      return componentName
+    }
+
+    id = ++counter
+
+    render() {
+      const { label, error, description, required, ...props } = this.props
+      let id = props.id || `__uikit_field_${this.id}_`
+
+      return (
+        <FormContext.Consumer>
+          {({ createFieldProps }) => (
+            <Field
+              title={label}
+              error={error}
+              description={description}
+              required={required}
+              htmlFor={id}
+            >
+              <BaseComponent
+                {...createFieldProps(props.name || createFieldName(label))}
+                {...props}
+                required={required}
+                id={id}
+                aria-describedby={`${id}__description ${id}__error`}
+                aria-labelledby={`${id}__label`}
+              />
+            </Field>
+          )}
+        </FormContext.Consumer>
+      )
+    }
   }
 }

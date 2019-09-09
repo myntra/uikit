@@ -30,7 +30,7 @@ export default class ButtonGroup extends PureComponent<Props, State> {
       isOpen: false,
       sequenceMapping: {
         [KIND.primary]: KIND.secondary,
-        [KIND.secondary]: KIND.link,
+        [KIND.secondary]: KIND.text,
       },
     }
   }
@@ -110,7 +110,7 @@ export default class ButtonGroup extends PureComponent<Props, State> {
     }
 
     return (
-      <div className={classnames('button-group', className)}>
+      <div className={classnames('container', className)}>
         {buttons.reverse()}
         {moreElements && !!moreElements.length && (
           <Dropdown
@@ -120,15 +120,15 @@ export default class ButtonGroup extends PureComponent<Props, State> {
             isOpen={isOpen}
             onOpen={() => this.setOpen(true)}
             onClose={() => this.setOpen(false)}
-            className={classnames('more-button')}
+            className={classnames('menu')}
           >
             <List
-              className={classnames('button-list')}
+              className={classnames('items')}
               items={moreElements}
               idForItem={(item) => item.key}
             >
               {({ item, index }) =>
-                React.cloneElement(item, { type: KIND.link, key: index })
+                React.cloneElement(item, { type: KIND.text, key: index })
               }
             </List>
           </Dropdown>

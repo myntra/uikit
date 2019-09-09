@@ -4,6 +4,7 @@
 const Inquirer = require('inquirer')
 const webpack = require('webpack')
 const WebpackHTMLPlugin = require('html-webpack-plugin')
+const { DefinePlugin } = require('webpack')
 const WebpackChain = require('webpack-chain')
 const WebpackDevServer = require('webpack-dev-server')
 const { components, getPackageDir, componentsDir, packagesDir, kebabCase } = require('../../scripts/utils')
@@ -230,6 +231,8 @@ function startWebpackDevServer(component) {
       template: Path.resolve(__dirname, '../public/index.html')
     }
   ])
+
+  chain.plugin('define').use(DefinePlugin, [{ __DEV__: 'process.env.NODE_ENV !== "production"' }])
 
   const compiler = webpack(chain.toConfig())
   const server = new WebpackDevServer(compiler)

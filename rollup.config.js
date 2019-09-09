@@ -6,6 +6,7 @@ const nodeResolve = require('rollup-plugin-node-resolve')
 const css = require('@myntra/rollup-plugin-scss')
 const url = require('rollup-plugin-url')
 const del = require('rollup-plugin-delete')
+const replace = require('rollup-plugin-replace')
 const copy = require('rollup-plugin-copy')
 const size = require('rollup-plugin-bundle-size')
 
@@ -77,6 +78,9 @@ const config = {
           baseUrl: get('src'),
         },
       },
+    }),
+    replace({
+      __DEV__: 'process.env.NODE_ENV !== "production"',
     }),
   ],
 }

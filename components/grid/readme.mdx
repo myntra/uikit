@@ -1,5 +1,21 @@
 import Grid from './src/grid'
 
+export const _styles = (function () {
+  // Add some styles for showing grid column examples.
+  if (document.querySelector('#grid-example-override')) return
+  const style =  document.createElement('style')
+  style.id = 'grid-example-override'
+  style.textContent = `.grid-example .u-grid-column > div {
+    box-sizing: border-box;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
+    background: #efefef;
+    border: 1px solid #ccc;
+  }`
+  document.head.appendChild(style)
+})();
+
 # Grid
 
 <Documenter component={Grid}>

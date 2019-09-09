@@ -190,8 +190,8 @@ const [schema] = useState({
 });
 const [value, setValue] = useState();
 
-<SchemaForm schema={schema} value={value} onChange={setValue}>
-  <Form.Action type="primary">Save</Form.Action>
+<SchemaForm schema={schema} value={value} onChange={setValue} defaultFieldSize={3}>
+  <Button type="primary">Save</Button>
 </SchemaForm>
 ```
 

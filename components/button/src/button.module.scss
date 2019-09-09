@@ -100,10 +100,6 @@
     }
   }
 
-  + .button {
-    @include margin-left('small');
-  }
-
   &.inherit {
     color: currentColor;
 

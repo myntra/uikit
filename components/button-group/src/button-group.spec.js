@@ -49,7 +49,7 @@ describe('ButtonGroup', () => {
     )
 
     expect(wrapper.find({ type: 'secondary' })).toHaveLength(1)
-    expect(wrapper.find({ type: 'link' })).toHaveLength(1)
+    expect(wrapper.find({ type: 'text' })).toHaveLength(1)
   })
 
   it('should throw an error in case of repeated link buttons', () => {
@@ -74,7 +74,7 @@ describe('ButtonGroup', () => {
     )
     expect(wrapper.find(Button)).toHaveLength(2)
     expect(wrapper.find({ type: 'secondary' })).toHaveLength(1)
-    expect(wrapper.find({ type: 'link' })).toHaveLength(1)
+    expect(wrapper.find({ type: 'text' })).toHaveLength(1)
   })
 
   it('should follow the button sequence link -> secondary -> primary', () => {

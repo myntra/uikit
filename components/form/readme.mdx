@@ -45,8 +45,8 @@ const handleReset = useCallback(() => {
     description="Your date of birth"
   />
 
-  <Form.Action type="primary">Signup</Form.Action>
-  <Form.Action onClick={handleReset}>Reset</Form.Action>
+  <Button type="primary">Signup</Button>
+  <Button onClick={handleReset}>Reset</Button>
 </Form>
 ```
 
@@ -54,11 +54,60 @@ const handleReset = useCallback(() => {
 
 ## Available Form Fields
 
-- [`<Form.Action>`](./button)
 - [`<Form.CheckBox>`](./input-checkbox)
 - [`<Form.Date>`](./input-Date)
 - [`<Form.Masked>`](./input-masked)
 - [`<Form.Number>`](./input-number)
 - [`<Form.Select>`](./input-select)
+- [`<Form.Radio>`](./input-radio)
 - [`<Form.Text>`](./input-text)
 - [`<Form.TextArea>`](./input-text-area)
+
+## Examples
+
+```jsx preview
+const [value, setValue] = useState(null)
+const onSubmit = useCallback(value => console.log(value))
+
+<>
+  <Form title="Search Handover" onSubmit={onSubmit} value={value} onChange={setValue} defaultFieldSize={3}>
+    <Form.Select options={[{ value: 'NIKE', label: 'Nike' }, { value: 'PUMA', label: 'Puma' }]} label="Brand"/>
+    <Form.Text label="Article Type" />
+    <Form.Radio options={[{ value: 'MEN', title: 'Men'}, { value: 'WOMEN', title: 'Women'}]} label="Gender"  />
+    <Form.Text name="VAN.value" label="VAN" />
+
+    <Button type="primary">Search Handover</Button>
+    <Button type="text">Reset All</Button>
+  </Form>
+  <pre>{JSON.stringify(value, null, 2)}</pre>
+</>
+```
+
+```jsx preview
+const [value, setValue] = useState(null)
+const onSubmit = useCallback(value => console.log(value))
+
+<>
+  <Form title="Search Handover" onSubmit={onSubmit} value={value} onChange={setValue} defaultFieldSize={4}>
+    <Form.Text label="Article Type" />
+    <Form.Select options={[]} label="Gender"  />
+
+    <ButtonGroup structure="primary-group">
+      <Button type="primary">Search</Button>
+      <Button type="text">Action 1</Button>
+      <Button type="text">Action 2</Button>
+      <Button type="text">Action 3</Button>
+      <Button type="text">Action 4</Button>
+      <Button type="text">Action 5</Button>
+      <Button type="text">Action 6</Button>
+      <Button type="text">Action 7</Button>
+      <Button type="text">Action 8</Button>
+      <Button type="text">Action 9</Button>
+      <Button type="text">Action 10</Button>
+      <Button type="text">Action 11</Button>
+      <Button type="text">Action 12</Button>
+    </ButtonGroup>
+  </Form>
+  <pre>{JSON.stringify(value, null, 2)}</pre>
+</>
+```
