@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-bread-crumb",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "dist/bread-crumb.cjs.js",
   "module": "dist/bread-crumb.esm.js",
   "types": "dist/index.d.ts",
@@ -27,7 +27,7 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.6.*",
-    "@myntra/uikit-utils": "1.6.*"
+    "@myntra/uikit-can-i-use": "1.7.*",
+    "@myntra/uikit-utils": "1.7.*"
   }
 }

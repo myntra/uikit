@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-theme-nuclei",
-  "version": "1.6.0",
+  "version": "1.7.0",
   "main": "dist/nuclei.cjs.js",
   "module": "dist/nuclei.esm.js",
   "types": "dist/index.d.ts",
@@ -22,10 +22,10 @@
     "build:tokens": "tokenize src/tokens.yml"
   },
   "dependencies": {
-    "@myntra/accoutrement": "1.6.*",
-    "@myntra/uikit-design": "1.6.*"
+    "@myntra/accoutrement": "1.7.*",
+    "@myntra/uikit-design": "1.7.*"
   },
   "devDependencies": {
-    "@myntra/tokenizer": "1.6.*"
+    "@myntra/tokenizer": "1.7.*"
   }
 }

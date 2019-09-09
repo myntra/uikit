@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.7.0"></a>
+## 1.7.0 (2019-09-09)
+
+* fix(Button): Add some space between sibling buttons ([1c24472](https://bitbucket.org/myntra/uikit/commits/1c24472))
+* fix(docs): Use consistent className scheme ([9f245cf](https://bitbucket.org/myntra/uikit/commits/9f245cf))
+* fix(Table): Make <Table> block element ([3cde8fe](https://bitbucket.org/myntra/uikit/commits/3cde8fe)), closes [#177](https://bitbucket.org/myntra/uikit/issue/177)
+* feat(Form): Context based Form API (similar to redux-form) ([14aecb7](https://bitbucket.org/myntra/uikit/commits/14aecb7)), closes [#178](https://bitbucket.org/myntra/uikit/issue/178)
+* chore: Update master branch post release ([c505848](https://bitbucket.org/myntra/uikit/commits/c505848))
+
+
+
 <a name="1.6.0"></a>
 ## 1.6.0 (2019-09-06)
 
