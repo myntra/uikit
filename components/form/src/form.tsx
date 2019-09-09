@@ -106,6 +106,10 @@ export interface FormFieldProps
  * @status REVIEWING
  */
 export default class Form extends PureComponent<Props> {
+  static defaultProps = {
+    defaultFieldSize: 4,
+  }
+
   static Action = Button
 
   static Text = withField<InputTextProps & FormFieldProps>(InputText)

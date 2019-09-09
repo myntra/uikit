@@ -39,7 +39,7 @@ export default class Grid extends PureComponent<Props> {
       <div
         {...forwardedProps}
         className={classnames(
-          'columns',
+          'container',
           className,
           { multiline, centered, hcentered, vcentered, gapless },
           gap && ['variable-gap', 'gap-' + (gap || 'none')]
