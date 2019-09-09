@@ -205,7 +205,10 @@ export default class Dropdown extends Component<
 
   handleClickAway = (event) => {
     // Ignore clicks in trigger.
-    if (event && event.path.includes(this.triggerRef.current)) return
+    const path =
+      event.path || (event.composedPath ? event.composedPath() : undefined)
+
+    if (path && path.includes(this.triggerRef.current)) return
 
     this.close()
   }
