@@ -419,8 +419,21 @@ declare namespace Form {
   type InputS3FileProps = InputS3File.Props
   type InputSelectProps = InputSelect.Props
   type InputTextProps = InputText.Props
+  type InputRadioProps = InputRadio.Props
   type InputTextAreaProps = InputTextArea.Props
-  interface Props extends BaseProps {
+  type FieldProps = Field.Props
+  interface FormContext {
+    value: unknown
+    onChange(value: any): void
+    createFieldProps(
+      name: string
+    ): {
+      value: unknown
+      onChange(value: unknown): void
+    }
+  }
+
+  interface Props<T extends Record<string, unknown> = {}> extends BaseProps {
     /**
      * A heading/label for the form.
      */
@@ -435,19 +448,19 @@ declare namespace Form {
      * @param event - Form submission event.
      */
     onSubmit?(event: FormEvent): void
+    /**
+     * Value of all form elements.
+     */
+    value?: T
+    /**
+     * The callback function called when form is submitted.
+     *
+     * @param event - Form submission event.
+     */
+    onChange?(value: T): void
   }
 
   interface FormFieldProps extends Pick<GridColumnProps, Exclude<keyof GridColumnProps, 'className' | 'children'>> {}
-  // -----------[[Action]]--------------- //
-  /**
-   * @since 0.3.0
-   * @status REVIEWING
-   */
-  function Action(props: Action.Props): JSX.Element
-  namespace Action {
-    type ButtonProps = Button.Props
-    interface Props extends ButtonProps {}
-  }
 }
 
 declare namespace Grid {
@@ -1078,7 +1091,7 @@ declare namespace InputRadio {
      */
     options: Array<{
       value: string
-      title: string
+      label: string
     }>
     /**
      * Selected option value.
@@ -1091,7 +1104,7 @@ declare namespace InputRadio {
     /**
      * A render function to customize the appearance of each radio item.
      */
-    renderOption?(option: { value: string; title: string }): ReactNode
+    renderOption?(option: { value: string; label: string }): ReactNode
     /**
      * Disables all interaction on the radio element.
      */

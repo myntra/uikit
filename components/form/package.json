@@ -42,6 +42,7 @@
     "@myntra/uikit-component-input-select": "1.7.*",
     "@myntra/uikit-component-input-text": "1.7.*",
     "@myntra/uikit-component-input-text-area": "1.7.*",
+    "@myntra/uikit-context": "link:../../packages/uikit-context",
     "@myntra/uikit-utils": "1.7.*"
   }
 }

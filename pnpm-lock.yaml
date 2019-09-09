@@ -60,6 +60,7 @@ importers:
       rollup-plugin-delete: registry.npmjs.org/rollup-plugin-delete/1.0.0_rollup@1.18.0
       rollup-plugin-node-resolve: registry.npmjs.org/rollup-plugin-node-resolve/4.2.4
       rollup-plugin-postcss: registry.npmjs.org/rollup-plugin-postcss/2.0.3
+      rollup-plugin-replace: registry.npmjs.org/rollup-plugin-replace/2.2.0
       rollup-plugin-typescript2: registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.18.0+typescript@3.5.3
       rollup-plugin-url: registry.npmjs.org/rollup-plugin-url/2.2.2_rollup@1.18.0
       rxjs: registry.npmjs.org/rxjs/6.5.2
@@ -130,6 +131,7 @@ importers:
       rollup-plugin-delete: ^1.0.0
       rollup-plugin-node-resolve: ^4.0.1
       rollup-plugin-postcss: ^2.0.3
+      rollup-plugin-replace: ^2.2.0
       rollup-plugin-typescript2: ^0.20.1
       rollup-plugin-url: ^2.2.2
       rxjs: ^6.4.0
@@ -150,9 +152,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-context': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-context': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/alert:
@@ -182,8 +184,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       name-initials: ^0.1.3
       react: '>=15.4'
@@ -196,8 +198,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/banner:
@@ -211,10 +213,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/bread-crumb:
@@ -226,8 +228,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/button:
@@ -241,10 +243,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-context': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-context': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/button-group:
@@ -256,10 +258,10 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.2
     specifiers:
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-list': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-list': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': latest
   components/click-away:
     dependencies:
@@ -270,8 +272,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/dropdown:
@@ -288,12 +290,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-click-away': 1.5.*
-      '@myntra/uikit-component-measure': 1.5.*
-      '@myntra/uikit-component-portal': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-click-away': 1.7.*
+      '@myntra/uikit-component-measure': 1.7.*
+      '@myntra/uikit-component-portal': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -307,8 +309,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -322,8 +324,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -335,13 +337,14 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': latest
       react: '>=15.4'
   components/form:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
       '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-button-group': 'link:../button-group'
       '@myntra/uikit-component-field': 'link:../field'
       '@myntra/uikit-component-grid': 'link:../grid'
       '@myntra/uikit-component-input-checkbox': 'link:../input-checkbox'
@@ -354,27 +357,30 @@ importers:
       '@myntra/uikit-component-input-select': 'link:../input-select'
       '@myntra/uikit-component-input-text': 'link:../input-text'
       '@myntra/uikit-component-input-text-area': 'link:../input-text-area'
+      '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-field': 1.5.*
-      '@myntra/uikit-component-grid': 1.5.*
-      '@myntra/uikit-component-input-checkbox': 1.5.*
-      '@myntra/uikit-component-input-date': 1.5.*
-      '@myntra/uikit-component-input-masked': 1.5.*
-      '@myntra/uikit-component-input-month': 1.5.*
-      '@myntra/uikit-component-input-number': 1.5.*
-      '@myntra/uikit-component-input-radio': 1.5.*
-      '@myntra/uikit-component-input-s3-file': 1.5.*
-      '@myntra/uikit-component-input-select': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-component-input-text-area': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-button-group': 1.7.*
+      '@myntra/uikit-component-field': 1.7.*
+      '@myntra/uikit-component-grid': 1.7.*
+      '@myntra/uikit-component-input-checkbox': 1.7.*
+      '@myntra/uikit-component-input-date': 1.7.*
+      '@myntra/uikit-component-input-masked': 1.7.*
+      '@myntra/uikit-component-input-month': 1.7.*
+      '@myntra/uikit-component-input-number': 1.7.*
+      '@myntra/uikit-component-input-radio': 1.7.*
+      '@myntra/uikit-component-input-s3-file': 1.7.*
+      '@myntra/uikit-component-input-select': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-component-input-text-area': 1.7.*
+      '@myntra/uikit-context': 'link:../../packages/uikit-context'
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/grid:
@@ -388,9 +394,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.5.*
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/codemod-utils': 1.7.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -403,8 +409,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/icon:
@@ -421,9 +427,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/svg': 1.5.*
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/svg': 1.7.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       '@znck/promised': ^1.0.4
       glob: ^7.1.3
@@ -441,8 +447,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       intersection-observer-polyfill: ^0.1.0
       prop-types: ^15.7.2
@@ -457,9 +463,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-date:
@@ -477,12 +483,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-component-input-masked': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-component-input-masked': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       date-fns: ^2.0.0-alpha.27
       dayjs: ^1.8.14
@@ -495,9 +501,9 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     specifiers:
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': latest
   components/input-masked:
     dependencies:
@@ -509,9 +515,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-month:
@@ -526,11 +532,11 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-input-date': 1.5.*
-      '@myntra/uikit-component-input-masked': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-input-date': 1.7.*
+      '@myntra/uikit-component-input-masked': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-number:
@@ -543,9 +549,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-radio:
@@ -557,8 +563,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-s3-file:
@@ -573,11 +579,11 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-input-file': 1.5.*
-      '@myntra/uikit-component-progress': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-input-file': 1.7.*
+      '@myntra/uikit-component-progress': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-select:
@@ -594,12 +600,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-component-list': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-component-list': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
       sifter: ^0.5.3
@@ -614,10 +620,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.5.*
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/codemod-utils': 1.7.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/input-text-area:
@@ -630,9 +636,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/job-tracker:
@@ -649,12 +655,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-grid': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-component-progress': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-grid': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-component-progress': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       dayjs: ^1.8.14
       react: '>=15.4'
@@ -669,9 +675,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-virtual-list': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-virtual-list': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: 16.*
       scroll-into-view-if-needed: ^2.2.20
@@ -684,8 +690,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/measure:
@@ -700,8 +706,8 @@ importers:
       react: registry.npmjs.org/react/16.9.0
       react-dom: registry.npmjs.org/react-dom/16.9.0_react@16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -718,10 +724,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-portal': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-portal': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/nav-bar:
@@ -736,11 +742,11 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-avatar': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-context': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-avatar': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-context': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/page:
@@ -752,8 +758,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/pagination:
@@ -767,10 +773,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.5.*
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/codemod-utils': 1.7.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/portal:
@@ -784,8 +790,8 @@ importers:
       react: registry.npmjs.org/react/16.9.0
       react-dom: registry.npmjs.org/react-dom/16.9.0_react@16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -799,8 +805,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/schema-form:
@@ -816,12 +822,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-field': 1.5.*
-      '@myntra/uikit-component-form': 1.5.*
-      '@myntra/uikit-component-grid': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-field': 1.7.*
+      '@myntra/uikit-component-form': 1.7.*
+      '@myntra/uikit-component-grid': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/section:
@@ -834,9 +840,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/table:
@@ -858,18 +864,18 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-field': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-component-list': 1.5.*
-      '@myntra/uikit-component-measure': 1.5.*
-      '@myntra/uikit-component-virtual-grid': 1.5.*
-      '@myntra/uikit-component-virtual-list': 1.5.*
-      '@myntra/uikit-context': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-field': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-component-list': 1.7.*
+      '@myntra/uikit-component-measure': 1.7.*
+      '@myntra/uikit-component-virtual-grid': 1.7.*
+      '@myntra/uikit-component-virtual-list': 1.7.*
+      '@myntra/uikit-context': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/tabs:
@@ -881,8 +887,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/text:
@@ -893,7 +899,7 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8.23
       react: '>=15.4'
   components/tooltip:
@@ -906,9 +912,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: ^16.8.6
   components/top-bar:
@@ -924,12 +930,12 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-bread-crumb': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-component-list': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-bread-crumb': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-component-list': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/virtual-grid:
@@ -942,9 +948,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-virtual-list': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-virtual-list': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/virtual-list:
@@ -959,9 +965,9 @@ importers:
       react: registry.npmjs.org/react/16.9.0
       react-dom: registry.npmjs.org/react-dom/16.9.0_react@16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
-      '@myntra/uikit-component-measure': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
+      '@myntra/uikit-component-measure': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
       '@types/react': ^16.8
       '@types/react-dom': ^16.8.3
       react: '>=15.4'
@@ -1040,7 +1046,7 @@ importers:
       '@myntra/uikit-utils': 'link:../uikit-utils'
       loader-utils: registry.npmjs.org/loader-utils/1.2.3
     specifiers:
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-utils': 1.7.*
       loader-utils: ^1.1.0
   packages/codemod-utils:
     dependencies:
@@ -1053,7 +1059,7 @@ importers:
       jsdoc-api: registry.npmjs.org/jsdoc-api/4.0.3
       prettier: registry.npmjs.org/prettier/1.18.2
     specifiers:
-      '@myntra/eslint-config-standard': 1.5.*
+      '@myntra/eslint-config-standard': 1.7.*
       debug: ^3.1.0
       eslint: ^4.19.1
       execa: ^0.10.0
@@ -1223,54 +1229,54 @@ importers:
       '@myntra/uikit-component-virtual-list': 'link:../../components/virtual-list'
       '@myntra/uikit-utils': 'link:../uikit-utils'
     specifiers:
-      '@myntra/uikit-component-accordion': 1.5.*
-      '@myntra/uikit-component-avatar': 1.5.*
-      '@myntra/uikit-component-badge': 1.5.*
-      '@myntra/uikit-component-banner': 1.5.*
-      '@myntra/uikit-component-bread-crumb': 1.5.*
-      '@myntra/uikit-component-button': 1.5.*
-      '@myntra/uikit-component-button-group': 'link:../../components/button-group'
-      '@myntra/uikit-component-click-away': 1.5.*
-      '@myntra/uikit-component-dropdown': 1.5.*
-      '@myntra/uikit-component-error-boundary': 1.5.*
-      '@myntra/uikit-component-field': 1.5.*
-      '@myntra/uikit-component-flex': 1.5.*
-      '@myntra/uikit-component-form': 1.5.*
-      '@myntra/uikit-component-grid': 1.5.*
-      '@myntra/uikit-component-group': 1.5.*
-      '@myntra/uikit-component-icon': 1.5.*
-      '@myntra/uikit-component-image': 1.5.*
-      '@myntra/uikit-component-input-checkbox': 1.5.*
-      '@myntra/uikit-component-input-date': 1.5.*
-      '@myntra/uikit-component-input-file': 1.5.*
-      '@myntra/uikit-component-input-masked': 1.5.*
-      '@myntra/uikit-component-input-month': 1.5.*
-      '@myntra/uikit-component-input-number': 1.5.*
-      '@myntra/uikit-component-input-radio': 1.5.*
-      '@myntra/uikit-component-input-s3-file': 1.5.*
-      '@myntra/uikit-component-input-select': 1.5.*
-      '@myntra/uikit-component-input-text': 1.5.*
-      '@myntra/uikit-component-input-text-area': 1.5.*
-      '@myntra/uikit-component-job-tracker': 1.5.*
-      '@myntra/uikit-component-list': 1.5.*
-      '@myntra/uikit-component-loader': 1.5.*
-      '@myntra/uikit-component-measure': 1.5.*
-      '@myntra/uikit-component-modal': 1.5.*
-      '@myntra/uikit-component-nav-bar': 1.5.*
-      '@myntra/uikit-component-page': 1.5.*
-      '@myntra/uikit-component-pagination': 1.5.*
-      '@myntra/uikit-component-portal': 1.5.*
-      '@myntra/uikit-component-progress': 1.5.*
-      '@myntra/uikit-component-schema-form': 1.5.*
-      '@myntra/uikit-component-section': 1.5.*
-      '@myntra/uikit-component-table': 1.5.*
-      '@myntra/uikit-component-tabs': 1.5.*
-      '@myntra/uikit-component-text': 1.5.*
-      '@myntra/uikit-component-tooltip': 1.5.*
-      '@myntra/uikit-component-top-bar': 1.5.*
-      '@myntra/uikit-component-virtual-grid': 1.5.*
-      '@myntra/uikit-component-virtual-list': 1.5.*
-      '@myntra/uikit-utils': 1.5.*
+      '@myntra/uikit-component-accordion': 1.7.*
+      '@myntra/uikit-component-avatar': 1.7.*
+      '@myntra/uikit-component-badge': 1.7.*
+      '@myntra/uikit-component-banner': 1.7.*
+      '@myntra/uikit-component-bread-crumb': 1.7.*
+      '@myntra/uikit-component-button': 1.7.*
+      '@myntra/uikit-component-button-group': 1.7.*
+      '@myntra/uikit-component-click-away': 1.7.*
+      '@myntra/uikit-component-dropdown': 1.7.*
+      '@myntra/uikit-component-error-boundary': 1.7.*
+      '@myntra/uikit-component-field': 1.7.*
+      '@myntra/uikit-component-flex': 1.7.*
+      '@myntra/uikit-component-form': 1.7.*
+      '@myntra/uikit-component-grid': 1.7.*
+      '@myntra/uikit-component-group': 1.7.*
+      '@myntra/uikit-component-icon': 1.7.*
+      '@myntra/uikit-component-image': 1.7.*
+      '@myntra/uikit-component-input-checkbox': 1.7.*
+      '@myntra/uikit-component-input-date': 1.7.*
+      '@myntra/uikit-component-input-file': 1.7.*
+      '@myntra/uikit-component-input-masked': 1.7.*
+      '@myntra/uikit-component-input-month': 1.7.*
+      '@myntra/uikit-component-input-number': 1.7.*
+      '@myntra/uikit-component-input-radio': 1.7.*
+      '@myntra/uikit-component-input-s3-file': 1.7.*
+      '@myntra/uikit-component-input-select': 1.7.*
+      '@myntra/uikit-component-input-text': 1.7.*
+      '@myntra/uikit-component-input-text-area': 1.7.*
+      '@myntra/uikit-component-job-tracker': 1.7.*
+      '@myntra/uikit-component-list': 1.7.*
+      '@myntra/uikit-component-loader': 1.7.*
+      '@myntra/uikit-component-measure': 1.7.*
+      '@myntra/uikit-component-modal': 1.7.*
+      '@myntra/uikit-component-nav-bar': 1.7.*
+      '@myntra/uikit-component-page': 1.7.*
+      '@myntra/uikit-component-pagination': 1.7.*
+      '@myntra/uikit-component-portal': 1.7.*
+      '@myntra/uikit-component-progress': 1.7.*
+      '@myntra/uikit-component-schema-form': 1.7.*
+      '@myntra/uikit-component-section': 1.7.*
+      '@myntra/uikit-component-table': 1.7.*
+      '@myntra/uikit-component-tabs': 1.7.*
+      '@myntra/uikit-component-text': 1.7.*
+      '@myntra/uikit-component-tooltip': 1.7.*
+      '@myntra/uikit-component-top-bar': 1.7.*
+      '@myntra/uikit-component-virtual-grid': 1.7.*
+      '@myntra/uikit-component-virtual-list': 1.7.*
+      '@myntra/uikit-utils': 1.7.*
   packages/uikit-can-i-use:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
@@ -1327,7 +1333,7 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     specifiers:
-      '@myntra/uikit-can-i-use': 1.5.*
+      '@myntra/uikit-can-i-use': 1.7.*
       '@types/react': ^16.8.10
       react: ^16.8.4
   packages/uikit-design:
@@ -1347,9 +1353,9 @@ importers:
     devDependencies:
       '@myntra/tokenizer': 'link:../../packages/tokenizer'
     specifiers:
-      '@myntra/accoutrement': 1.5.*
-      '@myntra/tokenizer': 1.5.*
-      '@myntra/uikit-design': 1.5.*
+      '@myntra/accoutrement': 1.7.*
+      '@myntra/tokenizer': 1.7.*
+      '@myntra/uikit-design': 1.7.*
   uikit.myntra.com:
     dependencies:
       '@babel/standalone': registry.npmjs.org/@babel/standalone/7.5.5
@@ -16097,6 +16103,16 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/lru-cache/-/lru-cache-5.1.1.tgz'
     version: 5.1.1
+  registry.npmjs.org/magic-string/0.25.3:
+    dependencies:
+      sourcemap-codec: registry.npmjs.org/sourcemap-codec/1.4.6
+    dev: true
+    name: magic-string
+    resolution:
+      integrity: sha512-6QK0OpF/phMz0Q2AxILkX2mFhi7m+WMwTRg0LQKq/WBB0cDP4rYH3Wp4/d3OTXlrPLVJT/RFqj8tFeAR4nk8AA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/magic-string/-/magic-string-0.25.3.tgz'
+    version: 0.25.3
   registry.npmjs.org/make-dir/2.1.0:
     dependencies:
       pify: registry.npmjs.org/pify/4.0.1
@@ -21213,6 +21229,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/rollup-plugin-postcss/-/rollup-plugin-postcss-2.0.3.tgz'
     version: 2.0.3
+  registry.npmjs.org/rollup-plugin-replace/2.2.0:
+    dependencies:
+      magic-string: registry.npmjs.org/magic-string/0.25.3
+      rollup-pluginutils: registry.npmjs.org/rollup-pluginutils/2.8.1
+    dev: true
+    name: rollup-plugin-replace
+    resolution:
+      integrity: sha512-/5bxtUPkDHyBJAKketb4NfaeZjL5yLZdeUihSfbF2PQMz+rSTEb8ARKoOl3UBT4m7/X+QOXJo3sLTcq+yMMYTA==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/rollup-plugin-replace/-/rollup-plugin-replace-2.2.0.tgz'
+    version: 2.2.0
   registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.18.0+typescript@3.5.3:
     dependencies:
       fs-extra: registry.npmjs.org/fs-extra/7.0.1
@@ -22170,6 +22197,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/source-map/-/source-map-0.6.1.tgz'
     version: 0.6.1
+  registry.npmjs.org/sourcemap-codec/1.4.6:
+    dev: true
+    name: sourcemap-codec
+    resolution:
+      integrity: sha512-1ZooVLYFxC448piVLBbtOxFcXwnymH9oUF8nRd3CuYDVvkRBxRl6pB4Mtas5a4drtL+E8LDgFkQNcgIw6tc8Hg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/sourcemap-codec/-/sourcemap-codec-1.4.6.tgz'
+    version: 1.4.6
   registry.npmjs.org/spdx-correct/3.1.0:
     dependencies:
       spdx-expression-parse: registry.npmjs.org/spdx-expression-parse/3.0.0
