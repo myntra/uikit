@@ -113,6 +113,9 @@ const [data] = useState([
 Just mark a column [sortable](#TableColumn-sortable) and sorting handles would appear
 on the column header.
 
+To use filters, value field in the filter data should match the exact display data of that column. Use onFilter/onSort props for any other use case.
+Eg: in below table, value field from the filter data will be matched to the name field from the table data.
+
 ```jsx preview
 const [data] = useState([
   { id: 1, name: 'John Doe' },
@@ -154,19 +157,23 @@ const [data] = useState(
     {({ data }) => <div>{data.id}</div>}
   </Table.Column>
   <Table.Column key="name" label="Name" fixed>
-  <Table.Column key="firstName" label="First Name">
-    <Table.Column key="realFirstName" label="First Name" minWidth={120}>
+  <Table.Column key="firstName" label="First Name" minWidth={120}>
       {({ data }) => <div>{data.firstName}</div>}
     </Table.Column>
-  </Table.Column>
   <Table.Column key="lastName" label="Last Name" minWidth={120}>
     {({ data }) => <div>{data.lastName}</div>}
   </Table.Column>
   </Table.Column>
 
-  {Array(997).fill(0).map((_, index) => (
-    <Table.Column key={'lastName' + index} label={`Column (${index + 4})`} minWidth={100}>
-      {({ data }) => <div>{data.lastName}</div>}
+  {Array(20).fill(0).map((_, group) => (
+    <Table.Column key={'group' + group} label={`Group (${group + 1})`} minWidth={100}>
+      {
+        Array(50).fill(0).map((_, index) => (
+          <Table.Column key={`group-${group}-column-${index}`} label={`Column ${index + 1}`} minWidth={120}>
+            {({ data }) => <div>{data.lastName}</div>}
+          </Table.Column>
+        ))
+      }
     </Table.Column>
   ))}
 
@@ -201,6 +208,22 @@ const [data] = useState([
 <Table data={data}>
   {/* Table.Column should be direct child of Table or Table.Column. */}
   <Table.Column label="Name" key="name" />
+</Table>
+```
+
+</Documenter>
+
+### Table.Filter
+
+<Documenter component={Table.Filter} sub>
+
+```jsx preview
+const [data] = useState(Array(10).fill(null).map((_, value) => ({ value })));
+
+<Table data={data}>
+  <Table.Filter>
+    <Table.Column key="value" label="Value" minWidth={200} />
+  </Table.Filter>
 </Table>
 ```
 
@@ -244,23 +267,6 @@ const [data] = useState([
       <Table.TR style={{ ...style, color: 'green' }}>{children}</Table.TR>
     )}
   </Table.Row>
-</Table>
-```
-
-</Documenter>
-
-
-### Table.Filter
-
-<Documenter component={Table.Filter} sub>
-
-```jsx preview
-const [data] = useState(Array(40).fill(null).map((_, value) => ({ value })));
-
-<Table data={data}>
-  <Table.Filter>
-    <Table.Column key="value" label="Value" minWidth={200} />
-  </Table.Filter>
 </Table>
 ```
 

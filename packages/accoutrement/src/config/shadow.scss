@@ -1,6 +1,8 @@
 $shadows: (
   'none': none,
   'small': 0 3px 11px 0 rgba(0, 0, 0, 0.21),
+  'small.left': 0 -4px 10px 0 rgba(0, 0, 0, 0.21),
+  'small.right': 0 4px 10px 0 rgba(0, 0, 0, 0.21),
   'raised': '#small',
 );
 

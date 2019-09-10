@@ -121,6 +121,7 @@ export default class TableFilterDropdown extends Component<
       <Dropdown
         isOpen={this.state.isOpen}
         onOpen={this.handleOpen}
+        auto={true}
         onClose={this.handleClose}
         renderTrigger={(props) => (
           <div

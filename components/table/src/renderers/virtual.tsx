@@ -16,6 +16,13 @@ export interface Props extends BaseProps {
   ): { value: T; onChange(value: T): void }
 }
 
+export interface State {
+  width: number
+  height: number
+  showFixedStart: boolean
+  showFixedEnd: boolean
+}
+
 const ESTIMATED_CELL_HEIGHT = 38
 const ESTIMATED_CELL_WIDTH = 16
 const ESTIMATED_HEADER_HEIGHT = 30
@@ -27,13 +34,12 @@ const TD = ({ className, ...props }: BaseProps) => (
   <div className={classnames('td', className)} {...props} />
 )
 
-export default class VirtualTable extends PureComponent<
-  Props,
-  { width: number; height: number }
-> {
+export default class VirtualTable extends PureComponent<Props, State> {
   state = {
     width: 0,
     height: 0,
+    showFixedStart: false,
+    showFixedEnd: true,
   }
 
   headRef = createRef<VirtualList>()
@@ -57,6 +63,20 @@ export default class VirtualTable extends PureComponent<
 
     this.headRef.current.scrollTo(target)
     this.bodyRef.current.scrollTo(target)
+
+    const lastColumn = this.props.config.cells[
+      this.props.config.cells.length - 1
+    ]
+    const showFixedStart = target.scrollLeft > 0
+    const showFixedEnd =
+      target.scrollLeft + target.offsetWidth < target.scrollWidth
+
+    if (
+      showFixedEnd !== this.state.showFixedEnd ||
+      showFixedStart !== this.state.showFixedStart
+    ) {
+      this.setState({ showFixedEnd, showFixedStart })
+    }
   }
 
   defaultRowRenderer: Row<any> = {
@@ -105,7 +125,7 @@ export default class VirtualTable extends PureComponent<
       width += this.findColumnWidthByIndex(i, useEstimates)
     }
 
-    return Number.isNaN(width) ? null : width
+    return Number.isNaN(width) ? null : Math.max(width, column.minWidth || 0)
   }
 
   renderColumn(column: Column, offsetScroll: number, offset: number) {
@@ -226,7 +246,9 @@ export default class VirtualTable extends PureComponent<
                         >
                           {start.length ? (
                             <div
-                              className={classnames('fixed')}
+                              className={classnames('fixed', {
+                                show: this.state.showFixedStart,
+                              })}
                               key="start"
                               style={{
                                 left: offsetScroll,
@@ -239,7 +261,9 @@ export default class VirtualTable extends PureComponent<
                           {middle}
                           {end.length ? (
                             <div
-                              className={classnames('fixed', 'end')}
+                              className={classnames('fixed', 'end', {
+                                show: this.state.showFixedEnd,
+                              })}
                               key="end"
                               style={{
                                 left: offsetScroll + this.state.width,
@@ -272,114 +296,120 @@ export default class VirtualTable extends PureComponent<
                       )
                     }}
                   </VirtualList>
-
-                  <VirtualGrid
-                    ref={this.bodyRef}
-                    rows={data.length}
-                    columns={body.length}
-                    fixedColumnsFromStart={bodyFixedStartCount}
-                    fixedColumnsFromEnd={bodyFixedEndCount}
-                    height={this.state.height}
-                    width={this.state.width}
-                    renderContainer={({ children, style }) => (
-                      <div style={style} className={classnames('tbody')}>
-                        {children}
-                      </div>
-                    )}
-                    renderScroller={({ children }) =>
-                      React.Children.only(children)
-                    }
-                    renderRow={({
-                      rowIndex,
-                      offsetTop,
-                      scrollLeft,
-                      isScrolling,
-                      children,
-                      height,
-                    }) => {
-                      const start = children.slice(0, bodyFixedStartCount)
-                      const middle = children.slice(
-                        bodyFixedStartCount,
-                        children.length - bodyFixedEndCount
-                      )
-                      const end = children.slice(
-                        children.length - bodyFixedEndCount
-                      )
-
-                      const row = this.getRowRenderer(rowIndex)
-                      return row.render({
-                        rowIndex,
-                        rowId: rowIndex,
-                        item: data[rowIndex],
-                        className: classnames('tr'),
-                        style: {
-                          top: offsetTop + 'px',
-                          height: height + 'px',
-                          pointerEvents: isScrolling ? 'none' : null,
-                        },
-                        children: [
-                          start.length ? (
-                            <div
-                              key="start"
-                              className={classnames('fixed')}
-                              style={{ left: scrollLeft }}
-                            >
-                              {start}
-                            </div>
-                          ) : null,
-                          middle,
-                          end.length ? (
-                            <div
-                              key="end"
-                              className={classnames('fixed', 'end')}
-                              style={{ left: scrollLeft + this.state.width }}
-                            >
-                              {end}
-                            </div>
-                          ) : null,
-                        ],
-                      })
-                    }}
-                    estimatedCellHeight={ESTIMATED_CELL_HEIGHT}
-                    estimatedCellWidth={cellWidth}
-                  >
-                    {({ rowIndex, columnIndex, style }) => {
-                      const cell = body[columnIndex]
-                      const row = this.getRowRenderer(rowIndex)
-                      const props = {
-                        index: rowIndex,
-                        rowId: rowIndex,
-                        columnId: cell.id,
-                        item: data[rowIndex],
-                        data: data[rowIndex],
-                        value: cell.accessor(data[rowIndex], rowIndex),
-                      }
-
-                      return (
-                        <div
-                          className={classnames('td')}
-                          key={cell.id}
-                          data-row-index={rowIndex}
-                          data-column-index={columnIndex}
-                          style={{
-                            ...style,
-                            top: 0,
-                            minWidth: Math.max(
-                              cell.colSpan * cellWidth,
-                              cell.minWidth
-                            ),
-                            position: null,
-                          }}
-                        >
-                          {row.editing !== false &&
-                          cell.editing &&
-                          cell.renderEditor
-                            ? cell.renderEditor(props)
-                            : cell.renderCell(props)}
+                  {!!data.length && (
+                    <VirtualGrid
+                      ref={this.bodyRef}
+                      rows={data.length}
+                      columns={body.length}
+                      fixedColumnsFromStart={bodyFixedStartCount}
+                      fixedColumnsFromEnd={bodyFixedEndCount}
+                      height={this.state.height}
+                      width={this.state.width}
+                      renderContainer={({ children, style }) => (
+                        <div style={style} className={classnames('tbody')}>
+                          {children}
                         </div>
-                      )
-                    }}
-                  </VirtualGrid>
+                      )}
+                      renderScroller={({ children }) =>
+                        React.Children.only(children)
+                      }
+                      renderRow={({
+                        rowIndex,
+                        offsetTop,
+                        scrollLeft,
+                        isScrolling,
+                        children,
+                        height,
+                      }) => {
+                        const start = children.slice(0, bodyFixedStartCount)
+                        const middle = children.slice(
+                          bodyFixedStartCount,
+                          children.length - bodyFixedEndCount
+                        )
+                        const end = children.slice(
+                          children.length - bodyFixedEndCount
+                        )
+
+                        const row = this.getRowRenderer(rowIndex)
+                        return row.render({
+                          rowIndex,
+                          rowId: rowIndex,
+                          item: data[rowIndex],
+                          className: classnames('tr'),
+                          style: {
+                            top: offsetTop + 'px',
+                            height: height + 'px',
+                            pointerEvents: isScrolling ? 'none' : null,
+                          },
+                          children: [
+                            start.length ? (
+                              <div
+                                key="start"
+                                className={classnames('fixed', {
+                                  show: this.state.showFixedStart,
+                                })}
+                                style={{ left: scrollLeft }}
+                              >
+                                {start}
+                              </div>
+                            ) : null,
+                            middle,
+                            end.length ? (
+                              <div
+                                key="end"
+                                className={classnames('fixed', 'end', {
+                                  show: this.state.showFixedEnd,
+                                })}
+                                style={{ left: scrollLeft + this.state.width }}
+                              >
+                                {end}
+                              </div>
+                            ) : null,
+                          ],
+                        })
+                      }}
+                      estimatedCellHeight={ESTIMATED_CELL_HEIGHT}
+                      estimatedCellWidth={cellWidth}
+                    >
+                      {({ rowIndex, columnIndex, style }) => {
+                        const cell = body[columnIndex]
+                        const row = this.getRowRenderer(rowIndex)
+                        const props = {
+                          index: rowIndex,
+                          rowId: rowIndex,
+                          columnId: cell.id,
+                          item: data[rowIndex],
+                          data: data[rowIndex],
+                          value: cell.accessor(data[rowIndex], rowIndex),
+                        }
+
+                        return (
+                          <div
+                            className={classnames('td')}
+                            key={cell.id}
+                            data-row-index={rowIndex}
+                            data-column-index={columnIndex}
+                            style={{
+                              ...style,
+                              top: 0,
+                              minWidth: Math.max(
+                                cell.colSpan * cellWidth,
+                                this.findColumnWidthByIndex(columnIndex),
+                                config.cells[columnIndex].minWidth || 0
+                              ),
+                              position: null,
+                            }}
+                          >
+                            {row.editing !== false &&
+                            cell.editing &&
+                            cell.renderEditor
+                              ? cell.renderEditor(props)
+                              : cell.renderCell(props)}
+                          </div>
+                        )
+                      }}
+                    </VirtualGrid>
+                  )}
                 </div>
               </ScrollObserver>
             </Measure>

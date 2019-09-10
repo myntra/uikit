@@ -21,3 +21,19 @@
 @mixin border-bottom($token) {
   border-bottom: border-bottom($token);
 }
+
+@function border-right($token, $source: $borders) {
+  @return get-token($borders, $token);
+}
+
+@mixin border-right($token) {
+  border-right: border-bottom($token);
+}
+
+@function border-left($token, $source: $borders) {
+  @return get-token($borders, $token);
+}
+
+@mixin border-left($token) {
+  border-left: border-left($token);
+}

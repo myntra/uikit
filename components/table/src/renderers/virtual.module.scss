@@ -1,11 +1,11 @@
-@import '@design';
-
-$-border: 1px solid #ccc;
+/* stylelint-disable no-descending-specificity */
+@import '@accoutrement';
 
 .virtual {
   width: 100%;
   height: 100%;
 
+  /* TODO: Move to global reset. */
   * {
     box-sizing: border-box;
   }
@@ -26,7 +26,6 @@ $-border: 1px solid #ccc;
     z-index: 0;
     flex: 1;
     overflow: auto;
-    border: $-border;
 
     .h-col {
       display: flex;
@@ -34,7 +33,6 @@ $-border: 1px solid #ccc;
       justify-content: space-around;
       width: 100%;
       height: 100%;
-      border-right: $-border;
     }
 
     .h-col-head {
@@ -54,7 +52,6 @@ $-border: 1px solid #ccc;
       flex-direction: row;
       width: 100%;
       height: 100%;
-      border-top: $-border;
 
       .h-col:last-child {
         border-right: none;
@@ -62,9 +59,11 @@ $-border: 1px solid #ccc;
     }
 
     .thead {
+      @include border-bottom('table.tr');
+
       z-index: -1;
       display: flex;
-      border-bottom: $-border;
+      border-color: color('table.border');
 
       // This keeps fixed columns stuck to edges when scrolling.
       clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
@@ -77,65 +76,67 @@ $-border: 1px solid #ccc;
     .th {
       position: absolute;
       height: 100%;
-      font-weight: bold;
-      background-color: #ddd;
-    }
-
-    .thead > .th:last-child > .h-col {
-      border-right: none;
+      font-weight: bold; /* TODO: Use table typography. */
+      background-color: color('table.head');
     }
 
     .td {
+      @include padding('table.td');
+
       position: absolute;
-      padding: 6px 13px;
-      border-right: 1px solid #ccc;
     }
 
     .tr {
+      @include border-bottom('table.tr');
+
       position: absolute;
       right: 0;
       left: 0;
       overflow: hidden;
-      border-bottom: $-border;
+      border-color: color('table.border');
 
       .td {
-        background-color: #fff;
+        background-color: color('table.body');
       }
 
-      &:nth-child(2n) .td {
-        background-color: #f8f8f8;
-      }
-    }
-
-    .tr,
-    .thead {
-      .fixed {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        z-index: 1;
-        display: flex;
-
-        &.end {
-          margin-left: calc(0 - var(--scroll-bar-width, 0));
-          border-left: $-border;
-          transform: translateX(-100%);
-        }
-
-        > .td,
-        > .th {
-          position: initial;
-          display: inline-flex;
+      &:hover {
+        .td {
+          background-color: color('table.hover');
         }
       }
     }
 
-    .tr:last-child {
-      border-bottom: none;
-    }
+    .fixed {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      z-index: 1;
+      display: flex;
 
-    .tr > .td:last-child {
-      border-right: none;
+      &.show:not(.end) {
+        @include border-right('table.tr');
+        @include shadow('small.right');
+
+        border-color: color('table.border');
+      }
+
+      &.end {
+        margin-left: calc(0 - var(--scroll-bar-width, 0));
+        transform: translateX(-100%);
+
+        &.show {
+          @include border-left('table.tr');
+          @include shadow('small.left');
+
+          border-color: color('table.border');
+        }
+      }
+
+      > .td,
+      > .th {
+        position: initial;
+        display: inline-flex;
+      }
     }
   }
 }

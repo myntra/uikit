@@ -45,6 +45,12 @@
       background-color: color('table.body');
       border-color: color('table.border');
     }
+
+    tr:hover {
+      td {
+        background-color: color('table.hover');
+      }
+    }
   }
 
   .fixed {
