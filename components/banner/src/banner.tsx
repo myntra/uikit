@@ -10,6 +10,13 @@ interface Props extends BaseProps {
   type?: 'error' | 'warning' | 'success'
   /**
    *
+   * _TIP:_ Set `icon` to `null` to remove icon.
+   *
+   * @since 1.6.0
+   */
+  icon?: IconName
+  /**
+   * @since 1.6.0
    */
   title?: string
   /**
@@ -22,12 +29,11 @@ interface Props extends BaseProps {
   children: string | JSX.Element
 }
 
-const ICONS = {
+const ICONS: Record<string, IconName> = {
   error: 'exclamation-triangle',
-  warning: 'exclamation-triangle',
+  warning: 'exclamation-circle',
   success: 'check-circle',
-  primary: 'info-circle',
-} as Record<string, IconName>
+}
 
 // Design: https://zpl.io/bA7ZRWp
 // Documentation: https://zpl.io/bJGxg6E
@@ -37,14 +43,15 @@ const ICONS = {
  * Use this component if you need to communicate to users in a prominent way.
  * Banners are placed at the top of the page or section they apply to, and below the page or section header.
  *
- * @since 0.3.0
+ * @since 1.6.0
  * @status READY
  * @category basic
  * @see https://uikit.myntra.com/components/alert
  */
-export default function Alert({
+export default function Banner({
   className,
   type,
+  icon,
   title,
   solid,
   onClose,
@@ -54,6 +61,7 @@ export default function Alert({
   const typeName = (type as any) === 'primary' ? 'success' : type
   const heading = title || children
   const body = title ? children : null
+  const iconName = icon === undefined ? ICONS[type] : icon
 
   return (
     <div
@@ -61,7 +69,9 @@ export default function Alert({
       className={classnames('container', typeName, className)}
       role="alert"
     >
-      <Icon className={classnames('icon')} name={ICONS[type]} />
+      {iconName ? (
+        <Icon className={classnames('icon', { top: !!body })} name={iconName} />
+      ) : null}
       <div className={classnames('content')}>
         <div className={classnames('title')}>{heading}</div>
         {body ? <div className={classnames('body')}>{body}</div> : null}
@@ -80,6 +90,6 @@ export default function Alert({
   )
 }
 
-Alert.defaultProps = {
+Banner.defaultProps = {
   type: 'error',
 }

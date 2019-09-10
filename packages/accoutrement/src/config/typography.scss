@@ -32,23 +32,23 @@ $text-sizes: (
     ),
   'h2': '#root'
     (
-      'times': 3.75,
+      'times': 1.25,
     ),
   'h3': '#root'
     (
-      'times': 3,
+      'times': 1,
     ),
   'h4': '#root'
     (
-      'times': 2.125,
+      'times': 1,
     ),
   'h5': '#root'
     (
-      'times': 1.5,
+      'times': 1,
     ),
   'h6': '#root'
     (
-      'times': 1.25,
+      'times': 1,
     ),
   'title': '#root'
     (
@@ -103,7 +103,7 @@ $-default-typography: (
   'h3': (
     'size': 'h3',
     'family': 'heading',
-    'weight': 400,
+    'weight': 500,
   ),
   'h4': (
     'size': 'h4',

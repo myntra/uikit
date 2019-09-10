@@ -1,9 +1,9 @@
 @import '@accoutrement';
 
 .container {
-  @include padding('alert');
-  @include border('alert');
-  @include border-radius('alert');
+  @include padding('banner');
+  @include border('banner');
+  @include border-radius('banner');
 
   display: flex;
   flex-direction: row;
@@ -35,19 +35,27 @@
   }
 
   .icon {
-    margin-right: padding-left('alert');
+    margin-right: padding-left('banner');
+    transform: scale(1.5);
+    transform-origin: center center;
+
+    &.top {
+      transform-origin: top center;
+    }
   }
 
   .title {
-    @include typography('subtitle');
+    @include typography('h3');
   }
 
   .body {
     @include typography('body');
+
+    margin-top: margin-top('banner.body');
   }
 
   .close {
-    margin-top: negative(padding-top('alert'));
-    margin-right: negative(padding-right('alert'));
+    margin-top: negative(padding-top('banner'));
+    margin-right: negative(padding-right('banner'));
   }
 }
