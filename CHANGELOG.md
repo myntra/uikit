@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.0"></a>
+## 1.8.0 (2019-09-10)
+
+* feat(Banner): Use new style system ([8fd2031](https://bitbucket.org/myntra/uikit/commits/8fd2031)), closes [#173](https://bitbucket.org/myntra/uikit/issue/173)
+* feat(uikit): Add a small CSS reset for applications ([7596e29](https://bitbucket.org/myntra/uikit/commits/7596e29)), closes [#184](https://bitbucket.org/myntra/uikit/issue/184)
+* fix(Table): Use accoutrement and fix styles ([55465a5](https://bitbucket.org/myntra/uikit/commits/55465a5)), closes [#183](https://bitbucket.org/myntra/uikit/issue/183)
+
+
+
 <a name="1.7.3"></a>
 ## <small>1.7.3 (2019-09-09)</small>
 

@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-button",
-  "version": "1.7.3",
+  "version": "1.8.0",
   "main": "dist/button.cjs.js",
   "module": "dist/button.esm.js",
   "types": "dist/index.d.ts",
@@ -27,9 +27,9 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.7.*",
-    "@myntra/uikit-component-icon": "1.7.*",
-    "@myntra/uikit-context": "1.7.*",
-    "@myntra/uikit-utils": "1.7.*"
+    "@myntra/uikit-can-i-use": "1.8.*",
+    "@myntra/uikit-component-icon": "1.8.*",
+    "@myntra/uikit-context": "1.8.*",
+    "@myntra/uikit-utils": "1.8.*"
   }
 }
