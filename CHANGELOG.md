@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.1"></a>
+## <small>1.8.1 (2019-09-10)</small>
+
+
+
+
 <a name="1.8.0"></a>
 ## 1.8.0 (2019-09-10)
 
