@@ -108,7 +108,7 @@
     "rollup-plugin-typescript2": "^0.20.1",
     "rollup-plugin-url": "^2.2.2",
     "rxjs": "^6.4.0",
-    "sass": "^1.17.3",
+    "sass": "^1.23.0-module.beta.1",
     "serve": "^11.0.0",
     "standard-version": "^4.4.0",
     "stylelint": "^9.10.1",

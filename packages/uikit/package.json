@@ -4,6 +4,7 @@
   "main": "dist/uikit.cjs.js",
   "module": "dist/uikit.esm.js",
   "types": "dist/index.d.ts",
+  "style": "design.css",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-components",
@@ -15,8 +16,12 @@
     "dist/",
     "bin/",
     "*.codemod.js",
-    "*.scss"
+    "*.scss",
+    "*.css"
   ],
+  "scripts": {
+    "build": "sass design.scss:design.css"
+  },
   "sideEffects": false,
   "dependencies": {
     "@myntra/uikit-component-accordion": "1.7.*",
@@ -67,5 +72,8 @@
     "@myntra/uikit-component-virtual-grid": "1.7.*",
     "@myntra/uikit-component-virtual-list": "1.7.*",
     "@myntra/uikit-utils": "1.7.*"
+  },
+  "devDependencies": {
+    "sass": "^1.23.0-module.beta.1"
   }
 }

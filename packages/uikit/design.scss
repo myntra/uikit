@@ -1,1 +1,17 @@
-@import '@design';
+/* stylelint-disable */
+@import '../accoutrement/src/index.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  @include font-family('body');
+
+  font-size: size('root');
+  line-height: 1.5;
+}
