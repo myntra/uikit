@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-accordion",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "main": "dist/accordion.cjs.js",
   "module": "dist/accordion.esm.js",
   "types": "dist/index.d.ts",

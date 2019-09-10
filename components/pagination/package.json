@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-pagination",
-  "version": "1.8.1",
+  "version": "1.8.2",
   "main": "dist/pagination.cjs.js",
   "module": "dist/pagination.esm.js",
   "types": "dist/index.d.ts",
