@@ -128,7 +128,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
     return Number.isNaN(width) ? null : Math.max(width, column.minWidth || 0)
   }
 
-  renderColumn(column: Column, offsetScroll: number, offset: number) {
+  renderColumn(column: Column, offsetScroll: number, fixedColumnWidth: number) {
     return (
       <div
         key={column.id}
@@ -140,9 +140,11 @@ export default class VirtualTable extends PureComponent<Props, State> {
           style={
             column.fixed === undefined && column.columns.length
               ? {
-                  width: this.state.width - (offset + ESTIMATED_CELL_WIDTH),
-                  left: offsetScroll,
-                  position: 'relative',
+                  width:
+                    this.state.width -
+                    (fixedColumnWidth + ESTIMATED_CELL_WIDTH),
+                  left: `${offsetScroll + fixedColumnWidth}px`,
+                  position: 'sticky',
                 }
               : {}
           }
@@ -163,7 +165,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
         {column.columns.length ? (
           <div className={classnames('h-col-children')}>
             {column.columns.map((column) =>
-              this.renderColumn(column, offsetScroll, offset)
+              this.renderColumn(column, offsetScroll, fixedColumnWidth)
             )}
           </div>
         ) : null}
@@ -223,6 +225,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
                       children,
                       size,
                       offsetScroll,
+                      offsetStart,
                     }) => {
                       const start = children.slice(0, headerFixedStartCount)
                       const middle = children.slice(
@@ -277,7 +280,13 @@ export default class VirtualTable extends PureComponent<Props, State> {
                       )
                     }}
                   >
-                    {({ index, style, offsetScroll, offset }) => {
+                    {({
+                      index,
+                      style,
+                      offsetScroll,
+                      offset,
+                      fixedColumnWidth,
+                    }) => {
                       const column = header[index]
 
                       return (
@@ -291,7 +300,11 @@ export default class VirtualTable extends PureComponent<Props, State> {
                           }}
                           className={classnames('th')}
                         >
-                          {this.renderColumn(column, offsetScroll, offset)}
+                          {this.renderColumn(
+                            column,
+                            offsetScroll,
+                            fixedColumnWidth
+                          )}
                         </div>
                       )
                     }}

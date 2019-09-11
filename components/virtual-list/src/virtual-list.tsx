@@ -33,6 +33,7 @@ export interface Props extends BaseProps {
     offsetScroll: number
     size: number
     style: Record<string, string | number>
+    fixedColumnWidth: number
   }): JSX.Element
   /**
    * Estimated item height (or width) to estimate content height (or width).
@@ -289,6 +290,8 @@ export default class VirtualList extends PureComponent<
     const renderChild = (index) => {
       const { offset, size } = this.manager.getCellAt(index)
       const style = this.genStyle(offset)
+      const fixedColumnWidth = this.manager.getCellAt(fixedItemCountFromStart)
+        .offset
 
       const node = renderItem({
         list: this,
@@ -297,6 +300,7 @@ export default class VirtualList extends PureComponent<
         offsetScroll,
         size,
         style,
+        fixedColumnWidth,
       })
 
       children.push(
