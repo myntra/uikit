@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.8.3"></a>
+## <small>1.8.3 (2019-09-11)</small>
+
+* chore: Include packages in coverage report ([e61eab2](https://bitbucket.org/myntra/uikit/commits/e61eab2))
+* chore: Remove v0 banner ([da12597](https://bitbucket.org/myntra/uikit/commits/da12597))
+* fix(Table): Fix large (width) header while scrolling in virtualized table ([315ebc8](https://bitbucket.org/myntra/uikit/commits/315ebc8)), closes [#185](https://bitbucket.org/myntra/uikit/issue/185)
+
+
+
 <a name="1.8.2"></a>
 ## <small>1.8.2 (2019-09-10)</small>
 
