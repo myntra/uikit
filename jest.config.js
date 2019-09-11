@@ -34,7 +34,10 @@ module.exports = {
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
   testPathIgnorePatterns: ['/node_modules/', '/old-packages/'],
   transformIgnorePatterns: ['node_modules/(?!(lodash-es))/'],
-  collectCoverageFrom: ['components/**/*.{ts,tsx}'],
+  collectCoverageFrom: [
+    'components/*/src/**/*.{ts,tsx}',
+    'packages/*/src/**/*.{ts,tsx}',
+  ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageDirectory: 'coverage',
   coverageThreshold: process.env.CI
