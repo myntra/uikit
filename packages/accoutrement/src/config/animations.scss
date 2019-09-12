@@ -9,6 +9,8 @@ $easing: (
 
 $changes: (
   'background': background-color time('fast') ease('elastic'),
+  'width': width time('fast') ease('elastic'),
   'all': all time('fast') ease('elastic'),
   'button': '#all',
+  'nav-bar': '#width',
 );

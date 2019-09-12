@@ -5,6 +5,8 @@ $borders: (
   'button': '#default',
   'table': '#default',
   'table.tr': '#default',
+  'nav-bar': '#default',
+  'top-bar': '#nav-bar',
 );
 
 $-tokens-borders: () !default;

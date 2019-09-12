@@ -1,11 +1,10 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { createContext } from '@myntra/uikit-context'
 import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { Props as NavBarItemProps } from './nav-bar-item'
 import { isReactNodeType, Fragment } from '@myntra/uikit-utils'
-import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 interface Props extends BaseProps, NavBarItemProps {
   /**
@@ -124,14 +123,6 @@ export default function NavBarGroup({
     )
   }
 
-  // if (CAN_USE_HOOKS) {
-  //   const { setActiveGroup, isActiveGroup, isOpen, isActivePath } = useContext(
-  //     NavBarContext
-  //   )
-  //   const { depth } = useContext(Context)
-
-  //   return render(depth, setActiveGroup, isActiveGroup, isActivePath, isOpen)
-  // } else {
   return (
     <NavBarContext.Consumer>
       {({ setActiveGroup, isActiveGroup, isOpen, isActivePath }) => (
@@ -143,5 +134,4 @@ export default function NavBarGroup({
       )}
     </NavBarContext.Consumer>
   )
-  // }
 }

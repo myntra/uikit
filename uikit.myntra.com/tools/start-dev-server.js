@@ -41,17 +41,17 @@ function createComponentsFile(component) {
 
   let match
 
-  const components = new Set()
+  const localComponents = new Set()
 
   while ((match = RE.exec(source))) {
     const [, component] = match
 
-    if (!/^(Documenter)$/.test(component)) components.add(component)
+    if (components.includes(kebabCase(component))) localComponents.add(component)
   }
 
   Fs.writeFileSync(
     Path.resolve(__dirname, `app/uikit.${component}.js`),
-    Array.from(components)
+    Array.from(localComponents)
       .map(name => `export { default as ${name} } from '@myntra/uikit-component-${kebabCase(name)}'`)
       .join('\n')
   )

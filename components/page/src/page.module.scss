@@ -1,18 +1,20 @@
-@import '@design';
+@import '@accoutrement';
 
-.page {
+.container {
   display: flex;
   flex-direction: row;
   height: 100%;
   overflow: hidden;
 
-  .nav {
-    z-index: ui-z-index('nav');
-    width: 56px;
+  .left {
+    @include z-index('navigation');
+
+    z-index: 1000;
+    width: size('nav-bar.min-width');
     overflow: visible;
   }
 
-  .container {
+  .right {
     position: relative;
     display: flex;
     flex: 1;
@@ -20,7 +22,7 @@
     overflow: auto;
   }
 
-  .header {
+  .top {
     position: sticky;
     top: 0;
     z-index: ui-z-index('nav');
@@ -28,5 +30,6 @@
 
   .main {
     flex: 1;
+    background-color: color('page.background');
   }
 }

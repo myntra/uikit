@@ -1,12 +1,12 @@
-@import '@design';
+@import '@accoutrement';
 
 .item {
   display: inline-block;
-  padding: 0 ui-relative-size('xs');
+  padding: 0 size('1x');
   cursor: pointer;
 }
 
 .icon {
-  margin-right: ui-relative-size('2xs');
-  color: ui-text-color('dark');
+  margin-right: size('2x');
+  color: text-color('dark');
 }

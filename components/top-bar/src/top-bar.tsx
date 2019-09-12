@@ -9,7 +9,7 @@ import { isReactNodeType } from '@myntra/uikit-utils'
 
 export interface Props extends BaseProps {
   title: string
-  user: Partial<{ name: string; photo: string }> & { email: string }
+  user?: Partial<{ name: string; photo: string }> & { email: string }
 }
 
 /**
@@ -47,12 +47,12 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
     })
 
     return (
-      <div {...props} className={classnames('top-bar', className)}>
+      <div {...props} className={classnames('container', className)}>
         <div className={classnames('title')}>
           <h1>{title}</h1>
           {breadcrumbs}
         </div>
-        <div className={classnames('container')}>{others}</div>
+        <div className={classnames('body')}>{others}</div>
         <nav className={classnames('nav')}>
           <Dropdown
             down
@@ -63,21 +63,27 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
             onClose={this.handleClose}
             renderTrigger={(props) => (
               <div className={classnames('user')} {...props}>
-                {user.photo ? (
-                  <img
-                    className={classnames('user-avatar', 'photo')}
-                    src={user.photo}
-                  />
+                {user ? (
+                  user.photo ? (
+                    <img
+                      className={classnames('user-avatar', 'photo')}
+                      src={user.photo}
+                    />
+                  ) : (
+                    <Icon
+                      className={classnames('user-avatar')}
+                      name="user-circle"
+                    />
+                  )
                 ) : (
-                  <Icon
-                    className={classnames('user-avatar')}
-                    name="user-circle"
-                  />
+                  <Icon className={classnames('user-avatar')} name="sign-in" />
                 )}
                 <div className={classnames('user-name')}>
-                  {user.name
-                    ? `${user.name} ${user.email ? `(${user.email})` : ''}`
-                    : user.email}
+                  {user
+                    ? user.name
+                      ? `${user.name} ${user.email ? `(${user.email})` : ''}`
+                      : user.email
+                    : 'Login'}
                 </div>
                 {actions.length ? (
                   <Icon

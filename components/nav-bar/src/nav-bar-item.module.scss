@@ -1,30 +1,23 @@
-@import '@design';
-
-$-nav-bar-item: () !default;
-$-nav-bar-item: merge(
-  (
-    icon-size: 24px,
-    space: ui-relative-size(xs),
-  ),
-  $-nav-bar-item
-);
+@import '@accoutrement';
 
 .item {
   display: flex;
   align-items: center;
-  padding: 0.25rem 0.25rem; // 24px + (4px=0.25rem * 2) = 32px width.
   margin: 0.25rem -0.282rem; // Would give correct 32px width for icon.
+
+  @include padding('nav-bar.item');
+  @include margin('nav-bar.item');
+  @include border-radius('nav-bar.item');
+  @include typography('body');
+
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   list-style: none;
   cursor: pointer;
-  border-radius: 2rem;
-
-  @include use-text-style('body');
 
   &:hover {
-    background-color: ui-color('gray', lightest);
+    background-color: color('nav-bar.background:focus');
   }
 
   &:focus,
@@ -33,7 +26,7 @@ $-nav-bar-item: merge(
   }
 
   &:focus-visible {
-    outline: 1px dashed ui-color('primary', 'light');
+    @include outline('nav-bar');
   }
 
   a {
@@ -47,19 +40,20 @@ $-nav-bar-item: merge(
   }
 
   &.is-active {
-    color: ui-text-color('primary');
-    background-color: ui-color('primary', 'lighter');
+    color: text-color('primary');
+    background-color: color('primary-light-3');
   }
 
   .item-icon {
+    @include margin-right('large');
+
     display: inline-flex;
-    flex: 0 0 map-get($-nav-bar-item, icon-size);
+    flex: 0 0 size('#6x');
     align-items: center;
     justify-content: center;
-    width: map-get($-nav-bar-item, icon-size);
-    height: map-get($-nav-bar-item, icon-size);
-    margin-right: ui-relative-size(s);
-    font-size: 1rem;
+    width: size('#6x');
+    height: size('#6x');
+    font-size: 1.24rem;
   }
 
   &.no-icon {

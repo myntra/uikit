@@ -1,9 +1,18 @@
+/*
+ * $margins share same map as $sizes (makes it easy to use sizes)
+ * but all values are prefixed with 'margin-'.
+ *
+ * So, when referenced they should be used like '#margin-{token name}'.
+ */
+
 $margins: (
   'none': 0,
-  'small': '#1x',
-  'medium': '#2x',
-  'large': '#4x',
+  'small': '#small',
+  'medium': '#medium',
+  'large': '#large',
   'banner.body': '#1x',
+  'nav-bar.item': '#1x' negative('#1x'),
+  'nav-bar.group': '#8x',
 );
 
 $-tokens-margins: () !default;

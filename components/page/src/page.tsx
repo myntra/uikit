@@ -33,12 +33,12 @@ export default function Page({
   ...props
 }: Props) {
   return (
-    <div className={classnames('page', className)} style={style}>
-      <div className={classnames('nav')} key="nav">
+    <div className={classnames('container', className)} style={style}>
+      <div className={classnames('left')} key="nav">
         {renderNavBar()}
       </div>
-      <div className={classnames('container')}>
-        <div className={classnames('header')} key="header">
+      <div className={classnames('right')}>
+        <div className={classnames('top')} key="header">
           {renderTopBar()}
         </div>
         <div {...props} className={classnames('main')} key="main">

@@ -1,11 +1,25 @@
+/*
+ * $paddings share same map as $sizes (makes it easy to use sizes)
+ * but all values are prefixed with 'padding-'.
+ *
+ * So, when referenced they should be used like '#padding-{token name}'.
+ */
+
 $paddings: (
   'none': 0,
   'default': '#4x',
+  'container': '#4x' '#6x',
+  'small': '#small',
+  'medium': '#medium',
+  'large': '#large',
   'banner': '#padding-default',
   'button': '#3x' '#10x',
   'icon-button': '#3x',
   'table.th': '#2x',
   'table.td': '#2x',
+  'top-bar': '#3x' '#4x',
+  'nav-bar.body': '#padding-none' '#4x' '#4x' '#4x',
+  'nav-bar.item': '#padding-small',
 );
 
 $-tokens-paddings: () !default;

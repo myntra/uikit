@@ -1,10 +1,9 @@
-import React, { PureComponent, useContext } from 'react'
+import React, { PureComponent } from 'react'
 import UIKitContext, { LinkProps } from '@myntra/uikit-context'
 import Icon from '@myntra/uikit-component-icon'
 import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
-import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
 import LogoMyntraJabong from './logos/myntra-jabong.png'
 
@@ -12,19 +11,12 @@ import LogoMyntraJabong from './logos/myntra-jabong.png'
 
 import classnames from './nav-bar.module.scss'
 
-const LinkFromUIKitContext = ({ href, children }: LinkProps) => {
-  if (CAN_USE_HOOKS) {
-    const { RouterLink } = useContext(UIKitContext)
-
-    return <RouterLink to={href}>{children}</RouterLink>
-  }
-
-  return (
-    <UIKitContext.Consumer>
-      {({ RouterLink }) => <RouterLink to={href}>{children}</RouterLink>}
-    </UIKitContext.Consumer>
-  )
-}
+// TODO: Use hooks.
+const LinkFromUIKitContext = ({ href, children }: LinkProps) => (
+  <UIKitContext.Consumer>
+    {({ RouterLink }) => <RouterLink to={href}>{children}</RouterLink>}
+  </UIKitContext.Consumer>
+)
 
 interface Props extends BaseProps {
   /**

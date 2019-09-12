@@ -1,4 +1,5 @@
 import React, { Children, isValidElement } from 'react'
+import Title from './title'
 
 import classnames from './text.module.scss'
 
@@ -81,3 +82,5 @@ export default function Text({
 Text.defaultProps = {
   color: 'inherit',
 }
+
+Text.Title = Title

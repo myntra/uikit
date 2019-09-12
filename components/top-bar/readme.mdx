@@ -15,8 +15,8 @@ import TopBar from './src/top-bar'
     <BreadCrumb.Item>TopBar</BreadCrumb.Item>
   </BreadCrumb>
 
-  <TopBar.Item>Profile</TopBar.Item>
-  <TopBar.Item>Logout</TopBar.Item>
+  <TopBar.Item icon="user">Profile</TopBar.Item>
+  <TopBar.Item icon="sign-out">Logout</TopBar.Item>
 </TopBar>
 ```
 
@@ -24,11 +24,5 @@ import TopBar from './src/top-bar'
 
 
 ```jsx preview
-<TopBar
-    title="UIKit Documentation"
-    user={{ name: 'Jane' }}
- >
-  <TopBar.Item>Profile</TopBar.Item>
-  <TopBar.Item>Logout</TopBar.Item>
-</TopBar>
+<TopBar title="UIKit Documentation" />
 ```

@@ -1,17 +1,19 @@
-@import '@design';
+@import '@accoutrement';
 
-.top-bar {
-  z-index: ui-z-index('nav');
+.container {
+  @include z-index('navigation');
+  @include border-bottom('top-bar');
+  @include padding('top-bar');
+
+  z-index: 1000;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: center;
-  min-width: 304px;
-  height: 56px;
-  padding: 0.75rem 1rem;
+  height: size('top-bar.height');
   line-height: 1;
-  background-color: #fff;
-  border-bottom: 1px solid ui-color('gray');
+  background-color: color('top-bar.background');
+  border-color: color('top-bar.border');
 
   * {
     line-height: 1;
@@ -23,11 +25,11 @@
       margin: 0;
       font-size: 16px;
       line-height: 1em;
-      color: ui-text-color('dark');
+      color: text-color('dark');
     }
   }
 
-  .container {
+  .body {
     flex: 1;
   }
 
@@ -42,7 +44,7 @@
     white-space: nowrap;
     cursor: pointer;
 
-    @include use-text-style('caption');
+    @include typography('caption');
   }
 
   .user-name {
@@ -52,9 +54,5 @@
 
   .user-avatar {
     font-size: 1rem;
-  }
-
-  .menu {
-    background-color: #fff;
   }
 }

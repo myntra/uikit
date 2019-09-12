@@ -45,7 +45,7 @@ export default function Section({
 
   return (
     <section
-      className={classnames('section', className, { noPadding })}
+      className={classnames('container', className, { noPadding })}
       {...props}
     >
       {title || actions.length ? (

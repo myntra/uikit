@@ -26,6 +26,12 @@ $colors: (
   'table.body': '#white',
   'table.hover': '#gray-light-3',
   'table.border': '#gray-light-1',
+  'nav-bar.background': '#white',
+  'nav-bar.background:focus': '#gray-light-3',
+  'nav-bar.border': '#gray-light-3',
+  'top-bar.background': '#nav-bar.background',
+  'top-bar.border': '#nav-bar.border',
+  'page.background': '#gray-light-3',
 );
 $-tokens-colors: () !default;
 

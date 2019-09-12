@@ -1,0 +1,16 @@
+@import '@accoutrement';
+
+.title {
+  margin: 0;
+
+  @include padding('container');
+  @include typography('title');
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.lighter {
+  font-weight: lighter;
+}

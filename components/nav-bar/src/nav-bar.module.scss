@@ -1,32 +1,25 @@
-@import '@design';
-
-$-nav-bar: () !default;
-$-nav-bar: merge(
-  (
-    icon-size: 16px,
-    close-width: 56px,
-    open-width: 252px,
-  ),
-  $-nav-bar
-);
+@import '@accoutrement';
 
 .nav {
-  z-index: ui-z-index(nav);
+  z-index: z-index('navigation');
+  z-index: 1000; // TODO: Remove this when all components are on accoutrement.
   box-sizing: border-box;
-  width: map-get($-nav-bar, 'close-width');
+  width: size('nav-bar.min-width');
   height: 100%;
   overflow: hidden;
-  background-color: #fff;
-  border-right: 1px solid ui-color('gray');
-  transition: width 0.35s ease-in-out;
+  background-color: color('nav-bar.background');
 
-  @include extract($-nav-bar);
+  @include transition('nav-bar');
+  @include border-right('nav-bar');
+
+  border-color: color('nav-bar.border');
 
   &:hover,
   &.is-open {
-    width: map-get($-nav-bar, 'open-width');
+    @include shadow('nav-bar');
+
+    width: size('nav-bar.max-width');
     overflow-y: auto;
-    box-shadow: 2px 0 5px -2px rgba(0, 0, 0, 0.21);
   }
 
   &:focus {
@@ -34,10 +27,12 @@ $-nav-bar: merge(
   }
 
   &:focus-visible {
-    outline: 1px dashed ui-color('primary', 'light');
+    @include outline('nav-bar');
   }
 
   .header {
+    @include border-bottom('nav-bar');
+
     position: sticky;
     top: 0;
     left: 0;
@@ -46,15 +41,15 @@ $-nav-bar: merge(
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: map-get($-nav-bar, 'open-width');
+    width: size('nav-bar.max-width');
     height: 56px;
     padding: 0.75rem 1rem;
     overflow: hidden;
     white-space: nowrap;
-    background-color: #fff;
-    border-bottom: 1px solid ui-color('gray');
+    background-color: color('nav-bar.background');
+    border-color: color('nav-bar.border');
 
-    @include use-text-style('h3');
+    @include typography('h3');
 
     img {
       display: inline-block;
@@ -65,19 +60,19 @@ $-nav-bar: merge(
     }
 
     .hamburger {
+      @include padding('small');
+      @include margin-right('large');
+
       box-sizing: content-box;
-      width: map-get($-nav-bar, 'icon-size');
-      height: map-get($-nav-bar, 'icon-size');
-      padding: 4px;
-      margin-right: 1rem;
-      font-size: map-get($-nav-bar, 'icon-size');
+      width: size('nav-bar.icon');
+      height: size('nav-bar.icon');
+      font-size: size('nav-bar.icon');
     }
   }
 
   .body {
+    @include padding('nav-bar.body');
+
     box-sizing: border-box;
-    padding-right: 1rem;
-    padding-bottom: 1rem;
-    padding-left: 1rem;
   }
 }

@@ -1,34 +1,45 @@
-@import '@design';
+@import '@accoutrement';
 
-.section {
+.container {
   flex: 1 1 100%;
-  padding: ui-size('r');
-  margin-bottom: ui-size('r');
-  background-color: ui-color('white');
+
+  @include padding('container');
+  @include margin-bottom('large');
+
+  background-color: color('white');
 }
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: ui-size('r');
+  margin-bottom: size('large');
 }
 
 .title {
   margin: 0;
 
-  @include use-text-style('h3');
+  @include typography('h2');
 }
 
 .content {
   // Keep the selector!
   margin: 0;
+
+  @include typography('body');
+
+  > :global(.u-table-simple),
+  > :global(.u-table-virtual) {
+    // margin-right: negative(padding-right('container'));
+    margin-right: negative(size('6x'));
+    // margin-left: negative(padding-left('container'));
+    margin-left: negative(size('6x'));
+  }
 }
 
 .actions {
   display: flex;
   justify-content: flex-end;
-  margin-left: ui-size('r');
 }
 
 .noPadding {

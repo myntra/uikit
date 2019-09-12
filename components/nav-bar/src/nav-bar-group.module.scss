@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .group {
   padding: 0;
@@ -6,7 +6,7 @@
   margin-block-end: 0;
 
   .group {
-    margin-left: 2.25rem;
+    @include margin-left('nav-bar.group');
   }
 
   .group-container {
@@ -22,8 +22,9 @@
   }
 
   .group-expand {
-    width: 1.5rem;
-    margin-left: 0.75rem;
-    font-size: 0.75rem;
+    @include margin-left('medium');
+
+    width: size('#6x');
+    font-size: 0.75rem; // size of chevron for expand.
   }
 }
