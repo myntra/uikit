@@ -10,7 +10,7 @@
   @include transition('button');
 
   + .container {
-    @include margin-left('small');
+    @include margin-left('large');
   }
 
   display: inline-block;

@@ -45,6 +45,14 @@
   margin-left: margin-left($token);
 }
 
+@function margin-top($token) {
+  @return get-direction-value(size('margin-#{$token}'), 'top');
+}
+
+@mixin margin-top($token) {
+  margin-top: margin-top($token);
+}
+
 @function var-margin($token) {
   @return var-size('margin-#{$token}');
 }
