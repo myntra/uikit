@@ -73,7 +73,7 @@ export default class Button extends PureComponent<Props> {
   }
 
   handleClick = (event) => {
-    if (this.props.disabled || this.state.active) {
+    if (this.props.disabled || this.state.active || this.props.loading) {
       return event.preventDefault()
     }
 

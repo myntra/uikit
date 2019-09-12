@@ -150,5 +150,21 @@
     &.trailing {
       padding-inline-start: 1ch;
     }
+
+    &.loading {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -0.5em;
+      margin-left: -0.5em;
+    }
+  }
+
+  &.loading {
+    position: relative;
+
+    > *:not(.loading) {
+      color: transparent; // Hide Text and icons.
+    }
   }
 }

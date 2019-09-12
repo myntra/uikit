@@ -66,14 +66,28 @@ A button can have an icon.
 </>
 ```
 
-## Events
+## Interactions
 
-The `onClick` prop can be used to provide.
+We can use `onClick` prop for handling custom logic.
 
 ```jsx preview
 const [count, setCount] = useState(0);
 
 <Button onClick={() => setCount(count + 1)}>
   {count ? `Clicked ${count} time(s)` : 'Click Me!'}
+</Button>
+```
+
+The `loading` prop can be used to show loading status.
+
+```jsx preview
+const [isLoading, setLoading] = useState(false)
+
+useEffect(() => {
+  if (isLoading) setTimeout(setLoading, 3000, false)
+}, [isLoading])
+
+<Button onClick={() => setLoading(true)} loading={isLoading}>
+  {'Start Now'}
 </Button>
 ```
