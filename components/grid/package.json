@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-grid",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "main": "dist/grid.cjs.js",
   "module": "dist/grid.esm.js",
   "types": "dist/index.d.ts",

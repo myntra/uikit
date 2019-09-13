@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-select",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "main": "dist/input-select.cjs.js",
   "module": "dist/input-select.esm.js",
   "types": "dist/index.d.ts",
