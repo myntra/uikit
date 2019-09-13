@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-portal",
-  "version": "1.8.3",
+  "version": "1.9.0",
   "main": "dist/portal.cjs.js",
   "module": "dist/portal.esm.js",
   "types": "dist/index.d.ts",
@@ -26,8 +26,8 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.8.*",
-    "@myntra/uikit-utils": "1.8.*",
+    "@myntra/uikit-can-i-use": "1.9.*",
+    "@myntra/uikit-utils": "1.9.*",
     "prop-types": "^15.7.2"
   }
 }

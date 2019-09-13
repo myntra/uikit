@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.0"></a>
+## 1.9.0 (2019-09-13)
+
+* docs: Add a complete page example ([15c25cf](https://bitbucket.org/myntra/uikit/commits/15c25cf))
+* fix(Page,Section,NavBar,TopBar,Text): Sync CSS with design guidelines ([e503be3](https://bitbucket.org/myntra/uikit/commits/e503be3))
+* chore: Add contribution documentation ([18cf40b](https://bitbucket.org/myntra/uikit/commits/18cf40b))
+* chore: Allow multiple dev servers to run simultaneously ([f36497c](https://bitbucket.org/myntra/uikit/commits/f36497c))
+* chore: open browser in dev mode ([cda1466](https://bitbucket.org/myntra/uikit/commits/cda1466))
+* chore: Remove peerDependency on react ([8b35931](https://bitbucket.org/myntra/uikit/commits/8b35931))
+* chore: update docs build script ([b088894](https://bitbucket.org/myntra/uikit/commits/b088894))
+* chore: Upgrade react and react-dom to match uikit.myntra.com ([3e38c45](https://bitbucket.org/myntra/uikit/commits/3e38c45))
+* feat(Banner): Map primary and info types to success ([d5f3b4d](https://bitbucket.org/myntra/uikit/commits/d5f3b4d)), closes [#186](https://bitbucket.org/myntra/uikit/issue/186)
+* feat(Layout): A component for composing layouts ([5e0419f](https://bitbucket.org/myntra/uikit/commits/5e0419f))
+* fix(Button): Hide button text in loading state ([8f6ce5d](https://bitbucket.org/myntra/uikit/commits/8f6ce5d))
+* fix(Button): Increase inter button margin ([b85bca2](https://bitbucket.org/myntra/uikit/commits/b85bca2))
+
+
+
 <a name="1.8.3"></a>
 ## <small>1.8.3 (2019-09-11)</small>
 
