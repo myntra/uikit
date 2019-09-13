@@ -109,6 +109,9 @@ export const InputTextArea = asyncComponent(() =>
 export const JobTracker = asyncComponent(() =>
   import(/* webpackChunkName: 'components/job-tracker' */ '@myntra/uikit-component-job-tracker')
 )
+export const Layout = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/layout' */ '@myntra/uikit-component-layout')
+)
 export const List = asyncComponent(() =>
   import(/* webpackChunkName: 'components/list' */ '@myntra/uikit-component-list')
 )
@@ -188,7 +191,7 @@ export const META = [
   },
   {
     name: 'Banner',
-    since: '0.3.0',
+    since: '1.6.0',
     status: 'READY',
     path: '/components/banner'
   },
@@ -341,6 +344,10 @@ export const META = [
     since: '0.6.0',
     status: 'REVIEWING',
     path: '/components/job-tracker'
+  },
+  {
+    name: 'Layout',
+    path: '/components/layout'
   },
   {
     name: 'List',

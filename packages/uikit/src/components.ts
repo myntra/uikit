@@ -27,6 +27,7 @@ export { default as InputSelect } from "@myntra/uikit-component-input-select";
 export { default as InputText } from "@myntra/uikit-component-input-text";
 export { default as InputTextArea } from "@myntra/uikit-component-input-text-area";
 export { default as JobTracker } from "@myntra/uikit-component-job-tracker";
+export { default as Layout } from "@myntra/uikit-component-layout";
 export { default as List } from "@myntra/uikit-component-list";
 export { default as Loader } from "@myntra/uikit-component-loader";
 export { default as Measure } from "@myntra/uikit-component-measure";

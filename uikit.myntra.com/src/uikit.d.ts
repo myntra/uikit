@@ -84,6 +84,7 @@ declare namespace Banner {}
  */
 declare function Banner(props: Banner.Props): JSX.Element
 declare namespace Banner {
+  type IconName = Icon.IconName
   interface Props extends BaseProps {
     /**
      * The visual style to convey purpose of the alert.
@@ -91,6 +92,13 @@ declare namespace Banner {
     type?: 'error' | 'warning' | 'success'
     /**
      *
+     * _TIP:_ Set `icon` to `null` to remove icon.
+     *
+     * @since 1.6.0
+     */
+    icon?: IconName
+    /**
+     * @since 1.6.0
      */
     title?: string
     /**
@@ -1348,6 +1356,21 @@ declare namespace JobTracker {
   }
 }
 
+declare namespace Layout {}
+
+// -----------[[Layout]]--------------- //
+/**
+ *
+ */
+declare function Layout(props: Layout.Props): JSX.Element
+declare namespace Layout {
+  type StackProps = StackLayout$$7.Props
+
+  type RowProps = RowLayout$$8.Props
+
+  type Props = StackProps | RowProps
+}
+
 declare namespace List {}
 
 // -----------[[List]]--------------- //
@@ -1632,7 +1655,7 @@ declare namespace NavBar {
    */
   function Group(props: Group.Props): JSX.Element
   namespace Group {
-    type NavBarItemProps = NavBarItem$$7.Props
+    type NavBarItemProps = NavBarItem$$9.Props
 
     interface Props extends BaseProps, NavBarItemProps {
       /**
@@ -1858,9 +1881,9 @@ declare namespace SchemaForm {}
 declare function SchemaForm(props: SchemaForm.Props): JSX.Element
 declare namespace SchemaForm {
   type FormProps = Form.Props
-  type UI = JsonSchemaRenderer$$8.UI
+  type UI = JsonSchemaRenderer$$10.UI
 
-  type Schema = JsonSchemaCompiler$$9.Schema
+  type Schema = JsonSchemaCompiler$$11.Schema
 
   interface Props extends FormProps {
     schema: Record<string, any>
@@ -1898,7 +1921,7 @@ declare namespace Table {}
  */
 declare function Table(props: Table.Props): JSX.Element
 declare namespace Table {
-  type RowRendererProps = TableInterface$$10.RowRendererProps
+  type RowRendererProps = TableInterface$$12.RowRendererProps
 
   interface Props<T = any> extends BaseProps {
     data: T[]
@@ -1933,7 +1956,7 @@ declare namespace Table {
    */
   function Column(props: Column.Props): JSX.Element
   namespace Column {
-    type EditableCellRendererProps = TableInterface$$10.EditableCellRendererProps
+    type EditableCellRendererProps = TableInterface$$12.EditableCellRendererProps
 
     interface Props<T = any> extends BaseProps {
       /**
@@ -1967,7 +1990,7 @@ declare namespace Table {
    */
   function Row(props: Row.Props): JSX.Element
   namespace Row {
-    type RowRendererProps = TableInterface$$10.RowRendererProps
+    type RowRendererProps = TableInterface$$12.RowRendererProps
 
     interface Props<T = any> extends BaseProps {
       /**
@@ -2004,7 +2027,7 @@ declare namespace Table {
    */
   function TableFilter(props: TableFilter.Props): JSX.Element
   namespace TableFilter {
-    type Enhancer = TableInterface$$10.Enhancer
+    type Enhancer = TableInterface$$12.Enhancer
 
     interface Props<T = any> extends BaseProps {
       /**
@@ -2118,7 +2141,7 @@ declare function TopBar(props: TopBar.Props): JSX.Element
 declare namespace TopBar {
   interface Props extends BaseProps {
     title: string
-    user: Partial<{
+    user?: Partial<{
       name: string
       photo: string
     }> & {
@@ -2298,9 +2321,9 @@ declare namespace VirtualGrid {
 }
 
 declare namespace VirtualList {
-  type VLCProps = VirtualListCellMeasure$$11.Props
+  type VLCProps = VirtualListCellMeasure$$13.Props
 
-  type VLProps = VirtualList$$13.Props
+  type VLProps = VirtualList$$15.Props
 
   type Props = VLProps
 
@@ -2318,9 +2341,9 @@ declare namespace VirtualList {
  */
 declare function VirtualList(props: VirtualList.Props): JSX.Element
 declare namespace VirtualList {
-  type MeasureCache = Helpers$$12.MeasureCache
+  type MeasureCache = Helpers$$14.MeasureCache
 
-  type PositionManager = Helpers$$12.PositionManager
+  type PositionManager = Helpers$$14.PositionManager
 
   interface Props extends BaseProps {
     /**
@@ -2347,6 +2370,7 @@ declare namespace VirtualList {
       offsetScroll: number
       size: number
       style: Record<string, string | number>
+      fixedColumnWidth: number
     }): JSX.Element
     /**
      * Estimated item height (or width) to estimate content height (or width).
@@ -2559,7 +2583,43 @@ declare namespace JobTrackerItem$$6 {
   }
 }
 
-declare namespace NavBarItem$$7 {
+declare namespace StackLayout$$7 {
+  interface Props extends BaseProps {
+    type: 'stack'
+    /**
+     * Horizontally distribute the components within the stack.
+     */
+    distribution?: 'start' | 'center' | 'end' | 'spaceBetween' | 'spaceAround'
+    /**
+     * Vertically align the components within the stack.
+     */
+    alignment?: 'top' | 'middle' | 'bottom'
+    /**
+     * Regulates the size of the gutter between items.
+     */
+    gutter?: 'small' | 'medium' | 'large'
+    /**
+     * Arrange items in multiple rows.
+     */
+    wrap?: boolean
+    /**
+     * Defines how much space each item within the stack container will take in relation to the others.
+     */
+    space?: (number | 'none')[]
+  }
+}
+
+declare namespace RowLayout$$8 {
+  interface Props extends BaseProps {
+    type: 'row'
+    /**
+     * Regulates the size of the gutter between items.
+     */
+    gutter?: 'small' | 'medium' | 'large'
+  }
+}
+
+declare namespace NavBarItem$$9 {
   type IconName = Icon.IconName
   interface Props extends BaseProps {
     /**
@@ -2587,7 +2647,7 @@ declare namespace NavBarItem$$7 {
   }
 }
 
-declare namespace JsonSchemaCompiler$$9 {
+declare namespace JsonSchemaCompiler$$11 {
   type Schema = Record<string, any>
 
   type SchemaLike = undefined | Schema | boolean
@@ -2607,8 +2667,8 @@ declare namespace JsonSchemaCompiler$$9 {
   }
 }
 
-declare namespace JsonSchemaRenderer$$8 {
-  type Schema = JsonSchemaCompiler$$9.Schema
+declare namespace JsonSchemaRenderer$$10 {
+  type Schema = JsonSchemaCompiler$$11.Schema
 
   interface UIField {
     type: 'field' | 'array' | 'object'
@@ -2637,7 +2697,7 @@ declare namespace JsonSchemaRenderer$$8 {
   }
 }
 
-declare namespace TableInterface$$10 {
+declare namespace TableInterface$$12 {
   interface EnhancerFactory {
     enhancer: Enhancer
   }
@@ -2715,7 +2775,7 @@ declare namespace TableInterface$$10 {
   }
 }
 
-declare namespace Helpers$$12 {
+declare namespace Helpers$$14 {
   interface Cell {
     offset: number
     size: number
@@ -2777,8 +2837,8 @@ declare namespace Helpers$$12 {
   }
 }
 
-declare namespace VirtualListCellMeasure$$11 {
-  type MeasureCache = Helpers$$12.MeasureCache
+declare namespace VirtualListCellMeasure$$13 {
+  type MeasureCache = Helpers$$14.MeasureCache
 
   type Observer = Measure.Observer
   interface Props extends BaseProps {
@@ -2799,10 +2859,10 @@ declare namespace VirtualListCellMeasure$$11 {
   }
 }
 
-declare namespace VirtualList$$13 {
-  type MeasureCache = Helpers$$12.MeasureCache
+declare namespace VirtualList$$15 {
+  type MeasureCache = Helpers$$14.MeasureCache
 
-  type PositionManager = Helpers$$12.PositionManager
+  type PositionManager = Helpers$$14.PositionManager
 
   interface Props extends BaseProps {
     /**
@@ -2829,6 +2889,7 @@ declare namespace VirtualList$$13 {
       offsetScroll: number
       size: number
       style: Record<string, string | number>
+      fixedColumnWidth: number
     }): JSX.Element
     /**
      * Estimated item height (or width) to estimate content height (or width).
