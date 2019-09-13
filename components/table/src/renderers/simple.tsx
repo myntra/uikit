@@ -30,7 +30,7 @@ export default class SimpleTable extends PureComponent<
     selector() {
       return true
     },
-    render({ rowId, item, ...props }) {
+    render({ rowId, rowIndex, item, ...props }) {
       return <tr key={rowId} {...props} />
     },
   }

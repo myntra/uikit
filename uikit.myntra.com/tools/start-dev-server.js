@@ -95,6 +95,7 @@ function startWebpackDevServer(component, port) {
     .noInfo(true)
 
   chain.stats('errors-warnings')
+  chain.plugin('bar').use(require('webpackbar'))
 
   chain.resolve.extensions
     .add('.ts')

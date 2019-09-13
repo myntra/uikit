@@ -6,7 +6,8 @@ import Page from './src/page'
 
 ```jsx preview
 const [value, setValue] = useState(null);
-const onSubmit = useCallback(value => console.log(value));
+const onSubmit = useCallback((value) => console.log(value));
+const [showBanner, setBanner] = useState(true)
 const [data] = useState([
   { id: 1, name: 'Jane Doe', createdAt: 1557208976092 },
   { id: 2, name: 'John Doe', createdAt: 1557208976092 },
@@ -40,38 +41,54 @@ const [data] = useState([
     </TopBar>
   )}
 >
-  <Banner title="SUCCESS" type="success">
-    The page loaded successfully.
-  </Banner>
+  {showBanner ? (
+    <Banner title="SUCCESS" type="success" onClose={() => setBanner(false)}>
+      The page loaded successfully.
+    </Banner>
+  ) : null}
 
-  <Text.Title>Page Title</Text.Title>
+  <Layout type="row">
+    <Text.Title>Page Title</Text.Title>
 
-  <Section title="Section 1">
-    <Form onSubmit={onSubmit} value={value} onChange={setValue} defaultFieldSize={4}>
-      <Form.Text label="Field 1" />
-      <Form.Select options={[]} label="Field 2"  />
+    <Section title="Section 1">
+      <Form
+        onSubmit={onSubmit}
+        value={value}
+        onChange={setValue}
+        defaultFieldSize={4}
+      >
+        <Form.Text label="Field 1" />
+        <Form.Select options={[]} label="Field 2" />
 
-      <ButtonGroup structure="primary-group">
-        <Button type="primary">Search</Button>
-        <Button type="text">Action 1</Button>
-        <Button type="text">Action 2</Button>
-      </ButtonGroup>
-    </Form>
-  </Section>
+        <ButtonGroup structure="primary-group">
+          <Button type="primary">Search</Button>
+          <Button type="text">Action 1</Button>
+          <Button type="text">Action 2</Button>
+        </ButtonGroup>
+      </Form>
+    </Section>
 
-  <Section>
-    <Text>
-      <p>{data.length} items found.</p>
-    </Text>
+    <Section>
+      <Layout type="row">
+        <Text>{data.length} items found.</Text>
 
-    <Table data={data}>
-      <Table.Column key="id" label="ID" />
-      <Table.Column key="full-name" label="Name" accessor="name" />
-      <Table.Column key="created-at" label="Created At" accessor={item => new Date(item.createdAt).toLocaleString()} />
-    </Table>
+        <Table data={data}>
+          <Table.Column key="id" label="ID" />
+          <Table.Column key="full-name" label="Name" accessor="name" />
+          <Table.Column
+            key="created-at"
+            label="Created At"
+            accessor={(item) => new Date(item.createdAt).toLocaleString()}
+          />
+        </Table>
 
-    <Pagination />
-  </Section>
+        <Layout type="stack" space={[1]}>
+          <div />
+          <Pagination />
+        </Layout>
+      </Layout>
+    </Section>
+  </Layout>
 </Page>
 ```
 

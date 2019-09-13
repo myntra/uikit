@@ -4,7 +4,6 @@
   flex: 1 1 100%;
 
   @include padding('container');
-  @include margin-bottom('large');
 
   background-color: color('white');
 }
@@ -28,8 +27,8 @@
 
   @include typography('body');
 
-  > :global(.u-table-simple),
-  > :global(.u-table-virtual) {
+  :global(.u-table-simple),
+  :global(.u-table-virtual) {
     // margin-right: negative(padding-right('container'));
     margin-right: negative(size('6x'));
     // margin-left: negative(padding-left('container'));
