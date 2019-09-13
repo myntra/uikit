@@ -1,0 +1,28 @@
+{
+  "name": "layout",
+  "version": "1.8.3",
+  "main": "dist/layout.cjs.js",
+  "module": "dist/layout.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/layout",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com:8000"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/"
+  ],
+  "sideEffects": false,
+  "optionalDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "latest"
+  },
+  "dependencies": {
+    "@myntra/uikit-utils": "link:../../packages/uikit-utils"
+  }
+}
