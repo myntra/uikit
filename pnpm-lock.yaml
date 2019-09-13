@@ -257,12 +257,15 @@ importers:
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.2
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.9.0
     specifiers:
       '@myntra/uikit-component-button': 1.8.*
       '@myntra/uikit-component-dropdown': 1.8.*
       '@myntra/uikit-component-list': 1.8.*
       '@myntra/uikit-utils': 1.8.*
       '@types/react': latest
+      react: '>=15.4'
   components/click-away:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -500,11 +503,14 @@ importers:
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.9.0
     specifiers:
       '@myntra/uikit-component-button': 1.8.*
       '@myntra/uikit-component-input-text': 1.8.*
       '@myntra/uikit-utils': 1.8.*
       '@types/react': latest
+      react: '>=15.4'
   components/input-masked:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -663,6 +669,17 @@ importers:
       '@myntra/uikit-utils': 1.8.*
       '@types/react': ^16.8
       dayjs: ^1.8.14
+      react: '>=15.4'
+  components/layout:
+    dependencies:
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.9.2
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.9.0
+    specifiers:
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+      '@types/react': latest
       react: '>=15.4'
   components/list:
     dependencies:

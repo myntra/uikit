@@ -1,4 +1,4 @@
-import React, { PureComponent, Suspense, lazy } from 'react'
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
 // @ts-ignore
 import * as components from '@uikit'

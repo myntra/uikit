@@ -10,6 +10,7 @@ const WebpackDevServer = require('webpack-dev-server')
 const { components, getPackageDir, componentsDir, packagesDir, kebabCase } = require('../../scripts/utils')
 const Path = require('path')
 const Fs = require('fs')
+const portfinder = require('portfinder')
 
 const component = process.argv[2]
 
@@ -86,12 +87,14 @@ function startWebpackDevServer(component, port) {
   ;['uikit-utils', 'uikit-context', 'uikit-can-i-use'].forEach(name =>
     chain.resolve.alias.set(`@myntra/${name}$`, packagesDir + '/' + name + '/src/index.ts')
   )
-  // packages.forEach(chain => config.resolve.alias.set(`@myntra/${name}`, packagesDir + '/' + name + entry))
 
   chain.devServer
     .contentBase(false)
     .hot(true)
     .open(true)
+    .noInfo(true)
+
+  chain.stats('errors-warnings')
 
   chain.resolve.extensions
     .add('.ts')
@@ -237,8 +240,16 @@ function startWebpackDevServer(component, port) {
 
   chain.plugin('define').use(DefinePlugin, [{ __DEV__: 'process.env.NODE_ENV !== "production"' }])
 
-  const compiler = webpack(chain.toConfig())
-  const server = new WebpackDevServer(compiler)
+  const config = chain.toConfig()
+  const compiler = webpack(config)
+  const server = new WebpackDevServer(compiler, config.devServer)
 
-  server.listen(port, '0.0.0.0')
+  portfinder.getPort({ port }, (error, port) => {
+    if (error) {
+      console.error(error)
+      process.exit(1)
+    }
+
+    server.listen(port, '0.0.0.0')
+  })
 }

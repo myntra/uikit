@@ -1,11 +1,4 @@
 import React from 'react'
-import Prism from 'prismjs'
-
-import 'prismjs/themes/prism.css'
-import 'prismjs/components/prism-clike'
-import 'prismjs/components/prism-markup'
-import 'prismjs/components/prism-javascript'
-import 'prismjs/components/prism-jsx'
 
 import CodePreview from './code-preview'
 
@@ -16,7 +9,7 @@ export default function Code({ preview = false, align = 'center', children: sour
         <CodePreview source={source} />
       ) : (
         <pre style={{ overflow: 'unset' }}>
-          <code dangerouslySetInnerHTML={{ __html: Prism.highlight(source, Prism.languages[language], language) }} />
+          <code dangerouslySetInnerHTML={{ __html: source }} />
         </pre>
       )}
     </div>
