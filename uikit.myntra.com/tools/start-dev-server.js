@@ -75,6 +75,8 @@ function startWebpackDevServer(component) {
     .set('@documenter', Path.resolve(__dirname, './app/documenter.tsx'))
     .set('@component', Path.resolve(getPackageDir(component), 'readme.mdx'))
     .set('@mdx-js/tag$', require.resolve('@mdx-js/tag'))
+    .set('react$', require.resolve('react'))
+    .set('react-dom$', require.resolve('react-dom'))
 
   chain.resolve.alias.set(`'@myntra/uikit-component-input-text/style.scss`, componentsDir + '/input-text/style.scss')
   components.forEach(name =>
