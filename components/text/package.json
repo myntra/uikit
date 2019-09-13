@@ -16,15 +16,13 @@
     "bin/"
   ],
   "sideEffects": false,
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
     "@types/react": "^16.8.23"
   },
-  "optionalDependencies": {
-    "react": ">=15.4"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@myntra/uikit-utils": "1.8.*"
   }

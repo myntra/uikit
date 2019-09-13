@@ -6,7 +6,7 @@ const path = require('path')
 
 const { version } = require('../package.json')
 const {
-  targets,
+  components: targets,
   getPackageDir,
   getPackageRepository,
   getShortName,
@@ -39,7 +39,7 @@ targets.forEach((name) => {
   const srcFiles = initSrc(shortName)
 
   if (isComponent(name)) {
-    pkg.peerDependencies = {
+    pkg.optionalDependencies = {
       react: '>=15.4',
     }
 

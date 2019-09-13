@@ -17,16 +17,14 @@
     "*.codemod.js"
   ],
   "sideEffects": false,
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
     "@myntra/codemod-utils": "1.8.*",
     "@types/react": "^16.8"
   },
-  "optionalDependencies": {
-    "react": ">=15.4"
-  },
+  "peerDependencies": {},
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.8.*",
     "@myntra/uikit-utils": "1.8.*",

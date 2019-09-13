@@ -16,12 +16,13 @@
     "bin/"
   ],
   "sideEffects": false,
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
     "@types/react": "latest"
   },
+  "peerDependencies": {},
   "dependencies": {
     "@myntra/uikit-component-button": "1.8.*",
     "@myntra/uikit-component-input-text": "1.8.*",

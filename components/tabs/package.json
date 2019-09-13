@@ -17,15 +17,13 @@
     "*.codemod.js"
   ],
   "sideEffects": false,
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "optionalDependencies": {
-    "react": ">=15.4"
-  },
+  "peerDependencies": {},
   "exports": [
     "Tab"
   ],

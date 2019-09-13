@@ -16,7 +16,7 @@
     "bin/"
   ],
   "sideEffects": false,
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
@@ -27,11 +27,9 @@
     "lodash.camelcase": "^4.3.0",
     "prettier": "^1.16.4"
   },
+  "peerDependencies": {},
   "scripts": {
     "build": "node build.js"
-  },
-  "optionalDependencies": {
-    "react": ">=15.4"
   },
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.8.*",
