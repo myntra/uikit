@@ -15,7 +15,7 @@ const component = process.argv[2]
 
 start(component).catch(console.error)
 
-async function start(component) {
+async function start(component, port = process.env.PORT ? Number(process.env.PORT) : 8082) {
   if (!component || !components.includes(component)) {
     const result = await Inquirer.prompt({
       name: 'component',
@@ -30,7 +30,7 @@ async function start(component) {
   console.log('Starting dev server for ' + component)
 
   createComponentsFile(component)
-  startWebpackDevServer(component)
+  startWebpackDevServer(component, port)
 }
 
 function createComponentsFile(component) {
@@ -49,14 +49,14 @@ function createComponentsFile(component) {
   }
 
   Fs.writeFileSync(
-    Path.resolve(__dirname, 'app/uikit.js'),
+    Path.resolve(__dirname, `app/uikit.${component}.js`),
     Array.from(components)
       .map(name => `export { default as ${name} } from '@myntra/uikit-component-${kebabCase(name)}'`)
       .join('\n')
   )
 }
 
-function startWebpackDevServer(component) {
+function startWebpackDevServer(component, port) {
   const chain = new WebpackChain()
 
   chain.entry('app').add(Path.resolve(__dirname, './app/dev-server-entry-file.tsx'))
@@ -66,6 +66,7 @@ function startWebpackDevServer(component) {
 
   chain.resolve.alias
     .set('@code', Path.resolve(__dirname, './app/code.tsx'))
+    .set('@uikit', Path.resolve(__dirname, `./app/uikit.${component}.js`))
     .set(
       'accoutrement$',
       Path.resolve(__dirname, '../../packages/accoutrement/node_modules/accoutrement/sass/index.scss')
@@ -239,5 +240,5 @@ function startWebpackDevServer(component) {
   const compiler = webpack(chain.toConfig())
   const server = new WebpackDevServer(compiler)
 
-  server.listen(8082, '0.0.0.0')
+  server.listen(port, '0.0.0.0')
 }

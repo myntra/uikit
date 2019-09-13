@@ -1,6 +1,7 @@
 import React, { PureComponent, Suspense, lazy } from 'react'
 import PropTypes from 'prop-types'
-import * as components from './uikit'
+// @ts-ignore
+import * as components from '@uikit'
 
 export default class Preview extends PureComponent<{ component: any; onError: (error: any) => void }> {
   static propTypes = {
