@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: ./assets/hero.png
+heroImage: ./assets/hero.png?v=2
 actionText: Get Started →
 actionLink: /guide/
 features:

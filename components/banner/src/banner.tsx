@@ -35,6 +35,8 @@ const ICONS: Record<string, IconName> = {
   success: 'check-circle',
 }
 
+const RE_BACKWARD_COMPAT = /^(primary|info)$/
+
 // Design: https://zpl.io/bA7ZRWp
 // Documentation: https://zpl.io/bJGxg6E
 
@@ -58,7 +60,7 @@ export default function Banner({
   children,
   ...props
 }: Props): JSX.Element {
-  const typeName = (type as any) === 'primary' ? 'success' : type
+  const typeName = RE_BACKWARD_COMPAT.test(type) ? 'success' : type
   const heading = title || children
   const body = title ? children : null
   const iconName = icon === undefined ? ICONS[type] : icon
