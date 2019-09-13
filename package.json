@@ -5,7 +5,7 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
-  "version": "1.9.1",
+  "version": "1.9.2",
   "engines": {
     "node": ">=8.0"
   },
@@ -38,7 +38,6 @@
     ":release": "standard-version -a",
     "post:release": "npm run :publish && git push --follow-tags && npm run update:master",
     "release": "npm run :release",
-    "changelog": "standard-version -a",
     ":update:versions": "node ./scripts/set-version.js",
     ":beta": "standard-version -a -p beta -a",
     "post:beta": "npm run :publish",
@@ -125,7 +124,6 @@
   "standard-version": {
     "scripts": {
       "prechangelog": "npm run test",
-      "changelog": "npm run changelog",
       "postbump": "npm run :update:versions && git add -A"
     }
   }

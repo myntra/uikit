@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.2"></a>
+## <small>1.9.2 (2019-09-13)</small>
+
+* chore(release): 1.9.1 ([05fa446](https://bitbucket.org/myntra/uikit/commits/05fa446))
+* fix: Add Layout component to uikit ([a122fc8](https://bitbucket.org/myntra/uikit/commits/a122fc8))
+
+
+
 <a name="1.9.1"></a>
 ## 1.9.1 (2019-09-13)
 
