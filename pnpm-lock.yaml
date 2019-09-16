@@ -1056,8 +1056,10 @@ importers:
   packages/accoutrement:
     dependencies:
       accoutrement: registry.npmjs.org/accoutrement/2.1.2
+      normalize.css: registry.npmjs.org/normalize.css/8.0.1
     specifiers:
       accoutrement: ^2.1.2
+      normalize.css: ^8.0.1
   packages/classnames-loader:
     dependencies:
       '@myntra/uikit-utils': 'link:../uikit-utils'
@@ -17353,6 +17355,14 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/normalize-url/-/normalize-url-3.3.0.tgz'
     version: 3.3.0
+  registry.npmjs.org/normalize.css/8.0.1:
+    dev: false
+    name: normalize.css
+    resolution:
+      integrity: sha512-qizSNPO93t1YUuUhP22btGOo3chcvDFqFaj2TRybP0DMxkHOCTYwp3n34fel4a31ORXy4m1Xq0Gyqpb5m33qIg==
+      registry: 'http://registry.myntra.com:8000/'
+      tarball: 'https://registry.npmjs.org/normalize.css/-/normalize.css-8.0.1.tgz'
+    version: 8.0.1
   registry.npmjs.org/npm-path/2.0.4:
     dependencies:
       which: registry.npmjs.org/which/1.3.1
