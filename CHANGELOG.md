@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 <a name="1.9.3"></a>
+## <small>1.9.3 (2019-09-16)</small>
+
+* chore: Update dependencies ([0833211](https://bitbucket.org/myntra/uikit/commits/0833211))
+* fix(Dropdown,Modal,NavBar,TopBar,Page,Tooltip): Use more predictable z-index layer stacking model ([80ccd30](https://bitbucket.org/myntra/uikit/commits/80ccd30)), closes [#191](https://bitbucket.org/myntra/uikit/issue/191)
+
+
+
+<a name="1.9.3"></a>
 ## <small>1.9.3 (2019-09-13)</small>
 
 

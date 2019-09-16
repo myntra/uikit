@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-schema-form",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "main": "dist/schema-form.cjs.js",
   "module": "dist/schema-form.esm.js",
   "types": "dist/index.d.ts",

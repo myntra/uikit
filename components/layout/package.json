@@ -1,6 +1,6 @@
 {
   "name": "layout",
-  "version": "1.9.2",
+  "version": "1.9.3",
   "main": "dist/layout.cjs.js",
   "module": "dist/layout.esm.js",
   "types": "dist/index.d.ts",
