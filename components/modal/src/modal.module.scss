@@ -1,16 +1,17 @@
-@import '@design';
+@import '@accoutrement';
 
 .modal {
+  @include padding('modal');
+
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: ui-z-index('modal');
+  z-index: z-index('modal');
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: ui-size('l');
 }
 
 .backdrop {
@@ -37,5 +38,5 @@
   top: -13px;
   right: -25px;
   padding-right: 0;
-  color: ui-text-color('light');
+  color: text-color('light');
 }

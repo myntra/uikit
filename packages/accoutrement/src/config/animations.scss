@@ -4,13 +4,13 @@ $times: (
 );
 
 $easing: (
-  'elastic': cubic-bezier(0.5, -0.4, 0.5, 1.4),
+  'exponential': cubic-bezier(0.19, 1, 0.22, 1),
 );
 
 $changes: (
-  'background': background-color time('fast') ease('elastic'),
-  'width': width time('fast') ease('elastic'),
-  'all': all time('fast') ease('elastic'),
+  'background': background-color time('fast') ease('exponential'),
+  'width': width time('fast') ease('exponential'),
+  'all': all time('fast') ease('exponential'),
   'button': '#all',
   'nav-bar': '#width',
 );

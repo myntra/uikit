@@ -1,9 +1,8 @@
 $z-index: (
-  'main',
-  'navigation',
-  'banner',
-  'tooltip',
   'dropdown',
+  'top-bar',
+  'nav-bar',
+  'top-bar.dropdown',
   'modal',
-  'message'
+  'modal.dropdown'
 );

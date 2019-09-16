@@ -46,38 +46,52 @@ export default class Tooltip extends PureComponent<Props, { open: boolean }> {
       right: ['up', 'down', 'right'].includes(position),
     }
 
+    const [child] = React.Children.toArray(children).filter((node) => !!node)
+
     return (
       <Dropdown
         container
         className={className}
         isOpen={this.state.open}
+        wrapperClassName={classnames('dropdown')}
         onClose={() => this.setState({ open: false })}
         onOpen={() => this.setState({ open: true })}
         renderTrigger={(props) =>
-          React.cloneElement(React.Children.only(children), props)
+          React.isValidElement(child) ? (
+            React.cloneElement(child, props)
+          ) : (
+            <span {...props}>{child}</span>
+          )
         }
         triggerOn={triggerOn}
         data-test-id="tooltip-trigger"
         {...dropdownPosition}
       >
-        <div
-          className={classnames('tooltip', this.props.position)}
-          data-test-id="tooltip"
-        >
+        {({ content }) => (
           <div
-            className={classnames(
-              'tooltip-content',
-              position,
-              dark ? 'dark' : 'light'
-            )}
-            data-test-id="content"
+            className={classnames('tooltip', this.props.position)}
+            data-test-id="tooltip"
           >
-            {renderContent()}
+            <div
+              className={classnames(
+                'tooltip-content',
+                position,
+                dark ? 'dark' : 'light'
+              )}
+              data-test-id="content"
+            >
+              {renderContent()}
+            </div>
+            <div
+              className={classnames('arrow', position, dark ? 'dark' : 'light')}
+              style={
+                {
+                  '--u-tooltip-x': `${content ? content.minWidth / 2 : 0}px`,
+                } as any
+              }
+            />
           </div>
-          <div
-            className={classnames('arrow', position, dark ? 'dark' : 'light')}
-          />
-        </div>
+        )}
       </Dropdown>
     )
   }

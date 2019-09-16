@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .dropdown {
   position: relative;
@@ -8,17 +8,20 @@
 .content {
   position: absolute;
   top: 100%;
-  z-index: ui-z-index(pop-over);
+  z-index: z-index('dropdown');
   transition: height 0.3s;
 }
 
 .content-wrapper {
-  // background: #fff;
-  box-shadow: ui-shadow('raised');
+  box-shadow: shadow('raised');
 }
 
 .content.fixed {
   position: fixed;
+}
+
+:global(.u-modal-is-open) .content {
+  @include z-index('modal.dropdown');
 }
 
 .dropdown > .content {

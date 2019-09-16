@@ -1,9 +1,9 @@
-/*
- * $margins share same map as $sizes (makes it easy to use sizes)
- * but all values are prefixed with 'margin-'.
- *
- * So, when referenced they should be used like '#margin-{token name}'.
- */
+//
+// $margins share same map as $sizes (makes it easy to use sizes)
+// but all values are prefixed with 'margin-'.
+//
+// So, when referenced they should be used like '#margin-{token name}'.
+//
 
 $margins: (
   'none': 0,

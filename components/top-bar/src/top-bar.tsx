@@ -58,6 +58,7 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
             down
             right
             container
+            wrapperClassName={classnames('dropdown')}
             isOpen={this.state.isOpen}
             onOpen={this.handleOpen}
             onClose={this.handleClose}

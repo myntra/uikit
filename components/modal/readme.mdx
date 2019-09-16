@@ -5,13 +5,15 @@ import Modal from './src/modal'
 <Documenter component={Modal}>
 
 ```jsx preview
-<Modal trigger="Open Modal" title="Example Modal" actions={close => <Button onClick={close}>Okay</Button>}>
-   <p>{'A simple modal with a form.'}</p>
+<>
+  <Modal trigger="Open Modal" title="Example Modal" actions={close => <Button onClick={close}>Okay</Button>}>
+    <p>{'A simple modal with a form.'}</p>
 
-   <p>{'You can render anything here!!'}</p>
+    <p>{'You can render anything here!!'}</p>
 
-   <Image src="//picsum.photos/200" height={200}  width={200} />
- </Modal>
+    <Image src="//picsum.photos/200" height={200}  width={200} />>
+  </Modal>
+</>
 ```
 
 </Documenter>

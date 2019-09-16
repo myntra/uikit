@@ -1,11 +1,10 @@
 @import '@accoutrement';
 
 .container {
-  @include z-index('navigation');
+  @include z-index('top-bar');
   @include border-bottom('top-bar');
   @include padding('top-bar');
 
-  z-index: 1000;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -13,6 +12,7 @@
   height: size('top-bar.height');
   line-height: 1;
   background-color: color('top-bar.background');
+  isolation: isolate;
   border-color: color('top-bar.border');
 
   * {
@@ -55,4 +55,12 @@
   .user-avatar {
     font-size: 1rem;
   }
+}
+
+.menu {
+  background-color: color('white');
+}
+
+.dropdown {
+  @include z-index('top-bar.dropdown');
 }

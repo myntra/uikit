@@ -58,12 +58,16 @@ export default class Modal extends PureComponent<Props> {
   }
 
   handleOpen = () => {
-    this.setState({ isOpen: true })
+    this.setState({ isOpen: true }, () =>
+      document.body.classList.add('u-modal-is-open')
+    )
     this.props.onOpen && this.props.onOpen()
   }
 
   handleClose = () => {
-    this.setState({ isOpen: false })
+    this.setState({ isOpen: false }, () =>
+      document.body.classList.remove('u-modal-is-open')
+    )
     this.props.onClose && this.props.onClose()
   }
 

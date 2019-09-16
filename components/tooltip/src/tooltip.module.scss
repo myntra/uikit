@@ -1,28 +1,29 @@
-@import '@design';
+@import '@accoutrement';
 
 .tooltip {
   display: flex;
-  justify-content: center;
 }
 
 .tooltip.right,
 .tooltip.left {
   flex-direction: column;
+  justify-content: center;
 }
 
 .tooltip-content {
-  padding: ui-size('r');
-  border-radius: 2px;
-  box-shadow: ui-shadow('raised');
+  @include padding('medium');
+  @include border-radius('tooltip');
+
+  box-shadow: shadow('raised');
 }
 
 .tooltip-content.light {
-  color: ui-text-color('dark');
-  background-color: white;
+  color: text-color('dark');
+  background-color: color('white');
 }
 
 .tooltip-content.dark {
-  color: white;
+  color: text-color('white');
   background-color: rgb(40, 44, 63);
 }
 
@@ -52,22 +53,24 @@
 
 .arrow.up {
   bottom: -6px;
-  border-top-color: white;
+  left: var(--u-tooltip-x);
+  border-top-color: color('white');
 }
 
 .arrow.down {
   top: -6px;
-  border-bottom-color: white;
+  left: var(--u-tooltip-x);
+  border-bottom-color: color('white');
 }
 
 .arrow.left {
   right: -6px;
-  border-left-color: white;
+  border-left-color: color('white');
 }
 
 .arrow.right {
   left: -6px;
-  border-right-color: white;
+  border-right-color: color('white');
 }
 
 .arrow.up.dark {
@@ -84,4 +87,8 @@
 
 .arrow.right.dark {
   border-right-color: rgb(40, 44, 63);
+}
+
+.dropdown > * {
+  box-shadow: none;
 }

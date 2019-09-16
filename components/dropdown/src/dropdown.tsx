@@ -88,6 +88,10 @@ export interface Props extends BaseProps {
    * Event to trigger dropdown
    */
   triggerOn?: 'hover' | 'click' | 'focus'
+  /**
+   * A className for popper wrapper element
+   */
+  wrapperClassName?: string
 }
 
 /**
@@ -112,7 +116,7 @@ export default class Dropdown extends Component<
       left: number
       right?: number
       content?: {
-        width: number
+        minWidth: number
       }
     }
   }
@@ -290,7 +294,7 @@ export default class Dropdown extends Component<
       top: number
       left: number
       right?: number
-      content?: { width: number }
+      content?: { minWidth: number }
     }
     const trigger = this.triggerRef.current
     const rect = trigger.getBoundingClientRect()
@@ -306,7 +310,7 @@ export default class Dropdown extends Component<
 
     if (right && left) {
       position.right = position.left + rect.width
-      position.content = { width: rect.width }
+      position.content = { minWidth: rect.width }
     } else if (right) {
       if (up || down) {
         position.left += rect.width - width
@@ -333,7 +337,7 @@ export default class Dropdown extends Component<
       if (position.right) {
         newPosition.right = newPosition.left + newRect.width
         newPosition.content = {
-          width: newRect.width,
+          minWidth: newRect.width,
         }
       }
 
@@ -438,6 +442,7 @@ export default class Dropdown extends Component<
       trigger,
       triggerOn,
       up,
+      wrapperClassName,
       useClickAway, // Private prop API
       ...props
     } = this.props
@@ -458,6 +463,9 @@ export default class Dropdown extends Component<
       className,
       children,
     } = this.props
+
+    const getChildren = () =>
+      typeof children === 'function' ? children(position || {}) : children
 
     const handlers: Record<string, any> = {
       onBlur: this.handleBlurDelayed,
@@ -507,7 +515,11 @@ export default class Dropdown extends Component<
           (this.props.container ? (
             <Portal container={this.props.container} data-test-id="portal">
               <div
-                className={classnames('content', 'fixed')}
+                className={classnames(
+                  'content',
+                  'fixed',
+                  this.props.wrapperClassName
+                )}
                 style={
                   position
                     ? {
@@ -528,7 +540,7 @@ export default class Dropdown extends Component<
                     className={classnames('content-wrapper')}
                     style={position && position.content}
                   >
-                    {children}
+                    {getChildren()}
                   </div>
                 </Measure>
               </div>
@@ -543,7 +555,7 @@ export default class Dropdown extends Component<
                   className={classnames('content-wrapper')}
                   data-test-id="content"
                 >
-                  {children}
+                  {getChildren()}
                 </div>
               </Measure>
             </div>

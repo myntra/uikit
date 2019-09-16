@@ -1,9 +1,9 @@
-/*
- * $paddings share same map as $sizes (makes it easy to use sizes)
- * but all values are prefixed with 'padding-'.
- *
- * So, when referenced they should be used like '#padding-{token name}'.
- */
+//
+// $paddings share same map as $sizes (makes it easy to use sizes)
+// but all values are prefixed with 'padding-'.
+//
+// So, when referenced they should be used like '#padding-{token name}'.
+//
 
 $paddings: (
   'none': 0,
@@ -20,6 +20,7 @@ $paddings: (
   'top-bar': '#3x' '#4x',
   'nav-bar.body': '#padding-none' '#4x' '#4x' '#4x',
   'nav-bar.item': '#padding-small',
+  'modal': '#default',
 );
 
 $-tokens-paddings: () !default;
