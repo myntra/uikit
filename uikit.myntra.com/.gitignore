@@ -26,3 +26,4 @@ yarn-error.log*
 
 .spectrum/
 @types/.spectrum
+src/router/pages/changelog.mdx
