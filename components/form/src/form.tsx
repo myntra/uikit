@@ -4,8 +4,6 @@ import React, {
   FormEvent,
   Children,
   isValidElement,
-  ReactElement,
-  JSXElementConstructor,
 } from 'react'
 import Grid from '@myntra/uikit-component-grid'
 import {
@@ -59,7 +57,13 @@ export interface FormContext {
   }
 }
 
-const FormContext = createContext<FormContext>(null)
+const FormContext = createContext<FormContext>({
+  createFieldProps() {
+    console.warn(
+      'Form.Xxx components should have be rendered inside a Form component.'
+    )
+  },
+} as any)
 
 export interface Props<T extends Record<string, unknown> = {}>
   extends BaseProps {
