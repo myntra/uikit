@@ -13,6 +13,7 @@ $margins: (
   'banner.body': '#1x',
   'nav-bar.item': '#1x' negative('#1x'),
   'nav-bar.group': '#8x',
+  'tab.group': '#1x' '#margin-none',
 );
 
 $-tokens-margins: () !default;

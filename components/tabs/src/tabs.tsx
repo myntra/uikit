@@ -35,6 +35,8 @@ export default class Tabs extends PureComponent<
   Props,
   { activeIndex: number }
 > {
+  static Tab = Tab
+
   static propTypes = {
     /** @private  */
     _validate(props) {
@@ -91,7 +93,7 @@ export default class Tabs extends PureComponent<
             })
           )}
         </div>
-        <div className={classnames('content')}>{content}</div>
+        {content}
       </div>
     )
   }

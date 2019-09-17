@@ -1,14 +1,13 @@
-@import '@design';
+@import '@accoutrement';
 
 .group {
-  margin: ui-size('s') 0;
+  @include margin('tab.group');
+
+  background-color: color('white');
 }
 
 .pane {
-  margin-bottom: ui-size('s');
-  border-bottom: solid 1px ui-color('gray', 'dark');
-}
-
-.content {
-  margin-top: ui-size('s');
+  margin-bottom: margin-bottom('small');
+  border-color: color('tab.border');
+  border-bottom: border('tab.pane');
 }

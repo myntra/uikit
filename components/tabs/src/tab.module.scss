@@ -1,13 +1,13 @@
-@import '@design';
+@import '@accoutrement';
 
 .tab {
+  @include padding('tab.item');
+  @include typography('h2');
   position: relative;
   display: inline-block;
-  padding: ui-size('xs') ui-size('l');
-  color: ui-text-color('dark');
-  cursor: pointer;
 
-  @include use-text-style('table');
+  color: text-color('dark', 'medium');
+  cursor: pointer;
 
   &::after {
     position: absolute;
@@ -22,10 +22,10 @@
   }
 
   &.active {
-    color: ui-text-color('primary');
+    color: text-color('dark');
 
     &::after {
-      background: ui-color('primary');
+      background-color: color('primary');
     }
   }
 }
