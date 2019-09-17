@@ -72,7 +72,7 @@
     "@myntra/uikit-component-virtual-grid": "1.9.*",
     "@myntra/uikit-component-virtual-list": "1.9.*",
     "@myntra/uikit-utils": "1.9.*",
-    "layout": "link:../../components/layout"
+    "@myntra/uikit-component-layout": "link:../../components/layout"
   },
   "devDependencies": {
     "sass": "^1.23.0-module.beta.1"
