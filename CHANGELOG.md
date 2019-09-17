@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.8"></a>
+## <small>1.9.8 (2019-09-17)</small>
+
+* fix(Tabs,NavBar,TopBar): Use gray-light-2 for border color ([0b0bf9d](https://bitbucket.org/myntra/uikit/commits/0b0bf9d))
+* chore: checkout develop branch after updating master ([ba121f8](https://bitbucket.org/myntra/uikit/commits/ba121f8))
+
+
+
 <a name="1.9.7"></a>
 ## <small>1.9.7 (2019-09-17)</small>
 
