@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.4"></a>
+## <small>1.9.4 (2019-09-17)</small>
+
+* fix(Layout): Correct package name to match convention ([b735461](https://bitbucket.org/myntra/uikit/commits/b735461))
+
+
+
 <a name="1.9.3"></a>
 ## <small>1.9.3 (2019-09-16)</small>
 
