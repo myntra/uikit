@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.7"></a>
+## <small>1.9.7 (2019-09-17)</small>
+
+* fix(Form): Warn when Form.Xxxx components are used without a Form parent ([2992b44](https://bitbucket.org/myntra/uikit/commits/2992b44))
+* fix(Icon): Make icon svg inline ([9997aad](https://bitbucket.org/myntra/uikit/commits/9997aad))
+* fix(Tabs): Make background white and adjust font size ([7d8a484](https://bitbucket.org/myntra/uikit/commits/7d8a484))
+* fix(uikit): Add correct dependency of Layout component ([efcf729](https://bitbucket.org/myntra/uikit/commits/efcf729))
+* chore: Update dependencies ([43468e1](https://bitbucket.org/myntra/uikit/commits/43468e1))
+
+
+
 <a name="1.9.4"></a>
 ## <small>1.9.4 (2019-09-17)</small>
 

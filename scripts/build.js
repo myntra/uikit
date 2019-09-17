@@ -1,19 +1,4 @@
 /* eslint-disable node/no-unpublished-require */
-/*
-Produce production builds..
-
-To specific the package to build, simply pass its name and the desired build
-formats to output (defaults to `buildOptions.formats` specified in that package,
-or "esm,cjs"):
-
-```
-# name supports fuzzy match. will build all packages with name containing "dom":
-yarn build dom
-
-# specify the format to output
-yarn build core --formats cjs
-```
-*/
 
 const fs = require('fs-extra')
 const path = require('path')
