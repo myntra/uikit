@@ -12,6 +12,7 @@ const MonacoEditor = React.lazy(() =>
   })
 )
 
+const CDN_BASE = 'https://cdn.myntassets.com/spectrum/uikit/'
 function setupMonacoEnvironment() {
   function testSameOrigin(url) {
     const loc = window.location
@@ -30,6 +31,12 @@ function setupMonacoEnvironment() {
       if (testSameOrigin(workerUrl)) {
         return workerUrl
       }
+      if (workerUrl.startsWith(CDN_BASE)) {
+        const { protocol, hostname, port } = window.location
+
+        return `${protocol}://${hostname}${port ? `:${port}` : ''}/${workerUrl.substr(CDN_BASE.length)}`
+      }
+
       let blob = null
 
       try {
