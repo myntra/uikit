@@ -26,6 +26,7 @@ module.exports = {
     config.resolve.alias
       .set('@component-docs', componentsDir)
       .set('@myntra/uikit-design/design.scss$', packagesDir + '/uikit-design/design.scss')
+      .set('@myntra/uikit/design.scss$', packagesDir + '/uikit/design.scss')
       .set('@myntra/uikit-component-input-text/style.scss$', componentsDir + '/input-text/style.scss')
       .set('@design$', themesDir + '/nuclei/design.scss')
       .set('@accoutrement$', themesDir + '/nuclei/design.next.scss')
