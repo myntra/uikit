@@ -32,6 +32,13 @@ export interface Props extends BaseProps {
   apiRoot: string
 }
 
+const STATUS_APPEARANCE_MAP = {
+  INTERRUPTED: 'danger',
+  IN_PROGRESS: 'info',
+  CREATED: 'warning',
+  COMPLETED: 'success',
+}
+
 /**
  * @since 0.6
  * @status REVIEWING
@@ -42,6 +49,7 @@ export default class JobTrackerItem extends PureComponent<Props> {
   }
 
   render() {
+    const { status } = this.props
     return (
       <Grid gapless vcentered className={this.props.className}>
         <Grid.Column size={2}>
@@ -53,13 +61,14 @@ export default class JobTrackerItem extends PureComponent<Props> {
               }
               size="medium"
               type="circle"
+              appearance={STATUS_APPEARANCE_MAP[status]}
             >
               <Icon name="image" />
             </Progress>
             <div className={classnames('text')}>
               <i>
-                {(this.props.status || '').replace('_', ' ').toLowerCase()}
-                {this.props.status === 'IN_PROGRESS' ? '...' : ''}
+                {(status || '').replace('_', ' ').toLowerCase()}
+                {status === 'IN_PROGRESS' ? '...' : ''}
               </i>
             </div>
           </div>

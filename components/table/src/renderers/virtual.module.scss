@@ -36,15 +36,20 @@
     }
 
     .h-col-head {
+      display: flex;
       flex: 0 0 30px;
       padding: 0 8px;
+
+      &.center {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+
+    .h-col-head-text {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-
-      &.center {
-        text-align: center;
-      }
     }
 
     .h-col-children {

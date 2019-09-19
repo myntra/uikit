@@ -149,7 +149,9 @@ export default class VirtualTable extends PureComponent<Props, State> {
               : {}
           }
         >
-          {column.renderHead()}
+          <span className={classnames('h-col-head-text')}>
+            {column.renderHead()}
+          </span>
           {column.enhancers.map(([enhancer, props]) =>
             enhancer.renderHead(
               {
