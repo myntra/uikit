@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.9.9"></a>
+## <small>1.9.9 (2019-09-19)</small>
+
+* docs: adjust editor position ([8cb0ab7](https://bitbucket.org/myntra/uikit/commits/8cb0ab7))
+* docs: use worker from same domain ([2fe3460](https://bitbucket.org/myntra/uikit/commits/2fe3460))
+* fix(changelog): correct changelog pull requests links ([fe353be](https://bitbucket.org/myntra/uikit/commits/fe353be)), closes [#195](https://bitbucket.org/myntra/uikit/issue/195)
+* fix(Modal): Observe changes in isOpen prop to set the z-index context for dropdown ([8620a80](https://bitbucket.org/myntra/uikit/commits/8620a80)), closes [#194](https://bitbucket.org/myntra/uikit/issue/194)
+* fix(Table): Use a memoized getter to compute filter options from table data ([a8c5a99](https://bitbucket.org/myntra/uikit/commits/a8c5a99)), closes [#193](https://bitbucket.org/myntra/uikit/issue/193)
+
+
+
 <a name="1.9.8"></a>
 ## <small>1.9.8 (2019-09-17)</small>
 

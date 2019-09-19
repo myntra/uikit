@@ -33,11 +33,17 @@ async function build(target) {
 
   await fs.remove(`${pkgDir}/dist`)
 
-  await execa(
-    path.resolve(__dirname, '../node_modules/.bin/rollup'),
-    ['-c', '--environment', `TARGET:${target}`],
-    {
-      stdio: 'inherit',
-    }
-  )
+  try {
+    await execa(
+      path.resolve(__dirname, '../node_modules/.bin/rollup'),
+      ['-c', '--environment', `TARGET:${target}`],
+      {
+        stdio: 'inherit',
+      }
+    )
+  } catch (error) {
+    console.error(error)
+
+    process.exit(1)
+  }
 }
