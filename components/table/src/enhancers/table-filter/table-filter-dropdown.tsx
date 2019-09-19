@@ -5,8 +5,8 @@ import List from '@myntra/uikit-component-list'
 import InputText from '@myntra/uikit-component-input-text'
 import Field from '@myntra/uikit-component-field'
 import Button from '@myntra/uikit-component-button'
-
 import classnames from './table-filter-dropdown.module.scss'
+import { memoize } from '@myntra/uikit-utils'
 
 export interface Props<V = any, O = { value: any; label: string }> {
   columnId: string
@@ -25,7 +25,6 @@ export default class TableFilterDropdown extends Component<
     isOpen: boolean
     searchText: string
     options: Array<{ value: any; label: string }>
-    rawOptions: Array<{ value: any; label: string }>
   }
 > {
   static defaultProps = {
@@ -45,23 +44,30 @@ export default class TableFilterDropdown extends Component<
   constructor(props) {
     super(props)
 
-    const options =
-      props.options ||
-      Array.from(new Set(props.data.map((item) => props.getter(item)))).map(
-        (value) => ({ value, label: value })
-      )
-
     this.state = {
       isOpen: false,
       searchText: '',
-      options: options,
-      rawOptions: options,
+      options: this.options,
     }
   }
 
   get value() {
     return this.props.value ? this.props.value[this.props.columnId] : null
   }
+
+  get options() {
+    return (
+      this.props.options ||
+      this.computeOptions(this.props.data, this.props.getter)
+    )
+  }
+
+  computeOptions = memoize((data, getter) =>
+    Array.from(new Set(data.map((item) => getter(item)))).map((value: any) => ({
+      value,
+      label: `${value}`,
+    }))
+  )
 
   handleChange = (value: any[]) => {
     this.props.onChange(
@@ -101,7 +107,7 @@ export default class TableFilterDropdown extends Component<
     this.setState(this.onSearch(searchText))
 
   onSearch(searchText: string) {
-    const rawOptions = this.props.options || this.state.rawOptions
+    const rawOptions = this.options
     const re = new RegExp(
       searchText.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'),
       'i'

@@ -231,7 +231,6 @@ export function debounce<T = unknown>(
 
 /**
  * Memoize results of a function.
- * @deprecated Use React.memo
  */
 export function memoize<F extends (...args: any[]) => any>(
   func: F,
@@ -239,13 +238,22 @@ export function memoize<F extends (...args: any[]) => any>(
 ): F {
   let lastArgs = null
   let lastResult = null
+  let lastThis = null
+  let calledOnce = false
 
   return function(...args) {
-    if (!isEqualShallow(lastArgs, args, isEqual)) {
-      lastResult = func.apply(this, args)
+    if (
+      calledOnce &&
+      lastThis === this &&
+      isEqualShallow(lastArgs, args, isEqual)
+    ) {
+      return lastResult
     }
 
+    calledOnce = true
     lastArgs = args
+    lastThis = this
+    lastResult = func.apply(this, args)
 
     return lastResult
   } as any
