@@ -2,7 +2,7 @@
 home: true
 heroImage: ./assets/hero.png?v=2
 actionText: Get Started →
-actionLink: /guide/
+actionLink: https://uikit.myntra.com/
 features:
 - title: Simplicity First
   details: Minimal and intuitive API helps you focus on writing the application logic.
