@@ -3,7 +3,7 @@ const { componentsDir, packagesDir, packages, components, themes, themesDir } = 
 
 const path = require('path')
 
-/** @type {import('@myntra/spectrum-cli-shared-utils').Spectrum.Project.Options} */
+/** @type {import('@myntra/spectrum-cli-plugin').Spectrum.Project.Options} */
 module.exports = {
   name: 'uikit',
   lintOnSave: false,

@@ -33,8 +33,9 @@ function setupMonacoEnvironment() {
       }
       if (workerUrl.startsWith(CDN_BASE)) {
         const { protocol, hostname, port } = window.location
+        const id = encodeURIComponent(new Date().toDateString())
 
-        return `${protocol}://${hostname}${port ? `:${port}` : ''}/${workerUrl.substr(CDN_BASE.length)}`
+        return `${protocol}//${hostname}${port ? `:${port}` : ''}/${workerUrl.substr(CDN_BASE.length)}?v=${id}`
       }
 
       let blob = null
