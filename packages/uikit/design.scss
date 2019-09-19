@@ -36,6 +36,10 @@ html {
   border-width: 0;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 /*
  * Ensure horizontal rules are visible by default
  */
@@ -44,35 +48,23 @@ hr {
   border-top-width: 1px;
 }
 
-/**
- * Undo the `border-style: none` reset that Normalize applies to images so that
- * our `border-{width}` utilities have the expected effect.
- *
- * The Normalize reset is unnecessary for us since we default the border-width
- * to 0 on all elements.
- */
-
-img {
-  border-style: solid;
-}
-
 textarea {
   resize: vertical;
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
-  color: #a0aec0;
+  color: currentColor;
 }
 
 input::-ms-input-placeholder,
 textarea::-ms-input-placeholder {
-  color: #a0aec0;
+  color: currentColor;
 }
 
 input::placeholder,
 textarea::placeholder {
-  color: #a0aec0;
+  color: currentColor;
 }
 
 button,
@@ -94,23 +86,10 @@ h6 {
   font-weight: inherit;
 }
 
-/**
- * Reset links to optimize for opt-in styling instead of
- * opt-out.
- */
-
 a {
   color: inherit;
   text-decoration: inherit;
 }
-
-/**
- * Reset form element properties that are easy to forget to
- * style explicitly so you don't inadvertently introduce
- * styles that deviate from your design system. These styles
- * supplement a partial reset that is already applied by
- * normalize.css.
- */
 
 button,
 input,
@@ -122,13 +101,6 @@ textarea {
   color: inherit;
 }
 
-/**
- * Use the configured 'mono' font family for elements that
- * are expected to be rendered with a monospace font, falling
- * back to the system monospace stack if there is no configured
- * 'mono' font family.
- */
-
 pre,
 code,
 kbd,
@@ -136,14 +108,6 @@ samp {
   font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
     monospace;
 }
-
-/**
- * Make replaced elements `display: block` by default as that's
- * the behavior you want almost all of the time. Inspired by
- * CSS Remedy, with `svg` added as well.
- *
- * https://github.com/mozdevs/cssremedy/issues/14
- */
 
 img,
 svg,
@@ -156,13 +120,6 @@ object {
   display: block;
   vertical-align: middle;
 }
-
-/**
- * Constrain images and videos to the parent width and preserve
- * their instrinsic aspect ratio.
- *
- * https://github.com/mozdevs/cssremedy/issues/14
- */
 
 img,
 video {
