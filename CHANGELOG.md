@@ -32,7 +32,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## <small>1.9.3 (2019-09-16)</small>
 
 * chore: Update dependencies ([0833211](https://bitbucket.org/myntra/uikit/commits/0833211))
-* fix(Dropdown,Modal,NavBar,TopBar,Page,Tooltip): Use more predictable z-index layer stacking model ([80ccd30](https://bitbucket.org/myntra/uikit/commits/80ccd30)), closes [#191](https://bitbucket.org/myntra/uikit/issue/191)
+* fix(Dropdown,Modal,NavBar,TopBar,Page,Tooltip): Use more predictable z-index layer stacking model ([80ccd30](https://bitbucket.org/myntra/uikit/commits/80ccd30)), closes [#191](https://bitbucket.org/myntra/uikit/pull-requests/191)
 
 
 
@@ -63,7 +63,7 @@ All notable changes to this project will be documented in this file. See [standa
 * chore: Remove peerDependency on react ([8b35931](https://bitbucket.org/myntra/uikit/commits/8b35931))
 * chore: update docs build script ([b088894](https://bitbucket.org/myntra/uikit/commits/b088894))
 * chore: Upgrade react and react-dom to match uikit.myntra.com ([3e38c45](https://bitbucket.org/myntra/uikit/commits/3e38c45))
-* feat(Banner): Map primary and info types to success ([d5f3b4d](https://bitbucket.org/myntra/uikit/commits/d5f3b4d)), closes [#186](https://bitbucket.org/myntra/uikit/issue/186)
+* feat(Banner): Map primary and info types to success ([d5f3b4d](https://bitbucket.org/myntra/uikit/commits/d5f3b4d)), closes [#186](https://bitbucket.org/myntra/uikit/pull-requests/186)
 * feat(Layout): A component for composing layouts ([5e0419f](https://bitbucket.org/myntra/uikit/commits/5e0419f))
 * fix(Button): Hide button text in loading state ([8f6ce5d](https://bitbucket.org/myntra/uikit/commits/8f6ce5d))
 * fix(Button): Increase inter button margin ([b85bca2](https://bitbucket.org/myntra/uikit/commits/b85bca2))
@@ -75,7 +75,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * chore: Include packages in coverage report ([e61eab2](https://bitbucket.org/myntra/uikit/commits/e61eab2))
 * chore: Remove v0 banner ([da12597](https://bitbucket.org/myntra/uikit/commits/da12597))
-* fix(Table): Fix large (width) header while scrolling in virtualized table ([315ebc8](https://bitbucket.org/myntra/uikit/commits/315ebc8)), closes [#185](https://bitbucket.org/myntra/uikit/issue/185)
+* fix(Table): Fix large (width) header while scrolling in virtualized table ([315ebc8](https://bitbucket.org/myntra/uikit/commits/315ebc8)), closes [#185](https://bitbucket.org/myntra/uikit/pull-requests/185)
 
 
 
@@ -95,25 +95,25 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.8.0"></a>
 ## 1.8.0 (2019-09-10)
 
-* feat(Banner): Use new style system ([8fd2031](https://bitbucket.org/myntra/uikit/commits/8fd2031)), closes [#173](https://bitbucket.org/myntra/uikit/issue/173)
-* feat(uikit): Add a small CSS reset for applications ([7596e29](https://bitbucket.org/myntra/uikit/commits/7596e29)), closes [#184](https://bitbucket.org/myntra/uikit/issue/184)
-* fix(Table): Use accoutrement and fix styles ([55465a5](https://bitbucket.org/myntra/uikit/commits/55465a5)), closes [#183](https://bitbucket.org/myntra/uikit/issue/183)
+* feat(Banner): Use new style system ([8fd2031](https://bitbucket.org/myntra/uikit/commits/8fd2031)), closes [#173](https://bitbucket.org/myntra/uikit/pull-requests/173)
+* feat(uikit): Add a small CSS reset for applications ([7596e29](https://bitbucket.org/myntra/uikit/commits/7596e29)), closes [#184](https://bitbucket.org/myntra/uikit/pull-requests/184)
+* fix(Table): Use accoutrement and fix styles ([55465a5](https://bitbucket.org/myntra/uikit/commits/55465a5)), closes [#183](https://bitbucket.org/myntra/uikit/pull-requests/183)
 
 
 
 <a name="1.7.3"></a>
 ## <small>1.7.3 (2019-09-09)</small>
 
-* fix(Dropdown): Use `Event.composedPath` when `path` is not available ([fa7e7fc](https://bitbucket.org/myntra/uikit/commits/fa7e7fc)), closes [#181](https://bitbucket.org/myntra/uikit/issue/181)
-* fix(Table): Style inconsistencies in static table ([5d24419](https://bitbucket.org/myntra/uikit/commits/5d24419)), closes [#182](https://bitbucket.org/myntra/uikit/issue/182)
+* fix(Dropdown): Use `Event.composedPath` when `path` is not available ([fa7e7fc](https://bitbucket.org/myntra/uikit/commits/fa7e7fc)), closes [#181](https://bitbucket.org/myntra/uikit/pull-requests/181)
+* fix(Table): Style inconsistencies in static table ([5d24419](https://bitbucket.org/myntra/uikit/commits/5d24419)), closes [#182](https://bitbucket.org/myntra/uikit/pull-requests/182)
 
 
 
 <a name="1.7.2"></a>
 ## <small>1.7.2 (2019-09-09)</small>
 
-* fix(Grid): Rename .columns to .container due to some bug in CSS modules ([c3d1a04](https://bitbucket.org/myntra/uikit/commits/c3d1a04)), closes [#180](https://bitbucket.org/myntra/uikit/issue/180)
-* docs: Fix CodePreview buttons ([277d4b8](https://bitbucket.org/myntra/uikit/commits/277d4b8)), closes [#179](https://bitbucket.org/myntra/uikit/issue/179)
+* fix(Grid): Rename .columns to .container due to some bug in CSS modules ([c3d1a04](https://bitbucket.org/myntra/uikit/commits/c3d1a04)), closes [#180](https://bitbucket.org/myntra/uikit/pull-requests/180)
+* docs: Fix CodePreview buttons ([277d4b8](https://bitbucket.org/myntra/uikit/commits/277d4b8)), closes [#179](https://bitbucket.org/myntra/uikit/pull-requests/179)
 
 
 
@@ -129,8 +129,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 * fix(Button): Add some space between sibling buttons ([1c24472](https://bitbucket.org/myntra/uikit/commits/1c24472))
 * fix(docs): Use consistent className scheme ([9f245cf](https://bitbucket.org/myntra/uikit/commits/9f245cf))
-* fix(Table): Make `<Table>` block element ([3cde8fe](https://bitbucket.org/myntra/uikit/commits/3cde8fe)), closes [#177](https://bitbucket.org/myntra/uikit/issue/177)
-* feat(Form): Context based Form API (similar to redux-form) ([14aecb7](https://bitbucket.org/myntra/uikit/commits/14aecb7)), closes [#178](https://bitbucket.org/myntra/uikit/issue/178)
+* fix(Table): Make `<Table>` block element ([3cde8fe](https://bitbucket.org/myntra/uikit/commits/3cde8fe)), closes [#177](https://bitbucket.org/myntra/uikit/pull-requests/177)
+* feat(Form): Context based Form API (similar to redux-form) ([14aecb7](https://bitbucket.org/myntra/uikit/commits/14aecb7)), closes [#178](https://bitbucket.org/myntra/uikit/pull-requests/178)
 * chore: Update master branch post release ([c505848](https://bitbucket.org/myntra/uikit/commits/c505848))
 
 
@@ -145,9 +145,9 @@ All notable changes to this project will be documented in this file. See [standa
 * fix(docs): Generate enhanced types for embedded editor ([fc4137d](https://bitbucket.org/myntra/uikit/commits/fc4137d))
 * fix(NavBar): Detect NavBarGroup in lazy wrapper for injecting id prop ([6f5f0bb](https://bitbucket.org/myntra/uikit/commits/6f5f0bb))
 * fix(NavBar): Use a polyfill for React.Fragment ([99d8d47](https://bitbucket.org/myntra/uikit/commits/99d8d47))
-* fix(Table): Larger than viewport columns should stay in viewport while scrolling ([189aa53](https://bitbucket.org/myntra/uikit/commits/189aa53)), closes [#174](https://bitbucket.org/myntra/uikit/issue/174)
-* refactor(style): Use accoutrement to structure tokens ([3587d06](https://bitbucket.org/myntra/uikit/commits/3587d06)), closes [#170](https://bitbucket.org/myntra/uikit/issue/170)
-* feat(docs): Extract internal type information for richer DX in docs editor ([86649ba](https://bitbucket.org/myntra/uikit/commits/86649ba)), closes [#172](https://bitbucket.org/myntra/uikit/issue/172)
+* fix(Table): Larger than viewport columns should stay in viewport while scrolling ([189aa53](https://bitbucket.org/myntra/uikit/commits/189aa53)), closes [#174](https://bitbucket.org/myntra/uikit/pull-requests/174)
+* refactor(style): Use accoutrement to structure tokens ([3587d06](https://bitbucket.org/myntra/uikit/commits/3587d06)), closes [#170](https://bitbucket.org/myntra/uikit/pull-requests/170)
+* feat(docs): Extract internal type information for richer DX in docs editor ([86649ba](https://bitbucket.org/myntra/uikit/commits/86649ba)), closes [#172](https://bitbucket.org/myntra/uikit/pull-requests/172)
 
 
 
@@ -163,7 +163,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## <small>1.5.3 (2019-08-29)</small>
 
 * reactor: Drop cli package ([fce6c54](https://bitbucket.org/myntra/uikit/commits/fce6c54))
-* fix: Ponyfill React.createRef in react v15.x ([b7d7295](https://bitbucket.org/myntra/uikit/commits/b7d7295)), closes [#171](https://bitbucket.org/myntra/uikit/issue/171)
+* fix: Ponyfill React.createRef in react v15.x ([b7d7295](https://bitbucket.org/myntra/uikit/commits/b7d7295)), closes [#171](https://bitbucket.org/myntra/uikit/pull-requests/171)
 * chore: Add semantic-version plugin ([3427d6c](https://bitbucket.org/myntra/uikit/commits/3427d6c))
 
 
@@ -186,7 +186,7 @@ All notable changes to this project will be documented in this file. See [standa
 ## 1.5.0 (2019-08-28)
 
 * chore: sync branches post release ([8465e0d](https://bitbucket.org/myntra/uikit/commits/8465e0d))
-* feat(ButtonGroup): New ButtonGroup component to contain the UX logic of button composition ([cf7202a](https://bitbucket.org/myntra/uikit/commits/cf7202a)), closes [#165](https://bitbucket.org/myntra/uikit/issue/165)
+* feat(ButtonGroup): New ButtonGroup component to contain the UX logic of button composition ([cf7202a](https://bitbucket.org/myntra/uikit/commits/cf7202a)), closes [#165](https://bitbucket.org/myntra/uikit/pull-requests/165)
 
 
 
@@ -201,17 +201,17 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.4.0"></a>
 ## 1.4.0 (2019-08-23)
 
-* fix: Inline lodash-es package for SSR compatibility ([3ace72d](https://bitbucket.org/myntra/uikit/commits/3ace72d)), closes [#168](https://bitbucket.org/myntra/uikit/issue/168)
+* fix: Inline lodash-es package for SSR compatibility ([3ace72d](https://bitbucket.org/myntra/uikit/commits/3ace72d)), closes [#168](https://bitbucket.org/myntra/uikit/pull-requests/168)
 * fix(Button): Allow element or string as children prop ([2eb11f1](https://bitbucket.org/myntra/uikit/commits/2eb11f1))
-* fix(docs): Remove Documentor from InputDate component as it's breaking the page ([973a8a8](https://bitbucket.org/myntra/uikit/commits/973a8a8)), closes [#166](https://bitbucket.org/myntra/uikit/issue/166)
+* fix(docs): Remove Documentor from InputDate component as it's breaking the page ([973a8a8](https://bitbucket.org/myntra/uikit/commits/973a8a8)), closes [#166](https://bitbucket.org/myntra/uikit/pull-requests/166)
 * fix(docs): Use master branch for source link ([8c1f948](https://bitbucket.org/myntra/uikit/commits/8c1f948))
-* fix(Grid): Remove src import of GridColumn prop types ([2517bcc](https://bitbucket.org/myntra/uikit/commits/2517bcc)), closes [#167](https://bitbucket.org/myntra/uikit/issue/167)
-* feat(Modal): Modal behaviour clicking outside can be controlled with `closeOnClickAway` prop ([be18a35](https://bitbucket.org/myntra/uikit/commits/be18a35)), closes [#164](https://bitbucket.org/myntra/uikit/issue/164)
+* fix(Grid): Remove src import of GridColumn prop types ([2517bcc](https://bitbucket.org/myntra/uikit/commits/2517bcc)), closes [#167](https://bitbucket.org/myntra/uikit/pull-requests/167)
+* feat(Modal): Modal behaviour clicking outside can be controlled with `closeOnClickAway` prop ([be18a35](https://bitbucket.org/myntra/uikit/commits/be18a35)), closes [#164](https://bitbucket.org/myntra/uikit/pull-requests/164)
 * feat(Table): Two step column filter ([abaef50](https://bitbucket.org/myntra/uikit/commits/abaef50))
 * refact(Button): code cleanup ([ce5b4d8](https://bitbucket.org/myntra/uikit/commits/ce5b4d8))
 * chore: add contributor docs ([1ab2985](https://bitbucket.org/myntra/uikit/commits/1ab2985))
 * chore: Add deployment config ([11b901f](https://bitbucket.org/myntra/uikit/commits/11b901f))
-* chore: Generate entry files for newly created components ([0a277a2](https://bitbucket.org/myntra/uikit/commits/0a277a2)), closes [#163](https://bitbucket.org/myntra/uikit/issue/163)
+* chore: Generate entry files for newly created components ([0a277a2](https://bitbucket.org/myntra/uikit/commits/0a277a2)), closes [#163](https://bitbucket.org/myntra/uikit/pull-requests/163)
 * chore: move user documentation to uikit.myntra.com ([a7d9733](https://bitbucket.org/myntra/uikit/commits/a7d9733))
 
 
@@ -229,7 +229,7 @@ All notable changes to this project will be documented in this file. See [standa
 * chore: revert all test ([c2a4866](https://bitbucket.org/myntra/uikit/commits/c2a4866))
 * chore: update deps ([bf3770a](https://bitbucket.org/myntra/uikit/commits/bf3770a))
 * chore: Update deps ([6d93de4](https://bitbucket.org/myntra/uikit/commits/6d93de4))
-* feat(InputFile): New component InputFile for native file uploads. InputS3File uses InputFile interna ([ce7fc3f](https://bitbucket.org/myntra/uikit/commits/ce7fc3f)), closes [#161](https://bitbucket.org/myntra/uikit/issue/161)
+* feat(InputFile): New component InputFile for native file uploads. InputS3File uses InputFile interna ([ce7fc3f](https://bitbucket.org/myntra/uikit/commits/ce7fc3f)), closes [#161](https://bitbucket.org/myntra/uikit/pull-requests/161)
 
 
 
@@ -248,7 +248,7 @@ All notable changes to this project will be documented in this file. See [standa
 * fix(shared-utils): Check node.type for nullity in isReactNodeType ([a23ec8c](https://bitbucket.org/myntra/uikit/commits/a23ec8c))
 * chore: Update spectrum CLI ([72779d1](https://bitbucket.org/myntra/uikit/commits/72779d1))
 * chore: Use pnpm shared workspace shrinkwrap ([3e36e00](https://bitbucket.org/myntra/uikit/commits/3e36e00))
-* feat(InputText): Add prefix icon support ([8fbb21c](https://bitbucket.org/myntra/uikit/commits/8fbb21c)), closes [#160](https://bitbucket.org/myntra/uikit/issue/160)
+* feat(InputText): Add prefix icon support ([8fbb21c](https://bitbucket.org/myntra/uikit/commits/8fbb21c)), closes [#160](https://bitbucket.org/myntra/uikit/pull-requests/160)
 
 
 
@@ -274,7 +274,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-- **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
+- **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/pull-requests/122)
 
 <a name="0.7.0"></a>
 
@@ -282,11 +282,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-- **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/issue/122)
+- **elements | InputSelect:** Increased z-index for input select more than modal ([4986a1b](https://bitbucket.org/myntra/uikit/commits/4986a1b)), closes [#122](https://bitbucket.org/myntra/uikit/pull-requests/122)
 
 ### Features
 
-- **elements | InputMonthPicker:** Add month picker component ([517798c](https://bitbucket.org/myntra/uikit/commits/517798c)), closes [#118](https://bitbucket.org/myntra/uikit/issue/118)
+- **elements | InputMonthPicker:** Add month picker component ([517798c](https://bitbucket.org/myntra/uikit/commits/517798c)), closes [#118](https://bitbucket.org/myntra/uikit/pull-requests/118)
 
 <a name="0.6.2"></a>
 
@@ -294,7 +294,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-- **build:** Minimizing CSS is renaming all animation selectors to `a`, turn off minimization ([3fe0760](https://bitbucket.org/myntra/uikit/commits/3fe0760)), closes [#117](https://bitbucket.org/myntra/uikit/issue/117)
+- **build:** Minimizing CSS is renaming all animation selectors to `a`, turn off minimization ([3fe0760](https://bitbucket.org/myntra/uikit/commits/3fe0760)), closes [#117](https://bitbucket.org/myntra/uikit/pull-requests/117)
 
 <a name="0.6.1"></a>
 
@@ -312,9 +312,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 - Add lower limit for version of eslint ([e7035a9](https://bitbucket.org/myntra/uikit/commits/e7035a9))
 - **elements | Dropdown:** Wrap contents of dropdown in a container div ([94c1872](https://bitbucket.org/myntra/uikit/commits/94c1872))
-- **elements | InputSelect:** Reset filtered options on options dropdown close ([f5134c5](https://bitbucket.org/myntra/uikit/commits/f5134c5)), closes [#107](https://bitbucket.org/myntra/uikit/issue/107) [#5](https://bitbucket.org/myntra/uikit/issue/5)
+- **elements | InputSelect:** Reset filtered options on options dropdown close ([f5134c5](https://bitbucket.org/myntra/uikit/commits/f5134c5)), closes [#107](https://bitbucket.org/myntra/uikit/pull-requests/107) [#5](https://bitbucket.org/myntra/uikit/pull-requests/5)
 - **elements | Measure:** Update measure target in animation frame to prevent infinite loop ([6ef7309](https://bitbucket.org/myntra/uikit/commits/6ef7309))
-- **elements | Modal:** Remove fixed width ([eb74924](https://bitbucket.org/myntra/uikit/commits/eb74924)), closes [#116](https://bitbucket.org/myntra/uikit/issue/116)
+- **elements | Modal:** Remove fixed width ([eb74924](https://bitbucket.org/myntra/uikit/commits/eb74924)), closes [#116](https://bitbucket.org/myntra/uikit/pull-requests/116)
 - **components:** Use css as classnames function ([f2d6c04](https://bitbucket.org/myntra/uikit/commits/f2d6c04))
 - **compounds | Form:** Use withField to wrap InputXxx components ([fe02f93](https://bitbucket.org/myntra/uikit/commits/fe02f93))
 
@@ -322,11 +322,11 @@ All notable changes to this project will be documented in this file. See [standa
 
 - **elements | Field:** Add a form field container component ([8821501](https://bitbucket.org/myntra/uikit/commits/8821501))
 - **elements | InputSelect:** Use `<VirtualizedList>` to render options ([e65fde5](https://bitbucket.org/myntra/uikit/commits/e65fde5))
-- **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/issue/115)
+- **elements | InputRadio:** Add InputRadio component ([d6909a4](https://bitbucket.org/myntra/uikit/commits/d6909a4)), closes [#115](https://bitbucket.org/myntra/uikit/pull-requests/115)
 - **elements | Modal:** Add `hideClose` prop to hide cross button ([427c300](https://bitbucket.org/myntra/uikit/commits/427c300))
-- **elements | Progress:** Add Progress component ([616027b](https://bitbucket.org/myntra/uikit/commits/616027b)), closes [#108](https://bitbucket.org/myntra/uikit/issue/108)
-- **elements | VirtualizedList:** Add a simple virtual list scroller ([ab3c112](https://bitbucket.org/myntra/uikit/commits/ab3c112)), closes [#106](https://bitbucket.org/myntra/uikit/issue/106)
-- **patterns | JobTracker:** Add JobTracker component ([8ce602e](https://bitbucket.org/myntra/uikit/commits/8ce602e)), closes [#109](https://bitbucket.org/myntra/uikit/issue/109)
+- **elements | Progress:** Add Progress component ([616027b](https://bitbucket.org/myntra/uikit/commits/616027b)), closes [#108](https://bitbucket.org/myntra/uikit/pull-requests/108)
+- **elements | VirtualizedList:** Add a simple virtual list scroller ([ab3c112](https://bitbucket.org/myntra/uikit/commits/ab3c112)), closes [#106](https://bitbucket.org/myntra/uikit/pull-requests/106)
+- **patterns | JobTracker:** Add JobTracker component ([8ce602e](https://bitbucket.org/myntra/uikit/commits/8ce602e)), closes [#109](https://bitbucket.org/myntra/uikit/pull-requests/109)
 - **tokens:** Bundle ThemeProvider component with styles ([b45049a](https://bitbucket.org/myntra/uikit/commits/b45049a))
 - **classnames-loader:** Add css module as function loader ([e3f3cd6](https://bitbucket.org/myntra/uikit/commits/e3f3cd6))
 - **rollup-plugin-classnames:** Add build plugin to support css module as function ([1978528](https://bitbucket.org/myntra/uikit/commits/1978528))
@@ -456,22 +456,22 @@ All notable changes to this project will be documented in this file. See [standa
 - **compounds | Table:** Helper component `WithSentinel` to render custom content with row ([3d980c6](https://bitbucket.org/myntra/uikit/commits/3d980c6))
 - **elements | Loader:** Add Loader component ([7a5e5c5](https://bitbucket.org/myntra/uikit/commits/7a5e5c5))
 - **elements | Portal:** Render in document.body if container prop is true ([a199c80](https://bitbucket.org/myntra/uikit/commits/a199c80))
-- **theme | unity:** Add tokens for the unity theme ([4e1c361](https://bitbucket.org/myntra/uikit/commits/4e1c361)), closes [#101](https://bitbucket.org/myntra/uikit/issue/101)
+- **theme | unity:** Add tokens for the unity theme ([4e1c361](https://bitbucket.org/myntra/uikit/commits/4e1c361)), closes [#101](https://bitbucket.org/myntra/uikit/pull-requests/101)
 
 ### Bug Fixes
 
 - **compounds | Accordion:** Use Fragment to render accordion title & children ([9986eba](https://bitbucket.org/myntra/uikit/commits/9986eba))
 - **compounds | Form:** Allow null children ([7dab0e0](https://bitbucket.org/myntra/uikit/commits/7dab0e0))
-- **compounds | NavBar:** Display icon only for top level items ([86f53fb](https://bitbucket.org/myntra/uikit/commits/86f53fb)), closes [#97](https://bitbucket.org/myntra/uikit/issue/97)
+- **compounds | NavBar:** Display icon only for top level items ([86f53fb](https://bitbucket.org/myntra/uikit/commits/86f53fb)), closes [#97](https://bitbucket.org/myntra/uikit/pull-requests/97)
 - **compounds | Table:** Allow null children ([aac41e0](https://bitbucket.org/myntra/uikit/commits/aac41e0))
 - **compounds | TopBar:** Title prop can be react node ([066e740](https://bitbucket.org/myntra/uikit/commits/066e740))
 - **elements | Dropdown:** Reposition dropdown on scroll ([4daa413](https://bitbucket.org/myntra/uikit/commits/4daa413))
 - **elements | Dropdown:** Use scroll offset to position content correctly ([3df6715](https://bitbucket.org/myntra/uikit/commits/3df6715))
 - **elements | InputDate:** Popup picker does not capture keyboard focus ([e752fc2](https://bitbucket.org/myntra/uikit/commits/e752fc2))
 - **elements | InputDate:** Preserve end date focus after choosing start date ([fe2a752](https://bitbucket.org/myntra/uikit/commits/fe2a752))
-- **elements | InputSelect:** Render hidden select field for browser ([6ac3eb7](https://bitbucket.org/myntra/uikit/commits/6ac3eb7)), closes [#98](https://bitbucket.org/myntra/uikit/issue/98)
+- **elements | InputSelect:** Render hidden select field for browser ([6ac3eb7](https://bitbucket.org/myntra/uikit/commits/6ac3eb7)), closes [#98](https://bitbucket.org/myntra/uikit/pull-requests/98)
 - **elements | InputSelect:** Render options in body portal to prevent any occlusion ([afa135a](https://bitbucket.org/myntra/uikit/commits/afa135a))
-- **elements | Portal:** Use theme class from context to preserve current theme ([ba749e5](https://bitbucket.org/myntra/uikit/commits/ba749e5)), closes [#103](https://bitbucket.org/myntra/uikit/issue/103)
+- **elements | Portal:** Use theme class from context to preserve current theme ([ba749e5](https://bitbucket.org/myntra/uikit/commits/ba749e5)), closes [#103](https://bitbucket.org/myntra/uikit/pull-requests/103)
 - **tokenizer:** Generate 15.x compatible ThemeProvider ([69f7d46](https://bitbucket.org/myntra/uikit/commits/69f7d46))
 
 <a name="0.4.0"></a>
@@ -497,40 +497,40 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-- **compounds | Accordion:** Add Accordion component ([55a9783](https://bitbucket.org/myntra/uikit/commits/55a9783)), closes [#71](https://bitbucket.org/myntra/uikit/issue/71)
-- **compounds | BreadCrumb:** Add BreadCrumb component ([e57e95c](https://bitbucket.org/myntra/uikit/commits/e57e95c)), closes [#73](https://bitbucket.org/myntra/uikit/issue/73)
-- **compounds | Form:** Add Form component ([26500a4](https://bitbucket.org/myntra/uikit/commits/26500a4)), closes [#70](https://bitbucket.org/myntra/uikit/issue/70)
+- **compounds | Accordion:** Add Accordion component ([55a9783](https://bitbucket.org/myntra/uikit/commits/55a9783)), closes [#71](https://bitbucket.org/myntra/uikit/pull-requests/71)
+- **compounds | BreadCrumb:** Add BreadCrumb component ([e57e95c](https://bitbucket.org/myntra/uikit/commits/e57e95c)), closes [#73](https://bitbucket.org/myntra/uikit/pull-requests/73)
+- **compounds | Form:** Add Form component ([26500a4](https://bitbucket.org/myntra/uikit/commits/26500a4)), closes [#70](https://bitbucket.org/myntra/uikit/pull-requests/70)
 - **compounds | Grid:** Move GridColumn component to Grid.Column ([bbabbb5](https://bitbucket.org/myntra/uikit/commits/bbabbb5))
-- **compounds | NavBar:** Add side navigation component ([66b26f0](https://bitbucket.org/myntra/uikit/commits/66b26f0)), closes [#67](https://bitbucket.org/myntra/uikit/issue/67)
+- **compounds | NavBar:** Add side navigation component ([66b26f0](https://bitbucket.org/myntra/uikit/commits/66b26f0)), closes [#67](https://bitbucket.org/myntra/uikit/pull-requests/67)
 - **compounds | NavBar:** Custom match function to find active nav item ([e52eea6](https://bitbucket.org/myntra/uikit/commits/e52eea6))
 - **compounds | SchemaForm:** Add SchemaForm component ([e046509](https://bitbucket.org/myntra/uikit/commits/e046509))
-- **compounds | Table:** Add Table component ([cf7ac48](https://bitbucket.org/myntra/uikit/commits/cf7ac48)), closes [#76](https://bitbucket.org/myntra/uikit/issue/76)
-- **compounds | Tabs:** Add Tab component ([93242a4](https://bitbucket.org/myntra/uikit/commits/93242a4)), closes [#79](https://bitbucket.org/myntra/uikit/issue/79) [#70](https://bitbucket.org/myntra/uikit/issue/70)
-- **compounds | TopBar:** Add TopBar component ([cebcc9b](https://bitbucket.org/myntra/uikit/commits/cebcc9b)), closes [#66](https://bitbucket.org/myntra/uikit/issue/66)
-- **elements | Alert:** Add Alert component ([813c449](https://bitbucket.org/myntra/uikit/commits/813c449)), closes [#68](https://bitbucket.org/myntra/uikit/issue/68)
+- **compounds | Table:** Add Table component ([cf7ac48](https://bitbucket.org/myntra/uikit/commits/cf7ac48)), closes [#76](https://bitbucket.org/myntra/uikit/pull-requests/76)
+- **compounds | Tabs:** Add Tab component ([93242a4](https://bitbucket.org/myntra/uikit/commits/93242a4)), closes [#79](https://bitbucket.org/myntra/uikit/pull-requests/79) [#70](https://bitbucket.org/myntra/uikit/pull-requests/70)
+- **compounds | TopBar:** Add TopBar component ([cebcc9b](https://bitbucket.org/myntra/uikit/commits/cebcc9b)), closes [#66](https://bitbucket.org/myntra/uikit/pull-requests/66)
+- **elements | Alert:** Add Alert component ([813c449](https://bitbucket.org/myntra/uikit/commits/813c449)), closes [#68](https://bitbucket.org/myntra/uikit/pull-requests/68)
 - **elements | Button:** Add 'link' to type of buttons ([b542dc6](https://bitbucket.org/myntra/uikit/commits/b542dc6))
-- **elements | Flex:** Add Flex component ([792ff1b](https://bitbucket.org/myntra/uikit/commits/792ff1b)), closes [#78](https://bitbucket.org/myntra/uikit/issue/78)
-- **elements | Icon:** Use font-awesome icons ([f834798](https://bitbucket.org/myntra/uikit/commits/f834798)), closes [#96](https://bitbucket.org/myntra/uikit/issue/96)
-- **elements | Image:** Add component to lazy load images ([643cf87](https://bitbucket.org/myntra/uikit/commits/643cf87)), closes [#91](https://bitbucket.org/myntra/uikit/issue/91)
-- **elements | InputCheckBox, elements | InputRange:** Add title prop to InputCheckBox, Use input styles on InputRange ([7e00421](https://bitbucket.org/myntra/uikit/commits/7e00421)), closes [#81](https://bitbucket.org/myntra/uikit/issue/81)
-- **elements | Measure:** Add Measure component ([ab8329b](https://bitbucket.org/myntra/uikit/commits/ab8329b)), closes [#74](https://bitbucket.org/myntra/uikit/issue/74)
-- **elements | Modal:** Add popover modal component ([5fa70f9](https://bitbucket.org/myntra/uikit/commits/5fa70f9)), closes [#94](https://bitbucket.org/myntra/uikit/issue/94)
-- **elements | Pagiantion:** Add Pagination component ([82afda0](https://bitbucket.org/myntra/uikit/commits/82afda0)), closes [#69](https://bitbucket.org/myntra/uikit/issue/69)
-- **elements | Text:** Add text style utility component ([3557b3a](https://bitbucket.org/myntra/uikit/commits/3557b3a)), closes [#89](https://bitbucket.org/myntra/uikit/issue/89)
+- **elements | Flex:** Add Flex component ([792ff1b](https://bitbucket.org/myntra/uikit/commits/792ff1b)), closes [#78](https://bitbucket.org/myntra/uikit/pull-requests/78)
+- **elements | Icon:** Use font-awesome icons ([f834798](https://bitbucket.org/myntra/uikit/commits/f834798)), closes [#96](https://bitbucket.org/myntra/uikit/pull-requests/96)
+- **elements | Image:** Add component to lazy load images ([643cf87](https://bitbucket.org/myntra/uikit/commits/643cf87)), closes [#91](https://bitbucket.org/myntra/uikit/pull-requests/91)
+- **elements | InputCheckBox, elements | InputRange:** Add title prop to InputCheckBox, Use input styles on InputRange ([7e00421](https://bitbucket.org/myntra/uikit/commits/7e00421)), closes [#81](https://bitbucket.org/myntra/uikit/pull-requests/81)
+- **elements | Measure:** Add Measure component ([ab8329b](https://bitbucket.org/myntra/uikit/commits/ab8329b)), closes [#74](https://bitbucket.org/myntra/uikit/pull-requests/74)
+- **elements | Modal:** Add popover modal component ([5fa70f9](https://bitbucket.org/myntra/uikit/commits/5fa70f9)), closes [#94](https://bitbucket.org/myntra/uikit/pull-requests/94)
+- **elements | Pagiantion:** Add Pagination component ([82afda0](https://bitbucket.org/myntra/uikit/commits/82afda0)), closes [#69](https://bitbucket.org/myntra/uikit/pull-requests/69)
+- **elements | Text:** Add text style utility component ([3557b3a](https://bitbucket.org/myntra/uikit/commits/3557b3a)), closes [#89](https://bitbucket.org/myntra/uikit/pull-requests/89)
 - **theme | Nuclei:** Make theme selection explicit ([a1dca53](https://bitbucket.org/myntra/uikit/commits/a1dca53))
 
 ### Bug Fixes
 
 - **codemod-utils:** Get local identifier for named import ([6911bb3](https://bitbucket.org/myntra/uikit/commits/6911bb3))
-- **compounds | Grid:** Ignore falsy children in type check ([5e282b8](https://bitbucket.org/myntra/uikit/commits/5e282b8)), closes [#72](https://bitbucket.org/myntra/uikit/issue/72)
-- **compounds | TopBar:** Align with NavBar title ([de6d2fb](https://bitbucket.org/myntra/uikit/commits/de6d2fb)), closes [#77](https://bitbucket.org/myntra/uikit/issue/77) [#70](https://bitbucket.org/myntra/uikit/issue/70)
+- **compounds | Grid:** Ignore falsy children in type check ([5e282b8](https://bitbucket.org/myntra/uikit/commits/5e282b8)), closes [#72](https://bitbucket.org/myntra/uikit/pull-requests/72)
+- **compounds | TopBar:** Align with NavBar title ([de6d2fb](https://bitbucket.org/myntra/uikit/commits/de6d2fb)), closes [#77](https://bitbucket.org/myntra/uikit/pull-requests/77) [#70](https://bitbucket.org/myntra/uikit/pull-requests/70)
 - **elements | Button:** Link inherits color when rendered in Alert ([99ad28b](https://bitbucket.org/myntra/uikit/commits/99ad28b))
-- **elements | Dropdown:** Use Measure to detect size of content and reposition ([470f144](https://bitbucket.org/myntra/uikit/commits/470f144)), closes [#82](https://bitbucket.org/myntra/uikit/issue/82)
-- **elements | InputDate:** Prevent presets wrapping to next line when date field width is less ([b6cefee](https://bitbucket.org/myntra/uikit/commits/b6cefee)), closes [#83](https://bitbucket.org/myntra/uikit/issue/83)
-- **elements | InputRange:** Make hidden input element readOnly to supress react warning ([3f4acb4](https://bitbucket.org/myntra/uikit/commits/3f4acb4)), closes [#87](https://bitbucket.org/myntra/uikit/issue/87)
-- **elements | InputSelect:** Arrow keys selection after droprown is closed. Placeholder text not being as user types. Option selection not working if search field is clicked. Remove option selection on tab. ([31c8eb2](https://bitbucket.org/myntra/uikit/commits/31c8eb2)), closes [#90](https://bitbucket.org/myntra/uikit/issue/90)
-- **elements | InputSelect:** Render select element with selected options for browser native field compatibility ([8f11394](https://bitbucket.org/myntra/uikit/commits/8f11394)), closes [#86](https://bitbucket.org/myntra/uikit/issue/86)
-- **elements | InputSelect:** Select popper takes full available width ([01b282a](https://bitbucket.org/myntra/uikit/commits/01b282a)), closes [#84](https://bitbucket.org/myntra/uikit/issue/84)
+- **elements | Dropdown:** Use Measure to detect size of content and reposition ([470f144](https://bitbucket.org/myntra/uikit/commits/470f144)), closes [#82](https://bitbucket.org/myntra/uikit/pull-requests/82)
+- **elements | InputDate:** Prevent presets wrapping to next line when date field width is less ([b6cefee](https://bitbucket.org/myntra/uikit/commits/b6cefee)), closes [#83](https://bitbucket.org/myntra/uikit/pull-requests/83)
+- **elements | InputRange:** Make hidden input element readOnly to supress react warning ([3f4acb4](https://bitbucket.org/myntra/uikit/commits/3f4acb4)), closes [#87](https://bitbucket.org/myntra/uikit/pull-requests/87)
+- **elements | InputSelect:** Arrow keys selection after droprown is closed. Placeholder text not being as user types. Option selection not working if search field is clicked. Remove option selection on tab. ([31c8eb2](https://bitbucket.org/myntra/uikit/commits/31c8eb2)), closes [#90](https://bitbucket.org/myntra/uikit/pull-requests/90)
+- **elements | InputSelect:** Render select element with selected options for browser native field compatibility ([8f11394](https://bitbucket.org/myntra/uikit/commits/8f11394)), closes [#86](https://bitbucket.org/myntra/uikit/pull-requests/86)
+- **elements | InputSelect:** Select popper takes full available width ([01b282a](https://bitbucket.org/myntra/uikit/commits/01b282a)), closes [#84](https://bitbucket.org/myntra/uikit/pull-requests/84)
 - **stylelint:** Force kebab-case in class selectors ([0626753](https://bitbucket.org/myntra/uikit/commits/0626753))
 - **tokens:** Include CSS module build in package ([3a37f9a](https://bitbucket.org/myntra/uikit/commits/3a37f9a))
 - **tokens:** Typo in package files filter ([7e200f4](https://bitbucket.org/myntra/uikit/commits/7e200f4))
@@ -543,7 +543,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-- **cli | migrate:** Process .codemod. files in node_modules directory with babel ([2432388](https://bitbucket.org/myntra/uikit/commits/2432388)), closes [#65](https://bitbucket.org/myntra/uikit/issue/65)
+- **cli | migrate:** Process .codemod. files in node_modules directory with babel ([2432388](https://bitbucket.org/myntra/uikit/commits/2432388)), closes [#65](https://bitbucket.org/myntra/uikit/pull-requests/65)
 
 <a name="0.2.1"></a>
 
@@ -551,7 +551,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-- **cli:** Always process codemods with babel ([0515af1](https://bitbucket.org/myntra/uikit/commits/0515af1)), closes [#64](https://bitbucket.org/myntra/uikit/issue/64)
+- **cli:** Always process codemods with babel ([0515af1](https://bitbucket.org/myntra/uikit/commits/0515af1)), closes [#64](https://bitbucket.org/myntra/uikit/pull-requests/64)
 
 <a name="0.2.0"></a>
 
@@ -559,12 +559,12 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-- **elements | InputCheckBox:** Auto upgrade from unity-uikit ([ba9c2ba](https://bitbucket.org/myntra/uikit/commits/ba9c2ba)), closes [#61](https://bitbucket.org/myntra/uikit/issue/61)
-- **elements | InputDate:** Auto upgrade from unity-uikit ([0f3972c](https://bitbucket.org/myntra/uikit/commits/0f3972c)), closes [#62](https://bitbucket.org/myntra/uikit/issue/62)
-- **elements | InputNumber:** Auto upgrade from unity-uikit ([03b005e](https://bitbucket.org/myntra/uikit/commits/03b005e)), closes [#59](https://bitbucket.org/myntra/uikit/issue/59)
-- **elements | InputSelect:** Auto upgrade from unity-uikit ([58f9945](https://bitbucket.org/myntra/uikit/commits/58f9945)), closes [#63](https://bitbucket.org/myntra/uikit/issue/63)
-- **elements | InputText:** Auto upgrade from unity-uikit ([60808e6](https://bitbucket.org/myntra/uikit/commits/60808e6)), closes [#60](https://bitbucket.org/myntra/uikit/issue/60)
-- **elements | Portal:** Add Portal component to render content outside of react controlled root element ([3948051](https://bitbucket.org/myntra/uikit/commits/3948051)), closes [#37](https://bitbucket.org/myntra/uikit/issue/37)
+- **elements | InputCheckBox:** Auto upgrade from unity-uikit ([ba9c2ba](https://bitbucket.org/myntra/uikit/commits/ba9c2ba)), closes [#61](https://bitbucket.org/myntra/uikit/pull-requests/61)
+- **elements | InputDate:** Auto upgrade from unity-uikit ([0f3972c](https://bitbucket.org/myntra/uikit/commits/0f3972c)), closes [#62](https://bitbucket.org/myntra/uikit/pull-requests/62)
+- **elements | InputNumber:** Auto upgrade from unity-uikit ([03b005e](https://bitbucket.org/myntra/uikit/commits/03b005e)), closes [#59](https://bitbucket.org/myntra/uikit/pull-requests/59)
+- **elements | InputSelect:** Auto upgrade from unity-uikit ([58f9945](https://bitbucket.org/myntra/uikit/commits/58f9945)), closes [#63](https://bitbucket.org/myntra/uikit/pull-requests/63)
+- **elements | InputText:** Auto upgrade from unity-uikit ([60808e6](https://bitbucket.org/myntra/uikit/commits/60808e6)), closes [#60](https://bitbucket.org/myntra/uikit/pull-requests/60)
+- **elements | Portal:** Add Portal component to render content outside of react controlled root element ([3948051](https://bitbucket.org/myntra/uikit/commits/3948051)), closes [#37](https://bitbucket.org/myntra/uikit/pull-requests/37)
 
 <a name="0.1.0"></a>
 
@@ -572,8 +572,8 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
-- **codemods:** Find component with prop, apply JSx transformations to selective nodes ([9da6c02](https://bitbucket.org/myntra/uikit/commits/9da6c02)), closes [#58](https://bitbucket.org/myntra/uikit/issue/58)
-- **elements | InputSelect:** Add InputSelect component ([be72624](https://bitbucket.org/myntra/uikit/commits/be72624)), closes [#19](https://bitbucket.org/myntra/uikit/issue/19) [#52](https://bitbucket.org/myntra/uikit/issue/52) [#55](https://bitbucket.org/myntra/uikit/issue/55) [#56](https://bitbucket.org/myntra/uikit/issue/56) [#54](https://bitbucket.org/myntra/uikit/issue/54) [#48](https://bitbucket.org/myntra/uikit/issue/48)
+- **codemods:** Find component with prop, apply JSx transformations to selective nodes ([9da6c02](https://bitbucket.org/myntra/uikit/commits/9da6c02)), closes [#58](https://bitbucket.org/myntra/uikit/pull-requests/58)
+- **elements | InputSelect:** Add InputSelect component ([be72624](https://bitbucket.org/myntra/uikit/commits/be72624)), closes [#19](https://bitbucket.org/myntra/uikit/pull-requests/19) [#52](https://bitbucket.org/myntra/uikit/pull-requests/52) [#55](https://bitbucket.org/myntra/uikit/pull-requests/55) [#56](https://bitbucket.org/myntra/uikit/pull-requests/56) [#54](https://bitbucket.org/myntra/uikit/pull-requests/54) [#48](https://bitbucket.org/myntra/uikit/pull-requests/48)
 
 <a name="0.1.0-alpha.2"></a>
 
@@ -581,32 +581,32 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Bug Fixes
 
-- Add eslint no-extraneous import rule ([debfd23](https://bitbucket.org/myntra/uikit/commits/debfd23)), closes [#43](https://bitbucket.org/myntra/uikit/issue/43)
-- **docgen:** Hot reload on jsdoc comments changes ([84609da](https://bitbucket.org/myntra/uikit/commits/84609da)), closes [#3](https://bitbucket.org/myntra/uikit/issue/3) [#50](https://bitbucket.org/myntra/uikit/issue/50)
+- Add eslint no-extraneous import rule ([debfd23](https://bitbucket.org/myntra/uikit/commits/debfd23)), closes [#43](https://bitbucket.org/myntra/uikit/pull-requests/43)
+- **docgen:** Hot reload on jsdoc comments changes ([84609da](https://bitbucket.org/myntra/uikit/commits/84609da)), closes [#3](https://bitbucket.org/myntra/uikit/pull-requests/3) [#50](https://bitbucket.org/myntra/uikit/pull-requests/50)
 - Correct last 30 days preset ([96c05d9](https://bitbucket.org/myntra/uikit/commits/96c05d9))
-- **elements | InputDate:** Handle string dates ([cea3f44](https://bitbucket.org/myntra/uikit/commits/cea3f44)), closes [#53](https://bitbucket.org/myntra/uikit/issue/53)
-- **elements | InputDate:** Highlight current field in range selection ([a8546cf](https://bitbucket.org/myntra/uikit/commits/a8546cf)), closes [#55](https://bitbucket.org/myntra/uikit/issue/55)
-- **elements | InputMasked:** Use tokens and sync styles with mocks ([610824f](https://bitbucket.org/myntra/uikit/commits/610824f)), closes [#42](https://bitbucket.org/myntra/uikit/issue/42)
-- **elements | InputSwitch:** Use relative sizes & add label prop ([a6c0d68](https://bitbucket.org/myntra/uikit/commits/a6c0d68)), closes [#47](https://bitbucket.org/myntra/uikit/issue/47)
-- **elements | InputText:** Allow text-like input types ([b0637fa](https://bitbucket.org/myntra/uikit/commits/b0637fa)), closes [#54](https://bitbucket.org/myntra/uikit/issue/54)
-- **utils:** Include unknown class names in css modules token mapping ([71f5372](https://bitbucket.org/myntra/uikit/commits/71f5372)), closes [#1](https://bitbucket.org/myntra/uikit/issue/1) [#44](https://bitbucket.org/myntra/uikit/issue/44)
+- **elements | InputDate:** Handle string dates ([cea3f44](https://bitbucket.org/myntra/uikit/commits/cea3f44)), closes [#53](https://bitbucket.org/myntra/uikit/pull-requests/53)
+- **elements | InputDate:** Highlight current field in range selection ([a8546cf](https://bitbucket.org/myntra/uikit/commits/a8546cf)), closes [#55](https://bitbucket.org/myntra/uikit/pull-requests/55)
+- **elements | InputMasked:** Use tokens and sync styles with mocks ([610824f](https://bitbucket.org/myntra/uikit/commits/610824f)), closes [#42](https://bitbucket.org/myntra/uikit/pull-requests/42)
+- **elements | InputSwitch:** Use relative sizes & add label prop ([a6c0d68](https://bitbucket.org/myntra/uikit/commits/a6c0d68)), closes [#47](https://bitbucket.org/myntra/uikit/pull-requests/47)
+- **elements | InputText:** Allow text-like input types ([b0637fa](https://bitbucket.org/myntra/uikit/commits/b0637fa)), closes [#54](https://bitbucket.org/myntra/uikit/pull-requests/54)
+- **utils:** Include unknown class names in css modules token mapping ([71f5372](https://bitbucket.org/myntra/uikit/commits/71f5372)), closes [#1](https://bitbucket.org/myntra/uikit/pull-requests/1) [#44](https://bitbucket.org/myntra/uikit/pull-requests/44)
 
 ### Features
 
 - **docgen:** Handle computed enum types ([684d6a1](https://bitbucket.org/myntra/uikit/commits/684d6a1))
-- **docgen:** Improved support for enum and function type props ([1a5b59c](https://bitbucket.org/myntra/uikit/commits/1a5b59c)), closes [#45](https://bitbucket.org/myntra/uikit/issue/45)
-- **elements:** Sync heights of input and button ([f90dcd2](https://bitbucket.org/myntra/uikit/commits/f90dcd2)), closes [#48](https://bitbucket.org/myntra/uikit/issue/48)
-- **elements | Dropdown:** Add auto mode to display content in appropriate position ([77d5da7](https://bitbucket.org/myntra/uikit/commits/77d5da7)), closes [#51](https://bitbucket.org/myntra/uikit/issue/51)
-- **elements | Icon:** Runtime icon sprite loader ([049241f](https://bitbucket.org/myntra/uikit/commits/049241f)), closes [#49](https://bitbucket.org/myntra/uikit/issue/49)
-- **elements | InputCheckBox:** Add InputCheckBox component ([731cfc3](https://bitbucket.org/myntra/uikit/commits/731cfc3)), closes [#41](https://bitbucket.org/myntra/uikit/issue/41)
-- **elements | InputDate:** Add InputDate component ([ab3822a](https://bitbucket.org/myntra/uikit/commits/ab3822a)), closes [#32](https://bitbucket.org/myntra/uikit/issue/32)
-- **elements | InputNumber:** Add InputNumber component ([975ee05](https://bitbucket.org/myntra/uikit/commits/975ee05)), closes [#40](https://bitbucket.org/myntra/uikit/issue/40)
-- **elements | InputRange:** Add InputRange component ([d2fcf90](https://bitbucket.org/myntra/uikit/commits/d2fcf90)), closes [#26](https://bitbucket.org/myntra/uikit/issue/26)
-- **elements | InputRange:** Use animation frame to smoothen the drag ([f2e00cf](https://bitbucket.org/myntra/uikit/commits/f2e00cf)), closes [#46](https://bitbucket.org/myntra/uikit/issue/46)
+- **docgen:** Improved support for enum and function type props ([1a5b59c](https://bitbucket.org/myntra/uikit/commits/1a5b59c)), closes [#45](https://bitbucket.org/myntra/uikit/pull-requests/45)
+- **elements:** Sync heights of input and button ([f90dcd2](https://bitbucket.org/myntra/uikit/commits/f90dcd2)), closes [#48](https://bitbucket.org/myntra/uikit/pull-requests/48)
+- **elements | Dropdown:** Add auto mode to display content in appropriate position ([77d5da7](https://bitbucket.org/myntra/uikit/commits/77d5da7)), closes [#51](https://bitbucket.org/myntra/uikit/pull-requests/51)
+- **elements | Icon:** Runtime icon sprite loader ([049241f](https://bitbucket.org/myntra/uikit/commits/049241f)), closes [#49](https://bitbucket.org/myntra/uikit/pull-requests/49)
+- **elements | InputCheckBox:** Add InputCheckBox component ([731cfc3](https://bitbucket.org/myntra/uikit/commits/731cfc3)), closes [#41](https://bitbucket.org/myntra/uikit/pull-requests/41)
+- **elements | InputDate:** Add InputDate component ([ab3822a](https://bitbucket.org/myntra/uikit/commits/ab3822a)), closes [#32](https://bitbucket.org/myntra/uikit/pull-requests/32)
+- **elements | InputNumber:** Add InputNumber component ([975ee05](https://bitbucket.org/myntra/uikit/commits/975ee05)), closes [#40](https://bitbucket.org/myntra/uikit/pull-requests/40)
+- **elements | InputRange:** Add InputRange component ([d2fcf90](https://bitbucket.org/myntra/uikit/commits/d2fcf90)), closes [#26](https://bitbucket.org/myntra/uikit/pull-requests/26)
+- **elements | InputRange:** Use animation frame to smoothen the drag ([f2e00cf](https://bitbucket.org/myntra/uikit/commits/f2e00cf)), closes [#46](https://bitbucket.org/myntra/uikit/pull-requests/46)
 - Improve JSDoc support in component documenter ([830902e](https://bitbucket.org/myntra/uikit/commits/830902e))
-- **elements | InputText:** Add InputText component ([2d53573](https://bitbucket.org/myntra/uikit/commits/2d53573)), closes [#22](https://bitbucket.org/myntra/uikit/issue/22)
+- **elements | InputText:** Add InputText component ([2d53573](https://bitbucket.org/myntra/uikit/commits/2d53573)), closes [#22](https://bitbucket.org/myntra/uikit/pull-requests/22)
 - Add chevron icons ([86dc60d](https://bitbucket.org/myntra/uikit/commits/86dc60d))
-- **elements | InputTextarea:** Add InputTextarea component ([c8d8f6c](https://bitbucket.org/myntra/uikit/commits/c8d8f6c)), closes [#33](https://bitbucket.org/myntra/uikit/issue/33)
+- **elements | InputTextarea:** Add InputTextarea component ([c8d8f6c](https://bitbucket.org/myntra/uikit/commits/c8d8f6c)), closes [#33](https://bitbucket.org/myntra/uikit/pull-requests/33)
 - **InputMasked:** Forward unhandled props ([a4cf119](https://bitbucket.org/myntra/uikit/commits/a4cf119))
 - **tokens:** Add z-index ([3867f7e](https://bitbucket.org/myntra/uikit/commits/3867f7e))
 - Add next and prev jumpers ([c503ac6](https://bitbucket.org/myntra/uikit/commits/c503ac6))
@@ -621,13 +621,13 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 - Set sideEffects to false for webpack ([7a5d095](https://bitbucket.org/myntra/uikit/commits/7a5d095))
-- **cli:** Add lint, codemods and migrate commands ([2e8ed4e](https://bitbucket.org/myntra/uikit/commits/2e8ed4e)), closes [#39](https://bitbucket.org/myntra/uikit/issue/39)
-- **codemod:** High level utility functions to apply AST transformations ([ba734a7](https://bitbucket.org/myntra/uikit/commits/ba734a7)), closes [#36](https://bitbucket.org/myntra/uikit/issue/36)
-- **compounds|Grid:** Flexbox based layouting component ([94b8ad8](https://bitbucket.org/myntra/uikit/commits/94b8ad8)), closes [#17](https://bitbucket.org/myntra/uikit/issue/17)
-- **elements|Dropdown:** Add Dropdown component ([4b4482c](https://bitbucket.org/myntra/uikit/commits/4b4482c)), closes [#21](https://bitbucket.org/myntra/uikit/issue/21)
-- **elements|InputMasked:** Add InputMasked component ([172dd92](https://bitbucket.org/myntra/uikit/commits/172dd92)), closes [#18](https://bitbucket.org/myntra/uikit/issue/18)
-- **elements|InputSwitch:** Add InputSwitch component ([ceb8f11](https://bitbucket.org/myntra/uikit/commits/ceb8f11)), closes [#25](https://bitbucket.org/myntra/uikit/issue/25) [#2121226](https://bitbucket.org/myntra/uikit/issue/2121226) [#2121230](https://bitbucket.org/myntra/uikit/issue/2121230) [#2121198](https://bitbucket.org/myntra/uikit/issue/2121198) [#2121247](https://bitbucket.org/myntra/uikit/issue/2121247) [#2121187](https://bitbucket.org/myntra/uikit/issue/2121187) [#2121193](https://bitbucket.org/myntra/uikit/issue/2121193) [#2121196](https://bitbucket.org/myntra/uikit/issue/2121196) [#2125428](https://bitbucket.org/myntra/uikit/issue/2125428)
-- **elements|Intersection:** Component to use IntersectionObserver API in a declarative way ([ffa8f97](https://bitbucket.org/myntra/uikit/commits/ffa8f97)), closes [#23](https://bitbucket.org/myntra/uikit/issue/23)
+- **cli:** Add lint, codemods and migrate commands ([2e8ed4e](https://bitbucket.org/myntra/uikit/commits/2e8ed4e)), closes [#39](https://bitbucket.org/myntra/uikit/pull-requests/39)
+- **codemod:** High level utility functions to apply AST transformations ([ba734a7](https://bitbucket.org/myntra/uikit/commits/ba734a7)), closes [#36](https://bitbucket.org/myntra/uikit/pull-requests/36)
+- **compounds|Grid:** Flexbox based layouting component ([94b8ad8](https://bitbucket.org/myntra/uikit/commits/94b8ad8)), closes [#17](https://bitbucket.org/myntra/uikit/pull-requests/17)
+- **elements|Dropdown:** Add Dropdown component ([4b4482c](https://bitbucket.org/myntra/uikit/commits/4b4482c)), closes [#21](https://bitbucket.org/myntra/uikit/pull-requests/21)
+- **elements|InputMasked:** Add InputMasked component ([172dd92](https://bitbucket.org/myntra/uikit/commits/172dd92)), closes [#18](https://bitbucket.org/myntra/uikit/pull-requests/18)
+- **elements|InputSwitch:** Add InputSwitch component ([ceb8f11](https://bitbucket.org/myntra/uikit/commits/ceb8f11)), closes [#25](https://bitbucket.org/myntra/uikit/pull-requests/25) [#2121226](https://bitbucket.org/myntra/uikit/pull-requests/2121226) [#2121230](https://bitbucket.org/myntra/uikit/pull-requests/2121230) [#2121198](https://bitbucket.org/myntra/uikit/pull-requests/2121198) [#2121247](https://bitbucket.org/myntra/uikit/pull-requests/2121247) [#2121187](https://bitbucket.org/myntra/uikit/pull-requests/2121187) [#2121193](https://bitbucket.org/myntra/uikit/pull-requests/2121193) [#2121196](https://bitbucket.org/myntra/uikit/pull-requests/2121196) [#2125428](https://bitbucket.org/myntra/uikit/pull-requests/2125428)
+- **elements|Intersection:** Component to use IntersectionObserver API in a declarative way ([ffa8f97](https://bitbucket.org/myntra/uikit/commits/ffa8f97)), closes [#23](https://bitbucket.org/myntra/uikit/pull-requests/23)
 - **utils:** Export isShallowEqual method ([c9fa9fd](https://bitbucket.org/myntra/uikit/commits/c9fa9fd))
 - **utils:** Memoize helper to save computations ([32ef7ed](https://bitbucket.org/myntra/uikit/commits/32ef7ed))
 
@@ -647,7 +647,7 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 - accept dest in docgen plugin ([4e7801b](https://bitbucket.org/myntra/uikit/commits/4e7801b))
-- add contributing guidelines ([b56a308](https://bitbucket.org/myntra/uikit/commits/b56a308)), closes [#1](https://bitbucket.org/myntra/uikit/issue/1)
+- add contributing guidelines ([b56a308](https://bitbucket.org/myntra/uikit/commits/b56a308)), closes [#1](https://bitbucket.org/myntra/uikit/pull-requests/1)
 - add static routes after build ([224ee22](https://bitbucket.org/myntra/uikit/commits/224ee22))
 - components to display jsdoc metadata ([cc7bac5](https://bitbucket.org/myntra/uikit/commits/cc7bac5))
 - configure testing and docs ([f67a1a4](https://bitbucket.org/myntra/uikit/commits/f67a1a4))
