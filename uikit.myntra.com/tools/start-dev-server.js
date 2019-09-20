@@ -52,7 +52,12 @@ function createComponentsFile(component) {
   Fs.writeFileSync(
     Path.resolve(__dirname, `app/uikit.${component}.js`),
     Array.from(localComponents)
-      .map(name => `export { default as ${name} } from '@myntra/uikit-component-${kebabCase(name)}'`)
+      .map(
+        name =>
+          `export { default as ${name} } from '@myntra/uikit-component-${kebabCase(name)}'${
+            name === 'Text' ? `\nexport { default as T } from '@myntra/uikit-component-text'` : ''
+          }`
+      )
       .join('\n')
   )
 }
@@ -73,6 +78,7 @@ function startWebpackDevServer(component, port) {
       Path.resolve(__dirname, '../../packages/accoutrement/node_modules/accoutrement/sass/index.scss')
     )
     .set('@accoutrement', Path.resolve(__dirname, '../../packages/accoutrement/src/index.scss'))
+    .set('@myntra/uikit/design.scss', Path.resolve(__dirname, '../../packages/uikit/design.scss'))
     .set('@design', Path.resolve(__dirname, '../../themes/nuclei/design.scss'))
     .set('@documenter', Path.resolve(__dirname, './app/documenter.tsx'))
     .set('@component', Path.resolve(getPackageDir(component), 'readme.mdx'))

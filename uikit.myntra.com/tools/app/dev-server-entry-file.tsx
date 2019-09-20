@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
 
-import './css-reset.css'
+import '@myntra/uikit/design.scss'
 
 import App from '@component'
 

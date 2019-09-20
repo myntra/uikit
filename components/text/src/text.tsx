@@ -1,86 +1,83 @@
-import React, { Children, isValidElement } from 'react'
-import Title from './title'
+import React from 'react'
+import CompatText from './compat-text'
 
 import classnames from './text.module.scss'
 
-export interface Props extends BaseProps {
-  type:
-    | 'title'
-    | 'heading1'
-    | 'heading2'
-    | 'heading3'
-    | 'heading4'
-    | 'paragraph'
-    | 'table'
-    | 'small'
-    | 'caption'
-  color?:
-    | 'inherit'
-    | 'dark'
-    | 'light'
-    | 'info'
-    | 'success'
-    | 'warning'
-    | 'error'
-    | 'primary'
-    | 'accent'
-    | 'gray400'
-    | 'gray300'
-    | 'gray200'
-    | 'gray100'
-    | 'gray50'
-  secondary?: boolean
-  disabled?: boolean
-  alternate?: boolean
-  italic?: boolean
-  oblique?: boolean
-  size?: 900 | 800 | 700 | 600 | 500 | 400 | 300 | 200
-  weight?: 'thin' | 'normal' | 'bold' | 'black' | 'bolder' | 'lighter'
+interface Props extends BaseProps {
+  /**
+   * Abstract component does not render any extra elements.
+   * However, it allows only one child component.
+   */
+  abstract: boolean
+
+  /**
+   * Make font-weight one weight bold or light.
+   */
+  weight: 'bolder' | 'lighter'
+
+  /**
+   * Use theme colors for text.
+   */
+  color: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
+
+  /**
+   * Controls the legibility of the text.
+   *
+   * **When the `color` prop is provided, it defaults to `'primary'`.**
+   *
+   * @see https://uikit.myntra.com/guide/text-legibility
+   */
+  emphasis: 'high' | 'medium' | 'disabled'
 }
 
-/**
- * A utility component for styling text.
- *
- * @since 0.3.0
- * @status REVIEWING
- * @category basic
- * @see http://uikit.myntra.com/components/text
- */
-export default function Text({
-  type,
-  children,
-  style,
-  color,
-  size,
-  weight,
-  ...props
-}: Props) {
-  const element = isValidElement(children) ? (
-    Children.only(children)
-  ) : (
-    <span>{children}</span>
-  )
+export default function Text(props: Props) {
+  if ('type' in props) {
+    if (__DEV__) {
+      console.warn(
+        'You are using deprecated Text API. See https://uikit.myntra.com/components/text.'
+      )
+    }
 
-  if (typeof style === 'string') {
-    type = style as any
-    style = {}
+    return <CompatText {...(props as any)} />
   }
 
-  const className = classnames(
-    element.props && element.props.className,
-    'text',
-    style || 'current',
+  return <Text.body {...props} />
+}
+
+Text.Title = Text.title = createComponent('title', 'div')
+Text.h1 = createComponent('h1', 'h1')
+Text.h2 = createComponent('h2', 'h2')
+Text.h3 = createComponent('h3', 'h3')
+Text.h4 = createComponent('h4', 'h4')
+Text.body = createComponent('body')
+Text.p = createComponent('p', 'p')
+Text.caption = createComponent('caption')
+
+function createComponent(name: string, Tag: any = 'span') {
+  return function({
+    className,
+    children,
+    abstract,
     color,
-    size && `text${size}`,
+    emphasis,
     weight,
-    type
-  )
+    ...props
+  }: Props) {
+    className = classnames(name, className, color, emphasis, weight)
 
-  return React.cloneElement(element, { className, style, ...props })
+    if (abstract) {
+      children = React.Children.only(children)
+      if (React.isValidElement(children)) {
+        return React.cloneElement(children, {
+          className: classnames(className, (children.props as any).className),
+        } as any)
+      }
+    }
+
+    return (
+      <Tag {...props} className={className}>
+        {children}
+      </Tag>
+    )
+  }
 }
-
-Text.defaultProps = {
-  color: 'inherit',
-}
-
-Text.Title = Title

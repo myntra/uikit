@@ -6,7 +6,7 @@
   $current: token($source, $type);
 
   font-family: font-family(token($current, 'family'));
-  font-size: size(token($current, 'size'), 'rem');
+  font-size: font-size(token($current, 'size'), 'rem');
   font-weight: token($current, 'weight');
   text-transform: token($current, 'text-transform');
   letter-spacing: token($current, 'letter-spacing');
@@ -20,4 +20,8 @@
   font-weight: get-token($current, 'weight');
   text-transform: get-token($current, 'text-transform');
   letter-spacing: get-token($current, 'letter-spacing');
+}
+
+@function font-size($token, $unit: 'rem') {
+  @return size('font-size-#{$token}', $unit);
 }

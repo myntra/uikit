@@ -347,6 +347,8 @@ export const META = [
   },
   {
     name: 'Layout',
+    since: '1.9.0',
+    status: 'REVIEWING',
     path: '/components/layout'
   },
   {
@@ -429,8 +431,6 @@ export const META = [
   },
   {
     name: 'Text',
-    since: '0.3.0',
-    status: 'REVIEWING',
     path: '/components/text'
   },
   {

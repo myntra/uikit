@@ -302,6 +302,10 @@ declare namespace Dropdown {
      * Event to trigger dropdown
      */
     triggerOn?: 'hover' | 'click' | 'focus'
+    /**
+     * A className for popper wrapper element
+     */
+    wrapperClassName?: string
   }
 }
 
@@ -1360,7 +1364,13 @@ declare namespace Layout {}
 
 // -----------[[Layout]]--------------- //
 /**
+ * Predefined layouts to manage organisation and adjust spacing
+ * of components.
  *
+ * @since 1.9.0
+ * @status REVIEWING
+ * @category basic
+ * @see http://uikit.myntra.com/components/layout
  */
 declare function Layout(props: Layout.Props): JSX.Element
 declare namespace Layout {
@@ -2067,6 +2077,16 @@ declare namespace Tabs {
      */
     onChange?(activeIndex: number): void
   }
+  // -----------[[Tab]]--------------- //
+  /**
+   *
+   */
+  function Tab(props: Tab.Props): JSX.Element
+  namespace Tab {
+    interface Props extends BaseProps {
+      title: ReactNode
+    }
+  }
 }
 
 declare namespace Text {}
@@ -2078,29 +2098,27 @@ declare namespace Text {}
 declare function Text(props: Text.Props): JSX.Element
 declare namespace Text {
   interface Props extends BaseProps {
-    type: 'title' | 'heading1' | 'heading2' | 'heading3' | 'heading4' | 'paragraph' | 'table' | 'small' | 'caption'
-    color?:
-      | 'inherit'
-      | 'dark'
-      | 'light'
-      | 'info'
-      | 'success'
-      | 'warning'
-      | 'error'
-      | 'primary'
-      | 'accent'
-      | 'gray400'
-      | 'gray300'
-      | 'gray200'
-      | 'gray100'
-      | 'gray50'
-    secondary?: boolean
-    disabled?: boolean
-    alternate?: boolean
-    italic?: boolean
-    oblique?: boolean
-    size?: 900 | 800 | 700 | 600 | 500 | 400 | 300 | 200
-    weight?: 'thin' | 'normal' | 'bold' | 'black' | 'bolder' | 'lighter'
+    /**
+     * Abstract component does not render any extra elements.
+     * However, it allows only one child component.
+     */
+    abstract: boolean
+    /**
+     * Make font-weight one weight bold or light.
+     */
+    weight: 'bolder' | 'lighter'
+    /**
+     * Use theme colors for text.
+     */
+    color: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
+    /**
+     * Controls the legibility of the text.
+     *
+     * **When the `color` prop is provided, it defaults to `'primary'`.**
+     *
+     * @see https://uikit.myntra.com/guide/text-legibility
+     */
+    emphasis: 'high' | 'medium' | 'disabled'
   }
 }
 
@@ -2992,6 +3010,19 @@ declare namespace Tab {
   interface Props extends BaseProps {
     title?: number
   }
+}
+
+declare namespace Text {
+  const title: Text
+  const h1: Text
+  const h2: Text
+  const h3: Text
+  const h4: Text
+  const body: Text
+  const p: Text
+  const caption: Text
+  const button: Text
+  const textLink: Text
 }
 
 // -----------[[UIKitGlobal]]----------//

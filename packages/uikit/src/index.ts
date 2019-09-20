@@ -1,5 +1,7 @@
 export * from "./components";
 
+export { default as T } from "@myntra/uikit-component-text";
+
 export { default as Alert } from "@myntra/uikit-component-banner";
 
 // TODO: create a codemod for renaming Tag to Badge

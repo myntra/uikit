@@ -5,7 +5,41 @@ import Text from './src/text'
 <Documenter component={Text}>
 
 ```jsx preview
-<Text type="title">Hello World</Text>
+<Text>Hello World</Text>
 ```
 
 </Documenter>
+
+## Examples
+
+```jsx preview
+<>
+  <Text.title>Page Title</Text.title>
+</>
+```
+
+```jsx preview
+<>
+  <Text.h1>Heading 1</Text.h1>
+  <Text.h2>Heading 2</Text.h2>
+  <Text.h3>Heading 3</Text.h3>
+  <Text.h4>Heading 4</Text.h4>
+</>
+```
+
+```jsx preview
+<>
+  <div><Text.body>Body</Text.body></div>
+  <div><Text.p>Pragraph</Text.p></div>
+  <div><Text.caption>Caption</Text.caption></div>
+</>
+```
+
+The `Text` component would be very often so we have an alias for it.
+
+```jsx preview
+<>
+  <T.h1>Heading 1</T.h1>
+  <Text.h1>Heading 1</Text.h1>
+</>
+```

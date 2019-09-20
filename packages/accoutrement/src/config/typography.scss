@@ -76,8 +76,8 @@ $text-sizes: (
 
 $-tokens-font-sizes: () !default;
 
-@include add-sizes($text-sizes);
-@include add-sizes($-tokens-font-sizes);
+@include add-sizes(map-prefix($text-sizes, 'font-size-'));
+@include add-sizes(map-prefix($-tokens-font-sizes, 'font-size-'));
 
 $-default-typography: (
   'title': (

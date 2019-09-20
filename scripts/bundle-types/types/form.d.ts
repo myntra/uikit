@@ -42,3 +42,16 @@ declare namespace Tab {
     title?: number
   }
 }
+
+declare namespace Text {
+  const title: Text
+  const h1: Text
+  const h2: Text
+  const h3: Text
+  const h4: Text
+  const body: Text
+  const p: Text
+  const caption: Text
+  const button: Text
+  const textLink: Text
+}
