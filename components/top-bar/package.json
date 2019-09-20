@@ -10,6 +10,11 @@
   "publishConfig": {
     "registry": "https://registry.myntra.com"
   },
+  "keywords": [
+    "uikit",
+    "component"
+  ],
+  "homepage": "https://uikit.myntra.com/components/top-bar",
   "files": [
     "src/",
     "dist/",

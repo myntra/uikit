@@ -10,6 +10,11 @@
   "publishConfig": {
     "registry": "https://registry.myntra.com"
   },
+  "keywords": [
+    "uikit",
+    "component"
+  ],
+  "homepage": "https://uikit.myntra.com/components/input-s3-file",
   "files": [
     "src/",
     "dist/",

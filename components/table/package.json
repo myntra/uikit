@@ -10,6 +10,11 @@
   "publishConfig": {
     "registry": "https://registry.myntra.com"
   },
+  "keywords": [
+    "uikit",
+    "component"
+  ],
+  "homepage": "https://uikit.myntra.com/components/table",
   "files": [
     "src/",
     "dist/",

@@ -32,6 +32,8 @@ targets.forEach((name) => {
     publishConfig: {
       registry: 'https://registry.myntra.com',
     },
+    keywords: ['uikit', 'component'],
+    homepage: 'https://uikit.myntra.com/components/' + shortName,
     files: ['src/', 'dist/', 'bin/'],
     sideEffects: false,
   }

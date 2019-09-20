@@ -10,6 +10,11 @@
   "publishConfig": {
     "registry": "https://registry.myntra.com"
   },
+  "keywords": [
+    "uikit",
+    "component"
+  ],
+  "homepage": "https://uikit.myntra.com/components/input-text",
   "files": [
     "src/",
     "dist/",
