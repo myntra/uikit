@@ -8,7 +8,7 @@
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-can-i-use",
   "publishConfig": {
-    "registry": "http://registry.myntra.com:8000"
+    "registry": "https://registry.myntra.com"
   },
   "files": [
     "src/",

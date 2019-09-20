@@ -30,7 +30,7 @@ targets.forEach((name) => {
     license: 'UNLICENSED',
     repository: getPackageRepository(name),
     publishConfig: {
-      registry: 'http://registry.myntra.com:8000',
+      registry: 'https://registry.myntra.com',
     },
     files: ['src/', 'dist/', 'bin/'],
     sideEffects: false,
