@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-group",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "main": "dist/group.cjs.js",
   "module": "dist/group.esm.js",
   "types": "dist/index.d.ts",
@@ -30,7 +30,7 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.10.*",
-    "@myntra/uikit-utils": "1.10.*"
+    "@myntra/uikit-can-i-use": "1.11.*",
+    "@myntra/uikit-utils": "1.11.*"
   }
 }

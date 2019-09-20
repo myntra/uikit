@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-date",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "main": "dist/input-date.cjs.js",
   "module": "dist/input-date.esm.js",
   "types": "dist/index.d.ts",
@@ -30,12 +30,12 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.10.*",
-    "@myntra/uikit-component-dropdown": "1.10.*",
-    "@myntra/uikit-component-icon": "1.10.*",
-    "@myntra/uikit-component-input-masked": "1.10.*",
-    "@myntra/uikit-component-input-text": "1.10.*",
-    "@myntra/uikit-utils": "1.10.*",
+    "@myntra/uikit-can-i-use": "1.11.*",
+    "@myntra/uikit-component-dropdown": "1.11.*",
+    "@myntra/uikit-component-icon": "1.11.*",
+    "@myntra/uikit-component-input-masked": "1.11.*",
+    "@myntra/uikit-component-input-text": "1.11.*",
+    "@myntra/uikit-utils": "1.11.*",
     "date-fns": "^2.0.0-alpha.27",
     "dayjs": "^1.8.14"
   }

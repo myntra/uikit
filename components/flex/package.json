@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-flex",
-  "version": "1.10.1",
+  "version": "1.11.0",
   "main": "dist/flex.cjs.js",
   "module": "dist/flex.esm.js",
   "types": "dist/index.d.ts",
@@ -29,6 +29,6 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-utils": "1.10.*"
+    "@myntra/uikit-utils": "1.11.*"
   }
 }
