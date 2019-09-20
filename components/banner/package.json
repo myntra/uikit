@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-banner",
-  "version": "1.9.9",
+  "version": "1.10.0",
   "main": "dist/banner.cjs.js",
   "module": "dist/banner.esm.js",
   "types": "dist/index.d.ts",
@@ -23,9 +23,9 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.9.*",
-    "@myntra/uikit-component-button": "1.9.*",
-    "@myntra/uikit-component-icon": "1.9.*",
-    "@myntra/uikit-utils": "1.9.*"
+    "@myntra/uikit-can-i-use": "1.10.*",
+    "@myntra/uikit-component-button": "1.10.*",
+    "@myntra/uikit-component-icon": "1.10.*",
+    "@myntra/uikit-utils": "1.10.*"
   }
 }

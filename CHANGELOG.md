@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.0"></a>
+## 1.10.0 (2019-09-20)
+
+* feat(Text): provide typography helpers ([3fa4e64](https://bitbucket.org/myntra/uikit/commits/3fa4e64)), closes [#197](https://bitbucket.org/myntra/uikit/issue/197)
+* Merged in fix/table_header (pull request #188) ([aae478e](https://bitbucket.org/myntra/uikit/commits/aae478e)), closes [#188](https://bitbucket.org/myntra/uikit/issue/188)
+* docs: troubleshooting guide for service workers ([0e22f6c](https://bitbucket.org/myntra/uikit/commits/0e22f6c))
+* docs: use uikit CSS reset ([90ec621](https://bitbucket.org/myntra/uikit/commits/90ec621))
+* fix(uikit): remove unnecessary rules for CSS reset ([0ab31f8](https://bitbucket.org/myntra/uikit/commits/0ab31f8))
+
+
+
 <a name="1.9.9"></a>
 ## <small>1.9.9 (2019-09-19)</small>
 
