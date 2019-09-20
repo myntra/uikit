@@ -5,7 +5,7 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
-  "version": "1.10.0",
+  "version": "1.10.1",
   "engines": {
     "node": ">=8.0"
   },
@@ -32,7 +32,7 @@
     "coverage": "jest --coverage",
     "coverage:open": "run-s coverage 'open coverage/lcov-report/index.html'",
     "update:master": "git checkout master && git rebase develop && git push origin master && git checkout develop",
-    "pre:publish": "CI=true npm run build",
+    "pre:publish": "npm run build",
     ":publish": "node ./scripts/publish.js",
     "pre:release": "git checkout develop && git pull origin develop",
     ":release": "standard-version -a",

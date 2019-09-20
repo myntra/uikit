@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.10.1"></a>
+## <small>1.10.1 (2019-09-20)</small>
+
+* chore: add homepage ([a4ccc17](https://bitbucket.org/myntra/uikit/commits/a4ccc17))
+* chore: use new registry ([3844516](https://bitbucket.org/myntra/uikit/commits/3844516))
+
+
+
 <a name="1.10.0"></a>
 ## 1.10.0 (2019-09-20)
 
