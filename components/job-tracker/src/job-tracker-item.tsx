@@ -85,11 +85,11 @@ export default class JobTrackerItem extends PureComponent<Props> {
         type="row"
         gutter="small"
       >
-        <Layout type="stack" space={[1]}>
+        <Layout type="stack" space={[1]} alignment="middle">
           <T.h3>{id}</T.h3>
           <T.p>{createdBy}</T.p>
         </Layout>
-        <Layout type="stack" space={[1]}>
+        <Layout type="stack" space={[1]} alignment="middle">
           <div>
             <T.p emphasis="medium" abstract>
               {renderRemarks(this.props)}
@@ -98,7 +98,7 @@ export default class JobTrackerItem extends PureComponent<Props> {
           <T.p emphasis="medium">{dayJS(createdOn).format('hh:mm A')}</T.p>
         </Layout>
         <Layout type="row" gutter="large">
-          <Layout type="stack" space={[, 1]}>
+          <Layout type="stack" space={[, 1]} alignment="middle">
             <T.body className={classnames('field')}>
               <Icon
                 name={iconName}
