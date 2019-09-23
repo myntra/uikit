@@ -79,11 +79,6 @@ function createComponent(name: string, tag: any = 'span') {
         } as any)
       }
     }
-
-    return (
-      <Tag {...props} className={className}>
-        {children}
-      </Tag>
-    )
+    return React.createElement(tag, { ...props, className }, children)
   }
 }

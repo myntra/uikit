@@ -99,7 +99,7 @@ export default class JobTrackerItem extends PureComponent<Props> {
         </Layout>
         <Layout type="row" gutter="large">
           <Layout type="stack" space={[, 1]}>
-            <T.body>
+            <T.body className={classnames('field')}>
               <Icon
                 name={iconName}
                 className={classnames('icon', colorByStatus[status])}
