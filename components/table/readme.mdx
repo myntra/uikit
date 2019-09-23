@@ -150,7 +150,7 @@ const [data] = useState(
   Array(1000).fill(0).map((_, id) => ({ id: id + 1, firstName: "Jane", lastName: "Doe" }))
 );
 
-<div style={{ height: 300, minWidth: 600, maxWidth: '90vw' }}>
+<div style={{ height: 300, minWidth: 600 }}>
  <Table virtualized data={data}>
    {/* Table Configuration */}
   <Table.Column key="id" label="ID" fixed>
@@ -186,6 +186,51 @@ const [data] = useState(
     {({ children, style,  rowId }) => <Table.TR key={rowId} style={{ ...style, color: 'red' }}>{children}</Table.TR>}
   </Table.Row>
  </Table>
+</div>
+```
+
+```jsx preview
+
+const [data] = useState(
+  Array(100).fill(0).map((_, id) => ({ id: id + 1, firstName: "Jane", lastName: "Doe" }))
+);
+
+<div style={{ height: 'auto' }}>
+  <Table virtualized data={data} scrollMode="window">
+   {/* Table Configuration */}
+  <Table.Column key="id" label="ID" fixed>
+    {({ data }) => <div>{data.id}</div>}
+  </Table.Column>
+  <Table.Column key="name" label="Name" fixed>
+  <Table.Column key="firstName" label="First Name" minWidth={120}>
+      {({ data }) => <div>{data.firstName}</div>}
+    </Table.Column>
+  <Table.Column key="lastName" label="Last Name" minWidth={120}>
+    {({ data }) => <div>{data.lastName}</div>}
+  </Table.Column>
+  </Table.Column>
+
+  {Array(10).fill(0).map((_, group) => (
+    <Table.Column key={'group' + group} label={`Group (${group + 1})`} minWidth={100}>
+      {
+        Array(5).fill(0).map((_, index) => (
+          <Table.Column key={`group-${group}-column-${index}`} label={`Column ${index + 1}`} minWidth={120}>
+            {({ data }) => <div>{data.lastName}</div>}
+          </Table.Column>
+        ))
+      }
+    </Table.Column>
+  ))}
+
+  <Table.Column key="options" label=" " fixed="end">
+    {() => <Icon name="ellipsis-v" />}
+  </Table.Column>
+
+  {/* Table Customization */}
+  <Table.Row selector={index => index % 2}>
+    {({ children, style,  rowId }) => <Table.TR key={rowId} style={{ ...style, color: 'red' }}>{children}</Table.TR>}
+  </Table.Row>
+</Table>
 </div>
 ```
 

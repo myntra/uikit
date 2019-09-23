@@ -20,6 +20,11 @@ export interface Props<T = any> extends BaseProps {
 
   virtualized?: boolean
 
+  /**
+   * Sets the overflow scroll container.
+   */
+  scrollMode?: 'container' | 'window'
+
   columnOrder?: string[]
 
   onSort?(props: { columnId: string; order: 'asc' | 'desc' }): void
@@ -44,6 +49,7 @@ interface State {
  *
  * @since 0.3.0
  * @status REVIEWING
+ * @see https://uikit.myntra.com/components/table
  */
 export default class Table extends PureComponent<Props, State> {
   static Column = TableColumn
@@ -114,6 +120,10 @@ export default class Table extends PureComponent<Props, State> {
       ...props
     } = this.props
     const nodes = Children.toArray(children)
+
+    if (!virtualized) {
+      delete props.scrollMode
+    }
 
     if (!nodes.length) return null
 

@@ -11,6 +11,7 @@ import { createRef } from '@myntra/uikit-utils'
 export interface Props extends BaseProps {
   config: TableMeta
   data: any[]
+  scrollMode?: 'container' | 'window'
   getEnhancerState<T = any>(
     name: string
   ): { value: T; onChange(value: T): void }
@@ -19,6 +20,8 @@ export interface Props extends BaseProps {
 export interface State {
   width: number
   height: number
+  viewportWidth: number
+  viewportHeight: number
   showFixedStart: boolean
   showFixedEnd: boolean
 }
@@ -35,11 +38,23 @@ const TD = ({ className, ...props }: BaseProps) => (
 )
 
 export default class VirtualTable extends PureComponent<Props, State> {
-  state = {
-    width: 0,
-    height: 0,
-    showFixedStart: false,
-    showFixedEnd: true,
+  static defaultProps = {
+    scrollMode: 'container',
+  }
+
+  constructor(props) {
+    super(props)
+
+    const width = this.getEstimatedTableWidth()
+    const height = this.getEstimatedTableHeight()
+
+    this.state = {
+      width: width,
+      height: height,
+      showFixedStart: false,
+      showFixedEnd: true,
+      ...this.getViewport({ width, height }),
+    }
   }
 
   headRef = createRef<VirtualList>()
@@ -54,22 +69,27 @@ export default class VirtualTable extends PureComponent<Props, State> {
     const { width, height } = size.bounds
 
     if (this.state.width !== width || this.state.height !== height) {
-      this.setState({ width, height })
+      this.setState({ width, height, ...this.getViewport({ width, height }) })
     }
   }
 
-  handleScroll = (event: UIEvent) => {
-    const target = (event.currentTarget || event.target) as HTMLDivElement
+  getViewport({ height = this.state.height, width = this.state.width }) {
+    const viewportHeight = Math.min(height, window.innerHeight)
+    const viewportWidth = Math.min(width, window.innerWidth)
 
-    this.headRef.current.scrollTo(target)
-    this.bodyRef.current.scrollTo(target)
+    return { viewportHeight, viewportWidth }
+  }
 
-    const lastColumn = this.props.config.cells[
-      this.props.config.cells.length - 1
-    ]
-    const showFixedStart = target.scrollLeft > 0
+  handleScroll = (
+    position: { scrollLeft: number; scrollTop: number },
+    target: HTMLElement
+  ) => {
+    this.headRef.current.scrollTo(position)
+    this.bodyRef.current.scrollTo(position)
+
+    const showFixedStart = position.scrollLeft > 0
     const showFixedEnd =
-      target.scrollLeft + target.offsetWidth < target.scrollWidth
+      position.scrollLeft + target.offsetWidth < target.scrollWidth
 
     if (
       showFixedEnd !== this.state.showFixedEnd ||
@@ -84,7 +104,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
     selector() {
       return true
     },
-    render({ rowId, item, ...props }) {
+    render({ rowId, rowIndex, item, ...props }) {
       return <div className={classnames('tr')} key={rowId} {...props} />
     },
   }
@@ -103,6 +123,24 @@ export default class VirtualTable extends PureComponent<Props, State> {
       ESTIMATED_CELL_WIDTH,
       (this.state.width - 2) / this.props.config.cells.length
     )
+  }
+
+  getEstimatedTableHeight() {
+    const headerHeight =
+      ESTIMATED_HEADER_HEIGHT * this.props.config.columnsByLevel.length
+    if (this.bodyRef.current) {
+      return headerHeight + this.bodyRef.current.rowPositionManager.size
+    }
+
+    return headerHeight + this.props.config.rows.length * ESTIMATED_CELL_HEIGHT
+  }
+
+  getEstimatedTableWidth() {
+    if (this.bodyRef.current) {
+      return this.bodyRef.current.columnManager.size
+    }
+
+    return this.props.config.cells.length * ESTIMATED_CELL_WIDTH
   }
 
   findColumnWidthByIndex(
@@ -181,6 +219,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
       data,
       className,
       getEnhancerState: getEnhancerStateForColumn,
+      scrollMode,
       ...props
     } = this.props
     const body = config.cells
@@ -206,15 +245,31 @@ export default class VirtualTable extends PureComponent<Props, State> {
 
     return (
       <Provider value={this.renderContext}>
-        <div className={classnames('virtual', className)} {...props}>
+        <div
+          {...props}
+          className={classnames('virtual', className, scrollMode)}
+          style={
+            scrollMode === 'window'
+              ? {
+                  ...props.style,
+                  height: this.getEstimatedTableHeight(),
+                  maxHeight: 'unset',
+                }
+              : props.style
+          }
+        >
           <div className={classnames('container')}>
             <Measure onMeasure={this.handleTableMeasure}>
-              <ScrollObserver onScroll={this.handleScroll}>
+              <ScrollObserver
+                mode={scrollMode}
+                offsetAdjust={headerHeight}
+                onScroll={this.handleScroll}
+              >
                 <div className={classnames('table')}>
                   <VirtualList
                     ref={this.headRef}
                     direction="horizontal"
-                    viewportSize={this.state.width}
+                    viewportSize={this.state.viewportWidth}
                     estimatedItemSize={cellWidth}
                     itemCount={header.length}
                     fixedItemCountFromStart={headerFixedStart.length}
@@ -227,7 +282,6 @@ export default class VirtualTable extends PureComponent<Props, State> {
                       children,
                       size,
                       offsetScroll,
-                      offsetStart,
                     }) => {
                       const start = children.slice(0, headerFixedStartCount)
                       const middle = children.slice(
@@ -282,13 +336,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
                       )
                     }}
                   >
-                    {({
-                      index,
-                      style,
-                      offsetScroll,
-                      offset,
-                      fixedColumnWidth,
-                    }) => {
+                    {({ index, style, offsetScroll, fixedColumnWidth }) => {
                       const column = header[index]
 
                       return (
@@ -318,8 +366,8 @@ export default class VirtualTable extends PureComponent<Props, State> {
                       columns={body.length}
                       fixedColumnsFromStart={bodyFixedStartCount}
                       fixedColumnsFromEnd={bodyFixedEndCount}
-                      height={this.state.height}
-                      width={this.state.width}
+                      height={this.state.viewportHeight}
+                      width={this.state.viewportWidth}
                       renderContainer={({ children, style }) => (
                         <div style={style} className={classnames('tbody')}>
                           {children}

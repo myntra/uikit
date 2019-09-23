@@ -21,7 +21,7 @@ export default class Preview extends PureComponent<{ component: any; onError: (e
     const Component = this.props.component
 
     return (
-      <div style={{ padding: '24px', maxHeight: '400px' }}>
+      <div style={{ padding: '24px' }}>
         {Component ? <Component context={{ ...React, ...components }} /> : 'Example is not working...'}
       </div>
     )
