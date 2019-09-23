@@ -243,10 +243,10 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.10.*
-      '@myntra/uikit-component-icon': 1.10.*
-      '@myntra/uikit-context': 1.10.*
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/uikit-can-i-use': 1.12.*
+      '@myntra/uikit-component-icon': 1.12.*
+      '@myntra/uikit-context': 1.12.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/button-group:
@@ -397,9 +397,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/codemod-utils': 1.10.*
-      '@myntra/uikit-can-i-use': 1.10.*
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/codemod-utils': 1.12.*
+      '@myntra/uikit-can-i-use': 1.12.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
@@ -430,9 +430,9 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/svg': 1.10.*
-      '@myntra/uikit-can-i-use': 1.10.*
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/svg': 1.12.*
+      '@myntra/uikit-can-i-use': 1.12.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': ^16.8
       '@znck/promised': ^1.0.4
       glob: ^7.1.3
@@ -653,7 +653,9 @@ importers:
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-grid': 'link:../grid'
       '@myntra/uikit-component-icon': 'link:../icon'
-      '@myntra/uikit-component-progress': 'link:../progress'
+      '@myntra/uikit-component-layout': 'link:../layout'
+      '@myntra/uikit-component-loader': 'link:../loader'
+      '@myntra/uikit-component-text': 'link:../text'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
       dayjs: registry.npmjs.org/dayjs/1.8.15
     devDependencies:
@@ -661,12 +663,14 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.10.*
-      '@myntra/uikit-component-button': 1.10.*
-      '@myntra/uikit-component-grid': 1.10.*
-      '@myntra/uikit-component-icon': 1.10.*
-      '@myntra/uikit-component-progress': 1.10.*
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/uikit-can-i-use': 1.12.*
+      '@myntra/uikit-component-button': 1.12.*
+      '@myntra/uikit-component-grid': 1.12.*
+      '@myntra/uikit-component-icon': 1.12.*
+      '@myntra/uikit-component-layout': 1.12.*
+      '@myntra/uikit-component-loader': 1.12.*
+      '@myntra/uikit-component-text': 1.12.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': ^16.8
       dayjs: ^1.8.14
       react: '>=15.4'
@@ -678,7 +682,7 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': latest
       react: '>=15.4'
   components/list:
@@ -707,8 +711,8 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-can-i-use': 1.10.*
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/uikit-can-i-use': 1.12.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/measure:
@@ -916,7 +920,7 @@ importers:
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
     specifiers:
-      '@myntra/uikit-utils': 1.10.*
+      '@myntra/uikit-utils': 1.12.*
       '@types/react': ^16.8.23
       react: '>=15.4'
   components/tooltip:
@@ -1078,7 +1082,7 @@ importers:
       jsdoc-api: registry.npmjs.org/jsdoc-api/4.0.3
       prettier: registry.npmjs.org/prettier/1.18.2
     specifiers:
-      '@myntra/eslint-config-standard': 1.10.*
+      '@myntra/eslint-config-standard': 1.12.*
       debug: ^3.1.0
       eslint: ^4.19.1
       execa: ^0.10.0
@@ -1357,7 +1361,7 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     specifiers:
-      '@myntra/uikit-can-i-use': 1.10.*
+      '@myntra/uikit-can-i-use': 1.12.*
       '@types/react': ^16.8.10
       react: ^16.8.4
   packages/uikit-design:
@@ -6791,7 +6795,7 @@ packages:
     name: dayjs
     resolution:
       integrity: sha512-HYHCI1nohG52B45vCQg8Re3hNDZbMroWPkhz50yaX7Lu0ATyjGsTdoYZBpjED9ar6chqTx2dmSmM8A51mojnAg==
-      registry: 'https://registry.myntra.com/'
+      registry: 'https://registry.npmjs.org/'
       tarball: 'https://registry.npmjs.org/dayjs/-/dayjs-1.8.15.tgz'
     version: 1.8.15
   registry.npmjs.org/de-indent/1.0.2:
@@ -8030,7 +8034,7 @@ packages:
       esutils: registry.npmjs.org/esutils/2.0.3
       file-entry-cache: registry.npmjs.org/file-entry-cache/5.0.1
       functional-red-black-tree: registry.npmjs.org/functional-red-black-tree/1.0.1
-      glob-parent: registry.npmjs.org/glob-parent/5.0.0
+      glob-parent: registry.npmjs.org/glob-parent/5.1.0
       globals: registry.npmjs.org/globals/11.12.0
       ignore: registry.npmjs.org/ignore/4.0.6
       import-fresh: registry.npmjs.org/import-fresh/3.1.0
@@ -9177,6 +9181,18 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/glob-parent/-/glob-parent-5.0.0.tgz'
     version: 5.0.0
+  registry.npmjs.org/glob-parent/5.1.0:
+    dependencies:
+      is-glob: registry.npmjs.org/is-glob/4.0.1
+    dev: false
+    engines:
+      node: '>= 6'
+    name: glob-parent
+    resolution:
+      integrity: sha512-qjtRgnIVmOfnKUE3NJAQEdk+lKrxfw8t5ke7SXtfMTHcjsBfOfWXCQfdb30zfDoZQ2IRSIiidmjtbHZPZ++Ihw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/glob-parent/-/glob-parent-5.1.0.tgz'
+    version: 5.1.0
   registry.npmjs.org/glob-to-regexp/0.3.0:
     name: glob-to-regexp
     resolution:
