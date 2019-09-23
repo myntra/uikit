@@ -137,7 +137,7 @@ export default class Button extends PureComponent<Props> {
             <Icon name={icon || 'question'} aria-hidden="true" />
           </span>
         )}
-        {isIconButton ? null : <span>{children || label}</span>}
+        {isIconButton ? null : children || label}
         {needRightSlot && (
           <span
             className={classnames('icon', 'trailing')}
