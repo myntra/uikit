@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-layout",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "main": "dist/layout.cjs.js",
   "module": "dist/layout.esm.js",
   "types": "dist/index.d.ts",
@@ -28,6 +28,6 @@
     "@types/react": "latest"
   },
   "dependencies": {
-    "@myntra/uikit-utils": "1.11.*"
+    "@myntra/uikit-utils": "1.12.*"
   }
 }

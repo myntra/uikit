@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.0"></a>
+## 1.12.0 (2019-09-23)
+
+* fix(Modal): Margin updates on modal action button. ([34c7025](https://bitbucket.org/myntra/uikit/commits/34c7025)), closes [#200](https://bitbucket.org/myntra/uikit/issue/200)
+* feat(Table): Add window scrolling mode ([5481190](https://bitbucket.org/myntra/uikit/commits/5481190)), closes [#198](https://bitbucket.org/myntra/uikit/issue/198)
+
+
+
 <a name="1.11.2"></a>
 ## <small>1.11.2 (2019-09-20)</small>
 

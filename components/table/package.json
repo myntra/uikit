@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-table",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "main": "dist/table.cjs.js",
   "module": "dist/table.esm.js",
   "types": "dist/index.d.ts",
@@ -30,17 +30,17 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.11.*",
-    "@myntra/uikit-component-button": "1.11.*",
-    "@myntra/uikit-component-dropdown": "1.11.*",
-    "@myntra/uikit-component-field": "1.11.*",
-    "@myntra/uikit-component-icon": "1.11.*",
-    "@myntra/uikit-component-input-text": "1.11.*",
-    "@myntra/uikit-component-list": "1.11.*",
-    "@myntra/uikit-component-measure": "1.11.*",
-    "@myntra/uikit-component-virtual-grid": "1.11.*",
-    "@myntra/uikit-component-virtual-list": "1.11.*",
-    "@myntra/uikit-context": "1.11.*",
-    "@myntra/uikit-utils": "1.11.*"
+    "@myntra/uikit-can-i-use": "1.12.*",
+    "@myntra/uikit-component-button": "1.12.*",
+    "@myntra/uikit-component-dropdown": "1.12.*",
+    "@myntra/uikit-component-field": "1.12.*",
+    "@myntra/uikit-component-icon": "1.12.*",
+    "@myntra/uikit-component-input-text": "1.12.*",
+    "@myntra/uikit-component-list": "1.12.*",
+    "@myntra/uikit-component-measure": "1.12.*",
+    "@myntra/uikit-component-virtual-grid": "1.12.*",
+    "@myntra/uikit-component-virtual-list": "1.12.*",
+    "@myntra/uikit-context": "1.12.*",
+    "@myntra/uikit-utils": "1.12.*"
   }
 }

@@ -1,6 +1,7 @@
 dist/
 coverage/
 docs~*.tar
+.idea/
 
 *.sprite
 *.pid

@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-virtual-list",
-  "version": "1.11.2",
+  "version": "1.12.0",
   "main": "dist/virtual-list.cjs.js",
   "module": "dist/virtual-list.esm.js",
   "types": "dist/index.d.ts",
@@ -33,8 +33,8 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-can-i-use": "1.11.*",
-    "@myntra/uikit-component-measure": "1.11.*",
-    "@myntra/uikit-utils": "1.11.*"
+    "@myntra/uikit-can-i-use": "1.12.*",
+    "@myntra/uikit-component-measure": "1.12.*",
+    "@myntra/uikit-utils": "1.12.*"
   }
 }
