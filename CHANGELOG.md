@@ -104,7 +104,7 @@ All notable changes to this project will be documented in this file. See [standa
 * fix(NavBar): Use a polyfill for React.Fragment ([99d8d47](https://bitbucket.org/myntra/uikit/commits/99d8d47))
 * fix(Table): Fix large (width) header while scrolling in virtualized table ([315ebc8](https://bitbucket.org/myntra/uikit/commits/315ebc8)), closes [#185](https://bitbucket.org/myntra/uikit/issue/185)
 * fix(Table): Larger than viewport columns should stay in viewport while scrolling ([189aa53](https://bitbucket.org/myntra/uikit/commits/189aa53)), closes [#174](https://bitbucket.org/myntra/uikit/issue/174)
-* fix(Table): Make <Table> block element ([3cde8fe](https://bitbucket.org/myntra/uikit/commits/3cde8fe)), closes [#177](https://bitbucket.org/myntra/uikit/issue/177)
+* fix(Table): Make `<Table>` block element ([3cde8fe](https://bitbucket.org/myntra/uikit/commits/3cde8fe)), closes [#177](https://bitbucket.org/myntra/uikit/issue/177)
 * fix(Table): Style inconsistencies in static table ([5d24419](https://bitbucket.org/myntra/uikit/commits/5d24419)), closes [#182](https://bitbucket.org/myntra/uikit/issue/182)
 * fix(Table): Use a memoized getter to compute filter options from table data ([a8c5a99](https://bitbucket.org/myntra/uikit/commits/a8c5a99)), closes [#193](https://bitbucket.org/myntra/uikit/issue/193)
 * fix(Table): Use accoutrement and fix styles ([55465a5](https://bitbucket.org/myntra/uikit/commits/55465a5)), closes [#183](https://bitbucket.org/myntra/uikit/issue/183)
