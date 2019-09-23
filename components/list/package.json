@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-list",
-  "version": "1.12.4",
+  "version": "1.12.5",
   "main": "dist/list.cjs.js",
   "module": "dist/list.esm.js",
   "types": "dist/index.d.ts",

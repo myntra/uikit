@@ -1,6 +1,6 @@
 {
   "name": "@myntra/accoutrement",
-  "version": "1.12.4",
+  "version": "1.12.5",
   "style": "src/index.scss",
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
