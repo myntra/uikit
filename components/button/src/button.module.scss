@@ -9,6 +9,8 @@
   @include typography('button');
   @include transition('button');
 
+  appearance: none;
+
   + .container {
     @include margin-left('large');
   }
@@ -105,22 +107,22 @@
   }
 
   &.inherit {
-    color: currentColor;
+    color: var(--current-color, currentColor);
 
     @include transition('all');
 
     &:disabled {
-      color: currentColor;
+      color: var(--current-color, currentColor);
     }
 
     &:not(:disabled) {
       &:hover {
-        color: currentColor;
+        color: var(--current-color, currentColor);
       }
 
       &:active,
       &:active:hover {
-        color: currentColor;
+        color: var(--current-color, currentColor);
         transform: translateY(2px);
       }
     }

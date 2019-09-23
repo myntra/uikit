@@ -1,16 +1,14 @@
-@import '@design';
+@import '@accoutrement';
 
-.job:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
+.job {
+  @include margin-bottom('medium');
 
-.jobs {
-  border-radius: 4px;
-  box-shadow: ui-shadow('raised');
+  box-shadow: shadow('job-tracker');
 }
 
 .date {
-  margin: 24px 8px 8px;
+  @include margin('job-tracker.group');
+
   font-weight: bolder;
-  color: ui-text-color('dark');
+  color: text-color('dark');
 }

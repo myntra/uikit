@@ -11,9 +11,13 @@ export interface Props extends BaseProps {
   /**
    * Use current color for loading spinner.
    */
-  currentColor: boolean
-
-  children: never
+  currentColor?: boolean
+  /**
+   * Type of progress loader.
+   */
+  appearance: 'spinner' | 'bar'
+  children?: never
+  isLoading?: boolean
 }
 
 /**
@@ -24,10 +28,15 @@ export interface Props extends BaseProps {
  * @category basic
  * @see http://uikit.myntra.com/components/loader
  */
-export default function Loader({ className, type }: Props) {
+export default function Loader({
+  className,
+  type,
+  appearance,
+  isLoading,
+}: Props) {
   return (
     <div className={classnames(className, 'loader', type)}>
-      <div className={classnames('spinner')}>
+      <div className={classnames(appearance, { 'is-loading': isLoading })}>
         <div />
         <div />
         <div />
@@ -38,4 +47,6 @@ export default function Loader({ className, type }: Props) {
 
 Loader.defaultProps = {
   type: 'inline',
+  appearance: 'spinner',
+  isLoading: true,
 }

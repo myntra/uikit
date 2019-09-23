@@ -1,44 +1,26 @@
-@import '@design';
+@import '@accoutrement';
 
-.id {
-  margin-bottom: 10px;
-  font-weight: bold;
-  color: ui-text-color('dark');
-}
+.item {
+  @include padding('large');
 
-.text {
-  color: ui-text-color('dark', 'mid-emphasis');
-
-  @include use-text-style('small');
-}
-
-.description {
-  padding: 14px 0 20px 20px;
-  border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.files {
-  padding-left: 20px;
-}
-
-.file {
-  display: inline-block;
-
-  &.success {
-    color: ui-text-color('green');
+  .actions {
+    margin-right: negative(size('3x'));
+    text-align: right;
   }
 
-  &.error {
-    color: ui-text-color('red');
+  .primary {
+    --current-color: #{text-color('primary')};
   }
-}
-
-.status {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.status i {
-  text-transform: capitalize;
+  .success {
+    --current-color: #{text-color('success')};
+  }
+  .error {
+    --current-color: #{text-color('danger')};
+  }
+  .warning {
+    --current-color: #{text-color('warning')};
+  }
+  .icon {
+    fill: var(--current-color, currentColor);
+  }
 }

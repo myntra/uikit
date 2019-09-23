@@ -11,12 +11,40 @@ const [data] = useState([
     createdBy: "Ash Ketchum",
     remark: "Gotta catch 'em all",
     createdOn: 1542623683000,
-    successFileName: "success.xslx",
-    errorFileName: "error.xslx",
     status: "IN_PROGRESS",
     totalStepCount: 100,
     completedStepCount: 30
   },
+  {
+    id: 321,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1542623683000,
+    status: "HALTED",
+    totalStepCount: 100,
+    completedStepCount: 30
+  },
+  {
+    id: 234,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1544643683000,
+    successFileName: "success.xslx",
+    errorFileName: "error.xslx",
+    status: "FAILED",
+    totalStepCount: 100,
+    completedStepCount: 30
+  },
+  {
+    id: 444,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1544643683000,
+    fileName: "success.xslx",
+    status: "COMPLETED",
+    totalStepCount: 100,
+    completedStepCount: 30
+  }
 ]);
 
 <JobTracker data={data}/>

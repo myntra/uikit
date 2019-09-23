@@ -34,7 +34,8 @@
     "@myntra/uikit-component-button": "1.12.*",
     "@myntra/uikit-component-grid": "1.12.*",
     "@myntra/uikit-component-icon": "1.12.*",
-    "@myntra/uikit-component-progress": "1.12.*",
+    "@myntra/uikit-component-loader": "1.12.*",
+    "@myntra/uikit-component-text": "1.12.*",
     "@myntra/uikit-utils": "1.12.*",
     "dayjs": "^1.8.14"
   }

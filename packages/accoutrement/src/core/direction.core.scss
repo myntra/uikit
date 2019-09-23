@@ -34,9 +34,7 @@ $directions: (
       @return index($value, $direction);
     }
 
-    $direction: $direction - 2;
-
-    @return index($value, $direction);
+    @return index($value, $direction - 2);
   }
 
   @return $value;

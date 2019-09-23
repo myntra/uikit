@@ -8,17 +8,17 @@ interface Props extends BaseProps {
    * Abstract component does not render any extra elements.
    * However, it allows only one child component.
    */
-  abstract: boolean
+  abstract?: boolean
 
   /**
    * Make font-weight one weight bold or light.
    */
-  weight: 'bolder' | 'lighter'
+  weight?: 'bolder' | 'lighter'
 
   /**
    * Use theme colors for text.
    */
-  color: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
+  color?: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
 
   /**
    * Controls the legibility of the text.
@@ -27,7 +27,12 @@ interface Props extends BaseProps {
    *
    * @see https://uikit.myntra.com/guide/text-legibility
    */
-  emphasis: 'high' | 'medium' | 'disabled'
+  emphasis?: 'high' | 'medium' | 'disabled'
+
+  /**
+   * Override default tag for the element.
+   */
+  tag?: string
 }
 
 export default function Text(props: Props) {
@@ -49,17 +54,18 @@ Text.h1 = createComponent('h1', 'h1')
 Text.h2 = createComponent('h2', 'h2')
 Text.h3 = createComponent('h3', 'h3')
 Text.h4 = createComponent('h4', 'h4')
-Text.body = createComponent('body')
+Text.body = createComponent('body', 'div')
 Text.p = createComponent('p', 'p')
 Text.caption = createComponent('caption')
 
-function createComponent(name: string, Tag: any = 'span') {
+function createComponent(name: string, tag: any = 'span') {
   return function({
     className,
     children,
-    abstract,
-    color,
-    emphasis,
+    tag: Tag = tag,
+    abstract = false,
+    color = 'dark',
+    emphasis = 'high',
     weight,
     ...props
   }: Props) {

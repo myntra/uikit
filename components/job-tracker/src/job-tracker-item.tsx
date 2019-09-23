@@ -1,8 +1,9 @@
 import React, { PureComponent, ReactNode } from 'react'
-import Icon from '@myntra/uikit-component-icon'
 import Button from '@myntra/uikit-component-button'
-import Progress from '@myntra/uikit-component-progress'
-import Grid from '@myntra/uikit-component-grid'
+import Icon, { IconName } from '@myntra/uikit-component-icon'
+import Layout from '@myntra/uikit-component-layout'
+import Loader from '@myntra/uikit-component-loader'
+import T from '@myntra/uikit-component-text'
 import dayJS from 'dayjs'
 
 import classnames from './job-tracker-item.module.scss'
@@ -16,9 +17,11 @@ export interface Props extends BaseProps {
   createdBy: string
   /** Job creation time */
   createdOn: number
-  /** Success file Name */
+  /** Attachment of other kinds */
+  fileName: string
+  /** Attachment on job success */
   successFileName: string
-  /** Error file Name */
+  /** Attachment on job error */
   errorFileName: string
   /** Completed Step Count */
   completedStepCount: number
@@ -27,16 +30,22 @@ export interface Props extends BaseProps {
   /** Remarks renderer */
   renderRemarks(props: Props): ReactNode
   /** Status */
-  status: string
+  status: 'IN_PROGRESS' | 'FAILED' | 'COMPLETED' | 'HALTED'
   /** API Root for downloading job tracker files */
   apiRoot: string
 }
 
-const STATUS_APPEARANCE_MAP = {
-  INTERRUPTED: 'danger',
-  IN_PROGRESS: 'info',
-  CREATED: 'warning',
+const iconByStatus: Record<string, IconName> = {
+  IN_PROGRESS: 'clock',
+  FAILED: 'exclamation-triangle',
+  COMPLETED: 'check-circle',
+  HALTED: 'exclamation-circle',
+}
+const colorByStatus: Record<string, string> = {
+  IN_PROGRESS: 'primary',
+  FAILED: 'error',
   COMPLETED: 'success',
+  HALTED: 'warning',
 }
 
 /**
@@ -46,84 +55,103 @@ const STATUS_APPEARANCE_MAP = {
 export default class JobTrackerItem extends PureComponent<Props> {
   static defaultProps = {
     renderRemarks: ({ remark }) => <div>{remark}</div>,
+    status: 'IN_PROGRESS',
   }
 
   render() {
-    const { status } = this.props
+    const {
+      status,
+      id,
+      renderRemarks,
+      createdBy,
+      createdOn,
+      fileName,
+      successFileName,
+      apiRoot,
+      errorFileName,
+      className,
+      ...props
+    } = this.props
+
+    const statusName = (status || '').replace('_', ' ').toLowerCase()
+    const iconName = iconByStatus[status]
+    const getDownloadURL = (type) =>
+      `${apiRoot}/api/jobtracker/download?jobId=${id}&fileType=${type}`
+    const isLoading = status === 'IN_PROGRESS'
+    const needLoader = !(fileName || successFileName || errorFileName)
     return (
-      <Grid gapless vcentered className={this.props.className}>
-        <Grid.Column size={2}>
-          <div className={classnames('status')}>
-            <Progress
-              value={
-                (this.props.completedStepCount / this.props.totalStepCount) *
-                100
-              }
-              size="medium"
-              type="circle"
-              appearance={STATUS_APPEARANCE_MAP[status]}
-            >
-              <Icon name="image" />
-            </Progress>
-            <div className={classnames('text')}>
-              <i>
-                {(status || '').replace('_', ' ').toLowerCase()}
-                {status === 'IN_PROGRESS' ? '...' : ''}
-              </i>
-            </div>
+      <Layout
+        className={classnames(className, 'item')}
+        type="row"
+        gutter="small"
+      >
+        <Layout type="stack" space={[1]}>
+          <T.h3>{id}</T.h3>
+          <T.p>{createdBy}</T.p>
+        </Layout>
+        <Layout type="stack" space={[1]}>
+          <div>
+            <T.p emphasis="medium" abstract>
+              {renderRemarks(this.props)}
+            </T.p>
           </div>
-        </Grid.Column>
-        <Grid.Column size={4} className={classnames('text')}>
-          <div className={classnames('description')}>
-            <div className={classnames('id')}>{this.props.id}</div>
-            {this.props.renderRemarks(this.props)}
-          </div>
-        </Grid.Column>
-        <Grid.Column size={2} className={classnames('text')}>
-          {`by ${this.props.createdBy}`}
-        </Grid.Column>
-        <Grid.Column size={1} className={classnames('text')}>
-          {dayJS(this.props.createdOn).format('hh:mm A')}
-        </Grid.Column>
-        <Grid.Column size={2}>
-          <div className={classnames('files')}>
-            {this.props.successFileName && (
-              <div className={classnames('file', 'success')}>
+          <T.p emphasis="medium">{dayJS(createdOn).format('hh:mm A')}</T.p>
+        </Layout>
+        <Layout type="row" gutter="large">
+          <Layout type="stack" space={[, 1]}>
+            <T.body>
+              <Icon
+                name={iconName}
+                className={classnames('icon', colorByStatus[status])}
+              />{' '}
+              Status: {statusName}
+            </T.body>
+            <T.body className={classnames('actions')}>
+              {fileName ? (
                 <Button
-                  type="link"
-                  className={classnames('file')}
-                  href={`${this.props.apiRoot ||
-                    ''}/api/jobtracker/download?jobId=${
-                    this.props.id
-                  }&fileType=success-file`}
+                  type="text"
+                  className={classnames('primary')}
+                  href={getDownloadURL('file')}
                   download
                   inheritTextColor
-                  secondaryIcon="arrow-to-bottom"
                 >
-                  Success
+                  Download File
                 </Button>
-              </div>
-            )}
-            {this.props.errorFileName && (
-              <div className={classnames('file', 'error')}>
+              ) : null}
+              {successFileName ? (
                 <Button
-                  type="link"
-                  className={classnames('file')}
-                  href={`${this.props.apiRoot ||
-                    ''}/api/jobtracker/download?jobId=${
-                    this.props.id
-                  }&fileType=error-file`}
+                  type="text"
+                  className={classnames('success')}
+                  href={getDownloadURL('success-file')}
                   download
                   inheritTextColor
-                  secondaryIcon="arrow-to-bottom"
                 >
-                  Error
+                  Download Success File
                 </Button>
-              </div>
-            )}
-          </div>
-        </Grid.Column>
-      </Grid>
+              ) : null}
+              {errorFileName ? (
+                <Button
+                  type="text"
+                  className={classnames('error')}
+                  href={getDownloadURL('error-file')}
+                  download
+                  inheritTextColor
+                >
+                  Download Error File
+                </Button>
+              ) : null}
+            </T.body>
+          </Layout>
+          {needLoader ? (
+            <Loader
+              className={classnames('loader')}
+              type="inline"
+              appearance="bar"
+              isLoading={isLoading}
+            />
+          ) : null}
+        </Layout>
+      </Layout>
     )
   }
 }

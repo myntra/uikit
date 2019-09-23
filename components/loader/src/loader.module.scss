@@ -59,6 +59,32 @@
   animation-delay: -0.15s;
 }
 
+.bar {
+  --current-bar-color: #{ui-color('primary')};
+  --current-bar-color-secondary: #{ui-color('gray')};
+
+  min-width: 20em;
+
+  div:first-child {
+    height: 4px;
+    background: #aaa;
+    border-radius: 25px;
+  }
+
+  &.is-loading {
+    div:first-child {
+      background: linear-gradient(
+        0.25turn,
+        var(--current-bar-color) 0%,
+        var(--current-bar-color-secondary) 50%,
+        var(--current-bar-color) 100%
+      );
+      animation: bar 1.2s ease-in infinite;
+      animation-direction: alternate;
+    }
+  }
+}
+
 @keyframes spinner {
   0% {
     transform: rotate(0deg);
@@ -66,5 +92,18 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes bar {
+  @for $i from 0 to 101 {
+    #{$i * 1%} {
+      background: linear-gradient(
+        0.25turn,
+        #4f47c8 0%,
+        #e4e3fc #{$i * 1%},
+        #4f47c8 100%
+      );
+    }
   }
 }
