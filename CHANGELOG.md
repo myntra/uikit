@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.3"></a>
+## <small>1.12.3 (2019-09-23)</small>
+
+* [feat]New job tracker design, new bar loader ([b270d2c](https://bitbucket.org/myntra/uikit/commits/b270d2c)), closes [#201](https://bitbucket.org/myntra/uikit/issue/201)
+* changelog breaking and view port height to web layout-container ([56e037e](https://bitbucket.org/myntra/uikit/commits/56e037e))
+* Merged in fix/buttonText (pull request #199) ([677d5be](https://bitbucket.org/myntra/uikit/commits/677d5be)), closes [#199](https://bitbucket.org/myntra/uikit/issue/199)
+
+
+
 <a name="1.12.1"></a>
 ## <small>1.12.1 (2019-09-23)</small>
 

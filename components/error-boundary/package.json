@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-error-boundary",
-  "version": "1.12.1",
+  "version": "1.12.3",
   "main": "dist/error-boundary.cjs.js",
   "module": "dist/error-boundary.esm.js",
   "types": "dist/index.d.ts",
