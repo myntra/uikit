@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-tooltip",
-  "version": "1.12.6",
+  "version": "1.12.7",
   "main": "dist/tooltip.cjs.js",
   "module": "dist/tooltip.esm.js",
   "types": "dist/index.d.ts",

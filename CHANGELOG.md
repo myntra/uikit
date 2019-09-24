@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.7"></a>
+## <small>1.12.7 (2019-09-24)</small>
+
+* vertically aligned job tracker items ([0ed793e](https://bitbucket.org/myntra/uikit/commits/0ed793e))
+
+
+
 <a name="1.12.6"></a>
 ## <small>1.12.6 (2019-09-23)</small>
 

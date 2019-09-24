@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-progress",
-  "version": "1.12.6",
+  "version": "1.12.7",
   "main": "dist/progress.cjs.js",
   "module": "dist/progress.esm.js",
   "types": "dist/index.d.ts",
