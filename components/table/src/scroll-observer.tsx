@@ -10,14 +10,27 @@ export interface Props extends BaseProps {
 }
 
 const RE = /(auto|scroll)/
+
+/**
+ * Check if the element is a scrollable element. This function is called by findScrollParent.
+ * @param element
+ */
 function isElementScrollable(element: HTMLElement) {
   const style = window.getComputedStyle(element)
   const scroll = style.getPropertyValue('overflow')
   const scrollY = style.getPropertyValue('overflow-y')
 
-  return RE.test(scroll) || RE.test(scrollY)
+  // For element to be scrollable it should satisfy both of these conditions
+  return (
+    (RE.test(scroll) || RE.test(scrollY)) &&
+    element.offsetHeight < element.scrollHeight
+  )
 }
 
+/**
+ * Find the nearest scrollable element for the cases where mode = window
+ * @param node
+ */
 function findScrollParent(node: Node) {
   if (!node || node === document.body) return window
   else if (isElementScrollable(node as HTMLElement)) return node
@@ -40,6 +53,9 @@ export default class ScrollObserver extends PureComponent<Props> {
     return this.props.mode === 'window'
   }
 
+  /**
+   * Registering scroll event for both target and scroll element
+   */
   register() {
     if (this.scrollRef.current) {
       this.scrollRef.current.addEventListener('scroll', this.handleScroll, {
@@ -87,8 +103,8 @@ export default class ScrollObserver extends PureComponent<Props> {
         : this.lastScrollLeft
 
     const offsetTop =
-      (this.targetRef.current.offsetParent as HTMLElement).offsetTop +
-      this.props.offsetAdjust
+      this.findScrollParentPosition(this.targetRef.current
+        .offsetParent as HTMLElement).yPos + this.props.offsetAdjust
 
     this.lastScrollTop = _scrollTop
     this.lastScrollLeft = scrollLeft
@@ -102,6 +118,11 @@ export default class ScrollObserver extends PureComponent<Props> {
     this.props.onScroll({ scrollLeft, scrollTop }, this.targetRef.current)
   }
 
+  /**
+   * Set target element and scroll element references.
+   * target param will be the only child element of ScrollObserver
+   * @param target
+   */
   handleRef = (target: HTMLElement | null) => {
     if (this.targetRef.current !== target) {
       this.unregister()
@@ -117,6 +138,38 @@ export default class ScrollObserver extends PureComponent<Props> {
     const node = React.Children.only(this.props.children)
     if (typeof node.ref === 'function') {
       node.ref(target)
+    }
+  }
+
+  /**
+   * Get an Element's Position from the top.
+   * We are adding up all the offsetTop and offsetLeft values starting from the element provided till body tag
+   * @param element
+   */
+  findScrollParentPosition(element) {
+    let xPos = 0
+    let yPos = 0
+
+    while (element) {
+      if (element.tagName == 'BODY') {
+        // deal with browser quirks with body/window/document and page scroll
+        let xScroll = element.scrollLeft || document.documentElement.scrollLeft
+        let yScroll = element.scrollTop || document.documentElement.scrollTop
+
+        xPos += element.offsetLeft - xScroll + element.clientLeft
+        yPos += element.offsetTop - yScroll + element.clientTop
+      } else {
+        // for all other non-BODY elements
+        xPos += element.offsetLeft + element.clientLeft
+        yPos += element.offsetTop + element.clientTop
+      }
+
+      element = element.offsetParent
+    }
+
+    return {
+      xPos,
+      yPos,
     }
   }
 
