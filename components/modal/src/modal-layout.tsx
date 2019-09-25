@@ -37,7 +37,7 @@ export default function ModalLayout({
 }: Props) {
   return (
     <div className={classnames('wrapper')}>
-      {title && <h1>{title}</h1>}
+      {title && <h1 className={classnames('title')}>{title}</h1>}
 
       {children}
 

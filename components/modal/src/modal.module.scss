@@ -35,8 +35,13 @@
 
 .close {
   position: absolute;
-  top: -13px;
-  right: -25px;
+  top: negative(size('3x'));
+  right: negative(size('8x'));
   padding-right: 0;
   color: text-color('light');
+
+  svg {
+    width: 24px;
+    height: 24px;
+  }
 }

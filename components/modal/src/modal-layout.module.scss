@@ -1,7 +1,13 @@
 @import '@design';
 
+.title {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
 .wrapper {
-  min-width: 300px;
+  min-width: 320px;
+  min-height: 320px;
   padding: ui-size('l');
   background: ui-color('white');
 }
