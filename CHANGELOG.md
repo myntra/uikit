@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.9"></a>
+## <small>1.12.9 (2019-09-25)</small>
+
+* Fix for scroll parent for table element in window scroll mode ([f4d37df](https://bitbucket.org/myntra/uikit/commits/f4d37df)), closes [#206](https://bitbucket.org/myntra/uikit/issue/206)
+* Merged in fix/ModalLayout (pull request #202) ([7a7cb44](https://bitbucket.org/myntra/uikit/commits/7a7cb44)), closes [#202](https://bitbucket.org/myntra/uikit/issue/202)
+
+
+
 <a name="1.12.8"></a>
 ## <small>1.12.8 (2019-09-25)</small>
 
