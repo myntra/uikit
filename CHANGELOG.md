@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.8"></a>
+## <small>1.12.8 (2019-09-25)</small>
+
+* Sync color, padding and typography  tokens with design guidelines ([b7cd396](https://bitbucket.org/myntra/uikit/commits/b7cd396)), closes [#204](https://bitbucket.org/myntra/uikit/issue/204)
+
+
+
 <a name="1.12.7"></a>
 ## <small>1.12.7 (2019-09-24)</small>
 
