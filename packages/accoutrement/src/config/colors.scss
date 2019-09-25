@@ -4,7 +4,7 @@ $-tokens-colors-primary: #4f47c8 !default;
 $-tokens-colors-success: #60b87a !default;
 $-tokens-colors-warning: #f0ba54 !default;
 $-tokens-colors-danger: #d46a68 !default;
-$-tokens-colors-gray: #aaa !default;
+$-tokens-colors-gray: #e6e6e6 !default;
 
 $brand-colors: (
   'primary': $-tokens-colors-primary,
@@ -22,19 +22,36 @@ $base-colors: (
 $colors: (
   'disabled': '#gray-light-1',
   'button.disabled': '#disabled',
-  'table.head': '#gray-light-2',
+  'table.head': '#gray-light-3',
   'table.body': '#white',
   'table.hover': '#gray-light-3',
   'table.border': '#gray-light-1',
-  'nav-bar.background': '#white',
-  'nav-bar.background:focus': '#gray-light-3',
-  'nav-bar.border': '#gray-light-2',
+  'nav-bar.background': '#gray-light-3',
+  'nav-bar.background:focus': '#gray-light-1',
+  'nav-bar.border': '#gray-light-1',
   'top-bar.background': '#nav-bar.background',
   'top-bar.border': '#nav-bar.border',
-  'page.background': '#gray-light-3',
+  'page.background': '#gray-light-2',
   'tab.border': '#gray-light-2',
 );
-$-tokens-colors: () !default;
+$-tokens-colors: (
+  'primary-dark-1': #2f2b78,
+  'primary-light-1': #9591de,
+  'primary-light-2': #e5e4f7,
+  'gray-dark-1': #d4d4d4,
+  'gray-light-1': #eee,
+  'gray-light-2': #f4f6f8,
+  'gray-light-3': #f9f9f9,
+  'success-dark-1': #3a6e49,
+  'success-light-1': #a0d4af,
+  'success-light-2': #d7edde,
+  'warning-dark-1': #907032,
+  'warning-light-1': #f6d698,
+  'warning-light-2': #fbeed4,
+  'danger-dark-1': #7f403e,
+  'danger-light-1': #e5a6a4,
+  'danger-light-2': #f4dad9,
+) !default;
 
 @include add-colors($base-colors);
 @include add-colors($brand-colors);

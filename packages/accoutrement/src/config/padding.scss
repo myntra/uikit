@@ -13,7 +13,7 @@ $paddings: (
   'medium': '#medium',
   'large': '#large',
   'banner': '#padding-default',
-  'button': '#3x' '#10x',
+  'button': '#2x' '#8x',
   'icon-button': '#3x',
   'table.th': '#2x',
   'table.td': '#2x',
@@ -21,7 +21,7 @@ $paddings: (
   'nav-bar.body': '#padding-none' '#4x' '#4x' '#4x',
   'nav-bar.item': '#padding-small',
   'modal': '#default',
-  'tab.item': '#2x' '#4x',
+  'tab.item': '#4x' '#8x',
 );
 
 $-tokens-paddings: () !default;

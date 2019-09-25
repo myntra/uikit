@@ -44,7 +44,7 @@
     white-space: nowrap;
     cursor: pointer;
 
-    @include typography('caption');
+    @include typography('paragraph');
   }
 
   .user-name {

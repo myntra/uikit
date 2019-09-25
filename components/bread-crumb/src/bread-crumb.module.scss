@@ -23,7 +23,7 @@
 .page a {
   color: ui-text-color('primary');
 
-  @include use-text-style('caption');
+  @include use-text-style('p');
 
   text-decoration: none;
 }
