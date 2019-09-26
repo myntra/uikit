@@ -525,7 +525,6 @@ export default class Dropdown extends Component<
                     ? {
                         top: position.top,
                         left: position.left,
-                        right: position.right,
                       }
                     : null
                 }

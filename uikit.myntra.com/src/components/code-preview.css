@@ -1,11 +1,7 @@
 .code-preview-button-container {
   position: absolute;
-  top: 4px;
-  right: 0;
+  top: 8px;
+  right: 8px;
   opacity: 0;
   transition: opacity 0.5s;
-}
-
-.code-preview-button-container button {
-  margin-right: 4px;
 }
