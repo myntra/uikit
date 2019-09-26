@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-checkbox",
-  "version": "1.12.15",
+  "version": "1.12.16",
   "main": "dist/input-checkbox.cjs.js",
   "module": "dist/input-checkbox.esm.js",
   "types": "dist/index.d.ts",

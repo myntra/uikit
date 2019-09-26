@@ -3418,9 +3418,9 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/acorn-jsx/-/acorn-jsx-3.0.1.tgz'
     version: 3.0.1
-  registry.npmjs.org/acorn-jsx/5.0.2_acorn@7.0.0:
+  registry.npmjs.org/acorn-jsx/5.0.2_acorn@7.1.0:
     dependencies:
-      acorn: registry.npmjs.org/acorn/7.0.0
+      acorn: registry.npmjs.org/acorn/7.1.0
     dev: false
     id: registry.npmjs.org/acorn-jsx/5.0.2
     name: acorn-jsx
@@ -3472,17 +3472,17 @@ packages:
       registry: 'http://registry.myntra.com:8000/'
       tarball: 'https://registry.npmjs.org/acorn/-/acorn-6.2.1.tgz'
     version: 6.2.1
-  registry.npmjs.org/acorn/7.0.0:
+  registry.npmjs.org/acorn/7.1.0:
     dev: false
     engines:
       node: '>=0.4.0'
     hasBin: true
     name: acorn
     resolution:
-      integrity: sha512-PaF/MduxijYYt7unVGRuds1vBC9bFxbNf+VWqhOClfdgy7RlVkQqt610ig1/yxTgsDIfW1cWDel5EBbOy3jdtQ==
+      integrity: sha512-kL5CuoXA/dgxlBbVrflsflzQ3PAas7RYZB52NOm/6839iVYJgKMJ3cQJD+t2i5+qFa8h3MDpEOJiS64E8JLnSQ==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/acorn/-/acorn-7.0.0.tgz'
-    version: 7.0.0
+      tarball: 'https://registry.npmjs.org/acorn/-/acorn-7.1.0.tgz'
+    version: 7.1.0
   registry.npmjs.org/airbnb-prop-types/2.14.0_react@16.9.0:
     dependencies:
       array.prototype.find: registry.npmjs.org/array.prototype.find/2.1.0
@@ -8081,8 +8081,8 @@ packages:
     version: 3.5.4
   registry.npmjs.org/espree/6.1.1:
     dependencies:
-      acorn: registry.npmjs.org/acorn/7.0.0
-      acorn-jsx: registry.npmjs.org/acorn-jsx/5.0.2_acorn@7.0.0
+      acorn: registry.npmjs.org/acorn/7.1.0
+      acorn-jsx: registry.npmjs.org/acorn-jsx/5.0.2_acorn@7.1.0
       eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
     dev: false
     engines:
