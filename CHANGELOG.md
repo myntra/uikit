@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.11"></a>
+## <small>1.12.11 (2019-09-26)</small>
+
+* Merged in fix/dropdownWidth (pull request #203) ([90ecbb7](https://bitbucket.org/myntra/uikit/commits/90ecbb7)), closes [#203](https://bitbucket.org/myntra/uikit/issue/203)
+
+
+
 <a name="1.12.10"></a>
 ## <small>1.12.10 (2019-09-25)</small>
 
