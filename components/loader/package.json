@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-loader",
-  "version": "1.12.14",
+  "version": "1.12.15",
   "main": "dist/loader.cjs.js",
   "module": "dist/loader.esm.js",
   "types": "dist/index.d.ts",
