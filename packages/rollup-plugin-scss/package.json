@@ -1,6 +1,6 @@
 {
   "name": "@myntra/rollup-plugin-scss",
-  "version": "1.12.16",
+  "version": "1.12.17",
   "main": "src/index.js",
   "module": "dist/rollup-plugin-scss.esm.js",
   "types": "dist/index.d.ts",

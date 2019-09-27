@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.17"></a>
+## <small>1.12.17 (2019-09-27)</small>
+
+* added a return in case targetRef is null ([c3e2daf](https://bitbucket.org/myntra/uikit/commits/c3e2daf)), closes [#212](https://bitbucket.org/myntra/uikit/issue/212)
+* Merged in fix/dropdownWidth (pull request #203) ([90ecbb7](https://bitbucket.org/myntra/uikit/commits/90ecbb7)), closes [#203](https://bitbucket.org/myntra/uikit/issue/203)
+* Merged in fix/loaderDoc (pull request #208) ([77e9d28](https://bitbucket.org/myntra/uikit/commits/77e9d28)), closes [#208](https://bitbucket.org/myntra/uikit/issue/208)
+* chore(release): 1.12.11 ([cc6d034](https://bitbucket.org/myntra/uikit/commits/cc6d034))
+* chore(release): 1.12.12 ([0c3e660](https://bitbucket.org/myntra/uikit/commits/0c3e660))
+* chore(release): 1.12.13 ([7fd2c1a](https://bitbucket.org/myntra/uikit/commits/7fd2c1a))
+* chore(release): 1.12.14 ([7043efc](https://bitbucket.org/myntra/uikit/commits/7043efc))
+* chore(release): 1.12.15 ([e124167](https://bitbucket.org/myntra/uikit/commits/e124167))
+* chore(release): 1.12.16 ([95780e3](https://bitbucket.org/myntra/uikit/commits/95780e3))
+
+
+
 <a name="1.12.16"></a>
 ## <small>1.12.16 (2019-09-26)</small>
 
