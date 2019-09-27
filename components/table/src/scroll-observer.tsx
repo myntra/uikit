@@ -124,6 +124,7 @@ export default class ScrollObserver extends PureComponent<Props> {
    * @param target
    */
   handleRef = (target: HTMLElement | null) => {
+    if (target === null) return
     if (this.targetRef.current !== target) {
       this.unregister()
       this.targetRef.current = target
