@@ -115,12 +115,13 @@ async function findFile(getModule, Component, setComponent) {
 
     return Module.default
   } catch (e) {
+    console.error(e)
     return null
   }
 }
 
 async function findDocumentation(name, setComponent) {
-  const readme = await findFile(() => import(`@component-docs/${name}/readme.mdx`))
+  const readme = await findFile(() => import(/* webpackExclude: /node_modules/ */ `@component-docs/${name}/readme.mdx`))
 
   if (readme) {
     setComponent(() => readme)

@@ -1,13 +1,9 @@
 import { createRef } from '@myntra/uikit-utils'
-
-export * from './input-date-utils'
-
-import React, { PureComponent, ReactNode, RefObject } from 'react'
+import React, { PureComponent, RefObject } from 'react'
 import Dropdown from '@myntra/uikit-component-dropdown'
-
 import classnames from './input-date.module.scss'
 import { format, parse, isDateEqual } from './input-date-utils'
-import { isDateRange, DateRange, StringDateRange } from './input-date-helpers'
+import { isDateRange, DateRange } from './input-date-helpers'
 import InputDateValue from './input-date-value'
 import InputDatePicker, {
   Props as InputDatePickerProps,

@@ -11,7 +11,8 @@ module.exports = {
     __DEV__: true // Always include dev code docs.
   },
   deploy: {
-    target: 'spectrum'
+    target: 'spectrum',
+    baseUrl: '/'
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
@@ -20,7 +21,7 @@ module.exports = {
       ignored: ['**/*.spec.js', '__codemod__', /node_modules/]
     })
 
-    const entry = process.env.NODE_ENV === 'production' ? '' : '/src'
+    const entry = '/src'
 
     /* eslint-disable prettier/prettier */
     config.resolve.alias
@@ -82,14 +83,12 @@ module.exports = {
       .loader(require.resolve('../packages/docgen/loader'))
       .options({ root: path.dirname(__dirname), test: { test: any => any.startsWith(componentsDir) } })
 
-    if (process.env.NODE_ENV !== 'production') {
-      config.module
-        .rule('scss')
-        .oneOf('modules')
-        .use('classnames-loader')
-        .before('style-loader')
-        .loader(require.resolve('../packages/classnames-loader'))
-    }
+    config.module
+      .rule('scss')
+      .oneOf('modules')
+      .use('classnames-loader')
+      .before(process.env.NODE_ENV === 'production' ? 'extract-css-loader' : 'style-loader')
+      .loader(require.resolve('../packages/classnames-loader'))
 
     config.module
       .rule('scss')

@@ -6,11 +6,6 @@ import Day from './picker/day'
 import { parse, format } from './input-date-utils'
 import { DateRange, StringDateRange, is } from './input-date-helpers'
 
-// import * as PRESETS from './presets'
-// import Preset from './Picker/Preset'
-
-// const DEFAULT_PRESETS = Object.values(PRESETS)
-
 export interface Props<
   DateLike = string | Date,
   DateLikeOrDateRangeLike = string | Date | DateRange | StringDateRange
