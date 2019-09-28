@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.20"></a>
+## <small>1.12.20 (2019-09-28)</small>
+
+* Merged in fix/spectrum_config (pull request #213) ([a7fa462](https://bitbucket.org/myntra/uikit/commits/a7fa462)), closes [#213](https://bitbucket.org/myntra/uikit/issue/213)
+* Merged in fix/spectrumConfig (pull request #214) ([bd5c1ef](https://bitbucket.org/myntra/uikit/commits/bd5c1ef)), closes [#214](https://bitbucket.org/myntra/uikit/issue/214)
+
+
+
 <a name="1.12.19"></a>
 ## <small>1.12.19 (2019-09-28)</small>
 
