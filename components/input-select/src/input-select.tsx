@@ -176,21 +176,22 @@ export default class InputSelect<Value = any, Option = any> extends Component<
   }
 
   render() {
-    const { valueKey, labelKey } = this.props
+    const { valueKey, labelKey, disabled, readOnly } = this.props
     return (
       <Dropdown
         left
         right
         container
-        className={classnames('container', { disabled: this.props.disabled })}
+        className={classnames('container', { disabled })}
         isOpen={this.state.isOpen}
-        onOpen={this.handleOpen}
-        onClose={this.handleClose}
+        onOpen={disabled ? null : this.handleOpen}
+        onClose={disabled ? null : this.handleClose}
         data-test-id="dropdown"
         renderTrigger={(props) => (
           <div className={classnames('trigger')} {...props}>
             <InputSelectControl
               ref={this.controlRef}
+              disabled={this.props.disabled}
               value={this.props.value}
               onChange={this.handleChange}
               options={this.props.options}
@@ -229,7 +230,6 @@ export default class InputSelect<Value = any, Option = any> extends Component<
                   />
                 ) : (
                   <Icon
-                    role="button"
                     className={classnames('state-icon')}
                     title={this.state.isOpen ? 'close' : 'open'}
                     name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
@@ -245,13 +245,13 @@ export default class InputSelect<Value = any, Option = any> extends Component<
         )}
       >
         <div className={classnames('selector')}>
-          {this.state.options.length ? (
+          {this.state.options.length && !disabled ? (
             <List
-              className={classnames('list')}
+              className={classnames('list', { disabled: disabled || readOnly })}
               ref={this.listRef}
               value={this.props.value}
               items={this.state.options}
-              onChange={this.handleChange}
+              onChange={disabled || readOnly ? null : this.handleChange}
               idForItem={(item) => item[valueKey]}
               multiple={this.props.multiple}
               tabIndex={1}

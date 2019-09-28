@@ -2,13 +2,18 @@
 
 .container {
   width: 100%;
-  &:disabled {
-    cursor: not-allowed;
-  }
 
   .button {
     display: inline-block;
     cursor: pointer;
+  }
+
+  &.disabled {
+    .button {
+      cursor: default;
+    }
+
+    pointer-events: none;
   }
 }
 
@@ -22,6 +27,10 @@
 
 .list {
   background: ui-color('white');
+
+  &.disabled {
+    pointer-events: none;
+  }
 }
 
 .empty {

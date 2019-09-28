@@ -66,3 +66,43 @@ useEffect(() => {
   />
 </>
 ```
+
+## Readonly state
+
+```jsx preview
+const [value, setValue] = useState();
+const [options] = useState([
+  { value: 'Red', label: 'Red' },
+  { value: 'Green', label: 'Green' },
+  { value: 'Blue', label: 'Blue' },
+]);
+
+<>
+  {'Choose your color: '}
+  <InputSelect
+    options={options}
+    value={'Green'} onChange={setValue}
+    readOnly
+  />
+</>
+```
+
+## Disabled state
+
+```jsx preview
+const [value, setValue] = useState();
+const [options] = useState([
+  { value: 'Red', label: 'Red' },
+  { value: 'Green', label: 'Green' },
+  { value: 'Blue', label: 'Blue' },
+]);
+
+<>
+  {'Choose your color: '}
+  <InputSelect
+    options={options}
+    value={value} onChange={setValue}
+    disabled
+  />
+</>
+```
