@@ -11,8 +11,7 @@ module.exports = {
     __DEV__: true // Always include dev code docs.
   },
   deploy: {
-    target: 'spectrum',
-    baseUrl: '/'
+    target: 'spectrum'
   },
   /** @param {import('webpack-chain')} config */
   chainWebpack(config) {
