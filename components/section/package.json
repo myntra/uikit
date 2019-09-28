@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-section",
-  "version": "1.12.17",
+  "version": "1.12.18",
   "main": "dist/section.cjs.js",
   "module": "dist/section.esm.js",
   "types": "dist/index.d.ts",

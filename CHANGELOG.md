@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.18"></a>
+## <small>1.12.18 (2019-09-28)</small>
+
+* Merged in fix/input-select-disabled (pull request #211) ([1be590b](https://bitbucket.org/myntra/uikit/commits/1be590b)), closes [#211](https://bitbucket.org/myntra/uikit/issue/211)
+* Merged in fix/job_tracker (pull request #207) ([e83b8c9](https://bitbucket.org/myntra/uikit/commits/e83b8c9)), closes [#207](https://bitbucket.org/myntra/uikit/issue/207)
+* Merged in fix/modal-state (pull request #210) ([b68b11c](https://bitbucket.org/myntra/uikit/commits/b68b11c)), closes [#210](https://bitbucket.org/myntra/uikit/issue/210)
+* Merged in fix/spectrum_config (pull request #209) ([6fe1f27](https://bitbucket.org/myntra/uikit/commits/6fe1f27)), closes [#209](https://bitbucket.org/myntra/uikit/issue/209)
+
+
+
 <a name="1.12.17"></a>
 ## <small>1.12.17 (2019-09-27)</small>
 
