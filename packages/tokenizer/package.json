@@ -1,6 +1,6 @@
 {
   "name": "@myntra/tokenizer",
-  "version": "1.12.18",
+  "version": "1.12.19",
   "main": "src/index.js",
   "module": "dist/tokenizer.esm.js",
   "types": "dist/index.d.ts",
