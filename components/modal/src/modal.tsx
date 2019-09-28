@@ -66,7 +66,7 @@ export default class Modal extends PureComponent<Props> {
   }
 
   componentDidUpdate() {
-    if (this.props.isOpen) {
+    if (this.state.isOpen) {
       this.addBodyClass()
     } else {
       this.removeBodyClass()
@@ -112,7 +112,7 @@ export default class Modal extends PureComponent<Props> {
         />
         <div className={classnames('body')}>
           <div className={classnames('content')}>
-            {render({ title, actions, children, close: this.handleClose })}
+            {render({ title, actions, children, onClose: this.handleClose })}
           </div>
 
           {hideClose ? null : (
