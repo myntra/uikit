@@ -116,7 +116,7 @@ export default class Button extends PureComponent<Props> {
       <Tag
         tabIndex={0} // enable tab navigation.
         {...props}
-        type={type !== 'link' ? htmlType : ''}
+        type={type !== 'text' ? htmlType : ''}
         className={classnames('container', className, typeName, state, {
           loading,
           inherit: inheritTextColor,
