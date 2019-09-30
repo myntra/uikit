@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.23"></a>
+## <small>1.12.23 (2019-09-30)</small>
+
+* fix(docs): Mark icon component impure as it has sideEffects ([84cfbe2](https://bitbucket.org/myntra/uikit/commits/84cfbe2)), closes [#215](https://bitbucket.org/myntra/uikit/issue/215)
+
+
+
 <a name="1.12.22"></a>
 ## <small>1.12.22 (2019-09-30)</small>
 
