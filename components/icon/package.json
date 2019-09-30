@@ -20,7 +20,7 @@
     "dist/",
     "bin/"
   ],
-  "sideEffects": false,
+  "sideEffects": true,
   "optionalDependencies": {
     "react": ">=15.4"
   },
