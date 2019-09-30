@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.22"></a>
+## <small>1.12.22 (2019-09-30)</small>
+
+* chore(release): 1.12.18 ([dcdf6e6](https://bitbucket.org/myntra/uikit/commits/dcdf6e6))
+* chore(release): 1.12.19 ([c8e528e](https://bitbucket.org/myntra/uikit/commits/c8e528e))
+* chore(release): 1.12.20 ([cdf5ea8](https://bitbucket.org/myntra/uikit/commits/cdf5ea8))
+* chore(release): 1.12.21 ([a433bdc](https://bitbucket.org/myntra/uikit/commits/a433bdc))
+* Merged in fix/input-select-disabled (pull request #211) ([1be590b](https://bitbucket.org/myntra/uikit/commits/1be590b)), closes [#211](https://bitbucket.org/myntra/uikit/issue/211)
+* Merged in fix/job_tracker (pull request #207) ([e83b8c9](https://bitbucket.org/myntra/uikit/commits/e83b8c9)), closes [#207](https://bitbucket.org/myntra/uikit/issue/207)
+* Merged in fix/modal-state (pull request #210) ([b68b11c](https://bitbucket.org/myntra/uikit/commits/b68b11c)), closes [#210](https://bitbucket.org/myntra/uikit/issue/210)
+* Merged in fix/spectrum_config (pull request #209) ([6fe1f27](https://bitbucket.org/myntra/uikit/commits/6fe1f27)), closes [#209](https://bitbucket.org/myntra/uikit/issue/209)
+* Merged in fix/spectrum_config (pull request #213) ([a7fa462](https://bitbucket.org/myntra/uikit/commits/a7fa462)), closes [#213](https://bitbucket.org/myntra/uikit/issue/213)
+* Merged in fix/spectrumConfig (pull request #214) ([bd5c1ef](https://bitbucket.org/myntra/uikit/commits/bd5c1ef)), closes [#214](https://bitbucket.org/myntra/uikit/issue/214)
+
+
+
 <a name="1.12.21"></a>
 ## <small>1.12.21 (2019-09-28)</small>
 
