@@ -65,11 +65,13 @@ export default class Modal extends PureComponent<Props> {
     }
   }
 
-  componentDidUpdate() {
-    if (this.state.isOpen) {
-      this.addBodyClass()
-    } else {
-      this.removeBodyClass()
+  componentDidUpdate(prevProps) {
+    if (prevProps.isOpen !== this.props.isOpen) {
+      if (this.props.isOpen) {
+        this.addBodyClass()
+      } else {
+        this.removeBodyClass()
+      }
     }
   }
 
