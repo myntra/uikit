@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-banner",
-  "version": "1.12.23",
+  "version": "1.12.24",
   "main": "dist/banner.cjs.js",
   "module": "dist/banner.esm.js",
   "types": "dist/index.d.ts",

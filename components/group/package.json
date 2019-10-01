@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-group",
-  "version": "1.12.23",
+  "version": "1.12.24",
   "main": "dist/group.cjs.js",
   "module": "dist/group.esm.js",
   "types": "dist/index.d.ts",

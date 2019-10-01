@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.24"></a>
+## <small>1.12.24 (2019-10-01)</small>
+
+* fix(colors): Sync color tokens with design guidelines ([9059c27](https://bitbucket.org/myntra/uikit/commits/9059c27)), closes [#205](https://bitbucket.org/myntra/uikit/issue/205)
+* fix(Table): verify scroll observer at every update and update position on data change ([71cc343](https://bitbucket.org/myntra/uikit/commits/71cc343)), closes [#216](https://bitbucket.org/myntra/uikit/issue/216)
+* Merged in fix/ModalDropdownZindex (pull request #217) ([fe4c779](https://bitbucket.org/myntra/uikit/commits/fe4c779)), closes [#217](https://bitbucket.org/myntra/uikit/issue/217)
+
+
+
 <a name="1.12.23"></a>
 ## <small>1.12.23 (2019-09-30)</small>
 
