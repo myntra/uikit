@@ -45,6 +45,19 @@ export default class ScrollObserver extends PureComponent<Props> {
   lastScrollLeft: number = 0
   lastScrollTop: number = 0
 
+  componentDidUpdate() {
+    if (this.scrollRef.current === (window as any)) {
+      const current = findScrollParent(this.targetRef.current.parentNode)
+
+      if (current !== (window as any)) {
+        this.unregister()
+        this.scrollRef.current = current
+        this.register()
+        this.handleScroll({ currentTarget: current } as any)
+      }
+    }
+  }
+
   componentWillUnmount() {
     this.unregister()
   }
@@ -152,18 +165,8 @@ export default class ScrollObserver extends PureComponent<Props> {
     let yPos = 0
 
     while (element) {
-      if (element.tagName == 'BODY') {
-        // deal with browser quirks with body/window/document and page scroll
-        let xScroll = element.scrollLeft || document.documentElement.scrollLeft
-        let yScroll = element.scrollTop || document.documentElement.scrollTop
-
-        xPos += element.offsetLeft - xScroll + element.clientLeft
-        yPos += element.offsetTop - yScroll + element.clientTop
-      } else {
-        // for all other non-BODY elements
-        xPos += element.offsetLeft + element.clientLeft
-        yPos += element.offsetTop + element.clientTop
-      }
+      xPos += element.offsetLeft + element.clientLeft
+      yPos += element.offsetTop + element.clientTop
 
       element = element.offsetParent
     }

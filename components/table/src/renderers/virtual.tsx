@@ -45,21 +45,26 @@ export default class VirtualTable extends PureComponent<Props, State> {
   constructor(props) {
     super(props)
 
-    const width = this.getEstimatedTableWidth()
-    const height = this.getEstimatedTableHeight()
-
     this.state = {
-      width: width,
-      height: height,
       showFixedStart: false,
       showFixedEnd: true,
-      ...this.getViewport({ width, height }),
+      ...this.getEstimatedSizeAndViewport(),
     }
   }
 
   headRef = createRef<VirtualList>()
   bodyRef = createRef<VirtualGrid>()
   renderContext = { TD, TR }
+
+  componentDidUpdate(
+    prevProps: Readonly<Props>,
+    prevState: Readonly<State>,
+    snapshot?: any
+  ): void {
+    if (prevProps.data.length !== this.props.data.length) {
+      this.setState(this.getEstimatedSizeAndViewport())
+    }
+  }
 
   getEnhancerState(enhancer: string) {
     return this.props.getEnhancerState(enhancer)
@@ -211,6 +216,21 @@ export default class VirtualTable extends PureComponent<Props, State> {
         ) : null}
       </div>
     )
+  }
+
+  getEstimatedSizeAndViewport = () => {
+    const width = this.state
+      ? Math.max(this.state.width, this.getEstimatedTableWidth())
+      : this.getEstimatedTableWidth()
+    const height = this.state
+      ? Math.max(this.state.height, this.getEstimatedTableHeight())
+      : this.getEstimatedTableHeight()
+
+    return {
+      width,
+      height,
+      ...this.getViewport({ width, height }),
+    }
   }
 
   render() {
