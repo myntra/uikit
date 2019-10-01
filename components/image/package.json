@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-image",
-  "version": "1.12.24",
+  "version": "1.12.25",
   "main": "dist/image.cjs.js",
   "module": "dist/image.esm.js",
   "types": "dist/index.d.ts",
