@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.27"></a>
+## <small>1.12.27 (2019-10-03)</small>
+
+* Merged in fix/avatarText (pull request #221) ([17c843c](https://bitbucket.org/myntra/uikit/commits/17c843c)), closes [#221](https://bitbucket.org/myntra/uikit/issue/221)
+
+
+
 <a name="1.12.26"></a>
 ## <small>1.12.26 (2019-10-03)</small>
 

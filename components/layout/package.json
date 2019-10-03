@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-layout",
-  "version": "1.12.26",
+  "version": "1.12.27",
   "main": "dist/layout.cjs.js",
   "module": "dist/layout.esm.js",
   "types": "dist/index.d.ts",
