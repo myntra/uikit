@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.28"></a>
+## <small>1.12.28 (2019-10-03)</small>
+
+
+
+
 <a name="1.12.27"></a>
 ## <small>1.12.27 (2019-10-03)</small>
 
