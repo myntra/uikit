@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.26"></a>
+## <small>1.12.26 (2019-10-03)</small>
+
+* Merged in docs/layout (pull request #219) ([a99fea8](https://bitbucket.org/myntra/uikit/commits/a99fea8)), closes [#219](https://bitbucket.org/myntra/uikit/issue/219)
+* table header width fix ([e909ed3](https://bitbucket.org/myntra/uikit/commits/e909ed3)), closes [#220](https://bitbucket.org/myntra/uikit/issue/220)
+* chore(release): 1.12.25 ([d0fdca9](https://bitbucket.org/myntra/uikit/commits/d0fdca9))
+
+
+
 <a name="1.12.25"></a>
 ## <small>1.12.25 (2019-10-01)</small>
 
