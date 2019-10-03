@@ -1,4 +1,4 @@
-import Layout from './src/layout'
+import Layout, { layouts } from './src/layout'
 
 # Layout
 
@@ -86,3 +86,33 @@ Wrap elements into multiple lines.
   </Layout>
 </>
 ```
+
+## Stack
+
+<Documenter component={layouts.stack}>
+
+```jsx preview
+<Layout type="stack">
+  <div style={{ padding: '16px', border: '1px solid' }}>One</div>
+  <div style={{ padding: '16px', border: '1px solid' }}>Two</div>
+  <div style={{ padding: '16px', border: '1px solid' }}>Three</div>
+  <div style={{ padding: '16px', border: '1px solid' }}>Four</div>
+</Layout>
+```
+
+</Documenter>
+
+## Row
+
+<Documenter component={layouts.row}>
+
+```jsx preview
+<Layout type="row">
+  <div style={{ padding: '16px', border: '1px solid' }}>One</div>
+  <div style={{ padding: '16px', border: '1px solid' }}>Two</div>
+  <div style={{ padding: '16px', border: '1px solid' }}>Three</div>
+  <div style={{ padding: '16px', border: '1px solid' }}>Four</div>
+</Layout>
+```
+
+</Documenter>
