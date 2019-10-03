@@ -172,20 +172,22 @@ export default class VirtualTable extends PureComponent<Props, State> {
   }
 
   renderColumn(column: Column, offsetScroll: number, fixedColumnWidth: number) {
+    const stickyWidth =
+      this.state.width - (fixedColumnWidth + ESTIMATED_CELL_WIDTH)
+    const columnWidth = this.findColumnWidth(column)
+
     return (
       <div
         key={column.id}
         className={classnames('h-col')}
-        style={{ minWidth: this.findColumnWidth(column) }}
+        style={{ minWidth: columnWidth }}
       >
         <div
           className={classnames('h-col-head', { center: column.colSpan > 1 })}
           style={
             column.fixed === undefined && column.columns.length
               ? {
-                  width:
-                    this.state.width -
-                    (fixedColumnWidth + ESTIMATED_CELL_WIDTH),
+                  width: columnWidth > stickyWidth ? stickyWidth : null,
                   left: `${offsetScroll + fixedColumnWidth}px`,
                   position: 'sticky',
                 }
