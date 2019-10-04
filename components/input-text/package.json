@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-text",
-  "version": "1.12.29",
+  "version": "1.12.28",
   "main": "dist/input-text.cjs.js",
   "module": "dist/input-text.esm.js",
   "types": "dist/index.d.ts",
