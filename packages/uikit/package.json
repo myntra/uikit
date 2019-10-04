@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit",
-  "version": "1.12.28",
+  "version": "1.12.29",
   "main": "dist/uikit.cjs.js",
   "module": "dist/uikit.esm.js",
   "types": "dist/index.d.ts",
