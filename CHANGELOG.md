@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.30"></a>
+## <small>1.12.30 (2019-10-04)</small>
+
+* chore(release): 1.12.28 ([461ced4](https://bitbucket.org/myntra/uikit/commits/461ced4))
+
+
+
 <a name="1.12.28"></a>
 ## <small>1.12.28 (2019-10-04)</small>
 
