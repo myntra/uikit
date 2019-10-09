@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.31"></a>
+## <small>1.12.31 (2019-10-09)</small>
+
+* Added download url as per the job tracker service provided ([76046c0](https://bitbucket.org/myntra/uikit/commits/76046c0)), closes [#222](https://bitbucket.org/myntra/uikit/issue/222)
+* Merged in fix/avatarText (pull request #221) ([17c843c](https://bitbucket.org/myntra/uikit/commits/17c843c)), closes [#221](https://bitbucket.org/myntra/uikit/issue/221)
+* chore(release): 1.12.27 ([af9519e](https://bitbucket.org/myntra/uikit/commits/af9519e))
+* chore(release): 1.12.28 ([461ced4](https://bitbucket.org/myntra/uikit/commits/461ced4))
+* chore(release): 1.12.28 ([b4f870c](https://bitbucket.org/myntra/uikit/commits/b4f870c))
+* chore(release): 1.12.29 ([25ef6c8](https://bitbucket.org/myntra/uikit/commits/25ef6c8))
+* chore(release): 1.12.30 ([bd506b8](https://bitbucket.org/myntra/uikit/commits/bd506b8))
+
+
+
 <a name="1.12.30"></a>
 ## <small>1.12.30 (2019-10-04)</small>
 
