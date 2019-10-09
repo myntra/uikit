@@ -20,6 +20,10 @@ export interface Props extends BaseProps {
    * API Root for downloading job files.
    */
   apiRoot: string
+  /**
+   * Backend service getting used
+   */
+  service: 'jobtracker' | 'workflow'
 }
 
 /**
@@ -30,9 +34,14 @@ export interface Props extends BaseProps {
  * @see http://uikit.myntra.com/components/job-tracker
  */
 export default class JobTracker extends PureComponent<Props> {
+  static defaultProps = {
+    service: 'jobtracker',
+  }
+
   render() {
+    const { data, className, children, ...childProps } = this.props
     const jobsByDate = {}
-    const jobs = Array.isArray(this.props.data) ? this.props.data : []
+    const jobs = Array.isArray(data) ? data : []
 
     jobs.forEach((job) => {
       const date = dayJS(job.createdOn).format('DD MMM, YYYY')
@@ -44,7 +53,7 @@ export default class JobTracker extends PureComponent<Props> {
     })
 
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         {Object.keys(jobsByDate).map((date) => (
           <div key={date} data-test-id="group">
             <div className={classnames('date')} data-test-id="date">
@@ -57,7 +66,7 @@ export default class JobTracker extends PureComponent<Props> {
                   {...job}
                   key={job.id}
                   data-test-id="group-item"
-                  apiRoot={this.props.apiRoot}
+                  {...childProps}
                 />
               ))}
             </div>

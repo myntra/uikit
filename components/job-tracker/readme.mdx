@@ -51,3 +51,49 @@ const [data] = useState([
 ```
 
 </Documenter>
+
+# JobTracker for workflow service
+
+```jsx preview
+const [data] = useState([
+  {
+    id: 123,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1542623683000,
+    status: "IN_PROGRESS",
+    workflowInstanceId: "dsdsds",
+    taskInstance: 1232,
+  },
+  {
+    id: 321,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1542623683000,
+    status: "HALTED",
+    workflowInstanceId: "dsdsds",
+    taskInstance: 1232,
+  },
+  {
+    id: 234,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1544643683000,
+    status: "FAILED",
+    workflowInstanceId: "dsdsds",
+    taskInstance: 1232,
+  },
+  {
+    id: 444,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1544643683000,
+    fileName: "success.xslx",
+    status: "COMPLETED",
+    workflowInstanceId: "dsdsds",
+    taskInstance: 1232,
+  }
+]);
+
+<JobTracker data={data} service='workflow' projectName='mdirect'/>
+```

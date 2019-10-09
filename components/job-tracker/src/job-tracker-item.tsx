@@ -24,8 +24,14 @@ export interface Props extends BaseProps {
   /** Attachment on job error */
   errorFileName: string
   /** Completed Step Count */
+  /**
+   * @deprecated Not getting used anymore
+   */
   completedStepCount: number
   /** Total Step Count */
+  /**
+   * @deprecated Not getting used anymore
+   */
   totalStepCount: number
   /** Remarks renderer */
   renderRemarks(props: Props): ReactNode
@@ -33,6 +39,21 @@ export interface Props extends BaseProps {
   status: 'IN_PROGRESS' | 'FAILED' | 'COMPLETED' | 'HALTED'
   /** API Root for downloading job tracker files */
   apiRoot: string
+
+  /** Workflow service specific params */
+
+  /**
+   * Project name for which job tracker is getting used. Required only when using workflow service
+   */
+  projectName?: string
+  /**
+   * Work flow instance id of the job.
+   */
+  workflowInstanceId?: string
+  /**
+   * Task instance id of the job
+   */
+  taskInstance?: number
 }
 
 const iconByStatus: Record<string, IconName> = {
@@ -70,13 +91,23 @@ export default class JobTrackerItem extends PureComponent<Props> {
       apiRoot,
       errorFileName,
       className,
+      service,
+      projectName,
+      workflowInstanceId,
+      taskInstance,
       ...props
     } = this.props
 
     const statusName = (status || '').replace('_', ' ').toLowerCase()
     const iconName = iconByStatus[status]
-    const getDownloadURL = (type) =>
-      `${apiRoot}/api/jobtracker/download?jobId=${id}&fileType=${type}`
+    const getDownloadURL = (type) => {
+      switch (service) {
+        case 'jobtracker':
+          return `${apiRoot}/api/jobtracker/download?jobId=${id}&fileType=${type}`
+        case 'workflow':
+          return `${apiRoot}/api/${projectName}/jobsTracker/DownloadResultFile/?workflowInstanceId=${workflowInstanceId}&taskInstance=${taskInstance}`
+      }
+    }
     const isLoading = status === 'IN_PROGRESS'
     const needLoader = !(fileName || successFileName || errorFileName)
     return (
@@ -112,7 +143,7 @@ export default class JobTrackerItem extends PureComponent<Props> {
                   type="text"
                   className={classnames('primary')}
                   href={getDownloadURL('file')}
-                  download
+                  download={fileName}
                   inheritTextColor
                 >
                   Download File
@@ -123,7 +154,7 @@ export default class JobTrackerItem extends PureComponent<Props> {
                   type="text"
                   className={classnames('success')}
                   href={getDownloadURL('success-file')}
-                  download
+                  download={successFileName}
                   inheritTextColor
                 >
                   Download Success File
@@ -134,7 +165,7 @@ export default class JobTrackerItem extends PureComponent<Props> {
                   type="text"
                   className={classnames('error')}
                   href={getDownloadURL('error-file')}
-                  download
+                  download={errorFileName}
                   inheritTextColor
                 >
                   Download Error File
