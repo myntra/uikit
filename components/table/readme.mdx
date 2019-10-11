@@ -150,6 +150,8 @@ const [data] = useState(
   Array(1000).fill(0).map((_, id) => ({ id: id + 1, firstName: "Jane", lastName: "Doe" }))
 );
 
+data[40].firstName = "dsfsfsdfsdsdsdsdsdfsdfsdfssadfsdfs"
+
 <div style={{ height: 300, minWidth: 600 }}>
  <Table virtualized data={data}>
    {/* Table Configuration */}
@@ -170,7 +172,7 @@ const [data] = useState(
       {
         Array(50).fill(0).map((_, index) => (
           <Table.Column key={`group-${group}-column-${index}`} label={`Column ${index + 1}`} minWidth={120}>
-            {({ data }) => <div>{data.lastName}</div>}
+            {({ data }) => <div>Sunil</div>}
           </Table.Column>
         ))
       }
@@ -195,6 +197,7 @@ const [data] = useState(
   Array(100).fill(0).map((_, id) => ({ id: id + 1, firstName: "Jane", lastName: "Doe" }))
 );
 
+data[40].firstName = "dsfsfsdfsdsdsdsdsdfsdfsdfssadfsdfs"
 <div style={{ height: 'auto' }}>
   <Table virtualized data={data} scrollMode="window">
    {/* Table Configuration */}

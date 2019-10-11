@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.32"></a>
+## <small>1.12.32 (2019-10-11)</small>
+
+* fix:table header width issue on scroll ([158dad7](https://bitbucket.org/myntra/uikit/commits/158dad7)), closes [#224](https://bitbucket.org/myntra/uikit/issue/224)
+* fix(avatarText): fixed alignment of text inside avatar component ([2d6f957](https://bitbucket.org/myntra/uikit/commits/2d6f957)), closes [#223](https://bitbucket.org/myntra/uikit/issue/223)
+
+
+
 <a name="1.12.31"></a>
 ## <small>1.12.31 (2019-10-09)</small>
 
