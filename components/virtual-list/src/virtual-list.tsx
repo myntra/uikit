@@ -104,6 +104,8 @@ export interface Props extends BaseProps {
     className?: string
     children: Array<any>
   }): JSX.Element
+
+  getCellKey?(index: number): 'string' | 'number'
 }
 
 /**
@@ -138,6 +140,7 @@ export default class VirtualList extends PureComponent<
         {children}
       </div>
     ),
+    getCellKey: (index) => index,
   }
 
   isHorizontal: boolean
@@ -234,6 +237,7 @@ export default class VirtualList extends PureComponent<
 
   /** @public */
   scrollTo(position: { scrollLeft: number; scrollTop: number }) {
+    this.triggerRender()
     window.cancelAnimationFrame(this.scrollFrameId)
     this.scrollFrameId = window.requestAnimationFrame(() => {
       this.scrollFrameId = null
@@ -270,6 +274,7 @@ export default class VirtualList extends PureComponent<
       estimatedItemSize,
       renderContainer,
       renderScroller,
+      getCellKey,
       ...props
     } = this.props
     const { offsetScroll, scrollDirection } = this.state
@@ -306,7 +311,7 @@ export default class VirtualList extends PureComponent<
       children.push(
         node && this.props._skipMeasure !== true ? (
           <CellMeasure
-            key={index}
+            key={getCellKey(index)}
             row={index}
             column={0}
             cache={this.sizes}

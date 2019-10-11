@@ -393,6 +393,7 @@ export default class List extends PureComponent<
           viewportSize={Math.min(360, items.length * 33)}
           renderContainer={renderContainer}
           renderScroller={renderScroller}
+          getCellKey={(index) => idForItem(items[index])}
         >
           {renderItem}
         </VirtualList>
