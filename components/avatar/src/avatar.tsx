@@ -30,8 +30,9 @@ export default function Avatar({ name, size, className, ...props }: Props) {
       <title>{name}</title>
       <text
         fontSize="18px"
-        x="16%"
+        x="52%"
         y="68%"
+        textAnchor="middle"
         aria-hidden="true"
         data-test-id="initials"
       >
