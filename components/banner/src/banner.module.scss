@@ -35,13 +35,11 @@
   }
 
   .icon {
+    width: size('3x');
+    height: size('3x');
     margin-right: padding-left('banner');
     transform: scale(1.5);
-    transform-origin: center center;
-
-    &.top {
-      transform-origin: top center;
-    }
+    transform-origin: 0 -2px;
   }
 
   .title {
@@ -55,7 +53,10 @@
   }
 
   .close {
-    margin-top: negative(padding-top('banner'));
-    margin-right: negative(padding-right('banner'));
+    margin-top: negative(size('3x'));
+    svg {
+      width: size('5x');
+      height: size('5x');
+    }
   }
 }

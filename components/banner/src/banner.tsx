@@ -78,6 +78,7 @@ export default function Banner({
         <div className={classnames('title')}>{heading}</div>
         {body ? <div className={classnames('body')}>{body}</div> : null}
       </div>
+
       {onClose && (
         <Button
           className={classnames('close')}
