@@ -57,12 +57,14 @@ export default class ButtonGroup extends PureComponent<Props, State> {
 
     if (!nodes.length) return null
 
+    const isStructureGroup =
+      structure && structure.match(new RegExp(nodes[0].props.type))
     let buttons = []
     let moreStartIndex: number
     let typesFound: string[] = []
 
     // Structure will be valid only if the type of very first button element matched the structure name
-    if (structure && structure.match(new RegExp(nodes[0].props.type))) {
+    if (isStructureGroup) {
       buttons.push(nodes[0])
       moreStartIndex = 1
     } else {
@@ -88,7 +90,7 @@ export default class ButtonGroup extends PureComponent<Props, State> {
       moreStartIndex && nodes.slice(moreStartIndex, nodes.length)
 
     // Cases where more field will have only 1 button or 2 same button types are present
-    if (moreElements && moreElements.length === 1) {
+    if (!isStructureGroup && moreElements && moreElements.length === 1) {
       if (nodes.length >= 3) {
         moreElements.push(buttons.pop())
       } else {
