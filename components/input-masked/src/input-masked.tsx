@@ -49,6 +49,10 @@ export interface Props extends BaseProps {
    *  Makes select field required.
    */
   required?: boolean
+  /**
+   *  Decides Whether Autocomplete of the input field on/off.
+   */
+  autoComplete?: string
 }
 
 /**
@@ -328,6 +332,7 @@ export default class InputMasked extends PureComponent<Props> {
     )
     const placeholder = this.getUpdatedPlaceholder(value)
     const isEditable = !(this.props.readOnly || this.props.disabled)
+    const autoComplete = this.props.autoComplete || 'on'
 
     return (
       <div className={classnames(this.props.className, 'container')}>
@@ -339,6 +344,7 @@ export default class InputMasked extends PureComponent<Props> {
           onKeyDown={isEditable ? this.handleKeyDown : null}
           onChange={() => {}}
           maxLength={this.maskMetadata.length}
+          autoComplete={autoComplete}
         />
         <input
           className={classnames('mask', 'input')}

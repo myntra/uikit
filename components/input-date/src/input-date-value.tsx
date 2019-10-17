@@ -138,6 +138,7 @@ export default class InputDateValue extends PureComponent<
               <InputMasked
                 includeMaskChars
                 id="from"
+                autoComplete="off"
                 value={value.from}
                 masks={MASKS}
                 pattern={pattern}
@@ -164,6 +165,7 @@ export default class InputDateValue extends PureComponent<
               <InputMasked
                 includeMaskChars
                 id="to"
+                autoComplete="off"
                 value={value.to}
                 masks={MASKS}
                 pattern={pattern}
@@ -186,6 +188,7 @@ export default class InputDateValue extends PureComponent<
           <div key="both" className={classnames('wrapper')}>
             <InputMasked
               includeMaskChars
+              autoComplete="off"
               value={value}
               masks={MASKS}
               pattern={pattern}

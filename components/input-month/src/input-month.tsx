@@ -135,6 +135,7 @@ export default class InputMonth extends Component<
         renderTrigger={(props) => (
           <InputMasked
             {...props}
+            autoComplete="off"
             value={this.state.valueAsString}
             onChange={this.handleStringValueChange}
             pattern={this.pattern}
