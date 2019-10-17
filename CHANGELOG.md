@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.33"></a>
+## <small>1.12.33 (2019-10-17)</small>
+
+* Merged in fix/Banner (pull request #225) ([2ebf826](https://bitbucket.org/myntra/uikit/commits/2ebf826)), closes [#225](https://bitbucket.org/myntra/uikit/issue/225)
+* Merged in fix/buttonGroup (pull request #226) ([67dc540](https://bitbucket.org/myntra/uikit/commits/67dc540)), closes [#226](https://bitbucket.org/myntra/uikit/issue/226)
+
+
+
 <a name="1.12.32"></a>
 ## <small>1.12.32 (2019-10-11)</small>
 
