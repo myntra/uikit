@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.35"></a>
+## <small>1.12.35 (2019-10-17)</small>
+
+* fix semantic error: compact-text.tsx ([6dc06fe](https://bitbucket.org/myntra/uikit/commits/6dc06fe))
+
+
+
 <a name="1.12.34"></a>
 ## <small>1.12.34 (2019-10-17)</small>
 
