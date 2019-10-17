@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-portal",
-  "version": "1.12.33",
+  "version": "1.12.34",
   "main": "dist/portal.cjs.js",
   "module": "dist/portal.esm.js",
   "types": "dist/index.d.ts",

@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.34"></a>
+## <small>1.12.34 (2019-10-17)</small>
+
+* Merged in fix/Inputdate-autofill (pull request #227) ([2fb1f57](https://bitbucket.org/myntra/uikit/commits/2fb1f57)), closes [#227](https://bitbucket.org/myntra/uikit/issue/227)
+* Merged in text_fixes (pull request #228) ([4cc73c5](https://bitbucket.org/myntra/uikit/commits/4cc73c5)), closes [#228](https://bitbucket.org/myntra/uikit/issue/228)
+
+
+
 <a name="1.12.33"></a>
 ## <small>1.12.33 (2019-10-17)</small>
 
