@@ -97,6 +97,6 @@ export default function CompatText({
   return React.cloneElement(element, { className, style, ...props })
 }
 
-Text.defaultProps = {
+CompatText.defaultProps = {
   color: 'inherit',
 }
