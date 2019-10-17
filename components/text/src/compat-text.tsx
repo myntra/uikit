@@ -63,13 +63,8 @@ export interface Props extends BaseProps {
 
 /**
  * A utility component for styling text.
- *
- * @since 0.3.0
- * @status REVIEWING
- * @category basic
- * @see http://uikit.myntra.com/components/text
  */
-export default function Text({
+export default function CompatText({
   type,
   children,
   style,

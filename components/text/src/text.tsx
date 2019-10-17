@@ -3,7 +3,7 @@ import CompatText from './compat-text'
 
 import classnames from './text.module.scss'
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * Abstract component does not render any extra elements.
    * However, it allows only one child component.
@@ -35,6 +35,15 @@ interface Props extends BaseProps {
   tag?: string
 }
 
+/**
+ * A component to input text-like data (email, tel, text, password and url).
+ *
+ * @since 1.0.0
+ * @status EXPERIMENTAL
+ * @category basic
+ * @see http://uikit.myntra.com/components/text
+ */
+
 export default function Text(props: Props) {
   if ('type' in props) {
     if (__DEV__) {
@@ -50,19 +59,18 @@ export default function Text(props: Props) {
 }
 
 Text.Title = Text.title = createComponent('title', 'div')
-Text.h1 = createComponent('h1', 'h1')
-Text.h2 = createComponent('h2', 'h2')
-Text.h3 = createComponent('h3', 'h3')
-Text.h4 = createComponent('h4', 'h4')
-Text.body = createComponent('body', 'div')
-Text.p = createComponent('p', 'p')
-Text.caption = createComponent('caption')
+Text.H1 = Text.h1 = createComponent('h1', 'h1')
+Text.H2 = Text.h2 = createComponent('h2', 'h2')
+Text.H3 = Text.h3 = createComponent('h3', 'h3')
+Text.H4 = Text.h4 = createComponent('h4', 'h4')
+Text.Body = Text.body = createComponent('body', 'div')
+Text.P = Text.p = createComponent('p', 'p')
+Text.Caption = Text.caption = createComponent('caption')
 
 function createComponent(name: string, tag: any = 'span') {
   return function({
     className,
     children,
-    tag: Tag = tag,
     abstract = false,
     color = 'dark',
     emphasis = 'high',

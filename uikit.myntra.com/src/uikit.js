@@ -154,6 +154,7 @@ export const Tabs = asyncComponent(() =>
 export const Text = asyncComponent(() =>
   import(/* webpackChunkName: 'components/text' */ '@myntra/uikit-component-text')
 )
+export const T = asyncComponent(() => import(/* webpackChunkName: 'components/text' */ '@myntra/uikit-component-text'))
 export const Tooltip = asyncComponent(() =>
   import(/* webpackChunkName: 'components/tooltip' */ '@myntra/uikit-component-tooltip')
 )
@@ -431,6 +432,8 @@ export const META = [
   },
   {
     name: 'Text',
+    since: '1.0.0',
+    status: 'REVIEWING',
     path: '/components/text'
   },
   {

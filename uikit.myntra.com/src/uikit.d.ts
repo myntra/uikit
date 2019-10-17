@@ -2119,6 +2119,7 @@ declare namespace Text {
      * @see https://uikit.myntra.com/guide/text-legibility
      */
     emphasis: 'high' | 'medium' | 'disabled'
+    tag?: string
   }
 }
 
