@@ -175,6 +175,10 @@ export default class InputSelect<Value = any, Option = any> extends Component<
     this.props.onChange && this.props.onChange(value)
   }
 
+  handleSearch = (value) => {
+    this.props.onSearch && this.props.onSearch(value)
+  }
+
   render() {
     const { valueKey, labelKey, disabled, readOnly } = this.props
     return (
@@ -194,6 +198,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
               disabled={this.props.disabled}
               value={this.props.value}
               onChange={this.handleChange}
+              onSearch={this.handleSearch}
               options={this.props.options}
               onOptionsChange={this.handleOptionChange}
               labelKey={this.props.labelKey}
