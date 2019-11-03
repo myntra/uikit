@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.37"></a>
+## <small>1.12.37 (2019-11-03)</small>
+
+* Feat: Unit test coverage increased to above 50% ([42dd296](https://bitbucket.org/myntra/uikit/commits/42dd296)), closes [#231](https://bitbucket.org/myntra/uikit/issue/231)
+* Fix(table): Added shadow to the end of left most fixed columns for virtual table. ([6746744](https://bitbucket.org/myntra/uikit/commits/6746744)), closes [#230](https://bitbucket.org/myntra/uikit/issue/230)
+* Merged in feat/inputSelectSearch (pull request #229) ([4b7565a](https://bitbucket.org/myntra/uikit/commits/4b7565a)), closes [#229](https://bitbucket.org/myntra/uikit/issue/229)
+
+
+
 <a name="1.12.35"></a>
 ## <small>1.12.35 (2019-10-17)</small>
 
