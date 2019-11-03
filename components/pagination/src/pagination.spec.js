@@ -1,6 +1,6 @@
 import React from 'react'
 import { mount } from 'enzyme'
-import Pagination from './pagination'
+import Pagination from './index'
 
 describe('Pagination', () => {
   it('displays selected page range', () => {

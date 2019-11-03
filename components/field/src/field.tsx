@@ -66,6 +66,7 @@ export default function Field({
   )
 }
 
+/* istanbul ignore next */
 export function withField<P extends object>(BaseComponent: any) {
   let counter = 0
 

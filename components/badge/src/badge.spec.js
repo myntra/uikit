@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Badge from './badge'
+import Badge from './index'
 
 describe('Badge', () => {
   it('is a component', () => {

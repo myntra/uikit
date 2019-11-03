@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import Alert from './banner'
+import Alert from './index'
 
 describe('Alert', () => {
   it('renders', () => {

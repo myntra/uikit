@@ -45,13 +45,10 @@ export default class Button extends PureComponent<Props> {
   static RouterLink = CAN_USE_HOOKS ? HookRouterLink : RouterLink
   static Link = CAN_USE_HOOKS ? HookLink : Link
 
-  static propsTypes = {
+  static propTypes = {
     __$validation({ to, href }) {
       if (to && href)
         throw new Error(`The props 'to' and 'href' cannot coexist.`)
-    },
-    label() {
-      throw new Error(`The 'label' prop is deprecated. Use 'children' instead.`)
     },
   }
 

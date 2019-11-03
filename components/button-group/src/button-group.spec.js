@@ -1,8 +1,9 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { shallow, mount } from 'enzyme'
 import ButtonGroup from './button-group'
 import Button from '@myntra/uikit-component-button'
 import List from '@myntra/uikit-component-list'
+import Dropdown from '@myntra/uikit-component-dropdown'
 
 describe('ButtonGroup', () => {
   it('renders a ButtonGroup', () => {
@@ -101,5 +102,51 @@ describe('ButtonGroup', () => {
     expect(wrapper.find(Button).get(0).props.type).toEqual('link')
     expect(wrapper.find(Button).get(1).props.type).toEqual('primary')
     expect(wrapper.find(Button).get(2)).toEqual(undefined) // All buttons after link type goes in more buttons
+  })
+  it('should render nothing', () => {
+    const wrapper = shallow(<ButtonGroup />)
+    expect(wrapper.type()).toEqual(null)
+  })
+  it('should render only primary button. Everything other than primary button in more', () => {
+    const wrapper = shallow(
+      <ButtonGroup structure="primary-group">
+        <Button type="primary">primary</Button>
+        <Button type="link">link</Button>
+        <Button type="secondary">secondary</Button>
+        <Button type="secondary">secondary</Button>
+      </ButtonGroup>
+    )
+    expect(wrapper.find({ type: 'primary' }).props().type).toEqual('primary')
+    expect(
+      wrapper
+        .find(Dropdown)
+        .find(List)
+        .prop('items')
+    ).toHaveLength(3)
+  })
+  it('should open/close the more button', () => {
+    const wrapper = mount(
+      <ButtonGroup structure="primary-group">
+        <Button type="primary">primary</Button>
+        <Button type="link">link</Button>
+        <Button type="secondary">secondary</Button>
+        <Button type="secondary">secondary</Button>
+      </ButtonGroup>
+    )
+    expect(wrapper.find(Dropdown).find(List)).toHaveLength(0)
+    wrapper
+      .find(Dropdown)
+      .find(Button)
+      .prop('onClick')()
+    wrapper.update()
+    expect(
+      wrapper
+        .find(Dropdown)
+        .find(List)
+        .prop('items')
+    ).toHaveLength(3)
+    wrapper.find(Dropdown).prop('onClose')()
+    wrapper.update()
+    expect(wrapper.find(Dropdown).find(List)).toHaveLength(0)
   })
 })

@@ -37,6 +37,8 @@ module.exports = {
   collectCoverageFrom: [
     'components/*/src/**/*.{ts,tsx}',
     'packages/*/src/**/*.{ts,tsx}',
+    '!components/group/src/**/*.{ts,tsx}',
+    '!components/flex/src/**/*.{ts,tsx}',
   ],
   snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageDirectory: 'coverage',

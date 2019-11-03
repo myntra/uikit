@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 
-import ErrorBoundary from './error-boundary'
+import ErrorBoundary from './index'
 
 class CustomComponent extends React.Component {
   render() {
@@ -28,11 +28,15 @@ describe('ErrorBoundary', () => {
         </ErrorBoundary>
       )
 
-      expect(wrapper.text()).not.toEqual(expect.stringContaining('Oops!!! Something went wrong'))
+      expect(wrapper.text()).not.toEqual(
+        expect.stringContaining('Oops!!! Something went wrong')
+      )
 
       wrapper.find(CustomComponent).simulateError('error')
 
-      expect(wrapper.text()).toEqual(expect.stringContaining('Oops!!! Something went wrong'))
+      expect(wrapper.text()).toEqual(
+        expect.stringContaining('Oops!!! Something went wrong')
+      )
     })
   })
 })

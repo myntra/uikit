@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import Avatar from './avatar'
+import Avatar from './index'
 
 describe('Avatar', () => {
   it('is a component', () => {

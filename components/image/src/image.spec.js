@@ -1,9 +1,8 @@
 import React from 'react'
 import { shallow, mount } from 'enzyme'
-import Image, { OBSERVER } from './image'
+import Image, { OBSERVER } from './index'
 
-// TODO: Fix test cases.
-describe.skip('Image', () => {
+describe('Image', () => {
   it('is a component', () => {
     expect(Image).toBeComponent()
     expect(Image).toBeTransparentComponent()
@@ -20,17 +19,19 @@ describe.skip('Image', () => {
     expect(wrapper.find('img').html()).toEqual(expect.stringContaining(url))
   })
 
+  // TODO: Fix test cases.
   it('schedules image download using requestIdleCallback or setTimeout', () => {
     const spy = jest.spyOn(window, 'setTimeout')
-    mount(<Image src="https://picsum.photos/300/200" />)
+    shallow(<Image src="https://picsum.photos/300/200" />)
 
     expect(spy).toHaveBeenCalled()
     spy.mockClear()
   })
 
+  // TODO: Fix test cases.
   it('reschedules image download on src change', (done) => {
     const spy = jest.spyOn(window, 'setTimeout')
-    const wrapper = mount(<Image src="https://picsum.photos/300/200" />)
+    const wrapper = shallow(<Image src="https://picsum.photos/300/200" />)
     expect(spy).toHaveBeenCalledTimes(1)
 
     wrapper.setProps({ src: 'https://picsum.photos/300/300' }, () => {
@@ -40,9 +41,10 @@ describe.skip('Image', () => {
     spy.mockClear()
   })
 
-  describe('IntersectionObserver', () => {
+  // TODO: Fix test cases.
+  describe.skip('IntersectionObserver', () => {
     it('attaches intersection observer on mount', () => {
-      const wrapper = mount(<Image src="https://picsum.photos/300/200" />)
+      const wrapper = shallow(<Image src="https://picsum.photos/300/200" />)
       const { observer, ref } = wrapper.instance()
 
       expect(observer).toBeTruthy()
@@ -50,7 +52,7 @@ describe.skip('Image', () => {
     })
 
     it('releases intersection observer on unmount', () => {
-      const wrapper = mount(<Image src="https://picsum.photos/300/200" />)
+      const wrapper = shallow(<Image src="https://picsum.photos/300/200" />)
       const { observer, ref } = wrapper.instance()
 
       wrapper.unmount()
@@ -59,7 +61,7 @@ describe.skip('Image', () => {
     })
 
     it('calls correct intersection handler', () => {
-      const wrapper = mount(<Image src="https://picsum.photos/300/200" />)
+      const wrapper = shallow(<Image src="https://picsum.photos/300/200" />)
       const instance = wrapper.instance()
       const { observer } = instance
 
@@ -80,7 +82,7 @@ describe.skip('Image', () => {
     })
 
     it('unobserves on intersection', () => {
-      const wrapper = mount(<Image src="https://picsum.photos/300/200" />)
+      const wrapper = shallow(<Image src="https://picsum.photos/300/200" />)
       const { observer } = wrapper.instance()
 
       const spy = jest.spyOn(observer, 'unobserve')
@@ -94,7 +96,7 @@ describe.skip('Image', () => {
     it('disconnects if no active image instance', () => {
       delete document.body[OBSERVER]
 
-      const wrapper = mount(<Image src="https://picsum.photos/300/200" />)
+      const wrapper = shallow(<Image src="https://picsum.photos/300/200" />)
       const { observer } = wrapper.instance()
 
       const spy = jest.spyOn(observer.raw, 'disconnect')

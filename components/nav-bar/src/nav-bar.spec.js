@@ -1,6 +1,6 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import NavBar from './nav-bar'
+import NavBar from './index'
 
 /*
 NavBar specification

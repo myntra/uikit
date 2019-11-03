@@ -14,12 +14,14 @@ describe('Button', () => {
     const wrapper = shallow(<Button icon="alert" />)
 
     expect(wrapper.find('[data-test-id="primary-icon"]')).toHaveLength(1)
+    wrapper.unmount()
   })
 
   it('renders icon on right when secondaryIcon prop is present', () => {
     const wrapper = shallow(<Button secondaryIcon="alert">Button</Button>)
 
     expect(wrapper.find('[data-test-id="secondary-icon"]')).toHaveLength(1)
+    wrapper.unmount()
   })
 
   it('renders children prop as inner HTML', () => {
@@ -30,6 +32,16 @@ describe('Button', () => {
     expect(shallow(<Button label="bar">foo</Button>).text()).toBe('foo')
   })
 
+  const originalConsoleError = global.console.error
+  beforeEach(() => {
+    global.console.error = (...args) => {
+      const propTypeFailures = [/Failed prop typs/, /Warning: Received/]
+      if (propTypeFailures.some((e) => e.test(args[0]))) {
+        throw new Error(args[0])
+      }
+      originalConsoleError(...args)
+    }
+  })
   describe('behaviour', () => {
     it('calls `onClick` prop if target element is clicked', () => {
       const handleClick = jest.fn()
@@ -38,6 +50,7 @@ describe('Button', () => {
       wrapper.find('[data-test-id="target"]').simulate('click')
 
       expect(handleClick).toHaveBeenCalled()
+      wrapper.unmount()
     })
 
     it('ignores click events on target element if `onClick` prop is not present', () => {
@@ -58,6 +71,16 @@ describe('Button', () => {
 
       expect(handleClick).not.toHaveBeenCalled()
       expect(preventDefault).toHaveBeenCalled()
+      wrapper.unmount()
+    })
+    it('throws error if bot to and href is used as a prop', () => {
+      const props = {
+        onClick: jest.fn(),
+        type: 'primary',
+        to: '/some/path',
+        href: '/some/path',
+      }
+      shallow(<Button {...props}>Click me</Button>)
     })
   })
 })
