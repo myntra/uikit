@@ -22,7 +22,6 @@ export interface State {
   height: number
   viewportWidth: number
   viewportHeight: number
-  showFixedStart: boolean
   showFixedEnd: boolean
 }
 
@@ -46,7 +45,6 @@ export default class VirtualTable extends PureComponent<Props, State> {
     super(props)
 
     this.state = {
-      showFixedStart: false,
       showFixedEnd: true,
       ...this.getEstimatedSizeAndViewport(),
     }
@@ -92,15 +90,11 @@ export default class VirtualTable extends PureComponent<Props, State> {
     this.headRef.current.scrollTo(position)
     this.bodyRef.current.scrollTo(position)
 
-    const showFixedStart = position.scrollLeft > 0
     const showFixedEnd =
       position.scrollLeft + target.offsetWidth < target.scrollWidth
 
-    if (
-      showFixedEnd !== this.state.showFixedEnd ||
-      showFixedStart !== this.state.showFixedStart
-    ) {
-      this.setState({ showFixedEnd, showFixedStart })
+    if (showFixedEnd !== this.state.showFixedEnd) {
+      this.setState({ showFixedEnd })
     }
   }
 
@@ -327,9 +321,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
                         >
                           {start.length ? (
                             <div
-                              className={classnames('fixed', {
-                                show: this.state.showFixedStart,
-                              })}
+                              className={classnames('fixed', 'show')}
                               key="start"
                               style={{
                                 left: offsetScroll,
@@ -430,9 +422,7 @@ export default class VirtualTable extends PureComponent<Props, State> {
                             start.length ? (
                               <div
                                 key="start"
-                                className={classnames('fixed', {
-                                  show: this.state.showFixedStart,
-                                })}
+                                className={classnames('fixed', 'show')}
                                 style={{ left: scrollLeft }}
                               >
                                 {start}
