@@ -109,7 +109,12 @@ export default class JobTrackerItem extends PureComponent<Props> {
       }
     }
     const isLoading = status === 'IN_PROGRESS'
-    const needLoader = !(fileName || successFileName || errorFileName)
+    const needLoader = !(
+      fileName ||
+      successFileName ||
+      errorFileName ||
+      ['COMPLETED', 'FAILED'].includes(status)
+    )
     return (
       <Layout
         className={classnames(className, 'item')}
