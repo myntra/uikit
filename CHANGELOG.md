@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.38"></a>
+## <small>1.12.38 (2019-11-05)</small>
+
+* Fix: removed loader for completed and failed status with no files to download ([2a16c8f](https://bitbucket.org/myntra/uikit/commits/2a16c8f)), closes [#232](https://bitbucket.org/myntra/uikit/issue/232)
+* Added props for configurable year list ([b522b0e](https://bitbucket.org/myntra/uikit/commits/b522b0e)), closes [#233](https://bitbucket.org/myntra/uikit/issue/233)
+
+
+
 <a name="1.12.37"></a>
 ## <small>1.12.37 (2019-11-03)</small>
 
