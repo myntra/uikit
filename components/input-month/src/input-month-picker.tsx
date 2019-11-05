@@ -78,7 +78,7 @@ export default class InputMonthPicker extends Component<Props> {
 
   render() {
     const value = this.props.value || { month: null, year: null }
-
+    const { minDate, maxDate } = this.props
     return (
       <div className={classnames('picker', this.props.className)}>
         <div className={classnames('left-pane')}>
@@ -93,6 +93,8 @@ export default class InputMonthPicker extends Component<Props> {
         <div className={classnames('right-pane')}>
           <div className={classnames('title')}>Year</div>
           <YearPane
+            upperLimit={maxDate}
+            lowerLimit={minDate}
             value={value.year}
             onChange={this.handleYearChange}
             highlight={this.highlightYear}

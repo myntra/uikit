@@ -28,12 +28,12 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "peerDependencies": {},
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.12.*",
     "@myntra/uikit-component-dropdown": "1.12.*",
     "@myntra/uikit-component-input-date": "1.12.*",
     "@myntra/uikit-component-input-masked": "1.12.*",
-    "@myntra/uikit-utils": "1.12.*"
+    "@myntra/uikit-utils": "1.12.*",
+    "luxon": "^1.21.1"
   }
 }

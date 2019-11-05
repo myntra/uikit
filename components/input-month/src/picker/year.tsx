@@ -1,12 +1,27 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
+import { DateTime, Info } from 'luxon'
 import classnames from './year.module.scss'
 
-function range(min: number, max: number, inc: number = 1) {
-  const arr = []
+const DEFAULT_RANGE_VALUE = 5
 
-  for (let i = min; i <= max; i += inc) arr.push(i)
+function getDate(value?: any) {
+  if (typeof value === undefined) {
+    return DateTime.local()
+  }
 
-  return arr
+  if (typeof value === null) {
+    return null
+  }
+
+  if (typeof value === 'string') {
+    return DateTime.fromJSDate(new Date(value)).set({ month: 1, day: 1 })
+  }
+
+  if (value instanceof DateTime) {
+    return value
+  }
+
+  return DateTime.fromJSDate(value).set({ month: 1, day: 1 })
 }
 
 export interface Props extends BaseProps {
@@ -15,6 +30,8 @@ export interface Props extends BaseProps {
   highlight({
     year: number,
   }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
+  upperLimit?: string | Date | DateTime
+  lowerLimit?: string | Date | DateTime
 }
 
 /**
@@ -25,25 +42,54 @@ export interface Props extends BaseProps {
  * @category input
  * @see http://uikit.myntra.com/components/input-month#inputmonthpickeryear
  */
-export default function InputMonthPickerYear(props: Props) {
-  const value = new Date().getFullYear()
-  const minYear = value - 3
-  const maxYear = value + 3
 
-  return (
-    <div className={classnames(props.className, 'year-container')}>
-      {range(minYear, maxYear).map((year) => (
-        <div
-          key={year}
-          className={classnames('year', props.highlight(year), {
-            selected: year === props.value,
-            disabled: props.highlight({ year }) === 'disabled',
-          })}
-          onClick={() => props.onChange(year)}
-        >
-          {year}
-        </div>
-      ))}
-    </div>
-  )
+export default class InputMonthPickerYear extends PureComponent<Props> {
+  static defaultProps = {
+    upperLimit: getDate(new Date()).plus({ year: DEFAULT_RANGE_VALUE }),
+    lowerLimit: getDate(new Date()).minus({ year: DEFAULT_RANGE_VALUE }),
+  }
+
+  getYearRange = () => {
+    const { upperLimit, lowerLimit } = this.props
+    const start = getDate(lowerLimit)
+    const end = getDate(upperLimit).plus({ year: 1 })
+    const currentDate = getDate(new Date())
+    const years =
+      Math.min(
+        end.diff(currentDate, 'years').toObject().years,
+        DEFAULT_RANGE_VALUE + 1
+      ) +
+      Math.min(
+        currentDate.diff(start, 'years').toObject().years,
+        DEFAULT_RANGE_VALUE
+      )
+
+    if (!years || years <= 0) {
+      return []
+    }
+    return new Array<number>(Math.round(years))
+      .fill(0)
+      .map((num, i) => i)
+      .map((year) => start.plus({ years: year }))
+  }
+
+  render() {
+    const { className, highlight, value, onChange } = this.props
+    return (
+      <div className={classnames(className, 'year-container')}>
+        {this.getYearRange().map(({ year }) => (
+          <div
+            key={year}
+            className={classnames('year', highlight(year), {
+              selected: year === value,
+              disabled: highlight({ year }) === 'disabled',
+            })}
+            onClick={() => onChange(year)}
+          >
+            {year}
+          </div>
+        ))}
+      </div>
+    )
+  }
 }

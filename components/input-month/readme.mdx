@@ -7,7 +7,7 @@ import InputMonth from './src/input-month'
 ```jsx preview
 const [value, setValue] = useState({ month: 2, year: 2019 });
 
-<InputMonth value={value} onChange={setValue}  />
+<InputMonth value={value} onChange={setValue} />
 ```
 
 </Documenter>
@@ -26,3 +26,17 @@ const [value, setValue] = useState({ month: 2, year: 2019 });
 ```
 
 </Documenter>
+
+### InputMonth with configurable year field 
+
+```jsx preview
+const [value, setValue] = useState({ month: 2, year: 2019 });
+
+<InputMonth value={value} onChange={setValue} maxDate={(new Date('2022-01-01'))}/>
+```
+
+```jsx preview
+const [value, setValue] = useState({ month: 2, year: 2019 });
+
+<InputMonth value={value} onChange={setValue} maxDate={(new Date('2052-01-01'))} minDate="2014-01-01"/>
+```

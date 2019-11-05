@@ -25,7 +25,14 @@ const MASKS: Record<string, Mask> = {
 export interface Props
   extends BaseProps,
     Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {
-  // -
+  /**
+   * Minimum date value for getting lower limit of year field
+   */
+  minDate?: string | Date
+  /**
+   * Maximum date value for getting upper limit of year field
+   */
+  maxDate?: string | Date
 }
 
 /**
