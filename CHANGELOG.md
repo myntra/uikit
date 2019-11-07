@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.41"></a>
+## <small>1.12.41 (2019-11-07)</small>
+
+* Merged in fix/inputSelectAPIOptions (pull request #235) ([1e5e8b1](https://bitbucket.org/myntra/uikit/commits/1e5e8b1)), closes [#235](https://bitbucket.org/myntra/uikit/issue/235)
+
+
+
 <a name="1.12.40"></a>
 ## <small>1.12.40 (2019-11-07)</small>
 
