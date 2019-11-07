@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.40"></a>
+## <small>1.12.40 (2019-11-07)</small>
+
+* Merged in fix/badge (pull request #236) ([af217ac](https://bitbucket.org/myntra/uikit/commits/af217ac)), closes [#236](https://bitbucket.org/myntra/uikit/issue/236)
+
+
+
 <a name="1.12.38"></a>
 ## <small>1.12.38 (2019-11-05)</small>
 
