@@ -114,8 +114,8 @@ export default class InputMonth extends Component<
         format(date, this.props.format).toUpperCase() !== valueAsString
       )
         throw new Error('Not matching')
-      const year = date.getFullYear()
-      const month = date.getMonth() + 1
+      const year = date instanceof Date ? date.getFullYear() : null
+      const month = date instanceof Date ? date.getMonth() + 1 : null
 
       this.props.onChange && this.props.onChange({ year, month })
     } catch (e) {
