@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.42"></a>
+## <small>1.12.42 (2019-11-18)</small>
+
+* Merged in date_state_fix (pull request #237) ([e6baf09](https://bitbucket.org/myntra/uikit/commits/e6baf09)), closes [#237](https://bitbucket.org/myntra/uikit/issue/237)
+
+
+
 <a name="1.12.41"></a>
 ## <small>1.12.41 (2019-11-07)</small>
 
