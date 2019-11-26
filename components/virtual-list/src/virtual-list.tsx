@@ -178,9 +178,10 @@ export default class VirtualList extends PureComponent<
   // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     if (nextProps.itemCount !== this.props.itemCount) {
-      this.manager.configure({ count: nextProps.itemCount })
-      this.manager.reset()
-      this.sizes = createMeasureCache()
+      this.manager.configure({
+        count: nextProps.itemCount,
+        estimatedSize: nextProps.estimatedItemSize,
+      })
     }
   }
 
