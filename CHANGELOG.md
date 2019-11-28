@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.43"></a>
+## <small>1.12.43 (2019-11-28)</small>
+
+* * button-group fix and bread-crumb example ([44fee45](https://bitbucket.org/myntra/uikit/commits/44fee45)), closes [#239](https://bitbucket.org/myntra/uikit/issue/239)
+* Merged in fix/virtual-grid-refresh (pull request #238) ([ac4fb10](https://bitbucket.org/myntra/uikit/commits/ac4fb10)), closes [#238](https://bitbucket.org/myntra/uikit/issue/238)
+
+
+
 <a name="1.12.42"></a>
 ## <small>1.12.42 (2019-11-18)</small>
 
