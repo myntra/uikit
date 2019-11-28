@@ -112,7 +112,7 @@ export default class ButtonGroup extends PureComponent<Props, State> {
     }
 
     return (
-      <div className={classnames('container', className)}>
+      <div className={classnames(className)}>
         {buttons.reverse()}
         {moreElements && !!moreElements.length && (
           <Dropdown

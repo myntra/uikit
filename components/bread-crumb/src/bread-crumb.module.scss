@@ -31,6 +31,7 @@
 .page:last-child,
 .page:last-child a {
   color: ui-text-color('dark');
+  pointer-events: none;
 }
 
 .page + .page::before {

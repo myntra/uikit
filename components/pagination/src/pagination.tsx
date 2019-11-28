@@ -60,7 +60,7 @@ export default class Pagination extends PureComponent<Props> {
   render() {
     const { total, size, page, className, sizes, hideSize } = this.props
     const totalPages = Math.ceil(total / size)
-    const pages = range(1, totalPages + 1).map((page) => page)
+    const pages = range(1, totalPages).map((page) => page)
     const start = (page - 1) * size + 1
     const end = total < start + size - 1 ? total : start + size - 1
 
