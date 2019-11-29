@@ -219,9 +219,6 @@ export default class VirtualGrid extends PureComponent<
    */
   componentWillReceiveProps(nextProps) {
     if (this.props.rows !== nextProps.rows) {
-      this.rowPositionManager.configure({ count: nextProps.rows })
-      this.rowPositionManager.reset()
-      this.cellSizeManager.reset()
       this.rowPositionManager.configure({
         count: nextProps.rows,
         estimatedSize: nextProps.estimatedCellHeight,
@@ -229,9 +226,6 @@ export default class VirtualGrid extends PureComponent<
     }
 
     if (this.props.columns !== nextProps.columns) {
-      this.columnManager.configure({ count: nextProps.columns })
-      this.columnManager.reset()
-      this.cellSizeManager.reset()
       this.columnManager.configure({
         count: nextProps.columns,
         estimatedSize: nextProps.estimatedCellWidth,
