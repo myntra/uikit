@@ -13,12 +13,28 @@
 
   border-color: color('nav-bar.border');
 
+  .backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    display: none;
+    background: rgba(0, 0, 0, 0.54);
+  }
+
   &:hover,
   &.is-open {
     @include shadow('nav-bar');
 
     width: size('nav-bar.max-width');
     overflow-y: auto;
+  }
+  &.is-open {
+    .backdrop {
+      display: block;
+    }
   }
 
   &:focus {

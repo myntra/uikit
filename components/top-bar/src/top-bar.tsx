@@ -10,6 +10,7 @@ import { isReactNodeType } from '@myntra/uikit-utils'
 export interface Props extends BaseProps {
   title: string
   user?: Partial<{ name: string; photo: string }> & { email: string }
+  headerNavigationElem?: JSX.Element
 }
 
 /**
@@ -31,7 +32,14 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
   handleClose = () => this.setState({ isOpen: false })
 
   render() {
-    const { children, className, title, user, ...props } = this.props
+    const {
+      children,
+      className,
+      title,
+      user,
+      headerNavigationElem,
+      ...props
+    } = this.props
     const breadcrumbs = []
     const actions = []
     const others = []
@@ -48,6 +56,7 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
 
     return (
       <div {...props} className={classnames('container', className)}>
+        {headerNavigationElem ? headerNavigationElem : null}
         <div className={classnames('title')}>
           <h1>{title}</h1>
           {breadcrumbs}

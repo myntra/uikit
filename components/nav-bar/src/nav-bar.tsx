@@ -43,6 +43,16 @@ interface Props extends BaseProps {
   ): boolean
 
   /**
+   * Controls whether to show the overlay when navigation is opened
+   */
+  needOverlay: boolean
+
+  /**
+   * Callback to be called when overlay is clicked / touched
+   */
+  overlayClickHandler?(): void
+
+  /**
    * Control NavBar state.
    */
   isOpen?: boolean
@@ -219,6 +229,9 @@ export default class NavBar extends PureComponent<
     if (this.props.onNavLinkClick && navLink.path) {
       this.props.onNavLinkClick({ to: navLink.path })
     }
+    if (this.props.overlayClickHandler) {
+      this.overlayClickHandler()
+    }
   }
 
   isActiveNavLinkPath = (navLinkPath: string, isGroup?: boolean): boolean => {
@@ -236,6 +249,11 @@ export default class NavBar extends PureComponent<
       id.length <= this.state.activeGroup.length &&
       id.every((value, index) => value === this.state.activeGroup[index])
     )
+  }
+
+  overlayClickHandler = () => {
+    this.close()
+    this.props.overlayClickHandler && this.props.overlayClickHandler()
   }
 
   get attrs() {
@@ -287,6 +305,12 @@ export default class NavBar extends PureComponent<
           onMouseLeave={this.handleMouseLeave}
           labelled-by={`${this.idPrefix}header`}
         >
+          {this.props.needOverlay ? (
+            <div
+              className={classnames('backdrop')}
+              onClick={this.overlayClickHandler}
+            ></div>
+          ) : null}
           <header
             id={`${this.idPrefix}header`}
             className={classnames('header')}
