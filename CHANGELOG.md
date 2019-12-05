@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.44"></a>
+## <small>1.12.44 (2019-12-05)</small>
+
+* Feat/mobilesupport for navbar ([0e198fe](https://bitbucket.org/myntra/uikit/commits/0e198fe)), closes [#241](https://bitbucket.org/myntra/uikit/issue/241)
+* Merged in fix/virtualGridLayout (pull request #240) ([5d48393](https://bitbucket.org/myntra/uikit/commits/5d48393)), closes [#240](https://bitbucket.org/myntra/uikit/issue/240)
+
+
+
 <a name="1.12.43"></a>
 ## <small>1.12.43 (2019-11-28)</small>
 

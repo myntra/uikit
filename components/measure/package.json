@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-measure",
-  "version": "1.12.43",
+  "version": "1.12.44",
   "main": "dist/measure.cjs.js",
   "module": "dist/measure.esm.js",
   "types": "dist/index.d.ts",
