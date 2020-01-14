@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-azure-file",
-  "version": "1.5.4",
+  "version": "1.12.45",
   "main": "dist/input-azure-file.cjs.js",
   "module": "dist/input-azure-file.esm.js",
   "types": "dist/index.d.ts",
@@ -27,9 +27,9 @@
     "react": ">=15.4"
   },
   "dependencies": {
-    "@myntra/uikit-component-button": "1.5.*",
-    "@myntra/uikit-component-input-file": "1.5.*",
-    "@myntra/uikit-component-progress": "1.5.*",
-    "@myntra/uikit-utils": "1.5.*"
+    "@myntra/uikit-component-button": "1.12.*",
+    "@myntra/uikit-component-input-file": "1.12.*",
+    "@myntra/uikit-component-progress": "1.12.*",
+    "@myntra/uikit-utils": "1.12.*"
   }
 }

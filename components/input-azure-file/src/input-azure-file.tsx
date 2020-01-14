@@ -122,9 +122,9 @@ export default class InputAzureFile extends PureComponent<Props> {
               if (this.props.clearOnSuccess || this.props.autoclear) {
                 this.resetState()
               }
-            } else if (request.status !== 0) {
-              this.handleError(new Error(request.statusText))
             }
+          } else if (request.status !== 0) {
+            this.handleError(new Error(request.statusText))
           }
         }
         request.onerror = (event) => {

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.45"></a>
+## <small>1.12.45 (2020-01-14)</small>
+
+* feat(InputAzureFile): Approach to uploading blob to azure using SAS ([f502083](https://bitbucket.org/myntra/uikit/commits/f502083)), closes [#176](https://bitbucket.org/myntra/uikit/issue/176)
+
+
+
 <a name="1.12.44"></a>
 ## <small>1.12.44 (2019-12-05)</small>
 
