@@ -430,7 +430,7 @@ importers:
       lodash.camelcase: registry.npmjs.org/lodash.camelcase/4.3.0
       prettier: registry.npmjs.org/prettier/1.18.2
     optionalDependencies:
-      react: registry.npmjs.org/react/16.11.0
+      react: registry.npmjs.org/react/16.12.0
     specifiers:
       '@myntra/svg': 1.12.*
       '@myntra/uikit-can-i-use': 1.12.*
@@ -457,6 +457,25 @@ importers:
       '@types/react': ^16.8
       intersection-observer-polyfill: ^0.1.0
       prop-types: ^15.7.2
+      react: '>=15.4'
+  components/input-azure-file:
+    dependencies:
+      '@myntra/uikit-can-i-use': 1.5.4
+      '@myntra/uikit-component-button': 1.5.4
+      '@myntra/uikit-component-input-file': 1.5.4_react@16.12.0
+      '@myntra/uikit-component-progress': 1.5.4
+      '@myntra/uikit-utils': 1.5.4
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.9.11
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+    specifiers:
+      '@myntra/uikit-can-i-use': 1.5.*
+      '@myntra/uikit-component-button': 1.5.*
+      '@myntra/uikit-component-input-file': 1.5.*
+      '@myntra/uikit-component-progress': 1.5.*
+      '@myntra/uikit-utils': 1.5.*
+      '@types/react': ^16.8
       react: '>=15.4'
   components/input-checkbox:
     dependencies:
@@ -698,7 +717,7 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     optionalDependencies:
-      react: registry.npmjs.org/react/16.11.0
+      react: registry.npmjs.org/react/16.12.0
     specifiers:
       '@myntra/uikit-can-i-use': 1.12.*
       '@myntra/uikit-component-virtual-list': 1.12.*
@@ -935,7 +954,7 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     optionalDependencies:
-      react: registry.npmjs.org/react/16.11.0
+      react: registry.npmjs.org/react/16.12.0
     specifiers:
       '@myntra/uikit-can-i-use': 1.12.*
       '@myntra/uikit-component-dropdown': 1.12.*
@@ -988,7 +1007,7 @@ importers:
       '@types/react-dom': registry.npmjs.org/@types/react-dom/16.8.5
     optionalDependencies:
       react: registry.npmjs.org/react/16.9.0
-      react-dom: registry.npmjs.org/react-dom/16.11.0_react@16.9.0
+      react-dom: registry.npmjs.org/react-dom/16.12.0_react@16.9.0
     specifiers:
       '@myntra/uikit-can-i-use': 1.12.*
       '@myntra/uikit-component-measure': 1.12.*
@@ -1115,21 +1134,21 @@ importers:
     dependencies:
       babel-eslint: registry.npmjs.org/babel-eslint/8.2.6
       babel-plugin-syntax-jsx: registry.npmjs.org/babel-plugin-syntax-jsx/6.18.0
-      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.6.0
-      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_218f0fea615ec70e06457162b067176a
-      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.6.0
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.6.0
-      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.6.0
+      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@9.9.9
+      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_57ef3118840f60a37e79c553aeb8a75a
+      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@9.9.9
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@9.9.9
+      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@9.9.9
       eslint-plugin-json: registry.npmjs.org/eslint-plugin-json/1.4.0
-      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.6.0
-      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.6.0
+      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@9.9.9
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@9.9.9
       eslint-plugin-prettier: registry.npmjs.org/eslint-plugin-prettier/2.7.0_prettier@1.18.2
       eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
-      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.6.0
-      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.6.0
+      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@9.9.9
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@9.9.9
       prettier: registry.npmjs.org/prettier/1.18.2
     optionalDependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
     specifiers:
       babel-eslint: ^8.2.2
       babel-plugin-syntax-jsx: ^6.18.0
@@ -1314,8 +1333,8 @@ importers:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
       '@types/react-dom': registry.npmjs.org/@types/react-dom/16.8.5
     optionalDependencies:
-      react: registry.npmjs.org/react/16.11.0
-      react-dom: registry.npmjs.org/react-dom/16.11.0_react@16.9.0
+      react: registry.npmjs.org/react/16.12.0
+      react-dom: registry.npmjs.org/react-dom/16.12.0_react@16.12.0
     specifiers:
       '@types/react': ^16.8.23
       '@types/react-dom': ^16.8.4
@@ -1374,7 +1393,7 @@ importers:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.1
     optionalDependencies:
-      react: registry.npmjs.org/react/16.11.0
+      react: registry.npmjs.org/react/16.12.0
     specifiers:
       '@types/react': ^16.8.24
       react: ^16.8.6
@@ -1454,6 +1473,167 @@ importers:
       webpack-filter-warnings-plugin: ^1.2.1
 lockfileVersion: 5.1
 packages:
+  /@myntra/codemod-utils/1.5.4:
+    dependencies:
+      '@myntra/eslint-config-standard': 1.5.4
+      debug: registry.npmjs.org/debug/3.2.6
+      eslint: registry.npmjs.org/eslint/4.19.1
+      execa: registry.npmjs.org/execa/0.10.0
+      glob: registry.npmjs.org/glob/7.1.6
+      jscodeshift: registry.npmjs.org/jscodeshift/0.5.1
+      jsdoc-api: registry.npmjs.org/jsdoc-api/4.0.3
+      prettier: registry.npmjs.org/prettier/1.19.1
+    dev: false
+    resolution:
+      integrity: sha512-/OO/UZIZcELLkDl832PPliXOlwGG6nJ1clZVlJxYD6nkDDxnTCe5BKysf/MCAQMD7WFxGew5PLDOiFPqinwi/g==
+      tarball: '@myntra/codemod-utils/-/@myntra/codemod-utils-1.5.4.tgz'
+  /@myntra/eslint-config-standard/1.5.4:
+    dependencies:
+      babel-eslint: registry.npmjs.org/babel-eslint/8.2.6
+      babel-plugin-syntax-jsx: registry.npmjs.org/babel-plugin-syntax-jsx/6.18.0
+      eslint-config-prettier: registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@9.9.9
+      eslint-config-standard: registry.npmjs.org/eslint-config-standard/11.0.0_57ef3118840f60a37e79c553aeb8a75a
+      eslint-plugin-babel: registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@9.9.9
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@9.9.9
+      eslint-plugin-jest: registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@9.9.9
+      eslint-plugin-json: registry.npmjs.org/eslint-plugin-json/1.4.0
+      eslint-plugin-jsx-a11y: registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@9.9.9
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@9.9.9
+      eslint-plugin-prettier: registry.npmjs.org/eslint-plugin-prettier/2.7.0_prettier@1.19.1
+      eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
+      eslint-plugin-react: registry.npmjs.org/eslint-plugin-react/7.16.0_eslint@9.9.9
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@9.9.9
+      prettier: registry.npmjs.org/prettier/1.19.1
+    dev: false
+    optionalDependencies:
+      eslint: 9.9.9
+    resolution:
+      integrity: sha512-mks9u7HOX5A0wl09JW88HgbfcI8/0Ce71eqgUF5wlZhYgAd36LAbB4VrAMDgOlVPRVpRpV6ik9mUxqN4vo7SVA==
+      tarball: '@myntra/eslint-config-standard/-/@myntra/eslint-config-standard-1.5.4.tgz'
+  /@myntra/uikit-can-i-use/1.5.4:
+    dev: false
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+      react-dom: registry.npmjs.org/react-dom/16.12.0_react@16.12.0
+    resolution:
+      integrity: sha512-U5/gGuWsv/0Az7wGmAw1+cIX3wgVYyEu8n85D13sA+gRWh7HvMc2Bt/rYafz1VrYGkev4/4Lg/X9Zt5zlEU4Bw==
+      tarball: '@myntra/uikit-can-i-use/-/@myntra/uikit-can-i-use-1.5.4.tgz'
+  /@myntra/uikit-component-button/1.5.4:
+    dependencies:
+      '@myntra/uikit-can-i-use': 1.5.4
+      '@myntra/uikit-component-icon': 1.5.4
+      '@myntra/uikit-context': 1.5.4
+      '@myntra/uikit-utils': 1.5.4
+    dev: false
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+    resolution:
+      integrity: sha512-Qa2ZobhLUn+YwAW1zyRHMsbpAhVzZPna7UNjG38w7dibXPa6aGsSnyozL/CD+U8d0xC7SlVYMVhHvAcFURDfWA==
+      tarball: '@myntra/uikit-component-button/-/@myntra/uikit-component-button-1.5.4.tgz'
+  /@myntra/uikit-component-icon/1.5.4:
+    dependencies:
+      '@myntra/uikit-can-i-use': 1.5.4
+      '@myntra/uikit-utils': 1.5.4
+    dev: false
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+    resolution:
+      integrity: sha512-V2fYGRAl/fMWbVOi6hyvXPV+LqAhqpdWA++c8jDH1lIb3HzPrx4SBXWhwHzOL3wnpdom+KoaMGbbIn+hDFU4pg==
+      tarball: '@myntra/uikit-component-icon/-/@myntra/uikit-component-icon-1.5.4.tgz'
+  /@myntra/uikit-component-input-file/1.5.4_react@16.12.0:
+    dependencies:
+      '@myntra/uikit-component-button': 1.5.4
+      '@myntra/uikit-component-input-text': 1.5.4
+      '@myntra/uikit-utils': 1.5.4
+      react: registry.npmjs.org/react/16.12.0
+    dev: false
+    peerDependencies:
+      react: '>=15.4'
+    resolution:
+      integrity: sha512-O8DxpF+y1M+qrB/hA887WzH7vdEs6V71D9Jvs4tLgiy9xXgKQNnRyi5JJc9CLzdeLmH4tQW8IWkpBMXhC883DQ==
+      tarball: '@myntra/uikit-component-input-file/-/@myntra/uikit-component-input-file-1.5.4.tgz'
+  /@myntra/uikit-component-input-text/1.5.4:
+    dependencies:
+      '@myntra/codemod-utils': 1.5.4
+      '@myntra/uikit-can-i-use': 1.5.4
+      '@myntra/uikit-component-icon': 1.5.4
+      '@myntra/uikit-utils': 1.5.4
+    dev: false
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+    resolution:
+      integrity: sha512-o8XbPCT6ucsv4E4S9W/e9BdADwMFlbgldNsmyajuvKV47uu00crPVg7DtWCox3xZ9noV/15naVBpHqGkG6r6Bg==
+      tarball: '@myntra/uikit-component-input-text/-/@myntra/uikit-component-input-text-1.5.4.tgz'
+  /@myntra/uikit-component-progress/1.5.4:
+    dependencies:
+      '@myntra/uikit-can-i-use': 1.5.4
+      '@myntra/uikit-utils': 1.5.4
+    dev: false
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+    resolution:
+      integrity: sha512-VJ3ztW7GVO4mymWMsJ7YLzXx3nPgsnTGIawomCgm40ZMNwCONcC+SYpxTJ1msF68Vlq46ZyJRBqa9IDms0rkIg==
+      tarball: '@myntra/uikit-component-progress/-/@myntra/uikit-component-progress-1.5.4.tgz'
+  /@myntra/uikit-context/1.5.4:
+    dependencies:
+      '@myntra/uikit-can-i-use': 1.5.4
+      react: registry.npmjs.org/react/16.12.0
+    dev: false
+    resolution:
+      integrity: sha512-QiezMzZgki/e0Gb8+Y8oMGvPljTJeA3/gwTDYQIq0PbGp/2BYe3mTOUUM6jMEvDOSCwhVlV4Poow+o/cHq+Nmg==
+      tarball: '@myntra/uikit-context/-/@myntra/uikit-context-1.5.4.tgz'
+  /@myntra/uikit-utils/1.5.4:
+    dev: false
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.12.0
+    resolution:
+      integrity: sha512-QS9Nc3JE7/lqdCT0mXgc1JSsoLkchurqTFfHA1fJ42TjbMkP/C8C+dscUtMinvANukLkQxh/wOGhdzEdYnEeeg==
+      tarball: '@myntra/uikit-utils/-/@myntra/uikit-utils-1.5.4.tgz'
+  /eslint/9.9.9:
+    dependencies:
+      '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.5.5
+      ajv: registry.npmjs.org/ajv/6.10.2
+      chalk: registry.npmjs.org/chalk/2.4.2
+      cross-spawn: registry.npmjs.org/cross-spawn/6.0.5
+      debug: registry.npmjs.org/debug/4.1.1
+      doctrine: registry.npmjs.org/doctrine/3.0.0
+      eslint-scope: registry.npmjs.org/eslint-scope/5.0.0
+      eslint-utils: registry.npmjs.org/eslint-utils/1.4.3
+      eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
+      espree: registry.npmjs.org/espree/6.1.2
+      esquery: registry.npmjs.org/esquery/1.0.1
+      esutils: registry.npmjs.org/esutils/2.0.3
+      file-entry-cache: registry.npmjs.org/file-entry-cache/5.0.1
+      functional-red-black-tree: registry.npmjs.org/functional-red-black-tree/1.0.1
+      glob-parent: registry.npmjs.org/glob-parent/5.1.0
+      globals: registry.npmjs.org/globals/11.12.0
+      ignore: registry.npmjs.org/ignore/4.0.6
+      import-fresh: registry.npmjs.org/import-fresh/3.2.1
+      imurmurhash: registry.npmjs.org/imurmurhash/0.1.4
+      inquirer: registry.npmjs.org/inquirer/7.0.0
+      is-glob: registry.npmjs.org/is-glob/4.0.1
+      js-yaml: registry.npmjs.org/js-yaml/3.13.1
+      json-stable-stringify-without-jsonify: registry.npmjs.org/json-stable-stringify-without-jsonify/1.0.1
+      levn: registry.npmjs.org/levn/0.3.0
+      lodash: registry.npmjs.org/lodash/4.17.15
+      minimatch: registry.npmjs.org/minimatch/3.0.4
+      mkdirp: registry.npmjs.org/mkdirp/0.5.1
+      natural-compare: registry.npmjs.org/natural-compare/1.4.0
+      optionator: registry.npmjs.org/optionator/0.8.3
+      progress: registry.npmjs.org/progress/2.0.3
+      regexpp: registry.npmjs.org/regexpp/2.0.1
+      semver: registry.npmjs.org/semver/6.3.0
+      strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
+      strip-json-comments: registry.npmjs.org/strip-json-comments/3.0.1
+      table: registry.npmjs.org/table/5.4.6
+      text-table: registry.npmjs.org/text-table/0.2.0
+      v8-compile-cache: registry.npmjs.org/v8-compile-cache/2.1.0
+    dev: false
+    engines:
+      node: ^8.10.0 || ^10.13.0 || >=11.10.1
+    hasBin: true
+    resolution:
+      integrity: sha512-ElP/vLYULeniGkBxO5+b/kv6phMpGvgy3Bu8hHMNiDzwNCl/AFIc2Lc6iL2B5P1+dhEMjAKegWdcPo1Nd6JOJw==
   registry.npmjs.org/@babel/code-frame/7.0.0-beta.44:
     dependencies:
       '@babel/highlight': registry.npmjs.org/@babel/highlight/7.0.0-beta.44
@@ -3211,6 +3391,14 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.1.tgz'
     version: 15.7.1
+  registry.npmjs.org/@types/prop-types/15.7.3:
+    dev: true
+    name: '@types/prop-types'
+    resolution:
+      integrity: sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.3.tgz'
+    version: 15.7.3
   registry.npmjs.org/@types/q/1.5.2:
     name: '@types/q'
     resolution:
@@ -3250,6 +3438,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.1.tgz'
     version: 16.9.1
+  registry.npmjs.org/@types/react/16.9.11:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.3
+      csstype: registry.npmjs.org/csstype/2.6.7
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-UBT4GZ3PokTXSWmdgC/GeCGEJXE5ofWyibCcecRLUVN2ZBpXQGVgQGtG2foS7CrTKFKlQVVswLvf7Js6XA/CVQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.11.tgz'
+    version: 16.9.11
   registry.npmjs.org/@types/react/16.9.2:
     dependencies:
       '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.1
@@ -3624,6 +3823,16 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/ansi-regex/-/ansi-regex-4.1.0.tgz'
     version: 4.1.0
+  registry.npmjs.org/ansi-regex/5.0.0:
+    dev: false
+    engines:
+      node: '>=8'
+    name: ansi-regex
+    resolution:
+      integrity: sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/ansi-regex/-/ansi-regex-5.0.0.tgz'
+    version: 5.0.0
   registry.npmjs.org/ansi-styles/1.0.0:
     dev: false
     engines:
@@ -6730,6 +6939,14 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/csstype/-/csstype-2.6.6.tgz'
     version: 2.6.6
+  registry.npmjs.org/csstype/2.6.7:
+    dev: true
+    name: csstype
+    resolution:
+      integrity: sha512-9Mcn9sFbGBAdmimWb2gLVDtFJzeKtDGIr76TUqmjZrw9LFXBMSU70lcs+C0/7fyCd6iBDqmksUcCOUIkisPHsQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/csstype/-/csstype-2.6.7.tgz'
+    version: 2.6.7
   registry.npmjs.org/csv-parse/2.5.0:
     dev: false
     name: csv-parse
@@ -7405,6 +7622,27 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/es-abstract/-/es-abstract-1.13.0.tgz'
     version: 1.13.0
+  registry.npmjs.org/es-abstract/1.16.0:
+    dependencies:
+      es-to-primitive: registry.npmjs.org/es-to-primitive/1.2.1
+      function-bind: registry.npmjs.org/function-bind/1.1.1
+      has: registry.npmjs.org/has/1.0.3
+      has-symbols: registry.npmjs.org/has-symbols/1.0.0
+      is-callable: registry.npmjs.org/is-callable/1.1.4
+      is-regex: registry.npmjs.org/is-regex/1.0.4
+      object-inspect: registry.npmjs.org/object-inspect/1.7.0
+      object-keys: registry.npmjs.org/object-keys/1.1.1
+      string.prototype.trimleft: registry.npmjs.org/string.prototype.trimleft/2.1.0
+      string.prototype.trimright: registry.npmjs.org/string.prototype.trimright/2.1.0
+    dev: false
+    engines:
+      node: '>= 0.4'
+    name: es-abstract
+    resolution:
+      integrity: sha512-xdQnfykZ9JMEiasTAJZJdMWCQ1Vm00NBw79/AWi7ELfZuuPCSOMDZbT9mkOfSctVtfhb+sAAzrm+j//GjjLHLg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/es-abstract/-/es-abstract-1.16.0.tgz'
+    version: 1.16.0
   registry.npmjs.org/es-to-primitive/1.2.0:
     dependencies:
       is-callable: registry.npmjs.org/is-callable/1.1.4
@@ -7418,6 +7656,20 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/es-to-primitive/-/es-to-primitive-1.2.0.tgz'
     version: 1.2.0
+  registry.npmjs.org/es-to-primitive/1.2.1:
+    dependencies:
+      is-callable: registry.npmjs.org/is-callable/1.1.4
+      is-date-object: registry.npmjs.org/is-date-object/1.0.1
+      is-symbol: registry.npmjs.org/is-symbol/1.0.2
+    dev: false
+    engines:
+      node: '>= 0.4'
+    name: es-to-primitive
+    resolution:
+      integrity: sha512-QCOllgZJtaUo9miYBcLChTUaHNjJF3PYs1VidD7AwiEj1kYxKeQTctLAezAOH5ZKRH0g2IgPn6KwB4IT8iRpvA==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/es-to-primitive/-/es-to-primitive-1.2.1.tgz'
+    version: 1.2.1
   registry.npmjs.org/escape-string-regexp/1.0.5:
     engines:
       node: '>=0.8.0'
@@ -7445,9 +7697,9 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/escodegen/-/escodegen-1.11.1.tgz'
     version: 1.11.1
-  registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@6.6.0:
+  registry.npmjs.org/eslint-config-prettier/2.10.0_eslint@9.9.9:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
       get-stdin: registry.npmjs.org/get-stdin/5.0.1
     dev: false
     hasBin: true
@@ -7475,13 +7727,13 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-config-prettier/-/eslint-config-prettier-4.3.0.tgz'
     version: 4.3.0
-  registry.npmjs.org/eslint-config-standard/11.0.0_218f0fea615ec70e06457162b067176a:
+  registry.npmjs.org/eslint-config-standard/11.0.0_57ef3118840f60a37e79c553aeb8a75a:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
-      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.6.0
-      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.6.0
+      eslint: 9.9.9
+      eslint-plugin-import: registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@9.9.9
+      eslint-plugin-node: registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@9.9.9
       eslint-plugin-promise: registry.npmjs.org/eslint-plugin-promise/3.8.0
-      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.6.0
+      eslint-plugin-standard: registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@9.9.9
     dev: false
     id: registry.npmjs.org/eslint-config-standard/11.0.0
     name: eslint-config-standard
@@ -7555,9 +7807,9 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-babel/-/eslint-plugin-babel-5.3.0.tgz'
     version: 5.3.0
-  registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-babel/5.3.0_eslint@9.9.9:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
       eslint-rule-composer: registry.npmjs.org/eslint-rule-composer/0.3.0
     dev: false
     engines:
@@ -7614,13 +7866,13 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz'
     version: 2.18.2
-  registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-import/2.18.2_eslint@9.9.9:
     dependencies:
       array-includes: registry.npmjs.org/array-includes/3.0.3
       contains-path: registry.npmjs.org/contains-path/0.1.0
       debug: registry.npmjs.org/debug/2.6.9
       doctrine: registry.npmjs.org/doctrine/1.5.0
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
       eslint-import-resolver-node: registry.npmjs.org/eslint-import-resolver-node/0.3.2
       eslint-module-utils: registry.npmjs.org/eslint-module-utils/2.4.1
       has: registry.npmjs.org/has/1.0.3
@@ -7640,9 +7892,9 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-import/-/eslint-plugin-import-2.18.2.tgz'
     version: 2.18.2
-  registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-jest/21.27.2_eslint@9.9.9:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
     dev: false
     engines:
       node: '>= 4'
@@ -7682,7 +7934,7 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-json/-/eslint-plugin-json-1.4.0.tgz'
     version: 1.4.0
-  registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-jsx-a11y/6.2.3_eslint@9.9.9:
     dependencies:
       '@babel/runtime': registry.npmjs.org/@babel/runtime/7.5.5
       aria-query: registry.npmjs.org/aria-query/3.0.0
@@ -7691,7 +7943,7 @@ packages:
       axobject-query: registry.npmjs.org/axobject-query/2.0.2
       damerau-levenshtein: registry.npmjs.org/damerau-levenshtein/1.0.5
       emoji-regex: registry.npmjs.org/emoji-regex/7.0.3
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
       has: registry.npmjs.org/has/1.0.3
       jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
     dev: false
@@ -7718,9 +7970,9 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-jsx/-/eslint-plugin-jsx-0.0.2.tgz'
     version: 0.0.2
-  registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-node/6.0.1_eslint@9.9.9:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
       ignore: registry.npmjs.org/ignore/3.3.10
       minimatch: registry.npmjs.org/minimatch/3.0.4
       resolve: registry.npmjs.org/resolve/1.12.0
@@ -7763,6 +8015,23 @@ packages:
       fast-diff: registry.npmjs.org/fast-diff/1.2.0
       jest-docblock: registry.npmjs.org/jest-docblock/21.2.0
       prettier: registry.npmjs.org/prettier/1.18.2
+    dev: false
+    engines:
+      node: '>=4.0.0'
+    id: registry.npmjs.org/eslint-plugin-prettier/2.7.0
+    name: eslint-plugin-prettier
+    peerDependencies:
+      prettier: '>= 0.11.0'
+    resolution:
+      integrity: sha512-CStQYJgALoQBw3FsBzH0VOVDRnJ/ZimUlpLm226U8qgqYJfPOY/CPK6wyRInMxh73HSKg5wyRwdS4BVYYHwokA==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/eslint-plugin-prettier/-/eslint-plugin-prettier-2.7.0.tgz'
+    version: 2.7.0
+  registry.npmjs.org/eslint-plugin-prettier/2.7.0_prettier@1.19.1:
+    dependencies:
+      fast-diff: registry.npmjs.org/fast-diff/1.2.0
+      jest-docblock: registry.npmjs.org/jest-docblock/21.2.0
+      prettier: registry.npmjs.org/prettier/1.19.1
     dev: false
     engines:
       node: '>=4.0.0'
@@ -7845,11 +8114,11 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz'
     version: 7.14.3
-  registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-react/7.14.3_eslint@9.9.9:
     dependencies:
       array-includes: registry.npmjs.org/array-includes/3.0.3
       doctrine: registry.npmjs.org/doctrine/2.1.0
-      eslint: registry.npmjs.org/eslint/6.6.0
+      eslint: 9.9.9
       has: registry.npmjs.org/has/1.0.3
       jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.1
       object.entries: registry.npmjs.org/object.entries/1.1.0
@@ -7869,9 +8138,33 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.14.3.tgz'
     version: 7.14.3
-  registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@6.6.0:
+  registry.npmjs.org/eslint-plugin-react/7.16.0_eslint@9.9.9:
     dependencies:
-      eslint: registry.npmjs.org/eslint/6.6.0
+      array-includes: registry.npmjs.org/array-includes/3.0.3
+      doctrine: registry.npmjs.org/doctrine/2.1.0
+      eslint: 9.9.9
+      has: registry.npmjs.org/has/1.0.3
+      jsx-ast-utils: registry.npmjs.org/jsx-ast-utils/2.2.3
+      object.entries: registry.npmjs.org/object.entries/1.1.0
+      object.fromentries: registry.npmjs.org/object.fromentries/2.0.1
+      object.values: registry.npmjs.org/object.values/1.1.0
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      resolve: registry.npmjs.org/resolve/1.12.0
+    dev: false
+    engines:
+      node: '>=4'
+    id: registry.npmjs.org/eslint-plugin-react/7.16.0
+    name: eslint-plugin-react
+    peerDependencies:
+      eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
+    resolution:
+      integrity: sha512-GacBAATewhhptbK3/vTP09CbFrgUJmBSaaRcWdbQLFvUZy9yVcQxigBNHGPU/KE2AyHpzj3AWXpxoMTsIDiHug==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/eslint-plugin-react/-/eslint-plugin-react-7.16.0.tgz'
+    version: 7.16.0
+  registry.npmjs.org/eslint-plugin-standard/3.1.0_eslint@9.9.9:
+    dependencies:
+      eslint: 9.9.9
     dev: false
     id: registry.npmjs.org/eslint-plugin-standard/3.1.0
     name: eslint-plugin-standard
@@ -8046,55 +8339,6 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/eslint/-/eslint-4.19.1.tgz'
     version: 4.19.1
-  registry.npmjs.org/eslint/6.6.0:
-    dependencies:
-      '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.5.5
-      ajv: registry.npmjs.org/ajv/6.10.2
-      chalk: registry.npmjs.org/chalk/2.4.2
-      cross-spawn: registry.npmjs.org/cross-spawn/6.0.5
-      debug: registry.npmjs.org/debug/4.1.1
-      doctrine: registry.npmjs.org/doctrine/3.0.0
-      eslint-scope: registry.npmjs.org/eslint-scope/5.0.0
-      eslint-utils: registry.npmjs.org/eslint-utils/1.4.3
-      eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
-      espree: registry.npmjs.org/espree/6.1.2
-      esquery: registry.npmjs.org/esquery/1.0.1
-      esutils: registry.npmjs.org/esutils/2.0.3
-      file-entry-cache: registry.npmjs.org/file-entry-cache/5.0.1
-      functional-red-black-tree: registry.npmjs.org/functional-red-black-tree/1.0.1
-      glob-parent: registry.npmjs.org/glob-parent/5.1.0
-      globals: registry.npmjs.org/globals/11.12.0
-      ignore: registry.npmjs.org/ignore/4.0.6
-      import-fresh: registry.npmjs.org/import-fresh/3.1.0
-      imurmurhash: registry.npmjs.org/imurmurhash/0.1.4
-      inquirer: registry.npmjs.org/inquirer/7.0.0
-      is-glob: registry.npmjs.org/is-glob/4.0.1
-      js-yaml: registry.npmjs.org/js-yaml/3.13.1
-      json-stable-stringify-without-jsonify: registry.npmjs.org/json-stable-stringify-without-jsonify/1.0.1
-      levn: registry.npmjs.org/levn/0.3.0
-      lodash: registry.npmjs.org/lodash/4.17.15
-      minimatch: registry.npmjs.org/minimatch/3.0.4
-      mkdirp: registry.npmjs.org/mkdirp/0.5.1
-      natural-compare: registry.npmjs.org/natural-compare/1.4.0
-      optionator: registry.npmjs.org/optionator/0.8.3
-      progress: registry.npmjs.org/progress/2.0.3
-      regexpp: registry.npmjs.org/regexpp/2.0.1
-      semver: registry.npmjs.org/semver/6.3.0
-      strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
-      strip-json-comments: registry.npmjs.org/strip-json-comments/3.0.1
-      table: registry.npmjs.org/table/5.4.6
-      text-table: registry.npmjs.org/text-table/0.2.0
-      v8-compile-cache: registry.npmjs.org/v8-compile-cache/2.1.0
-    dev: false
-    engines:
-      node: ^8.10.0 || ^10.13.0 || >=11.10.1
-    hasBin: true
-    name: eslint
-    resolution:
-      integrity: sha512-PpEBq7b6qY/qrOmpYQ/jTMDYfuQMELR4g4WI1M/NaSDDD/bdcMb+dj4Hgks7p41kW2caXsPsEZAEAyAgjVVC0g==
-      registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/eslint/-/eslint-6.6.0.tgz'
-    version: 6.6.0
   registry.npmjs.org/espree/3.5.4:
     dependencies:
       acorn: registry.npmjs.org/acorn/5.7.3
@@ -9254,6 +9498,21 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/glob/-/glob-7.1.4.tgz'
     version: 7.1.4
+  registry.npmjs.org/glob/7.1.6:
+    dependencies:
+      fs.realpath: registry.npmjs.org/fs.realpath/1.0.0
+      inflight: registry.npmjs.org/inflight/1.0.6
+      inherits: registry.npmjs.org/inherits/2.0.4
+      minimatch: registry.npmjs.org/minimatch/3.0.4
+      once: registry.npmjs.org/once/1.4.0
+      path-is-absolute: registry.npmjs.org/path-is-absolute/1.0.1
+    dev: false
+    name: glob
+    resolution:
+      integrity: sha512-LwaxwyZ72Lk7vZINtNNrywX0ZuLyStrdDtabefZKAY5ZGJhVtgdznluResxNmPitE0SAO+O26sWTHeKSI2wMBA==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/glob/-/glob-7.1.6.tgz'
+    version: 7.1.6
   registry.npmjs.org/global-modules/2.0.0:
     dependencies:
       global-prefix: registry.npmjs.org/global-prefix/3.0.0
@@ -9812,7 +10071,7 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/import-fresh/-/import-fresh-2.0.0.tgz'
     version: 2.0.0
-  registry.npmjs.org/import-fresh/3.1.0:
+  registry.npmjs.org/import-fresh/3.2.1:
     dependencies:
       parent-module: registry.npmjs.org/parent-module/1.0.1
       resolve-from: registry.npmjs.org/resolve-from/4.0.0
@@ -9821,10 +10080,10 @@ packages:
       node: '>=6'
     name: import-fresh
     resolution:
-      integrity: sha512-PpuksHKGt8rXfWEr9m9EHIpgyyaltBy8+eF6GJM0QCAxMgxCfucMF3mjecK2QsJr0amJW7gTqh5/wht0z2UhEQ==
+      integrity: sha512-6e1q1cnWP2RXD9/keSkxHScg508CdXqXWgWBaETNhyuBFz+kUZlKboh+ISK+bU++DmbHimVBrOz/zzPe0sZ3sQ==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/import-fresh/-/import-fresh-3.1.0.tgz'
-    version: 3.1.0
+      tarball: 'https://registry.npmjs.org/import-fresh/-/import-fresh-3.2.1.tgz'
+    version: 3.2.1
   registry.npmjs.org/import-from/2.1.0:
     dependencies:
       resolve-from: registry.npmjs.org/resolve-from/3.0.0
@@ -9966,7 +10225,7 @@ packages:
       mute-stream: registry.npmjs.org/mute-stream/0.0.8
       run-async: registry.npmjs.org/run-async/2.3.0
       rxjs: registry.npmjs.org/rxjs/6.5.3
-      string-width: registry.npmjs.org/string-width/4.1.0
+      string-width: registry.npmjs.org/string-width/4.2.0
       strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
       through: registry.npmjs.org/through/2.3.8
     dev: false
@@ -11707,6 +11966,19 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-2.2.1.tgz'
     version: 2.2.1
+  registry.npmjs.org/jsx-ast-utils/2.2.3:
+    dependencies:
+      array-includes: registry.npmjs.org/array-includes/3.0.3
+      object.assign: registry.npmjs.org/object.assign/4.1.0
+    dev: false
+    engines:
+      node: '>=4.0'
+    name: jsx-ast-utils
+    resolution:
+      integrity: sha512-EdIHFMm+1BPynpKOpdPqiOsvnIrInRGJD7bzPZdPkjitQEqpdpUuFpq4T0npZFKTiB3RhWFdGN+oqOJIdhDhQA==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/jsx-ast-utils/-/jsx-ast-utils-2.2.3.tgz'
+    version: 2.2.3
   registry.npmjs.org/kind-of/3.2.2:
     dependencies:
       is-buffer: registry.npmjs.org/is-buffer/1.1.6
@@ -13170,6 +13442,14 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/object-inspect/-/object-inspect-1.6.0.tgz'
     version: 1.6.0
+  registry.npmjs.org/object-inspect/1.7.0:
+    dev: false
+    name: object-inspect
+    resolution:
+      integrity: sha512-a7pEHdh1xKIAgTySUGgLMx/xwDZskN1Ud6egYYN3EdRW4ZMPNEDUTF+hwy2LUC+Bl+SyLXANnwz/jyh/qutKUw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/object-inspect/-/object-inspect-1.7.0.tgz'
+    version: 1.7.0
   registry.npmjs.org/object-is/1.0.1:
     dev: true
     engines:
@@ -13250,6 +13530,21 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/object.fromentries/-/object.fromentries-2.0.0.tgz'
     version: 2.0.0
+  registry.npmjs.org/object.fromentries/2.0.1:
+    dependencies:
+      define-properties: registry.npmjs.org/define-properties/1.1.3
+      es-abstract: registry.npmjs.org/es-abstract/1.16.0
+      function-bind: registry.npmjs.org/function-bind/1.1.1
+      has: registry.npmjs.org/has/1.0.3
+    dev: false
+    engines:
+      node: '>= 0.4'
+    name: object.fromentries
+    resolution:
+      integrity: sha512-PUQv8Hbg3j2QX0IQYv3iAGCbGcu4yY4KQ92/dhA4sFSixBmSmp13UpDLs6jGK8rBtbmhNNIK99LD2k293jpiGA==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/object.fromentries/-/object.fromentries-2.0.1.tgz'
+    version: 2.0.1
   registry.npmjs.org/object.getownpropertydescriptors/2.0.3:
     dependencies:
       define-properties: registry.npmjs.org/define-properties/1.1.3
@@ -14657,6 +14952,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/prettier/-/prettier-1.18.2.tgz'
     version: 1.18.2
+  registry.npmjs.org/prettier/1.19.1:
+    dev: false
+    engines:
+      node: '>=4'
+    hasBin: true
+    name: prettier
+    resolution:
+      integrity: sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/prettier/-/prettier-1.19.1.tgz'
+    version: 1.19.1
   registry.npmjs.org/pretty-bytes/3.0.1:
     dependencies:
       number-is-nan: registry.npmjs.org/number-is-nan/1.0.1
@@ -14932,23 +15238,41 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/react-docgen/-/react-docgen-2.21.0.tgz'
     version: 2.21.0
-  registry.npmjs.org/react-dom/16.11.0_react@16.9.0:
+  registry.npmjs.org/react-dom/16.12.0_react@16.12.0:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
       prop-types: registry.npmjs.org/prop-types/15.7.2
-      react: registry.npmjs.org/react/16.9.0
-      scheduler: registry.npmjs.org/scheduler/0.17.0
-    id: registry.npmjs.org/react-dom/16.11.0
+      react: registry.npmjs.org/react/16.12.0
+      scheduler: registry.npmjs.org/scheduler/0.18.0
+    dev: false
+    id: registry.npmjs.org/react-dom/16.12.0
     name: react-dom
     optional: true
     peerDependencies:
       react: ^16.0.0
     resolution:
-      integrity: sha512-nrRyIUE1e7j8PaXSPtyRKtz+2y9ubW/ghNgqKFHHAHaeP0fpF5uXR+sq8IMRHC+ZUxw7W9NyCDTBtwWxvkb0iA==
+      integrity: sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.11.0.tgz'
-    version: 16.11.0
+      tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.12.0.tgz'
+    version: 16.12.0
+  registry.npmjs.org/react-dom/16.12.0_react@16.9.0:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      react: registry.npmjs.org/react/16.9.0
+      scheduler: registry.npmjs.org/scheduler/0.18.0
+    id: registry.npmjs.org/react-dom/16.12.0
+    name: react-dom
+    optional: true
+    peerDependencies:
+      react: ^16.0.0
+    resolution:
+      integrity: sha512-LMxFfAGrcS3kETtQaCkTKjMiifahaMySFDn71fZUNpPHZQEzmk/GiAeIT8JSOrHB23fnuCOMruL2a8NYlw+8Gw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.12.0.tgz'
+    version: 16.12.0
   registry.npmjs.org/react-dom/16.9.0_react@16.9.0:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
@@ -14998,20 +15322,20 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/react-test-renderer/-/react-test-renderer-16.8.6.tgz'
     version: 16.8.6
-  registry.npmjs.org/react/16.11.0:
+  registry.npmjs.org/react/16.12.0:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
       prop-types: registry.npmjs.org/prop-types/15.7.2
+    dev: false
     engines:
       node: '>=0.10.0'
     name: react
-    optional: true
     resolution:
-      integrity: sha512-M5Y8yITaLmU0ynd0r1Yvfq98Rmll6q8AxaEe88c8e7LxO8fZ2cNgmFt0aGAS9wzf1Ao32NKXtCl+/tVVtkxq6g==
+      integrity: sha512-fglqy3k5E+81pA8s+7K0/T3DBCF0ZDOher1elBFzF7O6arXJgzyu/FW+COxFvAWXJoJN9KIZbT2LXlukwphYTA==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/react/-/react-16.11.0.tgz'
-    version: 16.11.0
+      tarball: 'https://registry.npmjs.org/react/-/react-16.12.0.tgz'
+    version: 16.12.0
   registry.npmjs.org/react/16.9.0:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
@@ -16246,7 +16570,7 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.15.0.tgz'
     version: 0.15.0
-  registry.npmjs.org/scheduler/0.17.0:
+  registry.npmjs.org/scheduler/0.18.0:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
@@ -16254,10 +16578,10 @@ packages:
     name: scheduler
     optional: true
     resolution:
-      integrity: sha512-7rro8Io3tnCPuY4la/NuI5F2yfESpnfZyT6TtkXnSWVkcu0BCDJ+8gk5ozUaFaxpIyNuWAPXrH0yFcSi28fnDA==
+      integrity: sha512-agTSHR1Nbfi6ulI0kYNK0203joW2Y5W4po4l+v03tOoiJKpTBbxpNhWDvqc/4IcOw+KLmSiQLTasZ4cab2/UWQ==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.17.0.tgz'
-    version: 0.17.0
+      tarball: 'https://registry.npmjs.org/scheduler/-/scheduler-0.18.0.tgz'
+    version: 0.18.0
   registry.npmjs.org/scroll-into-view-if-needed/2.2.20:
     dependencies:
       compute-scroll-into-view: registry.npmjs.org/compute-scroll-into-view/1.0.11
@@ -16916,6 +17240,20 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/string-width/-/string-width-4.1.0.tgz'
     version: 4.1.0
+  registry.npmjs.org/string-width/4.2.0:
+    dependencies:
+      emoji-regex: registry.npmjs.org/emoji-regex/8.0.0
+      is-fullwidth-code-point: registry.npmjs.org/is-fullwidth-code-point/3.0.0
+      strip-ansi: registry.npmjs.org/strip-ansi/6.0.0
+    dev: false
+    engines:
+      node: '>=8'
+    name: string-width
+    resolution:
+      integrity: sha512-zUz5JD+tgqtuDjMhwIg5uFVV3dtqZ9yQJlZVfq4I01/K5Paj5UHj7VyrQOJvzawSVlKpObApbfD0Ed6yJc+1eg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/string-width/-/string-width-4.2.0.tgz'
+    version: 4.2.0
   registry.npmjs.org/string.prototype.padend/3.0.0:
     dependencies:
       define-properties: registry.npmjs.org/define-properties/1.1.3
@@ -16944,6 +17282,32 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/string.prototype.trim/-/string.prototype.trim-1.2.0.tgz'
     version: 1.2.0
+  registry.npmjs.org/string.prototype.trimleft/2.1.0:
+    dependencies:
+      define-properties: registry.npmjs.org/define-properties/1.1.3
+      function-bind: registry.npmjs.org/function-bind/1.1.1
+    dev: false
+    engines:
+      node: '>= 0.4'
+    name: string.prototype.trimleft
+    resolution:
+      integrity: sha512-FJ6b7EgdKxxbDxc79cOlok6Afd++TTs5szo+zJTUyow3ycrRfJVE2pq3vcN53XexvKZu/DJMDfeI/qMiZTrjTw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/string.prototype.trimleft/-/string.prototype.trimleft-2.1.0.tgz'
+    version: 2.1.0
+  registry.npmjs.org/string.prototype.trimright/2.1.0:
+    dependencies:
+      define-properties: registry.npmjs.org/define-properties/1.1.3
+      function-bind: registry.npmjs.org/function-bind/1.1.1
+    dev: false
+    engines:
+      node: '>= 0.4'
+    name: string.prototype.trimright
+    resolution:
+      integrity: sha512-fXZTSV55dNBwv16uw+hh5jkghxSnc5oHq+5K/gXgizHwAvMetdAJlHqqoFC1FSDVPYWLkAKl2cxpUT41sV7nSg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/string.prototype.trimright/-/string.prototype.trimright-2.1.0.tgz'
+    version: 2.1.0
   registry.npmjs.org/string_decoder/1.1.1:
     dependencies:
       safe-buffer: registry.npmjs.org/safe-buffer/5.1.2
@@ -17032,6 +17396,18 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/strip-ansi/-/strip-ansi-5.2.0.tgz'
     version: 5.2.0
+  registry.npmjs.org/strip-ansi/6.0.0:
+    dependencies:
+      ansi-regex: registry.npmjs.org/ansi-regex/5.0.0
+    dev: false
+    engines:
+      node: '>=8'
+    name: strip-ansi
+    resolution:
+      integrity: sha512-AuvKTrTfQNYNIctbR1K/YGTR1756GycPsg7b9bdV9Duqur4gv6aKqHXah67Z8ImS7WEz5QVcOtlfW2rZEugt6w==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/strip-ansi/-/strip-ansi-6.0.0.tgz'
+    version: 6.0.0
   registry.npmjs.org/strip-bom/2.0.0:
     dependencies:
       is-utf8: registry.npmjs.org/is-utf8/0.2.1

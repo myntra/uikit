@@ -1,0 +1,35 @@
+{
+  "name": "@myntra/uikit-component-input-azure-file",
+  "version": "1.5.4",
+  "main": "dist/input-azure-file.cjs.js",
+  "module": "dist/input-azure-file.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "Rahul Kadyan <hi@znck.me>",
+  "license": "UNLICENSED",
+  "repository": "https://bitbucket.org/myntra/uikit/src/master/components/azure-upload",
+  "publishConfig": {
+    "registry": "http://registry.myntra.com"
+  },
+  "files": [
+    "src/",
+    "dist/",
+    "bin/",
+    "*.codemod.js"
+  ],
+  "sideEffects": false,
+  "peerDependencies": {
+    "react": ">=15.4"
+  },
+  "devDependencies": {
+    "@types/react": "^16.8"
+  },
+  "optionalDependencies": {
+    "react": ">=15.4"
+  },
+  "dependencies": {
+    "@myntra/uikit-component-button": "1.5.*",
+    "@myntra/uikit-component-input-file": "1.5.*",
+    "@myntra/uikit-component-progress": "1.5.*",
+    "@myntra/uikit-utils": "1.5.*"
+  }
+}
