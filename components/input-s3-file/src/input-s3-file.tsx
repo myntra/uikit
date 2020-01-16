@@ -154,7 +154,7 @@ export default class InputS3File extends PureComponent<
       for (const name in params) {
         body.append(name, params[name])
       }
-
+      body.append('file', this.state.file)
       const request = new XMLHttpRequest()
 
       request.withCredentials = true
