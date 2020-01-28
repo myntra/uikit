@@ -218,6 +218,8 @@ export default class List extends PureComponent<
           event.stopPropagation()
 
           this.updateValueByIndex(this.state.activeIndex)
+        } else {
+          preventDefault = false
         }
         break
       case 'ArrowDown':
