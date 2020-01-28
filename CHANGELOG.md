@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.12.47"></a>
+## <small>1.12.47 (2020-01-28)</small>
+
+* fix for docgen failing when adding new component ([49f3429](https://bitbucket.org/myntra/uikit/commits/49f3429)), closes [#242](https://bitbucket.org/myntra/uikit/issue/242)
+* Spaces allowed for input select DropDown ([ace1f18](https://bitbucket.org/myntra/uikit/commits/ace1f18)), closes [#244](https://bitbucket.org/myntra/uikit/issue/244)
+
+
+
 <a name="1.12.46"></a>
 ## <small>1.12.46 (2020-01-16)</small>
 

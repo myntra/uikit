@@ -5,7 +5,7 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
-  "version": "1.12.46",
+  "version": "1.12.47",
   "engines": {
     "node": ">=8.0"
   },
