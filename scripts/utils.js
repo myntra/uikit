@@ -5,6 +5,7 @@ const { TopologicalSort } = require('topological-sort')
 const packagesDir = path.resolve(__dirname, '../packages')
 const componentsDir = path.resolve(__dirname, '../components')
 const themesDir = path.resolve(__dirname, '../themes')
+const { version } = require('../package.json')
 
 /**
  * Find directories names
@@ -174,7 +175,31 @@ function initSrc(name) {
   return [
     {
       name: `${shortName}.tsx`,
-      initialContent: '',
+      initialContent: `
+import React from 'react'
+import classnames from './${shortName}.module.scss'
+
+export interface Props extends BaseProps {
+  /** @private */
+  className?: string
+}
+
+/**
+ * A component to read date and date ranges.
+ *
+ * @since ${version}
+ * @status REVIEWING
+ * @category basic
+ * @see http://uikit.myntra.com/components/${shortName}
+ */
+export default class ${camelCase(
+        shortName
+      )} extends PureComponent<Props, State> {
+  /**
+   * Your code goes here
+   */ 
+}
+      `,
     },
     {
       name: `${shortName}.spec.js`,
@@ -186,7 +211,11 @@ function initSrc(name) {
     },
     {
       name: `index.ts`,
-      initialContent: '',
+      initialContent: `
+import ${camelCase(shortName)} from './${shortName}'
+export * from './${shortName}'
+export default ${camelCase(shortName)}
+      `,
     },
   ]
 }
