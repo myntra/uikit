@@ -1,9 +1,9 @@
-@import '@design';
+@import '@accoutrement';
 
 .month {
   display: inline-block;
-  padding: ui-size('2xs') ui-size('r');
-  background-color: ui-color('white');
+  padding: size('small') size('4x');
+  background-color: color('white');
 }
 
 .month + .month {
@@ -37,8 +37,7 @@
   align-items: center;
   justify-content: center;
   width: 2.5rem;
-  color: ui-text-color('dark', 'mid-emphasis');
+  font-size: font-size('caption');
+  color: color('text-dark-medium-emphasis');
   user-select: none;
-
-  @include use-text-style('small');
 }

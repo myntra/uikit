@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .date-value {
   display: inline-flex;
@@ -15,16 +15,16 @@
 
 .wrapper > .icon {
   position: absolute;
-  right: ui-size('2xs');
-  bottom: ui-size('xs');
+  right: size('small');
+  bottom: size('2x');
   cursor: pointer;
 }
 
 .date-value-active input {
-  border-bottom: 1px solid ui-color('primary');
+  border-bottom: 1px solid color('primary');
 }
 
 .active,
 .active input {
-  color: ui-color('primary');
+  color: color('primary');
 }

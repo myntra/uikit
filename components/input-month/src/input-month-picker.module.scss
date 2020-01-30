@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .picker {
   display: flex;
@@ -7,14 +7,14 @@
 
   .left-pane {
     flex: 2 66.666666%;
-    border: 1px solid ui-color('gray', 'light');
+    border: 1px solid color('gray-light');
   }
 
   .right-pane {
     position: relative;
     flex: 1 33.333333%;
     overflow: scroll;
-    border: 1px solid ui-color('gray', 'light');
+    border: 1px solid color('gray-light');
     border-left: none;
   }
 
@@ -24,7 +24,7 @@
     z-index: 1;
     padding: 0.5em 1em;
     text-align: center;
-    background: ui-color('white');
-    border-bottom: 1px solid ui-color('gray', 'light');
+    background: color('white');
+    border-bottom: 1px solid color('gray-light');
   }
 }

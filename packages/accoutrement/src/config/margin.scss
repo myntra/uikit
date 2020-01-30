@@ -15,6 +15,9 @@ $margins: (
   'nav-bar.group': '#8x',
   'tab.group': '#1x' '#margin-none',
   'job-tracker.group': '#6x' '#2x' '#2x' '#2x',
+  'field': '#3x',
+  'input-file.progress': '#5x',
+  'list.checkbox': '#margin-field',
 );
 
 $-tokens-margins: () !default;

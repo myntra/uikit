@@ -1,16 +1,16 @@
 @import '@accoutrement';
 
 .nav {
-  box-sizing: border-box;
-  width: size('nav-bar.min-width');
-  height: 100%;
-  overflow: hidden;
-  background-color: color('nav-bar.background');
-
   @include z-index('nav-bar');
   @include transition('nav-bar');
   @include border-right('nav-bar');
 
+  box-sizing: border-box;
+  width: size('nav-bar.min-width');
+  height: 100%;
+  overflow: hidden;
+  color: color('nav-bar.text');
+  background-color: color('nav-bar.background');
   border-color: color('nav-bar.border');
 
   .backdrop {

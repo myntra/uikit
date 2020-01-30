@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .container {
   width: 100%;
@@ -22,11 +22,11 @@
   max-height: 360px;
   overflow: auto;
   background-color: #fff;
-  box-shadow: ui-shadow('raised');
+  box-shadow: shadow('small');
 }
 
 .list {
-  background: ui-color('white');
+  background: color('white');
 
   &.disabled {
     pointer-events: none;

@@ -1,10 +1,10 @@
-@import '@design';
+@import '@accoutrement';
 
 .form {
   .title {
-    @include use-text-style('h4');
+    @include typography('h4');
 
-    padding-bottom: ui-size('r');
+    padding-bottom: padding-bottom('default');
   }
 
   .actions {

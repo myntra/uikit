@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .value {
   position: absolute;
@@ -13,7 +13,7 @@
 
 .input {
   width: 100%;
-  color: ui-text-color('dark', 'mid-emphasis');
+  color: color('text-dark-medium-emphasis');
 }
 
 .value .input {

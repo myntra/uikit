@@ -1,10 +1,10 @@
 // - Solid Colors
 // https://zpl.io/a8w1k0d
-$-tokens-colors-primary: #4f47c8 !default;
-$-tokens-colors-success: #60b87a !default;
-$-tokens-colors-warning: #f0ba54 !default;
-$-tokens-colors-danger: #d46a68 !default;
-$-tokens-colors-gray: #e6e6e6 !default;
+$-tokens-colors-primary: hsl(244, 54, 53) !default;
+$-tokens-colors-success: hsl(138, 38, 55) !default;
+$-tokens-colors-warning: hsl(39, 84, 64) !default;
+$-tokens-colors-danger: hsl(1, 56, 62) !default;
+$-tokens-colors-gray: hsl(0, 0, 90) !default;
 
 $brand-colors: (
   'primary': $-tokens-colors-primary,
@@ -20,38 +20,23 @@ $base-colors: (
 );
 
 $colors: (
-  'disabled': '#gray-light-1',
+  'disabled': '#gray-light',
   'button.disabled': '#disabled',
-  'table.head': '#gray-light-3',
+  'table.head': '#gray-lightest',
   'table.body': '#white',
-  'table.hover': '#gray-light-3',
-  'table.border': '#gray-light-1',
-  'nav-bar.background': '#gray-light-3',
-  'nav-bar.background:focus': '#gray-light-1',
-  'nav-bar.border': '#gray-light-1',
+  'table.hover': '#gray-lightest',
+  'table.border': '#gray-light',
+  'nav-bar.background': '#gray-lightest',
+  'nav-bar.background:focus': '#gray-light',
+  'nav-bar.item.background:active': '#primary-lightest',
+  'nav-bar.item.text:active': $-tokens-colors-primary,
+  'nav-bar.border': '#gray-light',
   'top-bar.background': '#nav-bar.background',
   'top-bar.border': '#nav-bar.border',
-  'page.background': '#gray-light-2',
-  'tab.border': '#gray-light-2',
+  'page.background': '#gray-lighter',
+  'tab.border': '#gray-lighter',
 );
-$-tokens-colors: (
-  'primary-dark-1': #2f2b78,
-  'primary-light-1': #9591de,
-  'primary-light-2': #e5e4f7,
-  'gray-dark-1': #d4d4d4,
-  'gray-light-1': #eee,
-  'gray-light-2': #f4f6f8,
-  'gray-light-3': #f9f9f9,
-  'success-dark-1': #3a6e49,
-  'success-light-1': #a0d4af,
-  'success-light-2': #d7edde,
-  'warning-dark-1': #907032,
-  'warning-light-1': #f6d698,
-  'warning-light-2': #fbeed4,
-  'danger-dark-1': #7f403e,
-  'danger-light-1': #e5a6a4,
-  'danger-light-2': #f4dad9,
-) !default;
+$-tokens-colors: () !default;
 
 @include add-colors($base-colors);
 @include add-colors($brand-colors);

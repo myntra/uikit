@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .month-container {
   display: flex;
@@ -11,16 +11,16 @@
     margin: 0.5em 0;
     text-align: center;
     cursor: pointer;
-    border-radius: ui-size('2xs');
+    border-radius: size('1x');
   }
 
   .selected {
-    color: ui-text-color('light');
-    background: ui-color('primary');
+    color: color('text-light');
+    background: color('primary');
   }
 
   .month:not(.selected):hover {
-    color: ui-color('primary');
+    color: color('primary');
   }
 
   .month-number {

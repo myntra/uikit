@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .loader {
   display: flex;
@@ -23,7 +23,7 @@
 }
 
 .spinner {
-  --current-color: #{ui-color('primary')};
+  --current-color: #{color('primary')};
 
   position: relative;
   display: inline-block;
@@ -60,8 +60,8 @@
 }
 
 .bar {
-  --current-bar-color: #{ui-color('primary')};
-  --current-bar-color-secondary: #{ui-color('gray')};
+  --current-bar-color: #{color('primary')};
+  --current-bar-color-secondary: #{color('gray')};
 
   min-width: 20em;
 

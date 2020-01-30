@@ -1,5 +1,5 @@
 /* eslint-disable node/no-unpublished-require */
-const { getPackageDir, componentsDir } = require('./scripts/utils')
+const { getPackageDir, componentsDir, isTheme } = require('./scripts/utils')
 const path = require('path')
 const ts = require('rollup-plugin-typescript2')
 const nodeResolve = require('rollup-plugin-node-resolve')
@@ -14,7 +14,8 @@ if (!process.env.TARGET) {
   throw new Error(`No target found`)
 }
 
-const dir = getPackageDir(process.env.TARGET)
+const TARGET = process.env.TARGET
+const dir = getPackageDir(TARGET)
 const pkg = require(`${dir}/package.json`)
 
 function get(file) {
@@ -27,6 +28,20 @@ const configs = (module.exports = [])
 const config = {
   input: get('src/index.ts'),
   external(name) {
+    if (isTheme(TARGET)) {
+      if (
+        name === '@myntra/uikit' ||
+        name === '@accoutrement' ||
+        name === '@design' ||
+        name.startsWith('@myntra') ||
+        name.startsWith('/') ||
+        name.startsWith('.')
+      )
+        return false
+
+      return true
+    }
+
     return (
       (pkg.dependencies && name in pkg.dependencies) ||
       (pkg.peerDependencies && name in pkg.peerDependencies) ||
@@ -61,6 +76,8 @@ const config = {
     }),
     size(),
     ts({
+      check: !isTheme(TARGET),
+      abortOnError: !isTheme(TARGET),
       objectHashIgnoreUnknownHack: true,
       tsconfig: 'tsconfig.build.json',
       tsconfigOverride: {
@@ -73,7 +90,7 @@ const config = {
           lib: ['dom', 'esnext'],
           esModuleInterop: true,
           allowSyntheticDefaultImports: true,
-          declaration: true,
+          declaration: !isTheme(TARGET),
           rootDir: get('src'),
           baseUrl: get('src'),
         },
@@ -110,6 +127,41 @@ function aliases() {
     resolveId(id, importer) {
       if (id === 'dayjs') {
         return require.resolve('dayjs/esm/index.js')
+      }
+
+      if (isTheme(TARGET)) {
+        if (id === '@design') {
+          return path.resolve(dir, 'design.scss')
+        }
+
+        if (id === '@accoutrement') {
+          return path.resolve(dir, 'design.next.scss')
+        }
+
+        if (/^@myntra\/accoutrement/.test(id)) {
+          return id.replace(
+            '@myntra/accoutrement',
+            getPackageDir('@myntra/accoutrement')
+          )
+        }
+
+        if (/^@myntra\/uikit-design/.test(id)) {
+          return id.replace(
+            '@myntra/uikit-design',
+            getPackageDir('@myntra/uikit-design')
+          )
+        }
+
+        if (/^@myntra\/uikit-component-input-text\//.test(id)) {
+          return id.replace(
+            '@myntra/uikit-component-input-text',
+            getPackageDir('@myntra/uikit-component-input-text')
+          )
+        }
+
+        if (id.startsWith('@myntra/')) {
+          return path.resolve(getPackageDir(id), 'src/index.ts')
+        }
       }
 
       if (id === '@design') {

@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .container {
   display: flex;
@@ -7,7 +7,7 @@
 }
 
 .progress {
-  margin-right: 1.25rem;
+  margin-right: size('5x');
 }
 
 .button {

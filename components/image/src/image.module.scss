@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .img {
   display: block;
@@ -25,5 +25,5 @@
 }
 
 .bg-error {
-  background: ui-color('red', lighter);
+  background: color('danger-lighter');
 }

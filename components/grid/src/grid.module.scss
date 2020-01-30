@@ -2,7 +2,7 @@
 
 // -- Row --
 .container {
-  --column-gap: #{ui-size(r)};
+  --column-gap: #{size('4x')};
   --column-inset: calc(var(--column-gap) / 2);
   --column-outset: calc(1 - var(--column-gap) / 2);
 
@@ -27,15 +27,15 @@
   }
 
   &.variable-gap {
-    --column-gap: #{ui-size(r)};
+    --column-gap: #{size('4x')};
 
     $sizes: (
       'none': 0,
-      'xx-small': ui-size('2xs'),
-      'x-small': ui-size('xs'),
-      'small': ui-size('s'),
-      'base': ui-size('r'),
-      'large': ui-size('l'),
+      'xx-small': size('1x'),
+      'x-small': size('2x'),
+      'small': size('3x'),
+      'base': size('4x'),
+      'large': size('6x'),
     );
 
     @each $size, $value in $sizes {

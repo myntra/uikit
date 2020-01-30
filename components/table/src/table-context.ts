@@ -1,3 +1,4 @@
+import { Context } from 'react'
 import { createContext } from '@myntra/uikit-context'
 
 export interface TableContext {
@@ -5,6 +6,7 @@ export interface TableContext {
   TR(props: BaseProps): any
 }
 
-const { Provider, Consumer } = createContext<TableContext>(null)
+const context: Context<TableContext> = createContext<TableContext>(null)
 
-export { Provider, Consumer }
+export const Provider = context.Provider
+export const Consumer = context.Consumer

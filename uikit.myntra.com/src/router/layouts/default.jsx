@@ -5,7 +5,7 @@ import { META } from '../../uikit'
 import { withRootState, AppLink } from '@spectrum'
 import { pathToAction } from 'redux-first-router' // TODO: Add this to spectrum. '@spectrum/router:push'
 
-import '@myntra/uikit/design.scss'
+import '@myntra/uikit/design.scss' // @import '../accoutrement/src/index.scss';
 import './default.scss'
 
 function DefaultLayout({ router, children, goto }) {

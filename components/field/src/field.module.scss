@@ -1,25 +1,25 @@
-@import '@design';
+@import '@accoutrement';
 
 .container {
-  margin-bottom: ui-size(s);
+  @include margin-bottom('field');
 }
 
 .title {
   display: block;
   text-transform: uppercase;
 
-  @include use-text-style(small);
+  @include typography('caption');
 }
 
 .required {
   padding-left: 2px;
-  color: ui-text-color('red');
+  color: color('danger');
 }
 
 .meta {
   height: 1.5em;
-  margin-top: ui-size('2xs');
-  margin-bottom: 1 - ui-size(s);
+  margin-top: margin-top('small');
+  margin-bottom: negative(margin-bottom('field') - 1);
   overflow: hidden;
 }
 
@@ -28,11 +28,11 @@
 }
 
 .meta > * {
-  color: ui-text-color(dark, mid-emphasis); // TODO: Change to mid-emphasis.
+  color: color('text-dark-medium-emphasis'); // TODO: Change to mid-emphasis.
 
-  @include use-text-style(small);
+  @include typography('caption');
 }
 
 .meta > [role='alert'] {
-  color: ui-text-color('red');
+  color: color('danger');
 }

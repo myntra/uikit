@@ -1,0 +1,62 @@
+colors:
+  primary:
+    name: SCM Blue
+    value:
+      - hsl(185, 68, 50) # dark
+      - hsl(185, 68, 50) # default/base
+      - hsl(185, 68, 69) # light
+      - hsl(185, 68, 85) # lighter
+      - hsl(185, 61, 85) # lightest
+
+  success:
+    name: success
+    value:
+      - hsl(137, 31, 33)
+      - hsl(138, 38, 55)
+      - hsl(137, 38, 73)
+      - hsl(139, 38, 89)
+
+  warning:
+    name: warning
+    value:
+      - hsl(40, 48, 38) 
+      - hsl(39, 84, 64)
+      - hsl(40, 84, 78)
+      - hsl(40, 83, 91)
+
+  danger:
+    name: danger
+    value:
+      - hsl(2, 34, 37)
+      - hsl(1, 56, 62)
+      - hsl(2, 56, 77)
+      - hsl(2, 55, 90)
+
+  gray:
+    name: Gray
+    value:
+      - hsl(0, 0, 83)
+      - hsl(0, 0, 90) 
+      - hsl(0, 0, 93)
+      - hsl(220, 22, 96)
+      - hsl(0, 0, 98)
+  
+  "primary-dark-1": hsl(243, 47, 32)
+  "nav-bar.background": hsl(270, 21, 15)
+  "nav-bar.background:focus": hsl(185, 64, 51)
+  "nav-bar.border": hsl(270, 21, 15)
+  "nav-bar.item.background:active": hsl(185, 64, 51)
+  "nav-bar.text": hsl(0, 0, 100)
+  "nav-bar.item.text:active": hsl(0, 0, 100)
+  "top-bar.background": hsl(0, 0, 100)
+  "top-bar.border": hsl(0, 0, 100)
+shadow:
+  flat:
+    value: none
+  raised:
+    value: 0 3px 11px 0 rgba(0, 0, 0, 0.21)
+
+radius:
+  button: 4
+
+root-font-size: 16px

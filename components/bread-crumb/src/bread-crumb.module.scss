@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .pages {
   ol {
@@ -15,22 +15,24 @@
 
 .page {
   position: relative;
-  margin-right: ui-context-size('l');
+
+  @include margin-right('large');
+
   cursor: pointer;
 }
 
 .page,
 .page a {
-  color: ui-text-color('primary');
+  color: color('primary');
 
-  @include use-text-style('p');
+  @include typography('paragraph');
 
   text-decoration: none;
 }
 
 .page:last-child,
 .page:last-child a {
-  color: ui-text-color('dark');
+  color: color('text-dark');
   pointer-events: none;
 }
 
@@ -41,7 +43,7 @@
   display: inline-block;
   padding: 2px;
   content: ' ';
-  border-color: ui-text-color('dark');
+  border-color: color('text-dark');
   border-style: solid;
   border-width: 0 1px 1px 0;
   opacity: 0.6;

@@ -31,17 +31,26 @@ module.exports = function(filename) {
 function prepare(tokens) {
   const normalizedTokens = {}
 
-  if (tokens.color) {
+  if (tokens.colors) {
     const colors = {}
 
-    for (const id in tokens.color) {
-      const { value } = tokens.color[id]
-      const [dark, base, light, lighter, lightest] = value
-      const text =
-        base.substr(0, base.length - 1).replace('hsl', 'hsla') + ', 0.87)'
-      colors[id] = { dark, base, text, light, lighter, lightest }
-    }
+    for (const id in tokens.colors) {
+      const { value } = tokens.colors[id]
+      if (value) {
+        const [dark, base, light, lighter, lightest] = value
+        const text =
+          base.substr(0, base.length - 1).replace('hsl', 'hsla') + ', 0.87)'
 
+        const shades = { dark, base, text, light, lighter, lightest }
+        normalizedTokens[`colors-${id}`] = base
+
+        for (const key in shades) {
+          colors[`${id}-${key}`] = shades[key]
+        }
+      } else {
+        colors[id] = tokens.colors[id]
+      }
+    }
     normalizedTokens.colors = colors
   }
 
@@ -123,6 +132,14 @@ function prepare(tokens) {
 
     for (const key in tokens.size) {
       normalizedTokens.sizes[key] = tokens.size[key] + 'px'
+    }
+  }
+
+  if (tokens.radius) {
+    normalizedTokens.radius = {}
+
+    for (const key in tokens.radius) {
+      normalizedTokens.radius[key] = tokens.radius[key] + 'px'
     }
   }
 

@@ -4,141 +4,69 @@
   "description": "UIKit token definition schema",
   "type": "object",
   "properties": {
-    "color": {
+    "tokens-colors-primary": {
       "type": "object",
-      "required": ["primary", "green", "yellow", "red"],
-      "additionalProperties": {
-        "type": "object",
-        "required": ["name", "value"],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "array",
-            "minLength": 4,
-            "maxLength": 4,
-            "items": {
-              "type": "string",
-              "pattern": "^hsl\\([0-9]+,\\s*[0-9]+,\\s*[0-9]+\\)$"
-            }
-          }
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^hsl\\([0-9]+,\\s*[0-9]+,\\s*[0-9]+\\)$"
         }
       }
     },
-    "text-color": {
+    "tokens-colors-success": {
       "type": "object",
-      "required": ["dark", "light"],
-      "additionalProperties": {
-        "type": "object",
-        "required": ["name", "value"],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "array",
-            "minLength": 2,
-            "maxLength": 3,
-            "items": {
-              "type": "string",
-              "pattern": "^(hsla|rgba)\\([0-9]+,\\s?[0-9]+,\\s+[0-9]+\\,\\s+0\\.[0-9]+\\)$"
-            }
-          }
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^hsl\\([0-9]+,\\s*[0-9]+,\\s*[0-9]+\\)$"
         }
       }
     },
-    "shadow": {
+    "tokens-colors-warning": {
+      "type": "object",
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^hsl\\([0-9]+,\\s*[0-9]+,\\s*[0-9]+\\)$"
+        }
+      }
+    },
+    "tokens-colors-danger": {
+      "type": "object",
+      "required": ["name", "value"],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "pattern": "^hsl\\([0-9]+,\\s*[0-9]+,\\s*[0-9]+\\)$"
+        }
+      }
+    },
+    "tokens-color": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "tokens-shadow": {
       "type": "object",
       "required": ["flat", "raised"],
       "additionalProperties": {
-        "type": "object",
-        "required": ["value"],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "string"
-          }
-        }
-      }
-    },
-    "font-family": {
-      "type": "object",
-      "required": ["default"],
-      "additionalProperties": {
-        "type": "object",
-        "required": ["name", "value"],
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            },
-            "minItems": 1
-          }
-        }
-      }
-    },
-    "text-style": {
-      "type": "object",
-      "required": [],
-      "additionalProperties": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "value": {
-            "type": "object",
-            "properties": {
-              "font-family": {
-                "type": "string"
-              },
-              "font-size": {
-                "type": "number"
-              },
-              "font-weight": {
-                "oneOf": [
-                  { "const": 100 },
-                  { "const": 200 },
-                  { "const": 300 },
-                  { "const": 400 },
-                  { "const": 500 },
-                  { "const": 600 },
-                  { "const": 700 },
-                  { "const": 800 }
-                ]
-              },
-              "text-transform": {
-                "oneOf": [
-                  { "const": "lowercase" },
-                  { "const": "uppercase" }
-                ]
-              }
-            }
-          }
-        }
-      }
-    },
-    "spacing": {
-      "type": "object",
-      "required": ["2xs", "xs", "s", "r", "m", "l", "xl", "2xl"],
-      "additionalItems": {
-        "type": "number"
-      }
-    },
-    "grid": {
-      "type": "object",
-      "required": ["value"],
-      "properties": {
-        "value": {
-          "type": "number"
-        }
+        "type": "string"
       }
     }
   }

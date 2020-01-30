@@ -1,26 +1,26 @@
-@import '@design';
+@import '@accoutrement';
 
 .badge {
   display: inline-block;
-  padding: ui-context-size('2xs') ui-context-size('s');
+  padding: size('small') size('2x');
   text-transform: uppercase;
   border: solid 1px;
   border-radius: 1rem;
 
-  @include use-text-style(p);
+  @include typography('paragraph');
 
   $types: (
     'primary': 'primary',
-    'success': 'green',
-    'error': 'red',
-    'warning': 'yellow',
+    'success': 'success',
+    'error': 'danger',
+    'warning': 'warning',
   );
 
   @each $name, $color in $types {
     &.#{$name} {
-      color: ui-color($color, dark);
-      background-color: ui-color($color, lighter);
-      border-color: ui-color($color, dark);
+      color: color('#{$color}-dark-2');
+      background-color: color('#{$color}-light-2');
+      border-color: color('#{$color}-dark-2');
     }
   }
 }

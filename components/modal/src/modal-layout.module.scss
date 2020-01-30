@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .title {
   margin-top: 0;
@@ -8,13 +8,13 @@
 .wrapper {
   min-width: 320px;
   min-height: 320px;
-  padding: ui-size('l');
-  background: ui-color('white');
+  padding: size('6x');
+  background: color('white');
 }
 
 .actions {
-  padding-top: ui-size('l');
-  margin-top: ui-size('l');
+  padding-top: size('6x');
+  margin-top: size('6x');
   text-align: right;
-  border-top: 1px solid ui-color('gray', 'dark');
+  border-top: 1px solid color('gray-dark');
 }

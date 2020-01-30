@@ -9,16 +9,15 @@
   @include typography('button');
   @include transition('button');
 
+  display: inline-block;
+  line-height: 1.4;
+  text-decoration: none;
+  cursor: pointer;
   appearance: none;
 
   + .container {
     @include margin-left('large');
   }
-
-  display: inline-block;
-  line-height: 1;
-  text-decoration: none;
-  cursor: pointer;
 
   &::-moz-focus-inner {
     border: 0;
@@ -37,7 +36,7 @@
   }
 
   &.primary {
-    color: contrast-text-color('primary');
+    color: contrast-text-color('primary-dark-1');
     background-color: color('primary');
     border-color: color('primary');
 
@@ -49,13 +48,14 @@
 
     &:not(:disabled) {
       &:hover {
-        background-color: color('primary-light-1');
-        border-color: color('primary-light-1');
-      }
-
-      &:active:hover {
         background-color: color('primary-dark-2');
         border-color: color('primary-dark-2');
+      }
+
+      &:active,
+      &:active:hover {
+        background-color: color('primary-dark-3');
+        border-color: color('primary-dark-3');
       }
     }
   }
@@ -130,6 +130,7 @@
 
   &.icon {
     @include padding('icon-button');
+    @include border-radius('button.circle');
 
     box-sizing: content-box;
     width: 1em;

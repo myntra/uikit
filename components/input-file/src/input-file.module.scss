@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .input-file {
   display: flex;
@@ -15,6 +15,6 @@
   text-overflow: ellipsis;
 
   input:read-only {
-    border-bottom: 1px solid ui-color('gray', 'dark');
+    border-bottom: 1px solid color('gray-dark');
   }
 }

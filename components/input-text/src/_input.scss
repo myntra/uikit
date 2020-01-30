@@ -1,23 +1,23 @@
 @mixin mixin-input-component {
-  padding: ui-context-size('2xs') ui-context-size('l') ui-context-size('2xs') 0;
+  padding: padding('input');
   font-size: inherit;
-  color: ui-text-color('dark');
+  color: color('dark');
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid ui-color('gray', 'dark');
+  border-bottom: 1px solid color('gray-dark');
 
   &:focus {
-    border-bottom: 1px solid ui-color('primary');
+    border-bottom: 1px solid color('primary');
     outline: none;
   }
 
   &::placeholder {
-    color: ui-text-color('dark', 'mid-emphasis');
+    color: color('text-dark-medium-emphasis');
   }
 
   &:disabled,
   &[disabled] {
-    color: ui-text-color('dark', 'disabled');
+    color: color('text-dark-disabled');
   }
 
   &:read-only {

@@ -1,4 +1,4 @@
-color:
+colors:
   primary:
     name: SCM Purple
     value:
@@ -7,24 +7,24 @@ color:
       - hsl(244, 54, 72) # light
       - hsl(244, 54, 93)  # lighter
 
-  green:
-    name: Green
+  success:
+    name: success
     value:
       - hsl(137, 31, 33)
       - hsl(138, 38, 55)
       - hsl(137, 38, 73)
       - hsl(139, 38, 89)
 
-  yellow:
-    name: Yellow
+  warning:
+    name: warning
     value:
       - hsl(40, 48, 38)
       - hsl(39, 84, 64)
       - hsl(40, 84, 78)
       - hsl(40, 83, 91)
 
-  red:
-    name: Red
+  danger:
+    name: danger
     value:
       - hsl(2, 34, 37)
       - hsl(1, 56, 62)

@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 @import '@myntra/uikit-component-input-text/style.scss';
 
 .input {
@@ -15,7 +15,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  color: ui-text-color('dark', 'mid-emphasis');
+  color: color('text-dark-medium-emphasis');
   pointer-events: none;
   border-color: transparent;
 }

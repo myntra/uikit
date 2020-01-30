@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .year-container {
   position: absolute;
@@ -12,15 +12,15 @@
     margin: 0.25em 1em;
     text-align: center;
     cursor: pointer;
-    border-radius: ui-size('2xs');
+    border-radius: size('1x');
   }
 
   .selected {
-    color: ui-text-color('light');
-    background: ui-color('primary');
+    color: color('text-light');
+    background: color('primary');
   }
 
   .year:not(.selected):hover {
-    color: ui-text-color('primary');
+    color: color('primary');
   }
 }

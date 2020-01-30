@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .circle {
   position: relative;
@@ -49,17 +49,17 @@
 }
 
 .info {
-  --u-progress-color: #{ui-color('primary')};
+  --u-progress-color: #{color('primary')};
 }
 
 .success {
-  --u-progress-color: #{ui-color('green')};
+  --u-progress-color: #{color('success')};
 }
 
 .warning {
-  --u-progress-color: #{ui-color('yellow')};
+  --u-progress-color: #{color('warning')};
 }
 
 .danger {
-  --u-progress-color: #{ui-color('red')};
+  --u-progress-color: #{color('danger')};
 }

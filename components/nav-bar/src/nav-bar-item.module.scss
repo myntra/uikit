@@ -40,8 +40,8 @@
   }
 
   &.is-active {
-    color: text-color('primary');
-    background-color: color('primary-light-3');
+    color: color('nav-bar.item.text:active');
+    background-color: color('nav-bar.item.background:active');
   }
 
   .item-icon {

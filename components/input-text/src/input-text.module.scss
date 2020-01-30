@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 @import 'input';
 
 .input {
@@ -10,8 +10,7 @@
   width: 100%;
 
   &.with-icon {
-    padding: ui-context-size('2xs') ui-context-size('l') ui-context-size('2xs')
-      1.2em;
+    padding: padding('input.with-icon');
   }
 }
 

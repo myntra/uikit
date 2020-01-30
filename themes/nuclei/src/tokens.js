@@ -1,41 +1,36 @@
-export default {
+module.exports = {
+  colorsPrimary: 'hsl(244, 54, 53)',
+  colorsSuccess: 'hsl(138, 38, 55)',
+  colorsWarning: 'hsl(39, 84, 64)',
+  colorsDanger: 'hsl(1, 56, 62)',
+  colorsGray: 'hsl(0, 0, 90)',
   colors: {
-    primary: {
-      dark: 'hsl(244, 47, 32)',
-      base: 'hsl(244, 54, 53)',
-      text: 'hsla(244, 54, 53, 0.87)',
-      light: 'hsl(244, 54, 72)',
-      lighter: 'hsl(244, 54, 93)',
-    },
-    green: {
-      dark: 'hsl(137, 31, 33)',
-      base: 'hsl(138, 38, 55)',
-      text: 'hsla(138, 38, 55, 0.87)',
-      light: 'hsl(137, 38, 73)',
-      lighter: 'hsl(139, 38, 89)',
-    },
-    yellow: {
-      dark: 'hsl(40, 48, 38)',
-      base: 'hsl(39, 84, 64)',
-      text: 'hsla(39, 84, 64, 0.87)',
-      light: 'hsl(40, 84, 78)',
-      lighter: 'hsl(40, 83, 91)',
-    },
-    red: {
-      dark: 'hsl(2, 34, 37)',
-      base: 'hsl(1, 56, 62)',
-      text: 'hsla(1, 56, 62, 0.87)',
-      light: 'hsl(2, 56, 77)',
-      lighter: 'hsl(2, 55, 90)',
-    },
-    gray: {
-      dark: 'hsl(0, 0, 83)',
-      base: 'hsl(0, 0, 90)',
-      text: 'hsla(0, 0, 90, 0.87)',
-      light: 'hsl(0, 0, 93)',
-      lighter: 'hsl(220, 22, 96)',
-      lightest: 'hsl(0, 0, 98)',
-    },
+    primaryDark: 'hsl(244, 47, 32)',
+    primaryBase: 'hsl(244, 54, 53)',
+    primaryText: 'hsla(244, 54, 53, 0.87)',
+    primaryLight: 'hsl(244, 54, 72)',
+    primaryLighter: 'hsl(244, 54, 93)',
+    successDark: 'hsl(137, 31, 33)',
+    successBase: 'hsl(138, 38, 55)',
+    successText: 'hsla(138, 38, 55, 0.87)',
+    successLight: 'hsl(137, 38, 73)',
+    successLighter: 'hsl(139, 38, 89)',
+    warningDark: 'hsl(40, 48, 38)',
+    warningBase: 'hsl(39, 84, 64)',
+    warningText: 'hsla(39, 84, 64, 0.87)',
+    warningLight: 'hsl(40, 84, 78)',
+    warningLighter: 'hsl(40, 83, 91)',
+    dangerDark: 'hsl(2, 34, 37)',
+    dangerBase: 'hsl(1, 56, 62)',
+    dangerText: 'hsla(1, 56, 62, 0.87)',
+    dangerLight: 'hsl(2, 56, 77)',
+    dangerLighter: 'hsl(2, 55, 90)',
+    grayDark: 'hsl(0, 0, 83)',
+    grayBase: 'hsl(0, 0, 90)',
+    grayText: 'hsla(0, 0, 90, 0.87)',
+    grayLight: 'hsl(0, 0, 93)',
+    grayLighter: 'hsl(220, 22, 96)',
+    grayLightest: 'hsl(0, 0, 98)',
   },
   textColors: {
     dark: {
@@ -127,7 +122,7 @@ export default {
   },
   verticalGridSize: '16px',
   raw: {
-    color: {
+    colors: {
       primary: {
         name: 'SCM Purple',
         value: [
@@ -137,8 +132,8 @@ export default {
           'hsl(244, 54, 93)',
         ],
       },
-      green: {
-        name: 'Green',
+      success: {
+        name: 'success',
         value: [
           'hsl(137, 31, 33)',
           'hsl(138, 38, 55)',
@@ -146,8 +141,8 @@ export default {
           'hsl(139, 38, 89)',
         ],
       },
-      yellow: {
-        name: 'Yellow',
+      warning: {
+        name: 'warning',
         value: [
           'hsl(40, 48, 38)',
           'hsl(39, 84, 64)',
@@ -155,8 +150,8 @@ export default {
           'hsl(40, 83, 91)',
         ],
       },
-      red: {
-        name: 'Red',
+      danger: {
+        name: 'danger',
         value: [
           'hsl(2, 34, 37)',
           'hsl(1, 56, 62)',

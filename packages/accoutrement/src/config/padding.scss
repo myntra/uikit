@@ -22,6 +22,12 @@ $paddings: (
   'nav-bar.item': '#padding-small',
   'modal': '#default',
   'tab.item': '#4x' '#8x',
+  'badge': '#small' '#2x',
+  'input': '#small' '#5x' '#small' '#padding-none',
+  'input.with-icon': '#small' '#5x' '#small' '#4x',
+  'group-elements': '#3x' '#6x' '#3x' '#padding-none',
+  'list.item': '#2x' '#3x',
+  'input-date.month': '#small' '#4x',
 );
 
 $-tokens-paddings: () !default;

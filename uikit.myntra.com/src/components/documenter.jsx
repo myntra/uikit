@@ -97,7 +97,7 @@ export default class Documenter extends Component {
                           prop.defaultValue && prop.defaultValue.value ? (
                             prop.defaultValue.value
                           ) : (
-                            prop.defaultValue
+                            JSON.stringify(prop.defaultValue, null, 2)
                           )
                         ) : (
                           JSON.stringify(

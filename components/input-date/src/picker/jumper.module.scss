@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .jumper {
   display: flex;
@@ -19,10 +19,10 @@
     align-items: center;
     max-width: 100%;
     padding: 0;
-    margin: ui-size('s') 0;
-    color: ui-text-color('dark');
+    margin: size('3x') 0;
+    font-size: font-size('caption');
+    color: color('text-dark');
     text-transform: uppercase;
-
     cursor: pointer;
     background-color: transparent;
     border: none;
@@ -31,13 +31,11 @@
     -moz-appearance: none;
     -webkit-appearance: none;
     -webkit-box-align: center;
-
-    @include use-text-style('small');
   }
 
   .next,
   .prev {
-    padding: ui-size('xs');
+    padding: size('2x');
     cursor: pointer;
   }
 

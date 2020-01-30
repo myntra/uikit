@@ -1,4 +1,4 @@
-@import '@design';
+@import '@accoutrement';
 
 .day {
   --day-size: 2.5rem;
@@ -13,11 +13,11 @@
   transition: all 250ms;
 
   &.today {
-    color: ui-text-color('primary');
+    color: color('primary');
   }
 
   &.focused {
-    box-shadow: ui-shadow('raised');
+    box-shadow: shadow('raised');
   }
 
   &.focused:not(.selected) {
@@ -25,8 +25,8 @@
   }
 
   &.selected {
-    color: ui-text-color('light');
-    background-color: ui-color('primary');
+    color: color('text-light');
+    background-color: color('primary');
   }
 
   &.selected.start {
@@ -40,12 +40,12 @@
   }
 
   &.disabled {
-    color: ui-text-color('dark', 'disabled');
+    color: color('text-dark-disabled');
     cursor: not-allowed;
   }
 
   &.selected.disabled {
-    background-color: ui-color('gray', 'dark');
+    background-color: color('gray-dark');
   }
 
   &.empty,
