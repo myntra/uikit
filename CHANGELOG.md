@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.0"></a>
+## 1.13.0 (2020-01-31)
+
+* added note for theme on homepage ([7f68b98](https://bitbucket.org/myntra/uikit/commits/7f68b98)), closes [#246](https://bitbucket.org/myntra/uikit/issue/246)
+* added themes logic ([a87af36](https://bitbucket.org/myntra/uikit/commits/a87af36)), closes [#218](https://bitbucket.org/myntra/uikit/issue/218)
+* fix for docgen failing when adding new component ([49f3429](https://bitbucket.org/myntra/uikit/commits/49f3429)), closes [#242](https://bitbucket.org/myntra/uikit/issue/242)
+* Spaces allowed for input select DropDown ([ace1f18](https://bitbucket.org/myntra/uikit/commits/ace1f18)), closes [#244](https://bitbucket.org/myntra/uikit/issue/244)
+* chore(release): 1.12.47 ([060bec4](https://bitbucket.org/myntra/uikit/commits/060bec4))
+
+
+
 <a name="1.12.47"></a>
 ## <small>1.12.47 (2020-01-28)</small>
 

@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-input-text",
-  "version": "1.12.47",
+  "version": "1.13.0",
   "main": "dist/input-text.cjs.js",
   "module": "dist/input-text.esm.js",
   "types": "dist/index.d.ts",
@@ -31,9 +31,9 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/codemod-utils": "1.12.*",
-    "@myntra/uikit-can-i-use": "1.12.*",
-    "@myntra/uikit-component-icon": "1.12.*",
-    "@myntra/uikit-utils": "1.12.*"
+    "@myntra/codemod-utils": "1.13.*",
+    "@myntra/uikit-can-i-use": "1.13.*",
+    "@myntra/uikit-component-icon": "1.13.*",
+    "@myntra/uikit-utils": "1.13.*"
   }
 }
