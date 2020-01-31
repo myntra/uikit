@@ -27,6 +27,12 @@ Install UIKit in your project:
 npm add @myntra/uikit
 ```
 
+Install UIKit with unity theme:
+
+```bash
+npm add @myntra/uikit-theme-unity
+```
+
 Include CSS reset for global styles:
 
 ```jsx
@@ -35,3 +41,21 @@ import '@myntra/uikit/design.css';
 ```
 
 Now you can use components from UIKit, a good starting point would be [Page](/components/page) component.
+
+## UIKit migration
+
+UIKit migration can be done by installing the theme packages for migrateing the components gradually in stages.
+
+Steps to migrate:
+
+```bash
+npm add @myntra/uikit-theme-unity
+
+or
+
+npm add @myntra/uikit-theme-nuclei
+```
+
+```jsx
+import { Button } from '@myntra/uikit-theme-unity'
+```
