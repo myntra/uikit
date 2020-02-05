@@ -18,7 +18,7 @@ const {
 targets.forEach((name) => {
   const shortName = getShortName(name)
   const rootDir = getPackageDir(name)
-
+  console.log(`Bootstrapping module: ${name}`)
   const pkgFile = path.join(rootDir, `package.json`)
   const pkg = {
     name,
@@ -56,6 +56,7 @@ targets.forEach((name) => {
 
   fs.writeFileSync(pkgFile, JSON.stringify(pkg, null, 2) + '\n')
 
+  console.log(`Package file created at ${pkgFile}`)
   if (isComponent(name)) {
     const readmeFile = path.join(rootDir, `readme.mdx`)
 
@@ -86,17 +87,22 @@ import ${component} from './src/${shortName}'
   }
 
   const mainFile = path.join(rootDir, pkg.main)
+  console.log('mainFile: ', mainFile, '\n')
   const srcDir = path.dirname(mainFile)
+  console.log('srcDir: ', srcDir, '\n')
   if (!fs.existsSync(mainFile)) {
     if (!fs.existsSync(srcDir)) {
       const newDir = path.join(rootDir, 'src')
-      fs.mkdirSync(newDir)
-      srcFiles.forEach((fileObj) =>
-        fs.writeFileSync(
-          path.join(newDir, fileObj.name),
-          fileObj.initialContent
+      if (!fs.readdirSync(newDir).length) {
+        fs.mkdirSync(newDir)
+        srcFiles.forEach((fileObj) =>
+          fs.writeFileSync(
+            path.join(newDir, fileObj.name),
+            fileObj.initialContent
+          )
         )
-      )
+      }
     }
   }
+  console.log(`Project files created at: ${srcDir}`)
 })

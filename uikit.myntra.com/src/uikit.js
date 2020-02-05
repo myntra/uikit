@@ -97,6 +97,9 @@ export const InputRadio = asyncComponent(() =>
 export const InputS3File = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-s3-file')
 )
+export const InputAzureFile = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-azure-file')
+)
 export const InputSelect = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-select' */ '@myntra/uikit-component-input-select')
 )
@@ -321,6 +324,12 @@ export const META = [
     since: '0.11.0',
     status: 'READY',
     path: '/components/input-s3-file'
+  },
+  {
+    name: 'InputAzureFile',
+    since: '1.0.0',
+    status: 'READY',
+    path: '/components/input-azure-file'
   },
   {
     name: 'InputSelect',

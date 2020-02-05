@@ -10,6 +10,11 @@
   "publishConfig": {
     "registry": "http://registry.myntra.com"
   },
+  "keywords": [
+    "uikit",
+    "component"
+  ],
+  "homepage": "https://uikit.myntra.com/components/input-azure-file",
   "files": [
     "src/",
     "dist/",
@@ -17,13 +22,13 @@
     "*.codemod.js"
   ],
   "sideEffects": false,
-  "peerDependencies": {
+  "optionalDependencies": {
     "react": ">=15.4"
   },
   "devDependencies": {
     "@types/react": "^16.8"
   },
-  "optionalDependencies": {
+  "peerDependencies": {
     "react": ">=15.4"
   },
   "dependencies": {
