@@ -26,51 +26,18 @@ $-tokens-root-font-size: 16px !default;
 
 $text-sizes: (
   'root': $-tokens-root-font-size,
-  'title': '#root'
-    (
-      'times': 28 / 16,
-    ),
-  'h1': '#root'
-    (
-      'times': 24 / 16,
-    ),
-  'h2': '#root'
-    (
-      'times': 20 / 16,
-    ),
-  'h3': '#root'
-    (
-      'times': 16 / 16,
-    ),
-  'h4': '#root'
-    (
-      'times': 14 / 16,
-    ),
-  'h5': '#root'
-    (
-      'times': 14 / 16,
-    ),
-  'h6': '#root'
-    (
-      'times': 14 / 16,
-    ),
-  'subtitle': '#root'
-    (
-      'times': 1,
-    ),
-  'body': '#root'
-    (
-      'times': 14 / 16,
-    ),
-  'content': '#root'
-    (
-      'times': 12 / 16,
-    ),
-  'caption': '#root'
-    (
-      'times': 10 / 16,
-    ),
-  'interface': 12 / 16,
+  'title': 28,
+  'h1': 24,
+  'h2': 20,
+  'h3': 16,
+  'h4': 14,
+  'h5': 14,
+  'h6': 14,
+  'subtitle': 16,
+  'body': 14,
+  'content': 12,
+  'caption': 10,
+  'interface': 12,
   'button': '#interface',
 );
 
