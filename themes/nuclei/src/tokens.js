@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   colorsPrimary: 'hsl(244, 54, 53)',
   colorsSuccess: 'hsl(138, 38, 55)',
   colorsWarning: 'hsl(39, 84, 64)',
