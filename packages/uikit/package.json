@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit",
-  "version": "1.13.2",
+  "version": "1.13.3",
   "main": "dist/uikit.cjs.js",
   "module": "dist/uikit.esm.js",
   "types": "dist/index.d.ts",
@@ -72,6 +72,7 @@
     "@myntra/uikit-component-top-bar": "1.13.*",
     "@myntra/uikit-component-virtual-grid": "1.13.*",
     "@myntra/uikit-component-virtual-list": "1.13.*",
+    "@myntra/uikit-component-input-azure-file": "1.13.*",
     "@myntra/uikit-utils": "1.13.*"
   },
   "devDependencies": {

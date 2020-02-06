@@ -1160,6 +1160,7 @@ importers:
       '@myntra/uikit-component-group': 'link:../../components/group'
       '@myntra/uikit-component-icon': 'link:../../components/icon'
       '@myntra/uikit-component-image': 'link:../../components/image'
+      '@myntra/uikit-component-input-azure-file': 'link:../../components/input-azure-file'
       '@myntra/uikit-component-input-checkbox': 'link:../../components/input-checkbox'
       '@myntra/uikit-component-input-date': 'link:../../components/input-date'
       '@myntra/uikit-component-input-file': 'link:../../components/input-file'
@@ -1212,6 +1213,7 @@ importers:
       '@myntra/uikit-component-group': 1.13.*
       '@myntra/uikit-component-icon': 1.13.*
       '@myntra/uikit-component-image': 1.13.*
+      '@myntra/uikit-component-input-azure-file': 1.13.*
       '@myntra/uikit-component-input-checkbox': 1.13.*
       '@myntra/uikit-component-input-date': 1.13.*
       '@myntra/uikit-component-input-file': 1.13.*
