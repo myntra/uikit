@@ -4,31 +4,55 @@ layout: docs
 
 import ColorPreview from '@components/color-preview'
 import { tokens } from '@theme'
+import { tokens as UnityTokens } from '@theme-unity'
 
 # Colors
 
 The SCM color palette is designed and implemented in a themeable manner.
 
+# Nuclei
+
 ## Primary Color
 
-<ColorPreview name="Primary" {...tokens.colors.primary} />
+<ColorPreview {...tokens.raw.colors.primary} name="Primary"/>
 
 ## Gray - Neutral Color
 
-<ColorPreview name="Gray" {...tokens.colors.gray} />
+<ColorPreview {...tokens.raw.colors.gray} name="Gray" />
 
 ## Green - Success Color
 
-<ColorPreview name="Green" {...tokens.colors.green} />
+<ColorPreview {...tokens.raw.colors.success} name="Success" />
 
 ## Red - Error Color
 
-<ColorPreview name="Red" {...tokens.colors.red} />
+<ColorPreview {...tokens.raw.colors.danger} name="Danger" />
 
 ## Yellow - Warning Color
 
-<ColorPreview name="Yellow" {...tokens.colors.yellow} />
+<ColorPreview {...tokens.raw.colors.warning} name="Warning" />
 
+# Unity
+
+## Primary Color
+
+<ColorPreview {...UnityTokens.raw.colors.primary} name="Primary"/>
+
+## Gray - Neutral Color
+
+<ColorPreview {...UnityTokens.raw.colors.gray} name="Gray" />
+
+## Green - Success Color
+
+<ColorPreview {...UnityTokens.raw.colors.success} name="Success" />
+
+## Red - Error Color
+
+<ColorPreview {...UnityTokens.raw.colors.danger} name="Danger" />
+
+## Yellow - Warning Color
+
+<ColorPreview {...UnityTokens.raw.colors.warning} name="Warning" />
 - The colours are equal in status. They always appear in full tone and may not be darkened, lightened or displayed transparently.
 - The color variables are determined by common roles and usage; it is not based singularly on a color value (i.e. unique hex code).
 - The same color value may be assigned to multiple variables in a theme's palette when the values have distinctly different roles.

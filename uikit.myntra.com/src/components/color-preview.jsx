@@ -4,7 +4,10 @@ import PropTypes from 'prop-types'
 import { Grid } from '@myntra/uikit'
 import ColorCard from './color-card'
 
-export default function ColorPreview({ name, base, light, dark, lighter, darker, lightest, darkest, children }) {
+export default function ColorPreview({ name, value: colors, children }) {
+  const [dark, base, light, lighter, lightest, darker, darkest] = colors
+  console.log(dark, base, light, lighter, lightest)
+
   return (
     <Grid>
       <Grid.Column>
@@ -49,5 +52,6 @@ ColorPreview.propTypes = {
   darker: PropTypes.string,
   lightest: PropTypes.string,
   darkest: PropTypes.string,
+  value: PropTypes.arrayOf(PropTypes.string),
   children: PropTypes.any
 }

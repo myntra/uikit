@@ -31,6 +31,7 @@ module.exports = {
       .set('@design$', themesDir + '/nuclei/design.scss')
       .set('@accoutrement$', themesDir + '/nuclei/design.next.scss')
       .set('@theme$', themesDir + '/nuclei' + entry)
+      .set('@theme-unity$', themesDir + '/unity' + entry)
 
     components.forEach(name =>
       config.resolve.alias.set(`@myntra/uikit-component-${name}`, componentsDir + '/' + name + entry)
