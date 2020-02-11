@@ -48,6 +48,9 @@ function DefaultLayout({ router, children, goto }) {
               Getting Started
             </NavBar.Item>
           </NavBar.Group>
+          <NavBar.Item to="/contributing" icon="donate">
+            Contributing
+          </NavBar.Item>
         </NavBar>
       )}
       renderTopBar={() => (
