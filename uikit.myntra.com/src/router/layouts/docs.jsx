@@ -2,12 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import DefaultLayout from './default'
 
-import './docs.css'
-
 export default function DocsPageLayout({ children }) {
   return (
     <DefaultLayout>
-      <div className="docs-page-layout">{children}</div>
+      <div style={{ margin: 'auto', maxWidth: '800px' }}>{children}</div>
     </DefaultLayout>
   )
 }
