@@ -14,6 +14,10 @@ export interface Props extends BaseProps {
    * Contents of the page.
    */
   children: JSX.Element
+  /**
+   * Flag to make the side navbar always open or open on hover
+   */
+  alwaysOpen: boolean
 }
 
 /**
@@ -30,11 +34,17 @@ export default function Page({
   children,
   className,
   style,
+  alwaysOpen,
   ...props
 }: Props) {
   return (
     <div className={classnames('container', className)} style={style}>
-      <div className={classnames('left')} key="nav">
+      <div
+        className={classnames('left', {
+          'always-open': alwaysOpen,
+        })}
+        key="nav"
+      >
         {renderNavBar()}
       </div>
       <div className={classnames('right')}>

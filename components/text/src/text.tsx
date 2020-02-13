@@ -18,7 +18,14 @@ export interface Props extends BaseProps {
   /**
    * Use theme colors for text.
    */
-  color?: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
+  color?:
+    | 'primary'
+    | 'success'
+    | 'warning'
+    | 'error'
+    | 'dark'
+    | 'light'
+    | 'gray'
 
   /**
    * Controls the legibility of the text.

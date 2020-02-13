@@ -31,8 +31,8 @@ export default function InputNumber({
     <div className={className}>
       <input
         {...props}
-        type="number"
-        value={typeof value !== 'number' ? '' : value}
+        type="text"
+        value={typeof value !== 'number' || isNaN(value) ? '' : value}
         className={classnames('input')}
         onChange={(event) =>
           onChange && onChange(parseFloat(event.target.value))

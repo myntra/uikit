@@ -6,6 +6,10 @@ export function isArray<T = unknown>(value: any): value is T[] {
   return Array.isArray(value)
 }
 
+export function isNullOrUndefined(value: any) {
+  return value === null || value === undefined
+}
+
 export function isPlainObject<T = unknown>(
   value: any
 ): value is Record<string, T> {

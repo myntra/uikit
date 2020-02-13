@@ -6,14 +6,6 @@
   @include typography('title');
 }
 
-.bolder {
-  font-weight: bolder;
-}
-
-.lighter {
-  font-weight: lighter;
-}
-
 .h1 {
   @include typography('h1');
 }
@@ -46,6 +38,7 @@ $-text-colors: (
   'primary': 'primary',
   'success': 'success',
   'warning': 'warning',
+  'gray': 'gray',
   'error': 'danger',
   'dark': 'dark',
   'light': 'light',
@@ -63,4 +56,12 @@ $-text-colors: (
       color: text-color($value, 'disabled');
     }
   }
+}
+
+.bolder {
+  font-weight: bolder;
+}
+
+.lighter {
+  font-weight: lighter;
 }

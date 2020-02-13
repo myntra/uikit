@@ -1,7 +1,7 @@
 @mixin mixin-input-component {
   padding: padding('input');
   font-size: inherit;
-  color: color('dark');
+  color: text-color('dark');
   background-color: transparent;
   border: none;
   border-bottom: 1px solid color('gray-dark');

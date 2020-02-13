@@ -4,7 +4,7 @@ import VirtualList, {
   Props as VirtualListProps,
 } from '@myntra/uikit-component-virtual-list'
 import classnames from './list.module.scss'
-import { createRef } from '@myntra/uikit-utils'
+import { createRef, isNullOrUndefined } from '@myntra/uikit-utils'
 
 export interface Props<T = any> extends BaseProps {
   /**
@@ -129,7 +129,7 @@ export default class List extends PureComponent<
   }
 
   updateValueById(id: any) {
-    if (!id) return
+    if (isNullOrUndefined(id)) return
     if (!this.props.onChange) return
 
     if (!this.props.multiple) {

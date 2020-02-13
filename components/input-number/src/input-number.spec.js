@@ -2,15 +2,6 @@ import React from 'react'
 import { shallow, mount } from 'enzyme'
 import InputNumber from './input-number'
 
-it('Should be number type', () => {
-  expect(
-    shallow(<InputNumber type="text" />)
-      .find('input')
-      .at(0)
-      .props().type
-  ).toBe('number')
-})
-
 it('renders a placeholder <input> by default', () => {
   expect(
     shallow(<InputNumber placeholder="Type" />)
