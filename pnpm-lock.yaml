@@ -781,6 +781,7 @@ importers:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-section': 'link:../section'
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.19
     optionalDependencies:
@@ -789,6 +790,7 @@ importers:
       '@myntra/uikit-can-i-use': 1.13.*
       '@myntra/uikit-component-button': 1.13.*
       '@myntra/uikit-component-section': 1.13.*
+      '@myntra/uikit-utils': 1.13.*
       '@types/react': ^16.8
       react: '>=15.4'
   components/page:
