@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.13.6"></a>
 ## <small>1.13.6 (2020-02-18)</small>
 
+* chore(release): 1.13.6 ([2f9500a](https://bitbucket.org/myntra/uikit/commits/2f9500a))
 * chore(release): 1.13.6 ([a891f14](https://bitbucket.org/myntra/uikit/commits/a891f14))
 * chore(release): 1.13.6 ([38f0d87](https://bitbucket.org/myntra/uikit/commits/38f0d87))
 * chore(release): 1.13.6 ([d383344](https://bitbucket.org/myntra/uikit/commits/d383344))
