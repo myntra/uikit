@@ -337,6 +337,7 @@ importers:
       '@myntra/uikit-component-grid': 'link:../grid'
       '@myntra/uikit-component-input-checkbox': 'link:../input-checkbox'
       '@myntra/uikit-component-input-date': 'link:../input-date'
+      '@myntra/uikit-component-input-file': 'link:../input-file'
       '@myntra/uikit-component-input-masked': 'link:../input-masked'
       '@myntra/uikit-component-input-month': 'link:../input-month'
       '@myntra/uikit-component-input-number': 'link:../input-number'
@@ -359,6 +360,7 @@ importers:
       '@myntra/uikit-component-grid': 1.13.*
       '@myntra/uikit-component-input-checkbox': 1.13.*
       '@myntra/uikit-component-input-date': 1.13.*
+      '@myntra/uikit-component-input-file': 1.13.*
       '@myntra/uikit-component-input-masked': 1.13.*
       '@myntra/uikit-component-input-month': 1.13.*
       '@myntra/uikit-component-input-number': 1.13.*
@@ -3578,7 +3580,6 @@ packages:
       fast-json-stable-stringify: registry.npmjs.org/fast-json-stable-stringify/2.1.0
       json-schema-traverse: registry.npmjs.org/json-schema-traverse/0.4.1
       uri-js: registry.npmjs.org/uri-js/4.2.2
-    dev: false
     name: ajv
     resolution:
       integrity: sha512-nCprB/0syFYy9fVYU1ox1l2KN8S9I+tziH8D4zdZuLT3N6RMlGSGt5FSTpAiHB/Whv8Qs1cWHma1aMKZyaHRKA==
@@ -8501,7 +8502,6 @@ packages:
       tarball: 'https://registry.npmjs.org/fast-deep-equal/-/fast-deep-equal-2.0.1.tgz'
     version: 2.0.1
   registry.npmjs.org/fast-deep-equal/3.1.1:
-    dev: false
     name: fast-deep-equal
     resolution:
       integrity: sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA==
@@ -17277,7 +17277,7 @@ packages:
     version: 4.0.2
   registry.npmjs.org/table/5.4.6:
     dependencies:
-      ajv: registry.npmjs.org/ajv/6.10.2
+      ajv: registry.npmjs.org/ajv/6.11.0
       lodash: registry.npmjs.org/lodash/4.17.15
       slice-ansi: registry.npmjs.org/slice-ansi/2.1.0
       string-width: registry.npmjs.org/string-width/3.1.0
