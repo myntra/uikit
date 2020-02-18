@@ -38,6 +38,9 @@ import InputRadio, {
 import InputTextArea, {
   Props as InputTextAreaProps,
 } from '@myntra/uikit-component-input-text-area'
+import InputFile, {
+  Props as InputFileProps,
+} from '@myntra/uikit-component-input-file'
 import Button from '@myntra/uikit-component-button'
 import ButtonGroup from '@myntra/uikit-component-button-group'
 import Field, { Props as FieldProps } from '@myntra/uikit-component-field'
@@ -132,6 +135,7 @@ export default class Form extends PureComponent<Props> {
   static TextArea = withField<InputTextAreaProps & FormFieldProps>(
     InputTextArea
   )
+  static File = withField<InputFileProps & FormFieldProps>(InputFile)
 
   cache: Record<string, (value: unknown) => void> = {}
 

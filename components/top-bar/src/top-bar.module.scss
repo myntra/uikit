@@ -59,8 +59,20 @@
 
 .menu {
   background-color: color('white');
+  animation-name: slidein;
+  animation-duration: 0.5s;
 }
 
 .dropdown {
   @include z-index('top-bar.dropdown');
+}
+
+@keyframes slidein {
+  from {
+    max-height: 0;
+  }
+
+  to {
+    max-height: 360px;
+  }
 }

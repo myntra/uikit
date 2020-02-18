@@ -239,7 +239,6 @@ export default class NavBar extends PureComponent<
   }
 
   setActiveGroup = (id: number[]) => {
-    // debugger
     this.setState({ activeGroup: id })
   }
 

@@ -23,6 +23,8 @@
   overflow: auto;
   background-color: #fff;
   box-shadow: shadow('small');
+  animation-name: slidein;
+  animation-duration: 0.5s;
 }
 
 .list {
@@ -35,4 +37,14 @@
 
 .empty {
   padding: 0.5rem 1rem;
+}
+
+@keyframes slidein {
+  from {
+    max-height: 0;
+  }
+
+  to {
+    max-height: 360px;
+  }
 }
