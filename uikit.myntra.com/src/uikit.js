@@ -130,6 +130,9 @@ export const Modal = asyncComponent(() =>
 export const NavBar = asyncComponent(() =>
   import(/* webpackChunkName: 'components/nav-bar' */ '@myntra/uikit-component-nav-bar')
 )
+export const Notification = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/notification' */ '@myntra/uikit-component-notification')
+)
 export const Page = asyncComponent(() =>
   import(/* webpackChunkName: 'components/page' */ '@myntra/uikit-component-page')
 )
@@ -390,6 +393,12 @@ export const META = [
     since: '0.3.0',
     status: 'REVIEWING',
     path: '/components/nav-bar'
+  },
+  {
+    name: 'Notification',
+    since: '1.13.4',
+    status: 'REVIEWING',
+    path: '/components/notification'
   },
   {
     name: 'Page',

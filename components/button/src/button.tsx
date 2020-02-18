@@ -11,6 +11,8 @@ import HookRouterLink from './router-link-hook'
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
   type?: 'primary' | 'secondary' | 'link' | 'text'
+  /** Will show the button as a notification button with the number of notifications. (provided)*/
+  notifications?: number
   /** The label text of the button. */
   children?: string | ReactNode
   /** The handler to call when the button is clicked. */
@@ -101,13 +103,17 @@ export default class Button extends PureComponent<Props> {
       loading,
       children,
       label,
+      notifications,
       ...props
     } = this.props
     const Tag = (to ? Button.RouterLink : href ? Button.Link : 'button') as any
-    const isIconButton = !(children || label)
+    const isNotificationButton = typeof notifications == 'number'
+    const notificationsActive = isNotificationButton && notifications > 0
+    const isIconButton = !(children || label) || isNotificationButton
     const needLeftSlot = !!icon || isIconButton
     const needRightSlot = !!secondaryIcon && !isIconButton
-    const typeName = type === 'link' ? 'text' : type
+    const typeName =
+      type === 'link' ? 'text' : notificationsActive ? 'primary' : type
 
     return (
       <Tag
@@ -118,6 +124,7 @@ export default class Button extends PureComponent<Props> {
           loading,
           inherit: inheritTextColor,
           icon: isIconButton,
+          'notification-button': isNotificationButton,
         })}
         to={to}
         href={href}
@@ -128,9 +135,21 @@ export default class Button extends PureComponent<Props> {
       >
         {needLeftSlot && (
           <span
-            className={classnames('icon', { leading: !isIconButton })}
+            className={classnames(
+              'icon',
+              { leading: !isIconButton },
+              { 'notification-icon': notificationsActive }
+            )}
             data-test-id="primary-icon"
           >
+            {notificationsActive && (
+              <span
+                className={classnames('count')}
+                title={notifications.toString()}
+              >
+                {notifications > 99 ? '99+' : notifications}
+              </span>
+            )}
             <Icon name={icon || 'question'} aria-hidden="true" />
           </span>
         )}

@@ -32,6 +32,10 @@ $sizes: (
     (
       'times': 6,
     ),
+  '7x': '#_unit'
+    (
+      'times': 7,
+    ),
   '8x': '#_unit'
     (
       'times': 8,
@@ -62,5 +66,6 @@ $sizes: (
   'nav-bar.icon': 16px,
   'nav-bar.min-width': 56px,
   'nav-bar.max-width': 252px,
+  'notification.width': 600px,
   'top-bar.height': '#nav-bar.min-width',
 );

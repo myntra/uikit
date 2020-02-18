@@ -141,6 +141,29 @@
     }
   }
 
+  &.notification-button {
+    z-index: z-index('notification');
+    .notification-icon {
+      position: relative;
+      svg {
+        margin-left: negative(size('2x'));
+      }
+      .count {
+        position: absolute;
+        top: negative(size('2x'));
+        min-width: size('4x');
+        height: size('4x');
+        font-size: 10px;
+        color: color('primary');
+        background: color('white');
+        border: 1px solid color('white');
+        border-radius: size('3x');
+      }
+
+      z-index: z-index('notification');
+    }
+  }
+
   > .icon {
     // TODO: Remove this hack for aligning icon with text.
     display: inline-block;
