@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.6"></a>
+## <small>1.13.6 (2020-02-18)</small>
+
+* chore(release): 1.13.6 ([38f0d87](https://bitbucket.org/myntra/uikit/commits/38f0d87))
+* chore(release): 1.13.6 ([d383344](https://bitbucket.org/myntra/uikit/commits/d383344))
+* chore(release): 1.13.6 ([f98914a](https://bitbucket.org/myntra/uikit/commits/f98914a))
+* Merged in feat/notification (pull request #252) ([d55d2bc](https://bitbucket.org/myntra/uikit/commits/d55d2bc)), closes [#252](https://bitbucket.org/myntra/uikit/issue/252)
+* Merged in fix/cross-browser-issues (pull request #254) ([e62914a](https://bitbucket.org/myntra/uikit/commits/e62914a)), closes [#254](https://bitbucket.org/myntra/uikit/issue/254)
+
+
+
 <a name="1.13.5"></a>
 ## [1.13.5](https://bitbucket.org/myntra/uikit/compare/v1.13.4...v1.13.5) (2020-02-13)
 
