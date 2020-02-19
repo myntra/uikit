@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit",
-  "version": "1.13.9",
+  "version": "1.13.10",
   "main": "dist/uikit.cjs.js",
   "module": "dist/uikit.esm.js",
   "types": "dist/index.d.ts",
@@ -59,6 +59,7 @@
     "@myntra/uikit-component-measure": "1.13.*",
     "@myntra/uikit-component-modal": "1.13.*",
     "@myntra/uikit-component-nav-bar": "1.13.*",
+    "@myntra/uikit-component-notification": "1.13.*",
     "@myntra/uikit-component-page": "1.13.*",
     "@myntra/uikit-component-pagination": "1.13.*",
     "@myntra/uikit-component-portal": "1.13.*",

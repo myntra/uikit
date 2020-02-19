@@ -34,6 +34,7 @@ export { default as Loader } from "@myntra/uikit-component-loader";
 export { default as Measure } from "@myntra/uikit-component-measure";
 export { default as Modal } from "@myntra/uikit-component-modal";
 export { default as NavBar } from "@myntra/uikit-component-nav-bar";
+export { default as Notification } from "@myntra/uikit-component-notification";
 export { default as Page } from "@myntra/uikit-component-page";
 export { default as Pagination } from "@myntra/uikit-component-pagination";
 export { default as Portal } from "@myntra/uikit-component-portal";
