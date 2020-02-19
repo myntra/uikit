@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.13.9"></a>
 ## <small>1.13.9 (2020-02-19)</small>
 
+* chore(release): 1.13.8 ([48ac8f2](https://bitbucket.org/myntra/uikit/commits/48ac8f2))
+* chore(release): 1.13.9 ([c7a6c54](https://bitbucket.org/myntra/uikit/commits/c7a6c54))
 
 
 
