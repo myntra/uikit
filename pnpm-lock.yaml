@@ -1198,6 +1198,7 @@ importers:
       '@myntra/uikit-component-measure': 'link:../../components/measure'
       '@myntra/uikit-component-modal': 'link:../../components/modal'
       '@myntra/uikit-component-nav-bar': 'link:../../components/nav-bar'
+      '@myntra/uikit-component-notification': 'link:../../components/notification'
       '@myntra/uikit-component-page': 'link:../../components/page'
       '@myntra/uikit-component-pagination': 'link:../../components/pagination'
       '@myntra/uikit-component-portal': 'link:../../components/portal'
@@ -1251,6 +1252,7 @@ importers:
       '@myntra/uikit-component-measure': 1.13.*
       '@myntra/uikit-component-modal': 1.13.*
       '@myntra/uikit-component-nav-bar': 1.13.*
+      '@myntra/uikit-component-notification': 1.13.*
       '@myntra/uikit-component-page': 1.13.*
       '@myntra/uikit-component-pagination': 1.13.*
       '@myntra/uikit-component-portal': 1.13.*

@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.13.10"></a>
 ## <small>1.13.10 (2020-02-19)</small>
 
+* chore(release): 1.13.10 ([fe3a9ba](https://bitbucket.org/myntra/uikit/commits/fe3a9ba))
 
 
 
