@@ -1,6 +1,6 @@
 {
-  "name": "notification",
-  "version": "1.13.8",
+  "name": "@myntra/uikit-component-notification",
+  "version": "1.13.9",
   "main": "dist/notification.cjs.js",
   "module": "dist/notification.esm.js",
   "types": "dist/index.d.ts",
