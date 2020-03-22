@@ -41,6 +41,9 @@ import InputTextArea, {
 import InputFile, {
   Props as InputFileProps,
 } from '@myntra/uikit-component-input-file'
+import InputAzureFile, {
+  Props as InputAzureFileProps,
+} from '@myntra/uikit-component-input-azure-file'
 import Button from '@myntra/uikit-component-button'
 import ButtonGroup from '@myntra/uikit-component-button-group'
 import Field, { Props as FieldProps } from '@myntra/uikit-component-field'
@@ -136,6 +139,9 @@ export default class Form extends PureComponent<Props> {
     InputTextArea
   )
   static File = withField<InputFileProps & FormFieldProps>(InputFile)
+  static AzureFile = withField<InputAzureFileProps & FormFieldProps>(
+    InputAzureFile
+  )
 
   cache: Record<string, (value: unknown) => void> = {}
 

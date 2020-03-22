@@ -72,6 +72,8 @@ export interface Column<T = any, V = any> {
   fixed: FixedPosition | undefined
   enhancers: EnhancerInstance[]
   columns: Column<T, V>[]
+  align: string
+  width: string
 }
 
 export interface Row<T = any> {

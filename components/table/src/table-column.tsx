@@ -24,6 +24,16 @@ export interface Props<T = any> extends BaseProps {
    * Accessor to get value of column from the row object.
    */
   accessor?: string | ((item: T, index: number) => any)
+
+  /**
+   * Width for the column.
+   */
+  width?: string
+
+  /**
+   * Text alignment for the column.
+   */
+  align?: string
 }
 
 /**

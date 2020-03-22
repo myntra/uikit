@@ -92,7 +92,19 @@ export default class ButtonGroup extends PureComponent<Props, State> {
     // Cases where more field will have only 1 button or 2 same button types are present
     if (!isStructureGroup && moreElements && moreElements.length === 1) {
       if (nodes.length >= 3) {
-        moreElements.push(buttons.pop())
+        const nextButtonType = this.getNextValidButtonType(
+          moreElements[0].props.type
+        )
+        if (nextButtonType === KIND.text && nodes.length === 3) {
+          buttons.push(
+            React.cloneElement(moreElements[0], {
+              type: nextButtonType,
+            })
+          )
+          moreElements.pop()
+        } else {
+          moreElements.push(buttons.pop())
+        }
       } else {
         const nextButtonType = this.getNextValidButtonType(
           buttons[0].props.type

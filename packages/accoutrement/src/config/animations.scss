@@ -10,7 +10,13 @@ $easing: (
 $changes: (
   'background': background-color time('fast') ease('exponential'),
   'width': width time('fast') ease('exponential'),
+  'border': border time('fast') ease('exponential'),
+  'color': color time('fast') ease('exponential'),
   'all': all time('fast') ease('exponential'),
   'button': '#all',
   'nav-bar': '#width',
+  'checkbox': (
+    '#border',
+    '#color',
+  ),
 );

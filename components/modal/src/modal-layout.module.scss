@@ -1,8 +1,10 @@
 @import '@accoutrement';
 
 .title {
+  padding-bottom: size('3x');
   margin-top: 0;
-  margin-bottom: 24px;
+  margin-bottom: size('3x');
+  border-bottom: 1px solid color('gray-dark');
 }
 
 .wrapper {

@@ -133,6 +133,8 @@ function processColumn(
     children,
     editing,
     minWidth,
+    align,
+    width,
   } = props
 
   const column: I.Column = {
@@ -142,6 +144,8 @@ function processColumn(
     minWidth: minWidth || 0,
     colSpan: 1,
     editing,
+    align: align || 'start',
+    width: width || 'auto',
     indexRange: undefined,
     accessor:
       typeof accessor === 'string'

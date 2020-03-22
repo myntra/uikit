@@ -302,7 +302,7 @@ export default class NavBar extends PureComponent<
           onBlur={this.handleBlur}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
-          labelled-by={`${this.idPrefix}header`}
+          aria-labelledby={`${this.idPrefix}header`}
         >
           {this.props.needOverlay ? (
             <div

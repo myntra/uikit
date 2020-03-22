@@ -36,7 +36,7 @@ export interface Props extends BaseProps {
   /** Remarks renderer */
   renderRemarks(props: Props): ReactNode
   /** Status */
-  status: 'IN_PROGRESS' | 'FAILED' | 'COMPLETED' | 'HALTED'
+  status: 'IN_PROGRESS' | 'FAILED' | 'COMPLETED' | 'HALTED' | 'INTERRUPTED'
   /** API Root for downloading job tracker files */
   apiRoot: string
 
@@ -61,12 +61,14 @@ const iconByStatus: Record<string, IconName> = {
   FAILED: 'exclamation-triangle',
   COMPLETED: 'check-circle',
   HALTED: 'exclamation-circle',
+  INTERRUPTED: 'exclamation-circle',
 }
 const colorByStatus: Record<string, string> = {
   IN_PROGRESS: 'primary',
   FAILED: 'error',
   COMPLETED: 'success',
   HALTED: 'warning',
+  INTERRUPTED: 'warning',
 }
 
 /**

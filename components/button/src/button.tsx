@@ -33,6 +33,8 @@ export interface Props extends BaseProps {
   to?: string | object
   /** The URL to navigate to when the button is clicked (uses browser anchor tag). */
   href?: string
+  /** The transform attribute to transform button label. */
+  transform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase'
 }
 
 /**
@@ -59,6 +61,7 @@ export default class Button extends PureComponent<Props> {
     disabled: false,
     inheritTextColor: false,
     loading: false,
+    transform: 'uppercase',
   }
 
   state = {
@@ -104,6 +107,7 @@ export default class Button extends PureComponent<Props> {
       children,
       label,
       notifications,
+      transform,
       ...props
     } = this.props
     const Tag = (to ? Button.RouterLink : href ? Button.Link : 'button') as any
@@ -132,6 +136,9 @@ export default class Button extends PureComponent<Props> {
         role="button"
         onClick={this.handleClick}
         data-test-id="target"
+        style={{
+          textTransform: transform,
+        }}
       >
         {needLeftSlot && (
           <span

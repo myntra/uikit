@@ -116,6 +116,9 @@ export default class SimpleTable extends PureComponent<
                                 typeof column.fixed !== 'undefined'
                                   ? content.offset.left + 'px'
                                   : 'unset',
+                              width: column.width,
+                              // @ts-ignore
+                              textAlign: `${column.align}`,
                             }}
                           >
                             {column.renderHead()}
@@ -156,6 +159,9 @@ export default class SimpleTable extends PureComponent<
                               typeof column.fixed !== 'undefined'
                                 ? this.state.offsets[columnIndex] + 'px'
                                 : 'unset',
+                            width: column.width,
+                            // @ts-ignore
+                            textAlign: `${column.align}`,
                           },
                         }
 
