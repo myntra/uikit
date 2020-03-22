@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-button",
-  "version": "1.13.11",
+  "version": "1.13.12",
   "main": "dist/button.cjs.js",
   "module": "dist/button.esm.js",
   "types": "dist/index.d.ts",
