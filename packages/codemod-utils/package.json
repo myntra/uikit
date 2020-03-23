@@ -13,7 +13,8 @@
   "files": [
     "src/",
     "dist/",
-    "bin/"
+    "bin/",
+    "codemods/"
   ],
   "sideEffects": false,
   "description": "@myntra/codemod-utils",

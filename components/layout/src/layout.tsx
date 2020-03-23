@@ -16,7 +16,7 @@ export const layouts = { stack, row }
  * @see http://uikit.myntra.com/components/layout
  */
 export default function Layout(props: Props) {
-  const LayoutComponent = layouts[props.type] as any
+  const LayoutComponent = layouts[props.type || 'row'] as any
 
   return LayoutComponent ? <LayoutComponent {...props} /> : null
 }

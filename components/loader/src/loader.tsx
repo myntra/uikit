@@ -18,6 +18,14 @@ export interface Props extends BaseProps {
   appearance: 'spinner' | 'bar'
   children?: never
   isLoading?: boolean
+  /**
+   * Text to display with loader
+   */
+  text?: string
+  /**
+   * Text to display with loader
+   */
+  textPosition?: 'left | right | top | bottom'
 }
 
 /**
@@ -33,6 +41,7 @@ export default function Loader({
   type,
   appearance,
   isLoading,
+  text,
 }: Props) {
   return (
     <div className={classnames(className, 'loader', type)}>
@@ -41,6 +50,7 @@ export default function Loader({
         <div />
         <div />
       </div>
+      {text && <span>{text}</span>}
     </div>
   )
 }

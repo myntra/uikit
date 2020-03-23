@@ -4,7 +4,7 @@ import { CLIEngine } from 'eslint'
 const engine = new CLIEngine(
   Object.assign(require('@myntra/eslint-config-standard'), {
     fix: true,
-    useEslintrc: false
+    useEslintrc: false,
   })
 )
 
@@ -73,10 +73,14 @@ export default function helpers(j, root, file) {
    * @param {string} source
    * @returns {ASTNode}
    */
-  function findImport(source) {
+  function findImport(source, startsWith = null) {
     return root
       .find(j.ImportDeclaration)
-      .filter((decl) => decl.value.source.value === source)
+      .filter(
+        (decl) =>
+          decl.value.source.value === source ||
+          decl.value.source.value.startsWith(startsWith)
+      )
   }
 
   /**
@@ -162,7 +166,7 @@ export default function helpers(j, root, file) {
           [
             named
               ? j.importSpecifier(j.identifier(name), j.identifier(local))
-              : j.importDefaultSpecifier(j.identifier(local))
+              : j.importDefaultSpecifier(j.identifier(local)),
           ],
           j.literal(source)
         )
@@ -192,7 +196,7 @@ export default function helpers(j, root, file) {
           j.variableDeclarator(
             j.identifier(name),
             j.identifier(specifier.local.name)
-          )
+          ),
         ])
       )
     }
@@ -245,9 +249,9 @@ export default function helpers(j, root, file) {
         j.identifier(name),
         j.callExpression(j.identifier('interopPropTransformer'), [
           j.objectExpression([]),
-          j.objectExpression([])
+          j.objectExpression([]),
         ])
-      )
+      ),
     ])
 
     insertAfterImports(interop)
@@ -314,8 +318,8 @@ export default function helpers(j, root, file) {
       paths ||
       root.find(j.JSXElement, {
         openingElement: {
-          name: { type: 'JSXIdentifier', name: localComponentName }
-        }
+          name: { type: 'JSXIdentifier', name: localComponentName },
+        },
       })
     return localPaths.filter((element) =>
       condition ? condition(element) : true
@@ -401,7 +405,7 @@ export default function helpers(j, root, file) {
             )
           ) {
             attribute.argument = j.callExpression(j.identifier(name), [
-              attribute.argument
+              attribute.argument,
             ])
           }
 
@@ -441,13 +445,17 @@ export default function helpers(j, root, file) {
     const elementPaths = findComponentWhere(oldComponentName, paths)
 
     elementPaths.find(j.JSXOpeningElement).replaceWith((element) => {
-      element.node.name = j.jsxIdentifier(newComponentName)
+      if (element.node.name.name === oldComponentName) {
+        element.node.name = j.jsxIdentifier(newComponentName)
+      }
 
       return element.node
     })
 
     elementPaths.find(j.JSXClosingElement).replaceWith((element) => {
-      element.node.name = j.jsxIdentifier(newComponentName)
+      if (element.node.name.name === oldComponentName) {
+        element.node.name = j.jsxIdentifier(newComponentName)
+      }
 
       return element.node
     })
@@ -486,7 +494,7 @@ export default function helpers(j, root, file) {
                 [
                   attribute.value.type === 'JSXExpressionContainer'
                     ? attribute.value.expression
-                    : attribute.value
+                    : attribute.value,
                 ]
               )
             )
@@ -497,7 +505,7 @@ export default function helpers(j, root, file) {
             )
           ) {
             attribute.argument = j.callExpression(j.identifier(name), [
-              attribute.argument
+              attribute.argument,
             ])
           }
 
@@ -608,7 +616,7 @@ export default function helpers(j, root, file) {
         throw Error('ESlint failed')
 
       return results[0].output
-    }
+    },
   }
 }
 
@@ -654,7 +662,7 @@ export function testCodeMod(dir, filename, options = {}) {
               const output = transform(
                 {
                   path: inputPath,
-                  source: read(inputPath)
+                  source: read(inputPath),
                 },
                 { jscodeshift, stats: () => {} },
                 options || {}

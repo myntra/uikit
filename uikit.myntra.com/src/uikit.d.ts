@@ -553,7 +553,7 @@ declare namespace Group {}
  * A group component to combine multiple group-able components.
  *
  * @since 0.11.0
- * @status REVIEWING
+ * @status DEPRECATED
  * @category composition
  * @see http://uikit.myntra.com/components/group
  */
@@ -965,6 +965,10 @@ declare namespace InputMasked {
      *  Makes select field required.
      */
     required?: boolean
+    /**
+     *  Decides Whether Autocomplete of the input field on/off.
+     */
+    autoComplete?: string
   }
 }
 
@@ -983,7 +987,16 @@ declare function InputMonth(props: InputMonth.Props): JSX.Element
 declare namespace InputMonth {
   type InputMonthPickerProps = InputMonthPicker$$5.Props
 
-  interface Props extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {}
+  interface Props extends BaseProps, Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {
+    /**
+     * Minimum date value for getting lower limit of year field
+     */
+    minDate?: string | Date
+    /**
+     * Maximum date value for getting upper limit of year field
+     */
+    maxDate?: string | Date
+  }
   // -----------[[Picker]]--------------- //
   /**
    * An embeddable month/year selection component.
@@ -1054,6 +1067,8 @@ declare namespace InputMonth {
         value?: number
         onChange(value: number): void
         highlight({ year: number }: { year: any }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
+        upperLimit?: string | Date | DateTime
+        lowerLimit?: string | Date | DateTime
       }
     }
   }
@@ -1332,6 +1347,25 @@ declare namespace InputTextArea {
   }
 }
 
+declare namespace InputTime {}
+
+// -----------[[inputTime]]--------------- //
+/**
+ * A component to read date and date ranges.
+ *
+ * @since 1.12.44
+ * @status REVIEWING
+ * @category basic
+ * @see http://uikit.myntra.com/components/input-time
+ */
+declare function inputTime(props: inputTime.Props): JSX.Element
+declare namespace inputTime {
+  interface Props extends BaseProps {
+    /** @private */
+    className?: string
+  }
+}
+
 declare namespace JobTracker {}
 
 // -----------[[JobTracker]]--------------- //
@@ -1357,6 +1391,10 @@ declare namespace JobTracker {
      * API Root for downloading job files.
      */
     apiRoot: string
+    /**
+     * Backend service getting used
+     */
+    service: 'jobtracker' | 'workflow'
   }
 }
 
@@ -1446,8 +1484,13 @@ declare namespace Loader {
     /**
      * Use current color for loading spinner.
      */
-    currentColor: boolean
-    children: never
+    currentColor?: boolean
+    /**
+     * Type of progress loader.
+     */
+    appearance: 'spinner' | 'bar'
+    children?: never
+    isLoading?: boolean
   }
 }
 
@@ -1610,6 +1653,14 @@ declare namespace NavBar {
         isGroup: boolean
       }
     ): boolean
+    /**
+     * Controls whether to show the overlay when navigation is opened
+     */
+    needOverlay: boolean
+    /**
+     * Callback to be called when overlay is clicked / touched
+     */
+    overlayClickHandler?(): void
     /**
      * Control NavBar state.
      */
@@ -1928,6 +1979,7 @@ declare namespace Table {}
  *
  * @since 0.3.0
  * @status REVIEWING
+ * @see https://uikit.myntra.com/components/table
  */
 declare function Table(props: Table.Props): JSX.Element
 declare namespace Table {
@@ -1939,6 +1991,10 @@ declare namespace Table {
     renderRow?(props: RowRendererProps): JSX.Element
     appearance?: 'default' | 'striped'
     virtualized?: boolean
+    /**
+     * Sets the overflow scroll container.
+     */
+    scrollMode?: 'container' | 'window'
     columnOrder?: string[]
     onSort?(props: { columnId: string; order: 'asc' | 'desc' }): void
     onFilter?(props: Record<string, any[]>): void
@@ -2102,15 +2158,15 @@ declare namespace Text {
      * Abstract component does not render any extra elements.
      * However, it allows only one child component.
      */
-    abstract: boolean
+    abstract?: boolean
     /**
      * Make font-weight one weight bold or light.
      */
-    weight: 'bolder' | 'lighter'
+    weight?: 'bolder' | 'lighter'
     /**
      * Use theme colors for text.
      */
-    color: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
+    color?: 'primary' | 'success' | 'warning' | 'error' | 'dark' | 'light'
     /**
      * Controls the legibility of the text.
      *
@@ -2118,7 +2174,10 @@ declare namespace Text {
      *
      * @see https://uikit.myntra.com/guide/text-legibility
      */
-    emphasis: 'high' | 'medium' | 'disabled'
+    emphasis?: 'high' | 'medium' | 'disabled'
+    /**
+     * Override default tag for the element.
+     */
     tag?: string
   }
 }
@@ -2166,6 +2225,7 @@ declare namespace TopBar {
     }> & {
       email: string
     }
+    headerNavigationElem?: JSX.Element
   }
   // -----------[[Item]]--------------- //
   /**
@@ -2463,6 +2523,7 @@ declare namespace VirtualList {
       className?: string
       children: Array<any>
     }): JSX.Element
+    getCellKey?(index: number): 'string' | 'number'
   }
 }
 
@@ -2585,20 +2646,41 @@ declare namespace JobTrackerItem$$6 {
     createdBy: string
     /** Job creation time */
     createdOn: number
-    /** Success file Name */
+    /** Attachment of other kinds */
+    fileName: string
+    /** Attachment on job success */
     successFileName: string
-    /** Error file Name */
+    /** Attachment on job error */
     errorFileName: string
     /** Completed Step Count */
+    /**
+     * @deprecated Not getting used anymore
+     */
     completedStepCount: number
     /** Total Step Count */
+    /**
+     * @deprecated Not getting used anymore
+     */
     totalStepCount: number
     /** Remarks renderer */
     renderRemarks(props: Props): ReactNode
     /** Status */
-    status: string
+    status: 'IN_PROGRESS' | 'FAILED' | 'COMPLETED' | 'HALTED'
     /** API Root for downloading job tracker files */
     apiRoot: string
+    /** Workflow service specific params */
+    /**
+     * Project name for which job tracker is getting used. Required only when using workflow service
+     */
+    projectName?: string
+    /**
+     * Work flow instance id of the job.
+     */
+    workflowInstanceId?: string
+    /**
+     * Task instance id of the job
+     */
+    taskInstance?: number
   }
 }
 
@@ -2982,6 +3064,7 @@ declare namespace VirtualList$$15 {
       className?: string
       children: Array<any>
     }): JSX.Element
+    getCellKey?(index: number): 'string' | 'number'
   }
 }
 

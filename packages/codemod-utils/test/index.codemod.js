@@ -27,7 +27,7 @@ export function renameProp(file, api) {
 export function convertProp(file, api) {
   const { h } = createHelper(file, api)
 
-  h.coerceProp('Foo', 'foo', value => Boolean(value))
+  h.coerceProp('Foo', 'foo', (value) => Boolean(value))
 
   return h.toSource()
 }
