@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.14"></a>
+## <small>1.13.14 (2020-03-27)</small>
+
+* Merged in fix/notification-ux (pull request #261) ([9c6fa3f](https://bitbucket.org/myntra/uikit/commits/9c6fa3f)), closes [#261](https://bitbucket.org/myntra/uikit/issue/261)
+* README.md edited ([095507e](https://bitbucket.org/myntra/uikit/commits/095507e))
+
+
+
 <a name="1.13.13"></a>
 ## [1.13.13](https://bitbucket.org/myntra/uikit/compare/v1.13.12...v1.13.13) (2020-03-23)
 
