@@ -17,10 +17,7 @@ export { default as S3Upload } from "@myntra/uikit-component-input-s3-file";
 
 import * as u from "@myntra/uikit-utils";
 
-// TODO: Remove JavaScript token dependency.
-const tokens = {};
-
-export { u, tokens };
+export { u };
 
 export function ThemeProvider({ children }) {
   return children;
