@@ -142,11 +142,20 @@
   }
 
   &.notification-button {
+    @include border-radius('notification.circle');
+
     z-index: z-index('notification');
+    width: 2em;
+    height: 2em;
+    box-shadow: shadow('raised');
     .notification-icon {
       position: relative;
+
+      z-index: z-index('notification');
       svg {
-        margin-left: negative(size('2x'));
+        width: 1.4em;
+        height: 1.4em;
+        margin-left: negative(size('3x'));
       }
       .count {
         position: absolute;
@@ -159,8 +168,6 @@
         border: 1px solid color('white');
         border-radius: size('3x');
       }
-
-      z-index: z-index('notification');
     }
   }
 

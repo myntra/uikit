@@ -17,9 +17,19 @@ export interface Props extends BaseProps {
   title: string
 
   /**
+   * The custom class name of the notification container.
+   */
+  className: string
+
+  /**
    * Controls whether to show the overlay when Notification is opened
    */
   removeOverlay: boolean
+
+  /**
+   * Whether to remove the close button
+   */
+  removeClose: boolean
 
   /**
    * Control Notification window state.
@@ -99,13 +109,15 @@ export default class Notification extends PureComponent<
       closeOnClickAway,
       removeOverlay,
       trigger,
+      removeClose,
+      className,
     } = this.props
 
     const isOpen = this.isOpen
 
     const renderContent = () => (
       <div
-        className={classnames('notification', {
+        className={classnames('notification', className, {
           'is-open': isOpen,
         })}
       >
@@ -120,7 +132,7 @@ export default class Notification extends PureComponent<
           <div className={classnames('title')}>{title || 'Notifications'}</div>
           <div className={classnames('content')}>{children}</div>
 
-          {this.isOpen && (closeOnClickAway == false || removeOverlay) && (
+          {this.isOpen && !removeClose && (
             <div
               className={classnames('close', {
                 'no-overlay': removeOverlay,

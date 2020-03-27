@@ -657,6 +657,7 @@ export interface IconNameGlobal {
   MarsStrokeV: 'mars-stroke-v'
   Medal: 'medal'
   Medkit: 'medkit'
+  Megaphone: 'megaphone'
   Meh: 'meh'
   MehBlank: 'meh-blank'
   MehRollingEyes: 'meh-rolling-eyes'

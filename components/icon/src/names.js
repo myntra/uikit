@@ -657,6 +657,7 @@ export default [
   'mars-stroke-v',
   'medal',
   'medkit',
+  'megaphone',
   'meh',
   'meh-blank',
   'meh-rolling-eyes',
