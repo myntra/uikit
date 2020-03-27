@@ -196,6 +196,7 @@ export default class InputAzureFile extends PureComponent<Props> {
                 loading={autoStartUpload ? this.state.isUploading : false}
                 disabled={autoStartUpload ? false : this.state.isUploading}
                 onClick={browse}
+                size="small"
               >
                 Browse
               </Button>
@@ -206,6 +207,7 @@ export default class InputAzureFile extends PureComponent<Props> {
                 type="secondary"
                 disabled={this.state.isUploading}
                 onClick={this.handleUploadClick}
+                size="small"
               >
                 Upload
               </Button>

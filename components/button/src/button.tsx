@@ -35,6 +35,10 @@ export interface Props extends BaseProps {
   href?: string
   /** The transform attribute to transform button label. */
   transform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase'
+  /**
+   * Size of the button
+   */
+  size?: 'small' | 'regular' | 'large'
 }
 
 /**
@@ -62,6 +66,7 @@ export default class Button extends PureComponent<Props> {
     inheritTextColor: false,
     loading: false,
     transform: 'uppercase',
+    size: 'regular',
   }
 
   state = {
@@ -108,6 +113,7 @@ export default class Button extends PureComponent<Props> {
       label,
       notifications,
       transform,
+      size,
       ...props
     } = this.props
     const Tag = (to ? Button.RouterLink : href ? Button.Link : 'button') as any
@@ -124,7 +130,7 @@ export default class Button extends PureComponent<Props> {
         tabIndex={0} // enable tab navigation.
         {...props}
         type={type !== 'text' ? htmlType : ''}
-        className={classnames('container', className, typeName, state, {
+        className={classnames('container', className, typeName, state, size, {
           loading,
           inherit: inheritTextColor,
           icon: isIconButton,

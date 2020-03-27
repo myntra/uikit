@@ -23,7 +23,7 @@ export default class InputFile extends PureComponent<Props> {
   static defaultProps = {
     placeholder: 'Choose a file...',
     actions: (upload) => (
-      <Button type="secondary" onClick={upload}>
+      <Button type="secondary" onClick={upload} size="small">
         Browse
       </Button>
     ),

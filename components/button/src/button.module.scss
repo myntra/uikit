@@ -150,7 +150,6 @@
     box-shadow: shadow('raised');
     .notification-icon {
       position: relative;
-
       z-index: z-index('notification');
       svg {
         width: 1.4em;
@@ -199,5 +198,9 @@
     > *:not(.loading) {
       color: transparent; // Hide Text and icons.
     }
+  }
+
+  &.small {
+    padding: size('1x') size('4x');
   }
 }

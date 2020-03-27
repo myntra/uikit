@@ -7,7 +7,6 @@
   border-bottom: 1px solid color('gray-dark');
 
   &:focus {
-    border-bottom: 1px solid color('primary');
     outline: none;
   }
 
@@ -20,7 +19,9 @@
     color: color('text-dark-disabled');
   }
 
-  &:read-only {
-    border-bottom: none;
+  &:not(:read-only) {
+    &:focus {
+      border-bottom: 1px solid color('primary');
+    }
   }
 }
