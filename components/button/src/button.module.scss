@@ -143,10 +143,12 @@
 
   &.notification-button {
     @include border-radius('notification.circle');
-
     z-index: z-index('notification');
     width: 2em;
     height: 2em;
+
+    background-color: #4f46c8;
+    border-color: #4f46c8;
     box-shadow: shadow('raised');
     .notification-icon {
       position: relative;
@@ -162,7 +164,7 @@
         min-width: size('4x');
         height: size('4x');
         font-size: 10px;
-        color: color('primary');
+        color: #4f46c8;
         background: color('white');
         border: 1px solid color('white');
         border-radius: size('3x');
