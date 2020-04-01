@@ -17,15 +17,21 @@ function range(n: number): number[] {
 }
 
 export interface Props extends BaseProps {
+  /**
+   * @private
+   */
   value?: Date | DateRange
+  /**
+   * @private
+   */
   onchange?(value: Date | DateRange): void
-
+  /**
+   * @private
+   */
   renderDate?(props: { date: Date; children: ReactNode }): ReactNode
   monthsToDisplay?: number
   disabledDates?: DateRange[]
   disabled?: boolean
-  min?: Date
-  max?: Date
   range?: boolean
   openToDate?: Date
   onOpenToDateChange?(date: Date): void

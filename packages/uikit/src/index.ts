@@ -27,19 +27,24 @@ export function ThemeProvider({ children }) {
  * Function creator that accepts a propMap and returns a method which accepts a set of props
  * and renames props present in inputProps to new propName present in the propMap
  */
-export function interopPropTransformer(mappings: Record<string, string>, coercions: Record<string, string> = {}) {
+export function interopPropTransformer(
+  mappings: Record<string, string>,
+  coercions: Record<string, (name: string) => string> = {}
+) {
   const hasMappings = Object.keys(mappings).length > 0;
   const hasCoercions = Object.keys(coercions).length > 0;
   const fn = (props: any) => {
     const target = { ...props };
 
     if (hasMappings) {
-      Object.entries(([from, to]) => {
+      Object.entries(mappings).map(([from, to]) => {
         if (from in props) target[to] = props[from];
+        delete target[from];
       });
     }
+
     if (hasCoercions) {
-      Object.entries(([name, fn]) => {
+      Object.entries(coercions).map(([name, fn]) => {
         if (name in props) target[name] = fn(target[name]);
       });
     }

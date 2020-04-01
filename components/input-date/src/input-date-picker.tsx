@@ -3,8 +3,12 @@ import React, { PureComponent, ReactNode } from 'react'
 import MonthGroup from './picker/month-group'
 import Month from './picker/month'
 import Day from './picker/day'
-import { parse, format } from './input-date-utils'
-import { DateRange, StringDateRange, is } from './input-date-helpers'
+import { format, parse } from './input-date-utils'
+import { DateRange, StringDateRange, Preset, is } from './input-date-helpers'
+import PresetView from './picker/preset'
+import * as PRESETS from './presets'
+
+const DEFAULT_PRESETS = Object.values(PRESETS)
 
 export interface Props<
   DateLike = string | Date,
@@ -35,31 +39,26 @@ export interface Props<
    */
   renderDate?(props: { date: Date; children: ReactNode }): ReactNode
 
+  /**
+   * Number of month blocks to be visible.
+   * By default value is 2 for range selection
+   */
   monthsToDisplay?: number
 
+  /**
+   * Range of date to be disabled
+   */
   disabledRanges?: Array<DateRange | StringDateRange>
 
-  min?: DateLike
-
-  max?: DateLike
-
-  presets?: Array<
-    | {
-        range: false
-        label: string
-        value(): Date
-      }
-    | {
-        range: true
-        label: string
-        value(): { from: Date; to: Date }
-      }
-  >
+  /**
+   * Presets to select a single or range of date
+   */
+  presets?: Array<Preset> | boolean
 }
 
 /**
  * @since 0.0.0
- * @status REVIEWING
+ * @status READY
  * @category input
  * @see http://uikit.myntra.com/components/input-date#inputdatepicker
  */
@@ -92,7 +91,15 @@ export default class InputDatePicker extends PureComponent<Props> {
     monthsToDisplay: 1,
   }
 
-  normalize<T extends null | string | Date | DateRange | StringDateRange>(
+  handleChange = (value: Date | DateRange) => {
+    if (this.props.onChange) {
+      this.props.onChange(
+        this.props.format ? format(value, this.props.format) : value
+      )
+    }
+  }
+
+  normalize = <T extends null | string | Date | DateRange | StringDateRange>(
     dateOrDates: T
   ): T extends string
     ? Date
@@ -104,7 +111,7 @@ export default class InputDatePicker extends PureComponent<Props> {
     ? DateRange
     : T extends null
     ? null
-    : never {
+    : never => {
     if (!dateOrDates) return null
     // 1. Date or undefined or null
     if (dateOrDates instanceof Date) return dateOrDates as any
@@ -135,22 +142,13 @@ export default class InputDatePicker extends PureComponent<Props> {
     return null
   }
 
-  handleChange = (value: Date | DateRange) => {
-    if (this.props.onChange) {
-      this.props.onChange(
-        this.props.format ? format(value, this.props.format) : value
-      )
-    }
-  }
-
   render() {
     const {
       value,
       onChange,
       disabledRanges,
-      min,
-      max,
       presets,
+      range,
       ...props
     } = this.props
     const normalizedDate = this.normalize(value)
@@ -160,20 +158,19 @@ export default class InputDatePicker extends PureComponent<Props> {
         {...props}
         value={normalizedDate}
         onChange={this.handleChange}
-        disabledRanges={disabledRanges.map(this.normalize)}
-        min={this.normalize(min)}
-        max={this.normalize(max)}
+        disabledDates={disabledRanges.map(this.normalize)}
+        range={range}
       >
-        {/*this.props.presets && (
-          <Preset
-            range={this.props.range}
+        {this.props.presets && (
+          <PresetView
+            range={range}
             value={normalizedDate}
             onChange={this.handleChange}
             presets={
-              this.props.presets === true ? DEFAULT_PRESETS : this.props.presets
+              !!this.props.presets ? DEFAULT_PRESETS : this.props.presets
             }
           />
-        )*/}
+        )}
       </MonthGroup>
     )
   }

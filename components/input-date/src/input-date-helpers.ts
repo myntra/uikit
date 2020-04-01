@@ -38,3 +38,9 @@ export interface StringDateRange {
 export function is<T>(value: any, condition: boolean): value is T {
   return condition
 }
+
+export interface Preset {
+  range?: boolean
+  label: string
+  value(): Date | { from: Date; to: Date }
+}
