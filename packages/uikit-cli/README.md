@@ -86,7 +86,14 @@ uikit migrate apps/Contracts/ --no-commit --recursive --theme-name='nuclei'
 
 This will migrate unity-uikit component to @myntra/uikit in all the files under apps/Contracts/ directory
 
-___Make sure you have the @myntra/codemod-utils module installed before running the migration.___
+These npm packages will be required for migrate to successfully run:
+
+* eslint-plugin-standard
+* eslint-plugin-babel
+* eslint@4.19.1
+* @myntra/codemod-utils
+
+Please install these packages before running the migrate command
 
 ### Lint
 
