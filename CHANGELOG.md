@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.19"></a>
+## <small>1.13.19 (2020-04-01)</small>
+
+* Feat/input date presets ([6cbe7b6](https://bitbucket.org/myntra/uikit/commits/6cbe7b6)), closes [#262](https://bitbucket.org/myntra/uikit/issue/262)
+* Merged in feat/field-codemod (pull request #263) ([c4ae4cd](https://bitbucket.org/myntra/uikit/commits/c4ae4cd)), closes [#263](https://bitbucket.org/myntra/uikit/issue/263)
+
+
+
 <a name="1.13.18"></a>
 ## <small>1.13.18 (2020-03-30)</small>
 
