@@ -4,8 +4,8 @@
 
 
 ```
-npm install @myntra/uikit-cli
-yarn add @myntra/uikit-cli
+npm install -g @myntra/uikit-cli
+yarn add -g @myntra/uikit-cli
 ```
 
 ## Usage
