@@ -265,22 +265,24 @@ export default class List extends PureComponent<
     if (preventDefault) event.preventDefault()
   }
 
-  handleFocus = () => {
-    const { multiple, value, idForItem, items } = this.props
-    const selectedIDs = this.computeSelectedIds()
+  handleFocus = (event) => {
+    if (event.relatedTarget) {
+      const { multiple, value, idForItem, items } = this.props
+      const selectedIDs = this.computeSelectedIds()
 
-    if (!value || (multiple && !value.length)) {
-      this.setState({ activeIndex: 0 })
+      if (!value || (multiple && !value.length)) {
+        this.setState({ activeIndex: 0 })
 
-      return // Done.
+        return // Done.
+      }
+
+      this.setState({
+        activeIndex: Math.max(
+          0,
+          items.findIndex((item) => selectedIDs.has(idForItem(item)))
+        ),
+      })
     }
-
-    this.setState({
-      activeIndex: Math.max(
-        0,
-        items.findIndex((item) => selectedIDs.has(idForItem(item)))
-      ),
-    })
   }
 
   handleBlur = () => {
@@ -340,8 +342,8 @@ export default class List extends PureComponent<
         aria-activedescendant={this.activeItemHTMLId}
         style={style}
         onBlur={this.handleBlur}
-        onFocus={this.handleFocus}
         onKeyDown={this.handleKeyPress as any}
+        onFocus={this.handleFocus}
       >
         {children}
       </ul>
