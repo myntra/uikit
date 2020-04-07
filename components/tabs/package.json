@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-tabs",
-  "version": "1.13.19",
+  "version": "1.13.20",
   "main": "dist/tabs.cjs.js",
   "module": "dist/tabs.esm.js",
   "types": "dist/index.d.ts",
