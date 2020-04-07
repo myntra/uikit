@@ -1276,7 +1276,7 @@ importers:
       '@types/react-dom': registry.npmjs.org/@types/react-dom/16.9.4
     optionalDependencies:
       react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.12.0
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
     specifiers:
       '@types/react': ^16.8.23
       '@types/react-dom': ^16.8.4
@@ -15539,6 +15539,23 @@ packages:
       object-assign: registry.npmjs.org/object-assign/4.1.1
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.12.0
+      scheduler: registry.npmjs.org/scheduler/0.19.1
+    id: registry.npmjs.org/react-dom/16.13.1
+    name: react-dom
+    optional: true
+    peerDependencies:
+      react: ^16.13.1
+    resolution:
+      integrity: sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz'
+    version: 16.13.1
+  registry.npmjs.org/react-dom/16.13.1_react@16.13.1:
+    dependencies:
+      loose-envify: registry.npmjs.org/loose-envify/1.4.0
+      object-assign: registry.npmjs.org/object-assign/4.1.1
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+      react: registry.npmjs.org/react/16.13.1
       scheduler: registry.npmjs.org/scheduler/0.19.1
     id: registry.npmjs.org/react-dom/16.13.1
     name: react-dom
