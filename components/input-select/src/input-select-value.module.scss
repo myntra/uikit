@@ -14,6 +14,9 @@
 .input {
   width: 100%;
   color: color('text-dark-medium-emphasis');
+  &.with-icon {
+    padding: padding('input.with-icon');
+  }
 }
 
 .value .input {

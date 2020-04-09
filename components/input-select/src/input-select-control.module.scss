@@ -4,10 +4,17 @@
 .control {
   position: relative;
   display: flex;
+  .icon {
+    position: absolute;
+    top: 0.6em;
+  }
 }
 
 .input {
   @include mixin-input-component();
+  &.with-icon {
+    padding: padding('input.with-icon');
+  }
 }
 
 .buttons {

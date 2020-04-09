@@ -47,7 +47,7 @@ export default class InputSelectValue extends PureComponent<
   }
 
   render() {
-    const { disabled, placeholder, hasOverlay } = this.props
+    const { disabled, placeholder, hasOverlay, icon } = this.props
     const options = this.getSelectedOptions()
     const value = this.getValue(options)
     const displayValue = this.getDisplayValue(options)
@@ -58,7 +58,7 @@ export default class InputSelectValue extends PureComponent<
         title={value}
       >
         <input
-          className={classnames('input')}
+          className={classnames('input', { 'with-icon': !!icon })}
           placeholder={placeholder}
           disabled={disabled}
           value={displayValue}

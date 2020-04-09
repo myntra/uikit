@@ -4,7 +4,7 @@ import { createRef, memoize, toArray } from '@myntra/uikit-utils'
 import classnames from './input-select.module.scss'
 import Dropdown from '@myntra/uikit-component-dropdown'
 import List from '@myntra/uikit-component-list'
-import Icon from '@myntra/uikit-component-icon'
+import Icon, { IconName } from '@myntra/uikit-component-icon'
 
 import InputSelectValue from './input-select-value'
 import InputSelectControl from './input-select-control'
@@ -92,6 +92,9 @@ export interface Props<Value = any, Option = any> extends BaseProps {
    * @deprecated - Use [renderEmptyState](#InputSelect-renderEmptyState) instead.
    */
   noResultsPlaceholder?: string | JSX.Element
+
+  /** Displays the icon as prefix */
+  icon?: IconName
 }
 
 let SELECT_COMPONENT_COUNTER = 0
@@ -196,6 +199,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
             <InputSelectControl
               ref={this.controlRef}
               disabled={this.props.disabled}
+              icon={this.props.icon}
               value={this.props.value}
               onChange={this.handleChange}
               onSearch={this.handleSearch}
@@ -209,6 +213,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
               resettable={!this.props.required && !this.props.readOnly}
               renderPlaceholder={() => (
                 <InputSelectValue
+                  icon={this.props.icon}
                   placeholder={this.props.placeholder}
                   disabled={this.props.disabled}
                   value={this.props.value}

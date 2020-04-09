@@ -5,7 +5,7 @@ import {
   moveSelectedOptionsToTop,
 } from './helpers'
 import { memoize, debounce, createRef } from '@myntra/uikit-utils'
-import Icon from '@myntra/uikit-component-icon'
+import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './input-select-control.module.scss'
 
 export interface InputSelectControlProps<V = any, T = any> extends BaseProps {
@@ -79,6 +79,14 @@ export interface InputSelectControlProps<V = any, T = any> extends BaseProps {
    * ID attribute prefix.
    */
   instancePrefix: string
+
+  /** Displays the icon as prefix */
+  icon?: IconName
+
+  /**
+   * Is options dropdown open?
+   */
+  disabled: boolean
 }
 
 /**
@@ -205,6 +213,8 @@ export default class InputSelectControl<V = any, T = any> extends PureComponent<
       onSearch,
       options,
       value,
+      icon,
+      disabled,
       // ---
       ...props
     } = this.props
@@ -215,12 +225,14 @@ export default class InputSelectControl<V = any, T = any> extends PureComponent<
         onClick={() => this.inputRef.current && this.inputRef.current.focus()}
       >
         {(!this.state.searchText || !searchable) && renderPlaceholder()}
+        {icon && <Icon className={classnames('icon')} name={icon} />}
         {searchable && (
           <input
+            disabled={disabled}
             value={this.state.searchText}
             ref={this.inputRef}
             onChange={this.handleSearchTextChange}
-            className={classnames('input')}
+            className={classnames('input', { 'with-icon': !!icon })}
             {...props}
             onBlur={this.handleBlur}
             role="combobox"
@@ -233,19 +245,21 @@ export default class InputSelectControl<V = any, T = any> extends PureComponent<
           />
         )}
 
-        <div className={classnames('buttons')}>
-          {resettable && (value || this.state.searchText) && (
-            <div
-              className={classnames('button')}
-              role="button"
-              onClick={this.handleClearClick}
-              data-test-id="reset"
-            >
-              <Icon name="times" title="reset" />
-            </div>
-          )}
-          {children}
-        </div>
+        {!disabled && (
+          <div className={classnames('buttons')}>
+            {resettable && (value || this.state.searchText) && (
+              <div
+                className={classnames('button')}
+                role="button"
+                onClick={this.handleClearClick}
+                data-test-id="reset"
+              >
+                <Icon name="times" title="reset" />
+              </div>
+            )}
+            {children}
+          </div>
+        )}
       </div>
     )
   }

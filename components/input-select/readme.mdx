@@ -43,6 +43,26 @@ const [options] = useState([
 </>
 ```
 
+## With Icon
+
+```jsx preview
+const [value, setValue] = useState();
+const [options] = useState([
+  { value: 'Red', label: 'Red' },
+  { value: 'Green', label: 'Green' },
+  { value: 'Blue', label: 'Blue' },
+]);
+
+<>
+  {'Choose your colors: '}
+  <InputSelect
+    icon="bell"
+    options={options}
+    value={value} onChange={setValue}
+  />
+</>
+```
+
 
 ## Loading options from API
 
@@ -104,6 +124,26 @@ const [options] = useState([
     options={options}
     value={value} onChange={setValue}
     disabled
+  />
+</>
+```
+
+## Disabled With a Value
+
+```jsx preview
+const [value, setValue] = useState();
+const [options] = useState([
+  { value: 'Red', label: 'Red' },
+  { value: 'Green', label: 'Green' },
+  { value: 'Blue', label: 'Blue' },
+]);
+
+<>
+  {'Choose your colors: '}
+  <InputSelect
+    disabled
+    options={options}
+    value={'Green'} onChange={setValue}
   />
 </>
 ```
