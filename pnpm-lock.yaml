@@ -1276,7 +1276,7 @@ importers:
       '@types/react-dom': registry.npmjs.org/@types/react-dom/16.9.4
     optionalDependencies:
       react: registry.npmjs.org/react/16.13.1
-      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.13.1
+      react-dom: registry.npmjs.org/react-dom/16.13.1_react@16.12.0
     specifiers:
       '@types/react': ^16.8.23
       '@types/react-dom': ^16.8.4
@@ -1410,14 +1410,14 @@ packages:
       levn: registry.npmjs.org/levn/0.3.0
       lodash: registry.npmjs.org/lodash/4.17.15
       minimatch: registry.npmjs.org/minimatch/3.0.4
-      mkdirp: registry.npmjs.org/mkdirp/0.5.1
+      mkdirp: registry.npmjs.org/mkdirp/0.5.5
       natural-compare: registry.npmjs.org/natural-compare/1.4.0
       optionator: registry.npmjs.org/optionator/0.8.3
       progress: registry.npmjs.org/progress/2.0.3
       regexpp: registry.npmjs.org/regexpp/2.0.1
       semver: registry.npmjs.org/semver/6.3.0
       strip-ansi: registry.npmjs.org/strip-ansi/5.2.0
-      strip-json-comments: registry.npmjs.org/strip-json-comments/3.0.1
+      strip-json-comments: registry.npmjs.org/strip-json-comments/3.1.0
       table: registry.npmjs.org/table/5.4.6
       text-table: registry.npmjs.org/text-table/0.2.0
       v8-compile-cache: registry.npmjs.org/v8-compile-cache/2.1.0
@@ -10516,7 +10516,7 @@ packages:
       lodash: registry.npmjs.org/lodash/4.17.15
       mute-stream: registry.npmjs.org/mute-stream/0.0.8
       run-async: registry.npmjs.org/run-async/2.4.0
-      rxjs: registry.npmjs.org/rxjs/6.5.4
+      rxjs: registry.npmjs.org/rxjs/6.5.5
       string-width: registry.npmjs.org/string-width/4.2.0
       strip-ansi: registry.npmjs.org/strip-ansi/6.0.0
       through: registry.npmjs.org/through/2.3.8
@@ -13244,6 +13244,14 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz'
     version: 1.2.0
+  registry.npmjs.org/minimist/1.2.5:
+    dev: false
+    name: minimist
+    resolution:
+      integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/minimist/-/minimist-1.2.5.tgz'
+    version: 1.2.5
   registry.npmjs.org/mixin-deep/1.3.2:
     dependencies:
       for-in: registry.npmjs.org/for-in/1.0.2
@@ -13266,6 +13274,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.1.tgz'
     version: 0.5.1
+  registry.npmjs.org/mkdirp/0.5.5:
+    dependencies:
+      minimist: registry.npmjs.org/minimist/1.2.5
+    dev: false
+    hasBin: true
+    name: mkdirp
+    resolution:
+      integrity: sha512-NKmAlESf6jMGym1++R0Ra7wvhV+wFW63FaSOFPwRahvea0gMUcGUhVeAg/0BC0wiv9ih5NYPB1Wn1UEI1/L+xQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/mkdirp/-/mkdirp-0.5.5.tgz'
+    version: 0.5.5
   registry.npmjs.org/mkdirp2/1.0.4:
     dev: false
     name: mkdirp2
@@ -15550,23 +15569,6 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz'
     version: 16.13.1
-  registry.npmjs.org/react-dom/16.13.1_react@16.13.1:
-    dependencies:
-      loose-envify: registry.npmjs.org/loose-envify/1.4.0
-      object-assign: registry.npmjs.org/object-assign/4.1.1
-      prop-types: registry.npmjs.org/prop-types/15.7.2
-      react: registry.npmjs.org/react/16.13.1
-      scheduler: registry.npmjs.org/scheduler/0.19.1
-    id: registry.npmjs.org/react-dom/16.13.1
-    name: react-dom
-    optional: true
-    peerDependencies:
-      react: ^16.13.1
-    resolution:
-      integrity: sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
-      registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/react-dom/-/react-dom-16.13.1.tgz'
-    version: 16.13.1
   registry.npmjs.org/react-is/16.12.0:
     name: react-is
     resolution:
@@ -16716,6 +16718,7 @@ packages:
   registry.npmjs.org/rxjs/6.5.4:
     dependencies:
       tslib: registry.npmjs.org/tslib/1.11.1
+    dev: true
     engines:
       npm: '>=2.0.0'
     name: rxjs
@@ -16724,6 +16727,18 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/rxjs/-/rxjs-6.5.4.tgz'
     version: 6.5.4
+  registry.npmjs.org/rxjs/6.5.5:
+    dependencies:
+      tslib: registry.npmjs.org/tslib/1.11.1
+    dev: false
+    engines:
+      npm: '>=2.0.0'
+    name: rxjs
+    resolution:
+      integrity: sha512-WfQI+1gohdf0Dai/Bbmk5L5ItH5tYqm3ki2c5GdWhKjalzjg93N3avFjVStyZZz+A2Em+ZxKH5bNghw9UeylGQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/rxjs/-/rxjs-6.5.5.tgz'
+    version: 6.5.5
   registry.npmjs.org/safe-buffer/5.1.2:
     name: safe-buffer
     resolution:
@@ -17740,16 +17755,16 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-2.0.1.tgz'
     version: 2.0.1
-  registry.npmjs.org/strip-json-comments/3.0.1:
+  registry.npmjs.org/strip-json-comments/3.1.0:
     dev: false
     engines:
       node: '>=8'
     name: strip-json-comments
     resolution:
-      integrity: sha512-VTyMAUfdm047mwKl+u79WIdrZxtFtn+nBxHeb844XBQ9uMNTuTHdx2hc5RiAJYqwTj3wc/xe5HLSdJSkJ+WfZw==
+      integrity: sha512-e6/d0eBu7gHtdCqFt0xJr642LdToM5/cN4Qb9DbHjVx1CP5RyeM+zH7pbecEmDv/lBqb0QH+6Uqq75rxFPkM0w==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.0.1.tgz'
-    version: 3.0.1
+      tarball: 'https://registry.npmjs.org/strip-json-comments/-/strip-json-comments-3.1.0.tgz'
+    version: 3.1.0
   registry.npmjs.org/style-inject/0.3.0:
     dev: true
     name: style-inject
