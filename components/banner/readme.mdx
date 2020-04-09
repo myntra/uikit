@@ -55,3 +55,79 @@ function Example() {
     </Banner>
 }
 ```
+
+## Sub-components
+
+### Banner.Actionable
+
+* This type of banner is designed for mobile, click on view and switch to mobile view in browser to have a better visual experience.
+
+<Documenter component={Banner.Actionable} sub>
+
+```jsx preview
+function Example() {
+  const [isVisible, setVisible] = useState(false);
+  let component;
+  !isVisible ?
+    component = <a style={{color:"blue"}} onClick={() => setVisible(true)}>WARNING</a> :
+    component = 
+      <Banner.Actionable data={{
+        onClose : () => setVisible(false),
+        feedback: 'Already Scanned!',
+        type: 'warning',
+        header: 'Adding MasterBags',
+        subHeader: 'Deepak Kumar - New Whitefield',
+        actionButtonText: 'OKAY',
+        entityName: 'Masterbag ID',
+        entityId: '100309334556',
+        actionToTake: <>Move to <b>Container No: #2233983 </b></>
+      }}/>;
+  return component;
+}
+```
+
+```jsx preview
+function Example() {
+  const [isVisible, setVisible] = useState(false);
+  let component;
+  !isVisible ?
+    component = <a style={{color:"blue"}} onClick={() => setVisible(true)}>SUCCESS</a> :
+    component = 
+      <Banner.Actionable data={{
+        onClose : () => setVisible(false),
+        feedback: 'Completed!',
+        type: 'success',
+        header: 'Adding MasterBags',
+        subHeader: 'Deepak Kumar - New Whitefield',
+        actionButtonText: 'OKAY',
+        entityName: 'Item ID',
+        entityId: '100309334556',
+        actionToTake: 'Put it in completed Bin'
+      }}/>;
+  return component;
+}
+```
+
+```jsx preview
+function Example() {
+  const [isVisible, setVisible] = useState(false);
+  let component;
+  !isVisible ?
+    component = <a style={{color:"blue"}} onClick={() => setVisible(true)}>ERROR</a> :
+    component = 
+      <Banner.Actionable data={{
+        onClose : () => setVisible(false),
+        feedback: 'Wrong Carton!',
+        type: 'error',
+        header: 'Adding MasterBags',
+        subHeader: 'Deepak Kumar - New Whitefield',
+        actionButtonText: 'OKAY',
+        entityName: 'Carton ID',
+        entityId: '100309334556',
+        actionToTake: 'Keep This Carton Aside'
+      }}/>;
+  return component;
+}
+```
+
+</Documenter>

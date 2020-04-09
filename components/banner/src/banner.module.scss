@@ -1,15 +1,6 @@
 @import '@accoutrement';
 
-.container {
-  @include padding('banner');
-  @include border('banner');
-  @include border-radius('banner');
-
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  color: text-color('light');
-
+@mixin mixin-banner {
   &.primary {
     background-color: color('primary');
     border-color: color('primary');
@@ -29,6 +20,18 @@
     background-color: color('success');
     border-color: color('success');
   }
+}
+
+.container {
+  @include padding('banner');
+  @include border('banner');
+  @include border-radius('banner');
+  @include mixin-banner();
+
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: text-color('light');
 
   .content {
     flex: 1;

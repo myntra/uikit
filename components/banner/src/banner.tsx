@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { PureComponent } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import Button from '@myntra/uikit-component-button'
 import classnames from './banner.module.scss'
+import Actionable from './actionable'
+import { ICONS, RE_BACKWARD_COMPAT } from './constants'
 
-interface Props extends BaseProps {
+export interface Props extends BaseProps {
   /**
    * The visual style to convey purpose of the alert.
    */
@@ -29,14 +31,6 @@ interface Props extends BaseProps {
   children: string | JSX.Element
 }
 
-const ICONS: Record<string, IconName> = {
-  error: 'exclamation-triangle',
-  warning: 'exclamation-circle',
-  success: 'check-circle',
-}
-
-const RE_BACKWARD_COMPAT = /^(primary|info)$/
-
 // Design: https://zpl.io/bA7ZRWp
 // Documentation: https://zpl.io/bJGxg6E
 
@@ -50,49 +44,59 @@ const RE_BACKWARD_COMPAT = /^(primary|info)$/
  * @category basic
  * @see https://uikit.myntra.com/components/alert
  */
-export default function Banner({
-  className,
-  type,
-  icon,
-  title,
-  solid,
-  onClose,
-  children,
-  ...props
-}: Props): JSX.Element {
-  const typeName = RE_BACKWARD_COMPAT.test(type) ? 'success' : type
-  const heading = title || children
-  const body = title ? children : null
-  const iconName = icon === undefined ? ICONS[type] : icon
 
-  return (
-    <div
-      {...props}
-      className={classnames('container', typeName, className)}
-      role="alert"
-    >
-      {iconName ? (
-        <Icon className={classnames('icon', { top: !!body })} name={iconName} />
-      ) : null}
-      <div className={classnames('content')}>
-        <div className={classnames('title')}>{heading}</div>
-        {body ? <div className={classnames('body')}>{body}</div> : null}
+export default class Banner extends PureComponent<Props> {
+  static Actionable = Actionable
+
+  static defaultProps = {
+    type: 'error',
+  }
+
+  render() {
+    const {
+      className,
+      type,
+      icon,
+      title,
+      solid,
+      onClose,
+      children,
+      ...props
+    } = this.props
+
+    const typeName = RE_BACKWARD_COMPAT.test(type) ? 'success' : type
+    const heading = title || children
+    const body = title ? children : null
+    const iconName = icon === undefined ? ICONS[type] : icon
+
+    return (
+      <div
+        {...props}
+        className={classnames('container', typeName, className)}
+        role="alert"
+      >
+        {iconName ? (
+          <Icon
+            className={classnames('icon', { top: !!body })}
+            name={iconName}
+          />
+        ) : null}
+        <div className={classnames('content')}>
+          <div className={classnames('title')}>{heading}</div>
+          {body ? <div className={classnames('body')}>{body}</div> : null}
+        </div>
+
+        {onClose && (
+          <Button
+            className={classnames('close')}
+            type="link"
+            icon="times"
+            inheritTextColor
+            onClick={onClose}
+            data-test-id="close"
+          />
+        )}
       </div>
-
-      {onClose && (
-        <Button
-          className={classnames('close')}
-          type="link"
-          icon="times"
-          inheritTextColor
-          onClick={onClose}
-          data-test-id="close"
-        />
-      )}
-    </div>
-  )
-}
-
-Banner.defaultProps = {
-  type: 'error',
+    )
+  }
 }

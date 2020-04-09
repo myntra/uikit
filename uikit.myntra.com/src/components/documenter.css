@@ -27,8 +27,6 @@ a.anchor {
   font-family: 'Fira Code', monospace;
   font-style: oblique;
   color: rgba(0, 0, 0, 0.54);
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
 
 .documenter--prop-value {
