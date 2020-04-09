@@ -15,10 +15,6 @@
   cursor: pointer;
   appearance: none;
 
-  + .container {
-    @include margin-left('large');
-  }
-
   &::-moz-focus-inner {
     border: 0;
   }
@@ -143,10 +139,10 @@
 
   &.notification-button {
     @include border-radius('notification.circle');
+
     z-index: z-index('notification');
     width: 2em;
     height: 2em;
-
     background-color: #4f46c8;
     border-color: #4f46c8;
     box-shadow: shadow('raised');
@@ -204,5 +200,60 @@
 
   &.small {
     padding: size('1x') size('4x');
+  }
+
+  @include media-breakpoint-up('sm') {
+    + .container {
+      @include margin-left('large');
+    }
+  }
+
+  @include media-breakpoint-down('sm') {
+    border-radius: 0;
+    &.primary {
+      color: color('primary');
+      background-color: color('white');
+      border-color: color('white');
+      box-shadow: shadow('raised');
+
+      &:disabled {
+        color: contrast-text-color('button.disabled', 'disabled');
+        background-color: color('white');
+        border-color: color('white');
+      }
+
+      &:not(:disabled) {
+        &:hover,
+        &:active,
+        &:active:hover {
+          color: color('primary-dark-3');
+          background-color: color('white');
+          border-color: color('white');
+        }
+      }
+    }
+
+    &.secondary {
+      color: color('black');
+      background-color: color('white');
+      border-color: color('white');
+      box-shadow: shadow('raised');
+
+      &:disabled {
+        color: contrast-text-color('button.disabled', 'disabled');
+        background-color: color('white');
+        border-color: color('white');
+      }
+
+      &:not(:disabled) {
+        &:hover,
+        &:active,
+        &:active:hover {
+          color: color('primary-dark-3');
+          background-color: color('white');
+          border-color: color('white');
+        }
+      }
+    }
   }
 }

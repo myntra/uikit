@@ -1,4 +1,4 @@
-import React, { PureComponent, useContext, ReactNode } from 'react'
+import React, { PureComponent, ReactNode } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './button.module.scss'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
@@ -7,6 +7,7 @@ import Link from './link'
 import HookLink from './link-hook'
 import RouterLink from './router-link'
 import HookRouterLink from './router-link-hook'
+import FAB from './FAB'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
@@ -52,6 +53,7 @@ export interface Props extends BaseProps {
 export default class Button extends PureComponent<Props> {
   static RouterLink = CAN_USE_HOOKS ? HookRouterLink : RouterLink
   static Link = CAN_USE_HOOKS ? HookLink : Link
+  static FAB = FAB
 
   static propTypes = {
     __$validation({ to, href }) {

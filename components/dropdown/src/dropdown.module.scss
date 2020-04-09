@@ -10,10 +10,16 @@
   top: 100%;
   z-index: z-index('dropdown');
   transition: height 0.3s;
-}
 
-.content-wrapper {
-  box-shadow: shadow('raised');
+  .content-wrapper {
+    box-shadow: shadow('raised');
+  }
+  
+  &.no-shadow  {
+    .content-wrapper {
+      box-shadow: none;
+    }
+  }
 }
 
 .content.fixed {

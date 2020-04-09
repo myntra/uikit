@@ -332,7 +332,7 @@ export default class List extends PureComponent<
         tabIndex={0}
         {...props}
         ref={this.containerRef}
-        className={classnames('container', className, {
+        className={classnames(className, 'container', {
           'is-single-selectable': !multiple,
         })}
         role="listbox"
