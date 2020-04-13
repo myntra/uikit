@@ -99,29 +99,3 @@ useEffect(() => {
   {'Start Now'}
 </Button>
 ```
-##  Floating Action buttons
-
-```jsx preview
-const [direction, setDirection] = useState('up')
-
-<div style={{
-  'height': '500px',
-  position: 'relative'
-}}>
-  <Button type="link" onClick={() => setDirection('up')}>Up</Button>
-  <Button type="link" onClick={() => setDirection('down')}>Down</Button>
-  <Button type="link" onClick={() => setDirection('left')}>Left</Button>
-  <Button type="link" onClick={() => setDirection('right')}>Right</Button>
-  <Button.FAB icon="search" direction={direction} style={{
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)'
-  }}>
-    <Button icon="angle-left" label="Angle Left" />
-    <Button icon="angle-right" label="Angle Right" />
-    <Button icon="angle-up" label="Angle Up" />
-    <Button icon="angle-down" label="Angle Down" />
-  </Button.FAB>
-</div>
-```

@@ -176,7 +176,7 @@ function initSrc(name) {
     {
       name: `${shortName}.tsx`,
       initialContent: `
-import React from 'react'
+import React from { PureComponent } 'react'
 import classnames from './${shortName}.module.scss'
 
 export interface Props extends BaseProps {
@@ -185,14 +185,14 @@ export interface Props extends BaseProps {
 }
 
 /**
- * A component to read date and date ranges.
+ * <Component description goes here>
  *
  * @since ${version}
  * @status REVIEWING
  * @category basic
  * @see http://uikit.myntra.com/components/${shortName}
  */
-export default class ${camelCase(
+export default class ${pascalCase(
         shortName
       )} extends PureComponent<Props, State> {
   /**
@@ -212,9 +212,9 @@ export default class ${camelCase(
     {
       name: `index.ts`,
       initialContent: `
-import ${camelCase(shortName)} from './${shortName}'
+import ${pascalCase(shortName)} from './${shortName}'
 export * from './${shortName}'
-export default ${camelCase(shortName)}
+export default ${pascalCase(shortName)}
       `,
     },
   ]

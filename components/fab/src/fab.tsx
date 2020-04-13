@@ -1,9 +1,8 @@
 import React, { PureComponent, ReactNode, Children } from 'react'
 import Icons, { IconName } from '@myntra/uikit-component-icon'
 import Dropdown from '@myntra/uikit-component-dropdown'
-import Button from './button'
-import classnames from './FAB.module.scss'
-import { KIND } from './constants'
+import Button, { KIND } from '@myntra/uikit-component-button'
+import classnames from './fab.module.scss'
 
 export interface Props extends BaseProps {
   direction: 'up' | 'left' | 'down' | 'right'
@@ -18,10 +17,31 @@ export interface Props extends BaseProps {
   /** The handler to call when the button is clicked. */
   onClick?(event: MouseEvent): void
   className: string
+  /** Fab primary button icon  */
   icon: IconName
+  /** Fab secondary button icon. If specified if will toggle with primary on trigger   */
+  secondaryIcon: IconName
+  /** Fab buttons position on screen */
+  position:
+    | 'right-bottom'
+    | 'center-bottom'
+    | 'left-bottom'
+    | 'right-center'
+    | 'center-center'
+    | 'left-center'
+    | 'right-top'
+    | 'center-top'
+    | 'left-top'
 }
-
-export default class FAB extends PureComponent<
+/**
+ * Floating action buttons (FABs)
+ *
+ * @since 1.13.20
+ * @status REVIEWING
+ * @category basic
+ * @see http://uikit.myntra.com/components/fab
+ */
+export default class Fab extends PureComponent<
   Props,
   {
     isOpen: boolean
@@ -48,11 +68,19 @@ export default class FAB extends PureComponent<
 
   handleDropdownOpen = () => this.setState({ isOpen: true })
   handleDropdownClose = () => this.setState({ isOpen: false })
+  toggleDropDown = () => {
+    this.setState({ isOpen: !this.state.isOpen })
+  }
 
   getReactNodes(nodes) {
     const { direction } = this.props
     return nodes.map((item: any, index) => (
-      <li className={classnames('fab-list__item', direction)}>
+      <li
+        className={classnames('fab-list__item', direction)}
+        style={{
+          transitionDelay: `${index * 0.05}s`,
+        }}
+      >
         {React.cloneElement(item, { type: KIND.text, key: index })}
       </li>
     ))
@@ -67,6 +95,7 @@ export default class FAB extends PureComponent<
       className,
       triggerOn,
       icon,
+      position,
       ...props
     } = this.props
 
@@ -77,20 +106,27 @@ export default class FAB extends PureComponent<
     return (
       <Dropdown
         up={direction === 'up'}
-        left={direction === 'left'}
+        left={direction === 'left' || !!position.match('right-')}
         down={direction === 'down'}
         right={direction === 'right'}
         container={true}
-        trigger={<Button icon="ellipsis-v" />}
-        isOpen={isOpen}
+        trigger={
+          <Button icon="ellipsis-v" onClick={() => this.toggleDropDown()} />
+        }
+        isOpen={true}
         onOpen={this.handleDropdownOpen}
         onClose={this.handleDropdownClose}
         triggerOn={triggerOn}
         wrapperClassName="no-shadow"
+        className={classnames('fab', position)}
         {...props}
       >
-        <ul className={classnames('fab-list', direction)}>
-          {['down', 'left'].includes(direction)
+        <ul
+          className={classnames('fab-list', direction, position, {
+            'is-open': isOpen,
+          })}
+        >
+          {['up', 'left'].includes(direction)
             ? reactNodes.reverse()
             : reactNodes}
         </ul>
