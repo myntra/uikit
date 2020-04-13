@@ -193,6 +193,7 @@ importers:
       '@myntra/uikit-component-button': 'link:../button'
       '@myntra/uikit-component-icon': 'link:../icon'
       '@myntra/uikit-component-layout': 'link:../layout'
+      '@myntra/uikit-component-text': 'link:../text'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.17
@@ -203,6 +204,7 @@ importers:
       '@myntra/uikit-component-button': 1.13.*
       '@myntra/uikit-component-icon': 1.13.*
       '@myntra/uikit-component-layout': 1.13.*
+      '@myntra/uikit-component-text': 1.13.*
       '@myntra/uikit-utils': 1.13.*
       '@types/react': ^16.8
       react: '>=15.4'
