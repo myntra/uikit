@@ -7,7 +7,7 @@ export interface Props extends BaseProps {
   /** Displays a disabled number field */
   disabled?: boolean
   /** Current value of the number input field. */
-  value?: number
+  value?: number | string
   /** The handler to call when the value changes. */
   onChange?(value: number): void
 }
@@ -27,12 +27,13 @@ export default function InputNumber({
   value,
   ...props
 }: Props): JSX.Element {
+  const newVal: number = parseFloat(value as string)
   return (
     <div className={className}>
       <input
         {...props}
         type="text"
-        value={typeof value !== 'number' || isNaN(value) ? '' : value}
+        value={isNaN(newVal) ? '' : value}
         className={classnames('input')}
         onChange={(event) =>
           onChange && onChange(parseFloat(event.target.value))
