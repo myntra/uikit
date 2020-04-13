@@ -2,13 +2,9 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<a name="1.13.22"></a>
-## <small>1.13.22 (2020-04-09)</small>
+<a name="1.13.21"></a>
+## <small>1.13.21 (2020-04-13)</small>
 
-* Merged in feat/bannerMobile (pull request #270) ([cb4690f](https://bitbucket.org/myntra/uikit/commits/cb4690f)), closes [#270](https://bitbucket.org/myntra/uikit/issue/270)
-* Merged in feat/button-responsive (pull request #271) ([8a2d2ed](https://bitbucket.org/myntra/uikit/commits/8a2d2ed)), closes [#271](https://bitbucket.org/myntra/uikit/issue/271)
-* Merged in feat/floating-button (pull request #269) ([2084716](https://bitbucket.org/myntra/uikit/commits/2084716)), closes [#269](https://bitbucket.org/myntra/uikit/issue/269)
-* Merged in feat/inputMobile (pull request #267) ([5df0e06](https://bitbucket.org/myntra/uikit/commits/5df0e06)), closes [#267](https://bitbucket.org/myntra/uikit/issue/267)
 
 
 
