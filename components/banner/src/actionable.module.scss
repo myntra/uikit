@@ -24,6 +24,10 @@
     padding-left: size('2x');
   }
 
+  .feedback-contain {
+    margin-left: size('5x');
+  }
+
   .contents {
     position: absolute;
     top: 28%;
@@ -36,7 +40,7 @@
   .action-name {
     width: 70vw;
     padding-top: size('2x');
-    margin: size('7x') 0;
+    margin-top: size('7x');
     border-top: 1px solid text-color('light');
   }
 
@@ -55,6 +59,7 @@
     width: 100px;
     min-width: 100px;
     padding: size('3x');
+    margin-top: size('5x');
     font-size: 16px;
     font-weight: 600;
     color: text-color('dark', 'medium');
@@ -66,7 +71,6 @@
     width: size('7x');
     height: size('7x');
     margin-top: size('2x');
-    margin-right: size('7x');
     transform: scale(1.5);
   }
 }

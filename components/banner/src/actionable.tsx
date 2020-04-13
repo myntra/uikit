@@ -88,7 +88,7 @@ export default class Actionable extends PureComponent<Props> {
         <div className={classnames('contents-wrapper')}>
           <Layout type="stack" className={classnames('contents')}>
             <Icon className={classnames('icon')} name={iconName} />
-            <Layout type="row">
+            <Layout type="row" className={classnames('feedback-contain')}>
               <Text.h1 color="light">{feedback}</Text.h1>
               <Text.body color="light" emphasis="medium">
                 {entityName}
