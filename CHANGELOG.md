@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.22"></a>
+## <small>1.13.22 (2020-04-13)</small>
+
+* Merged in fix/bannerStyle (pull request #274) ([d4f4f2b](https://bitbucket.org/myntra/uikit/commits/d4f4f2b)), closes [#274](https://bitbucket.org/myntra/uikit/issue/274)
+* Merged in fix/number (pull request #273) ([7df21cb](https://bitbucket.org/myntra/uikit/commits/7df21cb)), closes [#273](https://bitbucket.org/myntra/uikit/issue/273)
+
+
+
 <a name="1.13.21"></a>
 ## <small>1.13.21 (2020-04-13)</small>
 
