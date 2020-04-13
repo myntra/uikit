@@ -321,6 +321,8 @@ export default class Dropdown extends Component<
     } else if (left && !(up || down)) {
       position.left -= width
       position.top += (rect.height - height) / 2
+    } else if (left && (up || down)) {
+      position.left -= width - rect.width
     }
 
     // Register scroll handler.
@@ -389,6 +391,7 @@ export default class Dropdown extends Component<
       // If target element is an input element, keep dropdown open.
       if (
         this.containerRef.current &&
+        event.target &&
         /^(input|textarea|select)$/i.test((event.target as any).nodeName)
       ) {
         return

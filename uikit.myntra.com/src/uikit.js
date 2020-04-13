@@ -52,6 +52,7 @@ export const Dropdown = asyncComponent(() =>
 export const ErrorBoundary = asyncComponent(() =>
   import(/* webpackChunkName: 'components/error-boundary' */ '@myntra/uikit-component-error-boundary')
 )
+export const Fab = asyncComponent(() => import(/* webpackChunkName: 'components/fab' */ '@myntra/uikit-component-fab'))
 export const Field = asyncComponent(() =>
   import(/* webpackChunkName: 'components/field' */ '@myntra/uikit-component-field')
 )
@@ -72,6 +73,9 @@ export const Icon = asyncComponent(() =>
 )
 export const Image = asyncComponent(() =>
   import(/* webpackChunkName: 'components/image' */ '@myntra/uikit-component-image')
+)
+export const InputAzureFile = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/input-azure-file' */ '@myntra/uikit-component-input-azure-file')
 )
 export const InputCheckbox = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-checkbox' */ '@myntra/uikit-component-input-checkbox')
@@ -96,9 +100,6 @@ export const InputRadio = asyncComponent(() =>
 )
 export const InputS3File = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-s3-file')
-)
-export const InputAzureFile = asyncComponent(() =>
-  import(/* webpackChunkName: 'components/input-s3-file' */ '@myntra/uikit-component-input-azure-file')
 )
 export const InputSelect = asyncComponent(() =>
   import(/* webpackChunkName: 'components/input-select' */ '@myntra/uikit-component-input-select')
@@ -160,7 +161,6 @@ export const Tabs = asyncComponent(() =>
 export const Text = asyncComponent(() =>
   import(/* webpackChunkName: 'components/text' */ '@myntra/uikit-component-text')
 )
-export const T = asyncComponent(() => import(/* webpackChunkName: 'components/text' */ '@myntra/uikit-component-text'))
 export const Tooltip = asyncComponent(() =>
   import(/* webpackChunkName: 'components/tooltip' */ '@myntra/uikit-component-tooltip')
 )
@@ -239,6 +239,12 @@ export const META = [
     path: '/components/error-boundary'
   },
   {
+    name: 'Fab',
+    since: '1.13.20',
+    status: 'REVIEWING',
+    path: '/components/fab'
+  },
+  {
     name: 'Field',
     since: '0.6.0',
     status: 'REVIEWING',
@@ -265,7 +271,7 @@ export const META = [
   {
     name: 'Group',
     since: '0.11.0',
-    status: 'REVIEWING',
+    status: 'DEPRECATED',
     path: '/components/group'
   },
   {
@@ -279,6 +285,12 @@ export const META = [
     since: '0.3.0',
     status: 'REVIEWING',
     path: '/components/image'
+  },
+  {
+    name: 'InputAzureFile',
+    since: '1.5.4',
+    status: 'READY',
+    path: '/components/input-azure-file'
   },
   {
     name: 'InputCheckbox',
@@ -327,12 +339,6 @@ export const META = [
     since: '0.11.0',
     status: 'READY',
     path: '/components/input-s3-file'
-  },
-  {
-    name: 'InputAzureFile',
-    since: '1.0.0',
-    status: 'READY',
-    path: '/components/input-azure-file'
   },
   {
     name: 'InputSelect',
@@ -451,7 +457,7 @@ export const META = [
   {
     name: 'Text',
     since: '1.0.0',
-    status: 'REVIEWING',
+    status: 'EXPERIMENTAL',
     path: '/components/text'
   },
   {

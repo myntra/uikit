@@ -21,12 +21,12 @@ targets.forEach((name) => {
   console.log(`Bootstrapping module: ${name}`)
   const pkgFile = path.join(rootDir, `package.json`)
   const pkg = {
-    name,
+    name: `@myntra/uikit-component-${name}`,
     version,
     main: `dist/${shortName}.cjs.js`,
     module: `dist/${shortName}.esm.js`,
     types: 'dist/index.d.ts',
-    author: 'Rahul Kadyan <hi@znck.me>',
+    author: 'Sunil Jhamnani<sunil.jhamnani@myntra.com>',
     license: 'UNLICENSED',
     repository: getPackageRepository(name),
     publishConfig: {
@@ -44,9 +44,14 @@ targets.forEach((name) => {
     pkg.optionalDependencies = {
       react: '>=15.4',
     }
-
     pkg.devDependencies = {
       '@types/react': 'latest',
+    }
+    pkg.peerDependencies = {}
+    pkg.dependencies = {
+      '@myntra/uikit-can-i-use': '1.13.*',
+      '@myntra/uikit-utils': '1.13.*',
+      'prop-types': '^15.7.2',
     }
   }
 
@@ -93,7 +98,7 @@ import ${component} from './src/${shortName}'
   if (!fs.existsSync(mainFile)) {
     if (!fs.existsSync(srcDir)) {
       const newDir = path.join(rootDir, 'src')
-      if (!fs.readdirSync(newDir).length) {
+      if (!fs.existsSync(newDir)) {
         fs.mkdirSync(newDir)
         srcFiles.forEach((fileObj) =>
           fs.writeFileSync(

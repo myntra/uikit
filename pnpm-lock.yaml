@@ -302,6 +302,27 @@ importers:
       '@types/react': ^16.8
       prop-types: ^15.7.2
       react: '>=15.4'
+  components/fab:
+    dependencies:
+      '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
+      '@myntra/uikit-component-button': 'link:../button'
+      '@myntra/uikit-component-dropdown': 'link:../dropdown'
+      '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.9.34
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.13.1
+    specifiers:
+      '@myntra/uikit-can-i-use': 1.13.*
+      '@myntra/uikit-component-button': 1.13.*
+      '@myntra/uikit-component-dropdown': 1.13.*
+      '@myntra/uikit-component-icon': 1.13.*
+      '@myntra/uikit-utils': 1.13.*
+      '@types/react': latest
+      prop-types: ^15.7.2
+      react: '>=15.4'
   components/field:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -3438,6 +3459,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.19.tgz'
     version: 16.9.19
+  registry.npmjs.org/@types/react/16.9.34:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.3
+      csstype: registry.npmjs.org/csstype/2.6.8
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-8AJlYMOfPe1KGLKyHpflCg5z46n0b5DbRfqDksxBLBTUpB75ypDBAO9eCUcjNwE6LCUslwTz00yyG/X9gaVtow==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.34.tgz'
+    version: 16.9.34
   registry.npmjs.org/@types/resolve/0.0.8:
     dependencies:
       '@types/node': registry.npmjs.org/@types/node/13.1.7

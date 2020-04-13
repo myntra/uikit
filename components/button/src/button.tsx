@@ -7,7 +7,6 @@ import Link from './link'
 import HookLink from './link-hook'
 import RouterLink from './router-link'
 import HookRouterLink from './router-link-hook'
-import FAB from './FAB'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
@@ -53,7 +52,6 @@ export interface Props extends BaseProps {
 export default class Button extends PureComponent<Props> {
   static RouterLink = CAN_USE_HOOKS ? HookRouterLink : RouterLink
   static Link = CAN_USE_HOOKS ? HookLink : Link
-  static FAB = FAB
 
   static propTypes = {
     __$validation({ to, href }) {
