@@ -3,6 +3,10 @@ import CompatText from './compat-text'
 
 import classnames from './text.module.scss'
 
+const mapTagToName = {
+  div: 'body',
+  span: 'caption',
+}
 export interface Props extends BaseProps {
   /**
    * Abstract component does not render any extra elements.
@@ -62,7 +66,12 @@ export default function Text(props: Props) {
     return <CompatText {...(props as any)} />
   }
 
-  return <Text.body {...props} />
+  const { tag } = props
+  const Tag = createComponent(
+    tag ? mapTagToName[tag] || tag : 'div',
+    tag || 'div'
+  )
+  return <Tag {...props} />
 }
 
 Text.Title = Text.title = createComponent('title', 'div')

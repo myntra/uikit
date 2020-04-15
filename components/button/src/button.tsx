@@ -1,5 +1,6 @@
 import React, { PureComponent, ReactNode } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
+import Text from '@myntra/uikit-component-text'
 import classnames from './button.module.scss'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
@@ -39,6 +40,12 @@ export interface Props extends BaseProps {
    * Size of the button
    */
   size?: 'small' | 'regular' | 'large'
+  /**
+   * Backgroud color for button
+   */
+  color?: string
+  /** This will be used for large buttons */
+  caption?: string
 }
 
 /**
@@ -114,6 +121,8 @@ export default class Button extends PureComponent<Props> {
       notifications,
       transform,
       size,
+      color,
+      caption,
       ...props
     } = this.props
     const Tag = (to ? Button.RouterLink : href ? Button.Link : 'button') as any
@@ -130,11 +139,13 @@ export default class Button extends PureComponent<Props> {
         tabIndex={0} // enable tab navigation.
         {...props}
         type={type !== 'text' ? htmlType : ''}
-        className={classnames('container', className, typeName, state, size, {
+        className={classnames('container', className, state, size, {
+          [typeName]: size !== 'large' || !color,
           loading,
           inherit: inheritTextColor,
           icon: isIconButton,
           'notification-button': isNotificationButton,
+          [color]: !!color,
         })}
         to={to}
         href={href}
@@ -172,7 +183,11 @@ export default class Button extends PureComponent<Props> {
             className={classnames('icon', 'trailing')}
             data-test-id="secondary-icon"
           >
-            <Icon name={secondaryIcon} aria-hidden="true" />
+            <Icon
+              name={secondaryIcon}
+              aria-hidden="true"
+              className={classnames('button-icon')}
+            />
           </span>
         )}
 
@@ -180,6 +195,11 @@ export default class Button extends PureComponent<Props> {
           <div className={classnames('icon', 'loading')}>
             <Icon name="circle-notch" spin />
           </div>
+        )}
+        {size === 'large' && (
+          <Text.caption className={classnames('caption')}>
+            {caption}
+          </Text.caption>
         )}
       </Tag>
     )

@@ -1,6 +1,25 @@
 @import '@accoutrement';
 
 /* stylelint-disable no-descending-specificity */
+@mixin add-colors($map) {
+  @each $class, $value in $map {
+    &.#{$class} {
+      color: contrast-text-color($value);
+      background-color: $value;
+      border-color: $value;
+      &:hover {
+        background-color: shade($value, 40%);
+        border-color: shade($value, 40%);
+      }
+
+      &:active,
+      &:active:hover {
+        background-color: shade($value, 60%);
+        border-color: shade($value, 60%);
+      }
+    }
+  }
+}
 
 .container {
   @include border('button');
@@ -201,6 +220,41 @@
   &.small {
     padding: size('1x') size('4x');
   }
+
+  &.large {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: size('24x');
+    font-size: font-size('body');
+    border-radius: 0;
+    box-shadow: shadow('raised');
+
+    .caption {
+      margin-top: size('1x');
+      font-style: italic;
+      color: inherit;
+      text-transform: none;
+    }
+    svg {
+      width: size('7x');
+      height: size('7x');
+      margin-bottom: size('2x');
+    }
+  }
+
+  @include add-colors(
+    (
+      'primary': color('primary'),
+      'red': color('danger'),
+      'yellow': color('warning'),
+      'green': color('success'),
+      'gray': color('gray'),
+      'black': color('black'),
+    )
+  );
 
   @include media-breakpoint-up('sm') {
     + .container {

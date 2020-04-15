@@ -14,8 +14,8 @@
   .content-wrapper {
     box-shadow: shadow('raised');
   }
-  
-  &.no-shadow  {
+
+  &.no-shadow {
     .content-wrapper {
       box-shadow: none;
     }
