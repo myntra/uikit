@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.13.23"></a>
 ## <small>1.13.23 (2020-04-15)</small>
 
+* chore(release): 1.13.23 ([7f6feb7](https://bitbucket.org/myntra/uikit/commits/7f6feb7))
+* Merged in feat/big-button (pull request #264) ([f91ab9d](https://bitbucket.org/myntra/uikit/commits/f91ab9d)), closes [#264](https://bitbucket.org/myntra/uikit/issue/264)
+
+
+
+<a name="1.13.23"></a>
+## <small>1.13.23 (2020-04-15)</small>
+
 * Merged in feat/big-button (pull request #264) ([f91ab9d](https://bitbucket.org/myntra/uikit/commits/f91ab9d)), closes [#264](https://bitbucket.org/myntra/uikit/issue/264)
 
 

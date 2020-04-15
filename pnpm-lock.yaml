@@ -225,6 +225,7 @@ importers:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
       '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-text': 'link:../text'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
@@ -234,6 +235,7 @@ importers:
     specifiers:
       '@myntra/uikit-can-i-use': 1.13.*
       '@myntra/uikit-component-icon': 1.13.*
+      '@myntra/uikit-component-text': 1.13.*
       '@myntra/uikit-context': 1.13.*
       '@myntra/uikit-utils': 1.13.*
       '@types/react': ^16.8
@@ -1421,7 +1423,7 @@ packages:
       eslint-utils: registry.npmjs.org/eslint-utils/1.4.3
       eslint-visitor-keys: registry.npmjs.org/eslint-visitor-keys/1.1.0
       espree: registry.npmjs.org/espree/6.2.1
-      esquery: registry.npmjs.org/esquery/1.2.0
+      esquery: registry.npmjs.org/esquery/1.3.0
       esutils: registry.npmjs.org/esutils/2.0.3
       file-entry-cache: registry.npmjs.org/file-entry-cache/5.0.1
       functional-red-black-tree: registry.npmjs.org/functional-red-black-tree/1.0.1
@@ -6294,6 +6296,14 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/cli-width/-/cli-width-2.2.0.tgz'
     version: 2.2.0
+  registry.npmjs.org/cli-width/2.2.1:
+    dev: false
+    name: cli-width
+    resolution:
+      integrity: sha512-GRMWDxpOB6Dgk2E5Uo+3eEBvtOOlimMmpbFiKuLFnQzYDavtLFY3K5ona41jgN/WdRZtG7utuVSVTL4HbZHGkw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/cli-width/-/cli-width-2.2.1.tgz'
+    version: 2.2.1
   registry.npmjs.org/clipboardy/1.2.3:
     dependencies:
       arch: registry.npmjs.org/arch/2.1.1
@@ -8634,18 +8644,18 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/esquery/-/esquery-1.0.1.tgz'
     version: 1.0.1
-  registry.npmjs.org/esquery/1.2.0:
+  registry.npmjs.org/esquery/1.3.0:
     dependencies:
       estraverse: registry.npmjs.org/estraverse/5.0.0
     dev: false
     engines:
-      node: '>=8.0'
+      node: '>=0.10'
     name: esquery
     resolution:
-      integrity: sha512-weltsSqdeWIX9G2qQZz7KlTRJdkkOCTPgLYJUz1Hacf48R4YOwGPHO3+ORfWedqJKbq5WQmsgK90n+pFLIKt/Q==
+      integrity: sha512-/5qB+Mb0m2bh86tjGbA8pB0qBfdmCIK6ZNPjcw4/TtEH0+tTf0wLA5HK4KMTweSMwLGHwBDWCBV+6+2+EuHmgg==
       registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/esquery/-/esquery-1.2.0.tgz'
-    version: 1.2.0
+      tarball: 'https://registry.npmjs.org/esquery/-/esquery-1.3.0.tgz'
+    version: 1.3.0
   registry.npmjs.org/esrecurse/4.2.1:
     dependencies:
       estraverse: registry.npmjs.org/estraverse/4.3.0
@@ -10548,7 +10558,7 @@ packages:
       ansi-escapes: registry.npmjs.org/ansi-escapes/4.3.1
       chalk: registry.npmjs.org/chalk/3.0.0
       cli-cursor: registry.npmjs.org/cli-cursor/3.1.0
-      cli-width: registry.npmjs.org/cli-width/2.2.0
+      cli-width: registry.npmjs.org/cli-width/2.2.1
       external-editor: registry.npmjs.org/external-editor/3.1.0
       figures: registry.npmjs.org/figures/3.2.0
       lodash: registry.npmjs.org/lodash/4.17.15
