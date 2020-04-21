@@ -4,9 +4,16 @@
 .control {
   position: relative;
   display: flex;
+
   .icon {
     position: absolute;
-    top: 0.6em;
+    top: 50%;
+    opacity: 0.6;
+    transform: translateY(-50%);
+
+    &.active {
+      opacity: 1;
+    }
   }
 }
 

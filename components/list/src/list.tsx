@@ -133,7 +133,7 @@ export default class List extends PureComponent<
     if (!this.props.onChange) return
 
     if (!this.props.multiple) {
-      return this.props.onChange(id === this.props.value ? null : id)
+      return this.props.onChange(id)
     }
 
     const ids = this.computeSelectedIds()

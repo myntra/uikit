@@ -225,7 +225,14 @@ export default class InputSelectControl<V = any, T = any> extends PureComponent<
         onClick={() => this.inputRef.current && this.inputRef.current.focus()}
       >
         {(!this.state.searchText || !searchable) && renderPlaceholder()}
-        {icon && <Icon className={classnames('icon')} name={icon} />}
+        {icon && (
+          <Icon
+            className={classnames('icon', {
+              active: value || this.state.searchText,
+            })}
+            name={icon}
+          />
+        )}
         {searchable && (
           <input
             disabled={disabled}
