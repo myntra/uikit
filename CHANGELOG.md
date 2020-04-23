@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.25"></a>
+## [1.13.25](https://bitbucket.org/myntra/uikit/compare/v1.13.24...v1.13.25) (2020-04-23)
+
+
+### Bug Fixes
+
+* list select option after scroll not working ([1839b48](https://bitbucket.org/myntra/uikit/commits/1839b48)), closes [#277](https://bitbucket.org/myntra/uikit/issue/277)
+
+
+
 <a name="1.13.24"></a>
 ## [1.13.24](https://bitbucket.org/myntra/uikit/compare/v1.13.20...v1.13.24) (2020-04-21)
 
