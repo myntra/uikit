@@ -270,18 +270,16 @@ export default class List extends PureComponent<
       const { multiple, value, idForItem, items } = this.props
       const selectedIDs = this.computeSelectedIds()
 
-      if (!value || (multiple && !value.length)) {
-        this.setState({ activeIndex: 0 })
+      if (value || (multiple && value.length)) {
+        this.setState({
+          activeIndex: Math.max(
+            0,
+            items.findIndex((item) => selectedIDs.has(idForItem(item)))
+          ),
+        })
 
         return // Done.
       }
-
-      this.setState({
-        activeIndex: Math.max(
-          0,
-          items.findIndex((item) => selectedIDs.has(idForItem(item)))
-        ),
-      })
     }
   }
 
