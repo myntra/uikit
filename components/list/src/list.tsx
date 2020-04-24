@@ -108,6 +108,18 @@ export default class List extends PureComponent<
             }
           )
       }
+    } else {
+      const { multiple, value, idForItem, items } = this.props
+      const selectedIDs = this.computeSelectedIds()
+
+      if (value || (multiple && value && value.length)) {
+        this.setState({
+          activeIndex: Math.max(
+            0,
+            items.findIndex((item) => selectedIDs.has(idForItem(item)))
+          ),
+        })
+      }
     }
   }
 
@@ -265,24 +277,6 @@ export default class List extends PureComponent<
     if (preventDefault) event.preventDefault()
   }
 
-  handleFocus = (event) => {
-    if (event.relatedTarget) {
-      const { multiple, value, idForItem, items } = this.props
-      const selectedIDs = this.computeSelectedIds()
-
-      if (value || (multiple && value.length)) {
-        this.setState({
-          activeIndex: Math.max(
-            0,
-            items.findIndex((item) => selectedIDs.has(idForItem(item)))
-          ),
-        })
-
-        return // Done.
-      }
-    }
-  }
-
   handleBlur = () => {
     this.resetActiveIndex()
   }
@@ -341,7 +335,6 @@ export default class List extends PureComponent<
         style={style}
         onBlur={this.handleBlur}
         onKeyDown={this.handleKeyPress as any}
-        onFocus={this.handleFocus}
       >
         {children}
       </ul>
@@ -367,7 +360,6 @@ export default class List extends PureComponent<
             'is-active': isActive,
             'is-disabled': isDisabled,
           })}
-          onMouseEnter={this.resetActiveIndex}
           onClick={() => !isDisabled && this.handleClick({ id, index })}
         >
           <input

@@ -81,6 +81,7 @@ export default class InputAzureFile extends PureComponent<Props> {
         }
       }
     )
+    files.item(0) && this.props.onChange && this.props.onChange(files.item(0))
   }
 
   async triggerUpload() {
@@ -150,8 +151,8 @@ export default class InputAzureFile extends PureComponent<Props> {
   }
 
   private resetState(state?: Partial<InputAzureFileState>) {
+    !this.props.autoStartUpload && this.setState({ files: null })
     this.setState({
-      files: null,
       uploadProgress: 0,
       isUploading: false,
       ...state,
@@ -214,7 +215,6 @@ export default class InputAzureFile extends PureComponent<Props> {
             )}
           </div>
         )}
-        {...props}
       />
     )
   }

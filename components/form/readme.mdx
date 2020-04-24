@@ -86,34 +86,25 @@ const onSubmit = useCallback(value => console.log(value))
 
 ```jsx preview
 const [value, setValue] = useState(null)
-const [files, setFiles] = useState()
+const [file, setFile] = useState({})
 const onSubmit = useCallback(value => console.log(value))
 
 <>
   <Form title="Search Handover" onSubmit={onSubmit} value={value} onChange={setValue} defaultFieldSize={4}>
     <Form.Text label="Article Type" />
-    <Form.Select options={[]} label="Gender"  />
-    <Form.File
+    <Form.Select options={[
+        { value: 'male', label: 'Male' },
+        { value: 'female', label: 'Female' }
+      ]} 
+      label="Gender"
+    />
+    <Form.AzureFile
       label="File"
-      value={files}
-      onChange={setFiles}
+      apiRoot="http://apidev.myntrainfo.com:18793"
+      onSuccess={setFile}
       description="Choose file to upload"
     />
-    <ButtonGroup structure="primary-group">
-      <Button type="primary">Search</Button>
-      <Button type="text">Action 1</Button>
-      <Button type="text">Action 2</Button>
-      <Button type="text">Action 3</Button>
-      <Button type="text">Action 4</Button>
-      <Button type="text">Action 5</Button>
-      <Button type="text">Action 6</Button>
-      <Button type="text">Action 7</Button>
-      <Button type="text">Action 8</Button>
-      <Button type="text">Action 9</Button>
-      <Button type="text">Action 10</Button>
-      <Button type="text">Action 11</Button>
-      <Button type="text">Action 12</Button>
-    </ButtonGroup>
+    <Button type="primary">Search</Button>
   </Form>
   <pre>{JSON.stringify(value, null, 2)}</pre>
 </>
