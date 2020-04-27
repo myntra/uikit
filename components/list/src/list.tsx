@@ -3,6 +3,7 @@ import scrollIntoView from 'scroll-into-view-if-needed'
 import VirtualList, {
   Props as VirtualListProps,
 } from '@myntra/uikit-component-virtual-list'
+import InputCheckbox from '@myntra/uikit-component-input-checkbox'
 import classnames from './list.module.scss'
 import { createRef, isNullOrUndefined } from '@myntra/uikit-utils'
 
@@ -362,11 +363,10 @@ export default class List extends PureComponent<
           })}
           onClick={() => !isDisabled && this.handleClick({ id, index })}
         >
-          <input
+          <InputCheckbox
             className={classnames('checkbox')}
-            type="checkbox"
-            checked={isSelected}
-            value={id}
+            value={isSelected}
+            htmlValue={id}
             tabIndex={-1}
             readOnly
             hidden={!multiple}

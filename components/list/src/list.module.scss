@@ -40,6 +40,7 @@
 .checkbox {
   margin: 0;
   margin-right: size('3x');
+  pointer-events: none;
   cursor: pointer;
 }
 

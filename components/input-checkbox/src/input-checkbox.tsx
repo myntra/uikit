@@ -35,7 +35,7 @@ export interface Props extends BaseProps {
    * > As per [our convention](#input-checkbox-value), we use `value` prop for controlled input value so
    * an alternate prop (`htmlValue`) is accepted to set native `value` attribute.
    */
-  htmlValue: string
+  htmlValue?: string
 
   /**
    * A label text for the checkbox.
