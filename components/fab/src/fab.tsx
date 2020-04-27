@@ -106,9 +106,11 @@ export default class Fab extends PureComponent<
     return (
       <Dropdown
         up={direction === 'up'}
-        left={direction === 'left' || !!position.match('right-')}
+        left={direction === 'left'}
         down={direction === 'down'}
-        right={direction === 'right'}
+        right={
+          direction === 'right' || !!position.match(/right-top|right-bottom/)
+        }
         container={true}
         trigger={
           <Button icon="ellipsis-v" onClick={() => this.toggleDropDown()} />
