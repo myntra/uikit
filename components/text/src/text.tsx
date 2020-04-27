@@ -68,7 +68,7 @@ export default function Text(props: Props) {
 
   const { tag } = props
   const Tag = createComponent(
-    tag ? mapTagToName[tag] || tag : 'div',
+    tag ? mapTagToName[tag] || tag : 'body',
     tag || 'div'
   )
   return <Tag {...props} />
