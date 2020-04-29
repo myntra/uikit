@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, RefObject } from 'react'
 import UIKitContext, { LinkProps } from '@myntra/uikit-context'
 import Icon from '@myntra/uikit-component-icon'
+import ClickAway from '@myntra/uikit-component-click-away'
 import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
@@ -10,6 +11,7 @@ import LogoMyntraJabong from './logos/myntra-jabong.png'
 // TODO: Use click away to close NavBar (if mouse leave fails)
 
 import classnames from './nav-bar.module.scss'
+import { createRef } from '@myntra/uikit-utils'
 
 // TODO: Use hooks.
 const LinkFromUIKitContext = ({ href, children }: LinkProps) => (
@@ -138,10 +140,13 @@ export default class NavBar extends PureComponent<
 
   idPrefix: string
 
+  navbarRef: RefObject<HTMLElement>
+
   constructor(props) {
     super(props)
 
     this.idPrefix = `nav-${Date.now()}-`
+    this.navbarRef = createRef()
   }
 
   get isOpen(): boolean {
@@ -208,6 +213,12 @@ export default class NavBar extends PureComponent<
     // DO NOT CLOSE ON BLUR.
   }
 
+  handleClickAway = () => {
+    if (this.props.overlayClickHandler && this.props.needOverlay) {
+      this.overlayClickHandler()
+    }
+  }
+
   open = () => {
     if (!this.state.isOpen) this.setState({ isOpen: true })
   }
@@ -228,9 +239,6 @@ export default class NavBar extends PureComponent<
 
     if (this.props.onNavLinkClick && navLink.path) {
       this.props.onNavLinkClick({ to: navLink.path })
-    }
-    if (this.props.overlayClickHandler) {
-      this.overlayClickHandler()
     }
   }
 
@@ -290,6 +298,7 @@ export default class NavBar extends PureComponent<
         }}
       >
         <nav
+          ref={this.navbarRef}
           tabIndex={0}
           role="navigation"
           {...this.attrs}
@@ -332,6 +341,13 @@ export default class NavBar extends PureComponent<
             {this.props.children}
           </NavBarGroup>
         </nav>
+        {this.isOpen && (
+          <ClickAway
+            target={this.navbarRef}
+            onClickAway={this.handleClickAway}
+            data-test-id="click-away"
+          />
+        )}
       </NavBarContext.Provider>
     )
   }
