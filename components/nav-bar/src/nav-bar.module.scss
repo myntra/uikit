@@ -24,14 +24,12 @@
     background: rgba(0, 0, 0, 0.54);
   }
 
-  &:hover,
   &.is-open {
     @include shadow('nav-bar');
 
     width: size('nav-bar.max-width');
     overflow-y: auto;
-  }
-  &.is-open {
+
     .backdrop {
       display: block;
     }
@@ -89,5 +87,32 @@
     @include padding('nav-bar.body');
 
     box-sizing: border-box;
+  }
+}
+
+@include media-breakpoint-up('sm') {
+  .nav {
+    &:hover {
+      @include shadow('nav-bar');
+
+      width: size('nav-bar.max-width');
+      overflow-y: auto;
+    }
+  }
+}
+
+@include media-breakpoint-down('sm') {
+  .nav {
+    border: none;
+    .body {
+      display: none;
+    }
+
+    &.is-open {
+      height: 100vh;
+      .body {
+        display: block;
+      }
+    }
   }
 }

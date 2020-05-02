@@ -14,13 +14,22 @@
     'success': 'success',
     'error': 'danger',
     'warning': 'warning',
+    'incomplete': 'gray-dark-3',
   );
 
   @each $name, $color in $types {
     &.#{$name} {
-      color: color('#{$color}-dark-2');
-      background-color: color('#{$color}-light-2');
-      border-color: color('#{$color}-dark-2');
+      color: color('white');
+      background-color: color('#{$color}');
+      border-color: color('#{$color}');
     }
+  }
+}
+
+@include media-breakpoint-down('sm') {
+  .badge {
+    padding: size('small') / 2 size('2x');
+
+    @include typography('caption');
   }
 }

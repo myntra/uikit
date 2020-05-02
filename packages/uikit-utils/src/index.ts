@@ -1,3 +1,7 @@
+const regEx = {
+  mobile: /Mobile|iP(hone|od|ad)|Android|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/g,
+}
+
 export function isString(value: any): value is string {
   return typeof value === 'string'
 }
@@ -321,4 +325,11 @@ export function createRef<T = unknown>(): RefObject<T> {
     }
     return fn
   }
+}
+
+export const is = {
+  mobile: function() {
+    const userAgent = navigator.userAgent
+    return !!userAgent.match(regEx.mobile)
+  },
 }

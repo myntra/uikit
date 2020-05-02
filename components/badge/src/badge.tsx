@@ -4,7 +4,7 @@ import classnames from './badge.module.scss'
 
 interface Props extends BaseProps {
   /** The visual style to convey purpose of the badge. */
-  type?: 'primary' | 'success' | 'warning' | 'error'
+  type?: 'primary' | 'success' | 'warning' | 'error' | 'incomplete'
   /** The label text of the badge. */
   children: string
 }

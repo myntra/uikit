@@ -5,6 +5,7 @@ import ClickAway from '@myntra/uikit-component-click-away'
 import NavBarContext from './context'
 import NavBarGroup from './nav-bar-group'
 import NavBarItem from './nav-bar-item'
+import { is } from '@myntra/uikit-utils'
 
 import LogoMyntraJabong from './logos/myntra-jabong.png'
 
@@ -99,6 +100,8 @@ interface Props extends BaseProps {
    */
   onChange?(href: string): void
 
+  onHeaderClick?(event: MouseEvent): void
+
   /**
    * @deprecated - Use [renderLink](#NavBar-renderLink) prop.
    */
@@ -131,6 +134,7 @@ export default class NavBar extends PureComponent<
     renderLink({ href, children }) {
       return <LinkFromUIKitContext href={href}>{children}</LinkFromUIKitContext>
     },
+    needOverlay: is.mobile(),
   }
 
   state = {
@@ -198,19 +202,23 @@ export default class NavBar extends PureComponent<
   }
 
   handleMouseEnter = (event: any) => {
-    this.open()
+    if (!is.mobile()) this.open()
   }
 
   handleMouseLeave = (event: any) => {
-    this.close()
+    if (!is.mobile()) this.close()
   }
 
   handleFocus = (event: any) => {
-    this.open()
+    if (!is.mobile()) this.open()
   }
 
   handleBlur = (event: any) => {
     // DO NOT CLOSE ON BLUR.
+  }
+
+  headerClickHandler = (event: any) => {
+    this.state.isOpen ? this.close() : this.open()
   }
 
   handleClickAway = () => {
@@ -239,6 +247,10 @@ export default class NavBar extends PureComponent<
 
     if (this.props.onNavLinkClick && navLink.path) {
       this.props.onNavLinkClick({ to: navLink.path })
+    }
+
+    if (navLink.path) {
+      this.close()
     }
   }
 
@@ -285,10 +297,12 @@ export default class NavBar extends PureComponent<
   }
 
   render() {
+    const { className, needOverlay, currentPath, title, children } = this.props
+
     return (
       <NavBarContext.Provider
         value={{
-          currentPath: this.props.currentPath,
+          currentPath: currentPath,
           isActivePath: this.isActiveNavLinkPath,
           isActiveGroup: this.isActiveGroup,
           renderLink: this.renderLink,
@@ -303,7 +317,7 @@ export default class NavBar extends PureComponent<
           role="navigation"
           {...this.attrs}
           id={`${this.idPrefix}nav`}
-          className={classnames('nav', this.props.className, {
+          className={classnames('nav', className, {
             'is-open': this.isOpen,
           })}
           onClick={this.handleClick}
@@ -313,7 +327,7 @@ export default class NavBar extends PureComponent<
           onMouseLeave={this.handleMouseLeave}
           aria-labelledby={`${this.idPrefix}header`}
         >
-          {this.props.needOverlay ? (
+          {needOverlay ? (
             <div
               className={classnames('backdrop')}
               onClick={this.overlayClickHandler}
@@ -322,6 +336,7 @@ export default class NavBar extends PureComponent<
           <header
             id={`${this.idPrefix}header`}
             className={classnames('header')}
+            onClick={this.headerClickHandler}
           >
             <Icon
               className={classnames('hamburger')}
@@ -329,16 +344,16 @@ export default class NavBar extends PureComponent<
               title="Navigation"
             />
             <img src={LogoMyntraJabong} alt="Myntra Jabong" />
-            {this.props.title}
+            {title}
           </header>
 
           <NavBarGroup
             className={classnames('body')}
-            title={this.props.title}
+            title={title}
             __$navId={ROOT_NAV_GROUP_ID}
             key={ROOT_NAV_GROUP_ID.join('.')}
           >
-            {this.props.children}
+            {children}
           </NavBarGroup>
         </nav>
         {this.isOpen && (

@@ -5,7 +5,7 @@ import List from '@myntra/uikit-component-list'
 import classnames from './top-bar.module.scss'
 import Item from './top-bar-item'
 import Icon from '@myntra/uikit-component-icon'
-import { isReactNodeType } from '@myntra/uikit-utils'
+import { isReactNodeType, is } from '@myntra/uikit-utils'
 
 export interface Props extends BaseProps {
   title: string
@@ -59,7 +59,7 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
         {headerNavigationElem ? headerNavigationElem : null}
         <div className={classnames('title')}>
           <h1>{title}</h1>
-          {breadcrumbs}
+          {!is.mobile() && breadcrumbs}
         </div>
         <div className={classnames('body')}>{others}</div>
         <nav className={classnames('nav')}>
@@ -88,14 +88,16 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
                 ) : (
                   <Icon className={classnames('user-avatar')} name="sign-in" />
                 )}
-                <div className={classnames('user-name')}>
-                  {user
-                    ? user.name
-                      ? `${user.name} ${user.email ? `(${user.email})` : ''}`
-                      : user.email
-                    : 'Login'}
-                </div>
-                {actions.length ? (
+                {!is.mobile() && (
+                  <div className={classnames('user-name')}>
+                    {user
+                      ? user.name
+                        ? `${user.name} ${user.email ? `(${user.email})` : ''}`
+                        : user.email
+                      : 'Login'}
+                  </div>
+                )}
+                {actions.length && !is.mobile() ? (
                   <Icon
                     name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
                   />
