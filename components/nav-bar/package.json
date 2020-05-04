@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-nav-bar",
-  "version": "1.13.30",
+  "version": "1.13.31",
   "main": "dist/nav-bar.cjs.js",
   "module": "dist/nav-bar.esm.js",
   "types": "dist/index.d.ts",
@@ -33,6 +33,7 @@
     "@myntra/uikit-can-i-use": "1.13.*",
     "@myntra/uikit-component-avatar": "1.13.*",
     "@myntra/uikit-component-icon": "1.13.*",
+    "@myntra/uikit-component-click-away": "1.13.*",
     "@myntra/uikit-context": "1.13.*",
     "@myntra/uikit-utils": "1.13.*"
   }
