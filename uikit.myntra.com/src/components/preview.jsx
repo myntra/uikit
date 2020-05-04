@@ -1,6 +1,7 @@
 import React, { PureComponent, Suspense } from 'react'
 import PropTypes from 'prop-types'
 import * as components from '../uikit'
+import { is } from '@myntra/uikit-utils'
 
 const shouldBeReady = Date.now() + 5000 // In 5 seconds of load.
 
@@ -57,7 +58,7 @@ export default class Preview extends PureComponent {
           </div>
         }
       >
-        <div style={{ padding: '24px', marginTop: '24px', width: '750px' }}>
+        <div style={{ padding: '24px', marginTop: '24px', width: is.mobile() ? 'auto' : '750px' }}>
           {Component ? <Component context={{ ...React, ...components }} /> : null}
         </div>
       </Suspense>

@@ -23,5 +23,8 @@
     &:focus {
       border-bottom: 1px solid color('primary');
     }
+    &:hover {
+      border-bottom: 1px solid color('primary-light');
+    }
   }
 }

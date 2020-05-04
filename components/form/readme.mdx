@@ -45,8 +45,8 @@ const handleReset = useCallback(() => {
     description="Your date of birth"
   />
 
-  <Button type="primary">Signup</Button>
   <Button onClick={handleReset}>Reset</Button>
+  <Button type="primary" htmlType="submit">Signup</Button>
 </Form>
 ```
 
@@ -77,8 +77,8 @@ const onSubmit = useCallback(value => console.log(value))
     <Form.Radio options={[{ value: 'MEN', title: 'Men'}, { value: 'WOMEN', title: 'Women'}]} label="Gender"  />
     <Form.Text name="VAN.value" label="VAN" />
 
-    <Button type="primary">Search Handover</Button>
     <Button type="text">Reset All</Button>
+    <Button type="primary">Search Handover</Button>
   </Form>
   <pre>{JSON.stringify(value, null, 2)}</pre>
 </>

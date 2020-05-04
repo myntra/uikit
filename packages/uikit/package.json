@@ -34,6 +34,7 @@
     "@myntra/uikit-component-click-away": "1.13.*",
     "@myntra/uikit-component-dropdown": "1.13.*",
     "@myntra/uikit-component-error-boundary": "1.13.*",
+    "@myntra/uikit-component-fab": "1.13.*",
     "@myntra/uikit-component-field": "1.13.*",
     "@myntra/uikit-component-flex": "1.13.*",
     "@myntra/uikit-component-form": "1.13.*",
@@ -41,6 +42,7 @@
     "@myntra/uikit-component-group": "1.13.*",
     "@myntra/uikit-component-icon": "1.13.*",
     "@myntra/uikit-component-image": "1.13.*",
+    "@myntra/uikit-component-input-azure-file": "1.13.*",
     "@myntra/uikit-component-input-checkbox": "1.13.*",
     "@myntra/uikit-component-input-date": "1.13.*",
     "@myntra/uikit-component-input-file": "1.13.*",
@@ -73,11 +75,9 @@
     "@myntra/uikit-component-top-bar": "1.13.*",
     "@myntra/uikit-component-virtual-grid": "1.13.*",
     "@myntra/uikit-component-virtual-list": "1.13.*",
-    "@myntra/uikit-component-input-azure-file": "1.13.*",
-    "@myntra/uikit-component-fab": "1.13.*",
     "@myntra/uikit-utils": "1.13.*"
   },
   "devDependencies": {
-    "sass": "^1.23.0-module.beta.1"
+    "sass": "^1.26.5"
   }
 }

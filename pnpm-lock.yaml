@@ -723,6 +723,7 @@ importers:
   components/list:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
+      '@myntra/uikit-component-input-checkbox': 'link:../input-checkbox'
       '@myntra/uikit-component-virtual-list': 'link:../virtual-list'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
       scroll-into-view-if-needed: registry.npmjs.org/scroll-into-view-if-needed/2.2.22
@@ -732,6 +733,7 @@ importers:
       react: registry.npmjs.org/react/16.13.1
     specifiers:
       '@myntra/uikit-can-i-use': 1.13.*
+      '@myntra/uikit-component-input-checkbox': 1.13.*
       '@myntra/uikit-component-virtual-list': 1.13.*
       '@myntra/uikit-utils': 1.13.*
       '@types/react': ^16.8
@@ -1244,7 +1246,7 @@ importers:
       '@myntra/uikit-component-virtual-list': 'link:../../components/virtual-list'
       '@myntra/uikit-utils': 'link:../uikit-utils'
     devDependencies:
-      sass: registry.npmjs.org/sass/1.24.4
+      sass: registry.npmjs.org/sass/1.26.5
     specifiers:
       '@myntra/uikit-component-accordion': 1.13.*
       '@myntra/uikit-component-avatar': 1.13.*
@@ -1298,7 +1300,7 @@ importers:
       '@myntra/uikit-component-virtual-grid': 1.13.*
       '@myntra/uikit-component-virtual-list': 1.13.*
       '@myntra/uikit-utils': 1.13.*
-      sass: ^1.23.0-module.beta.1
+      sass: ^1.26.5
   packages/uikit-can-i-use:
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.17
@@ -3847,25 +3849,12 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/ajv/-/ajv-6.10.2.tgz'
     version: 6.10.2
-  registry.npmjs.org/ajv/6.11.0:
-    dependencies:
-      fast-deep-equal: registry.npmjs.org/fast-deep-equal/3.1.1
-      fast-json-stable-stringify: registry.npmjs.org/fast-json-stable-stringify/2.1.0
-      json-schema-traverse: registry.npmjs.org/json-schema-traverse/0.4.1
-      uri-js: registry.npmjs.org/uri-js/4.2.2
-    name: ajv
-    resolution:
-      integrity: sha512-nCprB/0syFYy9fVYU1ox1l2KN8S9I+tziH8D4zdZuLT3N6RMlGSGt5FSTpAiHB/Whv8Qs1cWHma1aMKZyaHRKA==
-      registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/ajv/-/ajv-6.11.0.tgz'
-    version: 6.11.0
   registry.npmjs.org/ajv/6.12.0:
     dependencies:
       fast-deep-equal: registry.npmjs.org/fast-deep-equal/3.1.1
       fast-json-stable-stringify: registry.npmjs.org/fast-json-stable-stringify/2.1.0
       json-schema-traverse: registry.npmjs.org/json-schema-traverse/0.4.1
       uri-js: registry.npmjs.org/uri-js/4.2.2
-    dev: false
     name: ajv
     resolution:
       integrity: sha512-D6gFiFA0RRLyUbvijN74DWAjXSFxWKaWP7mldxkVhyhAV3+SWA9HEJPHQ2c9soIeTFJqcSdFDGFgdqs1iUU2Hw==
@@ -4054,7 +4043,7 @@ packages:
   registry.npmjs.org/anymatch/3.1.1:
     dependencies:
       normalize-path: registry.npmjs.org/normalize-path/3.0.0
-      picomatch: registry.npmjs.org/picomatch/2.2.1
+      picomatch: registry.npmjs.org/picomatch/2.2.2
     engines:
       node: '>= 8'
     name: anymatch
@@ -6194,6 +6183,26 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/chokidar/-/chokidar-3.3.1.tgz'
     version: 3.3.1
+  registry.npmjs.org/chokidar/3.4.0:
+    dependencies:
+      anymatch: registry.npmjs.org/anymatch/3.1.1
+      braces: registry.npmjs.org/braces/3.0.2
+      glob-parent: registry.npmjs.org/glob-parent/5.1.1
+      is-binary-path: registry.npmjs.org/is-binary-path/2.1.0
+      is-glob: registry.npmjs.org/is-glob/4.0.1
+      normalize-path: registry.npmjs.org/normalize-path/3.0.0
+      readdirp: registry.npmjs.org/readdirp/3.4.0
+    dev: true
+    engines:
+      node: '>= 8.10.0'
+    name: chokidar
+    optionalDependencies:
+      fsevents: registry.npmjs.org/fsevents/2.1.3
+    resolution:
+      integrity: sha512-aXAaho2VJtisB/1fg1+3nlLJqGOuewTzQpd/Tz0yTg2R0e4IGtshYvtjowyEumcBv2z+y4+kc75Mz7j5xJskcQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/chokidar/-/chokidar-3.4.0.tgz'
+    version: 3.4.0
   registry.npmjs.org/ci-info/2.0.0:
     dev: true
     name: ci-info
@@ -9512,6 +9521,19 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/fsevents/-/fsevents-2.1.2.tgz'
     version: 2.1.2
+  registry.npmjs.org/fsevents/2.1.3:
+    dev: true
+    engines:
+      node: ^8.16.0 || ^10.6.0 || >=11.0.0
+    name: fsevents
+    optional: true
+    os:
+      - darwin
+    resolution:
+      integrity: sha512-Auw9a4AxqWpa9GUfj370BMPzzyncfBABW8Mab7BGWBYDj4Isgq+cDKtx0i6u9jcX9pQDnswsaaOTgTmA5pEjuQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/fsevents/-/fsevents-2.1.3.tgz'
+    version: 2.1.3
   registry.npmjs.org/function-bind/1.1.1:
     name: function-bind
     resolution:
@@ -9795,7 +9817,6 @@ packages:
   registry.npmjs.org/glob-parent/5.1.1:
     dependencies:
       is-glob: registry.npmjs.org/is-glob/4.0.1
-    dev: false
     engines:
       node: '>= 6'
     name: glob-parent
@@ -13293,7 +13314,6 @@ packages:
       tarball: 'https://registry.npmjs.org/minimist/-/minimist-1.2.0.tgz'
     version: 1.2.0
   registry.npmjs.org/minimist/1.2.5:
-    dev: false
     name: minimist
     resolution:
       integrity: sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
@@ -13325,7 +13345,6 @@ packages:
   registry.npmjs.org/mkdirp/0.5.5:
     dependencies:
       minimist: registry.npmjs.org/minimist/1.2.5
-    dev: false
     hasBin: true
     name: mkdirp
     resolution:
@@ -14450,6 +14469,15 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/picomatch/-/picomatch-2.2.1.tgz'
     version: 2.2.1
+  registry.npmjs.org/picomatch/2.2.2:
+    engines:
+      node: '>=8.6'
+    name: picomatch
+    resolution:
+      integrity: sha512-q0M/9eZHzmr0AulXyPwNfZjtwZ/RBZlbN3K3CErVrk50T2ASYI7Bye0EvekFY3IP1Nt2DHu0re+V2ZHIpMkuWg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/picomatch/-/picomatch-2.2.2.tgz'
+    version: 2.2.2
   registry.npmjs.org/pidtree/0.3.0:
     dev: true
     engines:
@@ -15865,6 +15893,18 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/readdirp/-/readdirp-3.3.0.tgz'
     version: 3.3.0
+  registry.npmjs.org/readdirp/3.4.0:
+    dependencies:
+      picomatch: registry.npmjs.org/picomatch/2.2.2
+    dev: true
+    engines:
+      node: '>=8.10.0'
+    name: readdirp
+    resolution:
+      integrity: sha512-0xe001vZBnJEK+uKcj8qOhyAKPzIT+gStxWr3LCB0DwcXR5NZJ3IaC+yGnHCYzB/S7ov3m3EEbZI2zeNvX+hGQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/readdirp/-/readdirp-3.4.0.tgz'
+    version: 3.4.0
   registry.npmjs.org/realpath-native/1.1.0:
     dependencies:
       util.promisify: registry.npmjs.org/util.promisify/1.0.1
@@ -16867,6 +16907,19 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/sass/-/sass-1.24.4.tgz'
     version: 1.24.4
+  registry.npmjs.org/sass/1.26.5:
+    dependencies:
+      chokidar: registry.npmjs.org/chokidar/3.4.0
+    dev: true
+    engines:
+      node: '>=8.9.0'
+    hasBin: true
+    name: sass
+    resolution:
+      integrity: sha512-FG2swzaZUiX53YzZSjSakzvGtlds0lcbF+URuU9mxOv7WBh7NhXEVDa4kPKN4hN6fC2TkOTOKqiqp6d53N9X5Q==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/sass/-/sass-1.26.5.tgz'
+    version: 1.26.5
   registry.npmjs.org/sax/1.2.4:
     name: sax
     resolution:
@@ -18224,7 +18277,7 @@ packages:
     version: 4.0.2
   registry.npmjs.org/table/5.4.6:
     dependencies:
-      ajv: registry.npmjs.org/ajv/6.11.0
+      ajv: registry.npmjs.org/ajv/6.12.0
       lodash: registry.npmjs.org/lodash/4.17.15
       slice-ansi: registry.npmjs.org/slice-ansi/2.1.0
       string-width: registry.npmjs.org/string-width/3.1.0
@@ -19347,7 +19400,7 @@ packages:
     version: 0.2.1
   registry.npmjs.org/write/1.0.3:
     dependencies:
-      mkdirp: registry.npmjs.org/mkdirp/0.5.1
+      mkdirp: registry.npmjs.org/mkdirp/0.5.5
     engines:
       node: '>=4'
     name: write

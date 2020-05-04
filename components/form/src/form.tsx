@@ -48,7 +48,7 @@ import Button from '@myntra/uikit-component-button'
 import ButtonGroup from '@myntra/uikit-component-button-group'
 import Field, { Props as FieldProps } from '@myntra/uikit-component-field'
 import { createContext } from '@myntra/uikit-context'
-import { get, set, isReactNodeType } from '@myntra/uikit-utils'
+import { get, set, isReactNodeType, is } from '@myntra/uikit-utils'
 
 import classnames from './form.module.scss'
 
@@ -207,9 +207,7 @@ export default class Form extends PureComponent<Props> {
     }
 
     if (actions.length) {
-      group = React.cloneElement(group, {
-        children: React.Children.toArray(group.props.children).concat(actions),
-      })
+      group = React.Children.toArray(group.props.children).concat(actions)
     }
 
     return (
@@ -231,7 +229,8 @@ export default class Form extends PureComponent<Props> {
               <Grid.Column
                 key={field.key || index}
                 size={
-                  (field.props && field.props.fieldSize) || defaultFieldSize
+                  (field.props && field.props.fieldSize) ||
+                  (is.mobile() ? 'full' : defaultFieldSize)
                 }
                 {...(field.props && field.props.field)}
               >
