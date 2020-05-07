@@ -108,6 +108,12 @@
       display: none;
     }
 
+    .header {
+      color: color('white');
+      background-color: color('primary');
+      border-color: color('primary');
+    }
+
     &.is-open {
       height: 100vh;
       .body {

@@ -25,7 +25,6 @@
       margin: 0;
       font-size: 16px;
       line-height: 1em;
-      color: text-color('dark');
     }
   }
 
@@ -74,5 +73,13 @@
 
   to {
     max-height: 360px;
+  }
+}
+
+@include media-breakpoint-down('sm') {
+  .container {
+    color: color('white');
+    background-color: color('primary');
+    border-color: color('primary');
   }
 }
