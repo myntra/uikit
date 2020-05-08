@@ -5,7 +5,7 @@
   "author": "Rahul Kadyan <hi@znck.me>",
   "license": "UNLICENSED",
   "private": true,
-  "version": "1.13.31",
+  "version": "1.13.32",
   "engines": {
     "node": ">=8.0"
   },
@@ -118,7 +118,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "lint-staged ",
       "pre-push": "npm run test -- --silent --changedSince $(./scripts/remote-tracking-branch.sh)"
     }
   },
