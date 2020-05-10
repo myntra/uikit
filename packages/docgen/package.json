@@ -1,6 +1,6 @@
 {
   "name": "@myntra/docgen",
-  "version": "1.13.32",
+  "version": "1.13.33",
   "main": "src/index.js",
   "module": "dist/docgen.esm.js",
   "types": "dist/index.d.ts",
