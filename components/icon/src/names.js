@@ -974,6 +974,7 @@ export default [
   'ticket-alt',
   'times',
   'times-circle',
+  'times-circle-solid',
   'times-hexagon',
   'times-octagon',
   'times-square',

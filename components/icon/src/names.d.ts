@@ -974,6 +974,7 @@ export interface IconNameGlobal {
   TicketAlt: 'ticket-alt'
   Times: 'times'
   TimesCircle: 'times-circle'
+  TimesCircleSolid: 'times-circle-solid'
   TimesHexagon: 'times-hexagon'
   TimesOctagon: 'times-octagon'
   TimesSquare: 'times-square'
