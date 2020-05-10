@@ -13,7 +13,19 @@ interface Props extends BaseProps {
   name: IconName
   /** Accessibility text for screen readers */
   title?: string
+  /** Spin the  icon continuously in clockwise direction */
   spin?: boolean
+  /** Set the size of the icon */
+  fontSize?: 'small' | 'medium' | 'large'
+  /** Set the color of the icon */
+  color?:
+    | 'primary'
+    | 'success'
+    | 'error'
+    | 'warning'
+    | 'disabled'
+    | 'dark'
+    | 'light'
 }
 
 /**
@@ -28,12 +40,14 @@ export default function Icon({
   className,
   title,
   spin,
+  fontSize,
+  color,
   ...props
 }: Props) {
   return (
     <svg
       {...props}
-      className={classnames(className, { spin }, 'svg')}
+      className={classnames(className, fontSize, color, { spin }, 'svg')}
       aria-hidden={title ? null : true}
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -41,4 +55,9 @@ export default function Icon({
       <use xlinkHref={`#uikit-i-${name}`} aria-hidden={title ? true : null} />
     </svg>
   )
+}
+
+Icon.defaultProps = {
+  fontSize: 'small',
+  spin: false,
 }

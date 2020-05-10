@@ -5,10 +5,40 @@ import Icon from './src/icon'
 <Documenter component={Icon}>
 
 ```jsx preview
-<Icon name="box" />
+<Icon name="box"/>
 ```
 
 </Documenter>
+
+## Icon size
+
+```jsx preview
+<div style={{
+  display: 'flex',
+  justifyContent: 'space-around'
+}}>
+  <Icon name="box" fontSize="small" spin/>
+  <Icon name="box" fontSize="medium"/>
+  <Icon name="box" fontSize="large"/>
+</div>
+```
+
+## Icon color
+
+```jsx preview
+<div style={{
+  display: 'flex',
+  justifyContent: 'space-around'
+}}>
+  <Icon name="box"/>
+  <Icon name="box" fontSize="light"/>
+  <Icon name="box" color="primary"/>
+  <Icon name="box" fontSize="success"/>
+  <Icon name="box" fontSize="warning"/>
+  <Icon name="box" fontSize="error"/>
+  <Icon name="box" fontSize="disabled"/>
+</div>
+```
 
 ## Spinning Icons
 
