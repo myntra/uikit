@@ -97,3 +97,29 @@ const [data] = useState([
 
 <JobTracker data={data} service='workflow' projectName='mdirect'/>
 ```
+# JobTracker with different date dateFormat
+
+```jsx preview
+const [data] = useState([
+  {
+    id: 123,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1542623683000,
+    status: "IN_PROGRESS",
+    workflowInstanceId: "dsdsds",
+    taskInstance: 1232,
+  },
+  {
+    id: 321,
+    createdBy: "Ash Ketchum",
+    remark: "Gotta catch 'em all",
+    createdOn: 1542623683000,
+    status: "HALTED",
+    workflowInstanceId: "dsdsds",
+    taskInstance: 1232,
+  }
+])
+
+<JobTracker data={data} dateFormat="ddd, MMM DD, YYYY"/>
+```

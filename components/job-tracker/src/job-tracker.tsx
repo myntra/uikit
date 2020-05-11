@@ -5,6 +5,7 @@ import JobTrackerItem, {
   Props as JobTrackerItemProps,
 } from './job-tracker-item'
 import classnames from './job-tracker.module.scss'
+import { isNullOrUndefined } from '@myntra/uikit-utils'
 
 export type Job = Pick<
   JobTrackerItemProps,
@@ -24,6 +25,10 @@ export interface Props extends BaseProps {
    * Backend service getting used
    */
   service: 'jobtracker' | 'workflow'
+  /**
+   * The date format to format value for displaying.
+   */
+  dateFormat?: string
 }
 
 /**
@@ -34,17 +39,27 @@ export interface Props extends BaseProps {
  * @see http://uikit.myntra.com/components/job-tracker
  */
 export default class JobTracker extends PureComponent<Props> {
+  static propTypes = {
+    __$validation({ dateFormat }) {
+      if (isNullOrUndefined(dateFormat) || !dateFormat)
+        throw new Error(
+          `The props dateFormat should have a proper format. Refer this https://day.js.org/docs/en/display/format`
+        )
+    },
+  }
+
   static defaultProps = {
     service: 'jobtracker',
+    dateFormat: 'DD MMM, YYYY',
   }
 
   render() {
-    const { data, className, children, ...childProps } = this.props
+    const { data, className, children, dateFormat, ...childProps } = this.props
     const jobsByDate = {}
     const jobs = Array.isArray(data) ? data : []
 
     jobs.forEach((job) => {
-      const date = dayJS(job.createdOn).format('DD MMM, YYYY')
+      const date = dayJS(job.createdOn).format(dateFormat)
       if (!jobsByDate.hasOwnProperty(date)) {
         jobsByDate[date] = []
       }

@@ -16,7 +16,7 @@ interface Props extends BaseProps {
   /** Spin the  icon continuously in clockwise direction */
   spin?: boolean
   /** Set the size of the icon */
-  fontSize?: 'small' | 'medium' | 'large'
+  fontSize?: 'small' | 'medium' | 'large' | 'inherit'
   /** Set the color of the icon */
   color?:
     | 'primary'
@@ -58,6 +58,6 @@ export default function Icon({
 }
 
 Icon.defaultProps = {
-  fontSize: 'small',
+  fontSize: 'inherit',
   spin: false,
 }
