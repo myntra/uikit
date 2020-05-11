@@ -2,6 +2,19 @@ import InputText from './src/input-text'
 
 # InputText
 
+export const _styles = (function () {
+  // Add some styles for showing grid column examples.
+  const style =  document.createElement('style')
+  style.id = 'input-example-override'
+  style.textContent = `.u-input-text-container .adornment {
+    background-color: transparent;
+    border-color: transparent;
+    bottom: 5px;
+    position: relative;
+  }`
+  document.head.appendChild(style)
+})();
+
 <Documenter component={InputText}>
 
 ```jsx preview
@@ -47,4 +60,19 @@ const [value, setValue] = useState();
 const [value, setValue] = useState();
 
 <InputText value={value} onChange={setValue} placeholder="Your name" icon="user"/>
+```
+
+## With prefix/suffix text or element
+
+```jsx preview
+const [value, setValue] = useState();
+
+<InputText value={value} onChange={setValue} adornment="/Kg"/>
+```
+
+```jsx preview
+const [value, setValue] = useState();
+const onClick = useCallback(() => console.log("clicked icon"))
+
+<InputText value={value} onChange={setValue} adornment={<Button className="adornment" onClick={onClick} icon="user" />}/>
 ```

@@ -1,6 +1,7 @@
 import React, { PureComponent, ReactNode } from 'react'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import Text from '@myntra/uikit-component-text'
+import Loader from '@myntra/uikit-component-loader'
 import classnames from './button.module.scss'
 import { CAN_USE_HOOKS } from '@myntra/uikit-can-i-use'
 
@@ -149,7 +150,7 @@ export default class Button extends PureComponent<Props> {
         })}
         to={to}
         href={href}
-        disabled={disabled}
+        disabled={disabled || loading}
         role="button"
         onClick={this.handleClick}
         data-test-id="target"
@@ -192,9 +193,11 @@ export default class Button extends PureComponent<Props> {
         )}
 
         {loading && (
-          <div className={classnames('icon', 'loading')}>
-            <Icon name="circle-notch" spin />
-          </div>
+          <Loader
+            className={classnames('loading')}
+            type="inline"
+            appearance="spinner"
+          />
         )}
         {size === 'large' && (
           <Text.caption className={classnames('caption')}>

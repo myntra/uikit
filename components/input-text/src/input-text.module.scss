@@ -20,4 +20,18 @@
     position: absolute;
     top: 0.4em;
   }
+
+  .input-adornment {
+    position: absolute;
+    top: 0;
+    color: color('gray-dark');
+
+    &--start {
+      left: 0;
+    }
+
+    &--end {
+      right: 0;
+    }
+  }
 }

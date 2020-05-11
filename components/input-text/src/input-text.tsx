@@ -15,6 +15,10 @@ export interface Props extends BaseProps {
   readOnly?: boolean
   /** Displays the icon as prefix */
   icon?: IconName
+  /** Can be used to add prefix, suffix or any jsx element */
+  adornment?: string | JSX.Element
+  /** Position of the adornment */
+  adornmentPosition?: 'start' | 'end'
 }
 
 /**
@@ -31,6 +35,8 @@ export default function InputText({
   value,
   readOnly,
   icon,
+  adornment,
+  adornmentPosition,
   ...props
 }: Props) {
   readOnly = readOnly || !onChange
@@ -45,10 +51,21 @@ export default function InputText({
         onChange={readOnly ? null : (event) => onChange(event.target.value)}
         className={classnames('input', { 'with-icon': !!icon })}
       />
+      {adornment && (
+        <div
+          className={classnames(
+            'input-adornment',
+            `input-adornment--${adornmentPosition}`
+          )}
+        >
+          {adornment}
+        </div>
+      )}
     </div>
   )
 }
 
 InputText.defaultProps = {
   type: 'text',
+  adornmentPosition: 'end',
 }
