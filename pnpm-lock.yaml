@@ -225,6 +225,7 @@ importers:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
       '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-loader': 'link:../loader'
       '@myntra/uikit-component-text': 'link:../text'
       '@myntra/uikit-context': 'link:../../packages/uikit-context'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
@@ -235,6 +236,7 @@ importers:
     specifiers:
       '@myntra/uikit-can-i-use': 1.13.*
       '@myntra/uikit-component-icon': 1.13.*
+      '@myntra/uikit-component-loader': 1.13.*
       '@myntra/uikit-component-text': 1.13.*
       '@myntra/uikit-context': 1.13.*
       '@myntra/uikit-utils': 1.13.*
