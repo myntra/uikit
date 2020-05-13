@@ -13,6 +13,7 @@ export default function ProgressCircle({
   appearance,
   className,
   children,
+  showValue,
   ...props
 }: Props) {
   const value = rawValue / 100
@@ -38,6 +39,17 @@ export default function ProgressCircle({
         viewBox={`-${stroke / 2} -${stroke / 2} ${height + stroke} ${height +
           stroke}`}
       >
+        {showValue && (
+          <text
+            x={outerRadius}
+            y={outerRadius}
+            textAnchor="middle"
+            alignmentBaseline="central"
+            className={classnames('value')}
+          >
+            {value * 100}%
+          </text>
+        )}
         <path
           className={classnames('filled')}
           strokeWidth={stroke}

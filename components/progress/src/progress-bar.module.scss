@@ -1,6 +1,8 @@
 @import '@accoutrement';
 
 .bar {
+  display: flex;
+  align-items: center;
   width: 100%;
   border-radius: 100px;
 
@@ -26,11 +28,19 @@
     width: 100%;
     height: var(--u-progress-size);
     background-color: color('gray-light');
+
+    @include border-radius('button');
   }
 
   .foreground {
     height: 100%;
     background-color: var(--u-progress-color);
+
+    @include border-radius('button');
+  }
+
+  .value {
+    margin-left: size('2x');
   }
 }
 

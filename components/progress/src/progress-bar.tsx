@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from './progress-bar.module.scss'
+import T from '@myntra/uikit-component-text'
 
 export interface Props extends BaseProps {
   /**
@@ -32,6 +33,7 @@ export default function ProgressBar({
   className,
   children,
   size,
+  showValue,
   ...props
 }: Props) {
   return (
@@ -52,6 +54,7 @@ export default function ProgressBar({
           style={{ width: `${Math.min(100, value)}%` }}
         />
       </div>
+      {showValue && <T className={classnames('value')}>{value}%</T>}
     </div>
   )
 }

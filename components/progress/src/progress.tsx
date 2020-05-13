@@ -9,6 +9,7 @@ export type Props =
        * Type of progress view (bar or circular).
        */
       type: 'bar'
+      showValue?: boolean
     } & ProgressBarProps)
   | ({ type: 'circle' } & ProgressCircleProps)
 

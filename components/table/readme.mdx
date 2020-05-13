@@ -15,9 +15,7 @@ const [data] = useState([
   <Table.Column label="ID" key="id">
     {({ data }) => <span>{ data.id }</span>}
   </Table.Column>
-  <Table.Column label="Name" key="name">
-    {({ data }) => <div><InputText value={value} onChange={setValue} /></div>}
-  </Table.Column>
+  <Table.Column label="Name" key="name" />
   <Table.Column label="Info" key="info">
     <Table.Column label="Age" key="age">
       {({ data }) => <span>{ data.age } years</span>}
