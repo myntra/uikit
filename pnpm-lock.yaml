@@ -878,6 +878,7 @@ importers:
   components/progress:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
+      '@myntra/uikit-component-text': 'link:../text'
       '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
     devDependencies:
       '@types/react': registry.npmjs.org/@types/react/16.9.17
@@ -885,6 +886,7 @@ importers:
       react: registry.npmjs.org/react/16.12.0
     specifiers:
       '@myntra/uikit-can-i-use': 1.13.*
+      '@myntra/uikit-component-text': 1.13.*
       '@myntra/uikit-utils': 1.13.*
       '@types/react': ^16.8
       react: '>=15.4'
