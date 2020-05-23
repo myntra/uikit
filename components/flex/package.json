@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-flex",
-  "version": "1.13.36",
+  "version": "1.13.37",
   "main": "dist/flex.cjs.js",
   "module": "dist/flex.esm.js",
   "types": "dist/index.d.ts",
