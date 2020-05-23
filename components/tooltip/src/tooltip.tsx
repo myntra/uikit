@@ -51,9 +51,8 @@ export default class Tooltip extends PureComponent<Props, { open: boolean }> {
     return (
       <Dropdown
         container
-        className={className}
         isOpen={this.state.open}
-        wrapperClassName={classnames('dropdown')}
+        className={classnames('dropdown', className)}
         onClose={() => this.setState({ open: false })}
         onOpen={() => this.setState({ open: true })}
         renderTrigger={(props) =>
@@ -65,6 +64,7 @@ export default class Tooltip extends PureComponent<Props, { open: boolean }> {
         }
         triggerOn={triggerOn}
         data-test-id="tooltip-trigger"
+        wrapperClassName="no-shadow"
         {...dropdownPosition}
       >
         {({ content }) => (

@@ -5,8 +5,8 @@
   padding: size('small') size('2x');
   text-transform: uppercase;
   border: solid 1px;
-  border-radius: 1rem;
 
+  @include border-radius('button');
   @include typography('paragraph');
 
   $types: (
@@ -19,10 +19,26 @@
 
   @each $name, $color in $types {
     &.#{$name} {
-      color: color('white');
-      background-color: color('#{$color}');
-      border-color: color('#{$color}');
+      &.solid {
+        color: color('white');
+        background-color: color('#{$color}');
+        border-color: color('#{$color}');
+      }
+
+      &.outlined {
+        color: color('#{$color}');
+        background-color: color('white');
+        border-color: color('#{$color}');
+      }
     }
+  }
+
+  &.small {
+    font-size: size('5x') / 2;
+  }
+
+  &.large {
+    font-size: size('4x');
   }
 }
 

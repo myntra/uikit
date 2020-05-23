@@ -23,8 +23,8 @@
 }
 
 .tooltip-content.dark {
-  color: text-color('white');
-  background-color: rgb(40, 44, 63);
+  color: text-color('light');
+  background-color: color('black');
 }
 
 .tooltip-content.up {
@@ -74,19 +74,19 @@
 }
 
 .arrow.up.dark {
-  border-top-color: rgb(40, 44, 63);
+  border-top-color: color('black');
 }
 
 .arrow.down.dark {
-  border-bottom-color: rgb(40, 44, 63);
+  border-bottom-color: color('black');
 }
 
 .arrow.left.dark {
-  border-left-color: rgb(40, 44, 63);
+  border-left-color: color('black');
 }
 
 .arrow.right.dark {
-  border-right-color: rgb(40, 44, 63);
+  border-right-color: color('black');
 }
 
 .dropdown > * {

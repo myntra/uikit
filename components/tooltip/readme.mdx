@@ -14,6 +14,58 @@ import Tooltip from './src/tooltip'
 
 </Documenter>
 
+## Positioned Tooltips
+
+```jsx preview
+<div style={{
+  display: 'flex',
+  justifyContent: 'space-around'
+}}>
+  <Tooltip renderContent={() => <div>Hello</div>} position="up">
+    <p>
+      <Icon name="info-circle" /> Top
+    </p>
+  </Tooltip>
+  <Tooltip renderContent={() => <div>Hello</div>} position="down">
+    <p>
+      <Icon name="info-circle" /> Bottom
+    </p>
+  </Tooltip>
+  <Tooltip renderContent={() => <div>Hello</div>} position="left">
+    <p>
+      <Icon name="info-circle" /> Left
+    </p>
+  </Tooltip>
+  <Tooltip renderContent={() => <div>Hello</div>} position="right">
+    <p>
+      <Icon name="info-circle" /> Right
+    </p>
+  </Tooltip>
+</div>
+```
+
+## Custom Tooltips
+
+```jsx preview
+<div style={{
+  display: 'flex',
+  justifyContent: 'space-around'
+}}>
+  <Tooltip renderContent={() => <div>Hello</div>}>
+    <p>
+      <Icon name="info-circle" /> Top
+    </p>
+  </Tooltip>
+  <Tooltip renderContent={() => <div>Hello</div>} dark>
+    <p>
+      <Icon name="info-circle" /> Bottom
+    </p>
+  </Tooltip>
+</div>
+```
+
+## Long Text
+
 ```jsx preview
 <p>
   What is{' '}

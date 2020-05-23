@@ -7,15 +7,17 @@
       color: contrast-text-color($value);
       background-color: $value;
       border-color: $value;
-      &:hover {
-        background-color: shade($value, 40%);
-        border-color: shade($value, 40%);
-      }
+      &:not(:disabled) {
+        &:hover {
+          background-color: shade($value, 40%);
+          border-color: shade($value, 40%);
+        }
 
-      &:active,
-      &:active:hover {
-        background-color: shade($value, 60%);
-        border-color: shade($value, 60%);
+        &:active,
+        &:active:hover {
+          background-color: shade($value, 60%);
+          border-color: shade($value, 60%);
+        }
       }
     }
   }
@@ -251,7 +253,7 @@
     width: 100%;
     height: size('24x');
     font-size: font-size('body');
-    border-radius: 0;
+    border-radius: size('1x');
     box-shadow: shadow('raised');
 
     .caption {
@@ -273,7 +275,7 @@
       'red': color('danger'),
       'yellow': color('warning'),
       'green': color('success'),
-      'gray': color('gray'),
+      'gray': color('gray-dark'),
       'black': color('black'),
     )
   );

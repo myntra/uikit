@@ -7,6 +7,14 @@ interface Props extends BaseProps {
   type?: 'primary' | 'success' | 'warning' | 'error' | 'incomplete'
   /** The label text of the badge. */
   children: string
+  /**
+   * Size of the badge
+   */
+  size?: 'small' | 'regular' | 'large'
+  /**
+   * Variant  of the badge
+   */
+  variant: 'solid' | 'outlined'
 }
 
 /**
@@ -20,10 +28,15 @@ export default function Badge({
   type,
   children,
   className,
+  size,
+  variant,
   ...props
 }: Props): JSX.Element {
   return (
-    <div {...props} className={classnames('badge', type, className)}>
+    <div
+      {...props}
+      className={classnames('badge', size, type, variant, className)}
+    >
       {typeof children === 'string' ? (
         <span className={classnames('content')}>{children}</span>
       ) : (
@@ -35,4 +48,6 @@ export default function Badge({
 
 Badge.defaultProps = {
   type: 'primary',
+  size: 'regular',
+  variant: 'solid',
 }

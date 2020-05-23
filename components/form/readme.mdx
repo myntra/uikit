@@ -45,8 +45,8 @@ const handleReset = useCallback(() => {
     description="Your date of birth"
   />
 
-  <Button onClick={handleReset}>Reset</Button>
-  <Button type="primary" htmlType="submit">Signup</Button>
+  <Form.Action onClick={handleReset}>Reset</Form.Action>
+  <Form.Action type="primary" htmlType="submit">Signup</Form.Action>
 </Form>
 ```
 
@@ -66,6 +66,8 @@ const handleReset = useCallback(() => {
 
 ## Examples
 
+### Form with single onChange for all fields
+
 ```jsx preview
 const [value, setValue] = useState(null)
 const onSubmit = useCallback(value => console.log(value))
@@ -78,7 +80,7 @@ const onSubmit = useCallback(value => console.log(value))
     <Form.Text name="VAN.value" label="VAN" />
 
     <Button type="text">Reset All</Button>
-    <Button type="primary">Search Handover</Button>
+    <Button type="primary" htmlType="submit">Search Handover</Button>
   </Form>
   <pre>{JSON.stringify(value, null, 2)}</pre>
 </>
@@ -104,7 +106,7 @@ const onSubmit = useCallback(value => console.log(value))
       onSuccess={setFile}
       description="Choose file to upload"
     />
-    <Button type="primary">Search</Button>
+    <Button type="primary" htmlType="submit">Search</Button>
   </Form>
   <pre>{JSON.stringify(value, null, 2)}</pre>
 </>
