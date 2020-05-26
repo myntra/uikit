@@ -32,7 +32,7 @@ export interface Props extends BaseProps {
   /**
    * Regulates the size of the gutter between items.
    */
-  gutter?: 'small' | 'medium' | 'large'
+  gutter?: 'small' | 'medium' | 'large' | 'none'
 
   /**
    * Arrange items in multiple rows.

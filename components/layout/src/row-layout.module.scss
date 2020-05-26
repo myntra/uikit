@@ -13,6 +13,9 @@
   &.large {
     --u-layout-row-margin-bottom: #{margin-bottom('large')};
   }
+  &.none {
+    --u-layout-row-margin-bottom: #{margin-bottom('none')};
+  }
 
   > * {
     min-width: 100%;

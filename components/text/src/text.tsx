@@ -44,6 +44,10 @@ export interface Props extends BaseProps {
    * Override default tag for the element.
    */
   tag?: string
+  /** Controls the display type */
+  display?: 'initial' | 'block' | 'inline'
+  /** Set gutter margins to none */
+  noGutter?: boolean
 }
 
 /**
@@ -91,9 +95,21 @@ function createComponent(name: string, tag: any = 'span') {
     color = 'dark',
     emphasis = 'high',
     weight,
+    noGutter,
+    display,
     ...props
   }: Props) {
-    className = classnames(name, className, color, emphasis, weight)
+    className = classnames(
+      name,
+      className,
+      color,
+      emphasis,
+      weight,
+      {
+        'no-gutter': noGutter,
+      },
+      `display-${display || 'initial'}`
+    )
 
     if (abstract) {
       children = React.Children.only(children)

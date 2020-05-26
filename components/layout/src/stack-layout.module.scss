@@ -13,6 +13,9 @@
   &.large {
     --u-layout-stack-margin-right: #{margin-right('large')};
   }
+  &.none {
+    --u-layout-stack-margin-right: #{margin-right('none')};
+  }
 
   > * {
     max-width: 100%;
