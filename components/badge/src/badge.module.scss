@@ -5,8 +5,8 @@
   padding: size('small') size('2x');
   text-transform: uppercase;
   border: solid 1px;
+  border-radius: size('5x');
 
-  @include border-radius('button');
   @include typography('paragraph');
 
   $types: (
