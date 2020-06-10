@@ -14,6 +14,7 @@ const alignments = {
   top: 'flex-start',
   middle: 'center',
   bottom: 'flex-end',
+  normal: 'normal',
 }
 
 export interface Props extends BaseProps {
@@ -27,7 +28,7 @@ export interface Props extends BaseProps {
   /**
    * Vertically align the components within the stack.
    */
-  alignment?: 'top' | 'middle' | 'bottom'
+  alignment?: 'top' | 'middle' | 'bottom' | 'normal'
 
   /**
    * Regulates the size of the gutter between items.
