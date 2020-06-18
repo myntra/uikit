@@ -29,7 +29,7 @@ describe('classes', () => {
         .find('.c-name')
         .at(0)
         .props().className
-    ).toBe('c-name')
+    ).toBe('container c-name')
   })
 })
 
