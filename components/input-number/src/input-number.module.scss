@@ -18,3 +18,21 @@
 .input::-webkit-outer-spin-button:not(:focus) {
   visibility: hidden;
 }
+
+.container {
+  position: relative;
+
+  .input-adornment {
+    position: absolute;
+    top: 0;
+    color: shade(color('gray-dark'), 40%);
+
+    &--start {
+      left: 0;
+    }
+
+    &--end {
+      right: 0;
+    }
+  }
+}

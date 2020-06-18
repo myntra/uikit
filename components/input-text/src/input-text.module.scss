@@ -24,7 +24,7 @@
   .input-adornment {
     position: absolute;
     top: 0;
-    color: color('gray-dark');
+    color: shade(color('gray-dark'), 40%);
 
     &--start {
       left: 0;
