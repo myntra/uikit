@@ -28,6 +28,7 @@
   "devDependencies": {
     "@types/react": "^16.8"
   },
+  "peerDependencies": {},
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.13.*",
     "@myntra/uikit-component-dropdown": "1.13.*",

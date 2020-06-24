@@ -54,6 +54,11 @@ export interface Props<
    * Presets to select a single or range of date
    */
   presets?: Array<Preset> | boolean
+
+  /**
+   * The callback function when month or year is changed
+   */
+  onYearMonthChange?(value: DateLikeOrDateRangeLike): void
 }
 
 /**

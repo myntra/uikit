@@ -29,11 +29,11 @@
     "@types/react": "^16.8"
   },
   "peerDependencies": {},
-  "exports": [
-    "Tab"
-  ],
   "dependencies": {
     "@myntra/uikit-can-i-use": "1.13.*",
     "@myntra/uikit-utils": "1.13.*"
-  }
+  },
+  "exports": [
+    "Tab"
+  ]
 }

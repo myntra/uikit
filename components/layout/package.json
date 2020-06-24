@@ -27,6 +27,7 @@
   "devDependencies": {
     "@types/react": "latest"
   },
+  "peerDependencies": {},
   "dependencies": {
     "@myntra/uikit-utils": "1.13.*"
   }

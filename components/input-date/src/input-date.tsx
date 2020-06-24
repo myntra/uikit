@@ -96,7 +96,10 @@ export default class InputDate extends PureComponent<
     return null
   }
 
-  handleOpenToDateChange = (openToDate: Date) => this.setState({ openToDate })
+  handleOpenToDateChange = (openToDate: Date) => {
+    this.setState({ openToDate })
+    this.props.onYearMonthChange && this.props.onYearMonthChange(openToDate)
+  }
 
   handleDisplayValueChange = (newValue: Date | DateRange) => {
     const { value: oldValue, onChange, range } = this.props
