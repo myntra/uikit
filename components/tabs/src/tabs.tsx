@@ -64,9 +64,9 @@ export default class Tabs extends PureComponent<
       typeof this.props.activeIndex === 'number'
         ? this.props.activeIndex
         : this.state.activeIndex
-    const children = Children.toArray(this.props.children).filter((child) =>
-      isValidElement(child)
-    )
+    const children: any = Children.toArray(
+      this.props.children
+    ).filter((child) => isValidElement(child))
 
     if (!children.length) return null
     if (activeIndex < 0 || children.length <= activeIndex) activeIndex = 0
@@ -84,7 +84,7 @@ export default class Tabs extends PureComponent<
     return (
       <div className={classnames('group', className)} {...props}>
         <div className={classnames('pane')}>
-          {Children.map(children, (child, index) =>
+          {Children.map(children, (child: any, index) =>
             cloneElement(child, {
               'data-index': index,
               isActive: index === activeIndex,

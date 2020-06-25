@@ -53,7 +53,7 @@ export default class ButtonGroup extends PureComponent<Props, State> {
   render() {
     const { className, children, structure } = this.props
     const { isOpen } = this.state
-    const nodes = Children.toArray(children)
+    const nodes: any = Children.toArray(children)
 
     if (!nodes.length) return null
 
