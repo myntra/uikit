@@ -174,7 +174,13 @@ export default class InputDate extends PureComponent<
     this.setState({ isOpen: false, activeRangeEnd: null, openToDate: null })
 
   render() {
-    const { className, displayFormat: _, children, ...props } = this.props
+    const {
+      className,
+      displayFormat: _,
+      children,
+      wrapperClassName,
+      ...props
+    } = this.props
     const { isOpen, activeRangeEnd } = this.state
     const { displayValue, displayFormat, displayActiveRangeEnd } = this
 
@@ -197,6 +203,7 @@ export default class InputDate extends PureComponent<
         )}
         onOpen={this.handleDropdownOpen}
         onClose={this.handleDropdownClose}
+        wrapperClassName={wrapperClassName}
       >
         <div className={classnames('wrapper')}>
           <InputDatePicker
