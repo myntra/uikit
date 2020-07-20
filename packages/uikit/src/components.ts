@@ -42,6 +42,7 @@ export { default as Portal } from "@myntra/uikit-component-portal";
 export { default as Progress } from "@myntra/uikit-component-progress";
 export { default as SchemaForm } from "@myntra/uikit-component-schema-form";
 export { default as Section } from "@myntra/uikit-component-section";
+export { default as Stepper } from "@myntra/uikit-component-stepper";
 export { default as Table } from "@myntra/uikit-component-table";
 export { default as Tabs, Tab } from "@myntra/uikit-component-tabs";
 export { default as Text } from "@myntra/uikit-component-text";

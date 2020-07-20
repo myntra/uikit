@@ -152,6 +152,9 @@ export const SchemaForm = asyncComponent(() =>
 export const Section = asyncComponent(() =>
   import(/* webpackChunkName: 'components/section' */ '@myntra/uikit-component-section')
 )
+export const Stepper = asyncComponent(() =>
+  import(/* webpackChunkName: 'components/stepper' */ '@myntra/uikit-component-stepper')
+)
 export const Table = asyncComponent(() =>
   import(/* webpackChunkName: 'components/table' */ '@myntra/uikit-component-table')
 )
@@ -441,6 +444,12 @@ export const META = [
     since: '0.7.0',
     status: 'REVIEWING',
     path: '/components/section'
+  },
+  {
+    name: 'Stepper',
+    since: '1.13.42',
+    status: 'REVIEWING',
+    path: '/components/stepper'
   },
   {
     name: 'Table',

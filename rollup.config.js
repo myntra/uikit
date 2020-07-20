@@ -9,6 +9,7 @@ const del = require('rollup-plugin-delete')
 const replace = require('rollup-plugin-replace')
 const copy = require('rollup-plugin-copy')
 const size = require('rollup-plugin-bundle-size')
+const { terser } = require('rollup-plugin-terser')
 
 if (!process.env.TARGET) {
   throw new Error(`No target found`)
@@ -98,6 +99,10 @@ const config = {
     }),
     replace({
       __DEV__: 'process.env.NODE_ENV !== "production"',
+    }),
+    terser({
+      compress: true,
+      mangle: true,
     }),
   ],
 }

@@ -1,39 +1,44 @@
 $-tokens-colors-primary: hsl(244, 54, 53);
-$-tokens-colors-success: hsl(138, 38, 55);
-$-tokens-colors-warning: hsl(39, 84, 64);
-$-tokens-colors-danger: hsl(1, 56, 62);
-$-tokens-colors-gray: hsl(0, 0, 90);
+$-tokens-colors-success: hsl(138, 53, 53);
+$-tokens-colors-warning: hsl(40, 87, 53);
+$-tokens-colors-danger: hsl(0, 54, 53);
+$-tokens-colors-gray: hsl(0, 0, 93);
 $-tokens-colors: (
-  'primary-dark': hsl(244, 47, 32),
+  'primary-darker': hsl(244, 53, 22),
+  'primary-dark': hsl(244, 54, 36),
   'primary-base': hsl(244, 54, 53),
   'primary-text': hsla(244, 54, 53, 0.87),
-  'primary-light': hsl(244, 54, 72),
-  'primary-lighter': hsl(244, 54, 93),
+  'primary-light': hsl(244, 54, 73),
+  'primary-lighter': hsl(244, 53, 85),
   'primary-lightest': undefined,
-  'success-dark': hsl(137, 31, 33),
-  'success-base': hsl(138, 38, 55),
-  'success-text': hsla(138, 38, 55, 0.87),
-  'success-light': hsl(137, 38, 73),
-  'success-lighter': hsl(139, 38, 89),
+  'success-darker': hsl(138, 54, 22),
+  'success-dark': hsl(138, 54, 36),
+  'success-base': hsl(138, 53, 53),
+  'success-text': hsla(138, 53, 53, 0.87),
+  'success-light': hsl(138, 54, 73),
+  'success-lighter': hsl(138, 53, 85),
   'success-lightest': undefined,
-  'warning-dark': hsl(40, 48, 38),
-  'warning-base': hsl(39, 84, 64),
-  'warning-text': hsla(39, 84, 64, 0.87),
-  'warning-light': hsl(40, 84, 78),
-  'warning-lighter': hsl(40, 83, 91),
+  'warning-darker': hsl(40, 86, 28),
+  'warning-dark': hsl(40, 87, 44),
+  'warning-base': hsl(40, 87, 53),
+  'warning-text': hsla(40, 87, 53, 0.87),
+  'warning-light': hsl(40, 87, 73),
+  'warning-lighter': hsl(40, 87, 85),
   'warning-lightest': undefined,
-  'danger-dark': hsl(2, 34, 37),
-  'danger-base': hsl(1, 56, 62),
-  'danger-text': hsla(1, 56, 62, 0.87),
-  'danger-light': hsl(2, 56, 77),
-  'danger-lighter': hsl(2, 55, 90),
+  'danger-darker': hsl(0, 54, 22),
+  'danger-dark': hsl(0, 54, 36),
+  'danger-base': hsl(0, 54, 53),
+  'danger-text': hsla(0, 54, 53, 0.87),
+  'danger-light': hsl(0, 54, 73),
+  'danger-lighter': hsl(0, 53, 85),
   'danger-lightest': undefined,
-  'gray-dark': hsl(0, 0, 83),
-  'gray-base': hsl(0, 0, 90),
-  'gray-text': hsla(0, 0, 90, 0.87),
-  'gray-light': hsl(0, 0, 93),
-  'gray-lighter': hsl(220, 22, 96),
-  'gray-lightest': hsl(0, 0, 98),
+  'gray-darker': hsl(0, 0, 83),
+  'gray-dark': hsl(0, 0, 90),
+  'gray-base': hsl(0, 0, 93),
+  'gray-text': hsla(0, 0, 93, 0.87),
+  'gray-light': hsl(210, 22, 96),
+  'gray-lighter': hsl(0, 0, 98),
+  'gray-lightest': undefined,
 );
 $-tokens-text-colors: (
   'dark': (

@@ -75,6 +75,7 @@
     "@myntra/uikit-component-top-bar": "1.13.*",
     "@myntra/uikit-component-virtual-grid": "1.13.*",
     "@myntra/uikit-component-virtual-list": "1.13.*",
+    "@myntra/uikit-component-stepper": "1.13.*",
     "@myntra/uikit-utils": "1.13.*"
   },
   "devDependencies": {

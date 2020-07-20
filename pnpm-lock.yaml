@@ -62,6 +62,7 @@ importers:
       rollup-plugin-node-resolve: registry.npmjs.org/rollup-plugin-node-resolve/4.2.4
       rollup-plugin-postcss: registry.npmjs.org/rollup-plugin-postcss/2.9.0
       rollup-plugin-replace: registry.npmjs.org/rollup-plugin-replace/2.2.0
+      rollup-plugin-terser: registry.npmjs.org/rollup-plugin-terser/6.1.0_rollup@1.32.1
       rollup-plugin-typescript2: registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.32.1+typescript@3.9.5
       rollup-plugin-url: registry.npmjs.org/rollup-plugin-url/2.2.4_rollup@1.32.1
       rxjs: registry.npmjs.org/rxjs/6.5.5
@@ -134,6 +135,7 @@ importers:
       rollup-plugin-node-resolve: ^4.0.1
       rollup-plugin-postcss: ^2.0.3
       rollup-plugin-replace: ^2.2.0
+      rollup-plugin-terser: ^6.1.0
       rollup-plugin-typescript2: ^0.20.1
       rollup-plugin-url: ^2.2.2
       rxjs: ^6.4.0
@@ -926,6 +928,27 @@ importers:
       '@myntra/uikit-utils': 1.13.*
       '@types/react': ^16.8
       react: '>=15.4'
+  components/stepper:
+    dependencies:
+      '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
+      '@myntra/uikit-component-icon': 'link:../icon'
+      '@myntra/uikit-component-layout': 'link:../layout'
+      '@myntra/uikit-component-text': 'link:../text'
+      '@myntra/uikit-utils': 'link:../../packages/uikit-utils'
+      prop-types: registry.npmjs.org/prop-types/15.7.2
+    devDependencies:
+      '@types/react': registry.npmjs.org/@types/react/16.9.43
+    optionalDependencies:
+      react: registry.npmjs.org/react/16.13.1
+    specifiers:
+      '@myntra/uikit-can-i-use': 1.13.*
+      '@myntra/uikit-component-icon': 1.13.*
+      '@myntra/uikit-component-layout': 1.13.*
+      '@myntra/uikit-component-text': 1.13.*
+      '@myntra/uikit-utils': 1.13.*
+      '@types/react': latest
+      prop-types: ^15.7.2
+      react: '>=15.4'
   components/table:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -1243,6 +1266,7 @@ importers:
       '@myntra/uikit-component-progress': 'link:../../components/progress'
       '@myntra/uikit-component-schema-form': 'link:../../components/schema-form'
       '@myntra/uikit-component-section': 'link:../../components/section'
+      '@myntra/uikit-component-stepper': 'link:../../components/stepper'
       '@myntra/uikit-component-table': 'link:../../components/table'
       '@myntra/uikit-component-tabs': 'link:../../components/tabs'
       '@myntra/uikit-component-text': 'link:../../components/text'
@@ -1298,6 +1322,7 @@ importers:
       '@myntra/uikit-component-progress': 1.13.*
       '@myntra/uikit-component-schema-form': 1.13.*
       '@myntra/uikit-component-section': 1.13.*
+      '@myntra/uikit-component-stepper': 1.13.*
       '@myntra/uikit-component-table': 1.13.*
       '@myntra/uikit-component-tabs': 1.13.*
       '@myntra/uikit-component-text': 1.13.*
@@ -1421,7 +1446,7 @@ lockfileVersion: 5.1
 packages:
   /eslint/9.9.9:
     dependencies:
-      '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.10.3
+      '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.10.4
       ajv: registry.npmjs.org/ajv/6.12.2
       chalk: registry.npmjs.org/chalk/2.4.2
       cross-spawn: registry.npmjs.org/cross-spawn/6.0.5
@@ -1483,6 +1508,15 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.10.3.tgz'
     version: 7.10.3
+  registry.npmjs.org/@babel/code-frame/7.10.4:
+    dependencies:
+      '@babel/highlight': registry.npmjs.org/@babel/highlight/7.10.4
+    name: '@babel/code-frame'
+    resolution:
+      integrity: sha512-vG6SvB6oYEhvgisZNFRmRCUkLz11c7rp+tbNTynGqc6mS1d5ATd/sGyV6W0KZZnXRKMTzZDRgQT3Ou9jhpAfUg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.10.4.tgz'
+    version: 7.10.4
   registry.npmjs.org/@babel/compat-data/7.10.3:
     dependencies:
       browserslist: registry.npmjs.org/browserslist/4.12.1
@@ -1841,6 +1875,13 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.3.tgz'
     version: 7.10.3
+  registry.npmjs.org/@babel/helper-validator-identifier/7.10.4:
+    name: '@babel/helper-validator-identifier'
+    resolution:
+      integrity: sha512-3U9y+43hz7ZM+rzG24Qe2mufW5KhvFg/NhnNph+i9mgCtdTCtMJuI1TMkrIUiK7Ix4PYlRF9I5dhqaLYA/ADXw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@babel/helper-validator-identifier/-/helper-validator-identifier-7.10.4.tgz'
+    version: 7.10.4
   registry.npmjs.org/@babel/helper-wrap-function/7.10.1:
     dependencies:
       '@babel/helper-function-name': registry.npmjs.org/@babel/helper-function-name/7.10.3
@@ -1888,6 +1929,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@babel/highlight/-/highlight-7.10.3.tgz'
     version: 7.10.3
+  registry.npmjs.org/@babel/highlight/7.10.4:
+    dependencies:
+      '@babel/helper-validator-identifier': registry.npmjs.org/@babel/helper-validator-identifier/7.10.4
+      chalk: registry.npmjs.org/chalk/2.4.2
+      js-tokens: registry.npmjs.org/js-tokens/4.0.0
+    name: '@babel/highlight'
+    resolution:
+      integrity: sha512-i6rgnR/YgPEQzZZnbTHHuZdlE8qyoBNalD6F+q4vAFlcMEcqmkoG+mPqJYJCo63qPf74+Y1UZsl3l6f7/RIkmA==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@babel/highlight/-/highlight-7.10.4.tgz'
+    version: 7.10.4
   registry.npmjs.org/@babel/parser/7.10.3:
     engines:
       node: '>=6.0.0'
@@ -3532,6 +3584,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.41.tgz'
     version: 16.9.41
+  registry.npmjs.org/@types/react/16.9.43:
+    dependencies:
+      '@types/prop-types': registry.npmjs.org/@types/prop-types/15.7.3
+      csstype: registry.npmjs.org/csstype/2.6.10
+    dev: true
+    name: '@types/react'
+    resolution:
+      integrity: sha512-PxshAFcnJqIWYpJbLPriClH53Z2WlJcVZE+NP2etUtWQs2s7yIMj3/LDKZT/5CHJ/F62iyjVCDu2H3jHEXIxSg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/@types/react/-/react-16.9.43.tgz'
+    version: 16.9.43
   registry.npmjs.org/@types/resolve/0.0.8:
     dependencies:
       '@types/node': registry.npmjs.org/@types/node/14.0.14
@@ -11999,6 +12062,19 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/jest-worker/-/jest-worker-24.9.0.tgz'
     version: 24.9.0
+  registry.npmjs.org/jest-worker/26.1.0:
+    dependencies:
+      merge-stream: registry.npmjs.org/merge-stream/2.0.0
+      supports-color: registry.npmjs.org/supports-color/7.1.0
+    dev: true
+    engines:
+      node: '>= 10.14.2'
+    name: jest-worker
+    resolution:
+      integrity: sha512-Z9P5pZ6UC+kakMbNJn+tA2RdVdNX5WH1x+5UCBZ9MxIK24pjYtFt96fK+UwBTrjLYm232g1xz0L3eTh51OW+yQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/jest-worker/-/jest-worker-26.1.0.tgz'
+    version: 26.1.0
   registry.npmjs.org/jest/24.9.0:
     dependencies:
       import-local: registry.npmjs.org/import-local/2.0.0
@@ -15548,6 +15624,16 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/randomatic/-/randomatic-3.1.1.tgz'
     version: 3.1.1
+  registry.npmjs.org/randombytes/2.1.0:
+    dependencies:
+      safe-buffer: registry.npmjs.org/safe-buffer/5.2.1
+    dev: true
+    name: randombytes
+    resolution:
+      integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/randombytes/-/randombytes-2.1.0.tgz'
+    version: 2.1.0
   registry.npmjs.org/range-parser/1.2.0:
     dev: true
     engines:
@@ -16594,6 +16680,23 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/rollup-plugin-replace/-/rollup-plugin-replace-2.2.0.tgz'
     version: 2.2.0
+  registry.npmjs.org/rollup-plugin-terser/6.1.0_rollup@1.32.1:
+    dependencies:
+      '@babel/code-frame': registry.npmjs.org/@babel/code-frame/7.10.4
+      jest-worker: registry.npmjs.org/jest-worker/26.1.0
+      rollup: registry.npmjs.org/rollup/1.32.1
+      serialize-javascript: registry.npmjs.org/serialize-javascript/3.1.0
+      terser: registry.npmjs.org/terser/4.8.0
+    dev: true
+    id: registry.npmjs.org/rollup-plugin-terser/6.1.0
+    name: rollup-plugin-terser
+    peerDependencies:
+      rollup: ^2.0.0
+    resolution:
+      integrity: sha512-4fB3M9nuoWxrwm39habpd4hvrbrde2W2GG4zEGPQg1YITNkM3Tqur5jSuXlWNzbv/2aMLJ+dZJaySc3GCD8oDw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/rollup-plugin-terser/-/rollup-plugin-terser-6.1.0.tgz'
+    version: 6.1.0
   registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.32.1+typescript@3.9.5:
     dependencies:
       fs-extra: registry.npmjs.org/fs-extra/7.0.1
@@ -16891,6 +16994,16 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/semver/-/semver-7.3.2.tgz'
     version: 7.3.2
+  registry.npmjs.org/serialize-javascript/3.1.0:
+    dependencies:
+      randombytes: registry.npmjs.org/randombytes/2.1.0
+    dev: true
+    name: serialize-javascript
+    resolution:
+      integrity: sha512-JIJT1DGiWmIKhzRsG91aS6Ze4sFUrYbltlkg2onR5OrnNM02Kl/hnY/T4FN2omvyeBbQmMJv+K4cPOpGzOTFBg==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-3.1.0.tgz'
+    version: 3.1.0
   registry.npmjs.org/serve-handler/6.1.3:
     dependencies:
       bytes: registry.npmjs.org/bytes/3.0.0
@@ -18222,6 +18335,21 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/term-size/-/term-size-1.2.0.tgz'
     version: 1.2.0
+  registry.npmjs.org/terser/4.8.0:
+    dependencies:
+      commander: registry.npmjs.org/commander/2.20.3
+      source-map: registry.npmjs.org/source-map/0.6.1
+      source-map-support: registry.npmjs.org/source-map-support/0.5.19
+    dev: true
+    engines:
+      node: '>=6.0.0'
+    hasBin: true
+    name: terser
+    resolution:
+      integrity: sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/terser/-/terser-4.8.0.tgz'
+    version: 4.8.0
   registry.npmjs.org/test-exclude/5.2.3:
     dependencies:
       glob: registry.npmjs.org/glob/7.1.6

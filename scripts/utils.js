@@ -176,7 +176,7 @@ function initSrc(name) {
     {
       name: `${shortName}.tsx`,
       initialContent: `
-import React from { PureComponent } 'react'
+import React, { PureComponent } from 'react'
 import classnames from './${shortName}.module.scss'
 
 export interface Props extends BaseProps {

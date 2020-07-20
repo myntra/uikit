@@ -37,11 +37,11 @@ function prepare(tokens) {
     for (const id in tokens.colors) {
       const { value } = tokens.colors[id]
       if (value) {
-        const [dark, base, light, lighter, lightest] = value
+        const [darker, dark, base, light, lighter, lightest] = value
         const text =
           base.substr(0, base.length - 1).replace('hsl', 'hsla') + ', 0.87)'
 
-        const shades = { dark, base, text, light, lighter, lightest }
+        const shades = { darker, dark, base, text, light, lighter, lightest }
         normalizedTokens[`colors-${id}`] = base
 
         for (const key in shades) {
