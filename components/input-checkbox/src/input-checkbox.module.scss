@@ -14,6 +14,7 @@
 
 .content:not(:empty) {
   padding-inline-start: size('6x');
+  display: inline-block;
 }
 
 .checkbox {

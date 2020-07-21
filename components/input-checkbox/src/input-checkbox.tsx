@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import classnames from './input-checkbox.module.scss'
 
 export interface Props extends BaseProps {
@@ -38,14 +38,9 @@ export interface Props extends BaseProps {
   htmlValue?: string
 
   /**
-   * A label text for the checkbox.
+   * A label element for the checkbox.
    */
-  title?: string
-
-  /**
-   * Custom label text renderer.
-   */
-  renderTitle?(): JSX.Element
+  title?: ReactNode
 }
 
 /**
@@ -83,7 +78,7 @@ export default function InputCheckbox({
         />
         <span className={classnames('checkbox')} aria-hidden="true" />
       </div>
-      <span className={classnames('content')}>{title}</span>
+      <div className={classnames('content')}>{title}</div>
     </label>
   )
 }
