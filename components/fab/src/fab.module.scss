@@ -29,7 +29,7 @@
 }
 
 .fab {
-  position: absolute;
+  position: absolute !important;
 
   @include z-index('fab');
   &[class*='-top'] {
