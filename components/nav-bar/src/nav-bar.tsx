@@ -355,14 +355,14 @@ export default class NavBar extends PureComponent<
           >
             {children}
           </NavBarGroup>
+          {this.isOpen && (
+            <ClickAway
+              target={this.navbarRef}
+              onClickAway={this.handleClickAway}
+              data-test-id="click-away"
+            />
+          )}
         </nav>
-        {this.isOpen && (
-          <ClickAway
-            target={this.navbarRef}
-            onClickAway={this.handleClickAway}
-            data-test-id="click-away"
-          />
-        )}
       </NavBarContext.Provider>
     )
   }

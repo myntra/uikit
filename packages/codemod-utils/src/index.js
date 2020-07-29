@@ -586,6 +586,25 @@ export default function helpers(j, root, file) {
     throw new Error('No named import found for ' + name)
   }
 
+  /**
+   * Remove named import
+   *
+   * @param {ASTNode[]} nodes
+   * @param {string} name
+   */
+  function removeNamedImportLocalName(nodes, name) {
+    nodes.forEach((namedImportNode) => {
+      j(namedImportNode)
+        // find ImportSpecifier here instead of Identifier
+        .find(j.ImportSpecifier)
+        .forEach((importSpecifier) => {
+          if (importSpecifier.node.imported.name === name) {
+            j(importSpecifier).remove()
+          }
+        })
+    })
+  }
+
   return {
     addDefaultImport,
     addNamedImport,
@@ -609,6 +628,7 @@ export default function helpers(j, root, file) {
     renameProp,
     renameProps,
     renameJSxTag,
+    removeNamedImportLocalName,
     toSource: () => {
       const { results } = engine.executeOnText(root.toSource())
 

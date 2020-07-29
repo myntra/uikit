@@ -8,19 +8,21 @@ const mapTag = {
   heading4: 'Text.h4',
   title: 'Text.title',
   caption: 'Text.caption',
+  paragraph: 'Text.p',
 }
+const components = []
 export function migrateFromUnityUikit(file, api, { themeName }) {
   const { h, j } = createHelper(file, api)
-  let findFromUikit = false
   let oldImport = h.findImport('unity-uikit/Typography')
   if (!oldImport.size()) {
     oldImport = h.findImport('@myntra/uikit')
-    findFromUikit = true
   }
   let name
   if (oldImport.size()) {
     try {
       name = h.getNamedImportLocalName(h.first(oldImport), 'Text')
+      components.push(name)
+      console.log(name)
       h.forAttributesOnComponent(
         name,
         undefined,
@@ -54,17 +56,13 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
           }
         }
       )
-      if (findFromUikit) {
-        h.removeNamedImportLocalName(h.first(oldImport), 'Text')
-      } else {
-        oldImport.remove()
-      }
     } catch (e) {
       console.log('no text component')
     }
 
     try {
       name = h.getNamedImportLocalName(h.first(oldImport), 'Heading')
+      components.push(name)
       h.findComponentWhere(name, undefined)
         .find(JSXOpeningElement)
         .replaceWith((element) => {
@@ -94,10 +92,18 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
           node.closingElement = j.jsxClosingElement(node.openingElement.name)
           return element.node
         })
-      oldImport.remove()
     } catch (e) {
       console.log('no heading component')
     }
+
+    components.forEach((name) => {
+      console.log(h.first(oldImport).value)
+      if (h.first(oldImport).value.specifiers.length === 1) {
+        oldImport.remove()
+      } else {
+        h.removeNamedImportLocalName(oldImport, name)
+      }
+    })
 
     h.addNamedImport(`@myntra/uikit-theme-${themeName}`, 'Text')
     return h.toSource()

@@ -29,6 +29,10 @@ export interface Props extends BaseProps {
    * The message/body of the alert box.
    */
   children: string | JSX.Element
+  /**
+   * Only border based Alert
+   */
+  noFill: boolean
 }
 
 // Design: https://zpl.io/bA7ZRWp
@@ -60,6 +64,7 @@ export default class Banner extends PureComponent<Props> {
       title,
       solid,
       onClose,
+      noFill,
       children,
       ...props
     } = this.props
@@ -72,7 +77,9 @@ export default class Banner extends PureComponent<Props> {
     return (
       <div
         {...props}
-        className={classnames('container', typeName, className)}
+        className={classnames('container', typeName, className, {
+          'no-fill': noFill,
+        })}
         role="alert"
       >
         {iconName ? (
