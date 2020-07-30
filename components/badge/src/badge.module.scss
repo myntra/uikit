@@ -14,7 +14,8 @@
     'success': 'success',
     'error': 'danger',
     'warning': 'warning',
-    'incomplete': 'gray-dark-3',
+    'gray': 'gray-dark-3',
+    'brown': 'brown',
   );
 
   @each $name, $color in $types {
