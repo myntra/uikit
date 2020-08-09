@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-design",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "design.scss",
   "module": "dist/uikit-design.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-design",
   "publishConfig": {

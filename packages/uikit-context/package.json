@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-context",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/uikit-context.cjs.js",
   "module": "dist/uikit-context.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-context",
   "publishConfig": {

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 
 import classnames from './icon.module.scss'
 
@@ -10,7 +10,7 @@ export type IconName = IconNameGlobal[keyof IconNameGlobal]
 
 interface Props extends BaseProps {
   /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
-  name: IconName
+  name: IconName | ReactNode
   /** Accessibility text for screen readers */
   title?: string
   /** Spin the  icon continuously in clockwise direction */

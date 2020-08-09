@@ -1,11 +1,11 @@
 {
   "name": "@myntra/uikit",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/uikit.cjs.js",
   "module": "dist/uikit.esm.js",
   "types": "dist/index.d.ts",
   "style": "design.css",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/packages/uikit-components",
   "publishConfig": {

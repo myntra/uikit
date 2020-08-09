@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-component-tooltip",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/tooltip.cjs.js",
   "module": "dist/tooltip.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/tooltip",
   "publishConfig": {

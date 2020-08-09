@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-component-avatar",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/avatar.cjs.js",
   "module": "dist/avatar.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/avatar",
   "publishConfig": {

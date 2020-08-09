@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-component-input-radio",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/input-radio.cjs.js",
   "module": "dist/input-radio.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/input-radio",
   "publishConfig": {

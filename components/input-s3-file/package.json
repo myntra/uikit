@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-component-input-s3-file",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/input-s3-file.cjs.js",
   "module": "dist/input-s3-file.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/s3-upload",
   "publishConfig": {

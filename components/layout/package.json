@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-component-layout",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/layout.cjs.js",
   "module": "dist/layout.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/layout",
   "publishConfig": {

@@ -1,10 +1,10 @@
 {
   "name": "@myntra/uikit-component-click-away",
-  "version": "1.13.48",
+  "version": "1.13.49",
   "main": "dist/click-away.cjs.js",
   "module": "dist/click-away.esm.js",
   "types": "dist/index.d.ts",
-  "author": "Rahul Kadyan <hi@znck.me>",
+  "author": "Myntra",
   "license": "UNLICENSED",
   "repository": "https://bitbucket.org/myntra/uikit/src/master/components/click-away",
   "publishConfig": {
