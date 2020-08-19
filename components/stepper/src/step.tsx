@@ -11,6 +11,9 @@ import Icon from '@myntra/uikit-component-icon'
 import classnames from './step.module.scss'
 import StepSeparator from './step-separator'
 
+import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import CheckSolid from '@myntra/uikit-icons/svgs/CheckSolid'
+
 export interface Props extends BaseProps {
   /**
    * Orientation of the step ccomponent
@@ -70,14 +73,14 @@ export default class Step extends PureComponent<Props> {
           <div className={classnames('step__indicator')}>
             {completed && (
               <Icon
-                name="check"
+                name={CheckSolid}
                 color="light"
                 className={classnames('step__icon')}
               />
             )}
             {error && (
               <Icon
-                name="times"
+                name={TimesSolid}
                 color="light"
                 className={classnames('step__icon')}
               />

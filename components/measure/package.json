@@ -35,6 +35,7 @@
     "@myntra/uikit-can-i-use": "1.13.*",
     "@myntra/uikit-utils": "1.13.*",
     "prop-types": "^15.7.2",
-    "resize-observer-polyfill": "^1.5.1"
+    "resize-observer-polyfill": "^1.5.1",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

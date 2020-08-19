@@ -2,8 +2,6 @@ import React, { ReactNode } from 'react'
 
 import classnames from './icon.module.scss'
 
-import './assets/icons.sprite.svg'
-
 import { IconNameGlobal } from './names'
 
 export type IconName = IconNameGlobal[keyof IconNameGlobal]
@@ -36,7 +34,7 @@ interface Props extends BaseProps {
  * @category basic
  */
 export default function Icon({
-  name,
+  name: IconComponent,
   className,
   title,
   spin,
@@ -52,7 +50,14 @@ export default function Icon({
       xmlns="http://www.w3.org/2000/svg"
     >
       {title ? <title>{title}</title> : null}
-      <use xlinkHref={`#uikit-i-${name}`} aria-hidden={title ? true : null} />
+      {typeof IconComponent === 'function' ? (
+        <IconComponent />
+      ) : (
+        <use
+          xlinkHref={`#uikit-i-${IconComponent}`}
+          aria-hidden={title ? true : null}
+        />
+      )}
     </svg>
   )
 }

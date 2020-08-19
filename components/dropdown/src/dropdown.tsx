@@ -7,6 +7,7 @@ import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './dropdown.module.scss'
 import { createRef } from '@myntra/uikit-utils'
+import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
 
 const scrollParents = new WeakMap<Element, Element[]>()
 
@@ -505,7 +506,11 @@ export default class Dropdown extends Component<
           {renderTrigger ? (
             renderTrigger(handlers)
           ) : typeof trigger === 'string' ? (
-            <Button type="secondary" secondaryIcon="chevron-down" {...handlers}>
+            <Button
+              type="secondary"
+              secondaryIcon={ChevronDownSolid}
+              {...handlers}
+            >
               {trigger}
             </Button>
           ) : (

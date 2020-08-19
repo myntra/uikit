@@ -6,12 +6,12 @@ import NavBar from './src/nav-bar'
 
 ```jsx preview align=left
 <NavBar title="My Application">
-  <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
-  <NavBar.Item icon="dice-two">Dice 2</NavBar.Item>
+  <NavBar.Item icon={InfoCircleSolid}>Dice 1</NavBar.Item>
+  <NavBar.Item icon={BoxSolid}>Dice 2</NavBar.Item>
 
-  <NavBar.Group title="Dices" icon="dice">
-    <NavBar.Item icon="dice-five">Dice 5</NavBar.Item>
-    <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+  <NavBar.Group title="Dices" icon={AtSolid}>
+    <NavBar.Item icon={Bell}>Dice 5</NavBar.Item>
+    <NavBar.Item icon={InfoCircleSolid}>Dice 1</NavBar.Item>
   </NavBar.Group>
 </NavBar>
 ```
@@ -42,9 +42,9 @@ import NavBar from './src/nav-bar'
 const [location, setLocation] = useState('/foo');
 
 <NavBar title="Hypothetical" currentPath={location} renderLink={({ children }) => children}>
-  <NavBar.Item to="/foo" icon="box" onClick={() => setLocation('/foo')}>Foo</NavBar.Item>
-  <NavBar.Item to="/bar" icon="adjust" onClick={() => setLocation('/bar')}>Bar</NavBar.Item>
-  <NavBar.Item to="/baz" icon="ambulance" onClick={() => setLocation('/baz')}>Baz</NavBar.Item>
+  <NavBar.Item to="/foo" icon={BoxSolid} onClick={() => setLocation('/foo')}>Foo</NavBar.Item>
+  <NavBar.Item to="/bar" icon={ClockRegular} onClick={() => setLocation('/bar')}>Bar</NavBar.Item>
+  <NavBar.Item to="/baz" icon={ClockRegular} onClick={() => setLocation('/baz')}>Baz</NavBar.Item>
 </NavBar>
 ```
 
@@ -97,14 +97,14 @@ export default connect(
 
 ```jsx preview align=left
 <NavBar title="My Application">
-  <NavBar.Group title="Dices" icon="dice">
-    <NavBar.Item icon="dice-five">Dice 5</NavBar.Item>
-    <NavBar.Item icon="dice-one">Dice 1</NavBar.Item>
+  <NavBar.Group title="Dices" icon={AtSolid}>
+    <NavBar.Item icon={Bell}>Dice 5</NavBar.Item>
+    <NavBar.Item icon={InfoCircleSolid}>Dice 1</NavBar.Item>
   </NavBar.Group>
 
-  <NavBar.Group title="Accessible Devices" icon="diagnoses">
-    <NavBar.Item icon="mobile">Mobile</NavBar.Item>
-    <NavBar.Item icon="tablet">Desktop</NavBar.Item>
+  <NavBar.Group title="Accessible Devices" icon={BoxSolid}>
+    <NavBar.Item icon={Bell}>Bell</NavBar.Item>
+    <NavBar.Item icon={ClockRegular}>Clock</NavBar.Item>
   </NavBar.Group>
 </NavBar>
 ```

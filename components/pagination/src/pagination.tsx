@@ -3,6 +3,8 @@ import Icon from '@myntra/uikit-component-icon'
 import { range } from '@myntra/uikit-utils'
 
 import classnames from './pagination.module.scss'
+import ChevronLeftSolid from '@myntra/uikit-icons/svgs/ChevronLeftSolid'
+import ChevronRightSolid from '@myntra/uikit-icons/svgs/ChevronRightSolid'
 
 export interface Props extends BaseProps {
   /** Current selected page */
@@ -97,7 +99,7 @@ export default class Pagination extends PureComponent<Props> {
           onClick={() => this.updatePage(page - 1)}
         >
           <Icon
-            name="chevron-left"
+            name={ChevronLeftSolid}
             className={classnames('pagination-arrow')}
           />
         </div>
@@ -120,7 +122,7 @@ export default class Pagination extends PureComponent<Props> {
           onClick={() => this.updatePage(page + 1)}
         >
           <Icon
-            name="chevron-right"
+            name={ChevronRightSolid}
             className={classnames('pagination-arrow')}
           />
         </div>

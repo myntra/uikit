@@ -1,6 +1,7 @@
 import React from 'react'
 import NavBarItem from './nav-bar-item'
 import { shallow } from 'enzyme'
+import BoxSolid from '@myntra/uikit-icons/svgs/BoxSolid'
 
 /*
 
@@ -28,7 +29,7 @@ describe('NavBar', () => {
 
     it.skip('should render icon by name', () => {
       const wrapper = shallow(
-        <NavBarItem icon="box">
+        <NavBarItem icon={BoxSolid}>
           <span data-test-id="child">Test Content</span>
         </NavBarItem>
       )

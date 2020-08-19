@@ -85,7 +85,7 @@ async function compile(code) {
     code = `function Example(props) {\n  ${code.replace(/<(?:[A-Za-z0-9.]+(?: [^>]*)?|>)/, tag => `return ` + tag)}\n}`
   }
 
-  const identifiers = []
+  const identifiers = ['Bell']
   const output = await babel.transform(code, {
     presets: ['es2017', 'react'],
     plugins: [unknownIdentifierPlugin(identifiers)]

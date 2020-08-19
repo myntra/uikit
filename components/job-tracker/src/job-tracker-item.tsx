@@ -8,6 +8,11 @@ import dayJS from 'dayjs'
 
 import classnames from './job-tracker-item.module.scss'
 
+import ClockSolid from '@myntra/uikit-icons/svgs/ClockSolid'
+import ExclamationTriangleSolid from '@myntra/uikit-icons/svgs/ExclamationTriangleSolid'
+import CheckCircleSolid from '@myntra/uikit-icons/svgs/CheckCircleSolid'
+import ExclamationCircleSolid from '@myntra/uikit-icons/svgs/ExclamationCircleSolid'
+
 export interface Props extends BaseProps {
   /** Job ID */
   id: number
@@ -57,11 +62,11 @@ export interface Props extends BaseProps {
 }
 
 const iconByStatus: Record<string, IconName> = {
-  IN_PROGRESS: 'clock',
-  FAILED: 'exclamation-triangle',
-  COMPLETED: 'check-circle',
-  HALTED: 'exclamation-circle',
-  INTERRUPTED: 'exclamation-circle',
+  IN_PROGRESS: ClockSolid,
+  FAILED: ExclamationTriangleSolid,
+  COMPLETED: CheckCircleSolid,
+  HALTED: ExclamationCircleSolid,
+  INTERRUPTED: ExclamationCircleSolid,
 }
 const colorByStatus: Record<string, string> = {
   IN_PROGRESS: 'primary',

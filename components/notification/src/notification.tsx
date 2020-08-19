@@ -6,6 +6,7 @@ import React, {
 } from 'react'
 import classnames from './notification.module.scss'
 import Button from '@myntra/uikit-component-button'
+import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
 
 export interface Props extends BaseProps {
   /** An element which opens the modal. */
@@ -141,7 +142,7 @@ export default class Notification extends PureComponent<
               <Button
                 inheritTextColor
                 type="link"
-                icon="times"
+                icon={TimesSolid}
                 title="close"
                 onClick={this.handleClose}
               />

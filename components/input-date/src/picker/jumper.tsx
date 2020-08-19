@@ -5,6 +5,8 @@ import Year from './jumper/year'
 import classnames from './jumper.module.scss'
 import { UTCDate } from '../input-date-utils'
 import Icon from '@myntra/uikit-component-icon'
+import ChevronLeftSolid from '@myntra/uikit-icons/svgs/ChevronLeftSolid'
+import ChevronRightSolid from '@myntra/uikit-icons/svgs/ChevronRightSolid'
 
 export interface Props extends BaseProps {
   year: number
@@ -58,7 +60,7 @@ export default class Jumper extends PureComponent<Props> {
             tabIndex={-1}
             onClick={this.handlePrev}
           >
-            <Icon name="chevron-left" />
+            <Icon name={ChevronLeftSolid} />
           </div>
         ) : (
           <div className={classnames('prev', 'placeholder')} />
@@ -80,7 +82,7 @@ export default class Jumper extends PureComponent<Props> {
             tabIndex={-1}
             onClick={this.handleNext}
           >
-            <Icon name="chevron-right" />
+            <Icon name={ChevronRightSolid} />
           </div>
         ) : (
           <div className={classnames('next', 'placeholder')} />

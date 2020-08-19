@@ -31,6 +31,7 @@
   "dependencies": {
     "@myntra/uikit-component-button": "1.13.*",
     "@myntra/uikit-component-input-text": "1.13.*",
-    "@myntra/uikit-utils": "1.13.*"
+    "@myntra/uikit-utils": "1.13.*",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

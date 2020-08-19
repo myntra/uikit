@@ -9,6 +9,8 @@ import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './modal.module.scss'
 import ModalLayout, { Props as ModalLayoutProps } from './modal-layout'
+import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
 
 export interface Props extends BaseProps, ModalLayoutProps {
   /** An element which opens the modal. */
@@ -122,7 +124,7 @@ export default class Modal extends PureComponent<Props> {
               <Button
                 inheritTextColor
                 type="link"
-                icon="times"
+                icon={TimesSolid}
                 title="close"
                 onClick={this.handleClose}
               />
@@ -137,7 +139,7 @@ export default class Modal extends PureComponent<Props> {
         {typeof trigger === 'string' ? (
           <Button
             type="secondary"
-            secondaryIcon="chevron-down"
+            secondaryIcon={ChevronDownSolid}
             onClick={this.handleOpen}
           >
             {trigger}

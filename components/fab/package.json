@@ -34,6 +34,7 @@
     "prop-types": "^15.7.2",
     "@myntra/uikit-component-dropdown": "1.13.*",
     "@myntra/uikit-component-icon": "1.13.*",
-    "@myntra/uikit-component-button": "1.13.*"
+    "@myntra/uikit-component-button": "1.13.*",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react'
 import PropTypes from 'prop-types'
 
 import { Icon } from '@myntra/uikit'
+import Copy from '@myntra/uikit-pro-icons/svgs/Copy'
 
 export default function CopyToClipboard({ content, children }) {
   const [isCopied, setCopied] = useState(false)
@@ -32,7 +33,7 @@ export default function CopyToClipboard({ content, children }) {
   return (
     <>
       <Icon
-        name="copy"
+        name={Copy}
         title={isCopied ? 'Copied' : 'Copy'}
         onClick={handleCopy}
         style={{ cursor: 'pointer', marginRight: '0.5rem' }}

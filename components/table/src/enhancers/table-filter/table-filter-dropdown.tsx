@@ -8,6 +8,9 @@ import Button from '@myntra/uikit-component-button'
 import classnames from './table-filter-dropdown.module.scss'
 import { memoize } from '@myntra/uikit-utils'
 
+import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+
 export interface Props<V = any, O = { value: any; label: string }> {
   columnId: string
   value: Record<string, V[]>
@@ -136,7 +139,11 @@ export default class TableFilterDropdown extends Component<
             })}
             {...props}
           >
-            <Icon name={this.state.isOpen ? 'chevron-up' : 'chevron-down'} />
+            <Icon
+              name={
+                this.state.isOpen ? { ChevronUpSolid } : { ChevronDownSolid }
+              }
+            />
           </div>
         )}
         container

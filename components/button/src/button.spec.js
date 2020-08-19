@@ -1,6 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Button from './button'
+import Bell from '@myntra/uikit-icons/svgs/Bell'
 
 describe('Button', () => {
   it('renders correct tag according to prop provided (href -> <a> | to -> <RouterLink> | -> <button>)', () => {
@@ -11,14 +12,14 @@ describe('Button', () => {
   })
 
   it('renders icon on left when icon prop is present', () => {
-    const wrapper = shallow(<Button icon="alert" />)
+    const wrapper = shallow(<Button icon={Bell} />)
 
     expect(wrapper.find('[data-test-id="primary-icon"]')).toHaveLength(1)
     wrapper.unmount()
   })
 
   it('renders icon on right when secondaryIcon prop is present', () => {
-    const wrapper = shallow(<Button secondaryIcon="alert">Button</Button>)
+    const wrapper = shallow(<Button secondaryIcon={Bell}>Button</Button>)
 
     expect(wrapper.find('[data-test-id="secondary-icon"]')).toHaveLength(1)
     wrapper.unmount()

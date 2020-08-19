@@ -35,6 +35,7 @@
     "@myntra/uikit-component-field": "1.13.*",
     "@myntra/uikit-component-form": "1.13.*",
     "@myntra/uikit-component-grid": "1.13.*",
-    "@myntra/uikit-utils": "1.13.*"
+    "@myntra/uikit-utils": "1.13.*",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

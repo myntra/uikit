@@ -7,6 +7,11 @@ import Item from './top-bar-item'
 import Icon from '@myntra/uikit-component-icon'
 import { isReactNodeType, is } from '@myntra/uikit-utils'
 
+import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+import UserCircleSolid from '@myntra/uikit-icons/svgs/UserCircleSolid'
+import SignInAltSolid from '@myntra/uikit-icons/svgs/SignInAltSolid'
+
 export interface Props extends BaseProps {
   title: string
   user?: Partial<{ name: string; photo: string }> & { email: string }
@@ -82,11 +87,14 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
                   ) : (
                     <Icon
                       className={classnames('user-avatar')}
-                      name="user-circle"
+                      name={UserCircleSolid}
                     />
                   )
                 ) : (
-                  <Icon className={classnames('user-avatar')} name="sign-in" />
+                  <Icon
+                    className={classnames('user-avatar')}
+                    name={SignInAltSolid}
+                  />
                 )}
                 {!is.mobile() && (
                   <div className={classnames('user-name')}>
@@ -99,7 +107,11 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
                 )}
                 {actions.length && !is.mobile() ? (
                   <Icon
-                    name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
+                    name={
+                      this.state.isOpen
+                        ? { ChevronUpSolid }
+                        : { ChevronDownSolid }
+                    }
                   />
                 ) : null}
               </div>

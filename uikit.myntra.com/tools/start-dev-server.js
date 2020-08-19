@@ -11,7 +11,7 @@ const { components, getPackageDir, componentsDir, packagesDir, kebabCase } = req
 const Path = require('path')
 const Fs = require('fs')
 const portfinder = require('portfinder')
-
+const jscodeshift = require('jscodeshift/src/core')
 const component = process.argv[2]
 
 start(component).catch(console.error)
@@ -34,9 +34,20 @@ async function start(component, port = process.env.PORT ? Number(process.env.POR
   startWebpackDevServer(component, port)
 }
 
+/**
+ * Get import statement for `source` path.
+ *
+ * @param {string} source
+ * @returns {ASTNode}
+ */
+function findImport(root, startsWith = null) {
+  return root.find(jscodeshift.ImportDeclaration).filter(decl => decl.value.source.value.startsWith(startsWith))
+}
+
 function createComponentsFile(component) {
   const fileName = Path.resolve(getPackageDir(component), 'readme.mdx')
   const source = Fs.readFileSync(fileName, { encoding: 'utf8' })
+  const root = jscodeshift(source.toString().split('#')[0], {})
   const RE = /<([A-Z](?:[a-zA-Z0-9]+))/gm
 
   let match
@@ -49,16 +60,26 @@ function createComponentsFile(component) {
     if (components.includes(kebabCase(component))) localComponents.add(component)
   }
 
+  const iconImports = findImport(root, '@myntra/uikit-icons')
+    .paths()[0]
+    .value.specifiers.map(specifier => specifier.imported.name)
+
   Fs.writeFileSync(
     Path.resolve(__dirname, `app/uikit.${component}.js`),
-    Array.from(localComponents)
-      .map(
+    [
+      ...Array.from(localComponents).map(
         name =>
           `export { default as ${name} } from '@myntra/uikit-component-${kebabCase(name)}'${
             name === 'Text' ? `\nexport { default as T } from '@myntra/uikit-component-text'` : ''
           }`
+      ),
+      ...iconImports.map(
+        iconName =>
+          `
+        export { default as ${iconName} } from '@myntra/uikit-icons/svgs/${iconName}'
+        `
       )
-      .join('\n')
+    ].join('\n')
   )
 }
 
@@ -85,6 +106,7 @@ function startWebpackDevServer(component, port) {
     .set('@mdx-js/tag$', require.resolve('@mdx-js/tag'))
     .set('react$', require.resolve('react'))
     .set('react-dom$', require.resolve('react-dom'))
+    .set('@uikit-icons', '../node_modules/@myntra/uikit-icons/dist/index')
 
   chain.resolve.alias.set(`'@myntra/uikit-component-input-text/style.scss`, componentsDir + '/input-text/style.scss')
   components.forEach(name =>

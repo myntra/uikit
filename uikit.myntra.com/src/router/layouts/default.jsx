@@ -4,7 +4,12 @@ import { Alert, Page, Button, NavBar, BreadCrumb, TopBar, ErrorBoundary } from '
 import { META } from '../../uikit'
 import { withRootState, AppLink } from '@spectrum'
 import { pathToAction } from 'redux-first-router' // TODO: Add this to spectrum. '@spectrum/router:push'
-
+import Home from '@myntra/uikit-pro-icons/svgs/Home'
+import PencilPaintbrush from '@myntra/uikit-pro-icons/svgs/PencilPaintbrush'
+import Cubes from '@myntra/uikit-pro-icons/svgs/Cubes'
+import Box from '@myntra/uikit-pro-icons/svgs/Box'
+import Donate from '@myntra/uikit-pro-icons/svgs/Donate'
+import History from '@myntra/uikit-pro-icons/svgs/History'
 import '@myntra/uikit/design.scss' // @import '../accoutrement/src/index.scss';
 import './default.scss'
 
@@ -25,15 +30,16 @@ function DefaultLayout({ router, children, goto }) {
             </AppLink>
           )}
         >
-          <NavBar.Item to="/" icon="home">
+          <NavBar.Item to="/" icon={Home}>
             Home
           </NavBar.Item>
-          <NavBar.Group title="Guidelines" icon="pencil-paintbrush" to="/guide">
+          <NavBar.Group title="Guidelines" icon={PencilPaintbrush} to="/guide">
             <NavBar.Item to="/guide/colors">Colors</NavBar.Item>
+            <NavBar.Item to="/guide/icons">Icons</NavBar.Item>
             <NavBar.Item to="/guide/typography">Typography</NavBar.Item>
             <NavBar.Item to="/guide/text-legibility">Text Legibility</NavBar.Item>
           </NavBar.Group>
-          <NavBar.Group title="Components" icon="cubes" to="/components">
+          <NavBar.Group title="Components" icon={Cubes} to="/components">
             <NavBar.Item key="_" to="/components/">
               - Index -
             </NavBar.Item>
@@ -43,15 +49,15 @@ function DefaultLayout({ router, children, goto }) {
               </NavBar.Item>
             ))}
           </NavBar.Group>
-          <NavBar.Group title="Spectrum" icon="box" to="/spectrum">
+          <NavBar.Group title="Spectrum" icon={Box} to="/spectrum">
             <NavBar.Item key="_" to="/spectrum/">
               Getting Started
             </NavBar.Item>
           </NavBar.Group>
-          <NavBar.Item to="/contributing" icon="donate">
+          <NavBar.Item to="/contributing" icon={Donate}>
             Contributing
           </NavBar.Item>
-          <NavBar.Item to="/changelog" icon="history">
+          <NavBar.Item to="/changelog" icon={History}>
             Change Log
           </NavBar.Item>
         </NavBar>

@@ -19,10 +19,10 @@ export default class Preview extends PureComponent<{ component: any; onError: (e
 
   render() {
     const Component = this.props.component
-
+    const { UikitIcons, ...uiComponents } = components
     return (
       <div style={{ padding: '24px' }}>
-        {Component ? <Component context={{ ...React, ...components }} /> : 'Example is not working...'}
+        {Component ? <Component context={{ ...React, ...uiComponents, ...UikitIcons }} /> : 'Example is not working...'}
       </div>
     )
   }

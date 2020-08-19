@@ -9,6 +9,10 @@ import Icon, { IconName } from '@myntra/uikit-component-icon'
 import InputSelectValue from './input-select-value'
 import InputSelectControl from './input-select-control'
 
+import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+import SpinnerSolid from '@myntra/uikit-icons/svgs/SpinnerSolid'
+
 export interface Props<Value = any, Option = any> extends BaseProps {
   /**
    * A list of options for the select element.
@@ -233,7 +237,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
                 {this.props.isLoading ? (
                   <Icon
                     className={classnames('state-icon')}
-                    name="spinner"
+                    name={SpinnerSolid}
                     title="loading options"
                     spin
                     data-test-id="loading"
@@ -242,7 +246,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
                   <Icon
                     className={classnames('state-icon')}
                     title={this.state.isOpen ? 'close' : 'open'}
-                    name={this.state.isOpen ? 'chevron-up' : 'chevron-down'}
+                    name={this.state.isOpen ? ChevronUpSolid : ChevronDownSolid}
                     onClick={(event) =>
                       this.state.isOpen && event.stopPropagation()
                     }

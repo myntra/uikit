@@ -11,6 +11,7 @@ import {
   StringDateRange,
   isStringDateRange,
 } from './input-date-helpers'
+import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
 
 const MASKS: InputMaskedProps['masks'] = {
   Y: {
@@ -150,7 +151,7 @@ export default class InputDateValue extends PureComponent<
               {this.props.value && (this.props.value as DateRange).from && (
                 <Icon
                   className={classnames('icon')}
-                  name="times"
+                  name={TimesSolid}
                   title="Clear date"
                   onClick={this.handleFromClear}
                 />
@@ -177,7 +178,7 @@ export default class InputDateValue extends PureComponent<
               {this.props.value && (this.props.value as DateRange).to && (
                 <Icon
                   className={classnames('icon')}
-                  name="times"
+                  name={TimesSolid}
                   title="Clear date"
                   onClick={this.handleToClear}
                 />
@@ -198,7 +199,7 @@ export default class InputDateValue extends PureComponent<
             {this.props.value && (
               <Icon
                 className={classnames('icon')}
-                name="times"
+                name={TimesSolid}
                 title="Clear date"
                 onClick={this.handleClear}
               />

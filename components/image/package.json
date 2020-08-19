@@ -33,6 +33,7 @@
     "@myntra/uikit-can-i-use": "1.13.*",
     "@myntra/uikit-utils": "1.13.*",
     "intersection-observer-polyfill": "^0.1.0",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

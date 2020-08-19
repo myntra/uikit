@@ -41,7 +41,7 @@ export default class Preview extends PureComponent {
 
   render() {
     const Component = this.props.component
-
+    const { UikitIcons, ...uiComponents } = components
     return (
       <Suspense
         fallback={
@@ -59,7 +59,7 @@ export default class Preview extends PureComponent {
         }
       >
         <div style={{ padding: '24px', marginTop: '24px', width: is.mobile() ? 'auto' : '750px' }}>
-          {Component ? <Component context={{ ...React, ...components }} /> : null}
+          {Component ? <Component context={{ ...React, ...uiComponents, ...UikitIcons }} /> : null}
         </div>
       </Suspense>
     )

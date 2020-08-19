@@ -6,6 +6,9 @@ import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { Props as NavBarItemProps } from './nav-bar-item'
 import { isReactNodeType, Fragment } from '@myntra/uikit-utils'
 
+import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+
 interface Props extends BaseProps, NavBarItemProps {
   /**
    * The title of the nav group.
@@ -94,7 +97,7 @@ export default function NavBarGroup({
 
             <Icon
               className={classnames('group-expand')}
-              name={isActiveGroup(id) ? 'chevron-up' : 'chevron-down'}
+              name={isActiveGroup(id) ? ChevronUpSolid : ChevronDownSolid}
               onClick={(event) => {
                 // Stop event propagation so parent NavBar.Group is not triggered.
                 event.stopPropagation()

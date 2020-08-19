@@ -59,7 +59,7 @@ const [value, setValue] = useState();
 ```jsx preview
 const [value, setValue] = useState();
 
-<InputText value={value} onChange={setValue} placeholder="Your name" icon="user"/>
+<InputText value={value} onChange={setValue} placeholder="Your name" icon={UserSolid}/>
 ```
 
 ## With prefix/suffix text or element
@@ -74,5 +74,5 @@ const [value, setValue] = useState();
 const [value, setValue] = useState();
 const onClick = useCallback(() => console.log("clicked icon"))
 
-<InputText value={value} onChange={setValue} adornment={<Button className="adornment" onClick={onClick} icon="user" />}/>
+<InputText value={value} onChange={setValue} adornment={<Button className="adornment" onClick={onClick} icon={UserSolid} />}/>
 ```

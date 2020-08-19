@@ -14,6 +14,8 @@ import LogoMyntraJabong from './logos/myntra-jabong.png'
 import classnames from './nav-bar.module.scss'
 import { createRef } from '@myntra/uikit-utils'
 
+import BarsSolid from '@myntra/uikit-icons/svgs/BarsSolid'
+
 // TODO: Use hooks.
 const LinkFromUIKitContext = ({ href, children }: LinkProps) => (
   <UIKitContext.Consumer>
@@ -340,7 +342,7 @@ export default class NavBar extends PureComponent<
           >
             <Icon
               className={classnames('hamburger')}
-              name="bars"
+              name={BarsSolid}
               title="Navigation"
             />
             <img src={LogoMyntraJabong} alt="Myntra Jabong" />

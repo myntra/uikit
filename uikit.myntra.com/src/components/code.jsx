@@ -4,6 +4,8 @@ import CodePreview from './code-preview'
 import { EditorContext } from './editor'
 import { Button } from '@myntra/uikit'
 import Prism from 'prismjs'
+/* eslint-disable import/no-named-default */
+import { default as CodeIcon } from '@myntra/uikit-pro-icons/svgs/Code'
 
 import 'prismjs/themes/prism.css'
 import 'prismjs/components/prism-clike'
@@ -20,7 +22,7 @@ export default function Code({ preview = false, align = 'center', children: sour
     <div className={`code--container ${preview ? `code--align-${align}` : ''}`}>
       {preview ? (
         <CodePreview source={source}>
-          <Button icon="code" title="Open in editor" onClick={() => context.setSource(source)} />
+          <Button icon={CodeIcon} title="Open in editor" onClick={() => context.setSource(source)} />
         </CodePreview>
       ) : (
         <pre style={{ overflow: 'unset' }}>

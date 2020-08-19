@@ -2,6 +2,9 @@ import React, { useState, useEffect, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import Preview from './preview'
 import { Alert, Button } from '@myntra/uikit'
+import Sync from '@myntra/uikit-pro-icons/svgs/Sync'
+import Check from '@myntra/uikit-pro-icons/svgs/Check'
+import Copy from '@myntra/uikit-pro-icons/svgs/Copy'
 import './code-preview.css'
 
 export function useCompiler(source, { watch = true, once = true } = {}) {
@@ -84,8 +87,8 @@ export default function CodePreview({ className, source, children }) {
   return (
     <div className={className} style={{ maxWidth: '100%' }}>
       <div className="code-preview-button-container">
-        {<Button icon="sync" title="Refresh" onClick={() => setKey(key + 1)} />}
-        {<Button icon={copied ? 'check' : 'copy'} title="Copy" onClick={handleCopy} />}
+        {<Button icon={Sync} title="Refresh" onClick={() => setKey(key + 1)} />}
+        {<Button icon={copied ? Check : Copy} title="Copy" onClick={handleCopy} />}
         {children}
       </div>
 
@@ -119,6 +122,35 @@ async function compile(code) {
     code = `function Example(props) {\n  ${code.replace(/<(?:[A-Za-z0-9.]+(?: [^>]*)?|>)/, tag => `return ` + tag)}\n}`
   }
 
+  const icons = [
+    'AtSolid',
+    'BarsSolid',
+    'Bell',
+    'BoxSolid',
+    'CheckCircleSolid',
+    'CheckSolid',
+    'ChevronDownSolid',
+    'ChevronLeftSolid',
+    'ChevronRightSolid',
+    'ChevronUpSolid',
+    'ClockRegular',
+    'ClockSolid',
+    'CopyRegular',
+    'EllipsisVSolid',
+    'ExclamationCircleSolid',
+    'ExclamationTriangleSolid',
+    'InfoCircleSolid',
+    'SignInAltSolid',
+    'SignOutAltSolid',
+    'SortDownSolid',
+    'SortSolid',
+    'SortUpSolid',
+    'SpinnerSolid',
+    'SyncSolid',
+    'TimesSolid',
+    'UserCircleSolid',
+    'UserSolid'
+  ]
   const identifiers = []
   const output = await babel.transform(code, {
     presets: ['es2017', 'react'],
@@ -131,11 +163,15 @@ async function compile(code) {
     if (code.startsWith('function ')) {
       let [, name, , body] = /^function\s+([^(]+)\(([^)]*)\)[^{]*\{((?:.|\n)*)$/.exec(code)
 
-      code = `function ${name}(props) {\n  const { ${identifiers.join(', ')} } = props.context\n${body}`
+      code = `function ${name}(props) {\n  const { ${identifiers.join(', ')}, ${icons.join(
+        ', '
+      )} } = props.context\n${body}`
     } else if (code.startsWith('class ')) {
       const [prefix, suffix] = code.split(/render\s*\([^)]*\)[^{}]*\{/, 2)
 
-      code = `${prefix}\n  render() {\n    const { ${identifiers.join(', ')} } = this.props.context\n${suffix}`
+      code = `${prefix}\n  render() {\n    const { ${identifiers.join(', ')}, ${icons.join(
+        ', '
+      )} } = this.props.context\n${suffix}`
     }
   } else {
     code = output.code

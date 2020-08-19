@@ -3,6 +3,8 @@ import { shallow } from 'enzyme'
 
 import TopBar from './index'
 import BreadCrumb from '@myntra/uikit-component-bread-crumb'
+import UserSolid from '@myntra/uikit-icons/svgs/UserSolid'
+import SignOutAltSolid from '@myntra/uikit-icons/svgs/SignOutAltSolid'
 
 describe('top-bar', () => {
   it('is a component', () => {
@@ -17,8 +19,8 @@ describe('top-bar', () => {
           <BreadCrumb.Item>TopBar</BreadCrumb.Item>
         </BreadCrumb>
 
-        <TopBar.Item icon="user">Profile</TopBar.Item>
-        <TopBar.Item icon="sign-out">Logout</TopBar.Item>
+        <TopBar.Item icon={UserSolid}>Profile</TopBar.Item>
+        <TopBar.Item icon={SignOutAltSolid}>Logout</TopBar.Item>
       </TopBar>
     )
     const render = jest.spyOn(wrapper.instance(), 'render')

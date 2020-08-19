@@ -4,6 +4,7 @@ import Button from '@myntra/uikit-component-button'
 import Layout from '@myntra/uikit-component-layout'
 import Text from '@myntra/uikit-component-text'
 import classnames from './actionable.module.scss'
+import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
 
 import { ICONS, RE_BACKWARD_COMPAT } from './constants'
 
@@ -79,7 +80,7 @@ export default class Actionable extends PureComponent<Props> {
           <Button
             className={classnames('close')}
             type="link"
-            icon="times"
+            icon={TimesSolid}
             inheritTextColor
             onClick={onClose}
             data-test-id="close"

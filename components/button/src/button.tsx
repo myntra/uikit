@@ -10,6 +10,8 @@ import HookLink from './link-hook'
 import RouterLink from './router-link'
 import HookRouterLink from './router-link-hook'
 
+import Bell from '@myntra/uikit-icons/svgs/Bell'
+
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */
   type?: 'primary' | 'secondary' | 'link' | 'text'
@@ -175,7 +177,7 @@ export default class Button extends PureComponent<Props> {
                 {notifications > 99 ? '99+' : notifications}
               </span>
             )}
-            <Icon name={icon || 'question'} aria-hidden="true" />
+            <Icon name={icon || Bell} aria-hidden="true" />
           </span>
         )}
         {isIconButton ? null : children || label}

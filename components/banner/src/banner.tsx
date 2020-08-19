@@ -4,6 +4,7 @@ import Button from '@myntra/uikit-component-button'
 import classnames from './banner.module.scss'
 import Actionable from './actionable'
 import { ICONS, RE_BACKWARD_COMPAT } from './constants'
+import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
 
 export interface Props extends BaseProps {
   /**
@@ -97,7 +98,7 @@ export default class Banner extends PureComponent<Props> {
           <Button
             className={classnames('close')}
             type="link"
-            icon="times"
+            icon={TimesSolid}
             inheritTextColor
             onClick={onClose}
             data-test-id="close"

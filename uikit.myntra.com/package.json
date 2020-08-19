@@ -14,6 +14,8 @@
   },
   "dependencies": {
     "@babel/standalone": "^7.3.4",
+    "@myntra/uikit-icons": "^1.0.9",
+    "@myntra/uikit-pro-icons": "^1.0.9",
     "lodash.debounce": "^4.0.8",
     "marked": "^0.6.1",
     "monaco-editor": "^0.19.1",
@@ -31,6 +33,7 @@
     "@myntra/spectrum-cli-service": "^2.10.10",
     "autoprefixer": "^9.4.9",
     "front-matter": "^3.0.1",
+    "jscodeshift": "^0.10.0",
     "lazy-compile-webpack-plugin": "^0.1.5",
     "loader-utils": "^1.2.3",
     "monaco-editor-webpack-plugin": "^1.7.0",

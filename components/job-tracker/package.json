@@ -38,6 +38,7 @@
     "@myntra/uikit-component-loader": "1.13.*",
     "@myntra/uikit-component-text": "1.13.*",
     "@myntra/uikit-utils": "1.13.*",
-    "dayjs": "^1.8.14"
+    "dayjs": "^1.8.14",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

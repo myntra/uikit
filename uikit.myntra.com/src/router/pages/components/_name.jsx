@@ -5,6 +5,8 @@ import { Measure, Button } from '@myntra/uikit'
 import CodePreview from '@components/code-preview'
 import { withAppState } from '@spectrum'
 import { setCurrentSource, getters } from '@state/editor'
+import Arrows from '@myntra/uikit-pro-icons/svgs/Arrows'
+import Times from '@myntra/uikit-pro-icons/svgs/Times'
 
 import './_name.css'
 
@@ -46,6 +48,10 @@ function ComponentDocumentationPage({ name, source, setSource }) {
     findDocumentation(name, setComponent)
   }, [name, setComponent])
 
+  // useEffect(() => {
+  //   findIconImports(name, setIconImports)
+  // }, [iconImports, setIconImports])
+
   useEffect(() => {
     window.openEditor = () => setActive(true)
   }, [setActive])
@@ -80,8 +86,8 @@ function ComponentDocumentationPage({ name, source, setSource }) {
         {
           <div className={`editor`} ref={ref}>
             <CodePreview className="preview" source={source}>
-              <Button icon="arrows" title="Toggle Fullscreen" onClick={fullscreen} />
-              <Button icon="times" title="Close" onClick={hide} />
+              <Button icon={Arrows} title="Toggle Fullscreen" onClick={fullscreen} />
+              <Button icon={Times} title="Close" onClick={hide} />
             </CodePreview>
             <Measure>
               {({ content: { bounds: editorSize }, ref }) => (
@@ -108,6 +114,12 @@ ComponentDocumentationPage.propTypes = {
   setSource: PropTypes.func,
   children: PropTypes.any
 }
+
+// function findIconImports(name) {
+//   const fileName = resolve(getPackageDir(name), 'readme.mdx')
+//   const source = fs.readFileSync(fileName, { encoding: 'utf8' })
+//   const root = jscodeshift(source.toString().split('#')[0], {})
+// }
 
 async function findFile(getModule, Component, setComponent) {
   try {

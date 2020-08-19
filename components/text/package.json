@@ -29,6 +29,7 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/uikit-utils": "1.13.*"
+    "@myntra/uikit-utils": "1.13.*",
+    "@myntra/uikit-icons": "^1.0.9"
   }
 }

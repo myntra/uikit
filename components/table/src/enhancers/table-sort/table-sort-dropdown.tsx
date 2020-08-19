@@ -5,6 +5,10 @@ import List from '@myntra/uikit-component-list'
 
 import classnames from './table-sort-dropdown.module.scss'
 
+import SortUpSolid from '@myntra/uikit-icons/svgs/SortUpSolid'
+import SortDownSolid from '@myntra/uikit-icons/svgs/SortDownSolid'
+import SortSolid from '@myntra/uikit-icons/svgs/SortSolid'
+
 export interface Props<V = { columnId: string; order: 'asc' | 'desc' }> {
   columnId: string
   value: V
@@ -19,7 +23,7 @@ export default class TableSortDropdown extends Component<
     {
       label: (
         <div key="up">
-          <Icon name="sort-up" /> Ascending
+          <Icon name={SortUpSolid} /> Ascending
         </div>
       ),
       value: 'asc',
@@ -27,7 +31,7 @@ export default class TableSortDropdown extends Component<
     {
       label: (
         <div key="down">
-          <Icon name="sort-down" /> Descending
+          <Icon name={SortDownSolid} /> Descending
         </div>
       ),
       value: 'desc',
@@ -60,9 +64,9 @@ export default class TableSortDropdown extends Component<
               name={
                 isActive
                   ? value.order === 'desc'
-                    ? 'sort-down'
-                    : 'sort-up'
-                  : 'sort'
+                    ? SortDownSolid
+                    : SortUpSolid
+                  : SortSolid
               }
             />
           </div>

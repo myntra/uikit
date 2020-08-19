@@ -1,4 +1,6 @@
 import { lazy } from 'react'
+import * as uikitIcons from '@myntra/uikit-icons'
+
 function asyncComponent(factory) {
   const Component = lazy(factory)
   const cache = {}
@@ -179,6 +181,7 @@ export const VirtualList = asyncComponent(() =>
 export const Tab = asyncComponent(() =>
   import('@myntra/uikit-component-tabs').then(m => ({ default: m.Tab, __esModule: true }))
 )
+export const UikitIcons = uikitIcons
 
 export const META = [
   {
