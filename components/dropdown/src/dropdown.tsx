@@ -7,7 +7,7 @@ import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './dropdown.module.scss'
 import { createRef } from '@myntra/uikit-utils'
-import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+import ChevronDownSolid from 'uikit-icons/svgs/ChevronDownSolid'
 
 const scrollParents = new WeakMap<Element, Element[]>()
 

@@ -2,13 +2,11 @@ import React, { ReactNode } from 'react'
 
 import classnames from './icon.module.scss'
 
-import { IconNameGlobal } from './names'
-
-export type IconName = IconNameGlobal[keyof IconNameGlobal]
+export type IconName = string | ReactNode
 
 interface Props extends BaseProps {
-  /** [FontAwesome](https://fontawesome.com/icons?d=gallery) icon name */
-  name: IconName | ReactNode
+  /** icon component name from @myntra/uikit-icons */
+  name: IconName
   /** Accessibility text for screen readers */
   title?: string
   /** Spin the  icon continuously in clockwise direction */
@@ -27,7 +25,7 @@ interface Props extends BaseProps {
 }
 
 /**
- * Displays a glyph using an SVG sprite-sheet.
+ * Displays a glyph using an SVG.
  *
  * @since 0.0.0
  * @status REVIEWING
@@ -65,4 +63,16 @@ export default function Icon({
 Icon.defaultProps = {
   fontSize: 'inherit',
   spin: false,
+}
+
+Icon.propTypes = {
+  __$validation({ name }) {
+    if (typeof name === 'string')
+      throw new Error(`Icon name cannot be a string. Choose your icon from here https://uikit.myntra.com/guide/icons and use it as 
+      a component like name=${capitalize(name)}`)
+  },
+}
+
+function capitalize(name) {
+  return name.replace(/(^\w|(-)\w)/g, (m) => m.toUpperCase()).replace(/-/g, '')
 }

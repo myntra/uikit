@@ -3,8 +3,8 @@ import { shallow } from 'enzyme'
 
 import TopBar from './index'
 import BreadCrumb from '@myntra/uikit-component-bread-crumb'
-import UserSolid from '@myntra/uikit-icons/svgs/UserSolid'
-import SignOutAltSolid from '@myntra/uikit-icons/svgs/SignOutAltSolid'
+import UserSolid from 'uikit-icons/svgs/UserSolid'
+import SignOutAltSolid from 'uikit-icons/svgs/SignOutAltSolid'
 
 describe('top-bar', () => {
   it('is a component', () => {

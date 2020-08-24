@@ -11,7 +11,7 @@ const mapTag = {
   paragraph: 'Text.p',
 }
 const components = []
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h, j } = createHelper(file, api)
   let oldImport = h.findImport('unity-uikit/Typography')
   if (!oldImport.size()) {
@@ -106,6 +106,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
     })
 
     h.addNamedImport(`@myntra/uikit-theme-${themeName}`, 'Text')
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

@@ -21,10 +21,13 @@ function createPlugin(api: Service) {
           'run only specified codemods (run `uikit codemods` to get list of options)',
         '-r, --recursive': 'run recursively',
         '-t, --theme-name <themeName>': 'UIKit theme used for app',
+        '-l, --nolint': 'run without linting',
+        '-p, --package-name <packageName>':
+          'Package from which to migrate(Currently only used for icon package migration).',
       },
     },
     handler: async (
-      { recursive, apply, only, commit, themeName },
+      { recursive, apply, only, commit, themeName, nolint, packageName },
       target: string
     ) => {
       const isFile = (await promised(fs).stat(target)).isFile()
@@ -80,6 +83,8 @@ function createPlugin(api: Service) {
           print: isDebug,
           verbose: isDebug ? 5 : 0,
           themeName,
+          nolint,
+          packageName,
         }
       )
 

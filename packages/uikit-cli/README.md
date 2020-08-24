@@ -66,9 +66,11 @@ Run codemods for migrating to UIKit
 Options:
   --no-commit                   do not commit changes
   -a, --apply                   apply changes to code
-  -o, --only <items>            run only specified codemods (run `uikit codemods` to get list of options)
+  -o, --only                    run only specified codemods (run `uikit codemods` to get list of options)
   -r, --recursive               run recursively
-  -t, --theme-name <themeName>  UIKit theme used for app
+  -t, --theme-name              UIKit theme used for app
+  -p, --package-name            Mention the package you are using currently(It should any one of @myntra/uikit, @myntra/uikit-theme-unity, @myntra/uikit-theme-nuclei)
+  -l, --nolint                  Disable linting
   -h, --help                    output usage information
 ```
 

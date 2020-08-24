@@ -10,7 +10,7 @@ import HookLink from './link-hook'
 import RouterLink from './router-link'
 import HookRouterLink from './router-link-hook'
 
-import Bell from '@myntra/uikit-icons/svgs/Bell'
+import Bell from 'uikit-icons/svgs/Bell'
 
 export interface Props extends BaseProps {
   /** The visual style to convey purpose of the button. */

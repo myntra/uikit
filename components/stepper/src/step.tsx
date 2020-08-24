@@ -11,8 +11,8 @@ import Icon from '@myntra/uikit-component-icon'
 import classnames from './step.module.scss'
 import StepSeparator from './step-separator'
 
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
-import CheckSolid from '@myntra/uikit-icons/svgs/CheckSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
+import CheckSolid from 'uikit-icons/svgs/CheckSolid'
 
 export interface Props extends BaseProps {
   /**

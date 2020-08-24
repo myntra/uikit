@@ -1,7 +1,7 @@
 import { createHelper } from '../../src'
 import { JSXOpeningElement } from 'jscodeshift'
 
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h, j } = createHelper(file, api)
   const oldImport = h.findImport('@myntra/uikit')
   let name
@@ -21,7 +21,7 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
         h.removeNamedImportLocalName(oldImport, name)
       }
       h.addNamedImport(`@myntra/uikit-theme-${themeName}`, 'InputRadio')
-      return h.toSource()
+      return h.toSource(nolint)
     }
   } catch (e) {
     console.log(e)

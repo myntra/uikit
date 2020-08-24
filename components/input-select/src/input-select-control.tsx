@@ -7,7 +7,7 @@ import {
 import { memoize, debounce, createRef } from '@myntra/uikit-utils'
 import Icon, { IconName } from '@myntra/uikit-component-icon'
 import classnames from './input-select-control.module.scss'
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
 
 export interface InputSelectControlProps<V = any, T = any> extends BaseProps {
   /**

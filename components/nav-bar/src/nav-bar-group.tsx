@@ -6,8 +6,8 @@ import classnames from './nav-bar-group.module.scss'
 import NavBarItem, { Props as NavBarItemProps } from './nav-bar-item'
 import { isReactNodeType, Fragment } from '@myntra/uikit-utils'
 
-import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
-import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+import ChevronUpSolid from 'uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from 'uikit-icons/svgs/ChevronDownSolid'
 
 interface Props extends BaseProps, NavBarItemProps {
   /**

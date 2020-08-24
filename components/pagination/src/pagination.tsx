@@ -3,8 +3,8 @@ import Icon from '@myntra/uikit-component-icon'
 import { range } from '@myntra/uikit-utils'
 
 import classnames from './pagination.module.scss'
-import ChevronLeftSolid from '@myntra/uikit-icons/svgs/ChevronLeftSolid'
-import ChevronRightSolid from '@myntra/uikit-icons/svgs/ChevronRightSolid'
+import ChevronLeftSolid from 'uikit-icons/svgs/ChevronLeftSolid'
+import ChevronRightSolid from 'uikit-icons/svgs/ChevronRightSolid'
 
 export interface Props extends BaseProps {
   /** Current selected page */

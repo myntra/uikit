@@ -14,7 +14,7 @@ import LogoMyntraJabong from './logos/myntra-jabong.png'
 import classnames from './nav-bar.module.scss'
 import { createRef } from '@myntra/uikit-utils'
 
-import BarsSolid from '@myntra/uikit-icons/svgs/BarsSolid'
+import BarsSolid from 'uikit-icons/svgs/BarsSolid'
 
 // TODO: Use hooks.
 const LinkFromUIKitContext = ({ href, children }: LinkProps) => (

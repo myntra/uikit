@@ -8,10 +8,10 @@ import dayJS from 'dayjs'
 
 import classnames from './job-tracker-item.module.scss'
 
-import ClockSolid from '@myntra/uikit-icons/svgs/ClockSolid'
-import ExclamationTriangleSolid from '@myntra/uikit-icons/svgs/ExclamationTriangleSolid'
-import CheckCircleSolid from '@myntra/uikit-icons/svgs/CheckCircleSolid'
-import ExclamationCircleSolid from '@myntra/uikit-icons/svgs/ExclamationCircleSolid'
+import ClockSolid from 'uikit-icons/svgs/ClockSolid'
+import ExclamationTriangleSolid from 'uikit-icons/svgs/ExclamationTriangleSolid'
+import CheckCircleSolid from 'uikit-icons/svgs/CheckCircleSolid'
+import ExclamationCircleSolid from 'uikit-icons/svgs/ExclamationCircleSolid'
 
 export interface Props extends BaseProps {
   /** Job ID */

@@ -6,7 +6,7 @@ import React, {
 } from 'react'
 import classnames from './notification.module.scss'
 import Button from '@myntra/uikit-component-button'
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
 
 export interface Props extends BaseProps {
   /** An element which opens the modal. */

@@ -7,10 +7,10 @@ import Item from './top-bar-item'
 import Icon from '@myntra/uikit-component-icon'
 import { isReactNodeType, is } from '@myntra/uikit-utils'
 
-import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
-import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
-import UserCircleSolid from '@myntra/uikit-icons/svgs/UserCircleSolid'
-import SignInAltSolid from '@myntra/uikit-icons/svgs/SignInAltSolid'
+import ChevronUpSolid from 'uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from 'uikit-icons/svgs/ChevronDownSolid'
+import UserCircleSolid from 'uikit-icons/svgs/UserCircleSolid'
+import SignInAltSolid from 'uikit-icons/svgs/SignInAltSolid'
 
 export interface Props extends BaseProps {
   title: string

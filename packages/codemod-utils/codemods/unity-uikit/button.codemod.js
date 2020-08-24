@@ -15,7 +15,7 @@ import { createHelper } from '../../src'
  *  - 'flat'
  *  - 'preview'
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h, j } = createHelper(file, api)
   let findFromUikit = false
   let oldImport = h.findImport('unity-uikit/Button')
@@ -58,6 +58,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
       }
     }
     h.addNamedImport(`@myntra/uikit-theme-${themeName}`, 'Button')
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

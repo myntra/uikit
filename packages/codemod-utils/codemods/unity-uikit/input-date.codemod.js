@@ -12,7 +12,7 @@ import { createHelper } from '../../src'
  *  - 'onOpen'
  *  - 'onClose'
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h } = createHelper(file, api)
   const oldImport = h.findImport('unity-uikit/DatePicker')
 
@@ -29,6 +29,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
     h.removeProps(name, ['onOpen', 'onClose'])
     h.renameJSxTag(name, 'Form.Date')
 
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

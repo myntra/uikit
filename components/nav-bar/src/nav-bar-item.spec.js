@@ -1,7 +1,7 @@
 import React from 'react'
 import NavBarItem from './nav-bar-item'
 import { shallow } from 'enzyme'
-import BoxSolid from '@myntra/uikit-icons/svgs/BoxSolid'
+import BoxSolid from 'uikit-icons/svgs/BoxSolid'
 
 /*
 
