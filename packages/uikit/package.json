@@ -20,7 +20,8 @@
     "*.css"
   ],
   "scripts": {
-    "build": "sass design.scss:design.css"
+    "build": "sass design.scss:design.css",
+    "postinstall": "node src/postinstall.js"
   },
   "sideEffects": false,
   "dependencies": {
@@ -76,7 +77,8 @@
     "@myntra/uikit-component-virtual-grid": "1.13.*",
     "@myntra/uikit-component-virtual-list": "1.13.*",
     "@myntra/uikit-component-stepper": "1.13.*",
-    "@myntra/uikit-utils": "1.13.*"
+    "@myntra/uikit-utils": "1.13.*",
+    "print-message": "^3.0.1"
   },
   "devDependencies": {
     "sass": "^1.26.5"

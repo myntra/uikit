@@ -5,9 +5,9 @@ import List from '@myntra/uikit-component-list'
 
 import classnames from './table-sort-dropdown.module.scss'
 
-import SortUpSolid from '@myntra/uikit-icons/svgs/SortUpSolid'
-import SortDownSolid from '@myntra/uikit-icons/svgs/SortDownSolid'
-import SortSolid from '@myntra/uikit-icons/svgs/SortSolid'
+import SortUpSolid from 'uikit-icons/svgs/SortUpSolid'
+import SortDownSolid from 'uikit-icons/svgs/SortDownSolid'
+import SortSolid from 'uikit-icons/svgs/SortSolid'
 
 export interface Props<V = { columnId: string; order: 'asc' | 'desc' }> {
   columnId: string

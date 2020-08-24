@@ -9,7 +9,7 @@ import { createHelper } from '../../src'
  *
  *
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h, j } = createHelper(file, api)
   let findFromUikit = false
   let name
@@ -44,6 +44,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
       }
     }
 
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

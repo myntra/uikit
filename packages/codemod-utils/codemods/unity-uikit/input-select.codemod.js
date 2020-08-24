@@ -18,7 +18,7 @@ import { createHelper } from '../../src'
  * - 'maxOptions'
  * - 'align'
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h } = createHelper(file, api)
   const select1 = h.findImport('unity-uikit/SelectBox')
   const select2 = h.findImport('unity-uikit/SelectBox/Select')
@@ -51,5 +51,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
     }
   }
 
-  if (apply(select1) || apply(select2) || apply(select3)) return h.toSource()
+  if (apply(select1) || apply(select2) || apply(select3))
+    return h.toSource(nolint)
 }

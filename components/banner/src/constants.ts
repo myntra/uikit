@@ -1,7 +1,7 @@
 import { IconName } from '@myntra/uikit-component-icon'
-import ExclamationTriangleSolid from '@myntra/uikit-icons/svgs/ExclamationTriangleSolid'
-import ExclamationCircleSolid from '@myntra/uikit-icons/svgs/ExclamationCircleSolid'
-import CheckCircleSolid from '@myntra/uikit-icons/svgs/CheckCircleSolid'
+import ExclamationTriangleSolid from 'uikit-icons/svgs/ExclamationTriangleSolid'
+import ExclamationCircleSolid from 'uikit-icons/svgs/ExclamationCircleSolid'
+import CheckCircleSolid from 'uikit-icons/svgs/CheckCircleSolid'
 
 export const ICONS: Record<string, IconName> = {
   error: ExclamationTriangleSolid,

@@ -9,8 +9,8 @@ import Portal from '@myntra/uikit-component-portal'
 
 import classnames from './modal.module.scss'
 import ModalLayout, { Props as ModalLayoutProps } from './modal-layout'
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
-import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
+import ChevronDownSolid from 'uikit-icons/svgs/ChevronDownSolid'
 
 export interface Props extends BaseProps, ModalLayoutProps {
   /** An element which opens the modal. */

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import Button from './button'
-import Bell from '@myntra/uikit-icons/svgs/Bell'
+import Bell from 'uikit-icons/svgs/Bell'
 
 describe('Button', () => {
   it('renders correct tag according to prop provided (href -> <a> | to -> <RouterLink> | -> <button>)', () => {

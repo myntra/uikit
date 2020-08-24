@@ -1,6 +1,6 @@
 import { createHelper } from '../../src'
 
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h, j } = createHelper(file, api)
   const oldImport = h.findImport('unity-uikit/Flex')
 
@@ -76,6 +76,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
     h.addNamedImport(`@myntra/uikit-theme-${themeName}`, 'Layout')
     h.renameJSxTag(name, 'Layout')
 
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

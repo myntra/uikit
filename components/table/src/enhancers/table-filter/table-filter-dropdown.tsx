@@ -8,8 +8,8 @@ import Button from '@myntra/uikit-component-button'
 import classnames from './table-filter-dropdown.module.scss'
 import { memoize } from '@myntra/uikit-utils'
 
-import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
-import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
+import ChevronUpSolid from 'uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from 'uikit-icons/svgs/ChevronDownSolid'
 
 export interface Props<V = any, O = { value: any; label: string }> {
   columnId: string

@@ -4,7 +4,7 @@ import Button from '@myntra/uikit-component-button'
 import Layout from '@myntra/uikit-component-layout'
 import Text from '@myntra/uikit-component-text'
 import classnames from './actionable.module.scss'
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
 
 import { ICONS, RE_BACKWARD_COMPAT } from './constants'
 

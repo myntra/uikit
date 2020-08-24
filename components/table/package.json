@@ -42,6 +42,6 @@
     "@myntra/uikit-component-virtual-list": "1.13.*",
     "@myntra/uikit-context": "1.13.*",
     "@myntra/uikit-utils": "1.13.*",
-    "@myntra/uikit-icons": "^1.0.9"
+    "uikit-icons": "npm:@myntra/uikit-icons@^1.0.9"
   }
 }

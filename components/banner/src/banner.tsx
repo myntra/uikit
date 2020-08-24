@@ -4,7 +4,7 @@ import Button from '@myntra/uikit-component-button'
 import classnames from './banner.module.scss'
 import Actionable from './actionable'
 import { ICONS, RE_BACKWARD_COMPAT } from './constants'
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
 
 export interface Props extends BaseProps {
   /**

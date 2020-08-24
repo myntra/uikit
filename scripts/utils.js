@@ -30,15 +30,15 @@ const targets = sortedPackages([
   ...themes.map((theme) => `@myntra/uikit-theme-${theme}`),
 ])
 
-// function readPackage(name) {
-//   const pkgDir = getPackageDir(name)
+function readPackage(name) {
+  const pkgDir = getPackageDir(name)
 
-//   try {
-//     return require(`${pkgDir}/package.json`)
-//   } catch (error) {
-//     return {}
-//   }
-// }
+  try {
+    return require(`${pkgDir}/package.json`)
+  } catch (error) {
+    return {}
+  }
+}
 
 /**
  * @param {string[]} targets
@@ -48,13 +48,13 @@ function sortedPackages(targets) {
   const nodes = new Map(targets.map((name) => [name, name]))
   const op = new TopologicalSort(nodes)
 
-  // targets.forEach((target) => {
-  //   const pkg = readPackage(target)
+  targets.forEach((target) => {
+    const pkg = readPackage(target)
 
-  //   Object.keys(pkg.dependencies || {})
-  //     .filter((name) => name.startsWith('@myntra/'))
-  //     .forEach((name) => op.addEdge(name, target))
-  // })
+    Object.keys(pkg.dependencies || {})
+      .filter((name) => name.startsWith('@myntra/'))
+      .forEach((name) => op.addEdge(name, target))
+  })
 
   const sorted = op.sort()
 

@@ -629,7 +629,10 @@ export default function helpers(j, root, file) {
     renameProps,
     renameJSxTag,
     removeNamedImportLocalName,
-    toSource: () => {
+    toSource: (nolint = false) => {
+      if (nolint) {
+        return root.toSource()
+      }
       const { results } = engine.executeOnText(root.toSource())
 
       if (!results || !results.length || !results[0].output)

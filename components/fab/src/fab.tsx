@@ -3,7 +3,7 @@ import Icons, { IconName } from '@myntra/uikit-component-icon'
 import Dropdown from '@myntra/uikit-component-dropdown'
 import Button, { KIND } from '@myntra/uikit-component-button'
 import classnames from './fab.module.scss'
-import EllipsisVSolid from '@myntra/uikit-icons/svgs/EllipsisVSolid'
+import EllipsisVSolid from 'uikit-icons/svgs/EllipsisVSolid'
 
 export interface Props extends BaseProps {
   direction: 'up' | 'left' | 'down' | 'right'

@@ -50,9 +50,9 @@ targets.forEach((name) => {
     pkg.peerDependencies = {}
     pkg.dependencies = {
       '@myntra/uikit-can-i-use': '1.13.*',
-      '@myntra/uikit-icons': '^1.0.9',
       '@myntra/uikit-utils': '1.13.*',
       'prop-types': '^15.7.2',
+      'uikit-icons': 'npm:@myntra/uikit-icons@^1.0.9',
     }
   }
 

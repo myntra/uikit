@@ -11,7 +11,7 @@ import {
   StringDateRange,
   isStringDateRange,
 } from './input-date-helpers'
-import TimesSolid from '@myntra/uikit-icons/svgs/TimesSolid'
+import TimesSolid from 'uikit-icons/svgs/TimesSolid'
 
 const MASKS: InputMaskedProps['masks'] = {
   Y: {

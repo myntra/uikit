@@ -2,7 +2,7 @@ import { createHelper } from '../../src'
 /**
  * Replace 'unity-uikit/Input' when used with [type="text|email|password|tel|url"] with '@myntra/uikit'.
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h } = createHelper(file, api)
   const oldImport = h.findImport('unity-uikit/Input')
 
@@ -28,7 +28,7 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
       h.removeProp(name, 'type', onlyTextInputs)
       h.renameJSxTag(name, 'Form.Text', textInputs)
 
-      return h.toSource()
+      return h.toSource(nolint)
     }
   }
 }

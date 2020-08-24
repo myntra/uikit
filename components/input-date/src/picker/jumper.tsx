@@ -5,8 +5,8 @@ import Year from './jumper/year'
 import classnames from './jumper.module.scss'
 import { UTCDate } from '../input-date-utils'
 import Icon from '@myntra/uikit-component-icon'
-import ChevronLeftSolid from '@myntra/uikit-icons/svgs/ChevronLeftSolid'
-import ChevronRightSolid from '@myntra/uikit-icons/svgs/ChevronRightSolid'
+import ChevronLeftSolid from 'uikit-icons/svgs/ChevronLeftSolid'
+import ChevronRightSolid from 'uikit-icons/svgs/ChevronRightSolid'
 
 export interface Props extends BaseProps {
   year: number

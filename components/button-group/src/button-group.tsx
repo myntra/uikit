@@ -3,7 +3,7 @@ import classnames from './button-group.module.scss'
 import Button, { KIND } from '@myntra/uikit-component-button'
 import List from '@myntra/uikit-component-list'
 import Dropdown from '@myntra/uikit-component-dropdown'
-import EllipsisVSolid from '@myntra/uikit-icons/svgs/EllipsisVSolid'
+import EllipsisVSolid from 'uikit-icons/svgs/EllipsisVSolid'
 
 export interface Props extends BaseProps {
   /** Property to be used in case only single type of button is required and all others under more drop down */

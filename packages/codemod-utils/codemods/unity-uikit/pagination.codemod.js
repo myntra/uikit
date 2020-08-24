@@ -4,7 +4,7 @@ import { createHelper } from '../../src'
  * Replace 'unity-uikit/Pagination' with '@myntra/uikit'.
  *
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h } = createHelper(file, api)
   const oldImport = h.findImport('unity-uikit/Pagination')
 
@@ -20,6 +20,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
       totalSize: 'total',
     })
 
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

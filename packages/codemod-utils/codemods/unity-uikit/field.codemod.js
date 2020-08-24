@@ -4,7 +4,7 @@ import { createHelper } from '../../src'
  * Replace 'unity-uikit/Label' with '@myntra/uikit'.
  * Transform props from unity-uikit to uikit supported.
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h } = createHelper(file, api)
 
   const oldImport = h.findImport('unity-uikit/Label')
@@ -15,6 +15,6 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
     oldImport.remove()
     h.addNamedImport(`@myntra/uikit-theme-${themeName}`, 'Field', name)
     h.renameJSxTag(name, 'Field')
-    return h.toSource()
+    return h.toSource(nolint)
   }
 }

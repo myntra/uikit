@@ -2,7 +2,7 @@ import { createHelper } from '../../src'
 /**
  * Replace 'unity-uikit/Input' when used with [type="number"] with '@myntra/uikit'.
  */
-export function migrateFromUnityUikit(file, api, { themeName }) {
+export function migrateFromUnityUikit(file, api, { themeName, nolint }) {
   const { h } = createHelper(file, api)
   const checkbox1 = h.findImport('unity-uikit/Input')
   const checkbox2 = h.findImport('unity-uikit/Checkbox')
@@ -23,7 +23,7 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
         h.renameProp(name, 'checked', 'value', checkboxInputs)
         h.renameJSxTag(name, 'Form.Checkbox', checkboxInputs)
 
-        return h.toSource()
+        return h.toSource(nolint)
       }
     }
   }
@@ -38,7 +38,7 @@ export function migrateFromUnityUikit(file, api, { themeName }) {
       h.renameProp(name, 'checked', 'value')
       h.renameJSxTag(name, 'Form.Checkbox')
 
-      return h.toSource()
+      return h.toSource(nolint)
     }
   }
 

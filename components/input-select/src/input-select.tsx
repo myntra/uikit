@@ -9,9 +9,9 @@ import Icon, { IconName } from '@myntra/uikit-component-icon'
 import InputSelectValue from './input-select-value'
 import InputSelectControl from './input-select-control'
 
-import ChevronUpSolid from '@myntra/uikit-icons/svgs/ChevronUpSolid'
-import ChevronDownSolid from '@myntra/uikit-icons/svgs/ChevronDownSolid'
-import SpinnerSolid from '@myntra/uikit-icons/svgs/SpinnerSolid'
+import ChevronUpSolid from 'uikit-icons/svgs/ChevronUpSolid'
+import ChevronDownSolid from 'uikit-icons/svgs/ChevronDownSolid'
+import SpinnerSolid from 'uikit-icons/svgs/SpinnerSolid'
 
 export interface Props<Value = any, Option = any> extends BaseProps {
   /**
