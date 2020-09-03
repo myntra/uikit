@@ -140,9 +140,7 @@ export default class TableFilterDropdown extends Component<
             {...props}
           >
             <Icon
-              name={
-                this.state.isOpen ? { ChevronUpSolid } : { ChevronDownSolid }
-              }
+              name={this.state.isOpen ? ChevronUpSolid : ChevronDownSolid}
             />
           </div>
         )}
