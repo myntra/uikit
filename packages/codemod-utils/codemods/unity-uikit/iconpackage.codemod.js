@@ -78,7 +78,7 @@ export function migrateFromUnityUikit(
         try {
           name = h.getNamedImportLocalName(h.first(oldImport), component)
         } catch (e) {}
-        h.forAttributesOnComponent(
+        h.forAttributesOnComponentNotChild(
           name,
           undefined,
           (element, attribute, index) => {

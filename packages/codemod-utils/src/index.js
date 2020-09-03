@@ -372,6 +372,26 @@ export default function helpers(j, root, file) {
   }
 
   /**
+   * Execute forEach on component attributes in JSx for only parent component and not child.
+   *
+   * @param {string} localComponentName
+   * @param {object} paths
+   * @param {function(ASTNode, number): void} fn
+   */
+  function forAttributesOnComponentNotChild(localComponentName, paths, fn) {
+    return findComponentWhere(localComponentName, paths)
+      .find(j.JSXOpeningElement)
+      .replaceWith((element) => {
+        if (element.node.name.name === localComponentName) {
+          element.node.attributes.forEach((attribute, index) => {
+            fn(element, attribute, index)
+          })
+        }
+        return element.node
+      })
+  }
+
+  /**
    * Rename prop in component usage.
    *
    * @param {string} localComponentName Local identifier for component.
@@ -614,6 +634,7 @@ export default function helpers(j, root, file) {
     findLastNonRelativeImportStatement,
     first,
     forAttributesOnComponent,
+    forAttributesOnComponentNotChild,
     getDefaultImportLocalName,
     getNamedImportLocalName,
     hasImport,

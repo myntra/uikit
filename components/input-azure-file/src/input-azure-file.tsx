@@ -215,6 +215,7 @@ export default class InputAzureFile extends PureComponent<Props> {
             )}
           </div>
         )}
+        {...props}
       />
     )
   }
