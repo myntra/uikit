@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-cli",
-  "version": "1.13.52",
+  "version": "1.13.53",
   "description": "A command line utility for @myntra/uikit",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

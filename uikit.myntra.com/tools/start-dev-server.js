@@ -60,7 +60,7 @@ function createComponentsFile(component) {
     if (components.includes(kebabCase(component))) localComponents.add(component)
   }
 
-  const iconImports = findImport(root, '@myntra/uikit-icons')
+  const iconImports = findImport(root, 'uikit-icons')
     .paths()[0]
     .value.specifiers.map(specifier => specifier.imported.name)
 
