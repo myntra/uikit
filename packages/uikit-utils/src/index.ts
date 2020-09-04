@@ -276,7 +276,7 @@ export function looseEquals(a, b) {
 
     return a.every((item, index) => looseEquals(item, b[index]))
   }
-  if (a === 'object') {
+  if (typeof a === 'object') {
     const keysA = Object.keys(a)
     const keysB = new Set(Object.keys(b))
 
