@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.54"></a>
+## <small>1.13.54 (2020-09-06)</small>
+
+* Merged in feat/inputSelectPosition (pull request #287) ([c2aa8ae](https://bitbucket.org/myntra/uikit/commits/c2aa8ae)), closes [#287](https://bitbucket.org/myntra/uikit/issue/287)
+
+
+
 <a name="1.13.53"></a>
 ## [1.13.53](https://bitbucket.org/myntra/uikit/compare/v1.13.52...v1.13.53) (2020-09-04)
 
