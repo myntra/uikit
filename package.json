@@ -115,7 +115,7 @@
     "stylelint": "^9.10.1",
     "topological-sort": "^0.3.0",
     "ts-jest": "^24.0.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.9.7"
   },
   "husky": {
     "hooks": {

@@ -4,11 +4,15 @@ import Input from '@myntra/uikit-component-input-text'
 import Button from '@myntra/uikit-component-button'
 import { createRef } from '@myntra/uikit-utils'
 
+export type InputFileValidationFunction = {(file: FileList): void}
+
 export interface Props extends BaseProps {
   placeholder?: string
   actions?(browse: () => void): React.ReactNode
   onChange?(files: FileList): void
   value?: FileList
+  onError?(error: Error): void
+  validations?: Array<InputFileValidationFunction> | InputFileValidationFunction
 }
 
 /**
@@ -37,9 +41,28 @@ export default class InputFile extends PureComponent<Props> {
     this.refInputFile = createRef()
   }
 
+  runValidations = (files: FileList) => {
+    if(!this.props.validations) return
+
+    if(Array.isArray(this.props.validations)) {
+      for(const validation of this.props.validations) {
+        validation(files);
+      }
+
+      return
+    }
+
+    this.props.validations(files)
+  }
+
   handleOnChange = (e) => {
     const files = e.target.files
-    this.props.onChange && this.props.onChange(files)
+    try {
+      this.runValidations(files)
+      this.props.onChange && this.props.onChange(files)
+    } catch(e) {
+      this.props.onError && this.props.onError(e);
+    }
   }
 
   handleBrowseClick = () => {
@@ -57,7 +80,7 @@ export default class InputFile extends PureComponent<Props> {
   }
 
   render() {
-    const { placeholder, actions, value, ...props } = this.props
+    const { placeholder, actions, value, onError, ...props } = this.props
 
     return (
       <div className={classnames('input-file')}>

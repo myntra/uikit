@@ -3,7 +3,8 @@ import Button from '@myntra/uikit-component-button'
 import classnames from './input-azure-file.module.scss'
 import InputFile from '@myntra/uikit-component-input-file'
 import Progress from '@myntra/uikit-component-progress'
-import { createRef } from '@myntra/uikit-utils'
+
+import type { InputFileValidationFunction } from '@myntra/uikit-component-input-file'
 
 export interface Props extends BaseProps {
   /**
@@ -36,6 +37,10 @@ export interface Props extends BaseProps {
    * The handler called if any error occurs.
    */
   onError?(error: Error): void
+  /**
+   * The validations passed from parent to be done before upload
+   */
+  validations?: Array<InputFileValidationFunction> | InputFileValidationFunction
 }
 
 interface InputAzureFileState {

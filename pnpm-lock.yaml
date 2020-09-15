@@ -63,7 +63,7 @@ importers:
       rollup-plugin-postcss: registry.npmjs.org/rollup-plugin-postcss/2.9.0
       rollup-plugin-replace: registry.npmjs.org/rollup-plugin-replace/2.2.0
       rollup-plugin-terser: registry.npmjs.org/rollup-plugin-terser/6.1.0_rollup@1.32.1
-      rollup-plugin-typescript2: registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.32.1+typescript@3.9.5
+      rollup-plugin-typescript2: registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.32.1+typescript@3.9.7
       rollup-plugin-url: registry.npmjs.org/rollup-plugin-url/2.2.4_rollup@1.32.1
       rxjs: registry.npmjs.org/rxjs/6.5.5
       sass: registry.npmjs.org/sass/1.26.9
@@ -72,7 +72,7 @@ importers:
       stylelint: registry.npmjs.org/stylelint/9.10.1
       topological-sort: registry.npmjs.org/topological-sort/0.3.0
       ts-jest: registry.npmjs.org/ts-jest/24.3.0_jest@24.9.0
-      typescript: registry.npmjs.org/typescript/3.9.5
+      typescript: registry.npmjs.org/typescript/3.9.7
     specifiers:
       '@babel/core': ^7.3.4
       '@babel/plugin-proposal-class-properties': ^7.3.4
@@ -145,7 +145,7 @@ importers:
       stylelint: ^9.10.1
       topological-sort: ^0.3.0
       ts-jest: ^24.0.0
-      typescript: ^3.3.3333
+      typescript: ^3.9.7
   components/accordion:
     dependencies:
       '@myntra/uikit-can-i-use': 'link:../../packages/uikit-can-i-use'
@@ -1602,6 +1602,7 @@ packages:
     engines:
       node: ^8.10.0 || ^10.13.0 || >=11.10.1
     hasBin: true
+    optional: true
     resolution:
       integrity: sha512-ElP/vLYULeniGkBxO5+b/kv6phMpGvgy3Bu8hHMNiDzwNCl/AFIc2Lc6iL2B5P1+dhEMjAKegWdcPo1Nd6JOJw==
   registry.npmjs.org/@babel/code-frame/7.0.0-beta.44:
@@ -3950,6 +3951,7 @@ packages:
     dev: false
     id: registry.npmjs.org/acorn-jsx/5.2.0
     name: acorn-jsx
+    optional: true
     peerDependencies:
       acorn: ^6.0.0 || ^7.0.0
     resolution:
@@ -4138,6 +4140,7 @@ packages:
     engines:
       node: '>=8'
     name: ansi-escapes
+    optional: true
     resolution:
       integrity: sha512-JWF7ocqNrp8u9oqpgV+wH5ftbt+cfvv+PTjOvKLT3AdYly/LmORARfEVT1iyjwN+4MqE5UmVKoAdIBqeoCHgLA==
       registry: 'https://registry.myntra.com/'
@@ -6349,6 +6352,7 @@ packages:
   registry.npmjs.org/chardet/0.7.0:
     dev: false
     name: chardet
+    optional: true
     resolution:
       integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==
       registry: 'https://registry.myntra.com/'
@@ -6467,6 +6471,7 @@ packages:
     engines:
       node: '>=8'
     name: cli-cursor
+    optional: true
     resolution:
       integrity: sha512-I/zHAwsKf9FqGoXM4WWRACob9+SNukZTd94DWF57E4toouRulbCxcUh6RKUEOQlYTHJnzkPMySvPNaaSLNfLZw==
       registry: 'https://registry.myntra.com/'
@@ -6589,6 +6594,7 @@ packages:
     engines:
       node: '>=6'
     name: clone-regexp
+    optional: true
     resolution:
       integrity: sha512-beMpP7BOtTipFuW8hrJvREQ2DrRu3BE7by0ZpibtfBA+qfHYvMGTc2Yb1JMYPKg/JUw0CHYvpg796aNTSW9z7Q==
       registry: 'https://registry.myntra.com/'
@@ -7815,6 +7821,7 @@ packages:
     engines:
       node: '>=6.0.0'
     name: doctrine
+    optional: true
     resolution:
       integrity: sha512-yS+Q5i3hBf7GBkd4KG8a7eBNNWNGLTaEwwYWUijIYM7zrlYDM0BFXHjjPWlWZ1Rg7UaddZeIDmi9jF3HmqiQ2w==
       registry: 'https://registry.myntra.com/'
@@ -8717,6 +8724,7 @@ packages:
     engines:
       node: '>=8.0.0'
     name: eslint-scope
+    optional: true
     resolution:
       integrity: sha512-iiGRvtxWqgtx5m8EyQUJihBloE4EnYeGE/bz1wSPwJE6tZuJUtHlhqDM4Xj2ukE8Dyy1+HCZ4hE0fzIVMzb58w==
       registry: 'https://registry.myntra.com/'
@@ -8812,6 +8820,7 @@ packages:
     engines:
       node: '>=6.0.0'
     name: espree
+    optional: true
     resolution:
       integrity: sha512-ysCxRQY3WaXJz9tdbWOwuWr5Y/XrPTGX9Kiz3yoUXwW0VZ4w30HTkQLaGx/+ttFjF8i+ACbArnB4ce68a9m5hw==
       registry: 'https://registry.myntra.com/'
@@ -9061,6 +9070,7 @@ packages:
     engines:
       node: '>=8'
     name: execall
+    optional: true
     resolution:
       integrity: sha512-0FU2hZ5Hh6iQnarpRtQurM/aAvp3RIbfvgLHrcqJYzhXyV2KFruhuChf9NC6waAhiUR7FFtlugkI4p7f2Fqlow==
       registry: 'https://registry.myntra.com/'
@@ -9186,6 +9196,7 @@ packages:
     engines:
       node: '>=4'
     name: external-editor
+    optional: true
     resolution:
       integrity: sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew==
       registry: 'https://registry.myntra.com/'
@@ -9375,6 +9386,7 @@ packages:
     engines:
       node: '>=8'
     name: figures
+    optional: true
     resolution:
       integrity: sha512-yaduQFRKLXYOGgEn6AZau90j3ggSOyiqXU0F9JZfeXYhNa+Jk4X+s45A2zg5jns87GAFa34BBm2kXw4XpNcbdg==
       registry: 'https://registry.myntra.com/'
@@ -9411,6 +9423,7 @@ packages:
     engines:
       node: '>=4'
     name: file-entry-cache
+    optional: true
     resolution:
       integrity: sha512-bCg29ictuBaKUwwArK4ouCaqDgLZcysCFLmM/Yn/FDoqndh/9vNuQfXRDvTuXKLxfD/JtZQGKFT8MGcJBK644g==
       registry: 'https://registry.myntra.com/'
@@ -9862,6 +9875,7 @@ packages:
     engines:
       node: '>=8'
     name: get-stdin
+    optional: true
     resolution:
       integrity: sha512-zRKcywvrXlXsA0v0i9Io4KDRaAw7+a1ZpjRwl9Wox8PFlVCCHra7E9c4kqXCoCM9nR5tBkaTTZRBoCm60bFqTQ==
       registry: 'https://registry.myntra.com/'
@@ -10470,6 +10484,7 @@ packages:
     engines:
       node: '>=8'
     name: html-tags
+    optional: true
     resolution:
       integrity: sha512-1qYz89hW3lFDEazhjW0yVAV87lw8lVkrJocr72XmBkMKsoSVJCQx3W8BXsC7hO2qAt8BoVjYjtAcZ9perqGnNg==
       registry: 'https://registry.myntra.com/'
@@ -10632,6 +10647,7 @@ packages:
     engines:
       node: '>=6'
     name: import-fresh
+    optional: true
     resolution:
       integrity: sha512-6e1q1cnWP2RXD9/keSkxHScg508CdXqXWgWBaETNhyuBFz+kUZlKboh+ISK+bU++DmbHimVBrOz/zzPe0sZ3sQ==
       registry: 'https://registry.myntra.com/'
@@ -10676,6 +10692,7 @@ packages:
     engines:
       node: '>=8'
     name: import-lazy
+    optional: true
     resolution:
       integrity: sha512-rKtvo6a868b5Hu3heneU+L4yEQ4jYKLtjpnPeUdK7h0yzXGmyBTypknlkCvHFBqfX9YlorEiMM6Dnq/5atfHkw==
       registry: 'https://registry.myntra.com/'
@@ -10805,6 +10822,7 @@ packages:
     engines:
       node: '>=8.0.0'
     name: inquirer
+    optional: true
     resolution:
       integrity: sha512-JG3eIAj5V9CwcGvuOmoo6LB9kbAYT8HXffUl6memuszlwDC/qvFAJw49XJ5NROSFNPxp3iQg1GqkFhaY/CR0IA==
       registry: 'https://registry.myntra.com/'
@@ -11439,6 +11457,7 @@ packages:
     engines:
       node: '>=6'
     name: is-regexp
+    optional: true
     resolution:
       integrity: sha512-OZ4IlER3zmRIoB9AqNhEggVxqIH4ofDns5nRrPS6yQxXE1TPCUpFznBfRQmQa8uC+pXqjMnukiJBxCisIxiLGA==
       registry: 'https://registry.myntra.com/'
@@ -12616,6 +12635,7 @@ packages:
       tarball: 'https://registry.npmjs.org/klaw/-/klaw-2.0.0.tgz'
     version: 2.0.0
   registry.npmjs.org/kleur/3.0.3:
+    dev: true
     engines:
       node: '>=6'
     name: kleur
@@ -12635,6 +12655,7 @@ packages:
   registry.npmjs.org/known-css-properties/0.14.0:
     dev: false
     name: known-css-properties
+    optional: true
     resolution:
       integrity: sha512-P+0a/gBzLgVlCnK8I7VcD0yuYJscmWn66wH9tlKsQnmVdg689tLEmziwB9PuazZYLkcm07fvWOKCJJqI55sD5Q==
       registry: 'https://registry.myntra.com/'
@@ -13063,6 +13084,7 @@ packages:
     engines:
       node: '>=8'
     name: log-symbols
+    optional: true
     resolution:
       integrity: sha512-dSkNGuI7iG3mfvDzUuYZyvk5dD9ocYCYzNU6CYDE6+Xqd+gwme6Z00NS3dUh8mq/73HaEtT7m6W+yUPtU6BZnQ==
       registry: 'https://registry.myntra.com/'
@@ -13644,6 +13666,7 @@ packages:
   registry.npmjs.org/mute-stream/0.0.8:
     dev: false
     name: mute-stream
+    optional: true
     resolution:
       integrity: sha512-nnbWWOkoWyUsTjKrhgD0dcz22mdkSnpYqbEjIm2nhwhuxlSkpywJmBo8h0ZqJdkp73mb90SssHkN4rsRaBAfAA==
       registry: 'https://registry.myntra.com/'
@@ -14449,6 +14472,7 @@ packages:
     engines:
       node: '>=6'
     name: parent-module
+    optional: true
     resolution:
       integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==
       registry: 'https://registry.myntra.com/'
@@ -15617,18 +15641,6 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/pretty-format/-/pretty-format-24.9.0.tgz'
     version: 24.9.0
-  registry.npmjs.org/print-message/3.0.1:
-    dependencies:
-      kleur: registry.npmjs.org/kleur/3.0.3
-    dev: false
-    engines:
-      node: '>=8.0.0'
-    name: print-message
-    resolution:
-      integrity: sha512-wsvsI08pLCPL+lHURVmlZ2KjXN/rLKNyeKN/r3FkXAX6ZByE8Fv8ZmvkQFqpdPdyfCPty3PzznrDda+E8DvN8Q==
-      registry: 'https://registry.myntra.com/'
-      tarball: 'https://registry.npmjs.org/print-message/-/print-message-3.0.1.tgz'
-    version: 3.0.1
   registry.npmjs.org/private/0.1.8:
     engines:
       node: '>= 0.6'
@@ -15897,7 +15909,6 @@ packages:
       prop-types: registry.npmjs.org/prop-types/15.7.2
       react: registry.npmjs.org/react/16.13.1
       scheduler: registry.npmjs.org/scheduler/0.19.1
-    dev: true
     id: registry.npmjs.org/react-dom/16.13.1
     name: react-dom
     peerDependencies:
@@ -16730,6 +16741,7 @@ packages:
     engines:
       node: '>=8'
     name: restore-cursor
+    optional: true
     resolution:
       integrity: sha512-l+sSefzHpj5qimhFSE5a8nufZYAM3sBSVMAPtYkmC+4EH2anSGaEMXSD0izRQbu9nfyQ9y5JrVmp7E8oZrUjvA==
       registry: 'https://registry.myntra.com/'
@@ -16899,14 +16911,14 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/rollup-plugin-terser/-/rollup-plugin-terser-6.1.0.tgz'
     version: 6.1.0
-  registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.32.1+typescript@3.9.5:
+  registry.npmjs.org/rollup-plugin-typescript2/0.20.1_rollup@1.32.1+typescript@3.9.7:
     dependencies:
       fs-extra: registry.npmjs.org/fs-extra/7.0.1
       resolve: registry.npmjs.org/resolve/1.10.0
       rollup: registry.npmjs.org/rollup/1.32.1
       rollup-pluginutils: registry.npmjs.org/rollup-pluginutils/2.4.1
       tslib: registry.npmjs.org/tslib/1.9.3
-      typescript: registry.npmjs.org/typescript/3.9.5
+      typescript: registry.npmjs.org/typescript/3.9.7
     dev: true
     id: registry.npmjs.org/rollup-plugin-typescript2/0.20.1
     name: rollup-plugin-typescript2
@@ -17139,7 +17151,6 @@ packages:
     dependencies:
       loose-envify: registry.npmjs.org/loose-envify/1.4.0
       object-assign: registry.npmjs.org/object-assign/4.1.1
-    dev: true
     name: scheduler
     resolution:
       integrity: sha512-n/zwRWRYSUj0/3g/otKDRPMh6qv2SYMWNq85IEa8iZyAv8od9zDYpGSnpBEjNgcMNq6Scbu5KfIPxNF72R/2EA==
@@ -18104,6 +18115,7 @@ packages:
     engines:
       node: '>=8'
     name: strip-json-comments
+    optional: true
     resolution:
       integrity: sha512-6fPc+R4ihwqP6N/aIv2f1gMH8lOVtWQHoqC4yK6oSDVVocumAsfCqjkXnqiYMhmMwS/mEHLp7Vehlt3ql6lEig==
       registry: 'https://registry.myntra.com/'
@@ -18299,6 +18311,7 @@ packages:
       node: '>=8.7.0'
     hasBin: true
     name: stylelint
+    optional: true
     resolution:
       integrity: sha512-OmlUXrgzEMLQYj1JPTpyZPR9G4bl0StidfHnGJEMpdiQ0JyTq0MPg1xkHk1/xVJ2rTPESyJCDWjG8Kbpoo7Kuw==
       registry: 'https://registry.myntra.com/'
@@ -18949,6 +18962,7 @@ packages:
     engines:
       node: '>=8'
     name: type-fest
+    optional: true
     resolution:
       integrity: sha512-OdjXJxnCN1AvyLSzeKIgXTXxV+99ZuXl3Hpo9XpJAv9MBcHrrJOQ5kV7ypXOuQie+AmWG25hLbiKdwYTifzcfQ==
       registry: 'https://registry.myntra.com/'
@@ -18971,6 +18985,17 @@ packages:
       registry: 'https://registry.myntra.com/'
       tarball: 'https://registry.npmjs.org/typescript/-/typescript-3.9.5.tgz'
     version: 3.9.5
+  registry.npmjs.org/typescript/3.9.7:
+    dev: true
+    engines:
+      node: '>=4.2.0'
+    hasBin: true
+    name: typescript
+    resolution:
+      integrity: sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
+      registry: 'https://registry.myntra.com/'
+      tarball: 'https://registry.npmjs.org/typescript/-/typescript-3.9.7.tgz'
+    version: 3.9.7
   registry.npmjs.org/typical/2.6.1:
     dev: false
     name: typical
@@ -19275,6 +19300,7 @@ packages:
   registry.npmjs.org/v8-compile-cache/2.1.1:
     dev: false
     name: v8-compile-cache
+    optional: true
     resolution:
       integrity: sha512-8OQ9CL+VWyt3JStj7HX7/ciTL2V3Rl1Wf5OL+SNTm0yK1KvtReVulksyeRnCANHHuUxHlQig+JJDlUhBt1NQDQ==
       registry: 'https://registry.myntra.com/'
