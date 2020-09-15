@@ -121,6 +121,9 @@
         color: text-color('primary');
       }
     }
+    &.small {
+      padding: size('1x');
+    }
   }
 
   &.inherit {
