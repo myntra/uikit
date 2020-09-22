@@ -1,6 +1,6 @@
 {
   "name": "@myntra/uikit-component-modal",
-  "version": "1.13.55",
+  "version": "1.13.56",
   "main": "dist/modal.cjs.js",
   "module": "dist/modal.esm.js",
   "types": "dist/index.d.ts",
