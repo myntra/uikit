@@ -187,7 +187,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
   }
 
   render() {
-    const { valueKey, labelKey, disabled, readOnly, ...props } = this.props
+    const { valueKey, labelKey, disabled, readOnly } = this.props
     return (
       <Dropdown
         left
@@ -198,7 +198,6 @@ export default class InputSelect<Value = any, Option = any> extends Component<
         onOpen={disabled ? null : this.handleOpen}
         onClose={disabled ? null : this.handleClose}
         data-test-id="dropdown"
-        {...props}
         renderTrigger={(props) => (
           <div className={classnames('trigger')} {...props}>
             <InputSelectControl
