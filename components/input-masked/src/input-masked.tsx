@@ -347,7 +347,9 @@ export default class InputMasked extends PureComponent<Props> {
           autoComplete={autoComplete}
         />
         <input
-          className={classnames('mask', 'input')}
+          className={classnames('mask', 'input', {
+            disabled: !isEditable,
+          })}
           value={placeholder}
           readOnly
           tabIndex={-1}

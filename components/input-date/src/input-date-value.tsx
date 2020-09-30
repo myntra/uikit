@@ -118,6 +118,7 @@ export default class InputDateValue extends PureComponent<
       onRangeFocus,
       onchange,
       value: _,
+      disabled,
       ...props
     } = this.props
 
@@ -147,6 +148,7 @@ export default class InputDateValue extends PureComponent<
                 onFocus={this.handleFromFocus}
                 onBlur={this.handleBlur}
                 onChange={this.handleFromChange}
+                disabled={disabled}
               />
               {this.props.value && (this.props.value as DateRange).from && (
                 <Icon
@@ -174,6 +176,7 @@ export default class InputDateValue extends PureComponent<
                 onFocus={this.handleToFocus}
                 onBlur={this.handleBlur}
                 onChange={this.handleToChange}
+                disabled={disabled}
               />
               {this.props.value && (this.props.value as DateRange).to && (
                 <Icon
@@ -195,6 +198,7 @@ export default class InputDateValue extends PureComponent<
               pattern={pattern}
               onChange={this.handleChange}
               onBlur={this.handleBlur}
+              disabled={disabled}
             />
             {this.props.value && (
               <Icon

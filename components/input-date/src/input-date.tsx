@@ -14,6 +14,10 @@ export interface Props extends InputDatePickerProps {
    * The date format to format value for displaying.
    */
   displayFormat?: string
+  /**
+   * Disables all interaction on the date field.
+   */
+  disabled?: boolean
 }
 
 /**
@@ -179,6 +183,7 @@ export default class InputDate extends PureComponent<
       displayFormat: _,
       children,
       wrapperClassName,
+      disabled,
       ...props
     } = this.props
     const { isOpen, activeRangeEnd } = this.state
@@ -197,25 +202,28 @@ export default class InputDate extends PureComponent<
             value={displayValue}
             format={displayFormat}
             active={displayActiveRangeEnd}
+            disabled={disabled}
             onChange={this.handleDisplayValueChange}
             onRangeFocus={this.handleRangeFocus}
           />
         )}
-        onOpen={this.handleDropdownOpen}
-        onClose={this.handleDropdownClose}
+        onOpen={disabled ? null : this.handleDropdownOpen}
+        onClose={disabled ? null : this.handleDropdownClose}
         wrapperClassName={wrapperClassName}
       >
-        <div className={classnames('wrapper')}>
-          <InputDatePicker
-            disabledDates={[]}
-            monthsToDisplay={this.props.range ? 2 : 1}
-            {...props}
-            openToDate={this.openToDate}
-            onOpenToDateChange={this.handleOpenToDateChange}
-            onChange={this.handleChange}
-            active={activeRangeEnd}
-          />
-        </div>
+        {!disabled && (
+          <div className={classnames('wrapper')}>
+            <InputDatePicker
+              disabledDates={[]}
+              monthsToDisplay={this.props.range ? 2 : 1}
+              {...props}
+              openToDate={this.openToDate}
+              onOpenToDateChange={this.handleOpenToDateChange}
+              onChange={this.handleChange}
+              active={activeRangeEnd}
+            />
+          </div>
+        )}
       </Dropdown>
     )
   }

@@ -278,6 +278,7 @@ function withField<P extends object>(BaseComponent: any) {
               description={description}
               required={required}
               htmlFor={id}
+              disabled={props.disabled}
             >
               <BaseComponent
                 {...createFieldProps(props.name || createFieldName(label))}

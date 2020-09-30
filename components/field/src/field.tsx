@@ -18,6 +18,10 @@ export interface Props extends BaseProps {
    * Visually conveys that the field is required.
    */
   required?: boolean
+  /**
+   * Visually conveys that the field is disabled.
+   */
+  disabled?: boolean
 }
 
 /**
@@ -34,10 +38,16 @@ export default function Field({
   htmlFor,
   children,
   className,
+  disabled,
   ...props
 }: Props) {
   return (
-    <div className={classnames('container', className)} {...props}>
+    <div
+      className={classnames('container', className, {
+        disabled,
+      })}
+      {...props}
+    >
       <label
         id={htmlFor ? htmlFor + '__label' : null}
         className={classnames('title')}
