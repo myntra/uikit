@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.60"></a>
+## <small>1.13.60 (2020-10-01)</small>
+
+* chore(release): 1.13.59 ([886e376](https://bitbucket.org/myntra/uikit/commits/886e376))
+* Merged in feat/inputselectUp (pull request #292) ([a4f2adb](https://bitbucket.org/myntra/uikit/commits/a4f2adb)), closes [#292](https://bitbucket.org/myntra/uikit/issue/292)
+
+
+
 <a name="1.13.59"></a>
 ## <small>1.13.59 (2020-10-01)</small>
 
