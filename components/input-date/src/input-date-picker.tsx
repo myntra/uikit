@@ -75,6 +75,7 @@ export default class InputDatePicker extends PureComponent<Props> {
   static propTypes = {
     /** @private */
     validate(props) {
+      if (!props.value) return
       if (
         (props.range
           ? props.value &&
@@ -84,7 +85,7 @@ export default class InputDatePicker extends PureComponent<Props> {
         !props.format
       ) {
         throw new Error(
-          `Set 'format' prop to 'YYYY-MM-DD' to use string dates.`
+          `Set 'format' prop to 'yyyy-MM-dd' to use string dates.`
         )
       }
     },

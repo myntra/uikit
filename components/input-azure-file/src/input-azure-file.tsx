@@ -177,6 +177,9 @@ export default class InputAzureFile extends PureComponent<Props> {
       autoStartUpload,
       className,
       placeholder,
+      onSuccess,
+      appName,
+      clearOnSuccess,
       ...props
     } = this.props
 

@@ -292,6 +292,7 @@ export default class NavBar extends PureComponent<
       renderLink,
       title,
       className,
+      needOverlay,
       ...attrs
     } = this.props
 

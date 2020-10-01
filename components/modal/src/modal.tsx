@@ -105,6 +105,7 @@ export default class Modal extends PureComponent<Props> {
       actions,
       hideClose,
       closeOnClickAway,
+      onOpen,
       ...props
     } = this.props
 
