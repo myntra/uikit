@@ -99,6 +99,11 @@ export interface Props<Value = any, Option = any> extends BaseProps {
 
   /** Displays the icon as prefix */
   icon?: IconName
+
+  /**
+   * Whether to display the dropdown options above the input selection.
+   */
+  up?: boolean
 }
 
 let SELECT_COMPONENT_COUNTER = 0
@@ -137,6 +142,7 @@ export default class InputSelect<Value = any, Option = any> extends Component<
     renderEmptyState() {
       return <div className={classnames('empty')}>No results found</div>
     },
+    up: false,
   }
 
   constructor(props) {
@@ -187,11 +193,12 @@ export default class InputSelect<Value = any, Option = any> extends Component<
   }
 
   render() {
-    const { valueKey, labelKey, disabled, readOnly } = this.props
+    const { valueKey, labelKey, disabled, readOnly, up } = this.props
     return (
       <Dropdown
         left
         right
+        up={up}
         container
         className={classnames('container', { disabled })}
         isOpen={this.state.isOpen}
