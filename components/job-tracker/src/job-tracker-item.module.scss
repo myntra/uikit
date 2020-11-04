@@ -25,6 +25,6 @@
     --current-color: #{text-color('warning')};
   }
   .icon {
-    fill: var(--current-color, currentColor);
+    color: var(--current-color, currentColor);
   }
 }
