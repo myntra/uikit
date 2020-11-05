@@ -31,7 +31,6 @@
   },
   "peerDependencies": {},
   "dependencies": {
-    "@myntra/codemod-utils": "1.13.*",
     "@myntra/uikit-can-i-use": "1.13.*",
     "@myntra/uikit-component-icon": "1.13.*",
     "@myntra/uikit-utils": "1.13.*",
