@@ -29,6 +29,11 @@ const targets = sortedPackages([
   ...components.map((component) => `@myntra/uikit-component-${component}`),
   ...themes.map((theme) => `@myntra/uikit-theme-${theme}`),
 ])
+const targetsMap = sortedPackagesMap([
+  ...packages.map((pkg) => `@myntra/${pkg}`),
+  ...components.map((component) => `@myntra/uikit-component-${component}`),
+  ...themes.map((theme) => `@myntra/uikit-theme-${theme}`),
+])
 
 function readPackage(name) {
   const pkgDir = getPackageDir(name)
@@ -44,7 +49,7 @@ function readPackage(name) {
  * @param {string[]} targets
  * @returns {string[]}
  */
-function sortedPackages(targets) {
+function sortedPackagesMap(targets) {
   const nodes = new Map(targets.map((name) => [name, name]))
   const op = new TopologicalSort(nodes)
 
@@ -56,7 +61,15 @@ function sortedPackages(targets) {
       .forEach((name) => op.addEdge(name, target))
   })
 
-  const sorted = op.sort()
+  return op.sort()
+}
+
+/**
+ * @param {string[]} targets
+ * @returns {string[]}
+ */
+function sortedPackages(targets) {
+  const sorted = sortedPackagesMap(targets)
 
   return [...sorted.keys()]
 }
@@ -197,7 +210,7 @@ export default class ${pascalCase(
       )} extends PureComponent<Props, State> {
   /**
    * Your code goes here
-   */ 
+   */
 }
       `,
     },
@@ -228,6 +241,7 @@ module.exports = {
   packages,
   themes,
   targets,
+  targetsMap,
   fuzzyMatchTarget,
   isComponent,
   isTheme,
