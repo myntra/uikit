@@ -25,6 +25,7 @@
   },
   "sideEffects": false,
   "dependencies": {
+    "@myntra/accoutrement": "1.13.*",
     "@myntra/uikit-component-accordion": "1.13.*",
     "@myntra/uikit-component-avatar": "1.13.*",
     "@myntra/uikit-component-badge": "1.13.*",
@@ -78,6 +79,7 @@
     "@myntra/uikit-component-virtual-list": "1.13.*",
     "@myntra/uikit-component-stepper": "1.13.*",
     "@myntra/uikit-utils": "1.13.*",
+    "normalize.css": "^8.0.1",
     "print-message": "^3.0.1"
   },
   "devDependencies": {
