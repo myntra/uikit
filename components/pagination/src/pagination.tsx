@@ -15,7 +15,7 @@ export interface Props extends BaseProps {
   size: number
   /** Total count of result items */
   total: number
-  /** Allowed page sizes */
+  /** Allowed page sizes. Try using virtualized table for sizes > 50 */
   sizes?: number[]
   /** Hide size selector */
   hideSize?: boolean
@@ -34,7 +34,16 @@ export default class Pagination extends PureComponent<Props> {
   static defaultProps = {
     page: 1,
     size: 15,
-    sizes: [15, 30, 50, 100],
+    sizes: [10, 15, 30, 50],
+  }
+
+  static propTypes = {
+    __$validation({ sizes }) {
+      if (sizes.some((size) => size > 50))
+        console.warn(
+          'Too many rows rendered at a time. Try using virtualized table. Visit here https://uikit.myntra.com/components/table#very-large-table'
+        )
+    },
   }
 
   updatePage = (page) => {
@@ -65,7 +74,6 @@ export default class Pagination extends PureComponent<Props> {
     const pages = range(1, totalPages).map((page) => page)
     const start = (page - 1) * size + 1
     const end = total < start + size - 1 ? total : start + size - 1
-
     return (
       <div className={classnames('pagination', className)}>
         {!hideSize && (

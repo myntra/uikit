@@ -59,10 +59,8 @@ function createComponentsFile(component) {
 
     if (components.includes(kebabCase(component))) localComponents.add(component)
   }
-
-  const iconImports = findImport(root, 'uikit-icons')
-    .paths()[0]
-    .value.specifiers.map(specifier => specifier.imported.name)
+  let iconImports = findImport(root, 'uikit-icons').paths()
+  iconImports = iconImports.length ? iconImports[0].value.specifiers.map(specifier => specifier.imported.name) : []
 
   Fs.writeFileSync(
     Path.resolve(__dirname, `app/uikit.${component}.js`),
