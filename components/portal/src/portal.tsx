@@ -1,5 +1,5 @@
 /* eslint react/no-find-dom-node: 0 */
-import { PureComponent } from 'react'
+import React, { PureComponent, isValidElement } from 'react'
 import ReactDOM from 'react-dom'
 
 let counter = 0
@@ -68,7 +68,7 @@ class Portal extends PureComponent<Props> {
   fallbackRenderInPortal() {
     ReactDOM.unstable_renderSubtreeIntoContainer(
       this,
-      this.props.children,
+      this.props.children && isValidElement(this.props.children) ? this.props.children : <div>{this.props.children}</div>,
       this.el
     )
   }

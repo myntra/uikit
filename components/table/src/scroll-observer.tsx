@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, isValidElement } from 'react'
 
 export interface Props extends BaseProps {
   mode: 'container' | 'window'
@@ -149,7 +149,7 @@ export default class ScrollObserver extends PureComponent<Props> {
       this.register()
     }
 
-    const node = React.Children.only(this.props.children)
+    const node = React.Children.only(this.props.children) as { ref?: (t: HTMLElement) => {}}
     if (typeof node.ref === 'function') {
       node.ref(target)
     }
@@ -178,7 +178,12 @@ export default class ScrollObserver extends PureComponent<Props> {
   }
 
   render() {
-    return React.cloneElement(React.Children.only(this.props.children), {
+    const node = React.Children.only(this.props.children)
+    if (!isValidElement(node)) {
+      return null
+    }
+
+    return React.cloneElement(node, {
       ref: this.handleRef,
     })
   }
