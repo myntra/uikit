@@ -37,6 +37,9 @@ $named-sizes: (
     &.offset-#{$name} {
       margin-left: $value;
     }
+    &.offset-right-#{$name} {
+      margin-right: $value;
+    }
   }
 
   @for $i from 1 through 12 {
@@ -49,6 +52,10 @@ $named-sizes: (
 
     &.offset-#{$i} {
       margin-left: percentage($i / 12);
+    }
+
+    &.offset-right-#{$i} {
+      margin-right: percentage($i / 12);
     }
   }
 }

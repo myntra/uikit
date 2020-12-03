@@ -33,6 +33,8 @@ export interface Props extends BaseProps {
   size?: ColumnSize
   /** Leaves empty space on left */
   offset?: ColumnSize
+  /** Leaves empty space on right */
+  offsetRight?: ColumnSize
   // TODO: Add responsive grid.
   // /** Narrow on mobile screen */
   // narrowOnMobile?: boolean
@@ -83,10 +85,15 @@ export default function GridColumn({
   sizeOnDesktop,
 
   offset,
+  offsetRight,
   offsetOnMobile,
+  offsetRightOnMobile,
   offsetOnTablet,
+  offsetRightOnTablet,
   offsetOnTouch,
+  offsetRightOnTouch,
   offsetOnDesktop,
+  offsetRightOnDesktop,
   ...props
 }: Props) {
   return (
@@ -101,18 +108,23 @@ export default function GridColumn({
         // all
         [`is-${size}`]: size,
         [`offset-${offset}`]: offset,
+        [`offset-right-${offsetRight}`]: offsetRight,
         // mobile
         [`is-${sizeOnMobile}-mobile`]: sizeOnMobile,
         [`offset-${offsetOnMobile}-mobile`]: offsetOnMobile,
+        [`offset-right-${offsetRightOnMobile}-mobile`]: offsetRightOnMobile,
         // tablet
         [`is-${sizeOnTablet}-tablet`]: sizeOnTablet,
         [`offset-${offsetOnTablet}-tablet`]: offsetOnTablet,
+        [`offset-right-${offsetRightOnTablet}-tablet`]: offsetRightOnTablet,
         // touch
         [`is-${sizeOnTouch}-touch`]: sizeOnTouch,
         [`offset-${offsetOnTouch}-touch`]: offsetOnTouch,
+        [`offset-right-${offsetRightOnTouch}-touch`]: offsetRightOnTouch,
         // desktop
         [`is-${sizeOnDesktop}-desktop`]: sizeOnDesktop,
         [`offset-${offsetOnDesktop}-desktop`]: offsetOnDesktop,
+        [`offset-right-${offsetRightOnDesktop}-desktop`]: offsetRightOnDesktop,
       })}
     >
       {children}
