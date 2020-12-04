@@ -24,7 +24,10 @@ const MASKS: Record<string, Mask> = {
 
 export interface Props
   extends BaseProps,
-    Pick<InputMonthPickerProps, 'value' | 'onChange' | 'highlight'> {
+    Pick<
+      InputMonthPickerProps,
+      'value' | 'onChange' | 'highlight' | 'renderMonth'
+    > {
   /**
    * Minimum date value for getting lower limit of year field
    */
@@ -135,6 +138,7 @@ export default class InputMonth extends Component<
   }
 
   render() {
+    const { renderMonth } = this.props
     return (
       <Dropdown
         auto
@@ -159,7 +163,7 @@ export default class InputMonth extends Component<
             {...this.props}
             className={classnames('wrapper')}
             onChange={this.handleMonthChange}
-            renderMonth={({ month }) => month.substr(0, 3)}
+            renderMonth={renderMonth || (({ month }) => month.substr(0, 3))}
           />
         </div>
       </Dropdown>
