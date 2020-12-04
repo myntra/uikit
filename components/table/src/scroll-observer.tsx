@@ -116,8 +116,9 @@ export default class ScrollObserver extends PureComponent<Props> {
         : this.lastScrollLeft
 
     const offsetTop =
-      this.findScrollParentPosition(this.targetRef.current
-        .offsetParent as HTMLElement).yPos + this.props.offsetAdjust
+      this.findScrollParentPosition(
+        this.targetRef.current.offsetParent as HTMLElement
+      ).yPos + this.props.offsetAdjust
 
     this.lastScrollTop = _scrollTop
     this.lastScrollLeft = scrollLeft
@@ -136,7 +137,7 @@ export default class ScrollObserver extends PureComponent<Props> {
    * target param will be the only child element of ScrollObserver
    * @param target
    */
-  handleRef = (target: HTMLElement | null) => {
+  handleRef = (target: HTMLElement | null | any) => {
     if (target === null) return
     if (this.targetRef.current !== target) {
       this.unregister()
@@ -149,7 +150,9 @@ export default class ScrollObserver extends PureComponent<Props> {
       this.register()
     }
 
-    const node = React.Children.only(this.props.children) as { ref?: (t: HTMLElement) => {}}
+    const node = React.Children.only(this.props.children) as {
+      ref?: (t: HTMLElement) => {}
+    }
     if (typeof node.ref === 'function') {
       node.ref(target)
     }
@@ -185,6 +188,6 @@ export default class ScrollObserver extends PureComponent<Props> {
 
     return React.cloneElement(node, {
       ref: this.handleRef,
-    })
+    } as any)
   }
 }

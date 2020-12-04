@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.13.62"></a>
+## [1.13.62](https://bitbucket.org/myntra/uikit/compare/v1.13.60...v1.13.62) (2020-12-04)
+
+
+### Bug Fixes
+
+* **packages:** Removing Codemod-utils from gird, input-text & pagination as a dependency ([ee7083c](https://bitbucket.org/myntra/uikit/commits/ee7083c))
+
+
+
 <a name="1.13.61"></a>
 ## [1.13.61](https://bitbucket.org/myntra/uikit/compare/v1.13.56...v1.13.61) (2020-12-03)
 
