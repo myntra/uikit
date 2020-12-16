@@ -10,8 +10,16 @@
   .actions {
     display: flex;
     flex-wrap: wrap-reverse;
-    justify-content: flex-end;
     margin-top: size('3x');
+    &--right {
+      justify-content: flex-end;
+    }
+    &--left {
+      justify-content: flex-start;
+    }
+    &--centered {
+      justify-content: center;
+    }
   }
 }
 

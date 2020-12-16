@@ -61,7 +61,7 @@ export default class Step extends PureComponent<Props> {
       ...props
     } = this.props
     return (
-      <div className={classnames('step')}>
+      <div className={classnames('step', `step--${orientation}`)}>
         <div
           className={classnames('step__item', `step__item--${orientation}`, {
             'step__item--completed': completed,
@@ -110,8 +110,14 @@ export default class Step extends PureComponent<Props> {
           gutter="none"
           className={classnames('step__label', `step__label--${orientation}`)}
         >
-          <Text>{label}</Text>
-          {description && <Text.p>{description}</Text.p>}
+          <Text emphasis={completed || active ? 'high' : 'disabled'}>
+            {label}
+          </Text>
+          {description && (
+            <Text.p emphasis={completed || active ? 'high' : 'disabled'}>
+              {description}
+            </Text.p>
+          )}
         </Layout>
       </div>
     )

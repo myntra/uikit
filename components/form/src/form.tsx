@@ -101,6 +101,10 @@ export interface Props<T extends Record<string, unknown> = {}>
    * @param event - Form submission event.
    */
   onChange?(value: T): void
+  /**
+   *
+   */
+  actions?: 'left' | 'right' | 'centered'
 }
 
 export interface FormFieldProps
@@ -118,6 +122,7 @@ export interface FormFieldProps
 export default class Form extends PureComponent<Props> {
   static defaultProps = {
     defaultFieldSize: 4,
+    actions: 'right',
   }
 
   static Action = Button
@@ -180,6 +185,7 @@ export default class Form extends PureComponent<Props> {
       defaultFieldSize,
       onSubmit,
       className,
+      actions: actionPosition,
       value,
       onChange,
       ...props
@@ -238,7 +244,9 @@ export default class Form extends PureComponent<Props> {
               </Grid.Column>
             ))}
           </Grid>
-          <div className={classnames('actions')}>{group}</div>
+          <div className={classnames('actions', `actions--${actionPosition}`)}>
+            {group}
+          </div>
         </form>
       </FormContext.Provider>
     )

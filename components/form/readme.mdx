@@ -112,3 +112,47 @@ const onSubmit = useCallback(value => console.log(value))
   <pre>{JSON.stringify(value, null, 2)}</pre>
 </>
 ```
+
+### Different positions for action buttons
+
+### Left
+```jsx preview
+const [value, setValue] = useState({brand: ''})
+
+<>
+  <Form title="Search Handover" value={value} onChange={setValue} defaultFieldSize={'half'} actions="left">
+    <Form.Select multiple options={[{ value: 'NIKE', label: 'Nike' }, { value: 'PUMA', label: 'Puma' }]} label="Brand" value={value.brand}/>
+    <Form.Text label="Article Type" />
+    <Button type="text">Reset All</Button>
+    <Button type="primary" htmlType="submit">Search Handover</Button>
+  </Form>
+</>
+```
+
+### Centered
+```jsx preview
+const [value, setValue] = useState({brand: ''})
+
+<>
+  <Form title="Search Handover" value={value} onChange={setValue} defaultFieldSize={'half'} actions="centered">
+    <Form.Select multiple options={[{ value: 'NIKE', label: 'Nike' }, { value: 'PUMA', label: 'Puma' }]} label="Brand" value={value.brand}/>
+    <Form.Text label="Article Type" />
+    <Button type="text">Reset All</Button>
+    <Button type="primary" htmlType="submit">Search Handover</Button>
+  </Form>
+</>
+```
+
+### Right
+```jsx preview
+const [value, setValue] = useState({brand: ''})
+
+<>
+  <Form title="Search Handover" value={value} onChange={setValue} defaultFieldSize={'half'} actions="right">
+    <Form.Select multiple options={[{ value: 'NIKE', label: 'Nike' }, { value: 'PUMA', label: 'Puma' }]} label="Brand" value={value.brand}/>
+    <Form.Text label="Article Type" />
+    <Button type="text">Reset All</Button>
+    <Button type="primary" htmlType="submit">Search Handover</Button>
+  </Form>
+</>
+```

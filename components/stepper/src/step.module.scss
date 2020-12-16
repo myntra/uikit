@@ -123,4 +123,9 @@
       }
     }
   }
+  &--vertical {
+    &:last-child {
+      flex: 0;
+    }
+  }
 }
