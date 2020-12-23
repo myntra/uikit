@@ -13,7 +13,15 @@ const aliases = {
   '\\.sprite\\.svg$': '<rootDir>/test/unit/svg.js',
 }
 
-targets.forEach((target) => {
+let newTargets = targets
+// console.log(process.env.IGNORE.split(','))
+if (process.env.IGNORE) {
+  newTargets = targets.filter(
+    (target) => !process.env.IGNORE.split(',').includes(target)
+  )
+}
+
+newTargets.forEach((target) => {
   const pkg = require(`${getPackageDir(target)}/package.json`)
   aliases[`${target}$`] = `<rootDir>/${
     isComponent(target) ? 'components' : isTheme(target) ? 'themes' : 'packages'

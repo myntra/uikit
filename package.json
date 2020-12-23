@@ -28,7 +28,7 @@
     "docs:build": "cd uikit.myntra.com && npm run build",
     "docs:deploy": "cd uikit.myntra.com && npm run deploy",
     "deploy": "npm run docs:build && npm run docs:deploy",
-    "test": "jest",
+    "test": "IGNORE='@myntra/uikit-theme-nuclei,@myntra/uikit-theme-unity' jest",
     "coverage": "jest --coverage",
     "coverage:open": "run-s coverage 'open coverage/lcov-report/index.html'",
     "update:master": "git checkout master && git rebase develop && git push origin master && git checkout develop",

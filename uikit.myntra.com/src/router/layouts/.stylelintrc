@@ -1,6 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/master/src/schemas/json/stylelintrc.json",
-  "rules": {
-    "selector-max-type": null
-  }
-}
