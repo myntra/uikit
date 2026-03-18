@@ -1,5 +1,4 @@
-import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component, createRef } from 'react'
 import { MeasureCache } from './helpers'
 import { createObserver, Observer } from '@applique-ui/measure'
 
@@ -24,14 +23,15 @@ const observer = createObserver()
 
 export default class VirtualListCellMeasure extends Component<Props> {
   connection: Observer
+  containerRef = createRef<HTMLDivElement>()
 
   componentDidMount() {
     this.connection = observer.connect(this.measure)
 
-    const node = ReactDOM.findDOMNode(this)
+    const node = this.containerRef.current
 
     if (node) {
-      this.connection.observe(node as any)
+      this.connection.observe(node)
     }
   }
 
@@ -40,10 +40,10 @@ export default class VirtualListCellMeasure extends Component<Props> {
     prevState: Readonly<{}>,
     snapshot?: any
   ): void {
-    const node = ReactDOM.findDOMNode(this)
+    const node = this.containerRef.current
 
     if (node) {
-      this.connection.observe(node as any)
+      this.connection.observe(node)
     }
   }
 
@@ -83,6 +83,6 @@ export default class VirtualListCellMeasure extends Component<Props> {
   }
 
   render() {
-    return React.Children.only(this.props.children)
+    return <div ref={this.containerRef} style={{ display: 'contents' }}>{React.Children.only(this.props.children)}</div>
   }
 }

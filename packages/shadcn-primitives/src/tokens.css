@@ -1,0 +1,60 @@
+/**
+ * Applique UI design tokens as CSS custom properties.
+ * Color values sourced from packages/uikit-design/_color.scss.
+ * Format: H S% L% (no hsl() wrapper) so Tailwind can apply opacity modifiers.
+ *
+ * Usage: import this file once at your app entry point or in a global CSS file.
+ */
+
+:root {
+  /* ── Primary / Blue ─────────────────────────────────────── */
+  --aui-primary: 244 53.5% 52.7%;          /* hsl(244,53.5%,52.7%) */
+  --aui-primary-dark-1: 244 47.1% 42%;     /* hover  */
+  --aui-primary-dark-2: 244 47.1% 32%;     /* active */
+  --aui-primary-light-3: 244 56.4% 88%;
+  --aui-primary-light-4: 244 56.4% 93.1%;
+  --aui-primary-foreground: 0 0% 100%;
+
+  /* ── Destructive / Red ──────────────────────────────────── */
+  --aui-destructive: 2 55.5% 61.8%;
+  --aui-destructive-dark-1: 2 45% 49%;
+  --aui-destructive-dark-2: 2 34.2% 37.3%;
+  --aui-destructive-light-4: 2 56.9% 90.7%;
+  --aui-destructive-foreground: 0 0% 100%;
+
+  /* ── Warning / Yellow ───────────────────────────────────── */
+  --aui-warning: 40 83.6% 63.5%;
+  --aui-warning-dark-1: 40 60% 50%;
+  --aui-warning-dark-2: 40 48.1% 37.8%;
+  --aui-warning-light-4: 40 79.7% 90.2%;
+  --aui-warning-foreground: 0 0% 13%;      /* dark text on yellow bg */
+
+  /* ── Success / Green ────────────────────────────────────── */
+  --aui-success: 138 38.2% 54.7%;
+  --aui-success-dark-1: 138 32% 43%;
+  --aui-success-dark-2: 138 30.7% 32.9%;
+  --aui-success-light-4: 138 37.4% 88.8%;
+  --aui-success-foreground: 0 0% 100%;
+
+  /* ── Muted / Gray ───────────────────────────────────────── */
+  --aui-muted: 0 0% 90%;                   /* #e6e6e6 */
+  --aui-muted-foreground: 0 0% 40%;        /* dark gray text */
+
+  /* ── Accent / Pink ──────────────────────────────────────── */
+  --aui-accent: 340 60% 65%;
+  --aui-accent-foreground: 0 0% 100%;
+
+  /* ── Semantic surface tokens ────────────────────────────── */
+  --aui-background: 0 0% 100%;
+  --aui-foreground: 0 0% 13%;
+  --aui-border: 0 0% 85%;
+  --aui-input: 0 0% 85%;
+  --aui-ring: 244 53.5% 52.7%;
+
+  /* ── Border radius ──────────────────────────────────────── */
+  --aui-radius: 0.25rem;                   /* 4px = design token 1x */
+
+  /* ── Button disabled state ──────────────────────────────── */
+  --aui-button-disabled-bg: 0 0% 88%;
+  --aui-button-disabled-fg: 0 0% 50%;
+}

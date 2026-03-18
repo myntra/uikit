@@ -1,0 +1,16 @@
+/**
+ * Tailwind CSS entry point for the dev server.
+ *
+ * 1. Import Applique design tokens (CSS custom properties used by Tailwind classes)
+ * 2. Inject Tailwind base reset, component layer, and all utility classes
+ *
+ * This file must be imported in dev-server-entry-file.tsx so that:
+ *   - --aui-* variables are defined before any component renders
+ *   - All Tailwind utility classes (bg-primary, text-primary-foreground, etc.) are available
+ */
+
+@import '../../packages/shadcn-primitives/src/tokens.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

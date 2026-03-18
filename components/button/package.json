@@ -30,6 +30,7 @@
   "dependencies": {
     "@applique-ui/icon": "workspace:../icon",
     "@applique-ui/loader": "workspace:../loader",
+    "@applique-ui/shadcn-primitives": "workspace:../../packages/shadcn-primitives",
     "@applique-ui/text": "workspace:../text",
     "@applique-ui/uikit-can-i-use": "workspace:../../packages/uikit-can-i-use",
     "@applique-ui/uikit-context": "workspace:../../packages/uikit-context",

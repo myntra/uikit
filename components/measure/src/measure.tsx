@@ -189,7 +189,8 @@ export default class Measure extends PureComponent<
     if (node) {
       if (!(node instanceof HTMLElement)) {
         try {
-          node = ReactDOM.findDOMNode(node) // eslint-disable-line react/no-find-dom-node
+          // eslint-disable-next-line react/no-find-dom-node
+          node = ReactDOM.findDOMNode(node) as HTMLElement
         } catch (e) {
           console.error(e) // TODO: Capture errors in sentry.
 

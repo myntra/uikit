@@ -27,7 +27,7 @@ function getDate(value?: any) {
 export interface Props extends BaseProps {
   value?: number
   onChange(value: number): void
-  highlight({
+  highlight(params: {
     year: number,
   }): 'info' | 'danger' | 'warning' | 'success' | 'disabled' | null
   upperLimit?: string | Date | DateTime

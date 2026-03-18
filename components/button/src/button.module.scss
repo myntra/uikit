@@ -1,304 +1,139 @@
 @import '@accoutrement';
 
-/* stylelint-disable no-descending-specificity */
-@mixin add-colors($map) {
-  @each $class, $value in $map {
-    &.inherit {
-      color: inherit;
+/**
+ * button.module.scss — inner-element styles only.
+ *
+ * Container-level styling (colors, type variants, padding, border-radius,
+ * typography, size) has been moved to Tailwind via
+ * @applique-ui/shadcn-primitives/src/button.tsx (buttonVariants).
+ *
+ * This file is kept for:
+ *   - sub-element class names (.icon, .leading, .trailing, etc.)
+ *   - the .loading modifier (complex parent→child transparent colour trick)
+ *   - the .inherit modifier (inherit text colour from parent)
+ *   - notification sub-elements (.notification-icon, .count)
+ *   - large-button caption / svg sizing
+ */
 
-      @include transition('all');
-
-      &:disabled {
-        color: inherit;
-      }
-
-      &:not(:disabled) {
-        &:hover {
-          color: inherit;
-        }
-
-        &:active,
-        &:active:hover {
-          color: inherit;
-          transform: translateY(2px);
-        }
-      }
-    }
-    &.primary-#{$class} {
-      color: color('white');
-      background-color: color($value);
-      border-color: color($value);
-      &:disabled {
-        color: color('gray-dark-new');
-        background-color: color('button.disabled');
-        border-color: color('button.disabled');
-      }
-      &:not(:disabled) {
-        &:hover {
-          background-color: color('#{$value}-dark-1');
-          border-color: color('#{$value}-dark-1');
-        }
-
-        &:active,
-        &:active:hover {
-          background-color: color('#{$value}-dark-2');
-          border-color: color('#{$value}-dark-2');
-        }
-      }
-    }
-    &.secondary-#{$class} {
-      color: color($value);
-      background-color: color('white');
-      border-color: color($value);
-      &:disabled {
-        color: color('gray-dark-new');
-        border-color: color('gray-dark-new');
-      }
-      &:not(:disabled) {
-        &:hover {
-          color: color('#{$value}-dark-1');
-          background-color: color('#{$value}-light-4');
-          border-color: color('#{$value}-dark-1');
-        }
-
-        &:active,
-        &:active:hover {
-          color: color('#{$value}-dark-2');
-          background-color: color('#{$value}-light-3');
-          border-color: color('#{$value}-dark-2');
-        }
-      }
-    }
-    &.tertiary-#{$class} {
-      color: color($value);
-      background-color: color('white');
-      border-color: color('white');
-      &:disabled {
-        color: color('gray-dark-new');
-      }
-      &:not(:disabled) {
-        &:hover {
-          color: color('#{$value}-dark-1');
-          background-color: color('#{$value}-light-4');
-          border-color: color('#{$value}-light-4');
-        }
-
-        &:active,
-        &:active:hover {
-          color: color('#{$value}-dark-2');
-          background-color: color('#{$value}-light-3');
-          border-color: color('#{$value}-light-3');
-        }
-      }
-    }
-    &.text-#{$class} {
-      padding: 0;
-      color: color($value);
-      background-color: transparent;
-      border-color: transparent;
-      &:disabled {
-        color: color('gray-dark-new');
-      }
-      &:not(:disabled) {
-        &:hover {
-          color: color('#{$value}-dark-1');
-        }
-
-        &:active,
-        &:active:hover {
-          color: color('#{$value}-dark-2');
-        }
-      }
-    }
+/* ── Loading modifier ───────────────────────────────────────────────────────
+ * When the container has .loading, hide the text/icons so the spinner shows.
+ * This requires a parent-child selector that is awkward in Tailwind.
+ */
+.loading-container {
+  > *:not(.loading) {
+    color: transparent;
   }
 }
 
-.container {
-  @include border('button');
-  @include border-radius('button');
-  @include padding('button');
-  @include typography('button');
-  @include transition('button');
+/* ── Inherit text-colour modifier ───────────────────────────────────────────
+ * <Button inheritTextColor> — overrides any colour variant with `inherit`.
+ */
+.inherit {
+  color: inherit;
 
-  position: relative;
-  display: inline-block;
-  line-height: 1.3;
-  text-decoration: none;
-  cursor: pointer;
-  appearance: none;
-
-  &::-moz-focus-inner {
-    border: 0;
-  }
-
-  &:focus {
-    outline: outline('none');
-  }
-
-  &:focus-visible {
-    outline: border('keyboard-focus');
-  }
+  @include transition('all');
 
   &:disabled {
-    cursor: not-allowed;
-  }
-
-  > .icon {
-    // TODO: Remove this hack for aligning icon with text.
-    display: inline-block;
-    padding: 0;
-    transform: translateY(1px);
-
-    &.leading {
-      padding-inline-end: 1ch;
-      margin-left: negative('1x');
-    }
-
-    &.trailing {
-      padding-inline-start: 1ch;
-      margin-right: negative('1x');
-    }
-
-    &.loading {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin-top: -0.5em;
-      margin-left: -0.5em;
-    }
-  }
-
-  &.loading {
-    position: relative;
-
-    > *:not(.loading) {
-      color: transparent; // Hide Text and icons.
-    }
-  }
-
-  .loading {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    font-size: size('6x');
-    transform: translate(-50%, -50%);
-  }
-
-  @include add-colors(
-    (
-      'blue': 'primary',
-      'red': 'danger',
-      'yellow': 'warning',
-      'green': 'success',
-      'pink': 'pink',
-      'gray': 'gray',
-    )
-  );
-
-  .icon-button {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    transform: translate(-50%, -50%);
-  }
-
-  + .container {
-    margin-left: size('4x');
-  }
-}
-
-.small {
-  padding: size('1x') size('3x');
-}
-
-.large {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: size('24x');
-  font-size: font-size('body');
-  border-radius: size('1x');
-  box-shadow: shadow('raised');
-
-  .caption {
-    margin-top: size('1x');
-    font-style: italic;
     color: inherit;
-    text-transform: none;
   }
-  svg {
-    width: size('7x');
-    height: size('7x');
-    margin-bottom: size('2x');
-  }
-}
-
-.icon-regular {
-  @include padding('icon-button');
-
-  box-sizing: content-box;
-  width: 1em;
-  height: 1em;
-  font-size: 10px;
-}
-
-.icon-small {
-  box-sizing: content-box;
-  width: 1em;
-  height: 1em;
-  padding: size('2x');
-  font-size: 10px;
-}
-
-.icon-xs {
-  box-sizing: content-box;
-  width: 1em;
-  height: 1em;
-  padding: size('1x');
-  font-size: 10px;
-}
-
-.notification-button {
-  z-index: z-index('notification');
-  width: 2em;
-  height: 2em;
-  background-color: #4f46c8;
-  border-color: #4f46c8;
-  box-shadow: shadow('raised');
 
   &:not(:disabled) {
     &:hover {
-      background-color: #2f2a78;
-      border-color: #2f2a78;
+      color: inherit;
     }
 
     &:active,
     &:active:hover {
-      background-color: #201c50;
-      border-color: #201c50;
+      color: inherit;
+      transform: translateY(2px);
     }
   }
+}
 
-  .notification-icon {
-    z-index: z-index('notification');
-    svg {
-      width: 1.4em;
-      height: 1.4em;
-      margin-left: negative(size('3x'));
-    }
-    .count {
-      position: absolute;
-      top: negative(size('2x'));
-      min-width: size('4x');
-      height: size('4x');
-      font-size: 10px;
-      color: #4f46c8;
-      background: color('white');
-      border: 1px solid color('white');
-      border-radius: size('3x');
-    }
+/* ── Spinner (Loader component inside button) ───────────────────────────────
+ * The .loading class is applied to the <Loader> child, not the container.
+ */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: size('6x');
+  transform: translate(-50%, -50%);
+}
+
+/* ── Icon slot wrapper ──────────────────────────────────────────────────────
+ * Shared by leading/trailing icon spans and the icon-only button icon.
+ */
+.icon {
+  // TODO: Remove this hack for aligning icon with text.
+  display: inline-block;
+  padding: 0;
+  transform: translateY(1px);
+
+  &.leading {
+    padding-inline-end: 1ch;
+    margin-left: negative('1x');
+  }
+
+  &.trailing {
+    padding-inline-start: 1ch;
+    margin-right: negative('1x');
+  }
+}
+
+/* ── Icon-only button centring ──────────────────────────────────────────────
+ * For square icon buttons the icon is absolutely centred.
+ */
+.icon-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  transform: translate(-50%, -50%);
+}
+
+/* ── Notification sub-elements ──────────────────────────────────────────────
+ * The notification badge count chip and icon sizing inside the bell button.
+ */
+.notification-icon {
+  z-index: z-index('notification');
+
+  svg {
+    width: 1.4em;
+    height: 1.4em;
+    margin-left: negative(size('3x'));
+  }
+}
+
+.count {
+  position: absolute;
+  top: negative(size('2x'));
+  min-width: size('4x');
+  height: size('4x');
+  font-size: 10px;
+  color: #4f46c8;
+  background: color('white');
+  border: 1px solid color('white');
+  border-radius: size('3x');
+}
+
+/* ── Large button caption ───────────────────────────────────────────────────
+ * The italic sub-label that appears below the icon in size="large" buttons.
+ */
+.caption {
+  margin-top: size('1x');
+  font-style: italic;
+  color: inherit;
+  text-transform: none;
+}
+
+/* ── Large button icon sizing ───────────────────────────────────────────────
+ * The icon SVG inside a size="large" button is larger than in normal buttons.
+ */
+.large-icon {
+  svg {
+    width: size('7x');
+    height: size('7x');
+    margin-bottom: size('2x');
   }
 }

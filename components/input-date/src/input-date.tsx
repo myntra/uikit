@@ -176,9 +176,9 @@ export default class InputDate extends PureComponent<
     }
 
     this.props.onChange(
-      this.props.format
-        ? format(newValue, this.props.format, this.props.includeTime)
-        : newValue
+      (this.props.format
+        ? format(newValue as any, this.props.format, this.props.includeTime)
+        : newValue) as any
     )
 
     if (shouldBeClosed && !includeTime) {
@@ -220,7 +220,7 @@ export default class InputDate extends PureComponent<
           <InputDateValue
             {...events}
             range={props.range}
-            value={displayValue}
+            value={displayValue as any}
             format={displayFormat}
             active={displayActiveRangeEnd}
             disabled={disabled}

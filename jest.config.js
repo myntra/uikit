@@ -36,7 +36,7 @@ module.exports = {
     '<rootDir>/test/unit/setup-window.js',
   ],
   transform: {
-    '^.+\\.tsx?$': 'ts-jest',
+    '^.+\\.tsx?$': ['ts-jest', { tsconfig: '<rootDir>/tsconfig.test.json' }],
     '^.+\\.jsx?$': 'babel-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
@@ -48,6 +48,7 @@ module.exports = {
     '!components/group/src/**/*.{ts,tsx}',
     '!components/flex/src/**/*.{ts,tsx}',
   ],
+  testEnvironment: 'jest-environment-jsdom',
   snapshotSerializers: ['enzyme-to-json/serializer'],
   coverageDirectory: 'coverage',
   coverageThreshold: {
@@ -56,12 +57,6 @@ module.exports = {
       functions: 30,
       lines: 50,
       statements: -3000,
-    },
-  },
-  globals: {
-    'ts-jest': {
-      tsConfig: '<rootDir>/tsconfig.test.json',
-      packageJson: '<rootDir>/package.json',
     },
   },
 }

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import Icon from '@applique-ui/icon'
+import Icon, { IconName } from '@applique-ui/icon'
 
 import classnames from './quick-link.module.scss'
 import { QUICKLINK_BUTTON_TYPE } from './config'
@@ -20,7 +20,7 @@ interface QuickLinkHoverState {
 }
 
 export interface LinkInterface {
-  icon: Node
+  icon: IconName
   renderFunction: Function
   type: String
 }

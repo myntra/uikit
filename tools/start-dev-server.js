@@ -147,7 +147,7 @@ function startWebpackDevServer(component, port) {
       componentsDir + '/' + name + '/src/index.ts'
     )
   )
-  ;['uikit-utils', 'uikit-context', 'uikit-can-i-use'].forEach((name) =>
+  ;['uikit-utils', 'uikit-context', 'uikit-can-i-use', 'shadcn-primitives'].forEach((name) =>
     chain.resolve.alias.set(
       `@applique-ui/${name}$`,
       packagesDir + '/' + name + '/src/index.ts'

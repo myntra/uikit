@@ -3,7 +3,7 @@ import React, { PureComponent, ReactNode } from 'react'
 import classnames from './day.module.scss'
 import { UTCDate } from '../input-date-utils'
 
-export interface Props extends BaseProps {
+export interface Props extends Omit<BaseProps, 'children'> {
   year: number
   month: number
   day: number

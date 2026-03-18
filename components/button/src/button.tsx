@@ -2,8 +2,12 @@ import React, { PureComponent, ReactNode } from 'react'
 import Icon, { IconName } from '@applique-ui/icon'
 import Text from '@applique-ui/text'
 import Loader from '@applique-ui/loader'
-import classnames from './button.module.scss'
 import { CAN_USE_HOOKS } from '@applique-ui/uikit-can-i-use'
+import { buttonVariants, cn } from '@applique-ui/shadcn-primitives'
+
+// Inner-element styles (icon slots, loading spinner, count badge, etc.)
+// Container-level styling is handled by Tailwind via buttonVariants above.
+import scss from './button.module.scss'
 
 import Link from './link'
 import HookLink from './link-hook'
@@ -148,22 +152,39 @@ export default class Button extends PureComponent<Props> {
     const isIconButton = !(children || label) || isNotificationButton
     const needLeftSlot = !!icon || isIconButton
     const needRightSlot = !!secondaryIcon && !isIconButton
-    const typeName =
+
+    // Applique `type='link'` is visually identical to `type='text'`.
+    // Notification buttons are always rendered as primary.
+    const intent = (
       type === 'link' ? 'text' : notificationsActive ? 'primary' : type
+    ) as 'primary' | 'secondary' | 'tertiary' | 'text'
+
+    const tone = (color || 'blue') as
+      | 'blue' | 'red' | 'yellow' | 'green' | 'gray' | 'pink'
 
     return (
       <Tag
         tabIndex={0} // enable tab navigation.
         {...props}
         type={type !== 'text' ? htmlType : ''}
-        className={classnames('container', className, state, size, {
-          [`${typeName}-${color}`]: size !== 'large',
-          loading,
-          inherit: inheritTextColor,
-          [`icon-${size}`]: isIconButton,
-          'notification-button': isNotificationButton,
-          [`${type}-${color}`]: !!color,
-        })}
+        className={cn(
+          // Tailwind-based container styling via shadcn primitive variants
+          buttonVariants({
+            intent,
+            tone,
+            size: size as any,
+            iconButton: isIconButton,
+            notification: isNotificationButton,
+          }),
+          // SCSS-module modifier for "inherit text colour from parent"
+          inheritTextColor && scss('inherit'),
+          // SCSS-module modifier that hides child content when spinner is shown
+          loading && scss('loading-container'),
+          // Any extra state class passed by the consumer
+          state as string,
+          // Consumer className always wins (twMerge handles conflicts)
+          className
+        )}
         to={to}
         href={href}
         disabled={disabled || loading}
@@ -176,17 +197,16 @@ export default class Button extends PureComponent<Props> {
       >
         {needLeftSlot && (
           <span
-            className={classnames(
-              'icon',
-              { 'icon-button': isIconButton },
-              { leading: !isIconButton },
-              { 'notification-icon': notificationsActive }
+            className={cn(
+              scss('icon'),
+              isIconButton ? scss('icon-button') : scss('leading'),
+              notificationsActive && scss('notification-icon')
             )}
             data-test-id="primary-icon"
           >
             {notificationsActive && (
               <span
-                className={classnames('count')}
+                className={scss('count')}
                 title={notifications.toString()}
               >
                 {notifications > 99 ? '99+' : notifications}
@@ -197,27 +217,23 @@ export default class Button extends PureComponent<Props> {
         )}
         {isIconButton ? null : children || label}
         {needRightSlot && (
-          <span
-            className={classnames('icon', 'trailing')}
-            data-test-id="secondary-icon"
-          >
+          <span className={cn(scss('icon'), scss('trailing'))} data-test-id="secondary-icon">
             <Icon
               name={secondaryIcon}
               aria-hidden="true"
-              className={classnames('button-icon')}
             />
           </span>
         )}
 
         {loading && (
           <Loader
-            className={classnames('loading')}
+            className={scss('loading')}
             type="inline"
             appearance="spinner"
           />
         )}
         {size === 'large' && (
-          <Text.caption className={classnames('caption')}>
+          <Text.caption className={scss('caption')}>
             {caption}
           </Text.caption>
         )}

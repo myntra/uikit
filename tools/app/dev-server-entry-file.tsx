@@ -1,10 +1,11 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
 import { MDXProvider } from '@mdx-js/react'
 
 import '@applique-ui/uikit/design.scss'
 
 import './css-reset.css'
+import './tailwind.css'
 
 import App from '@component'
 
@@ -22,4 +23,4 @@ const Wrapper = () => {
   )
 }
 
-render(<Wrapper />, document.querySelector('#app'))
+createRoot(document.querySelector('#app')).render(<Wrapper />)

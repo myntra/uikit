@@ -8,7 +8,7 @@ import { createRef, isNullOrUndefined } from '@applique-ui/uikit-utils'
 import classnames from './list.module.scss'
 import ListItem from './list-item'
 
-export interface Props<T = any> extends BaseProps {
+export interface Props<T = any> extends Omit<BaseProps, 'children'> {
   /**
    * An array of items to render in the list.
    */

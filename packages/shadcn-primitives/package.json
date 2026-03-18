@@ -1,0 +1,22 @@
+{
+  "name": "@applique-ui/shadcn-primitives",
+  "version": "0.0.1",
+  "description": "shadcn/ui-style primitives built on Tailwind CSS + cva for Applique UI",
+  "main": "dist/shadcn-primitives.cjs.js",
+  "module": "dist/shadcn-primitives.esm.js",
+  "types": "dist/index.d.ts",
+  "author": "Myntra",
+  "license": "MIT",
+  "sideEffects": ["**/*.css"],
+  "dependencies": {
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "tailwind-merge": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/react": ">=16.9.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.9.0"
+  }
+}
