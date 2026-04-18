@@ -90,7 +90,7 @@ export default class InputMonth extends Component<
       const valueAsString = format(
         new Date(this.props.value.year, this.props.value.month - 1),
         this.props.format
-      )
+      ) as string
       if (this.state.valueAsString !== valueAsString) {
         this.setState({
           valueAsString,
@@ -104,7 +104,7 @@ export default class InputMonth extends Component<
   }
 
   get pattern() {
-    return this.props.format
+    return (this.props.format as string)
       .toUpperCase()
       .replace(/[^YM]+/g, (match) => `"${match}"`)
   }
@@ -114,7 +114,7 @@ export default class InputMonth extends Component<
       const date = parse(valueAsString, this.props.format)
       if (
         date &&
-        format(date, this.props.format).toUpperCase() !== valueAsString
+        (format(date, this.props.format) as string).toUpperCase() !== valueAsString
       )
         throw new Error('Not matching')
       const year = date instanceof Date ? date.getFullYear() : null

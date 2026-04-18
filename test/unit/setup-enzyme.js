@@ -1,6 +1,6 @@
 // setup file
 const enzyme = require('enzyme')
-const Adapter = require('enzyme-adapter-react-16')
+const { default: Adapter } = require('@cfaester/enzyme-adapter-react-18')
 
 enzyme.configure({ adapter: new Adapter() })
 

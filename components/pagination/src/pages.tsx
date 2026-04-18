@@ -6,8 +6,9 @@ import Icon from '@applique-ui/icon'
 import ChevronLeftSolid from 'uikit-icons/svgs/ChevronLeftSolid'
 import ChevronRightSolid from 'uikit-icons/svgs/ChevronRightSolid'
 
-import ChevronSkipLeftSolid from 'uikit-icons/svgs/ChevronSkipLeftSolid'
-import ChevronSkipRightSolid from 'uikit-icons/svgs/ChevronSkipRightSolid'
+// TODO: Fix these icon imports - temporarily commented out
+// import ChevronSkipLeftSolid from 'uikit-icons/svgs/ChevronSkipLeftSolid'
+// import ChevronSkipRightSolid from 'uikit-icons/svgs/ChevronSkipRightSolid'
 
 import { usePagination, DOTS } from './usePagination'
 import classnames from './pagination.module.scss'
@@ -46,7 +47,8 @@ const SkipPages = ({ onPageChange, type, currentPage }) => {
       onMouseOver={handleMouseOver}
       onMouseOut={handleMouseOut}
     >
-      {isHovering ? (
+      {/* TODO: Restore skip icons once icon imports are fixed */}
+      {/* {isHovering ? (
         <Icon
           className={classnames('pages-icon')}
           name={
@@ -56,7 +58,10 @@ const SkipPages = ({ onPageChange, type, currentPage }) => {
         />
       ) : (
         <span>&#8230;</span>
-      )}
+      )} */}
+      <span onClick={onSkipClick} style={{ cursor: isHovering ? 'pointer' : 'default' }}>
+        &#8230;
+      </span>
     </Layout>
   )
 }

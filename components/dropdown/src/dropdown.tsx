@@ -46,7 +46,8 @@ function findScrollParents(el: Element) {
   return parents
 }
 
-export interface Props extends BaseProps {
+export interface Props extends Omit<BaseProps, 'children'> {
+  children?: React.ReactNode | ((props: Record<string, any>) => React.ReactNode)
   renderTrigger?(props: {
     onMouseLeave?(event: MouseEvent | React.MouseEvent): void
     onMouseEnter?(event: MouseEvent | React.MouseEvent): void
@@ -467,7 +468,7 @@ export default class Dropdown extends Component<
     } = this.props
 
     const getChildren = () =>
-      typeof children === 'function' ? children(position || {}) : children
+      typeof children === 'function' ? (children as (props: Record<string, any>) => React.ReactNode)(position || {}) : children
 
     const handlers: Record<string, any> = {
       onBlur: this.handleBlurDelayed,

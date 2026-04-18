@@ -1,4 +1,6 @@
 import { AlertTagProps } from './alert-tag'
+import { IconName } from '@applique-ui/icon'
+import { ReactNode } from 'react'
 
 export const MENU_TYPES = {
   MENU: 'MENU',
@@ -26,7 +28,7 @@ export interface ROUTING_INFO_INTERFACE {
 
 export interface NAVIGATION_ITEM_L1_INTERFACE extends Partial<AlertTagProps> {
   label: string
-  icon: Node
+  icon: ReactNode
   routingInfo?: ROUTING_INFO_INTERFACE
   noHover: boolean
   config?: Array<NAVIGATION_ITEM_L2_INTERFACE>
@@ -52,17 +54,17 @@ export interface NAVIGATION_ITEM_L3_INTERFACE extends Partial<AlertTagProps> {
 export interface TopNavBaseProps extends BaseProps {
   config: {
     quickLinks: any
-    logo: Node
+    logo: ReactNode
     navigationConfig: Array<NAVIGATION_ITEM_L1_INTERFACE>
     quickLinksSideNav?: Array<NAVIGATION_ITEM_L1_INTERFACE>
   }
   dispatchFunction: Function
-  additionalHeader?: Node
+  additionalHeader?: ReactNode
 }
 
 export interface TopNavProps extends TopNavBaseProps {
-  hamburger?: Node
-  close?: Node
+  hamburger?: IconName
+  close?: IconName
   navigationKey: String
   currentNavigationValue: String
 }
@@ -74,6 +76,6 @@ export interface DesktopProps extends TopNavBaseProps {
   levelThreeId: string
 }
 export interface MobileProps extends DesktopProps {
-  hamburger?: Node
-  close?: Node
+  hamburger?: IconName
+  close?: IconName
 }

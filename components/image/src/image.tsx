@@ -16,9 +16,9 @@ export interface Props extends BaseProps {
    * @private
    * @deprecated
    */
-  lazyLoad: boolean
+  lazyLoad?: boolean
   /** Lazy load image */
-  lazy: boolean
+  lazy?: boolean
 }
 
 /**

@@ -1,7 +1,7 @@
 import React, { ReactElement, isValidElement } from 'react'
 import { RowRendererProps } from './table-interface'
 
-export interface Props<T = any> extends BaseProps {
+export interface Props<T = any> extends Omit<BaseProps, 'children'> {
   /**
    * Unique column identifier for the column.
    */

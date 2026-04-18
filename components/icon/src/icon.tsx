@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 
 import classnames from './icon.module.scss'
 
-export type IconName = string | ReactNode
+export type IconName = string | ReactNode | React.ComponentType<any>
 
 interface Props extends BaseProps {
   /** icon component name from @applique-ui/uikit-icons */
@@ -49,7 +49,7 @@ export default function Icon({
     >
       {title ? <title>{title}</title> : null}
       {typeof IconComponent === 'function' ? (
-        <IconComponent />
+        React.createElement(IconComponent as React.ComponentType)
       ) : (
         <use
           xlinkHref={`#uikit-i-${IconComponent}`}

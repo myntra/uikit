@@ -8,7 +8,7 @@ import {
 } from './helpers'
 import CellMeasure from './virtual-list-cell-measure'
 
-export interface Props extends BaseProps {
+export interface Props extends Omit<BaseProps, 'children'> {
   /**
    * Number of items in the list.
    */

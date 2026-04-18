@@ -1,5 +1,5 @@
 /* eslint react/no-find-dom-node: 0 */
-import React, { PureComponent, isValidElement } from 'react'
+import React, { PureComponent, ReactNode, isValidElement } from 'react'
 import ReactDOM from 'react-dom'
 
 let counter = 0
@@ -9,6 +9,7 @@ export interface Props {
   container?: boolean | string | HTMLElement
   /** Wrapper <div> */
   wrapper?: HTMLElement
+  children?: ReactNode
 }
 
 /**
@@ -75,7 +76,7 @@ class Portal extends PureComponent<Props> {
 
   render() {
     if (this.context && this.el) {
-      this.el.classList.add(this.context.theme)
+      this.el.classList.add((this.context as any).theme)
     }
 
     if (Portal.isReact16) {

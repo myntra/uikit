@@ -11,7 +11,7 @@ export interface Props extends BaseProps {
   /**
    * Display action buttons.
    */
-  actions?: ReactNode | ((close: () => void) => void)
+  actions?: ReactNode | ((close: () => void) => ReactNode)
   /**
    *  Enable/Disable the modal close behaviour on clicking outside content.
    */

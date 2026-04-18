@@ -65,8 +65,8 @@ export function format(
     return format(parse(value, pattern, includeTime), pattern)
 
   const result: { from?: Date; to?: Date } = {}
-  if (value.from) result.from = format(value.from, pattern)
-  if (value.to) result.to = format(value.to, pattern)
+  if (value.from) result.from = format(value.from, pattern) as Date
+  if (value.to) result.to = format(value.to, pattern) as Date
   return result
 }
 

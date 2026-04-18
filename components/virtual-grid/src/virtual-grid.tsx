@@ -13,7 +13,7 @@ export interface ScrollPosition {
   scrollLeft: number
 }
 
-export interface Props extends BaseProps {
+export interface Props extends Omit<BaseProps, 'children'> {
   /**
    * Number of rows in the grid.
    */

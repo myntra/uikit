@@ -51,7 +51,7 @@ export default class ScrollObserver extends PureComponent<Props> {
 
       if (current !== (window as any)) {
         this.unregister()
-        this.scrollRef.current = current
+        this.scrollRef.current = current as HTMLElement
         this.register()
         this.handleScroll({ currentTarget: current } as any)
       }
@@ -145,7 +145,7 @@ export default class ScrollObserver extends PureComponent<Props> {
       if (this.isWindowMode)
         this.scrollRef.current = findScrollParent(
           this.targetRef.current.parentNode
-        )
+        ) as HTMLElement
       else this.scrollRef.current = target
       this.register()
     }

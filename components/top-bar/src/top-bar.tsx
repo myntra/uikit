@@ -109,8 +109,8 @@ export default class TopBar extends PureComponent<Props, { isOpen: boolean }> {
                   <Icon
                     name={
                       this.state.isOpen
-                        ? { ChevronUpSolid }
-                        : { ChevronDownSolid }
+                        ? ChevronUpSolid
+                        : ChevronDownSolid
                     }
                   />
                 ) : null}
